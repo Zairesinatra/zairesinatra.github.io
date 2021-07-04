@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>异步分析Promise、axios、fetch</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=67d41525b2.css" />
+
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="异步分析Promise、axios、fetch" />
+    <meta property="og:description" content="asynchronous-promise: 
+初识阶段就久仰异步大名，最近研究node.js时看见&quot;回调地狱&quot;的demo。这里通过类比总结串联一下，希望能够理解的更加清晰。" />
+    <meta property="og:url" content="http://localhost:2368/asynchronous-promise/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/2021/07/forestPath.jpg" />
+    <meta property="article:published_time" content="2020-08-09T12:36:00.000Z" />
+    <meta property="article:modified_time" content="2021-07-04T06:27:33.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="异步分析Promise、axios、fetch" />
+    <meta name="twitter:description" content="asynchronous-promise: 
+初识阶段就久仰异步大名，最近研究node.js时看见&quot;回调地狱&quot;的demo。这里通过类比总结串联一下，希望能够理解的更加清晰。" />
+    <meta name="twitter:url" content="http://localhost:2368/asynchronous-promise/" />
+    <meta name="twitter:image" content="http://localhost:2368/content/images/2021/07/forestPath.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta name="twitter:creator" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1333" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2021/07/zs.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "http://localhost:2368/author/ziyi/",
+        "sameAs": [
+            "https://zairesinatra.github.io",
+            "https://twitter.com/xieziyi0422"
+        ]
+    },
+    "headline": "异步分析Promise、axios、fetch",
+    "url": "http://localhost:2368/asynchronous-promise/",
+    "datePublished": "2020-08-09T12:36:00.000Z",
+    "dateModified": "2021-07-04T06:27:33.000Z",
+    "keywords": "Technology growth",
+    "description": "asynchronous-promise: \n初识阶段就久仰异步大名，最近研究node.js时看见&quot;回调地狱&quot;的demo。这里通过类比总结串联一下，希望能够理解的更加清晰。",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 4.8" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.6.0/umd/portal.min.js" data-ghost="http://localhost:2368/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style><style>:root {--ghost-accent-color: #15171A;}</style>
+
+</head>
+<body class="post-template tag-technology-growth">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head has-cover">
+        <nav class="gh-head-inner inner gh-container">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <a class="gh-burger" role="button">
+                    <div class="gh-burger-box">
+                        <div class="gh-burger-inner"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
+    <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <div class="gh-social">
+                        <a class="gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+                </div>
+
+                    <a class="gh-head-button" href="index.html#/portal/signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+
+
+
+<article class="article post tag-technology-growth no-image">
+
+    <header class="article-header gh-canvas">
+
+        <section class="article-tag">
+            <a href="../tag/technology-growth/index.html">Technology growth</a>
+        </section>
+
+        <h1 class="article-title">异步分析Promise、axios、fetch</h1>
+
+        <p class="article-excerpt">asynchronous-promise: 
+初识阶段就久仰异步大名，最近研究node.js时看见&quot;回调地狱&quot;的demo。这里通过类比总结串联一下，希望能够理解的更加清晰。</p>
+
+        <div class="article-byline">
+            <section class="article-byline-content">
+                <ul class="author-list">
+                    <li class="author-list-item">
+                        <a href="../author/ziyi/index.html" class="author-avatar">
+                            <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs.JPG" alt="Ziyi Xie" />
+                        </a>
+                    </li>
+                </ul>
+                <div class="article-byline-meta">
+                    <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                    <div class="byline-meta-content">
+                        <time class="byline-meta-date" datetime="2020-08-09">Aug 9, 2020</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 6 min read</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <!--kg-card-begin: markdown--><blockquote>
+<h2 id="">前言：</h2>
+</blockquote>
+<p>不论开发与学习中，很多时候需要从外部设备获取资源：网络获取文件、从摄像头获取视频流、访问数据库数据，或者朝着VR头罩传递图像音效...而这些资源我们不知道需要多久才能获得，那么同步流代码执行可能会出现报错。这样，我们必须选择资源能够获取到的时候，即等到res(response)返回，再继续执行下一步的解析执行。</p>
+<hr>
+<blockquote>
+<h2 id="">技术储备：</h2>
+</blockquote>
+<blockquote>
+<h3 id="">异步：</h3>
+</blockquote>
+<p>Javascript是 <strong>单线程</strong> 执行环境，即JS引擎负责解释执行代码的线程只有一个，必须<strong>有先后</strong>的一行一行的解析、运行完成项目，而正在执行的任务（主线程）会<font color="orange">阻塞</font>后续任务。</p>
+<p>异步模式可以并行执行多个任务，在javascript中常见的异步调用有：定时回调、<code>ajax</code>、侦听事件函数。那么在工作中又能遇见两种异步编程的风格：老牌callback、新派promise，这也是后话了。</p>
+<hr>
+<blockquote>
+<h3 id="promise"><code>Promise</code>：</h3>
+</blockquote>
+<p>ES6引入<code>Promise</code>对象，是处理异步编程的解决方案，可以获取异步操作的消息。<br>
+那么引入<code>Promise</code>的原因是什么？-解决ajax异步编程为保证执行顺序而被迫产生让缩进格式变得冗赘的&quot;回调地狱&quot;。</p>
+<pre><code>//  通过node.js写的后台接口暂不列出
+$.ajax({
+      url: 'http://localhost:3000/data',
+      success: function(data) {
+        console.log(data)
+        $.ajax({
+          url: 'http://localhost:3000/data1',
+          success: function(data) {
+            console.log(data)
+            $.ajax({
+              url: 'http://localhost:3000/data2',
+              success: function(data) {
+                console.log(data)
+              }
+            });
+          }
+        });
+      }
+    });
+// 或者说更通俗一点
+// 想分三次输出字符串，第一次间隔 1 秒，第二次间隔 2 秒，第三次间隔 3 秒：
+setTimeout(function () {
+    console.log(&quot;First&quot;);
+    setTimeout(function () {
+        console.log(&quot;Second&quot;);
+        setTimeout(function () {
+            console.log(&quot;Third&quot;);
+        }, 3000);
+    }, 2000);
+}, 1000);
+</code></pre>
+<hr>
+<blockquote>
+<h4 id="">相应概念：</h4>
+</blockquote>
+<ul>
+<li><code>Promise</code>对象操作状态：<code>pending</code>（进行中）、<code>fulfilled</code>（已成功）和 <code>rejected</code>（已失败）。只要处于 <code>fulfilled</code> 和 <code>rejected</code> ，状态就不会再变了即 <code>resolved</code>（已定型）。</li>
+<li><code>then()</code>方法:最多接收两个函数作为参数，第一个参数是 <code>Promise</code> 执行成功时的回调，第二个参数是 <code>Promise</code> 执行失败时的回调，两个函数只会有一个被调用。</li>
+<li><code>Promise</code>使用操作：1. <code>new</code>操作构建<code>Promise</code>实例 2. <code>Promise</code>构造函数接受一个函数参数 3. 且此函数参数又被传入两个参数(<code>resolve</code>、<code>reject</code>)，分别表示异步操作后成功与失败的回调函数</li>
+</ul>
+<blockquote>
+<h4 id="">实现代码</h4>
+</blockquote>
+<pre><code>// 不使用catch、finally
+var p = new Promise(function(resolve, reject){ //这两个参数都是方法，可以调用
+     // 实现异步任务  setTimeout
+     setTimeout(function(){
+       var flag = false;
+       if(flag) {
+         // 正常
+         resolve('hello zs');
+       }else{
+         // 异常
+         reject('出错了 zs');
+       }
+     }, 1000);
+   });
+   //then()接收
+   p.then(function(yep){
+     console.log(yep)
+   },function(ohno){
+     console.log(ohno)
+   });
+   
+   //  Chrome控制台输出  出错了 zs
+</code></pre>
+<pre><code>// 使用catch、finally
+// resolve 和 reject 都是函数，其中调用 resolve 代表一切正常，reject 是出现异常时所调用的：
+new Promise(function (resolve, reject) {
+    var a = 0;
+    var b = 1;
+    if (b == 0) reject(&quot;Diveide zero&quot;);
+    else resolve(a / b);
+}).then(function (value) {
+    console.log(&quot;a / b = &quot; + value);
+}).catch(function (err) {
+    console.log(err);
+}).finally(function () {
+    console.log(&quot;End&quot;);
+});
+
+// a / b = 0
+// End
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="axios"><code>axios</code>：</h3>
+</blockquote>
+<p>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。开发中最常用的就是<code>axios.js</code>包。</p>
+<p><strong>作用：</strong></p>
+<ul>
+<li>从浏览器中创建 XMLHttpRequests</li>
+<li>从 node.js 创建 http 请求</li>
+<li>支持 Promise API</li>
+<li>拦截请求和响应 =&gt; <code>axios.interceptors.request.use(config=&gt;{return config})</code>或<code>axios.interceptors.response.use(config=&gt;{return config})</code></li>
+<li>转换请求数据和响应数据、自动转换 JSON 数据(不需要像 fetch 在 node.js 写后端时得中间件转换)</li>
+<li>取消请求</li>
+<li>客户端支持防御 CSRF(跨站请求伪造)</li>
+</ul>
+<p>使用Promise管理异步，告别传统callback方式的<code>axios包</code>安装方式：</p>
+<pre><code>npm install axios
+</code></pre>
+<blockquote>
+<h4 id="">实例：</h4>
+</blockquote>
+<p><strong>执行 GET 请求：</strong></p>
+<pre><code>// 为给定 ID 的 user 创建请求
+axios.get('/user?ID=12345')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+// 上面的请求也可以这样做
+axios.get('/user', {
+    params: {
+      ID: 12345
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+</code></pre>
+<p><strong>执行 POST 请求：</strong></p>
+<pre><code>axios.post('/user', {
+    firstName: 'ziyi',
+    lastName: 'xie'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+</code></pre>
+<blockquote>
+<h3 id="axiosapi"><code>axios</code> API：</h3>
+</blockquote>
+<p>即可以通过向 axios 传递相关配置来创建请求。</p>
+<pre><code>// 获取远端图片
+axios({
+  method:'get',
+  url:'http:/zaire-xie/zairesinatrasource',
+  responseType:'stream'
+})
+  .then(function(response) {
+  response.data.pipe(fs.createWriteStream('treasure.jpg'))
+  // pipe 是将 response.data 转换为流
+  // fs 是 Node.js 的 file-system 模块
+});
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="fetch"><code>fetch</code></h3>
+</blockquote>
+<p><code>fetch()</code>方法暴露在全局作用域，包括主页面执行线程、模块和工作线程。调用这个方法，浏览器会向给定的 url 发送请求。</p>
+<ul>
+<li>fetch在ES6出现，号称AJAX的替代品，基于并使用了ES6中的promise对象。Fetch的代码结构较ajax简单。</li>
+<li>但fetch不是ajax的进一步封装，而是原生js，没有使用XMLHttpRequest对象。</li>
+<li>XMLHttpRequest可以选择异步，但Fetch API必须是异步。</li>
+</ul>
+<blockquote>
+<h3 id="">基本用法：</h3>
+</blockquote>
+<ul>
+<li>分派请求：</li>
+</ul>
+<p><code>fetch()</code>只有一个必须参数 input 。多数情况这个参数为要获取资源的 url 。这个方法返回一个期约。</p>
+<pre><code>let zs = fetch('http://127.0.0.1/zairesinatra')
+console.log(zs) // Promise&lt;pending&gt;
+</code></pre>
+<pre><code>fetch(&quot;http://127.0.0.1/xzy&quot;)
+    .then((response)=&gt;{console.log(response)})
+     // response{type:&quot;cors&quot;,url:...}
+</code></pre>
+<img src="http://localhost:2368/content/images/2021/03/--2021-03-22-19.07.38.png" width="50%" />
+<ul>
+<li>读取响应：</li>
+</ul>
+<p>读取响应内容最简单方式是取得纯文本格式内容，这里用到 <code>text()</code> API。这个方法返回一个期约Promise实例对象。</p>
+<pre><code>fetch(&quot;http://127.0.0.1/zs&quot;)
+    .then((response) =&gt; response.text())
+    .then((msg) =&gt; console.log(msg)); // {&quot;msg&quot;:&quot;xieziyi&quot;}
+</code></pre>
+<img src="http://localhost:2368/content/images/2021/03/--2021-03-22-19.20.25.png" width="50%" />
+<ul>
+<li>处理状态码和请求失败</li>
+</ul>
+<p>Fetch API通过 Response 的 status(状态码) 和 statusText(状态文本) 属性检查响应状态。获取响应成功请求通常产生 200 的状态码与 &quot;OK&quot; 的状态文书。</p>
+<hr>
+<blockquote>
+<h2 id="">结束</h2>
+</blockquote>
+<blockquote>
+<h2 id="">以上</h2>
+</blockquote>
+<!--kg-card-end: markdown--><p>本博客所有文章除特别声明外，均采用 CC BY-SA 4.0 协议 ，转载请注明出处！</p>
+    </section>
+
+    
+    <section class="article-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+            var disqus_config = function () {
+            this.page.url = 'https://zairesinatra.github.io/603d344236b65d52b4bee83d';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "ghost-603d344236b65d52b4bee83d"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+   
+
+</article>
+
+<section class="footer-cta">
+    <div class="inner">
+        <h2>Sign up for more like this.</h2>
+        <a class="footer-cta-button" href="index.html#/portal">
+            <div>Enter your email</div>
+            <span>Subscribe</span>
+        </a>
+    </div>
+</section>
+
+
+<aside class="read-more-wrap">
+    <div class="read-more inner">
+
+
+                    
+<article class="post-card post no-image ">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../suan-fa-si-xiang/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">算法思想</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>前言 浅谈算法实现应用的四种思想: 分而治之、动态规划、贪婪算法、回溯算法  正文 分而治之 分解问题为多个可递归的、有类似点的子问题  // 分而治之思想手撕二分法 const no = &quot;nonono&quot; function binarySearchRecursive(array,value,low,high) {     if (low &lt; high) {         const mid = Math.floor((low + high) / 2);         if (array[mid] &lt; value) {             return binarySearchRecursive(array,value,mid+1,high)         } else if (array[mid] &gt;</p>
+            </section>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2021-07-04">Jul 4, 2021</time> <span class="bull">&bull;</span> 4 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+                    
+<article class="post-card post no-image ">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../vue-p-summary/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">Vue双向数据绑定原理</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>"Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking." -Steve Jobs</p>
+            </section>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2020-12-31">Dec 31, 2020</time> <span class="bull">&bull;</span> 5 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+                    
+<article class="post-card post no-image ">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../jwt/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">JWT跨域认证解决方案</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>宠辱不惊，看庭前花开花落；去留无意，望天上云卷云舒。 ——洪应明 《菜根谭》</p>
+            </section>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2020-12-16">Dec 16, 2020</time> <span class="bull">&bull;</span> 3 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+
+    </div>
+</aside>
+
+
+    </main>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2021</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=67d41525b2"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+
+</body>
+</html>

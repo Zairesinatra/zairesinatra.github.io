@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>栈Stack</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=67d41525b2.css" />
+
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="栈Stack" />
+    <meta property="og:description" content="&quot;In three words I can sum up everything I&#x27;ve learned about life: it goes on.&quot; -Robert Frost" />
+    <meta property="og:url" content="http://localhost:2368/stack/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/2021/07/forestPath.jpg" />
+    <meta property="article:published_time" content="2020-03-31T12:38:00.000Z" />
+    <meta property="article:modified_time" content="2021-07-04T06:30:54.000Z" />
+    <meta property="article:tag" content="DataStructuresAndAlgorithms" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="栈Stack" />
+    <meta name="twitter:description" content="&quot;In three words I can sum up everything I&#x27;ve learned about life: it goes on.&quot; -Robert Frost" />
+    <meta name="twitter:url" content="http://localhost:2368/stack/" />
+    <meta name="twitter:image" content="http://localhost:2368/content/images/2021/07/forestPath.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="DataStructuresAndAlgorithms" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta name="twitter:creator" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1333" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2021/07/zs.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "http://localhost:2368/author/ziyi/",
+        "sameAs": [
+            "https://zairesinatra.github.io",
+            "https://twitter.com/xieziyi0422"
+        ]
+    },
+    "headline": "栈Stack",
+    "url": "http://localhost:2368/stack/",
+    "datePublished": "2020-03-31T12:38:00.000Z",
+    "dateModified": "2021-07-04T06:30:54.000Z",
+    "keywords": "DataStructuresAndAlgorithms",
+    "description": " &quot;In three words I can sum up everything I&#x27;ve learned about life: it goes on.&quot; -Robert Frost",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 4.8" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.6.0/umd/portal.min.js" data-ghost="http://localhost:2368/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style><style>:root {--ghost-accent-color: #15171A;}</style>
+
+</head>
+<body class="post-template tag-datastructuresandalgorithms">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head has-cover">
+        <nav class="gh-head-inner inner gh-container">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <a class="gh-burger" role="button">
+                    <div class="gh-burger-box">
+                        <div class="gh-burger-inner"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
+    <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <div class="gh-social">
+                        <a class="gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+                </div>
+
+                    <a class="gh-head-button" href="index.html#/portal/signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+
+
+
+<article class="article post tag-datastructuresandalgorithms no-image">
+
+    <header class="article-header gh-canvas">
+
+        <section class="article-tag">
+            <a href="../tag/datastructuresandalgorithms/index.html">DataStructuresAndAlgorithms</a>
+        </section>
+
+        <h1 class="article-title">栈Stack</h1>
+
+        <p class="article-excerpt"> &quot;In three words I can sum up everything I&#x27;ve learned about life: it goes on.&quot; -Robert Frost</p>
+
+        <div class="article-byline">
+            <section class="article-byline-content">
+                <ul class="author-list">
+                    <li class="author-list-item">
+                        <a href="../author/ziyi/index.html" class="author-avatar">
+                            <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs.JPG" alt="Ziyi Xie" />
+                        </a>
+                    </li>
+                </ul>
+                <div class="article-byline-meta">
+                    <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                    <div class="byline-meta-content">
+                        <time class="byline-meta-date" datetime="2020-03-31">Mar 31, 2020</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <!--kg-card-begin: markdown--><blockquote>
+<h2 id="">前言</h2>
+</blockquote>
+<p>栈的实际应用是非常广泛的，在回溯问题中，可以存储访问过的任务，路径、撤销操作...如果你是程序猿，是不是在操作terminal中的上箭头时可以返回上一次输入；如果你是用户，你可以在网站中执行回退功能...</p>
+<hr>
+<blockquote>
+<h2 id="">正文</h2>
+</blockquote>
+<blockquote>
+<h3 id="">技术储备</h3>
+</blockquote>
+<p>栈是一种后进先出(LIFO)的有序集合。如生活中的一摞书📚。</p>
+<blockquote>
+<h3 id="">基于数组的栈</h3>
+</blockquote>
+<pre><code>// 创建一个基于数组的类表示栈
+class Stack {
+    constructor(){
+        this.items=[]; // 需要一种数据结构保存栈中元素,这里选择数组,大部分方法时间复杂度为O(n)
+    }
+    push(element){
+        this.items.push(element) // 栈添加元素
+    }
+    pop(element){
+        return this.items.pop(element) // 栈顶移除元素
+    }
+    peek(){
+        return this.items[this.items.length-1] // 查看栈顶元素
+    }
+    isEmpty(){
+        return this.items.length === 0 // 检查栈是否为空
+    }
+    size(){
+        return this.items.length // 返回栈长度
+    }
+    clear(){
+        this.items = [] // 清空栈元素
+    }
+}
+const zsstack = new Stack() // 初始化
+console.log(zsstack.isEmpty()) // 判断栈内是否为空 此处返回 true
+zsstack.push(0)
+zsstack.push(4)
+zsstack.push(2)
+zsstack.push(2)
+console.log(zsstack.peek()) // 查看栈顶元素 此处返回 2
+console.log(zsstack.size()) // 返回栈长度 此处返回 4
+console.log(zsstack.isEmpty()) // 判断栈内是否为空 此处返回 false
+zsstack.push(&quot;what&quot;)
+zsstack.pop() // 栈顶移除元素
+console.log(zsstack.size()) // 返回栈长度 此处返回 4
+</code></pre>
+<blockquote>
+<h3 id="javascriptstack">基于JavaScript对象的Stack类</h3>
+</blockquote>
+<pre><code>class Stack {
+    constructor(){
+        // 属性
+        this.count = 0; // 帮助记录栈的大小
+        this.items = {}; // javascript中对象是一系列键值对
+    }
+    // 方法
+    push(element){
+        this.items[this.count] = element; // 插入元素是items对象的值
+        this.count++; // count对象是items对象键名
+    }
+    size(){ return this.count }
+    isEmpty(){ return this.count === 0 }
+    pop(){ // 删除栈顶元素并返回它
+        if(this.isEmpty()){ return undefined;} // 检验栈是否为空
+        this.count--;
+        const result = this.items[this.count];
+        delete this.items[this.count]; // JS运算符从对象删除一特定的值
+        return result
+    }
+    peek(){
+        if(this.isEmpty()){return undefined}{return this.items[this.count-1]}
+    }
+    clear(){this.items = {} ; this.count = 0}
+    toString(){ // 数组版本有直接提供的 toString方法
+        if(this.isEmpty()){
+            return ''
+        }
+        let objString = `${this.items[0]}`;
+        for(let i=1;i&lt;this.count;i++){
+            objString = `${objString},${this.items[i]}`;
+        }
+        return objString;
+    }
+}
+const zsstack = new Stack()
+zsstack.push(0)
+zsstack.push(4)
+zsstack.push(2)
+zsstack.push(2)
+zsstack.push(&quot;needpop&quot;)
+zsstack.pop()
+console.log(zsstack.count); // 返回 4
+console.dir(zsstack.toString()) // '0,4,2,2'
+</code></pre>
+<blockquote>
+<h3 id="">保护数据结构内部元素</h3>
+</blockquote>
+<p>ES6类基于原型，不能声明私有属性。</p>
+<p>解决方法：下划线命名约定、ES6限定作用域Symbol实现类、ES6的WeakMap实现类。</p>
+<blockquote>
+<h3 id="">栈解决问题</h3>
+</blockquote>
+<p>十进制转二进制<br>
+...</p>
+<hr>
+<blockquote>
+<h2 id="">结束</h2>
+</blockquote>
+<blockquote>
+<h2 id="">以上</h2>
+</blockquote>
+<!--kg-card-end: markdown--><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+    </section>
+
+    
+    <section class="article-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+            var disqus_config = function () {
+            this.page.url = 'https://zairesinatra.github.io/604de8cb6056d45889a2eea1';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "ghost-604de8cb6056d45889a2eea1"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+   
+
+</article>
+
+<section class="footer-cta">
+    <div class="inner">
+        <h2>Sign up for more like this.</h2>
+        <a class="footer-cta-button" href="index.html#/portal">
+            <div>Enter your email</div>
+            <span>Subscribe</span>
+        </a>
+    </div>
+</section>
+
+
+<aside class="read-more-wrap">
+    <div class="read-more inner">
+
+
+                    
+<article class="post-card post no-image ">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../suan-fa-si-xiang/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">算法思想</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>前言 浅谈算法实现应用的四种思想: 分而治之、动态规划、贪婪算法、回溯算法  正文 分而治之 分解问题为多个可递归的、有类似点的子问题  // 分而治之思想手撕二分法 const no = &quot;nonono&quot; function binarySearchRecursive(array,value,low,high) {     if (low &lt; high) {         const mid = Math.floor((low + high) / 2);         if (array[mid] &lt; value) {             return binarySearchRecursive(array,value,mid+1,high)         } else if (array[mid] &gt;</p>
+            </section>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2021-07-04">Jul 4, 2021</time> <span class="bull">&bull;</span> 4 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+                    
+<article class="post-card post no-image ">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../vue-p-summary/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">Vue双向数据绑定原理</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>"Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking." -Steve Jobs</p>
+            </section>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2020-12-31">Dec 31, 2020</time> <span class="bull">&bull;</span> 5 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+                    
+<article class="post-card post no-image ">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../jwt/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">JWT跨域认证解决方案</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>宠辱不惊，看庭前花开花落；去留无意，望天上云卷云舒。 ——洪应明 《菜根谭》</p>
+            </section>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2020-12-16">Dec 16, 2020</time> <span class="bull">&bull;</span> 3 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+
+    </div>
+</aside>
+
+
+    </main>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2021</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=67d41525b2"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+
+</body>
+</html>

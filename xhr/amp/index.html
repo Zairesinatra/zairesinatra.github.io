@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>XMLHttpRequest</title>
+
+    <link rel="icon" href="../../favicon.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="XMLHttpRequest" />
+    <meta property="og:description" content="给时光以生命，给岁月以文明。
+——刘慈欣《三体》" />
+    <meta property="og:url" content="http://localhost:2368/xhr/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/2021/07/forestPath.jpg" />
+    <meta property="article:published_time" content="2020-02-20T12:34:00.000Z" />
+    <meta property="article:modified_time" content="2021-07-04T06:30:28.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="XMLHttpRequest" />
+    <meta name="twitter:description" content="给时光以生命，给岁月以文明。
+——刘慈欣《三体》" />
+    <meta name="twitter:url" content="http://localhost:2368/xhr/" />
+    <meta name="twitter:image" content="http://localhost:2368/content/images/2021/07/forestPath.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta name="twitter:creator" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1333" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2021/07/zs.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "http://localhost:2368/author/ziyi/",
+        "sameAs": [
+            "https://zairesinatra.github.io",
+            "https://twitter.com/xieziyi0422"
+        ]
+    },
+    "headline": "XMLHttpRequest",
+    "url": "http://localhost:2368/xhr/",
+    "datePublished": "2020-02-20T12:34:00.000Z",
+    "dateModified": "2021-07-04T06:30:28.000Z",
+    "keywords": "Technology growth",
+    "description": "给时光以生命，给岁月以文明。\n——刘慈欣《三体》",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 4.8" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="http://localhost:2368/content/images/2021/07/instagram_profile_image.png" width="50" height="50" layout="fixed"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">XMLHttpRequest</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2020-02-20">20 Feb 2020</time>
+                </section>
+            </header>
+            <section class="post-content">
+
+                <blockquote>
+<h2 id>前言</h2>
+</blockquote>
+<p><code>Ajax</code>(Asynchronous Javascript XML) 技术涉及发送服务器额外请求而不刷新页面，实现了更好的用户体验。虽然名称中包含 XML ，但通讯的数据不一定是 XML 。也可以是 Html 、 JSON 。而将<code>Ajax</code>推向历史舞台的关键是 <code>XMLHttpRequest</code> 对象。在 <code>XHR</code> 对象出现以前，<code>Ajax</code> 风格通信主要通过一些黑科技实现。而 <code>XHR</code> 为发送服务器请求获取响应提供了合理接口。通过 <code>XHR</code> 对象获取数据使用DOM方法将数据插入网页。</p>
+<blockquote>
+<h2 id>正文</h2>
+</blockquote>
+<blockquote>
+<h3 id="xmlhttprequest">XMLHttpRequest对象：</h3>
+</blockquote>
+<p>所有现代浏览器都支持通过<code>XMLHttpRequest</code>构造函数原生支持<code>XHR</code>对象。</p>
+<pre><code>let xhr = new XMLHttpRequest()
+</code></pre>
+<blockquote>
+<h3 id="xhr">基本xhr的使用：</h3>
+</blockquote>
+<p>1.调用<code>open()</code>方法，接受三个参数：请求类型、请求URL、是否异步布尔值。</p>
+<pre><code>xhr.open("get","url",true) // 不会实际发送数据，仅做好准备定义好请求
+</code></pre>
+<p>2.调用<code>send()</code>方法，接受一个参数，作为请求体发送的数据，通常在POST请求中含参</p>
+<pre><code>xhr.send() // 例如: xhr.send("name=xzy&amp;age=23");
+</code></pre>
+<blockquote>
+<h3 id="xmlhttprequest">XMLHttpRequest 的实例属性：</h3>
+</blockquote>
+<ul>
+<li><code>onreadystatechange</code>：</li>
+</ul>
+<p>在 <code>readyState</code> 属性发生改变时，触发 <code>readystatechange</code> 调用：<br />
+<code>XMLHttpRequest.onreadystatechange = callback;</code></p>
+<pre><code>// 示例
+xhr.onreadystatechange =function(){
+if(xhr.readyState !==4|| xhr.status !==200){
+  return;
+}
+  console.log(xhr.responseText);
+};
+</code></pre>
+<ul>
+<li><code>readyState</code>:</li>
+</ul>
+<p>返回一个整数，表示实例对象的当前状态。</p>
+<ul>
+<li><code>response</code>：</li>
+</ul>
+<p>一个对象，其类型取决于 <code>responseType</code> 的值。如果本次请求没有成功或者数据不完整，该属性等于 <code>null</code> 。</p>
+<ul>
+<li><code>responseText</code>：</li>
+</ul>
+<p>返回从服务器接收到的字符串，该属性为只读。如果 <code>responseType</code> 设为空字符串，就等同于默认值 <code>text</code> 。</p>
+<ul>
+<li><code>responseType</code>：</li>
+</ul>
+<p>此属性是一个字符串，告诉服务器返回指定类型的数据，可写属性。在调用 <code>open()</code> 方法之后、调用 <code>send()</code> 方法之前，设置这个属性的值。</p>
+<ul>
+<li><code>responseURL</code>：</li>
+</ul>
+<p>只读属性，返回响应的序列化URL，如果URL为空则返回空字符串。如果URL有锚点，则位于URL # 后面的内容会被删除。如果URL有重定向， responseURL 的值会是经过多次重定向后的最终 URL 。</p>
+<ul>
+<li><code>responseXML</code>：</li>
+</ul>
+<p>返回从服务器接收到的 HTML 或 XML 文档对象，该属性为只读。如果本次请求没有成功，或者收到的数据不能被解析为 XML 或 HTML，该属性等于null。</p>
+<ul>
+<li><code>status</code>：</li>
+</ul>
+<p>返回一个整数，表示服务器回应的 HTTP 状态码。</p>
+<ul>
+<li><code>statusText</code>：</li>
+</ul>
+<p>属性返回一个字符串，表示服务器发送的状态提示。不同于 <code>status</code> 属性，该属性包含整个状态信息，比如 “OK” 和 “Not Found” 。</p>
+<ul>
+<li><code>timeout</code>：</li>
+</ul>
+<p>返回一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止。如果该属性等于0，就表示没有时间限制。</p>
+<ul>
+<li><code>upload</code>：</li>
+</ul>
+<p><code>xhr</code> 不仅可以发送请求，还可以发送文件。发送文件以后，通过 <code>xhr.upload</code> 属性可以得到一个对象，通过观察这个对象，可以得知上传的进展。</p>
+<pre><code>&lt;progress min="0" max="100" value="0"&gt;0% complete&lt;/progress&gt;
+</code></pre>
+<pre><code>function upload(blobOrFile) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/server', true);
+  xhr.onload = function (e) {};
+  var progressBar = document.querySelector('progress');
+  xhr.upload.onprogress = function (e) {
+    if (e.lengthComputable) {
+      progressBar.value = (e.loaded / e.total) * 100;
+      // 兼容不支持 &lt;progress&gt; 元素的老式浏览器
+      progressBar.textContent = progressBar.value;
+    }
+  };
+  xhr.send(blobOrFile);
+}
+upload(new Blob(['hello world'], {type: 'text/plain'}));
+</code></pre>
+<ul>
+<li><code>withCredentials</code>：</li>
+</ul>
+<p>此属性是一个布尔值，表示跨域请求时，用户信息（比如 Cookie 和认证的 HTTP 头信息）是否会包含在请求之中，默认为 false ，即向 example.com 发出跨域请求时，不会发送 example.com 设置在本机上的 Cookie 。</p>
+<blockquote>
+<h3 id="xmlhttprequest">XMLHttpRequest实例方法</h3>
+</blockquote>
+<ul>
+<li><code>abort()</code>:</li>
+</ul>
+<p>终止已经发出的 HTTP 请求。调用这个方法以后，readyState属性变为4，status属性变为0。</p>
+<pre><code>// 代码在发出5秒之后，终止一个 AJAX 请求
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://www.zairesinatra.com/blog.php', true);
+setTimeout(function () {
+  if (xhr) {
+    xhr.abort();
+    xhr = null;
+  }
+}, 5000);
+</code></pre>
+<ul>
+<li><code>getAllResponseHeaders()</code>:</li>
+</ul>
+<p>返回一个字符串，表示服务器发来的所有 HTTP 头信息。每个头信息之间使用 CRLF 分隔（回车+换行），如果没有收到服务器回应，该属性为 <code>null</code> 。如果发生网络错误，该属性为空字符串。</p>
+<pre><code>var xhr = new XMLHttpRequest();
+xhr.open('GET', 'zs', true);
+xhr.send();
+xhr.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    var headers = xhr.getAllResponseHeaders();
+    console.log(headers)
+  }
+}
+// content-length: 1008
+// content-type: application/json; charset=utf-8
+// ...
+</code></pre>
+<ul>
+<li><code>getResponseHeader()</code>:</li>
+</ul>
+<p>返回 HTTP 头信息指定字段的值，如果还没有收到服务器回应或者指定字段不存在，返回null。</p>
+<ul>
+<li><code>open()</code>:</li>
+</ul>
+<p>用于指定 HTTP 请求的参数，或者说初始化 <code>xhr</code> 实例对象。<br />
+如果对使用过 <code>open()</code> 方法的 AJAX 请求，再次使用这个方法，等同于调用 <code>abort()</code> ，即终止请求。</p>
+<ul>
+<li><code>overrideMimeType()</code>:</li>
+</ul>
+<p>指定一个 MIME 类型用于替代服务器指定的类型，使服务端响应信息中传输的数据按照该指定 MIME 类型处理。例如强制使流方式处理为 "text/xml" 类型处理时会被使用到，即使服务器在响应头中并没有这样指定。此方法必须在 <code>send</code> 方法之前调用方为有效。</p>
+<pre><code>xhr.overrideMimeType('text/plain')
+</code></pre>
+<ul>
+<li><code>send()</code>:</li>
+</ul>
+<p>实际发出 HTTP 请求。</p>
+<ul>
+<li><code>setRequestHeader()</code>:</li>
+</ul>
+<p>设置浏览器发送的 HTTP 请求的头信息。该方法必须在open()之后、send()之前调用。<br />
+同时接受两个参数。第一个参数是字符串，表示头信息的字段名；第二个参数是字段值。</p>
+<pre><code>xhr.setRequestHeader('Content-Type', 'application/json');
+// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+</code></pre>
+<blockquote>
+<h3 id="xmlhttprequest">XMLHttpRequest实例的事件</h3>
+</blockquote>
+<p>onreadystatechange、progress、timeout这里不再赘述。</p>
+<table border="1">
+    <thead>
+        <tr>
+            <th>事件名</th>
+            <th>事件描述</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>abort</td>
+            <td>请求被中断</td>
+        </tr>
+        <tr>
+            <td>error</td>
+            <td>请求出错</td>
+        </tr>
+        <tr>
+            <td>load</td>
+            <td>服务器传来的数据接收完毕</td>
+        </tr>
+    </tbody>
+</table>
+<pre><code>var xhr = new XMLHttpRequest();
+xhr.addEventListener('load', transferComplete);
+xhr.addEventListener('error', transferFailed);
+xhr.addEventListener('abort', transferCanceled);
+xhr.open();
+function transferComplete() {
+  console.log('数据接收完毕');
+}
+function transferFailed() {
+  console.log('数据接收出错');
+}
+function transferCanceled() {
+  console.log('用户取消接收');
+}    
+</code></pre>
+<ul>
+<li><code>loadend</code>：</li>
+</ul>
+<p><code>abort</code>、<code>load</code>和<code>error</code>这三个事件，会伴随一个 <code>loadend</code> 事件，表示请求结束，但不知道其是否成功。</p>
+<pre><code>xhr.addEventListener('loadend', loadEnd);
+function loadEnd(e) {
+  console.log('请求结束，状态未知');
+}
+</code></pre>
+<table border="1">
+    <tr>
+        <th> readyState </th>
+        <th> 状态 </th>
+        <th> 描述 </th>
+    </tr>
+    <tr>
+        <td> 0 </td>
+        <td> UNSENT </td>
+        <td> 未调用 open() 方法 </td>
+    </tr>
+    <tr>
+        <td> 1 </td>
+        <td> open() </td>
+        <td> open() 方法已经被调用 </td>
+    </tr>
+    <tr>
+        <td> 2 </td>
+        <td> HEADERS_RECEIVED() </td>
+        <td> send() 方法已经被调用，并且头部和状态已经可获得 </td>
+    </tr>
+    <tr>
+        <td> 3 </td>
+        <td> LOADING() </td>
+        <td> 下载中； responseText 属性已经包含部分数据 </td>
+    </tr>
+    <tr>
+        <td> 4 </td>
+        <td> DONE() </td>
+        <td> 下载操作已完成 </td>
+    </tr>
+</table><table border="1">
+    <thead>
+        <tr>
+            <th> status </th>
+            <th> 描述 </th>
+    	</tr>
+     <thead>
+     </thead></thead><tbody>
+        <tr>
+            <td> 200 </td>
+            <td> OK</td>
+        </tr>
+        <tr>
+            <td> 301 </td>
+            <td> Moved Permanently </td>
+        </tr>
+        <tr>
+            <td> 302 </td>
+            <td> Moved temporarily </td>
+        </tr>
+        <tr>
+            <td> 304 </td>
+            <td> Not Modified </td>
+        </tr>
+        <tr>
+            <td> 307 </td>
+            <td> Temporary Redirect </td>
+        </tr>
+        <tr>
+            <td> 401 </td>
+            <td> Unauthorized </td>
+        </tr>
+        <tr>
+            <td> 403 </td>
+            <td> Forbidden </td>
+        </tr>
+		<tr>
+            <td> 404 </td>
+            <td> Not Found </td>
+        </tr>
+		<tr>
+            <td> 500 </td>
+            <td> Internal Server Error </td>
+        </tr>
+
+     </tbody>
+</table><blockquote>
+<h3 id="ajax">封装原生Ajax请求</h3>
+</blockquote>
+<p>通过上述的整理，这一步已经可以封装 ajax 。</p>
+<blockquote>
+<h4 id="get">封装get请求</h4>
+</blockquote>
+<pre><code>// 封装
+function ajaxGet(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.send();
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {
+      callback(xhr.responseText);
+    }
+  }
+}
+
+// 调用
+ajaxGet('zairesinatra/xzy', function (data) {
+  console.log(data);
+});
+</code></pre>
+<blockquote>
+<h4 id="post">封装post请求</h4>
+</blockquote>
+<pre><code>function ajaxPost(url, data, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', url, true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhr.send(data);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {
+      callback(xhr.responseText);
+    }
+  }
+}
+
+// 调用
+ajaxPost('zairesinatra/xzy', 'sex=male&amp;age=23', function (data) {
+  // 后台返回的数据就是 字符串类型。要转成json，必须自己手动转换。
+  var user = JSON.parse(data);
+  console.log(user.sex;
+  console.log(user.age);
+});
+</code></pre>
+<p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="http://localhost:2368/content/images/2021/07/instagram_profile_image.png" width="50" height="50" layout="fixed"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

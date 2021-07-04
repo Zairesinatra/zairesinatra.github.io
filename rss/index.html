@@ -1,1 +1,1746 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[zsxzy]]></title><description><![CDATA[Thoughts, stories and ideas.]]></description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>zsxzy</title><link>http://localhost:2368/</link></image><generator>Ghost 4.8</generator><lastBuildDate>Sun, 04 Jul 2021 01:43:25 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[zairesinatra]]></title><description><![CDATA[The best time to recognize yourself is ten years ago, followed by now.]]></description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>zairesinatra</title><link>http://localhost:2368/</link></image><generator>Ghost 4.8</generator><lastBuildDate>Sun, 04 Jul 2021 06:37:00 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[算法思想]]></title><description><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id="%E5%89%8D%E8%A8%80">&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>&#x6D45;&#x8C08;&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x5E94;&#x7528;&#x7684;&#x56DB;&#x79CD;&#x601D;&#x60F3;: &#x5206;&#x800C;&#x6CBB;&#x4E4B;&#x3001;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x3001;&#x8D2A;&#x5A6A;&#x7B97;&#x6CD5;&#x3001;&#x56DE;&#x6EAF;&#x7B97;&#x6CD5;</p>
+<hr>
+<blockquote>
+<h2 id="%E6%AD%A3%E6%96%87">&#x6B63;&#x6587;</h2>
+</blockquote>
+<blockquote>
+<h3 id="%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B">&#x5206;&#x800C;&#x6CBB;&#x4E4B;</h3>
+</blockquote>
+<p>&#x5206;&#x89E3;&#x95EE;&#x9898;&#x4E3A;&#x591A;&#x4E2A;&#x53EF;&#x9012;&#x5F52;</p>]]></description><link>http://localhost:2368/suan-fa-si-xiang/</link><guid isPermaLink="false">60e14527bed9e30a7c1cfe7b</guid><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Sun, 04 Jul 2021 05:21:35 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id="%E5%89%8D%E8%A8%80">&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>&#x6D45;&#x8C08;&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x5E94;&#x7528;&#x7684;&#x56DB;&#x79CD;&#x601D;&#x60F3;: &#x5206;&#x800C;&#x6CBB;&#x4E4B;&#x3001;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x3001;&#x8D2A;&#x5A6A;&#x7B97;&#x6CD5;&#x3001;&#x56DE;&#x6EAF;&#x7B97;&#x6CD5;</p>
+<hr>
+<blockquote>
+<h2 id="%E6%AD%A3%E6%96%87">&#x6B63;&#x6587;</h2>
+</blockquote>
+<blockquote>
+<h3 id="%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B">&#x5206;&#x800C;&#x6CBB;&#x4E4B;</h3>
+</blockquote>
+<p>&#x5206;&#x89E3;&#x95EE;&#x9898;&#x4E3A;&#x591A;&#x4E2A;&#x53EF;&#x9012;&#x5F52;&#x7684;&#x3001;&#x6709;&#x7C7B;&#x4F3C;&#x70B9;&#x7684;&#x5B50;&#x95EE;&#x9898;</p>
+<pre><code>// &#x5206;&#x800C;&#x6CBB;&#x4E4B;&#x601D;&#x60F3;&#x624B;&#x6495;&#x4E8C;&#x5206;&#x6CD5;
+const no = &quot;nonono&quot;
+function binarySearchRecursive(array,value,low,high) {
+    if (low &lt; high) {
+        const mid = Math.floor((low + high) / 2);
+        if (array[mid] &lt; value) {
+            return binarySearchRecursive(array,value,mid+1,high)
+        } else if (array[mid] &gt; value) {
+            return binarySearchRecursive(array,value,low,mid-1)
+        } else {
+            return mid;
+        }
+    }
+    return no
+}
+function binarySearch (array, value) {
+    const low = 0;
+    const high = array.length - 1;
+    return binarySearchRecursive(array, value, low, high)
+}
+let arr = [1,2,3,4,5]
+let array = [1,2,3,4,5]
+let val = 1
+let value = 0
+console.log(binarySearch(arr,val)); // 0
+console.log(binarySearch(array,value)); // nonono
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">&#x52A8;&#x6001;&#x89C4;&#x5212;</h3>
+</blockquote>
+<p>&#x590D;&#x6742;&#x95EE;&#x9898;&#x5206;&#x89E3;&#x5C0F;&#x7684;&#x5B50;&#x95EE;&#x9898;</p>
+<pre><code>// &#x5BF9;&#x4E8E;&#x4E00;&#x79CD;&#x7269;&#x54C1;&#x8981;&#x4E48;&#x88C5;&#x5165;&#x80CC;&#x5305;,&#x8981;&#x4E48;&#x4E0D;&#x88C5;.&#x6240;&#x4EE5;&#x5BF9;&#x4E8E;&#x4E00;&#x79CD;&#x7269;&#x54C1;&#x7684;&#x88C5;&#x5165;&#x72B6;&#x6001;&#x53EA;&#x662F;1&#x6216;0,&#x6B64;&#x95EE;&#x9898;&#x79F0;&#x4E3A;01&#x80CC;&#x5305;&#x95EE;&#x9898;
+function knapsack(weights, values, W){
+    var n = weights.length -1
+    var f = [[]]
+    for(var j = 0; j &lt;= W; j++){
+        if(j &lt; weights[0]){ //&#x5982;&#x679C;&#x5BB9;&#x91CF;&#x4E0D;&#x80FD;&#x653E;&#x4E0B;&#x7269;&#x54C1;0&#x7684;&#x91CD;&#x91CF;&#xFF0C;&#x90A3;&#x4E48;&#x4EF7;&#x503C;&#x4E3A;0
+           f[0][j] = 0
+        }else{ //&#x5426;&#x5219;&#x7B49;&#x4E8E;&#x7269;&#x4F53;0&#x7684;&#x4EF7;&#x503C;
+           f[0][j] = values[0]
+        }
+    }
+    for(var j = 0; j &lt;= W; j++){
+        for(var i = 1; i &lt;= n; i++ ){
+            if(!f[i]){ //&#x521B;&#x5EFA;&#x65B0;&#x4E00;&#x884C;
+                f[i] = []
+            }
+            if(j &lt; weights[i]){ //&#x7B49;&#x4E8E;&#x4E4B;&#x524D;&#x7684;&#x6700;&#x4F18;&#x503C;
+                f[i][j] = f[i-1][j]
+            }else{
+                f[i][j] = Math.max(f[i-1][j], f[i-1][j-weights[i]] + values[i]) 
+            }
+        }
+    }
+    return f[n][W]
+}
+var a = knapsack([2,2,6,5,4],[6,3,5,4,6],10)
+console.log(a) // 15
+var b = knapsack([2,3,4],[3,4,5],5)
+console.log(b) // 7
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="%E8%B4%AA%E5%A9%AA%E7%AE%97%E6%B3%95">&#x8D2A;&#x5A6A;&#x7B97;&#x6CD5;</h3>
+</blockquote>
+<p>&#x901A;&#x8FC7;&#x5C40;&#x90E8;&#x6700;&#x4F18;&#x9009;&#x62E9;&#x8FBE;&#x5230;&#x5168;&#x5C40;&#x6700;&#x4F18;&#x89E3;&#x2014;&#x2014;&#x9075;&#x5FAA;&#x8FD1;&#x4F3C;&#x89E3;&#x51B3;&#x95EE;&#x9898;<br>
+&#x5BF9;&#x4E8E;&#x8D2A;&#x5A6A;&#x7B97;&#x6CD5;&#x4E0D;&#x4E00;&#x5B9A;&#x4EA7;&#x751F;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x5BF9;&#x4E8E;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x6765;&#x8BF4;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x7684;&#x89E3;</p>
+<pre><code>// &#x6700;&#x5C11;&#x786C;&#x5E01;&#x627E;&#x96F6;&#x95EE;&#x9898;
+function minCoinChange(coins, amount) {
+    const change = [];
+    let total = 0;
+    for (let i = coins.length-1; i &gt;= 0; i--) {
+        const coin = coins[i];
+        while (total+coin&lt;=amount) {
+            change.push(coin);
+            total += coin;
+        }
+    }
+    return change;
+}
+let c = [0.5,1,5,10],
+am = 34;
+console.log(minCoinChange(c,am)); // [10, 10, 10, 1,  1,  1,  1]
+
+</code></pre>
+<blockquote>
+<h3 id="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95">&#x56DE;&#x6EAF;&#x7B97;&#x6CD5;</h3>
+</blockquote>
+<p>&#x56DE;&#x6EAF;&#x662F;&#x4E00;&#x79CD;&#x6E10;&#x8FDB;&#x5F0F;&#x5BFB;&#x627E;&#x5E76;&#x6784;&#x5EFA;&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#x7684;&#x7B56;&#x7565;&#x3002;&#x4ECE;&#x4E00;&#x4E2A;&#x53EF;&#x80FD;&#x7684;&#x52A8;&#x4F5C;&#x5C1D;&#x8BD5;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x80FD;&#x89E3;&#x51B3;&#x5219;&#x56DE;&#x6EAF;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x52A8;&#x4F5C;&#x76F4;&#x5230;&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x5F15;&#x7528;&#x4E00;&#x9053; LeetCode &#x4E0A; <strong>&#x56F0;&#x96BE;</strong> &#x7EA7;&#x522B;&#x7684; N&#x7687;&#x540E; &#x95EE;&#x9898;&#x63CF;&#x8FF0;&#x56DE;&#x6EAF;</p>
+<pre><code>// &#x89E3;&#x51B3;&#x4E00;&#x4E2A;&#x56DE;&#x6EAF;&#x95EE;&#x9898;,&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x51B3;&#x7B56;&#x6811;&#x7684;&#x904D;&#x5386;&#x8FC7;&#x7A0B;
+// &#x8DEF;&#x5F84;:&#x5DF2;&#x7ECF;&#x505A;&#x51FA;&#x7684;&#x9009;&#x62E9;&#x3001;&#x9009;&#x62E9;&#x5217;&#x8868;:&#x5F53;&#x524D;&#x53EF;&#x4EE5;&#x505A;&#x7684;&#x9009;&#x62E9;&#x3001;&#x7ED3;&#x675F;&#x6761;&#x4EF6;:&#x5230;&#x8FBE;&#x51B3;&#x7B56;&#x6811;&#x5E95;&#x5C42;,&#x65E0;&#x6CD5;&#x518D;&#x505A;&#x9009;&#x62E9;&#x7684;&#x6761;&#x4EF6;
+// &#x7A77;&#x4E3E;&#x6574;&#x68F5;&#x51B3;&#x7B56;&#x6811;&#x662F;&#x65E0;&#x6CD5;&#x907F;&#x514D;&#x7684;
+// &#x8FD9;&#x4E5F;&#x662F;&#x56DE;&#x6EAF;&#x7B97;&#x6CD5;&#x7684;&#x4E00;&#x4E2A;&#x7279;&#x70B9;,&#x4E0D;&#x50CF;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x5B58;&#x5728;&#x91CD;&#x53E0;&#x5B50;&#x95EE;&#x9898;&#x53EF;&#x4EE5;&#x4F18;&#x5316;,&#x56DE;&#x6EAF;&#x7B97;&#x6CD5;&#x5C31;&#x662F;&#x7EAF;&#x66B4;&#x529B;&#x7A77;&#x4E3E;,&#x590D;&#x6742;&#x5EA6;&#x4E00;&#x822C;&#x90FD;&#x5F88;&#x9AD8;
+
+// &#x56DE;&#x6EAF;&#x7B97;&#x6CD5;&#x2014;&#x2014;N&#x7687;&#x540E;&#x95EE;&#x9898;
+// N*N&#x68CB;&#x76D8;&#x653E;N&#x4E2A;&#x7687;&#x540E;,&#x5F7C;&#x6B64;&#x4E0D;&#x653B;&#x51FB;(&#x68CB;&#x76D8;&#x4EFB;&#x4E00;&#x884C;&#x3001;&#x4EFB;&#x4E00;&#x5217;&#x3001;&#x4EFB;&#x4E00;&#x5BF9;&#x89D2;&#x7EBF;&#x4E0A;&#x4E0D;&#x80FD;&#x653E;&#x7F6E;&#x4E24;&#x4E2A;&#x7687;&#x540E;)
+const NQueens = (n) =&gt; {
+    // &#x68CB;&#x76D8;&#x7684;&#x521D;&#x59CB;&#x5316;
+    const board = new Array(n);
+    for (let i = 0; i &lt; n; i++) {
+      board[i] = new Array(n).fill(&apos;.&apos;);
+    }
+    const res = [];
+    const isValid = (row, col) =&gt; {  
+      for (let i = 0; i &lt; row; i++) { // &#x4E4B;&#x524D;&#x7684;&#x884C;
+        for (let j = 0; j &lt; n; j++) { // &#x6240;&#x6709;&#x7684;&#x5217;
+          if (board[i][j] == &apos;Q&apos; &amp;&amp;   // &#x53D1;&#x73B0;&#x4E86;&#x7687;&#x540E;&#xFF0C;&#x5E76;&#x4E14;&#x548C;&#x81EA;&#x5DF1;&#x540C;&#x5217;/&#x5BF9;&#x89D2;&#x7EBF;
+            (j == col || i + j === row + col || i - j === row - col)) {
+            return false;             // &#x4E0D;&#x662F;&#x5408;&#x6CD5;&#x7684;&#x9009;&#x62E9;
+          }
+        }
+      }
+      return true;
+    };
+    const putqueen = (row) =&gt; {   // &#x653E;&#x7F6E;&#x5F53;&#x524D;&#x884C;&#x7684;&#x7687;&#x540E;
+      if (row == n) {           // &#x9012;&#x5F52;&#x7684;&#x51FA;&#x53E3;&#xFF0C;&#x8D85;&#x51FA;&#x4E86;&#x6700;&#x540E;&#x4E00;&#x884C;
+        const copyBoard = board.slice(); // &#x62F7;&#x8D1D;&#x4E00;&#x4EFD;&#x653E;&#x5B8C;&#x6210;&#x529F;&#x7684;board
+        for (let i = 0; i &lt; n; i++) {
+          copyBoard[i] = copyBoard[i].join(&apos;&apos;); // &#x5C06;&#x6BCF;&#x4E00;&#x884C;&#x62FC;&#x6210;&#x5B57;&#x7B26;&#x4E32;
+        }
+        res.push(copyBoard); // &#x63A8;&#x5165;res&#x6570;&#x7EC4;
+        return;
+      }
+      for (let col = 0; col &lt; n; col++) { // &#x679A;&#x4E3E;&#x51FA;&#x6240;&#x6709;&#x9009;&#x62E9;
+        if (isValid(row, col)) {          // &#x526A;&#x6389;&#x65E0;&#x6548;&#x7684;&#x9009;&#x62E9;
+          board[row][col] = &quot;Q&quot;;          // &#x4F5C;&#x51FA;&#x9009;&#x62E9;&#xFF0C;&#x653E;&#x7F6E;&#x7687;&#x540E;
+          putqueen(row + 1);              // &#x7EE7;&#x7EED;&#x9009;&#x62E9;&#xFF0C;&#x5F80;&#x4E0B;&#x9012;&#x5F52;
+          board[row][col] = &apos;.&apos;;          // &#x64A4;&#x9500;&#x5F53;&#x524D;&#x9009;&#x62E9;
+        }
+      }
+    };
+    putqueen(0);  // &#x4ECE;&#x7B2C;0&#x884C;&#x5F00;&#x59CB;&#x653E;&#x7F6E;
+    return res;
+  };
+
+console.log(NQueens(4)); // [[ &apos;.Q..&apos;, &apos;...Q&apos;, &apos;Q...&apos;, &apos;..Q.&apos; ], [ &apos;..Q.&apos;, &apos;Q...&apos;, &apos;...Q&apos;, &apos;.Q..&apos; ]]
+</code></pre>
+<hr>
+<blockquote>
+<h2 id="%E7%BB%93%E6%9D%9F">&#x7ED3;&#x675F;</h2>
+</blockquote>
+<p>&#x8FD8;&#x662F;&#x9700;&#x8981;&#x591A;&#x5728; LeetCode &#x5438;&#x6536;&#x7B97;&#x6CD5;</p>
+<blockquote>
+<h3 id="%E4%BB%A5%E4%B8%8A">&#x4EE5;&#x4E0A;</h3>
+</blockquote>
+<!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[Vue双向数据绑定原理]]></title><description><![CDATA["Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking." -Steve Jobs]]></description><link>http://localhost:2368/vue-p-summary/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfdbe</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Thu, 31 Dec 2020 12:36:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><h2 id>&#x524D;&#x8A00;&#xFF1A;</h2>
+<p>&#x524D;&#x7AEF;&#x4E09;&#x5927;&#x6846;&#x67B6;&#x4E4B;&#x4E00;&#x7684;Vue&#x3002;&#x4E5F;&#x5728;&#x56FD;&#x5185;&#x4F7F;&#x7528;&#x5360;&#x6BD4;&#x6700;&#x5927;&#x7684;&#x7528;&#x4E8E;&#x6784;&#x5EFA;&#x7528;&#x6237;&#x754C;&#x9762;&#x7684;&#x6E10;&#x8FDB;&#x5F0F;&#x6846;&#x67B6;&#x3002;</p>
+<p>&#x5BF9;Vue&#x8FDB;&#x5316;&#x8DEF;&#x7EBF;&#x7684;&#x8BA4;&#x77E5;&#xFF1A;<br>
+&#x4ECE;&#x76EE;&#x524D;&#x7406;&#x8BBA;&#x6765;&#x8BF4;&#xFF0C;&#x6700;&#x65B0;&#x7684;3.x&#x7248;&#x672C;&#x8FD8;&#x4E0D;&#x63A8;&#x8350;&#x7528;&#x4E8E;&#x751F;&#x4EA7;&#x9879;&#x76EE;&#xFF0C;&#x5468;&#x8FB9;&#x751F;&#x6001;&#x8FD8;&#x9700;&#x8981;&#x65F6;&#x95F4;&#x5B8C;&#x5584;&#x3002;&#x90A3;&#x4E48;&#x672C;&#x6587;&#x4E3B;&#x8981;&#x901A;&#x8FC7;2.x&#x7248;&#x672C;&#x4F5C;&#x4E3A;&#x5730;&#x57FA;&#x6765;&#x9610;&#x8FF0;&#x3002;</p>
+<img src="https://cn.vuejs.org/images/logo.png" width="50px">
+<hr>
+<h2 id>&#x6B63;&#x6587;&#xFF1A;</h2>
+<p>MVVM &#x5373;&#x6A21;&#x578B;-&#x89C6;&#x56FE;-&#x89C6;&#x56FE;&#x6A21;&#x578B;(Model-View-ViewModel)&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x67B6;&#x6784;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x3002;</p>
+<h3 id="mvvm">MVVM&#x7684;&#x53D1;&#x5C55;&#x53F2;&#xFF1A;</h3>
+<p>&#x6700;&#x65E9;&#x7684;HTML&#x9875;&#x9762;&#x662F;&#x5B8C;&#x5168;&#x9759;&#x6001;&#x7684;&#x7F51;&#x9875;&#xFF0C;&#x5B83;&#x4EEC;&#x662F;&#x9884;&#x5148;&#x7F16;&#x5199;&#x597D;&#x7684;&#x5B58;&#x653E;&#x5728;Web&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;html&#x6587;&#x4EF6;&#x3002;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x5728;&#x5B66;&#x4E60;Node.js&#x8FC7;&#x7A0B;&#x4E2D;&#x901A;&#x8FC7;Express&#x7B2C;&#x4E09;&#x65B9;&#x5305;&#x6258;&#x7BA1;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x3002;</p>
+<p><code>app.use(express.static(path.join(__dirname, &apos;zspublic&apos;)));</code></p>
+<p>&#x4F46;&#x968F;&#x7740;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x53D1;&#x5C55;&#xFF0C;&#x6210;&#x5343;&#x4E0A;&#x4E07;&#x7528;&#x6237;&#x7684;&#x6D8C;&#x5165;&#xFF0C;&#x8FD9;&#x65F6;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x9875;&#x9762;&#x9700;&#x6C42;&#x4E0E;&#x529F;&#x80FD;&#xFF0C;&#x4E0D;&#x80FD;&#x4EC5;&#x4EC5;&#x901A;&#x8FC7;&#x5411;&#x670D;&#x52A1;&#x5668;<code>get</code>&#x4E00;&#x4EFD;&#x65B0;&#x7684; html &#x6587;&#x4EF6;&#x8FD9;&#x4E48;&#x7B80;&#x5355;&#x3002;&#x7EC8;&#x4E8E;&#xFF0C;&#x80FD;&#x8BA9;&#x6D4F;&#x89C8;&#x5668;&#x81EA;&#x5DF1;&#x4FEE;&#x6539; HTML &#x9875;&#x9762;&#x7684; JavaScript &#x5728;95&#x5E74;&#x8FD0;&#x884C;&#x4E86;&#x8D77;&#x6765;&#x3002;&#x4F46;&#x7531;&#x4E8E;&#x539F;&#x751F; API &#x4E0D;&#x90A3;&#x4E48;&#x597D;&#x7528;&#xFF0C; jQuery &#x8FD0;&#x8425;&#x800C;&#x751F;&#x3002;&#x5728;&#x968F;&#x7740; MVC &#x6A21;&#x5F0F;(Model&#x2013;view&#x2013;controller)&#x8FD9;&#x79CD;&#x670D;&#x52A1;&#x5668;&#x914D;&#x5408;&#x8BA9; JavaScript &#x4FEE;&#x6539;&#x670D;&#x52A1;&#x5668;&#x6E32;&#x67D3;&#x540E;&#x7684;&#x6570;&#x636E;&#x7684;&#x65B9;&#x5F0F;&#x6162;&#x6162;&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3;&#x9875;&#x9762;&#x7684;&#x4EA4;&#x4E92;&#x6027;&#x3002;MVVM &#x6A21;&#x5F0F;&#x6A2A;&#x7A7A;&#x51FA;&#x4E16;&#x3002;</p>
+<h3 id="mvvm">MVVM&#x7684;&#x7406;&#x89E3;&#xFF1A;</h3>
+<p>MVVM&#x7684;&#x51FA;&#x73B0;&#x4FC3;&#x8FDB;&#x4E86; GUI(Graphical user interface&#x56FE;&#x5F62;&#x7528;&#x6237;&#x754C;&#x9762;) &#x3002;&#x524D;&#x540E;&#x7AEF;&#x4E1A;&#x52A1;&#x9010;&#x6E10;&#x5206;&#x79BB;&#xFF0C;&#x6548;&#x7387;&#x5F00;&#x59CB;&#x9010;&#x6B65;&#x63D0;&#x9AD8;&#x3002;</p>
+<p>MVVM&#x7684;&#x6838;&#x5FC3;&#x662F; ViewModel &#x5C42;&#x3002;&#x5411;&#x4E0A;&#x4E0E;&#x89C6;&#x56FE;&#x5C42;&#x8FDB;&#x884C;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#xFF0C;&#x5411;&#x4E0B;&#x4E0E; Model &#x5C42;&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#x8BF7;&#x6C42;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4EA4;&#x4E92;(Ajax&lt;=&gt;JSON)&#x3002;</p>
+<p>MVVM &#x7684;&#x7EC4;&#x6210;&#x53EF;&#x4EE5;&#x5316;&#x5206;&#x4E3A;&#x4EE5; HTML&#x3001;CSS&#x3001;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E3A;&#x96C6;&#x5408;&#x7684; view &#x89C6;&#x56FE;&#x5C42;&#xFF0C;&#x4EE5; JavaScript&#x3001;runtime&#x3001;compiler &#x4E3A;&#x96C6;&#x5408;&#x7684; ViewModel &#x89C6;&#x56FE;&#x6A21;&#x578B;&#x5C42;&#xFF0C;&#x548C;&#x4EE5;&#x4E1A;&#x52A1;&#x5904;&#x7406;&#x903B;&#x8F91; Node.js&#x3001;Java...&#x548C;&#x6570;&#x636E;&#x5E93; MySQL&#x3001;MongoDB...&#x7EC4;&#x6210;&#x7684; Model &#x5C42;&#x3002;</p>
+<h3 id="vue">Vue&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x539F;&#x7406;&#xFF1A;</h3>
+<ul>
+<li>Vue &#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x662F;&#x901A;&#x8FC7; <strong>&#x6570;&#x636E;&#x52AB;&#x6301;</strong>&#xFF0C;&#x5E76;&#x7ED3;&#x5408; <strong>&#x53D1;&#x5E03;-&#x8BA2;&#x9605;&#x6A21;&#x5F0F;</strong> &#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6570;&#x636E;&#x548C;&#x89C6;&#x56FE;&#x540C;&#x6B65;&#x4E92;&#x4E3A;&#x53D8;&#x5316;&#x6761;&#x4EF6;&#x4E0E;&#x7ED3;&#x679C;&#x3002;</li>
+</ul>
+<p>&#x8BBF;&#x95EE;&#x6216;&#x8005;&#x4FEE;&#x6539;&#x5BF9;&#x8C61;&#x7684;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x9664;&#x4E86;&#x6267;&#x884C;&#x57FA;&#x672C;&#x7684;&#x6570;&#x636E;&#x83B7;&#x53D6;&#x548C;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x57FA;&#x4E8E;&#x6570;&#x636E;&#x7684;&#x64CD;&#x4F5C;&#x884C;&#x4E3A;&#xFF0C;&#x4EE5;&#x6570;&#x636E;&#x4E3A;&#x57FA;&#x7840;&#x53BB;&#x6267;&#x884C;&#x989D;&#x5916;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#xFF08;&#x641C;&#x7D22;&#x5173;&#x952E;&#x8BCD;&#x9AD8;&#x4EAE;&#x3001;&#x8054;&#x60F3;&#x3001;&#x6570;&#x636E;&#x6E32;&#x67D3;...&#xFF09;</p>
+<ul>
+<li>&#x6838;&#x5FC3;API&#xFF1A;<code>Object.defineProperty()</code> &#x65B9;&#x6CD5;&#x4EE5;&#x53CA;&#x57FA;&#x4E8E;&#x6570;&#x7EC4;&#x7684;&#x6570;&#x636E;&#x4FEE;&#x6539;&#x65B9;&#x6CD5; <code>push</code>&#x3001;<code>pop</code>&#x3001;<code>unshift</code>&#x3001;<code>shift</code>&#x3001;<code>slice</code>&#x3001;<code>sort</code>&#x3001;<code>reverse</code>...</li>
+</ul>
+<blockquote>
+<p>&#x9759;&#x6001;&#x65B9;&#x6CD5; <code>Object.defineProperty(obj, prop, descriptor)</code> &#x76F4;&#x63A5;&#x5728;&#x5BF9;&#x8C61;&#x4E0A;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x6216;&#x8005;&#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x5DF2;&#x6709;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x8BE5;&#x5BF9;&#x8C61;&#x3002;</p>
+</blockquote>
+<table>
+    <thead>
+        <tr>
+            <th width="50%"> &#x53C2;&#x6570; </th>
+            <th> &#x8BF4;&#x660E; </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> obj 
+            </td><td> &#x5B9A;&#x4E49;&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61; 
+        </td></tr>
+        <tr>
+            <td> prop 
+            </td><td> (Symbol)&#x5B9A;&#x4E49;&#x6216;&#x4FEE;&#x6539;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0; 
+        </td></tr>
+        <tr>
+            <td> descriptor 
+            </td><td> &#x6B63;&#x5728;&#x5B9A;&#x4E49;&#x6216;&#x4FEE;&#x6539;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x63CF;&#x8FF0;&#x7B26;(&#x65B9;&#x6CD5;&#x51FD;&#x6570;) 
+        </td></tr>
+    </tbody>
+</table>
+<p>&#x6982;&#x62EC;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x6B64; API &#x6765;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x3002;&#x5F53;&#x8C03;&#x7528;&#x5C5E;&#x6027;&#x65F6;&#x4F7F;&#x7528; get &#x65B9;&#x6CD5;&#xFF1B;&#x7ED9;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x8D4B;&#x503C;&#x65F6;&#xFF0C;&#x4F7F;&#x7528; set &#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>var zsobj = {};
+Object.defineProperty(zsobj,&apos;biubiubiu&apos;,{
+  // value: 23,
+  get: function () {
+    console.log(&apos;&#x8C03;&#x7528;&#x65B0;&#x5B9A;&#x4E49;&#x7684; biubiubiu &#x5C5E;&#x6027;&#x7684; get &#x65B9;&#x6CD5;&apos;)
+  },
+  set: function(args){
+    console.log(&apos;&#x8C03;&#x7528;&#x65B0;&#x5B9A;&#x4E49;&#x7684; biubiubiu &#x5C5E;&#x6027;&#x7684; set &#x65B9;&#x6CD5;, &#x4F20;&#x5165;&#x7684;&#x503C;&#x662F;&apos; + args);
+  }
+});
+zsobj.biubiubiu; // =&gt; &#x8C03;&#x7528;&#x65B0;&#x5B9A;&#x4E49;&#x7684; biubiubiu &#x5C5E;&#x6027;&#x7684; get &#x65B9;&#x6CD5;
+zsobj.biubiubiu = &apos;zairesinatra&apos; // &#x8C03;&#x7528;&#x65B0;&#x5B9A;&#x4E49;&#x7684; biubiubiu &#x5C5E;&#x6027;&#x7684; set &#x65B9;&#x6CD5;, &#x4F20;&#x5165;&#x7684;&#x503C;&#x662F;zairesinatra
+
+var zy = {};
+Value = 23;
+Object.defineProperty(zy, &apos;one&apos;, {
+  writable: true,
+});
+// &#x4E0D;&#x80FD;&#x5C1D;&#x8BD5;&#x6DF7;&#x5408;&#x4E24;&#x8005;: &#x6570;&#x636E;&#x63CF;&#x8FF0;&#x7B26;&#x3001;&#x8BBF;&#x95EE;&#x5668;&#x63CF;&#x8FF0;&#x7B26;
+Object.defineProperty(zy, &apos;onee&apos;, {
+  get () { return console.log(Value) },
+  set (newValue) { Value = newValue; },
+  enumerable: true,
+  configurable: true
+});
+zy.onee // 23
+zy.onee = &apos;24&apos;
+zy.onee // 24
+</code></pre>
+<blockquote>
+<p>&#x53D1;&#x5E03;-&#x8BA2;&#x9605;&#x6A21;&#x5F0F; &#x548C;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#xFF08;subject &#x4E0E; observers &#x95F4;&#x5B58;&#x5728;&#x4E00;&#x5BF9;&#x591A;&#x5173;&#x7CFB;&#x3002;&#x5F53;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x88AB;&#x4FEE;&#x6539;&#x65F6;&#xFF0C;&#x5219;&#x4F1A;&#x81EA;&#x52A8;&#x901A;&#x77E5;&#x4F9D;&#x8D56;&#x5B83;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x5C5E;&#x4E8E;&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;&#x3002;&#xFF09;&#x5F88;&#x50CF;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x53EA;&#x6709;&#x4E24;&#x4E2A;&#x89D2;&#x8272;&#xFF0C;&#x4E14; obsevers &#x662F;&#x77E5;&#x9053; subject &#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F46;&#x662F;&#x5728; &#x53D1;&#x5E03;-&#x8BA2;&#x9605; &#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;publisher&#x3001;subscriber &#x4E0D;&#x76F4;&#x63A5;&#x53D6;&#x5F97;&#x8054;&#x7CFB;&#xFF0C;&#x901A;&#x8FC7;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E2D;&#x95F4;&#x4EF6;&#xFF08;event bus&#xFF09;&#x7684;&#x5E2E;&#x52A9;&#x4E0B;&#x4EE3;&#x7406;&#x4E8B;&#x4EF6;&#x901A;&#x4FE1;&#xFF0C;&#x4F20;&#x5165;&#x6D88;&#x606F;&#x5E76;&#x5B8C;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x5206;&#x53D1;&#x3002;<a href="https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c">&#x66F4;&#x591A;&#x70B9;&#x6B64;</a></p>
+</blockquote>
+<img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622720634/blog/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B8%8Epubscrib_wxxbwp.png" width="50%">
+<h3 id>&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF1A;</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;mvvm&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;input type=&quot;text&quot;&gt;
+    &lt;span&gt;&lt;/span&gt;
+    &lt;script&gt;
+        // &#x83B7;&#x53D6;&#x6587;&#x6863;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;DOM&#x5143;&#x7D20;
+        let input = document.querySelector(&apos;input&apos;);
+        let span = document.querySelector(&apos;span&apos;);
+        // &#x5EFA;&#x7ACB; event channel
+        let obj = {};
+        let value = &apos;&apos;;
+        Object.defineProperty(obj,&apos;dataDescribe&apos;,{
+            configurable: true | false, // &#x5982;&#x679C;&#x662F;false&#x5219;&#x4E0D;&#x53EF;&#x4EE5;&#x5220;&#x9664;
+            enumerable: true | false, // &#x5982;&#x679C;&#x4E3A;false&#x5219;&#x5728;&#x679A;&#x4E3E;&#x65F6;&#x5019;&#x4F1A;&#x5FFD;&#x7565;
+            writable: true | false // &#x5982;&#x679C;&#x4E3A;false&#x5219;&#x4E0D;&#x53EF;&#x91C7;&#x7528;&#x6570;&#x636E;&#x8FD0;&#x7B97;&#x7B26;&#x8FDB;&#x884C;&#x8D4B;&#x503C;
+        });
+        Object.defineProperty(obj, &apos;zsget&apos;, {
+            set: function (newValue) {
+                // fire event
+                value = newValue
+                input.value = newValue
+                span.innerText = newValue
+            },
+            get: function () {
+                return value
+            }
+        })
+        input.addEventListener(&apos;keyup&apos;,(e) =&gt; {
+            obj.zsget = e.target.value
+        })
+        input.value = obj.zsget
+        span.innerText = obj.zsget
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622724801/blog/%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A_vdlkz3.png" width="50%">
+<hr>
+<h2 id>&#x7ED3;&#x675F;</h2>
+<p>&#x4E0D;&#x8BBA;&#x6846;&#x67B6;&#x600E;&#x4E48;&#x6539;&#x53D8;&#xFF0C;&#x8FD8;&#x662F;&#x7A33;&#x56FA;&#x7684; JavaScript &#x4F5C;&#x4E3A;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x3002;</p>
+<hr>
+<h3 id>&#x4EE5;&#x4E0A;</h3>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[JWT跨域认证解决方案]]></title><description><![CDATA[宠辱不惊，看庭前花开花落；去留无意，望天上云卷云舒。
+——洪应明 《菜根谭》]]></description><link>http://localhost:2368/jwt/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfdce</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Wed, 16 Dec 2020 13:02:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x96BE;&#x514D;&#x9047;&#x89C1;&#x8DE8;&#x57DF;&#x95EE;&#x9898;&#x3002;&#x5C31;&#x597D;&#x6BD4; &#x767B;&#x5F55;&#x754C;&#x9762; &#x7684;&#x4E1A;&#x52A1;&#x6D41;&#x7A0B;&#x5206;&#x6790;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5728;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x4E0A;&#x9700;&#x8981;&#x8003;&#x8651;&#x8DF3;&#x8F6C;&#x4E0E;&#x5426;&#x3002;&#x9879;&#x76EE;&#x8FD0;&#x884C;&#x65B0;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x80FD;&#x6709;&#x8DE8;&#x57DF;&#x95EE;&#x9898;&#xFF0C;&#x9009;&#x62E9; <code>token</code> &#x65B9;&#x5F0F;&#xFF1B;&#x5982;&#x679C;&#x524D;&#x7AEF;&#x4E0E;&#x540E;&#x53F0;&#x63A5;&#x53E3;&#x4E0D;&#x5B58;&#x5728;&#x8DE8;&#x57DF;&#x95EE;&#x9898;&#xFF0C;&#x63A8;&#x8350;<code>cookie</code>&#x548C;<code>session</code>&#x3002;&#x8FD9;&#x91CC;&#x901A;&#x8FC7;&#x9879;&#x76EE;&#x7684;&#x601D;&#x8DEF;&#xFF0C;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x8DE8;&#x57DF;&#x7684; <code>token</code> &#x4EE5;&#x53CA; <code>JWT</code>&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x6B63;&#x6587;</h2>
+</blockquote>
+<blockquote>
+<h3 id>&#x6280;&#x672F;&#x8FC7;&#x7A0B;&#xFF1A;</h3>
+</blockquote>
+<p>JSON Web Token&#xFF08;&#x7F29;&#x5199; JWT&#xFF09;&#x662F;&#x76EE;&#x524D;&#x6700;&#x6D41;&#x884C;&#x7684;&#x8DE8;&#x57DF;&#x8BA4;&#x8BC1;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;JWT &#x7684;&#x539F;&#x7406;&#x662F;&#xFF0C;&#x5728;&#x786E;&#x8BA4;&#x5BA2;&#x6237;&#x7AEF;&#x767B;&#x9646;&#x5230;&#x670D;&#x52A1;&#x5668;&#x8BA4;&#x8BC1;&#x4EE5;&#x540E;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A; JSON &#x5BF9;&#x8C61;&#xFF0C;&#x53D1;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x6B64;&#x65F6;&#x5B58;&#x50A8;&#x6B64; JSON &#x5BF9;&#x8C61;&#x3002;&#x4EE5;&#x540E;&#xFF0C;&#x7528;&#x6237;&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x901A;&#x4FE1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x8981;&#x53D1;&#x56DE;&#x8FD9;&#x4E2A; JSON &#x5BF9;&#x8C61;&#x3002;&#x670D;&#x52A1;&#x5668;&#x5B8C;&#x5168;&#x53EA;&#x9760;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x8BA4;&#x5B9A;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x3002;</p>
+<p>JSON Web Token&#x4E2D;JSON&#x3001;Web&#x90FD;&#x5F88;&#x719F;&#x6089;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x91CC;&#x8BF4;&#x660E;&#x4E00;&#x4E0B;<code>Token</code>&#x3002;<br>
+<code>Token</code>&#x6280;&#x672F;&#x539F;&#x7406;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;&#xFF08;&#x8FD9;&#x91CC;&#x4EE5;&#x672C;&#x7B80;&#x540D;blog&#x642D;&#x5EFA;&#x73AF;&#x5883;&#x89C6;&#x4F5C;&#x4E3B;&#x4F53;&#xFF09;</p>
+<img src="http://localhost:2368/content/images/2021/03/--2021-03-11-02.26.25.png" width="50%">
+<blockquote>
+<h3 id="token">Token&#x5206;&#x6790;</h3>
+</blockquote>
+<p>&#x8FD9;&#x91CC;&#x4EE5; POSTMAN &#x63A5;&#x53E3;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#x8FD4;&#x56DE;&#x767B;&#x9646;&#x6548;&#x679C;&#xFF0C;&#x643A;&#x5E26;&#x7684;<code>token</code>&#x4E3A;&#x4F8B;&#xFF0C;&#x5206;&#x6790;&#x4E00;&#x4E0B;<code>token</code>&#x3002;</p>
+<img src="http://localhost:2368/content/images/2021/03/--2021-03-11-02.28.39.png" width="50%">
+<p>&#x53EF;&#x4EE5;&#x5F88;&#x660E;&#x663E;&#x7684;&#x89C2;&#x5BDF;&#x5230;&#xFF0C;<code>token</code>&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x957F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E2D;&#x95F4;&#x901A;&#x8FC7;&#x70B9;&#xFF08;.&#xFF09;&#x5206;&#x9694;&#x6210;&#x4E09;&#x4E2A;&#x4EFD;&#x3002;&#x4F9D;&#x6B21;&#x5206;&#x4E3A;&#xFF1A;header&#xFF08;&#x5934;&#x90E8;&#x533A;&#xFF09;&#x3001;payload&#xFF08;&#x8D1F;&#x8F7D;&#x533A;&#xFF09;&#x3001;signature&#xFF08;&#x7B7E;&#x540D;&#xFF09;&#x4E09;&#x90E8;&#x5206;&#x3002;<br>
+&#x5373;<code>token</code>=<code>header</code>.<code>payload</code>.<code>signature</code>&#x3002;</p>
+<ul>
+<li>Header-JSON&#x5BF9;&#x8C61;</li>
+</ul>
+<pre><code>{&quot;alg&quot;:&quot;HS256&quot;,&quot;typ&quot;:&quot;JWT&quot;}
+</code></pre>
+<p>&#x8FD9;&#x662F;&#x9ED8;&#x8BA4;<code>token</code>&#x7684;<code>header</code>&#x3002;&quot;alg&quot;=&gt;&quot;algorithm&quot;&#x3001;&quot;HS256&quot;=&gt;&quot;HMAC SHA256&quot;&#x3002;</p>
+<p>&#x5728;&#x4E0A;&#x8FF0;&#x8D34;&#x56FE;&#x4E2D;&#x672A;&#x4E0A;&#x7EBF;&#x6D4B;&#x8BD5;&#x7684;&#x9879;&#x76EE;&#x91C7;&#x7528;&#x7684;&#x662F;Bearer Token (RFC 6750) &#x7528;&#x4E8E;OAuth 2.0&#x6388;&#x6743;&#x8BBF;&#x95EE;&#x8D44;&#x6E90;&#xFF0C;&#x4EFB;&#x4F55;Bearer Token&#x6301;&#x6709;&#x8005;&#x90FD;&#x53EF;&#x4EE5;&#x65E0;&#x5DEE;&#x522B;&#x5730;&#x7528;&#x5B83;&#x6765;&#x8BBF;&#x95EE;&#x76F8;&#x5173;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x800C;&#x65E0;&#x9700;&#x8BC1;&#x660E;&#x6301;&#x6709;&#x52A0;&#x5BC6;key&#x3002;</p>
+<p>&#x597D;&#x4E86;&#xFF0C;&#x6536;&#xFF01;&#x6709;&#x5174;&#x8DA3;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x53BB;&#x7814;&#x7A76;&#x5176;&#x4ED6;&#x8DE8;&#x57DF;&#x8BA4;&#x8BC1;&#xFF0C;&#x5982;&#x4E0B;&#x3002;</p>
+<img src="http://localhost:2368/content/images/2021/03/--2021-03-11-02.45.19.png" width="50%">
+<ul>
+<li>Payload-JSON&#x5BF9;&#x8C61;<br>
+JWT&#x89C4;&#x5B9A;<code>Payload</code>&#x901A;&#x8FC7;7&#x4E2A;&#x5B98;&#x65B9;&#x5B57;&#x6BB5;&#x5B58;&#x653E;&#x4F20;&#x9012;&#x6570;&#x636E;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x589E;&#x8BBE;&#xFF08;JWT&#x9ED8;&#x8BA4;&#x4E0D;&#x52A0;&#x5BC6;&#xFF0C;&#x4E0D;&#x52A0;&#x654F;&#x611F;&#x6570;&#x636E;&#xFF09;&#xFF1A;</li>
+</ul>
+<pre><code>iss (issuer)&#xFF1A;&#x7B7E;&#x53D1;&#x4EBA;
+exp (expiration time)&#xFF1A;&#x8FC7;&#x671F;&#x65F6;&#x95F4;
+sub (subject)&#xFF1A;&#x4E3B;&#x9898;
+aud (audience)&#xFF1A;&#x53D7;&#x4F17;
+nbf (Not Before)&#xFF1A;&#x751F;&#x6548;&#x65F6;&#x95F4;
+iat (Issued At)&#xFF1A;&#x7B7E;&#x53D1;&#x65F6;&#x95F4;
+jti (JWT ID)&#xFF1A;&#x7F16;&#x53F7;
+</code></pre>
+<ul>
+<li>Signature<br>
+&#x6B64;&#x90E8;&#x5206;&#x8BBE;&#x7F6E;&#x7528;&#x6765;&#x9632;&#x6B62;<code>header</code>&#x3001;<code>payload</code>&#x88AB;&#x7BE1;&#x6539;&#x3002;&#x8FD9;&#x91CC;&#x4E5F;&#x5236;&#x5B9A;&#x4E86;&#x4EC5;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x67E5;&#x8BE2;&#x7684;&#x79D8;&#x94A5;&#x3002;<code>signature</code>&#x7B97;&#x6CD5;&#x4E5F;&#x4E3A;HS356&#x3002;</li>
+</ul>
+<p>&#x90A3;&#x4E48;&#x901A;&#x8FC7;&#x4E0A;&#x8FF0;&#x7684;&#x56FE;&#x6807;&#x4E0E;&#x89E3;&#x91CA;&#xFF0C;&#x8FD9;&#x4E2A;JWT&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x63A5;&#x53D7;&#x540E;&#xFF0C;&#x5B58;&#x653E;&#x5728; Cookie &#x6216; localStorage &#x4E2D;&#x3002;&#x5728;&#x65E5;&#x540E;&#x9700;&#x8981;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x901A;&#x8BAF;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x653E;&#x5728; HTTP &#x8BF7;&#x6C42;&#x7684;&#x5934;&#x90E8;&#x4FE1;&#x606F; Authoruzation &#x5B57;&#x6BB5;&#x4E2D;&#xFF08;&#x6216;&#x8005;POST&#x8BF7;&#x6C42;&#x4F53;&#x5185;&#xFF09;&#xFF0C;&#x770B;&#x7684;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x5728;&#x4E0A;&#x56FE; Chrome &#x6D4F;&#x89C8;&#x5668;&#x622A;&#x56FE;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x7ED3;&#x675F;</h2>
+</blockquote>
+<p>&#x867D;&#x7136;JWT&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x5F88;&#x9999;&#xFF0C;&#x4E0D;&#x8FC7;<code>token</code>&#x4E00;&#x65E6;&#x751F;&#x6210;&#x5C31;&#x65E0;&#x6CD5;&#x5728;&#x8FC7;&#x671F;&#x524D;&#x7EC8;&#x6B62;&#x3002;&#x4E14;JWT&#x9ED8;&#x8BA4;&#x4E0D;&#x52A0;&#x5BC6;&#xFF0C;&#x5B89;&#x5168;&#x9700;&#x8981;&#x8003;&#x8651;HTTPS&#x534F;&#x8BAE;&#x4F20;&#x8F93;&#x3002;<br>
+&#x5F53;&#x7136;&#xFF0C;&#x5728;&#x672C;Blog&#x8BF7;&#x653E;&#x5FC3;&#xFF0C;&#x4E0D;&#x4FE1;&#x53EF;&#x4EE5;&#x70B9;&#x5F00;&#x4E00;&#x4E0B;&#xFF0C;&#x91C7;&#x7528;&#x7684;&#x662F;HTTPS&#xFF0C;&#x5373;&#x901A;&#x8FC7;SSL&#x8BC1;&#x4E66;&#x52A0;&#x5BC6;&#x3002;&#x8BF7;&#x653E;&#x5FC3;&#x6D4F;&#x89C8;&#x54C8;&#x54C8;&#x54C8;&#x3002;</p>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[浅探CSRF与XSS攻击]]></title><description><![CDATA[用功譬若掘井，与其多掘数井而皆不及泉，何若老守一井，力求及泉而用之不竭乎。
+——曾国藩 《曾国藩家书》]]></description><link>http://localhost:2368/securityxsscsrf/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfdd0</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Tue, 15 Dec 2020 13:20:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>CSRF &#x4E0E; XSS &#x653B;&#x51FB;&#x662F;&#x8001;&#x751F;&#x5E38;&#x8C08;&#x7684;&#x8BDD;&#x9898;&#xFF0C;&#x4E5F;&#x662F;&#x6280;&#x672F;&#x53D1;&#x5C55;&#x4E2D;&#x529B;&#x4E89;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x8FD9;&#x91CC;&#x4E5F;&#x662F;&#x5E0C;&#x671B;&#x901A;&#x4FD7;&#x7684;&#x89E3;&#x91CA;&#x8FD9;&#x4E24;&#x79CD;&#x653B;&#x51FB;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x6B63;&#x6587;</h2>
+</blockquote>
+<blockquote>
+<h3 id="csrf">CSRF</h3>
+</blockquote>
+<p>CSRF&#xFF08;cross-site request forgery&#xFF09;&#x7FFB;&#x8BD1;&#x8FC7;&#x6765;&#x5C31;&#x662F;&quot;&#x8DE8;&#x7AD9;&#x8BF7;&#x6C42;&#x4F2A;&#x9020;&quot;&#x3002; &#x662F;&#x4E00;&#x79CD;&#x631F;&#x5236;&#x7528;&#x6237;&#x5728;&#x5F53;&#x524D;&#x5DF2;&#x767B;&#x5F55;&#x7684;Web&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E0A;&#x6267;&#x884C;&#x975E;&#x672C;&#x610F;&#x7684;&#x64CD;&#x4F5C;&#x7684;&#x653B;&#x51FB;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x7406;&#x89E3;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x767B;&#x5F55;&#x5B89;&#x5168;&#x7F51;&#x7AD9;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x53C8;&#x70B9;&#x5F00;&#x4E86;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x65F6;&#xFF0C;&#x5371;&#x9669;&#x9875;&#x9762;&#x4F1A;&#x4F2A;&#x9020;&#x8BF7;&#x6C42;&#xFF0C;&#x5192;&#x5145;&#x7528;&#x6237;&#x83B7;&#x53D6;&#x5728;&#x5B89;&#x5168;&#x7684;&#x7F51;&#x7AD9;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x751A;&#x81F3;&#x8FDB;&#x884C;&#x8BF7;&#x6C42;&#x3001;&#x64CD;&#x4F5C;&#x3002;</p>
+<blockquote>
+<h3 id="xss">XSS</h3>
+</blockquote>
+<p>XSS&#xFF08;Cross-site scripting&#xFF09;&#x7FFB;&#x8BD1;&#x8FC7;&#x6765;&#x5373;&quot;&#x8DE8;&#x7AD9;&#x811A;&#x672C;&quot;&#x3002;&#x662F;&#x4E00;&#x79CD; &#x7F51;&#x7AD9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F; &#x7684;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x653B;&#x51FB;&#xFF0C;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x6CE8;&#x5165;&#x7684;&#x4E00;&#x79CD;&#x3002;&#x5B83;&#x5141;&#x8BB8;&#x6076;&#x610F;&#x7528;&#x6237;&#x5C06;&#x4EE3;&#x7801;&#x6CE8;&#x5165;&#x5230;&#x7F51;&#x9875;&#x4E0A;&#xFF0C;&#x5176;&#x4ED6;&#x7528;&#x6237;&#x5728;&#x89C2;&#x770B;&#x7F51;&#x9875;&#x65F6;&#x5C31;&#x4F1A;&#x53D7;&#x5230;&#x5F71;&#x54CD;&#x3002;&#x8FD9;&#x7C7B;&#x653B;&#x51FB;&#x901A;&#x5E38;&#x5305;&#x542B;&#x4E86;HTML&#x4EE5;&#x53CA;&#x7528;&#x6237;&#x7AEF;&#x811A;&#x672C;&#x8BED;&#x8A00;&#x3002;</p>
+<p>&#x8FD9;&#x7C7B;&#x901A;&#x4FD7;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x5728;&#x672A;&#x77E5;&#x7F51;&#x9875;&#x4E2D;&#xFF0C;&#x5B58;&#x5728;&#x653B;&#x51FB;&#x6027;&#x7684;<code>&lt;script&gt;</code>&#x811A;&#x672C;&#x6216;&#x8005;<code>URL</code>&#x53C2;&#x6570;&#xFF0C;&#x4ECE;&#x800C;&#x4F20;&#x64AD;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#x6267;&#x884C;&#x3002;</p>
+<blockquote>
+<h3 id>&#x9632;&#x5FA1;&#x624B;&#x6BB5;</h3>
+</blockquote>
+<p>&#x5BF9;&#x4E8E; CSRF &#xFF1A;&#x53EF;&#x4EE5;&#x91C7;&#x53D6; <code>Token</code> &#x9A8C;&#x8BC1;&#x3001;&#x9690;&#x85CF;&#x4EE4;&#x724C;&#xFF08;&#x5C06;<code>Token</code>&#x9690;&#x85CF;&#x4E8E; http &#x7684;head&#x5934;&#x4E2D;&#xFF09; &#x6216; <code>Referer</code> &#x9A8C;&#x8BC1;&#xFF08;&#x9875;&#x9762;&#x8BF7;&#x6C42;&#x6765;&#x6E90;&#x4EC5;&#x63A5;&#x53D7;&#x672C;&#x7AD9;&#x8BF7;&#x6C42;&#xFF09;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;XSS&#xFF1A;&#x8FC7;&#x6EE4;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x3001;&#x4F7F;&#x7528; <code>HTTP</code> &#x5934;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x6587;&#x672B;</h2>
+</blockquote>
+<p>&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#xFF0C;&#x4FBF;&#x4E8E;&#x5BF9;&#x6BD4;&#x7406;&#x89E3;&#x4E0E;&#x8BB0;&#x5FC6;&#x3002;CSRF &#x5229;&#x7528;&#x7684;&#x662F;&#x7F51;&#x7AD9;&#x5BF9;&#x7528;&#x6237;&#x7F51;&#x9875;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x4FE1;&#x4EFB;&#xFF0C;XSS &#x5229;&#x7528;&#x7684;&#x662F;&#x7528;&#x6237;&#x5BF9;&#x6307;&#x5B9A;&#x7F51;&#x7AD9;&#x7684;&#x4FE1;&#x4EFB;&#x3002;&#x4E14; CSRF &#x662F;&#x5229;&#x7528;&#x4E00;&#x79CD;&#x903B;&#x8F91;&#xFF0C;&#x800C; XSS &#x653B;&#x51FB;&#x4F9D;&#x8D56;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x3001;&#x4E00;&#x7C7B;&#x811A;&#x672C;&#xFF08;Javascript&#x3001;Java...&#xFF09;&#x3002;</p>
+<blockquote>
+<h2 id>&#x4EE5;&#x4E0A;</h2>
+</blockquote>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[关于 Vue 项目的 BUGS]]></title><description><![CDATA[時には、良い人生を送るだけで誰かを救うのに十分です。
+-「容疑者Xの献身」]]></description><link>http://localhost:2368/vuebug/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfde5</guid><category><![CDATA[BUG handled]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Mon, 14 Dec 2020 12:21:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>&#x672C;&#x6587;&#x4E2D;&#x5C06;&#x5217;&#x4E3E;&#x51FA;&#x90E8;&#x5206;&#x5173;&#x4E8E; vue-cli &#x4F7F;&#x7528;&#x65F6;&#x7684;&#x67E5;&#x6539; BUG &#x5206;&#x6790;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x6B63;&#x6587;</h2>
+</blockquote>
+<p>&#x4EE5;&#x4E0B;&#x6BCF;&#x4E2A;&#x5C0F;&#x6807;&#x9898;&#x5219;&#x662F;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x89C1;&#x8FC7;&#x7684;&#x62A5;&#x9519;&#x573A;&#x666F;</p>
+<blockquote>
+<h3 id="title"><code>title</code>&#x4F18;&#x5316; &#x2714;&#xFE0F;</h3>
+</blockquote>
+<p>&#x7531;&#x4E8E;&#x9700;&#x8981;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x6253;&#x5305;&#x73AF;&#x5883;&#x7684; index &#x5185;&#x5BB9;&#x6709;&#x6240;&#x533A;&#x522B;&#xFF0C;&#x6545;&#x901A;&#x8FC7;&#x63D2;&#x4EF6;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x81EA;&#x8BA2;&#x5236;&#xFF0C;&#x5728;&#x63D2;&#x4EF6;&#x914D;&#x7F6E;&#x5B8C;&#x6210;&#x540E;&#x62A5;&#x9519;&#x5982;&#x4E0B;:</p>
+<pre><code>Template execution failed: ReferenceError: &#x274C;... is not defined
+ReferenceError: &#x274C;... is not defined
+  - index.html:7 eval
+    [.]/[cli-service]/[html-webpack-plugin]/lib/loader.js!./public/index.html:7:
+</code></pre>
+<p>&#x8003;&#x8651;&#x5230;&#x65B0;&#x52A0;&#x5165;&#x7684;&#x4EE3;&#x7801; <code>&lt;%= htmlWebpackPlugin.options.isProd ? &apos;&apos; : &apos;dev - &apos; %&gt;</code> &#x662F;&#x4E00;&#x79CD;&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;&#x8BED;&#x6CD5;&#x3002;&#x5728;&#x6392;&#x67E5;&#x5B8C;&#x8BED;&#x6CD5;&#x53CA;&#x5176;&#x4F7F;&#x7528;&#x89C4;&#x8303;&#x540E;&#xFF0C;&#x5B9A;&#x4F4D;&#x5230;&#x539F;&#x56E0;&#x662F;&#x6CE8;&#x91CA;&#x7684;&#x4E0D;&#x89C4;&#x8303;&#x3002;</p>
+<hr>
+<blockquote>
+<h3 id="vueui">vue-ui&#x65B0;&#x5EFA;&#x9879;&#x76EE; &#x2714;&#xFE0F;</h3>
+</blockquote>
+<p>&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x65F6;&#x5220;&#x9664; <code>hello.vue</code> &#x6587;&#x4EF6;&#x540E;&#xFF0C;&#x5728; <code>app.vue</code> &#x5BFC;&#x5165;&#x7EC4;&#x4EF6;&#x70ED;&#x7F16;&#x8BD1;&#x8FD0;&#x884C;&#x62A5;&#x9519;&#x5982;&#x4E0B;:</p>
+<pre><code>This relative module was not found:
+* ../views/About.vue in ./src/router/index.js
+</code></pre>
+<p>&#x56E0;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;&#x9009;&#x4E2D;&#x5B89;&#x88C5; router &#x4F9D;&#x8D56;&#xFF0C;&#x9700;&#x8981;&#x53CA;&#x65F6;&#x66F4;&#x65B0; router &#x4E2D;&#x5BF9;&#x5E94;&#x7684; index.js &#x76F8;&#x5173;&#x521D;&#x59CB;&#x5316;&#x914D;&#x7F6E;&#xFF0C;&#x6307;&#x5411; <code>app.vue</code></p>
+<hr>
+<blockquote>
+<h3 id="warning">warning &#x2753;</h3>
+</blockquote>
+<p>&#x5173;&#x4E8E;&#x6B64; &quot;&#x65E0;&#x6CD5;&#x89E3;&#x6790;&quot; &#x7684;&#x8B66;&#x544A;&#x51FA;&#x73B0;&#x51E0;&#x7387;&#x8F83;&#x4E3A;&#x9891;&#x7E41;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x5F71;&#x54CD;&#x8FD0;&#x884C;&#x3002;<br>
+<a href="https://github.com/vuejs/vue-cli/issues/2873">&#x8BE6;&#x60C5;&#x79FB;&#x6B65;</a></p>
+<pre><code>WARN  
+Couldn&apos;t parse bundle asset &quot;/Users/.../zsvuex/dist/js/chunk-vendors.js&quot;.
+Analyzer will use module sizes from stats file.
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="echarts">echarts &#x2714;&#xFE0F;</h3>
+</blockquote>
+<p>&#x53EF;&#x89C6;&#x5316;&#x56FE;&#x6807;&#x5F80;&#x5F80;&#x4F1A;&#x8003;&#x8651; Echarts &#xFF0C;&#x5728;&#x6309;&#x7167;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x8BF4;&#x660E;&#x8FDB;&#x884C;&#x6572;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x9047;&#x89C1;&#x5982;&#x4E0B;<a href="https://github.com/PanJiaChen/vue-admin-template/issues/607">&#x62A5;&#x9519;</a>:</p>
+<pre><code>[Echarts] TypeError: Cannot read property &apos;init&apos; of undefined
+</code></pre>
+<p>&#x90A3;&#x4E48;&#x5176;&#x5B9E;&#x633A;&#x660E;&#x663E;&#x7684;&#xFF0C;&#x57FA;&#x4E8E; <code> var myChart = echarts.init(document.getElementById(&apos;main&apos;));</code> &#x53EF;&#x4EE5;&#x770B;&#x51FA;init&#x672A;&#x5B9A;&#x4E49;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x53EA;&#x6709;&#x53EF;&#x80FD;&#x662F; <code>echarts</code> &#x6CA1;&#x6709;&#x5F15;&#x5165;&#x6210;&#x529F;&#x58F0;&#x660E;&#x5B9A;&#x4E49;&#x3002;&#x8865;&#x5145;&#x4EE3;&#x7801; <code>var echarts = require(&apos;echarts&apos;);</code>&#x5373;&#x53EF;&#x89E3;&#x51B3;&#x6B64;&#x95EE;&#x9898;&#x3002;</p>
+<hr>
+<blockquote>
+<h3 id="import">import &#x2714;&#xFE0F;</h3>
+</blockquote>
+<p>&#x5F15;&#x5165; vant &#x7EC4;&#x4EF6;&#x5E93;&#x51FA;&#x73B0;&#x62A5;&#x9519;</p>
+<pre><code>error  Import in body of module; reorder to top  import/first
+</code></pre>
+<p>&#x4EE3;&#x7801;&#x683C;&#x5F0F;&#x89C4;&#x8303;&#x8981;&#x6C42;&#x6240;&#x6709;&#x7684; <code>import</code> &#x5728;&#x4EE3;&#x7801;&#x7684;&#x9876;&#x90E8;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x4E2D;&#x95F4;&#x51FA;&#x73B0;&#x5176;&#x4ED6;&#x4EE3;&#x7801;&#xFF0C;&#x5982;<code>vue.use(vant)</code></p>
+<hr>
+<blockquote>
+<h3 id="postcsserror">PostCSS Error &#x2714;&#xFE0F;</h3>
+</blockquote>
+<p>&#x901A;&#x8FC7; <code>npm install postcss-pxtorem -D</code> &#x4E0B;&#x8F7D;&#x5C06; px &#x5355;&#x4F4D;&#x8F6C;&#x5316;&#x4E3A; rem &#x5355;&#x4F4D;&#x7684;&#x63D2;&#x4EF6;&#x51FA;&#x73B0;&#x62A5;&#x9519;&#x5982;&#x4E0B;:</p>
+<pre><code>Syntax Error: Error: PostCSS plugin postcss-pxtorem requires PostCSS 8.
+Migration guide for end-users:
+https://github.com/postcss/postcss/wiki/PostCSS-8-for-end-users
+
+
+ @ ./src/style/index.less ...
+ @ ./src/main.js
+ @ multi (webpack)-dev-server/client?http://192.xxx.xxx.2:8080&amp;sockPath=/sockjs-node (webpack)/hot/dev-server.js ./src/main.js
+</code></pre>
+<p>&#x62A5;&#x9519;&#x539F;&#x56E0;&#x662F; postcss-pxtorem &#x7248;&#x672C;&#x8FC7;&#x9AD8;&#xFF0C;PostCSS 8 &#x4E0D;&#x4F1A;&#x4E3A;&#x6700;&#x7EC8;&#x7528;&#x6237;&#x5E26;&#x6765;&#x91CD;&#x5927;&#x7684;API&#x66F4;&#x6539;&#x3002;&#x4F46;&#x662F;&#x653E;&#x5F03;&#x4E86;&#x5BF9;&#x65E7; Node.js &#x7248;&#x672C;&#x7684;&#x652F;&#x6301;&#x3002;&#x5148;&#x6267;&#x884C;: <code>npm uninstall postcss-pxtorem</code> &#x5378;&#x8F7D;&#x5F53;&#x524D;&#x7248;&#x672C;&#x3002;&#x518D;&#x5728;&#x9879;&#x76EE;&#x7684; package.json &#x4E2D; devDependencies &#x4E0B;&#x6DFB;&#x52A0;&quot;postcss-pxtorem&quot;: &quot;^5.1.1&quot;&#xFF0C;&#x6267;&#x884C; <code>npm i</code> &#x53EF;&#x89E3;&#x51B3;&#x3002;</p>
+<hr>
+<p>&#x5F85;&#x7EED;...</p>
+<hr>
+<blockquote>
+<h2 id>&#x7ED3;&#x675F;</h2>
+</blockquote>
+<p>&#x8FD9;&#x91CC;&#x4E0D;&#x8C08;&#x4F18;&#x5316;&#x4E4B;&#x6D41;&#x603B;&#x7ED3;&#xFF0C;&#x5355;&#x4ECE;&#x5728; vue-cli &#x7684;&#x70ED;&#x7F16;&#x8BD1;&#x4E2D;&#xFF0C;&#x6839;&#x636E;&#x751F;&#x6210;&#x6253;&#x5305;&#x62A5;&#x544A;&#x4FE1;&#x606F;&#x53D1;&#x73B0;&#x9879;&#x76EE;&#x7684;&#x95EE;&#x9898;&#x4E5F;&#x662F;&#x5E38;&#x89C1;&#x7684;&#x4F18;&#x5316;&#x624B;&#x6BB5;&#x3002;</p>
+<blockquote>
+<h3 id>&#x4EE5;&#x4E0A;</h3>
+</blockquote>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[HTML5新增特性]]></title><description><![CDATA[HTML5新特性是一面常被提起的基础。本文总结十大新特性以及实现效果。]]></description><link>http://localhost:2368/html5-new-features/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfdc0</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Sun, 29 Nov 2020 14:36:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h3 id>&#x8BED;&#x4E49;&#x5143;&#x7D20;&#x6807;&#x7B7E;</h3>
+</blockquote>
+<p>&#x8BED;&#x4E49;&#x5143;&#x7D20;&#x80FD;&#x591F;&#x66F4;&#x6E05;&#x695A;&#x7684;&#x63CF;&#x8FF0;&#x5176;&#x610F;&#x4E49;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x548C;&#x5F00;&#x53D1;&#x8005;&#x3002;</p>
+<hr>
+<table>
+<thead>
+    <tr><th>&#x6807;&#x7B7E;</th><th>&#x63CF;&#x8FF0;</th></tr>
+</thead>
+<tbody>
+    <tr><td>header</td><td>&#x5934;&#x90E8;&#x533A;&#x57DF;</td></tr>
+    <tr><td>nav</td><td>&#x5BFC;&#x822A;&#x533A;&#x57DF;</td></tr>
+    <tr><td>article</td><td>&#x5185;&#x5BB9;&#x533A;&#x57DF;</td></tr>
+    <tr><td>section</td><td>&#x6587;&#x6863;&#x533A;&#x6BB5;</td></tr>
+    <tr><td>aside</td><td>&#x4FA7;&#x8FB9;&#x680F;</td></tr>
+    <tr><td>footer</td><td>&#x5E95;&#x90E8;&#x533A;&#x57DF;</td></tr>
+    <tr><td>.........</td><td>.........</td></tr>
+</tbody>
+</table>
+<p><img src="http://localhost:2368/content/images/2021/03/html5-layout.jpg" alt="html5-layout" loading="lazy"><a href="https://www.runoob.com/html/html5-semantic-elements.html"><font color="#00B26A">&#x56FE;&#x7247;&#x94FE;&#x63A5;</font></a></p>
+<hr>
+<blockquote>
+<h3 id>&#x589E;&#x5F3A;&#x8868;&#x5355;&#x5143;&#x7D20;</h3>
+<h4 id>&#x8F93;&#x5165;&#x7C7B;&#x578B;&#xFF1A;</h4>
+</blockquote>
+<ul>
+<li>email =&gt; email &#x7C7B;&#x578B;&#x7528;&#x4E8E;&#x5E94;&#x8BE5;&#x5305;&#x542B; e-mail &#x5730;&#x5740;&#x7684;&#x8F93;&#x5165;&#x57DF;&#x3002;&#x5728;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x9A8C;&#x8BC1; email &#x57DF;&#x7684;&#x503C;&#x3002;<code>E-mail: &lt;input type=&quot;email&quot; name=&quot;user_email&quot; /&gt;</code></li>
+<li>url =&gt; url&#x7C7B;&#x578B;&#x7528;&#x4E8E;&#x5E94;&#x8BE5;&#x5305;&#x542B; URL &#x5730;&#x5740;&#x7684;&#x8F93;&#x5165;&#x57DF;&#x3002;&#x5728;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x9A8C;&#x8BC1; url &#x57DF;&#x7684;&#x503C;&#x3002;<code>Homepage: &lt;input type=&quot;url&quot; name=&quot;user_url&quot; /&gt;</code></li>
+<li>number =&gt; number &#x7C7B;&#x578B;&#x7528;&#x4E8E;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x6570;&#x503C;&#x7684;&#x8F93;&#x5165;&#x57DF;&#x3002;&#x53EF;&#x8FDB;&#x884C;&#x5BF9;&#x6240;&#x63A5;&#x53D7;&#x7684;&#x6570;&#x5B57;&#x7684;&#x9650;&#x5B9A;<code>Points: &lt;input type=&quot;number&quot; name=&quot;points&quot; min=&quot;1&quot; max=&quot;10&quot; /&gt;</code></li>
+<li>range =&gt; range &#x7C7B;&#x578B;&#x7528;&#x4E8E;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x4E00;&#x5B9A;&#x8303;&#x56F4;&#x5185;&#x6570;&#x5B57;&#x503C;&#x7684;&#x8F93;&#x5165;&#x57DF;&#x3002;&#x663E;&#x793A;&#x4E3A;&#x6ED1;&#x52A8;&#x6761;&#x3002;<code>&lt;input type=&quot;range&quot; name=&quot;points&quot; min=&quot;1&quot; max=&quot;10&quot; /&gt;</code><input type="range" name="points" min="1" max="10"></li>
+<li>Date pickers (date, month, week, time, datetime, datetime-local) =&gt; HTML5 &#x62E5;&#x6709;&#x591A;&#x4E2A;&#x53EF;&#x4F9B;&#x9009;&#x53D6;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x7684;&#x65B0;&#x8F93;&#x5165;&#x7C7B;&#x578B;&#xFF1A;<code>Date: &lt;input type=&quot;date&quot; name=&quot;user_date&quot; /&gt;</code><br>
+Date: <input type="date" name="user_date"></li>
+<li>search =&gt; search &#x7C7B;&#x578B;&#x7528;&#x4E8E;&#x641C;&#x7D22;&#x57DF;&#xFF0C;&#x6BD4;&#x5982;&#x7AD9;&#x70B9;&#x641C;&#x7D22;&#x6216; Google &#x641C;&#x7D22;&#x3002;</li>
+<li>color =&gt; &#x8FD9;&#x4E2A;&#x5C31;&#x6BD4;&#x8F83;&#x5B64;&#x72EC;&#xFF0C;&#x4EC5;Opera&#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;<br>
+&#x5F53;&#x7136;&#x4EE5;&#x4E0A;HTML5&#x65B0;&#x7279;&#x6027;&#x7684;&#x5F3A;&#x5316;&#x8868;&#x5355;&#x90FD;&#x4E0D;&#x652F;&#x6301;IE&#x6D4F;&#x89C8;&#x5668;&#x3002;</li>
+</ul>
+<blockquote>
+<h4 id>&#x65B0;&#x8868;&#x5355;&#x5143;&#x7D20;</h4>
+</blockquote>
+<ul>
+<li>datalist: =&gt; datalist &#x5143;&#x7D20;&#x89C4;&#x5B9A;&#x8F93;&#x5165;&#x57DF;&#x7684;&#x9009;&#x9879;&#x5217;&#x8868;&#x3002;</li>
+</ul>
+<pre><code>Webpage: &lt;input type=&quot;url&quot; list=&quot;url_list&quot; name=&quot;link&quot; /&gt;
+&lt;datalist id=&quot;url_list&quot;&gt;
+&lt;option label=&quot;zairesinatra&quot; value=&quot;http://www.zairesinatra.com&quot; /&gt;
+&lt;option label=&quot;Google&quot; value=&quot;http://www.google.com&quot; /&gt;
+&lt;option label=&quot;Microsoft&quot; value=&quot;http://www.microsoft.com&quot; /&gt;
+&lt;/datalist&gt;
+</code></pre>
+<ul>
+<li>keygen: =&gt; keygen &#x5143;&#x7D20;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x9A8C;&#x8BC1;&#x7528;&#x6237;&#x7684;&#x53EF;&#x9760;&#x65B9;&#x6CD5;&#x3002;&#x5373;&#x5BC6;&#x94A5;&#x5BF9;&#x751F;&#x6210;&#x5668;&#x3002;&#x5F53;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#x65F6;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#x4E24;&#x4E2A;&#x952E;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x79C1;&#x94A5;&#xFF0C;&#x4E00;&#x4E2A;&#x516C;&#x94A5;&#x3002;&#x79C1;&#x94A5;&#xFF08;private key&#xFF09;&#x5B58;&#x50A8;&#x4E8E;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x516C;&#x94A5;&#xFF08;public key&#xFF09;&#x5219;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#x3002;&#x516C;&#x94A5;&#x53EF;&#x7528;&#x4E8E;&#x4E4B;&#x540E;&#x9A8C;&#x8BC1;&#x7528;&#x6237;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x8BC1;&#x4E66;&#xFF08;client certificate&#xFF09;&#x3002;&#x2014;&#x2014;&#x5F53;&#x7136;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x5F88;&#x74DC;&#x76AE;&#xFF0C;&#x4E86;&#x89E3;&#x5C31;&#x597D;</li>
+<li>output: =&gt; output &#x5143;&#x7D20;&#x7528;&#x4E8E;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x6BD4;&#x5982;&#x8BA1;&#x7B97;&#x6216;&#x811A;&#x672C;&#x8F93;&#x51FA; --&#x4E00;&#x6837;&#x9EBB;&#x74DC;&#x3002;</li>
+</ul>
+<blockquote>
+<h4 id>&#x65B0;&#x8868;&#x5355;&#x5C5E;&#x6027;</h4>
+</blockquote>
+<ol>
+<li>&#x65B0;&#x7684; form &#x5C5E;&#x6027;&#xFF1A;</li>
+</ol>
+<ul>
+<li>autocomplete =&gt; autocomplete &#x5C5E;&#x6027;&#x89C4;&#x5B9A; form &#x6216; input &#x57DF;&#x5E94;&#x8BE5;&#x62E5;&#x6709;&#x81EA;&#x52A8;&#x5B8C;&#x6210;&#x529F;&#x80FD;&#x3002;</li>
+<li>novalidate =&gt; novalidate &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x5728;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#x65F6;&#x4E0D;&#x5E94;&#x8BE5;&#x9A8C;&#x8BC1; form &#x6216; input &#x57DF;&#x3002;</li>
+</ul>
+<ol start="2">
+<li>&#x65B0;&#x7684; input &#x5C5E;&#x6027;&#xFF1A;</li>
+</ol>
+<ul>
+<li>autocomplete =&gt; autocomplete &#x5C5E;&#x6027;&#x89C4;&#x5B9A; form &#x6216; input &#x57DF;&#x5E94;&#x8BE5;&#x62E5;&#x6709;&#x81EA;&#x52A8;&#x5B8C;&#x6210;&#x529F;&#x80FD;&#x3002;</li>
+<li>autofocus =&gt; autofocus &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x5728;&#x9875;&#x9762;&#x52A0;&#x8F7D;&#x65F6;&#xFF0C;&#x57DF;&#x81EA;&#x52A8;&#x5730;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x3002;</li>
+<li>form =&gt; form &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x8F93;&#x5165;&#x57DF;&#x6240;&#x5C5E;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x8868;&#x5355;&#x3002;&#x6BD4;&#x5982;firstname\lastname&#x8FD8;&#x662F;&#x4E00;&#x4E2A;&#x8868;&#x5355;&#x3002;</li>
+<li>form overrides (formaction, formenctype, formmethod, formnovalidate, formtarget)</li>
+<li>height &#x548C; width =&gt; height &#x548C; width &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x7528;&#x4E8E; image &#x7C7B;&#x578B;&#x7684; input &#x6807;&#x7B7E;&#x7684;&#x56FE;&#x50CF;&#x9AD8;&#x5EA6;&#x548C;&#x5BBD;&#x5EA6;&#x3002;</li>
+<li>list =&gt; list &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x8F93;&#x5165;&#x57DF;&#x7684; datalist&#x3002;datalist &#x662F;&#x8F93;&#x5165;&#x57DF;&#x7684;&#x9009;&#x9879;&#x5217;&#x8868;&#x3002;&#x548C;&#x4E0A;&#x8FF0;&#x7684;&#x65B0;&#x8868;&#x5355;&#x5143;&#x7D20;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</li>
+<li>min, max &#x548C; step =&gt; min&#x3001;max &#x548C; step &#x5C5E;&#x6027;&#x7528;&#x4E8E;&#x4E3A;&#x5305;&#x542B;&#x6570;&#x5B57;&#x6216;&#x65E5;&#x671F;&#x7684; input &#x7C7B;&#x578B;&#x89C4;&#x5B9A;&#x9650;&#x5B9A;&#xFF08;&#x7EA6;&#x675F;&#xFF09;&#x3002;</li>
+<li>multiple =&gt; multiple &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x8F93;&#x5165;&#x57DF;&#x4E2D;&#x53EF;&#x9009;&#x62E9;&#x591A;&#x4E2A;&#x503C;&#x3002;</li>
+<li>pattern (regexp) =&gt; pattern &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x7528;&#x4E8E;&#x9A8C;&#x8BC1; input &#x57DF;&#x7684;&#x6A21;&#x5F0F;&#xFF08;pattern&#xFF09;&#x3002;&#x6A21;&#x5F0F;&#xFF08;pattern&#xFF09; &#x662F;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</li>
+<li>placeholder =&gt; placeholder &#x5C5E;&#x6027;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x63D0;&#x793A;&#xFF08;hint&#xFF09;&#xFF0C;&#x63CF;&#x8FF0;&#x8F93;&#x5165;&#x57DF;&#x6240;&#x671F;&#x5F85;&#x7684;&#x503C;&#x3002;</li>
+<li>required =&gt; required &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x5FC5;&#x987B;&#x5728;&#x63D0;&#x4EA4;&#x4E4B;&#x524D;&#x586B;&#x5199;&#x8F93;&#x5165;&#x57DF;&#xFF08;&#x4E0D;&#x80FD;&#x4E3A;&#x7A7A;&#xFF09;&#x3002;</li>
+</ul>
+<hr>
+<blockquote>
+<h3 id>&#x97F3;&#x9891;&#x4E0E;&#x89C6;&#x9891;</h3>
+</blockquote>
+<ul>
+<li>&#x97F3;&#x9891;&#x5143;&#x7D20;&#x6807;&#x7B7E;&#xFF1A;<code>&lt;audio src=&quot;song.ogg&quot; controls=&quot;controls&quot;&gt;&lt;/audio&gt;</code></li>
+<li>&#x89C6;&#x9891;&#x5143;&#x7D20;&#x6807;&#x7B7E;&#xFF1A;<code>&lt;video src=&quot;movie.ogg&quot; controls=&quot;controls&quot;&gt;&lt;video&gt;</code></li>
+</ul>
+<p><em><code>&lt;audio&gt;</code>&#x5143;&#x7D20;&#x652F;&#x6301;<code>Ogg&#x3001;MP3&#x3001;Wav</code>&#x97F3;&#x9891;&#x683C;&#x5F0F;</em><br>
+<em><code>&lt;video&gt;</code>&#x5143;&#x7D20;&#x652F;&#x6301;<code>Ogg&#x3001;MPEG&#x3001;WebM</code>&#x89C6;&#x9891;&#x683C;&#x5F0F;</em></p>
+<p><audio src="https://res.cloudinary.com/dzb9ldnvl/video/upload/v1615061042/yuanyouhui.mp3" controls="controls"><div style="border: 1px solid black ; padding: 10px ;" controlslist="nodownload">&#x548C;&#x6211;&#x4E00;&#x8D77;&#x6765;&#x542C; <em>&#x5468;&#x6770;&#x4F26;</em> &#x7684;<font color="#06B4FE"><strong>&#x300A;&#x56ED;&#x6E38;&#x4F1A;&#x300B;</strong></font> &#x6709;&#x4EFB;&#x4F55;&#x95EE;&#x9898;<strong>&#x8BF7;&#x8054;&#x7CFB;<em>zairesinatra</em></strong></div></audio></p>
+<hr>
+<blockquote>
+<h3 id="canvas">Canvas&#x7ED8;&#x56FE;</h3>
+</blockquote>
+<p>HTML5 &#x7684; canvas &#x5143;&#x7D20;&#x4F7F;&#x7528; JavaScript &#x5728;&#x7F51;&#x9875;&#x4E0A;&#x7ED8;&#x5236;&#x56FE;&#x50CF;&#x3002;</p>
+<p>&#x753B;&#x5E03;&#x662F;&#x4E00;&#x4E2A;&#x77E9;&#x5F62;&#x533A;&#x57DF;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x5176;&#x6BCF;&#x4E00;&#x50CF;&#x7D20;&#x3002;</p>
+<p>canvas &#x62E5;&#x6709;&#x591A;&#x79CD;&#x7ED8;&#x5236;&#x8DEF;&#x5F84;&#x3001;&#x77E9;&#x5F62;&#x3001;&#x5706;&#x5F62;&#x3001;&#x5B57;&#x7B26;&#x4EE5;&#x53CA;&#x6DFB;&#x52A0;&#x56FE;&#x50CF;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5B9E;&#x4F8B;&#xFF1A;</p>
+<pre><code>!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;canvas&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt; 
+        body
+        {
+        font-size:70%;
+        font-family:verdana,helvetica,arial,sans-serif;
+        }
+        &lt;/style&gt;
+        
+        &lt;script type=&quot;text/javascript&quot;&gt; 
+        function cnvs_getCoordinates(e)
+        {
+        x=e.clientX;
+        y=e.clientY;
+        document.getElementById(&quot;xycoordinates&quot;).innerHTML=&quot;Coordinates: (&quot; + x + &quot;,&quot; + y + &quot;)&quot;;
+        }
+         
+        function cnvs_clearCoordinates()
+        {
+        document.getElementById(&quot;xycoordinates&quot;).innerHTML=&quot;&quot;;
+        }
+        &lt;/script&gt;
+&lt;/head&gt;
+&lt;body style=&quot;margin:0px;&quot;&gt;
+    &lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;&lt;/canvas&gt;
+    &lt;canvas id=&quot;myCanvas2&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;&lt;/canvas&gt;
+    &lt;canvas id=&quot;myCanvas3&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #c3c3c3;&quot;&gt;
+        Your browser support the canvas element.
+    &lt;/canvas&gt;
+    &lt;canvas id=&quot;myCanvas4&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #c3c3c3;&quot;&gt;
+        Your browser does not support the canvas element.
+    &lt;/canvas&gt;
+    &lt;canvas id=&quot;myCanvas5&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #c3c3c3;&quot;&gt;
+        Your browser does not support the canvas element.
+    &lt;/canvas&gt;
+    &lt;p&gt;&#x628A;&#x9F20;&#x6807;&#x60AC;&#x505C;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x77E9;&#x5F62;&#x4E0A;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5750;&#x6807;&#xFF1A;&lt;/p&gt;
+    &lt;div id=&quot;coordiv&quot; style=&quot;float:left;width:199px;height:99px;border:1px solid #c3c3c3&quot; onmousemove=&quot;cnvs_getCoordinates(event)&quot; onmouseout=&quot;cnvs_clearCoordinates()&quot;&gt;&lt;/div&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;div id=&quot;xycoordinates&quot;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        var c=document.getElementById(&quot;myCanvas&quot;);
+        var cxt=c.getContext(&quot;2d&quot;);
+        cxt.fillStyle=&quot;#FF0000&quot;;
+        cxt.fillRect(0,0,150,75);
+        var c=document.getElementById(&quot;myCanvas2&quot;);
+        var cxt=c.getContext(&quot;2d&quot;);
+        cxt.moveTo(0,0);
+        cxt.lineTo(50,50);
+        cxt.lineTo(100,50);
+        cxt.stroke();// &#x5448;&#x73B0;
+        // ----------
+        var cc=document.getElementById(&quot;myCanvas3&quot;);
+        var cxk=cc.getContext(&quot;2d&quot;);
+        cxk.fillStyle=&quot;#FF0000&quot;;
+        cxk.beginPath();
+        cxk.arc(70,18,15,0,Math.PI*2,true);
+        cxk.closePath();
+        cxk.fill();
+        // -----------
+        var cdcd=document.getElementById(&quot;myCanvas4&quot;);
+        var cxtcdcd=cdcd.getContext(&quot;2d&quot;);
+        var grd=cxtcdcd.createLinearGradient(0,0,175,50);
+        grd.addColorStop(0,&quot;#06B4FE&quot;);
+        grd.addColorStop(1,&quot;#00B26A&quot;);
+        cxtcdcd.fillStyle=grd;
+        cxtcdcd.fillRect(0,0,175,50);
+        // ------------&#x628A;&#x4E00;&#x5E45;&#x56FE;&#x50CF;&#x653E;&#x7F6E;&#x5230;&#x753B;&#x5E03;&#x4E0A;&#xFF1A;
+        var cqqq=document.getElementById(&quot;myCanvas5&quot;);
+        var cxtqqq=cqqq.getContext(&quot;2d&quot;);
+        var img=new Image()
+        img.src=&quot;https://zairesinatra.com/content/images/size/w2000/2021/03/githubbgg.png&quot;
+        cxtqqq.drawImage(img,0,0);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>&#x8BE6;&#x89C1;&#x8BF7;&#x524D;&#x5F80;https://www.w3school.com.cn/html5/html_5_canvas.asp &#x590D;&#x4E60;</p>
+<hr>
+<blockquote>
+<h3 id="svg">SVG&#x7ED8;&#x56FE;</h3>
+</blockquote>
+<p>&#x4E07;&#x7EF4;&#x7F51;&#x8054;&#x76DF;&#x7684;&#x6807;&#x51C6; SVG &#x6307;&#x53EF;&#x4F38;&#x7F29;&#x77E2;&#x91CF;&#x56FE;&#x5F62; (Scalable Vector Graphics)&#x3002;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x7528;&#x4E8E;&#x7F51;&#x7EDC;&#x7684;&#x57FA;&#x4E8E;&#x77E2;&#x91CF;&#x7684;&#x56FE;&#x5F62;&#xFF0C;&#x4F7F;&#x7528; XML &#x683C;&#x5F0F;&#x5B9A;&#x4E49;&#xFF0C;&#x4E14;SVG &#x56FE;&#x50CF;&#x5728;&#x653E;&#x5927;&#x6216;&#x6539;&#x53D8;&#x5C3A;&#x5BF8;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5176;&#x56FE;&#x5F62;&#x8D28;&#x91CF;&#x4E0D;&#x4F1A;&#x6709;&#x635F;&#x5931;&#x3002;</p>
+<hr>
+<blockquote>
+<h3 id>&#x5730;&#x7406;&#x5B9A;&#x4F4D;</h3>
+</blockquote>
+<p>Geolocation API &#x7528;&#x4E8E;&#x83B7;&#x5F97;&#x7528;&#x6237;&#x7684;&#x5730;&#x7406;&#x4F4D;&#x7F6E;&#x3002;&#x9274;&#x4E8E;&#x8BE5;&#x7279;&#x6027;&#x53EF;&#x80FD;&#x4FB5;&#x72AF;&#x7528;&#x6237;&#x7684;&#x9690;&#x79C1;&#xFF0C;&#x9664;&#x975E;&#x7528;&#x6237;&#x540C;&#x610F;&#xFF0C;&#x5426;&#x5219;&#x7528;&#x6237;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#x662F;&#x4E0D;&#x53EF;&#x7528;&#x7684;&#x3002;</p>
+<p>&#x4F7F;&#x7528; getCurrentPosition() &#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x5F97;&#x7528;&#x6237;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<pre><code>&lt;p id=&quot;demo&quot;&gt;&#x70B9;&#x51FB;&#x8FD9;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x83B7;&#x5F97;&#x60A8;&#x7684;&#x5750;&#x6807;&#xFF1A;&lt;/p&gt;
+&lt;button onclick=&quot;getLocation()&quot;&gt;&#x8BD5;&#x4E00;&#x4E0B;&lt;/button&gt;
+</code></pre>
+<pre><code>var x=document.getElementById(&quot;demo&quot;);
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML=&quot;Geolocation is not supported by this browser.&quot;;}
+  }
+function showPosition(position)
+  {// &#x8FD4;&#x56DE;&#x7528;&#x6237;&#x4F4D;&#x7F6E;&#x7684;&#x7ECF;&#x5EA6;&#x548C;&#x7EAC;&#x5EA6;
+  x.innerHTML=&quot;Latitude: &quot; + position.coords.latitude + 
+  &quot;&lt;br /&gt;Longitude: &quot; + position.coords.longitude;	
+  }
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="api">&#x62D6;&#x653E;API</h3>
+</blockquote>
+<hr>
+<blockquote>
+<h3 id="webworker">Web Worker</h3>
+</blockquote>
+<p>web worker &#x662F;&#x8FD0;&#x884C;&#x5728;&#x540E;&#x53F0;&#x7684; JavaScript&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x9875;&#x9762;&#x7684;&#x6027;&#x80FD;&#x3002;</p>
+<p><strong>&#x5BF9;&#x6BD4;&#xFF1A;</strong></p>
+<ul>
+<li>&#x5F53;&#x5728; HTML &#x9875;&#x9762;&#x4E2D;&#x6267;&#x884C;&#x811A;&#x672C;&#x65F6;&#xFF0C;&#x9875;&#x9762;&#x7684;&#x72B6;&#x6001;&#x662F;&#x4E0D;&#x53EF;&#x54CD;&#x5E94;&#x7684;&#xFF0C;&#x76F4;&#x5230;&#x811A;&#x672C;&#x5DF2;&#x5B8C;&#x6210;&#x3002;</li>
+<li>web worker &#x662F;&#x8FD0;&#x884C;&#x5728;&#x540E;&#x53F0;&#x7684; JavaScript&#xFF0C;&#x72EC;&#x7ACB;&#x4E8E;&#x5176;&#x4ED6;&#x811A;&#x672C;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x9875;&#x9762;&#x7684;&#x6027;&#x80FD;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x505A;&#x4EFB;&#x4F55;&#x613F;&#x610F;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#xFF1A;&#x70B9;&#x51FB;&#x3001;&#x9009;&#x53D6;&#x5185;&#x5BB9;&#x7B49;&#x7B49;&#xFF0C;&#x800C;&#x6B64;&#x65F6; web worker &#x5728;&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x3002;</li>
+</ul>
+<hr>
+<blockquote>
+<h3 id="webstorage">Web Storage</h3>
+</blockquote>
+<p>HTML5 &#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x79CD;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x7684;&#x65B0;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>localStorage - &#x6CA1;&#x6709;&#x65F6;&#x95F4;&#x9650;&#x5236;&#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;</li>
+<li>sessionStorage - &#x9488;&#x5BF9;&#x4E00;&#x4E2A; session &#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;<br>
+&#x4E4B;&#x524D;&#xFF0C;&#x8FD9;&#x4E9B;&#x90FD;&#x662F;&#x7531; cookie &#x5B8C;&#x6210;&#x7684;&#x3002;&#x4F46;&#x662F; cookie &#x4E0D;&#x9002;&#x5408;&#x5927;&#x91CF;&#x6570;&#x636E;&#x7684;&#x5B58;&#x50A8;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x7531;&#x6BCF;&#x4E2A;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BF7;&#x6C42;&#x6765;&#x4F20;&#x9012;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97; cookie &#x901F;&#x5EA6;&#x5F88;&#x6162;&#x800C;&#x4E14;&#x6548;&#x7387;&#x4E5F;&#x4E0D;&#x9AD8;&#x3002;</li>
+</ul>
+<hr>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[Element-UI 中 el-cascader 显示问题解决]]></title><description><![CDATA[没有比脚更长的路，没有比人更高的山。
+-- 汪国真 《山高路远》]]></description><link>http://localhost:2368/element-ui/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfde4</guid><category><![CDATA[BUG handled]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Fri, 20 Nov 2020 13:55:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x6B63;&#x6587;</h2>
+</blockquote>
+<blockquote>
+<h3 id="bug">BUG:</h3>
+</blockquote>
+<p>&#x540E;&#x53F0;&#x8FD4;&#x56DE;&#x5217;&#x8868;&#x6570;&#x636E;&#x8F83;&#x591A;&#xFF0C;&#x901A;&#x8FC7; Element-UI &#x4E2D; <code>el-cascader</code> &#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x5BFC;&#x81F4;&#x6570;&#x636E;&#x6DF7;&#x4E71;&#x4E0E;&#x4E22;&#x5931;&#xFF0C;&#x4E14;&#x51FA;&#x73B0;&#x65E0;&#x6EDA;&#x52A8;&#x6761;&#x3001;&#x5B50;&#x83DC;&#x5355;&#x7A7A;&#x767D;&#x7B49;&#x60C5;&#x51B5;&#x3002;</p>
+<blockquote>
+<h3 id>&#x539F;&#x56E0;&#x5206;&#x6790;:</h3>
+</blockquote>
+<p>&#x5728; Chrome &#x7684; Elements &#x4E2D;&#x53EF;&#x4EE5;&#x6E05;&#x695A;&#x770B;&#x89C1;&#x5728;&#x6E32;&#x67D3;&#x7EA7;&#x8054;&#x6570;&#x636E;&#x7F3A;&#x5931;&#x6DF7;&#x4E71;&#x7684;&#x5BB9;&#x5668;&#x6837;&#x5F0F;&#x4E3A; <code>.el-cascader-menu </code> &#x6216; <code>.el-cascader-panel</code>&#x3002;&#x56E0;&#x7F3A;&#x5931;&#x7684;&#x6570;&#x636E;&#x5C5E;&#x4E8E;&#x7B2C;&#x4E00;&#x5C42;&#x7EA7;&#x8054;&#x6570;&#x636E;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5F97;&#x51FA;&#x662F;&#x7531;&#x4E8E;&#x6570;&#x636E;&#x8F83;&#x591A;&#xFF0C;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x6837;&#x5F0F;&#x9AD8;&#x5EA6;&#x95EE;&#x9898;&#x5BFC;&#x81F4;&#x7684;&#x6570;&#x636E;&#x6EA2;&#x51FA;&#x4E22;&#x5931;&#x3002;&#x8FD9;&#x91CC;&#x5C1D;&#x8BD5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x9AD8;&#x5EA6;&#x6837;&#x5F0F;&#x8FDB;&#x884C;&#x4FEE;&#x6B63;&#x3002;</p>
+<blockquote>
+<h3 id>&#x89E3;&#x51B3;:</h3>
+</blockquote>
+<p>&#x56E0;&#x9700;&#x6C42;&#x901A;&#x5E38;&#x4F1A;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x6E32;&#x67D3;&#x7EA7;&#x8054;&#x6570;&#x636E;&#xFF0C;&#x6545;&#x5728;&#x5168;&#x5C40;&#x6837;&#x5F0F;&#x4E2D;&#x5199;&#x5165;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p>&#x7ECF;&#x68C0;&#x6D4B;&#xFF0C;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x4EFB;&#x610F;&#x4E00;&#x9879;&#x5728;&#x5168;&#x5C40;CSS&#x6837;&#x5F0F;&#x8BBE;&#x7F6E;&#x5373;&#x53EF;&#x89E3;&#x51B3;&#x6B64;&#x95EE;&#x9898;&#x3002;</p>
+<pre><code class="language-css">.el-cascader-menu {
+    height: 200px;
+}
+</code></pre>
+<pre><code class="language-css">.el-cascader-panel {
+    height: 200px;
+}
+</code></pre>
+<hr>
+<blockquote>
+<h2 id>&#x7ED3;&#x5C3E;</h2>
+</blockquote>
+<p>&#x5BF9;&#x4E8E;&#x6B64;&#x7C7B;&#x73B0;&#x8C61;&#x539F;&#x56E0;&#x7684;&#x60EF;&#x6027;&#x5206;&#x6790;&#xFF0C;&#x5F80;&#x5F80;&#x4F1A;&#x4ECE;&#x540E;&#x7AEF;&#x4F20;&#x9012;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6216;&#x8005;&#x662F;&#x7EC4;&#x4EF6;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x8003;&#x8651;&#xFF0C;&#x4F46;&#x662F;&#x6B64; BUG &#x7ED9;&#x6211;&#x4E0A;&#x4E86;&#x4E00;&#x8BFE;&#x2014;&#x2014;&#x4E5F;&#x8981;&#x4E0D;&#x8981;&#x5FD8;&#x8BB0;&#x4ECE; DOM &#x5143;&#x7D20;&#x8FDB;&#x884C;&#x987A;&#x5E8F;&#x5206;&#x6790;&#x3002;</p>
+<blockquote>
+<h3 id>&#x4EE5;&#x4E0A;</h3>
+</blockquote>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[Debounce&Throttle]]></title><description><![CDATA[星星发亮是为了让每一个人有一天都能找到属于自己的星星
+——《小王子》]]></description><link>http://localhost:2368/debouncethrottle/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfdd7</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Sun, 20 Sep 2020 11:28:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>&#x9632;&#x6296;&#x4E0E;&#x8282;&#x6D41;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x6B63;&#x6587;</h2>
+</blockquote>
+<blockquote>
+<h3 id="fontcolorfb4b63debouncefont"><font color="FB4B63">&#x9632;&#x6296;&#x7B56;&#x7565;(debounce)&#xFF1A;</font></h3>
+</blockquote>
+<p><strong>&#x610F;&#x4E49;&#xFF1A;</strong> &#x4FDD;&#x8BC1;&#x9891;&#x7E41;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;&#x4EC5;&#x88AB;&#x89E6;&#x53D1;&#x4E00;&#x6B21;&#x3002;&#x51CF;&#x5C11;&#x8BF7;&#x6C42;&#x6B21;&#x6570;&#x3001;&#x8282;&#x7EA6;&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#x3002;</p>
+<p><strong>&#x5B9A;&#x4E49;&#xFF1A;</strong> &#x5F53;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x540E;&#xFF0C;&#x5EF6;&#x8FDF;n&#x79D2;&#x518D;&#x6267;&#x884C;&#x56DE;&#x8C03;&#xFF0C;&#x82E5;&#x5728;&#x8FD9;n&#x79D2;&#x5185;&#x4E8B;&#x4EF6;&#x53C8;&#x88AB;&#x89E6;&#x53D1;&#x5219;&#x91CD;&#x65B0;&#x8BA1;&#x65F6;&#x3002;&#x2014;&#x2014;&#x7C7B;&#x4F3C;&#x6E38;&#x620F;&#x82F1;&#x96C4;&#x8054;&#x76DF;&#x7684;&#x56DE;&#x57CE;&#x64CD;&#x4F5C;&#x3002;</p>
+<p><strong>&#x56FE;&#x4F8B;&#xFF1A;</strong> <img src="http://localhost:2368/content/images/2021/03/--2021-03-17-02.31.45.png" width="50%"></p>
+<p><strong>&#x5E94;&#x7528;&#xFF1A;</strong> &#x8F93;&#x5165;&#x6846;&#x9632;&#x6296;-&#x6DD8;&#x5B9D;&#x641C;&#x7D22;&#x6846;&#x4E2D;&#x8FDE;&#x7EED;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#xFF0C;&#x4FDD;&#x8BC1;&#x4EC5;&#x5728;&#x8F93;&#x5165;&#x5B8C;&#x6210;&#x540E;&#x624D;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#x7684;&#x8BF7;&#x6C42;&#x3002;</p>
+<p><strong>&#x4E0D;&#x91C7;&#x7528;&#x9632;&#x6296;&#x95EE;&#x9898;&#x590D;&#x73B0;&#xFF1A;</strong></p>
+<pre><code>// &#x5982;&#x679C;&#x4E0D;&#x52A0;&#x9632;&#x6296;&#x51FD;&#x6570;,chrome&#x63A7;&#x5236;&#x53F0;&#x6BCF;&#x5F53;&#x4F60;&#x6309;&#x4E0B;&#x952E;&#x76D8;&#x5219;&#x8F93;&#x51FA;
+&lt;input type=&quot;text&quot; class=&quot;ipt&quot;&gt;
+</code></pre>
+<pre><code>&lt;script&gt;
+        const ipt = document.querySelector(&apos;.ipt&apos;)
+        ipt.onkeyup = function(){
+            console.log(ipt.value)
+        }
+&lt;/script&gt;
+</code></pre>
+<img src="http://localhost:2368/content/images/2021/03/nodebounce.gif" width="50%">
+<p><strong>&#x91C7;&#x7528;&#x9632;&#x6296;&#x89E3;&#x51B3;&#xFF1A;</strong></p>
+<pre><code>let timer = null
+ipt.onkeyup = function(){
+    if(timer){
+        clearTimeout(timer)
+    }
+    timer = setTimeout(()=&gt;{
+        console.log(ipt.value)
+    },2000)
+}
+</code></pre>
+<p>&#x7531;&#x4E8E;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x62BD;&#x79BB;&#x51FA;&#x6765;&#x5C01;&#x88C5;&#x81EA;&#x5DF1;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x3002;&#x907F;&#x514D;&#x6BCF;&#x9047;&#x89C1;&#x9632;&#x6296;&#x53C8;&#x5F97;&#x624B;&#x5199;&#x4E00;&#x904D;&#x3002;&#x5C01;&#x88C5;&#x6210;debounce&#xFF1A;</p>
+<pre><code>function debounce(fn,delay=2000) { // &#x4F20;&#x5165;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x4E0E;&#x5EF6;&#x8FDF;;&#x5EF6;&#x8FDF;&#x4E0D;&#x4F20;&#x5165;&#x8BBE;&#x9ED8;&#x8BA4;&#x503C;
+            let timer; // const&#x5FC5;&#x987B;&#x521D;&#x59CB;&#x5316;,&#x8FD9;&#x91CC;&#x7528;let
+            return ()=&gt;{ // &#x7528;&#x5916;&#x51FD;&#x6570;&#x7684;timer&#x5F62;&#x6210;&#x95ED;&#x5305;
+                if(timer){clearTimeout(timer)} // &#x6709;timer
+                timer = setTimeout(() =&gt; { // &#x6CA1;timer
+                    fn();
+                }, delay);
+            }
+        }
+ipt.onkeyup = debounce(()=&gt;{console.log(ipt.value)},1500)
+</code></pre>
+<p><strong>&#x5B9E;&#x73B0;&#x6548;&#x679C;&#xFF1A;</strong><br>
+<img src="http://localhost:2368/content/images/2021/03/debounce.gif" width="50%"></p>
+<hr>
+<blockquote>
+<h3 id="fontcolorfb4b63throttlefont"><font color="FB4B63">&#x8282;&#x6D41;&#x7B56;&#x7565;(throttle)&#xFF1A;</font></h3>
+</blockquote>
+<p><strong>&#x610F;&#x4E49;&#xFF1A;</strong> &#x89E3;&#x51B3;&#x56E0;&#x9891;&#x7E41;&#x89E6;&#x53D1;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x7684;&#x5361;&#x987F;&#x73B0;&#x8C61;&#x3002;</p>
+<p><strong>&#x5B9A;&#x4E49;&#xFF1A;</strong> &#x8FDE;&#x7EED;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x60C5;&#x5728;n&#x79D2;&#x5185;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x2014;&#x2014;&#x7C7B;&#x4F3C;&#x5C04;&#x51FB;&#x6E38;&#x620F;&#x8FDB;&#x884C;&#x8FDE;&#x7EED;&#x70B9;&#x51FB;&#xFF0C;&#x4F46;&#x67AA;&#x68B0;&#x5B58;&#x5728;&#x56FA;&#x5B9A;&#x5C04;&#x901F;&#x3002;</p>
+<p><strong>&#x56FE;&#x4F8B;&#xFF1A;</strong> <img src="http://localhost:2368/content/images/2021/03/--2021-03-17-05.27.10.png" width="50%"></p>
+<p><strong>&#x5E94;&#x7528;&#xFF1A;</strong> &#x62D6;&#x62FD;&#x6548;&#x679C;&#x7684;&#x8282;&#x6D41;&#x3001;&#x4E91;&#x670D;&#x52A1;&#x5668;&#x66F4;&#x65B0;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x6BD4;&#x7387;&#x3001;&#x79FB;&#x52A8;&#x7AEF;&#x540E;&#x53F0;&#x5237;&#x65B0;&#x5B9A;&#x4F4D;&#x9891;&#x7387;&#x3002;</p>
+<p><strong>&#x4E0D;&#x91C7;&#x7528;&#x8282;&#x6D41;&#x95EE;&#x9898;&#x590D;&#x73B0;&#xFF1A;</strong></p>
+<pre><code>&lt;style&gt;
+   .zs{
+       width: 50px;
+       height: 50px;
+       background-color: #424242;
+       border-radius: 50%;
+       color:red;
+       font-size: 5px;
+       text-align: center;
+   }
+&lt;/style&gt;
+</code></pre>
+<pre><code>&lt;div class=&quot;zs&quot; draggable=&quot;true&quot;&gt;zy&lt;/div&gt;
+&lt;script&gt;
+    const zs = document.querySelector(&apos;.zs&apos;)
+    zs.ondrag = function(e){
+        console.log(e.offsetX,e.offsetY)
+    }
+&lt;/script&gt;
+</code></pre>
+<img src="http://localhost:2368/content/images/2021/03/nothrottle.gif" width="50%">
+<p><strong>&#x91C7;&#x7528;&#x8282;&#x6D41;&#x89E3;&#x51B3;&#xFF1A;</strong></p>
+<pre><code>&lt;script&gt;
+    const zs = document.querySelector(&apos;.zs&apos;)
+    let timer = null;
+    zs.ondrag = function(e){
+        if(timer){return;}
+        timer = setTimeout(()=&gt;{
+            console.log(e.offsetX,e.offsetY)
+            timer = null
+        },2000)
+    }
+&lt;/script&gt;
+</code></pre>
+<p>&#x540C;&#x4E0A;&#xFF0C;&#x4E3A;&#x590D;&#x7528;&#x5C01;&#x88C5;&#x4E3A;throttle&#x51FD;&#x6570;&#x3002;</p>
+<pre><code>const zs = document.querySelector(&apos;.zs&apos;)
+function throttle(fn,delay=2000){
+    let timer
+    return function(){
+        if(timer) {return;}
+        // console.log(arguments)
+        fn.apply(this,arguments)
+        timer = setTimeout(()=&gt;{fn;timer=null},delay)
+    }
+}
+zs.ondrag = throttle((zy)=&gt;{console.log(zy.offsetX,zy.offsetY)},1500)
+</code></pre>
+<p><strong>&#x5B9E;&#x73B0;&#x6548;&#x679C;&#xFF1A;</strong><br>
+<img src="http://localhost:2368/content/images/2021/03/throttle.gif" width="50%"></p>
+<hr>
+<blockquote>
+<h2 id>&#x7ED3;&#x675F;</h2>
+</blockquote>
+<blockquote>
+<h2 id>&#x4EE5;&#x4E0A;</h2>
+</blockquote>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[异步分析Promise、axios、fetch]]></title><description><![CDATA[asynchronous-promise: 
+初识阶段就久仰异步大名，最近研究node.js时看见"回调地狱"的demo。这里通过类比总结串联一下，希望能够理解的更加清晰。]]></description><link>http://localhost:2368/asynchronous-promise/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfdc1</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Sun, 09 Aug 2020 12:36:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x524D;&#x8A00;&#xFF1A;</h2>
+</blockquote>
+<p>&#x4E0D;&#x8BBA;&#x5F00;&#x53D1;&#x4E0E;&#x5B66;&#x4E60;&#x4E2D;&#xFF0C;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x9700;&#x8981;&#x4ECE;&#x5916;&#x90E8;&#x8BBE;&#x5907;&#x83B7;&#x53D6;&#x8D44;&#x6E90;&#xFF1A;&#x7F51;&#x7EDC;&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x3001;&#x4ECE;&#x6444;&#x50CF;&#x5934;&#x83B7;&#x53D6;&#x89C6;&#x9891;&#x6D41;&#x3001;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x6570;&#x636E;&#xFF0C;&#x6216;&#x8005;&#x671D;&#x7740;VR&#x5934;&#x7F69;&#x4F20;&#x9012;&#x56FE;&#x50CF;&#x97F3;&#x6548;...&#x800C;&#x8FD9;&#x4E9B;&#x8D44;&#x6E90;&#x6211;&#x4EEC;&#x4E0D;&#x77E5;&#x9053;&#x9700;&#x8981;&#x591A;&#x4E45;&#x624D;&#x80FD;&#x83B7;&#x5F97;&#xFF0C;&#x90A3;&#x4E48;&#x540C;&#x6B65;&#x6D41;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x62A5;&#x9519;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x9009;&#x62E9;&#x8D44;&#x6E90;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5373;&#x7B49;&#x5230;res(response)&#x8FD4;&#x56DE;&#xFF0C;&#x518D;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x7684;&#x89E3;&#x6790;&#x6267;&#x884C;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x6280;&#x672F;&#x50A8;&#x5907;&#xFF1A;</h2>
+</blockquote>
+<blockquote>
+<h3 id>&#x5F02;&#x6B65;&#xFF1A;</h3>
+</blockquote>
+<p>Javascript&#x662F; <strong>&#x5355;&#x7EBF;&#x7A0B;</strong> &#x6267;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x5373;JS&#x5F15;&#x64CE;&#x8D1F;&#x8D23;&#x89E3;&#x91CA;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x7EBF;&#x7A0B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#xFF0C;&#x5FC5;&#x987B;<strong>&#x6709;&#x5148;&#x540E;</strong>&#x7684;&#x4E00;&#x884C;&#x4E00;&#x884C;&#x7684;&#x89E3;&#x6790;&#x3001;&#x8FD0;&#x884C;&#x5B8C;&#x6210;&#x9879;&#x76EE;&#xFF0C;&#x800C;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#xFF08;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF09;&#x4F1A;<font color="orange">&#x963B;&#x585E;</font>&#x540E;&#x7EED;&#x4EFB;&#x52A1;&#x3002;</p>
+<p>&#x5F02;&#x6B65;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x5E76;&#x884C;&#x6267;&#x884C;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x5728;javascript&#x4E2D;&#x5E38;&#x89C1;&#x7684;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#x6709;&#xFF1A;&#x5B9A;&#x65F6;&#x56DE;&#x8C03;&#x3001;<code>ajax</code>&#x3001;&#x4FA6;&#x542C;&#x4E8B;&#x4EF6;&#x51FD;&#x6570;&#x3002;&#x90A3;&#x4E48;&#x5728;&#x5DE5;&#x4F5C;&#x4E2D;&#x53C8;&#x80FD;&#x9047;&#x89C1;&#x4E24;&#x79CD;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x98CE;&#x683C;&#xFF1A;&#x8001;&#x724C;callback&#x3001;&#x65B0;&#x6D3E;promise&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x540E;&#x8BDD;&#x4E86;&#x3002;</p>
+<hr>
+<blockquote>
+<h3 id="promise"><code>Promise</code>&#xFF1A;</h3>
+</blockquote>
+<p>ES6&#x5F15;&#x5165;<code>Promise</code>&#x5BF9;&#x8C61;&#xFF0C;&#x662F;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x6D88;&#x606F;&#x3002;<br>
+&#x90A3;&#x4E48;&#x5F15;&#x5165;<code>Promise</code>&#x7684;&#x539F;&#x56E0;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;-&#x89E3;&#x51B3;ajax&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x4E3A;&#x4FDD;&#x8BC1;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x800C;&#x88AB;&#x8FEB;&#x4EA7;&#x751F;&#x8BA9;&#x7F29;&#x8FDB;&#x683C;&#x5F0F;&#x53D8;&#x5F97;&#x5197;&#x8D58;&#x7684;&quot;&#x56DE;&#x8C03;&#x5730;&#x72F1;&quot;&#x3002;</p>
+<pre><code>//  &#x901A;&#x8FC7;node.js&#x5199;&#x7684;&#x540E;&#x53F0;&#x63A5;&#x53E3;&#x6682;&#x4E0D;&#x5217;&#x51FA;
+$.ajax({
+      url: &apos;http://localhost:3000/data&apos;,
+      success: function(data) {
+        console.log(data)
+        $.ajax({
+          url: &apos;http://localhost:3000/data1&apos;,
+          success: function(data) {
+            console.log(data)
+            $.ajax({
+              url: &apos;http://localhost:3000/data2&apos;,
+              success: function(data) {
+                console.log(data)
+              }
+            });
+          }
+        });
+      }
+    });
+// &#x6216;&#x8005;&#x8BF4;&#x66F4;&#x901A;&#x4FD7;&#x4E00;&#x70B9;
+// &#x60F3;&#x5206;&#x4E09;&#x6B21;&#x8F93;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7B2C;&#x4E00;&#x6B21;&#x95F4;&#x9694; 1 &#x79D2;&#xFF0C;&#x7B2C;&#x4E8C;&#x6B21;&#x95F4;&#x9694; 2 &#x79D2;&#xFF0C;&#x7B2C;&#x4E09;&#x6B21;&#x95F4;&#x9694; 3 &#x79D2;&#xFF1A;
+setTimeout(function () {
+    console.log(&quot;First&quot;);
+    setTimeout(function () {
+        console.log(&quot;Second&quot;);
+        setTimeout(function () {
+            console.log(&quot;Third&quot;);
+        }, 3000);
+    }, 2000);
+}, 1000);
+</code></pre>
+<hr>
+<blockquote>
+<h4 id>&#x76F8;&#x5E94;&#x6982;&#x5FF5;&#xFF1A;</h4>
+</blockquote>
+<ul>
+<li><code>Promise</code>&#x5BF9;&#x8C61;&#x64CD;&#x4F5C;&#x72B6;&#x6001;&#xFF1A;<code>pending</code>&#xFF08;&#x8FDB;&#x884C;&#x4E2D;&#xFF09;&#x3001;<code>fulfilled</code>&#xFF08;&#x5DF2;&#x6210;&#x529F;&#xFF09;&#x548C; <code>rejected</code>&#xFF08;&#x5DF2;&#x5931;&#x8D25;&#xFF09;&#x3002;&#x53EA;&#x8981;&#x5904;&#x4E8E; <code>fulfilled</code> &#x548C; <code>rejected</code> &#xFF0C;&#x72B6;&#x6001;&#x5C31;&#x4E0D;&#x4F1A;&#x518D;&#x53D8;&#x4E86;&#x5373; <code>resolved</code>&#xFF08;&#x5DF2;&#x5B9A;&#x578B;&#xFF09;&#x3002;</li>
+<li><code>then()</code>&#x65B9;&#x6CD5;:&#x6700;&#x591A;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F; <code>Promise</code> &#x6267;&#x884C;&#x6210;&#x529F;&#x65F6;&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F; <code>Promise</code> &#x6267;&#x884C;&#x5931;&#x8D25;&#x65F6;&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x53EA;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x88AB;&#x8C03;&#x7528;&#x3002;</li>
+<li><code>Promise</code>&#x4F7F;&#x7528;&#x64CD;&#x4F5C;&#xFF1A;1. <code>new</code>&#x64CD;&#x4F5C;&#x6784;&#x5EFA;<code>Promise</code>&#x5B9E;&#x4F8B; 2. <code>Promise</code>&#x6784;&#x9020;&#x51FD;&#x6570;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x53C2;&#x6570; 3. &#x4E14;&#x6B64;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x53C8;&#x88AB;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x53C2;&#x6570;(<code>resolve</code>&#x3001;<code>reject</code>)&#xFF0C;&#x5206;&#x522B;&#x8868;&#x793A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x540E;&#x6210;&#x529F;&#x4E0E;&#x5931;&#x8D25;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+</ul>
+<blockquote>
+<h4 id>&#x5B9E;&#x73B0;&#x4EE3;&#x7801;</h4>
+</blockquote>
+<pre><code>// &#x4E0D;&#x4F7F;&#x7528;catch&#x3001;finally
+var p = new Promise(function(resolve, reject){ //&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x90FD;&#x662F;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;
+     // &#x5B9E;&#x73B0;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;  setTimeout
+     setTimeout(function(){
+       var flag = false;
+       if(flag) {
+         // &#x6B63;&#x5E38;
+         resolve(&apos;hello zs&apos;);
+       }else{
+         // &#x5F02;&#x5E38;
+         reject(&apos;&#x51FA;&#x9519;&#x4E86; zs&apos;);
+       }
+     }, 1000);
+   });
+   //then()&#x63A5;&#x6536;
+   p.then(function(yep){
+     console.log(yep)
+   },function(ohno){
+     console.log(ohno)
+   });
+   
+   //  Chrome&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x51FA;  &#x51FA;&#x9519;&#x4E86; zs
+</code></pre>
+<pre><code>// &#x4F7F;&#x7528;catch&#x3001;finally
+// resolve &#x548C; reject &#x90FD;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x5176;&#x4E2D;&#x8C03;&#x7528; resolve &#x4EE3;&#x8868;&#x4E00;&#x5207;&#x6B63;&#x5E38;&#xFF0C;reject &#x662F;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#x65F6;&#x6240;&#x8C03;&#x7528;&#x7684;&#xFF1A;
+new Promise(function (resolve, reject) {
+    var a = 0;
+    var b = 1;
+    if (b == 0) reject(&quot;Diveide zero&quot;);
+    else resolve(a / b);
+}).then(function (value) {
+    console.log(&quot;a / b = &quot; + value);
+}).catch(function (err) {
+    console.log(err);
+}).finally(function () {
+    console.log(&quot;End&quot;);
+});
+
+// a / b = 0
+// End
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="axios"><code>axios</code>&#xFF1A;</h3>
+</blockquote>
+<p>Axios &#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E; promise &#x7684; HTTP &#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x548C; node.js &#x4E2D;&#x3002;&#x5F00;&#x53D1;&#x4E2D;&#x6700;&#x5E38;&#x7528;&#x7684;&#x5C31;&#x662F;<code>axios.js</code>&#x5305;&#x3002;</p>
+<p><strong>&#x4F5C;&#x7528;&#xFF1A;</strong></p>
+<ul>
+<li>&#x4ECE;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x521B;&#x5EFA; XMLHttpRequests</li>
+<li>&#x4ECE; node.js &#x521B;&#x5EFA; http &#x8BF7;&#x6C42;</li>
+<li>&#x652F;&#x6301; Promise API</li>
+<li>&#x62E6;&#x622A;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94; =&gt; <code>axios.interceptors.request.use(config=&gt;{return config})</code>&#x6216;<code>axios.interceptors.response.use(config=&gt;{return config})</code></li>
+<li>&#x8F6C;&#x6362;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x548C;&#x54CD;&#x5E94;&#x6570;&#x636E;&#x3001;&#x81EA;&#x52A8;&#x8F6C;&#x6362; JSON &#x6570;&#x636E;(&#x4E0D;&#x9700;&#x8981;&#x50CF; fetch &#x5728; node.js &#x5199;&#x540E;&#x7AEF;&#x65F6;&#x5F97;&#x4E2D;&#x95F4;&#x4EF6;&#x8F6C;&#x6362;)</li>
+<li>&#x53D6;&#x6D88;&#x8BF7;&#x6C42;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x652F;&#x6301;&#x9632;&#x5FA1; CSRF(&#x8DE8;&#x7AD9;&#x8BF7;&#x6C42;&#x4F2A;&#x9020;)</li>
+</ul>
+<p>&#x4F7F;&#x7528;Promise&#x7BA1;&#x7406;&#x5F02;&#x6B65;&#xFF0C;&#x544A;&#x522B;&#x4F20;&#x7EDF;callback&#x65B9;&#x5F0F;&#x7684;<code>axios&#x5305;</code>&#x5B89;&#x88C5;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code>npm install axios
+</code></pre>
+<blockquote>
+<h4 id>&#x5B9E;&#x4F8B;&#xFF1A;</h4>
+</blockquote>
+<p><strong>&#x6267;&#x884C; GET &#x8BF7;&#x6C42;&#xFF1A;</strong></p>
+<pre><code>// &#x4E3A;&#x7ED9;&#x5B9A; ID &#x7684; user &#x521B;&#x5EFA;&#x8BF7;&#x6C42;
+axios.get(&apos;/user?ID=12345&apos;)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+// &#x4E0A;&#x9762;&#x7684;&#x8BF7;&#x6C42;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x505A;
+axios.get(&apos;/user&apos;, {
+    params: {
+      ID: 12345
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+</code></pre>
+<p><strong>&#x6267;&#x884C; POST &#x8BF7;&#x6C42;&#xFF1A;</strong></p>
+<pre><code>axios.post(&apos;/user&apos;, {
+    firstName: &apos;ziyi&apos;,
+    lastName: &apos;xie&apos;
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+</code></pre>
+<blockquote>
+<h3 id="axiosapi"><code>axios</code> API&#xFF1A;</h3>
+</blockquote>
+<p>&#x5373;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5411; axios &#x4F20;&#x9012;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6765;&#x521B;&#x5EFA;&#x8BF7;&#x6C42;&#x3002;</p>
+<pre><code>// &#x83B7;&#x53D6;&#x8FDC;&#x7AEF;&#x56FE;&#x7247;
+axios({
+  method:&apos;get&apos;,
+  url:&apos;http:/zaire-xie/zairesinatrasource&apos;,
+  responseType:&apos;stream&apos;
+})
+  .then(function(response) {
+  response.data.pipe(fs.createWriteStream(&apos;treasure.jpg&apos;))
+  // pipe &#x662F;&#x5C06; response.data &#x8F6C;&#x6362;&#x4E3A;&#x6D41;
+  // fs &#x662F; Node.js &#x7684; file-system &#x6A21;&#x5757;
+});
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="fetch"><code>fetch</code></h3>
+</blockquote>
+<p><code>fetch()</code>&#x65B9;&#x6CD5;&#x66B4;&#x9732;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5305;&#x62EC;&#x4E3B;&#x9875;&#x9762;&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#x3001;&#x6A21;&#x5757;&#x548C;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x3002;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5411;&#x7ED9;&#x5B9A;&#x7684; url &#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x3002;</p>
+<ul>
+<li>fetch&#x5728;ES6&#x51FA;&#x73B0;&#xFF0C;&#x53F7;&#x79F0;AJAX&#x7684;&#x66FF;&#x4EE3;&#x54C1;&#xFF0C;&#x57FA;&#x4E8E;&#x5E76;&#x4F7F;&#x7528;&#x4E86;ES6&#x4E2D;&#x7684;promise&#x5BF9;&#x8C61;&#x3002;Fetch&#x7684;&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x8F83;ajax&#x7B80;&#x5355;&#x3002;</li>
+<li>&#x4F46;fetch&#x4E0D;&#x662F;ajax&#x7684;&#x8FDB;&#x4E00;&#x6B65;&#x5C01;&#x88C5;&#xFF0C;&#x800C;&#x662F;&#x539F;&#x751F;js&#xFF0C;&#x6CA1;&#x6709;&#x4F7F;&#x7528;XMLHttpRequest&#x5BF9;&#x8C61;&#x3002;</li>
+<li>XMLHttpRequest&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x5F02;&#x6B65;&#xFF0C;&#x4F46;Fetch API&#x5FC5;&#x987B;&#x662F;&#x5F02;&#x6B65;&#x3002;</li>
+</ul>
+<blockquote>
+<h3 id>&#x57FA;&#x672C;&#x7528;&#x6CD5;&#xFF1A;</h3>
+</blockquote>
+<ul>
+<li>&#x5206;&#x6D3E;&#x8BF7;&#x6C42;&#xFF1A;</li>
+</ul>
+<p><code>fetch()</code>&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5FC5;&#x987B;&#x53C2;&#x6570; input &#x3002;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x8981;&#x83B7;&#x53D6;&#x8D44;&#x6E90;&#x7684; url &#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x671F;&#x7EA6;&#x3002;</p>
+<pre><code>let zs = fetch(&apos;http://127.0.0.1/zairesinatra&apos;)
+console.log(zs) // Promise&lt;pending&gt;
+</code></pre>
+<pre><code>fetch(&quot;http://127.0.0.1/xzy&quot;)
+    .then((response)=&gt;{console.log(response)})
+     // response{type:&quot;cors&quot;,url:...}
+</code></pre>
+<img src="http://localhost:2368/content/images/2021/03/--2021-03-22-19.07.38.png" width="50%">
+<ul>
+<li>&#x8BFB;&#x53D6;&#x54CD;&#x5E94;&#xFF1A;</li>
+</ul>
+<p>&#x8BFB;&#x53D6;&#x54CD;&#x5E94;&#x5185;&#x5BB9;&#x6700;&#x7B80;&#x5355;&#x65B9;&#x5F0F;&#x662F;&#x53D6;&#x5F97;&#x7EAF;&#x6587;&#x672C;&#x683C;&#x5F0F;&#x5185;&#x5BB9;&#xFF0C;&#x8FD9;&#x91CC;&#x7528;&#x5230; <code>text()</code> API&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x671F;&#x7EA6;Promise&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code>fetch(&quot;http://127.0.0.1/zs&quot;)
+    .then((response) =&gt; response.text())
+    .then((msg) =&gt; console.log(msg)); // {&quot;msg&quot;:&quot;xieziyi&quot;}
+</code></pre>
+<img src="http://localhost:2368/content/images/2021/03/--2021-03-22-19.20.25.png" width="50%">
+<ul>
+<li>&#x5904;&#x7406;&#x72B6;&#x6001;&#x7801;&#x548C;&#x8BF7;&#x6C42;&#x5931;&#x8D25;</li>
+</ul>
+<p>Fetch API&#x901A;&#x8FC7; Response &#x7684; status(&#x72B6;&#x6001;&#x7801;) &#x548C; statusText(&#x72B6;&#x6001;&#x6587;&#x672C;) &#x5C5E;&#x6027;&#x68C0;&#x67E5;&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x3002;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x6210;&#x529F;&#x8BF7;&#x6C42;&#x901A;&#x5E38;&#x4EA7;&#x751F; 200 &#x7684;&#x72B6;&#x6001;&#x7801;&#x4E0E; &quot;OK&quot; &#x7684;&#x72B6;&#x6001;&#x6587;&#x4E66;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x7ED3;&#x675F;</h2>
+</blockquote>
+<blockquote>
+<h2 id>&#x4EE5;&#x4E0A;</h2>
+</blockquote>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; CC BY-SA 4.0 &#x534F;&#x8BAE; &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[数组去重]]></title><description><![CDATA[每一次的清醒，都是未来的你在向自己求救。]]></description><link>http://localhost:2368/deduplication/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfde2</guid><category><![CDATA[DataStructuresAndAlgorithms]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Wed, 05 Aug 2020 12:39:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>&#x5728;&#x771F;&#x5B9E;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x78B0;&#x5230;&#x7684;&#x6570;&#x7EC4;&#x53BB;&#x91CD;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x540E;&#x7AEF;&#x5904;&#x7406;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x6B63;&#x6587;</h2>
+</blockquote>
+<p>&#x603B;&#x4F53;&#x601D;&#x8DEF;: &#x8BED;&#x6CD5;&#x89C4;&#x5B9A;&#x81EA;&#x8EAB;&#x952E;&#x53BB;&#x91CD;&#x6027;&#x3001;&#x4E24;&#x5C42;&#x5FAA;&#x73AF;&#x6BD4;&#x8F83;</p>
+<pre><code>// &#x5229;&#x7528; set &#x96C6;&#x5408; =&gt; &#x65E0;&#x91CD;&#x590D;&#x3001;&#x65E0;&#x987A;&#x5E8F;&#x6570;&#x7EC4;
+// ES5 &#x89E3;&#x6784;&#x8D4B;&#x503C;
+let zsset = (arr)=&gt;{ return [...new Set(arr)] }
+console.log(zsset([1,1,2,3,true,true])); // [ 1, 2, 3, true ]
+
+// ES6 &#x4E2D; Array.from
+function zsunique (arr) {
+    return Array.from(new Set(arr))
+}
+var arr = [0,0,6,6,&apos;xzy&apos;,&apos;xzy&apos;,true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsunique(arr)) // [ 0, 6, &apos;xzy&apos;, true, undefined, null, NaN, {}, {} ]
+
+// &#x5D4C;&#x5957;
+function zsNested(arr){            
+    for(var i=0; i&lt;arr.length; i++){
+        for(var j=i+1; j&lt;arr.length; j++){
+            // &#x7B2C;&#x4E00;&#x4E2A;&#x7B49;&#x540C;&#x4E8E;&#x7B2C;&#x4E8C;&#x4E2A;&#x5219;splice&#x65B9;&#x6CD5;&#x5220;&#x9664;&#x7B2C;&#x4E8C;&#x4E2A;
+            if(arr[i]==arr[j]){
+                arr.splice(j,1);
+                j--;
+            }
+        }
+    }
+return arr;
+}
+var tarr = [0,0,6,6,&apos;xzy&apos;,&apos;xzy&apos;,true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsNested(tarr)) // [ 0, 6, &apos;xzy&apos;, true, undefined, NaN, NaN, {}, {} ]
+
+// indexOf
+// &#x5224;&#x65AD;&#x7ED3;&#x679C;&#x6570;&#x7EC4;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5F53;&#x524D;&#x5143;&#x7D20;,&#x5982;&#x679C;&#x6709;&#x76F8;&#x540C;&#x7684;&#x503C;&#x5219;&#x8DF3;&#x8FC7;,&#x4E0D;&#x76F8;&#x540C;&#x5219;push&#x8FDB;&#x6570;&#x7EC4;
+function zsindex(arr) {
+    if (!Array.isArray(arr)) {
+        console.log(&apos;type error!&apos;)
+        return
+    }
+    var array = [];
+    for (var i = 0; i &lt; arr.length; i++) {
+        // indexOf()&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x5143;&#x7D20;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;,&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;,&#x5219;&#x8FD4;&#x56DE;-1
+        if (array.indexOf(arr[i]) === -1) {
+            array.push(arr[i])
+        }
+    }
+    return array;
+}
+var ttarr = [0,0,6,6,&apos;xzy&apos;,&apos;xzy&apos;,true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsindex(ttarr)) // [ 0, 6, &apos;xzy&apos;, true, undefined, null, NaN, NaN, {}, {} ]
+
+// includes &#x53BB;&#x91CD; =&gt; &#x4E0E; indexOf &#x7C7B;&#x4F3C;
+function zsin(arr) {
+    if (!Array.isArray(arr)) {
+        console.log(&apos;type error!&apos;)
+        return
+    }
+    var array =[];
+    for(var i = 0; i &lt; arr.length; i++) {
+        if(!array.includes(arr[i])) {
+            array.push(arr[i]);
+        }
+    }
+    return array
+}
+var arrr = [0,0,6,6,&apos;xzy&apos;,&apos;xzy&apos;,true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsin(arrr)) // [ 0, 6, &apos;xzy&apos;, true, undefined, null, NaN, {}, {} ]
+
+// sort()&#x53BB;&#x91CD;
+function zssort(arr) {
+    if (!Array.isArray(arr)) {
+        console.log(&apos;type error!&apos;)
+        return;
+    }
+    arr = arr.sort()
+    var array= [arr[0]];
+    for (var i = 1; i &lt; arr.length; i++) {
+        if (arr[i] !== arr[i-1]) {
+            array.push(arr[i]);
+        }
+    }
+    return array;
+}
+var xarr = [0,0,6,6,&apos;xzy&apos;,&apos;xzy&apos;,true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zssort(xarr)) // [ 0, 6, NaN, NaN, {}, {}, null, true, &apos;xzy&apos;, undefined ]
+
+// filter() &#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x6570;&#x7EC4;,&#x5176;&#x5305;&#x542B;&#x901A;&#x8FC7;&#x6240;&#x63D0;&#x4F9B;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x7684;&#x6D4B;&#x8BD5;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;
+function zsfilter(arr) {
+    return arr.filter((item, index, arr) =&gt; {
+        // &#x5F53;&#x524D;&#x5143;&#x7D20;&#x5728;&#x539F;&#x59CB;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x7D22;&#x5F15; === &#x5F53;&#x524D;&#x7D22;&#x5F15;&#x503C;&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5143;&#x7D20;
+        return arr.indexOf(item) === index;
+        // &#x6216;&#x8005; hasOwnProperty &#x53BB;&#x91CD;
+        // hasOwnProperty()&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;,&#x6307;&#x793A;&#x5BF9;&#x8C61;&#x81EA;&#x8EAB;&#x5C5E;&#x6027;&#x4E2D;&#x662F;&#x5426;&#x5177;&#x6709;&#x6307;&#x5B9A;&#x7684;&#x5C5E;&#x6027;
+    });
+}
+let ffarr = [0,0,6,6,&apos;xzy&apos;,&apos;xzy&apos;,true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsfilter(ffarr)); // [ 0, 6, &apos;xzy&apos;, true, undefined, null, {}, {} ]
+
+// Map &#x6570;&#x636E;&#x7ED3;&#x6784;&#x53BB;&#x91CD;
+// Map &#x5BF9;&#x8C61;&#x4FDD;&#x5B58;&#x952E;&#x503C;&#x5BF9;,&#x5E76;&#x4E14;&#x80FD;&#x591F;&#x8BB0;&#x4F4F;&#x952E;&#x7684;&#x539F;&#x59CB;&#x63D2;&#x5165;&#x987A;&#x5E8F;
+function zsMap(aarr) {
+    let map = new Map();
+    let array = new Array();  // &#x6570;&#x7EC4;&#x7528;&#x4E8E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;
+    for (let i = 0; i &lt; arr.length; i++) {
+        if (map.has(arr[i])) {  // &#x5982;&#x679C;&#x6709;&#x8BE5;key&#x503C;
+            map.set(arr[i], true); 
+        } else { 
+            map.set(arr[i], false); // &#x5982;&#x679C;&#x6CA1;&#x6709;&#x8BE5;key&#x503C;
+            array.push(arr[i]);
+        }
+    } 
+    return array ;
+}
+var aarr = [0,0,6,6,&apos;xzy&apos;,&apos;xzy&apos;,true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsMap(aarr)) // [ 0, 6, &apos;xzy&apos;, true, undefined, null, NaN, {}, {} ]
+
+// reduce()
+// reduce() &#x65B9;&#x6CD5;&#x5BF9;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x7531;&#x60A8;&#x63D0;&#x4F9B;&#x7684;reducer&#x51FD;&#x6570;(&#x5347;&#x5E8F;&#x6267;&#x884C;),&#x5C06;&#x5176;&#x7ED3;&#x679C;&#x6C47;&#x603B;&#x4E3A;&#x5355;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;
+// Accumulator (acc) (&#x7D2F;&#x8BA1;&#x5668;)&#x3001;Current Value (cur) (&#x5F53;&#x524D;&#x503C;)&#x3001;Current Index (idx) (&#x5F53;&#x524D;&#x7D22;&#x5F15;)&#x3001;Source Array (src) (&#x6E90;&#x6570;&#x7EC4;)
+function zszs(arr){
+    return arr.reduce((prev,cur) =&gt; prev.includes(cur) ? prev : [...prev,cur], []);
+}
+var arro = [0,0,6,6,&apos;xzy&apos;,&apos;xzy&apos;,true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zszs(arro)); // [ 0, 6, &apos;xzy&apos;, true, undefined, null, NaN, {}, {} ]
+</code></pre>
+<hr>
+<blockquote>
+<h2 id>&#x7ED3;&#x675F;</h2>
+</blockquote>
+<p>&#x672C;&#x6587;&#x5177;&#x4F53;&#x53BB;&#x91CD;&#x4EE3;&#x7801;&#x662F;&#x901A;&#x8FC7;&#x4E24;&#x79CD;&#x53BB;&#x91CD;&#x601D;&#x60F3;&#x5728;ES5&#x3001;ES6&#x76F8;&#x5173;API&#x4E0E;&#x5C5E;&#x6027;&#x65B9;&#x6CD5;&#x5339;&#x914D;&#x57FA;&#x7840;&#x4E0A;&#x5B8C;&#x6210;&#x3002;</p>
+<blockquote>
+<h3 id>&#x4EE5;&#x4E0A;</h3>
+</blockquote>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[package-lock.json与package.json]]></title><description><![CDATA["If life were predictable it would cease to be life, and be without flavor." -Eleanor Roosevelt]]></description><link>http://localhost:2368/packagejson/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfdcb</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Mon, 01 Jun 2020 14:37:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>&#x505A;<code>demo</code>&#x5F15;&#x5165;<code>jquery</code>&#x65F6;&#x53D1;&#x73B0;&#x9664;&#x4E86;&#x521D;&#x59CB;&#x5316;&#x4EA7;&#x751F;&#x7684;<code>package.json</code>&#x6587;&#x4EF6;&#xFF0C;&#x591A;&#x4E86;&#x4E00;&#x4E2A;<code>package-lock.json</code>&#x6587;&#x4EF6;&#x3002;&#x8FD9;&#x91CC;&#x6765;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;der&#x5230;&#x5E95;&#x662F;&#x5E72;&#x561B;&#x7684;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x6B63;&#x6587;</h2>
+</blockquote>
+<h3 id>&#x4EA7;&#x751F;&#xFF1A;</h3>
+<p>&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x5E76;&#x521D;&#x59CB;&#x5316;&#xFF1A;<br>
+<code>npm init -y</code>    =&gt;    package.json<br>
+&#x5B89;&#x88C5;jQuery&#xFF1A;<br>
+<code>npm install jquery -s</code>    =&gt;    package-lock.json</p>
+<p>&#x4E24;&#x8005;&#x5BF9;&#x6BD4;&#x5982;&#x56FE;<br>
+<img src="http://localhost:2368/content/images/2021/03/--2021-03-07-22.04.09.png" alt="--2021-03-07-22.04.09" loading="lazy"></p>
+<hr>
+<h3 id>&#x533A;&#x5206;&#xFF1A;</h3>
+<p>&#x5728;&#x7248;&#x672C; 5 &#x4E2D;&#xFF0C;<code>npm</code> &#x5F15;&#x5165;&#x4E86; <code>package-lock.json</code> &#x6587;&#x4EF6;&#x3002;&#x8BE5;&#x6587;&#x4EF6;&#x65E8;&#x5728;<strong>&#x8DDF;&#x8E2A;&#x88AB;&#x5B89;&#x88C5;&#x7684;&#x6BCF;&#x4E2A;&#x8F6F;&#x4EF6;&#x5305;</strong>&#x7684;<strong>&#x786E;&#x5207;&#x7248;&#x672C;</strong>&#xFF0C;&#x4EE5;&#x4FBF;&#x4EA7;&#x54C1;&#x53EF;&#x4EE5;<strong>&#x4EE5;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x88AB; 100&#xFF05; &#x590D;&#x5236;</strong>&#xFF08;&#x5373;&#x4F7F;&#x8F6F;&#x4EF6;&#x5305;&#x7684;&#x7EF4;&#x62A4;&#x8005;<strong>&#x66F4;&#x65B0;&#x4E86;&#x8F6F;&#x4EF6;&#x5305;</strong>&#xFF09;&#x3002;<br>
+&#x800C;&#x8FD9;&#x4E5F;&#x662F; <code>package.json</code> &#x4E00;&#x76F4;&#x5C1A;&#x672A;&#x89E3;&#x51B3;&#x7684;&#x7279;&#x6B8A;&#x95EE;&#x9898;&#x3002; &#x5728; <code>package.json</code> &#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>semver</code> &#x8868;&#x793A;&#x6CD5;&#x8BBE;&#x7F6E;&#x8981;&#x5347;&#x7EA7;&#x5230;&#x7684;&#x7248;&#x672C;&#xFF08;&#x8865;&#x4E01;&#x7248;&#x672C;&#x6216;&#x6B21;&#x7248;&#x672C;&#xFF09;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x5199;&#x5165;&#x7684;&#x662F; <code>&#x301C;0.6.0</code>&#xFF0C;&#x5219;<font color="red">&#x53EA;&#x66F4;&#x65B0;&#x8865;&#x4E01;&#x7248;&#x672C;</font>&#xFF1A;&#x5373; 0.6.1 &#x53EF;&#x4EE5;&#xFF0C;&#x4F46; 0.7.0 &#x4E0D;&#x53EF;&#x4EE5;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x5199;&#x5165;&#x7684;&#x662F; <code>^0.6.0</code>&#xFF0C;&#x5219;<font color="red">&#x8981;&#x66F4;&#x65B0;&#x8865;&#x4E01;&#x7248;&#x672C;&#x548C;&#x6B21;&#x7248;&#x672C;</font>&#xFF1A;&#x5373; 0.6.1&#x3001;0.7.0&#x3001;&#x4F9D;&#x6B64;&#x7C7B;&#x63A8;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x5199;&#x5165;&#x7684;&#x662F; <code>0.6.0</code>&#xFF0C;&#x5219;<font color="red">&#x59CB;&#x7EC8;&#x4F7F;&#x7528;&#x786E;&#x5207;&#x7684;&#x7248;&#x672C;</font>&#x3002;</li>
+</ul>
+<hr>
+<h3 id>&#x4F18;&#x52BF;&#xFF1A;</h3>
+<ul>
+<li>&#x5728;&#x6211;&#x4EEC;&#x5DE5;&#x4F5C;&#x6216;&#x8005;&#x5B66;&#x4E60;&#x65F6;&#x4E00;&#x822C;&#x4E0D;&#x4F1A;&#x5C06; <code>node-modules</code> &#x6587;&#x4EF6;&#x5939;&#x63D0;&#x4EA4; <code>Git</code>&#x3002;&#x90A3;&#x4E48;&#x63A5;&#x624B;&#x9879;&#x76EE;&#x7684;&#x5176;&#x4ED6;&#x4EBA;&#x53EF;&#x80FD;&#x4F7F;&#x7528; <code>npm install</code>&#x590D;&#x5236;&#x9879;&#x76EE;&#xFF0C;&#x8FD9;&#x91CC;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x539F;&#x59CB;&#x9879;&#x76EE;&#x548C;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x51FA;&#x73B0;&#x533A;&#x522B;&#x3002;&#x56E0;&#x4E3A;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x8865;&#x4E01;&#x7248;&#x6216;&#x8005;&#x6B21;&#x7248;&#x672C;&#x7F3A;&#x9677;&#x3002;&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x6253;&#x4E2A;&#x6BD4;&#x65B9;&#x63D0;&#x4E00;&#x53E5;&#xFF1A;&#x5728;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x5F00;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F7F;&#x7528;&#x7684;wepy1.x.x&#x548C;wepy2.x.x&#x662F;&#x6709;&#x533A;&#x522B;&#x7684;&#x3002;</li>
+<li>&#x90A3;&#x4E48; <code>package-lock.json</code> &#x53EF;&#x4EE5;&#x56FA;&#x8BDD;&#x5F53;&#x524D;&#x5B89;&#x88C5;&#x7684;&#x6BCF;&#x4E2A;&#x8F6F;&#x4EF6;&#x5305;&#x7248;&#x672C;&#x3002;&#x518D;&#x8FD0;&#x884C; <code>npm install</code>&#x65F6;&#xFF0C;<code>npm </code>&#x4F1A;&#x4F7F;&#x7528;&#x786E;&#x5207;&#x7684;&#x7248;&#x672C;&#x3002;</li>
+<li>&#x540C;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8FD0;&#x884C; <code>npm update</code> &#x65F6;&#xFF0C;<code>package-lock.json</code> &#x6587;&#x4EF6;&#x7684;&#x4F9D;&#x8D56;&#x7248;&#x672C;&#x4F1A;&#x88AB;&#x66F4;&#x65B0;&#x3002;</li>
+</ul>
+<hr>
+<h3 id>&#x89E3;&#x91CA;&#xFF1A;</h3>
+<p>&#x5230;&#x4E86;&#x8FD9;&#x91CC;&#xFF0C;&#x53EF;&#x4EE5;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A; <code>package-lock.json</code> &#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x5B57;&#x7B26;&#x542B;&#x4E49;&#x4E86;&#x3002;</p>
+<ul>
+<li><code>version</code>&#xFF1A;&#x7248;&#x672C;&#x4E0D;&#x591A;&#x8BF4;&#x4E86;</li>
+<li><code>resolved</code>&#xFF1A;&#x6307;&#x5411;&#x8F6F;&#x4EF6;&#x5305;&#x7684;&#x4F4D;&#x7F6E;</li>
+<li><code>integrity</code>&#xFF1A;&#x4E2D;&#x6587;&#x5176;&#x5B9E;&#x662F;&quot;&#x6B63;&#x76F4;&quot;&#x7684;&#x610F;&#x601D;&#xFF0C;&#x8FD9;&#x91CC;&#x8868;&#x793A;&#x7528;&#x4E8E;&#x6821;&#x9A8C;&#x8F6F;&#x4EF6;&#x5305;&#x3002;</li>
+</ul>
+<hr>
+<blockquote>
+<h3 id>&#x603B;&#x7ED3;</h3>
+</blockquote>
+<p><code>node.js</code>&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x80FD;&#x591F;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8FD0;&#x884C;JavaScript&#x7684;&#x4E00;&#x79CD;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x524D;&#x7AEF;&#x4EBA;&#x5458;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x901A;&#x8FC7;&#x518D;&#x5B66;&#x65B0;&#x8BED;&#x8A00;&#x53BB;&#x4E86;&#x89E3;&#x540E;&#x7AEF;&#x3002;&#x867D;&#x7136;&#x8FD1;&#x5E74;&#x6765;&#x524D;&#x7AEF;&#x77E5;&#x8BC6;&#x66F4;&#x65B0;&#x901F;&#x5EA6;&#x5F88;&#x5FEB;&#xFF0C;&#x4F46;&#x662F;&#x540C;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x8BA4;&#x77E5;&#x8FD9;&#x79CD;&#x53D1;&#x5C55;&#x7684;&#x5BFC;&#x5411;&#xFF0C;&#x601D;&#x8003;&#x95EE;&#x9898;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4ECE;&#x800C;&#x542F;&#x53D1;&#x63A5;&#x89E6;&#x66F4;&#x5BBD;&#x7684;&#x7EF4;&#x5EA6;&#x3002;&#x4EAB;&#x53D7;&#x8FD9;&#x79CD;&#x8FC7;&#x7A0B;&#x662F;&#x8FDC;&#x6BD4;&#x62B1;&#x6028;&#x77E5;&#x8BC6;&#x66F4;&#x65B0;&#x4F53;&#x91CF;&#x4E0E;&#x9891;&#x7387;&#x751A;&#x81F3;&#x4EC0;&#x4E48;&#x8BED;&#x8A00;&#x9119;&#x89C6;&#x94FE;&#x6765;&#x7684;&#x66F4;&#x6709;&#x6DF1;&#x5EA6;&#x3002;</p>
+<hr>
+<blockquote>
+<h3 id>&#x7ED3;&#x675F;</h3>
+</blockquote>
+<p>&#x4EE5;&#x4E0A;&#x3002;&#x6765;&#x542C;&#x9996;&#x6B4C;&#x653E;&#x677E;&#x4E0B;&#x628A;&#xFF01;</p>
+<p><audio src="https://res.cloudinary.com/dzb9ldnvl/video/upload/v1615130145/qingtian.mp3" controls="controls"><div style="border: 1px solid black ; padding: 10px ;" controlslist="nodownload">&#x70B9;&#x51FB;&#x6765;&#x548C;&#x6211;&#x4E00;&#x8D77;&#x542C; <em>&#x5468;&#x6770;&#x4F26;</em> &#x7684;<font color="#06B4FE"><strong>&#x300A;&#x6674;&#x5929;&#x300B;</strong></font> &#xFF0C;&#x6709;&#x4EFB;&#x4F55;&#x95EE;&#x9898;<strong>&#x8BF7;&#x8054;&#x7CFB;<em>zairesinatra</em></strong></div></audio></p>
+<!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[回流(Reflow)与重绘 (Repaint)]]></title><description><![CDATA[I'm not in danger,I am the danger.
+—— 《Breaking Bad》]]></description><link>http://localhost:2368/reflow-repaint/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfdea</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Mon, 01 Jun 2020 12:49:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x89E3;&#x6790;&#x6E32;&#x67D3;&#x673A;&#x5236;&#x4F5C;&#x4E3A;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x662F;&#x5FC5;&#x987B;&#x638C;&#x63E1;&#x7684;&#x3002;&#x66F4;&#x591A;&#x8BE6;&#x60C5;zs&#x63A8;&#x8350;&#x67E5;&#x8BE2;<a href="https://developers.google.com/web?hl=zh-cn">&#x6B64;&#x7F51;</a>&#x3002;</p>
+<p>&#x5148;&#x4E0A;&#x7ED3;&#x8BBA;&#xFF1A;<em>&#x56DE;&#x6D41;&#x5FC5;&#x5F15;&#x8D77;&#x91CD;&#x7ED8;&#xFF0C;&#x91CD;&#x7ED8;&#x4E0D;&#x4E00;&#x5B9A;&#x56DE;&#x6D41;&#x3002;</em> <img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622656923/blog/nonocat_feqccv.webp" width="5%"></p>
+<blockquote>
+<h2 id>&#x6B63;&#x6587;</h2>
+</blockquote>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x91C7;&#x7528; Flow Based Layout &#x6D41;&#x5F0F;&#x5E03;&#x5C40;&#x6A21;&#x578B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5E38;&#x8BF4;&#x7684;&#x6587;&#x6863;&#x6D41;&#x3002;</p>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x6E32;&#x67D3;&#x9875;&#x9762;&#x4EA7;&#x751F; RenderTree &#x524D;&#x9700;&#x8981;&#x5148;&#x6784;&#x5EFA; DOM &#x548C; CSSOM &#x6811;&#x3002;HTML &#x6807;&#x8BB0;&#x8F6C;&#x6362;&#x6210;&#x6587;&#x6863;&#x5BF9;&#x8C61;&#x6A21;&#x578B; (DOM)&#xFF1B;CSS &#x6837;&#x5F0F;&#x8F6C;&#x6362;&#x6210; CSS &#x5BF9;&#x8C61;&#x6A21;&#x578B; (CSSOM)&#x3002;</p>
+<p>&#x901A;&#x8FC7; RenderTree &#x53EF;&#x4EE5;&#x5C06;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x6837;&#x5F0F;&#x8BA1;&#x7B97;&#x6210;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x5927;&#x5C0F;&#x548C;&#x4F4D;&#x7F6E;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x904D;&#x5386;&#x8282;&#x70B9;&#x7ED8;&#x6210;&#x9875;&#x9762;&#x3002;</p>
+<blockquote>
+<h3 id="reflow">&#x56DE;&#x6D41; (Reflow)</h3>
+</blockquote>
+<p>&#x56DE;&#x6D41;&#x662F;&#x56E0;&#x6E32;&#x67D3;&#x6811;&#x4E2D;&#x5143;&#x7D20;&#x7684; <u>&#x5C3A;&#x5BF8;&#x3001;&#x7ED3;&#x6784;&#x3001;&#x5C5E;&#x6027;</u> &#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF0C;&#x4F7F;&#x6D4F;&#x89C8;&#x5668;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x90E8;&#x5206;&#x6216;&#x5168;&#x90E8;&#x6587;&#x6863;&#x3002;</p>
+<ul>
+<li>&#x6D4F;&#x89C8;&#x5668;&#x89C6;&#x7A97;&#x6539;&#x53D8;&#x4E0E;&#x9875;&#x9762;&#x9996;&#x6B21;&#x6E32;&#x67D3;</li>
+<li>&#x5143;&#x7D20;&#x5185;&#x5BB9;&#xFF08;&#x6587;&#x5B57;&#x6570;&#x91CF;&#x6216;&#x56FE;&#x7247;&#x5927;&#x5C0F;&#x7B49;&#x7B49;&#xFF09;&#x3001;&#x5C3A;&#x5BF8;&#x3001;&#x5B57;&#x4F53;&#x6216;&#x4F4D;&#x7F6E;&#x53D1;&#x751F;&#x6539;&#x53D8;</li>
+<li>&#x6DFB;&#x52A0;&#x6216;&#x8005;&#x5220;&#x9664;&#x53EF;&#x89C1;&#x7684;DOM&#x5143;&#x7D20;</li>
+<li>&#x6FC0;&#x6D3B; CSS &#x4F2A;&#x7C7B;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;<code>:hover</code>&#xFF09;</li>
+<li>&#x67E5;&#x8BE2;&#x5C5E;&#x6027;&#x6216;&#x8C03;&#x7528;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#xFF08;&#x5F15;&#x64CE;&#x4F1A;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x6765;&#x786E;&#x4FDD;&#x83B7;&#x53D6;&#x7684;&#x503C;&#x662F;&#x5B9E;&#x65F6;&#x7684;&#xFF09;</li>
+</ul>
+<blockquote>
+<h3 id="repaint">&#x91CD;&#x7ED8; (Repaint)</h3>
+</blockquote>
+<p>&#x5F53;&#x9875;&#x9762;&#x4E2D;&#x5143;&#x7D20;&#x6837;&#x5F0F;&#x7684;&#x6539;&#x53D8;&#x800C;&#x4E0D;&#x5F71;&#x54CD;&#x5B83;&#x5728;&#x6587;&#x6863;&#x6D41;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#x65F6;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5C06;&#x65B0;&#x6837;&#x5F0F;&#x8D4B;&#x4E88;&#x7ED9;&#x5143;&#x7D20;&#x5E76;&#x91CD;&#x65B0;&#x7ED8;&#x5236;&#x5B83;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x79F0;&#x4E3A;&#x91CD;&#x7ED8;&#x3002;</p>
+<ul>
+<li><code>visibility:hidden;</code> (&#x4EC5;&#x9690;&#x85CF;&#x5185;&#x5BB9;&#xFF0C;&#x5E76;&#x672A;&#x8131;&#x79BB;&#x6587;&#x6863;&#x6D41;&#xFF0C;&#x7EE7;&#x7EED;&#x5360;&#x636E;&#x9875;&#x9762;&#x7684;&#x7A7A;&#x95F4;)</li>
+<li><code>color&#x3001;background-color:...;</code> (&#x4EC5;&#x989C;&#x8272;&#x6539;&#x53D8;)</li>
+</ul>
+<blockquote>
+<h3 id>&#x4F18;&#x5316;&#x4E0E;&#x907F;&#x514D;&#xFF1A;</h3>
+</blockquote>
+<p><strong>&#x4F18;&#x5316;&#xFF1A;</strong><br>
+&#x73B0;&#x4EE3;&#x6D4F;&#x89C8;&#x5668;&#x5C06;&#x53EF;&#x80FD;&#x5F15;&#x8D77;&#x56DE;&#x6D41;&#x548C;&#x91CD;&#x7ED8;&#x7684;&#x64CD;&#x4F5C;&#x653E;&#x5165;&#x7279;&#x5B9A;&#x961F;&#x5217;&#xFF0C;&#x8FDB;&#x884C;&#x6279;&#x91CF;&#x5904;&#x7406;&#x3002;&#x5F53;&#x4EFB;&#x52A1;&#x6570;&#x91CF;&#x6216;&#x8005;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x8FBE;&#x5230;&#x4E00;&#x4E2A;&#x9608;&#x503C;&#x7684;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5C31;&#x4F1A;&#x5C06;&#x961F;&#x5217;&#x6E05;&#x7A7A;&#xFF0C;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x6279;&#x5904;&#x7406;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x628A;&#x591A;&#x6B21;&#x56DE;&#x6D41;&#x548C;&#x91CD;&#x7ED8;&#x53D8;&#x6210;&#x4E00;&#x6B21;&#x3002;&#x4F8B;&#x5916;&#x662F;&#x9700;&#x8981;&#x786E;&#x5B9A;&#x7CBE;&#x786E;&#x503C;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;<code>clientWidth|Height|Top|Left(&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x7684;&#x9AD8;&#x3001;&#x5BBD;&#x5EA6;&#xFF0C;&#x5305;&#x62EC;&#x586B;&#x5145;)</code>&#x3001;<code>offsetWidth|Height|Top|Left(&#x8DDD;&#x79BB;&#x7236;&#x76D2;&#x5B50;&#x504F;&#x79FB;&#xFF0C;&#x4E0D;&#x7B97;&#x5165;border)</code>&#x3001;<code>scrollWidth|Height|Top|Left(&#x4EE5;&#x50CF;&#x7D20;&#x4E3A;&#x5355;&#x4F4D;&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x7684;&#x6574;&#x4E2A;&#x5BBD;&#x5EA6;&#xFF0C;&#x5305;&#x62EC;&#x586B;&#x5145;&#xFF0C;&#x4F46;&#x4E0D;&#x5305;&#x62EC;&#x8FB9;&#x6846;&#x3001;&#x6EDA;&#x52A8;&#x6761;&#x6216;&#x8FB9;&#x8DDD;)</code>&#x3001;<code>getComputedStyle()(&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x7684;&#x6240;&#x6709;&#x5B9E;&#x9645;&#xFF08;&#x8BA1;&#x7B97;&#xFF09;CSS &#x5C5E;&#x6027;&#x548C;&#x503C;)</code>&#x3001;<code>getBoundingClientRect()(&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x7684;&#x5927;&#x5C0F;&#x53CA;&#x5176;&#x76F8;&#x5BF9;&#x4E8E;&#x89C6;&#x53E3;&#x7684;&#x4F4D;&#x7F6E;)</code>...</p>
+<p><strong>&#x907F;&#x514D;&#xFF1A;</strong></p>
+<p><strong>CSS</strong></p>
+<ul>
+<li>&#x907F;&#x514D;&#x7F51;&#x7AD9;&#x6574;&#x4F53;&#x4F7F;&#x7528;&#x7684;&#x8001;&#x65E7;&#x7684; table &#x5E03;&#x5C40;&#xFF08;&#x8868;&#x683C;&#x6570;&#x636E;&#x65E0;&#x4F24;&#x5927;&#x96C5;&#xFF09;&#x3002;</li>
+<li>&#x907F;&#x514D;&#x8BBE;&#x7F6E;&#x591A;&#x5C42;&#x5185;&#x8054;&#x6837;&#x5F0F;&#x3002;&#xFF08;&#x6839;&#x636E; css &#x6743;&#x91CD;&#x7EA7;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x5185;&#x8054;&#x6837;&#x5F0F;&#x53EA;&#x80FD;&#x88AB; <code>!important</code> &#x6240;&#x8986;&#x76D6;&#xFF09;</li>
+<li>&#x907F;&#x514D;&#x4F7F;&#x7528;CSS&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;&#x5982;&#xFF1A;<a href="http://localhost:2368/calc/">calc()</a>&#xFF09;&#x3002;</li>
+</ul>
+<p><strong>JavaScript</strong></p>
+<ul>
+<li>&#x907F;&#x514D;&#x9891;&#x7E41;&#x64CD;&#x4F5C;&#x6837;&#x5F0F;&#xFF0C;&#x6700;&#x597D;&#x4E00;&#x6B21;&#x6027;&#x91CD;&#x5199; style &#x5C5E;&#x6027;&#xFF0C;&#x6216;&#x8005;&#x5C06;&#x6837;&#x5F0F;&#x5217;&#x8868;&#x5B9A;&#x4E49;&#x4E3A; class &#x5E76;&#x4E00;&#x6B21;&#x6027;&#x66F4;&#x6539;class&#x5C5E;&#x6027;&#x3002;</li>
+<li>&#x907F;&#x514D;&#x9891;&#x7E41;&#x64CD;&#x4F5C;DOM&#xFF0C;&#x5C3D;&#x53EF;&#x80FD;&#x7684; DOM &#x64CD;&#x4F5C;&#x901A;&#x8FC7;&#x5F00;&#x8F9F; <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment">DocumentFragment</a> &#x89E3;&#x51B3;&#xFF0C;&#x6700;&#x540E;&#x518D;&#x6DFB;&#x52A0;&#x5230;&#x6587;&#x6863;&#x4E2D;&#x3002;</li>
+</ul>
+<pre><code class="language-HTML">&lt;ul id=&quot;list&quot;&gt;&lt;/ul&gt;
+</code></pre>
+<pre><code class="language-JavaScript">var list = document.querySelector(&apos;#list&apos;)
+var fruits = [&apos;Apple&apos;, &apos;Orange&apos;, &apos;Banana&apos;, &apos;Melon&apos;]
+
+var fragment = new DocumentFragment()
+
+fruits.forEach(function (fruit) {
+  var li = document.createElement(&apos;li&apos;)
+  li.innerHTML = fruit
+  fragment.appendChild(li)
+})
+
+list.appendChild(fragment)
+// Apple
+// Orange
+// Banana
+// Melon
+</code></pre>
+<blockquote>
+<h2 id>&#x7ED3;&#x675F;</h2>
+</blockquote>
+<p><strong>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF1A;</strong></p>
+<ol>
+<li>&#x4F1A;&#x5F15;&#x8D77;&#x5143;&#x7D20;&#x6216;&#x5468;&#x56F4;&#x7684;&#x5143;&#x7D20;&#x4F4D;&#x7F6E;&#x53D8;&#x5316;&#x5219; reflow&#xFF0C;&#x5982;&#x7A97;&#x53E3;&#x3001;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x3001;&#x5143;&#x7D20;&#x4F4D;&#x7F6E;&#x6539;&#x53D8;...&#xFF1B;&#x4E0D;&#x4F1A;&#x5F15;&#x8D77;&#x4F4D;&#x7F6E;&#x53D8;&#x5316;&#xFF0C;&#x4EC5;&#x5B58;&#x5728;&#x53D8;&#x8272;&#x6548;&#x679C;&#x5219; repaint&#x3002;</li>
+<li>&#x56DE;&#x6D41;&#x6027;&#x80FD;&#x6D88;&#x8017;&#x8F83;&#x91CD;&#x7ED8;&#x8981;&#x9AD8;&#xFF0C;&#x56E0;&#x56DE;&#x6D41;&#x7684;&#x5F71;&#x54CD;&#x4E5F;&#x4F1A;&#x5192;&#x6CE1;&#x4F5C;&#x7528;&#x4E8E;&#x5468;&#x8FB9;&#x53CA;&#x7236;&#x5143;&#x7D20;&#x3002;</li>
+<li><code>display:none;</code>&#x56E0;&#x4E0D;&#x5360;&#x636E;&#x7269;&#x7406;&#x7A7A;&#x95F4;&#xFF0C;&#x56E0;&#x6B64;&#x6D89;&#x53CA;&#x4E86;dom&#x6811;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x5F15;&#x8D77;&#x91CD;&#x7ED8;&#x548C;&#x56DE;&#x6D41;&#xFF1B;<code>visibility:hiden;</code> &#x5143;&#x7D20;&#x867D;&#x7136;&#x4E0D;&#x53EF;&#x89C1;&#x4F46;&#x662F;&#x5374;&#x5360;&#x636E;&#x7269;&#x7406;&#x7A7A;&#x95F4;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x5F71;&#x54CD;dom&#x6811;&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x4F1A;&#x5F15;&#x8D77;&#x56DE;&#x6D41;&#x3002;</li>
+</ol>
+<blockquote>
+<h3 id>&#x4EE5;&#x4E0A;</h3>
+</blockquote>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[伪类和伪元素]]></title><description><![CDATA[世事茫茫，光阴有限，算来何必奔忙！人生碌碌，竞短论长，却不道荣枯有数，得失难量。
+——沈复《浮生六记》]]></description><link>http://localhost:2368/pseudo-classesnelements/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfdcf</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Wed, 20 May 2020 12:25:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>&#x4E5F;&#x6709;&#x5728; GitHub &#x770B;&#x4EBA;&#x5BB6;&#x7684;&#x7801;&#x7684;&#x9875;&#x9762;demo&#xFF0C;&#x5728;&#x6837;&#x5F0F;&#x8BBE;&#x7F6E;&#x4E2D;&#x4E5F;&#x4F1A;&#x96BE;&#x514D;&#x9047;&#x89C1;&#x4F2A;&#x7C7B;&#x4E0E;&#x4F2A;&#x5143;&#x7D20;&#x9009;&#x62E9;&#x5668;&#x3002;&#x8FD9;&#x91CC;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x7406;&#x89E3;&#x8FD9;&#x4E24;&#x4E2A;&#x6982;&#x5FF5;&#x7684;&#x5FC3;&#x8DEF;&#x5386;&#x7A0B;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x6B63;&#x6587;</h2>
+</blockquote>
+<p>&#x5728; CSS2 &#x4E2D;&#x4F2A;&#x7C7B;&#x4E0E;&#x4F2A;&#x5143;&#x7D20;&#x90FD;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5192;&#x53F7;&#x8868;&#x793A;&#xFF0C;&#x56E0;&#x9700;&#x517C;&#x5BB9;&#x8001;&#x6B3E;&#x6D4F;&#x89C8;&#x5668;&#x3002;&#x800C; CSS3 &#x4E2D;&#x5DF2;&#x505A;&#x51FA;&#x533A;&#x5206;&#xFF1A;&#x4F2A;&#x7C7B;&#x7528;&#x5192;&#x53F7;&#x3001;&#x4F2A;&#x5143;&#x7D20;&#x4F7F;&#x7528;&#x53CC;&#x5192;&#x53F7;&#x8868;&#x793A;&#x3002;&#x6240;&#x4EE5;&#x73B0;&#x5728;&#x5728; VSCode &#x4E2D;&#x4E66;&#x5199;&#x9519;&#x8BEF;&#x4F1A;&#x5B58;&#x5728;&#x8B66;&#x544A;&#x3002;&#x9009;&#x62E9;&#x5668;&#x53EF;&#x4EE5;&#x9644;&#x52A0;&#x591A;&#x4E2A;&#x4F2A;&#x7C7B;&#xFF0C;&#x4F46;&#x81F3;&#x591A;&#x9644;&#x52A0;&#x4E00;&#x4E2A;&#x4F2A;&#x5143;&#x7D20;&#x3002;&#x4E14;&#x4F2A;&#x5143;&#x7D20;&#x4E0E;&#x4F2A;&#x7C7B;&#x540C;&#x65F6;&#x4F5C;&#x7528;&#x5219;&#x4F2A;&#x5143;&#x7D20;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#x4E8E;&#x4F2A;&#x7C7B;&#x7684;&#x540E;&#x65B9;&#x3002;</p>
+<p>&#x4ECE;&#x5148;&#x6709;&#x5143;&#x7D20;&#x540E;&#x6709;&#x7C7B;&#x6765;&#x7406;&#x89E3;&#x3002;&#x7C7B;&#x76F8;&#x5F53;&#x4E8E;&#x88C5;&#x9970;&#x54C1;&#x4FEE;&#x9970;&#x5143;&#x7D20;&#xFF0C;&#x4E14;&#x7C7B;&#x57FA;&#x4E8E;&#x5143;&#x7D20;&#x3002;&#x90A3;&#x4E48;&#xFF0C;&#x4F2A;&#x7C7B;&#x57FA;&#x4E8E; DOM &#x4EA7;&#x751F;&#x4E0D;&#x540C;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x65B0;&#x5BF9;&#x8C61;&#xFF1B;&#x4F2A;&#x5143;&#x7D20;&#x521B;&#x5EFA;&#x4E0D;&#x5B58;&#x5728; DOM &#x7684;&#x65B0;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5BF9;&#x65B0;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;</p>
+<p><strong>&#x5E38;&#x7528;&#x4F2A;&#x5143;&#x7D20;&#x4E0E;&#x4F2A;&#x7C7B;&#xFF1A;</strong></p>
+<ul>
+<li>&#x4F2A;&#x7C7B;&#xFF1A;</li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th style="width:40%">&#x7C7B;&#x522B;</th>
+            <th>&#x4F2A;&#x7C7B;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&#x72B6;&#x6001;&#x7C7B;</td>
+            <td>:link&#x3001;:visited&#x3001;:hover&#x3001;:focus&#x3001;:active</td>
+        </tr>
+        <tr>
+            <td>&#x7ED3;&#x6784;&#x7C7B;</td>
+            <td>:first-child&#x3001;:nth-child&#x3001;:last-child&#x3001;:nth-of-type</td>
+        </tr>
+        <tr>
+            <td>&#x8868;&#x5355;&#x7C7B;</td>
+            <td>:checked&#x3001;:disabled&#x3001;:valid&#x3001;:required</td>
+        </tr>
+        <tr>
+            <td>&#x8BED;&#x8A00;&#x7C7B;</td>
+            <td>:dir(&#x89C4;&#x5B9A;&#x5143;&#x7D20;&#x5185;&#x5BB9;&#x7684;&#x6587;&#x672C;&#x65B9;&#x5411;rtl&#x3001;ltr&#x3002;)&#x3001;:lang(&#x89C4;&#x5B9A;&#x5143;&#x7D20;&#x5185;&#x5BB9;&#x7684;&#x8BED;&#x8A00;)</td>
+        </tr>
+    </tbody>
+</table>
+<ul>
+<li>&#x4F2A;&#x5143;&#x7D20;</li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th style="width:40%">&#x7C7B;&#x522B;</th>
+            <th>&#x4F2A;&#x7C7B;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&#x72B6;&#x6001;&#x7C7B;</td>
+            <td>::before&#x3001;::after</td>
+        </tr>
+        <tr>
+            <td>&#x7ED3;&#x6784;&#x7C7B;</td>
+            <td>::first-letter&#x3001;::first-line&#x3001;::selection</td>
+        </tr>
+        <tr>
+            <td>&#x8868;&#x5355;&#x7C7B;</td>
+            <td>::placeholder</td>
+        </tr>
+        <tr>
+            <td>&#x8BED;&#x8A00;&#x7C7B;</td>
+            <td>::backdrop(&#x5143;&#x7D20;&#x88AB;&#x7F6E;&#x4E8E;&#x5168;&#x5C4F;&#x6A21;&#x5F0F;&#x65F6;&#xFF0C;&#x80CC;&#x666F;&#x4F1A;&#x7ACB;&#x5373;&#x7ED8;&#x5236;&#x5728;&#x6700;&#x524D;&#x9762;&#x7684;&#x6B64;&#x7C7B;&#x5143;&#x7D20;&#x4E0B;&#x65B9;)</td>
+        </tr>
+    </tbody>
+</table>
+<p><strong>&#x4F2A;&#x7C7B;&#x4F2A;&#x5143;&#x7D20;&#x5E94;&#x7528;:</strong></p>
+<ul>
+<li>&#x52FE;&#x9009;&#x6587;&#x5B57;&#x63D0;&#x9192;:</li>
+</ul>
+<pre><code class="language-css">input {
+  margin: 10px;
+}
+input::after {content: &apos;&#x5DF2;&#x52FE;&#x9009;&apos;; display: none; width: 50px; height: 30px; margin-left: 50px;}
+input:checked::after {display: block}
+/* &#x4F2A;&#x5143;&#x7D20;&#x4EC5;&#x80FD;&#x5728;&#x9009;&#x62E9;&#x7B26;&#x7684;&#x6700;&#x540E; */
+/* &#x4F2A;&#x7C7B;&#x5219;&#x524D;&#x540E;&#x4F4D;&#x7F6E;&#x90FD;&#x53EF;&#x4EE5; */
+/* input::after:checked {display: block} */
+</code></pre>
+<pre><code class="language-html">&lt;input type=&quot;checkbox&quot; style=&quot;display: block;&quot;&gt;
+&lt;input type=&quot;checkbox&quot; style=&quot;display: block;&quot;&gt;
+&lt;input type=&quot;checkbox&quot; style=&quot;display: block;&quot;&gt;
+</code></pre>
+<img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622743726/blog/%E5%8B%BE%E9%80%89%E6%96%87%E5%AD%97%E6%8F%90%E9%86%92_ufckti.png" width="20%">
+<ul>
+<li>&#x8F93;&#x5165;&#x6846;&#x53D8;&#x8272;:</li>
+</ul>
+<pre><code class="language-css">input {
+  font-size: 3em;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+}
+/* &#x4F2A;&#x7C7B;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x591A;&#x4E2A;&#x62FC;&#x63A5; */
+/* focus&#x4F2A;&#x7C7B;&#x8868;&#x793A;&#x53D6;&#x6D88;&#x7126;&#x70B9;&#x5219;&#x4E0D;&#x663E;&#x793A; */
+input:out-of-range:focus {
+  background-color: #FF4D4D;
+}
+/* &#x5728;&#x76F8;&#x90BB;&#x540C;&#x80DE;&#x5143;&#x7D20;&#x5185;&#x5BB9;&#x540E;&#x9762;&#x52A0;&#x4E0A; */
+input:out-of-range + span::after {content: &apos;&#x8D85;&#x51FA;&#x8303;&#x56F4;&apos;}
+/* &#x4F2A;&#x5143;&#x7D20;&#x4E0D;&#x5141;&#x8BB8;&#x4E0E;&#x4F2A;&#x5143;&#x7D20;&#x62FC;&#x63A5; =&gt; &#xD7; h2::before::after {content: &apos;...&apos;} */
+/* &#x4E00;&#x884C;&#x4EC5;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x4F2A;&#x5143;&#x7D20; */
+</code></pre>
+<pre><code class="language-html">&lt;b&gt;zs&#x8BF7;&#x8F93;&#x5165;&lt;/b&gt;
+&lt;input type=&quot;number&quot; min=&quot;1&quot; max=&quot;40&quot;&gt;
+&lt;span&gt;&#x7ED3;&#x679C;&lt;/span&gt;
+</code></pre>
+<img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622744102/blog/input%E5%8F%98%E8%89%B2_irok9v.gif" width="30%">
+<ul>
+<li>&#x4F2A;&#x7C7B;&#x4F2A;&#x5143;&#x7D20;&#x987A;&#x5E8F;&#x95EE;&#x9898;:</li>
+</ul>
+<pre><code class="language-css">ul li {
+  list-style-type: none;
+}
+li:nth-child(2n+1) {color: #FF4D4D;}
+/* &#x4F2A;&#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x4F2A;&#x5143;&#x7D20;&#x5BF9;&#x8C61;&#x800C;&#x4E0D;&#x4F1A;&#x5360;&#x7528;DOM&#x8282;&#x70B9; */
+p::first-letter {color: #FF4D4D;}
+</code></pre>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;1&lt;/li&gt;
+  &lt;li&gt;2&lt;/li&gt;
+  &lt;li&gt;3&lt;/li&gt;
+  &lt;li&gt;4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  zairesinatra&#x4F60;&#x53EF;&#x4EE5;&lt;br&gt;&#x7ED3;&#x5408;&#x5F88;&#x591A;&#x7684;&#x4E1C;&#x897F;&#x53BB;&lt;br&gt;&#x5B9E;&#x73B0;&#x4F60;&#x60F3;&#x505A;&#x7684;&#x4E8B;&#x3002;
+&lt;/p&gt;
+</code></pre>
+<img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622744474/blog/zh_xxniui.png" width="15%">
+<hr>
+<blockquote>
+<h2 id>&#x7ED3;&#x675F;</h2>
+</blockquote>
+<p>&#x4F2A;&#x7C7B;&#x3001;&#x4F2A;&#x5143;&#x7D20;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x4E3B;&#x8981;&#x662F;&#x9700;&#x8981;&#x505A;&#x597D;&#x533A;&#x5206;&#xFF0C;&#x719F;&#x7EC3;&#x8FD0;&#x7528;&#x51E0;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x6765;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x4E00;&#x5B9A;&#x4EE3;&#x7801;&#x91CF;&#xFF0C;&#x4F18;&#x5316;&#x8D44;&#x6E90;&#x3002;</p>
+<blockquote>
+<h3 id>&#x4EE5;&#x4E0A;</h3>
+</blockquote>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[Vuex]]></title><description><![CDATA[怕？你就要输一辈子。]]></description><link>http://localhost:2368/vuex/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfde8</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Tue, 19 May 2020 16:20:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><blockquote>
+<h2 id>&#x524D;&#x8A00;</h2>
+</blockquote>
+<p>&#x5728;&#x5F00;&#x53D1;&#x5927;&#x578B;&#x5355;&#x9875;&#x5E94;&#x7528;&#x65F6;&#xFF0C;&#x4E3A;&#x5168;&#x5C40;&#x7BA1;&#x7406;&#x72B6;&#x6001;&#xFF0C;&#x907F;&#x514D;&#x6DF7;&#x4E71;&#x7684;&#x6570;&#x636E;&#x53D8;&#x66F4;&#x4E8B;&#x4EF6;&#x5206;&#x5E03;&#xFF0C;&#x5E38;&#x4F7F;&#x7528; Vue &#x7684; Vuex &#x548C; React &#x4E2D;&#x7684; Redux&#x3002;&#x76F8;&#x53CD;&#x5728;&#x5C0F;&#x578B;&#x9879;&#x76EE;&#x4F7F;&#x7528; Vuex &#x53EF;&#x80FD;&#x662F;&#x9002;&#x5F97;&#x5176;&#x53CD;&#x3002;</p>
+<p>&#x4E2A;&#x4EBA;&#x7ECF;&#x9A8C;&#x7406;&#x89E3;&#x5C31;&#x662F;&#x5728; state &#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x6240;&#x5728;&#x7EC4;&#x4EF6;&#x91CC;&#x8FDB;&#x884C;&#x83B7;&#x53D6;&#x3001;&#x4FEE;&#x6539;&#xFF0C;&#x4E14;&#x4FEE;&#x6539;&#x540E;&#x5448;&#x5168;&#x5C40;&#x54CD;&#x5E94;&#x5F0F;&#x53D8;&#x66F4;&#x3002;</p>
+<hr>
+<blockquote>
+<h2 id>&#x6B63;&#x6587;</h2>
+</blockquote>
+<blockquote>
+<h3 id>&#x521D;&#x8BC6;</h3>
+</blockquote>
+<p>vuex &#x5B89;&#x88C5;&#x5982;&#x4E0B;:</p>
+<pre><code class="language-zsh"># &#x57FA;&#x4E8E; Vue@2.0.0+
+# &#x5B89;&#x88C5;&#x5230;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E0B;,&#x5E76;&#x5728; package.json &#x6587;&#x4EF6;&#x7684; dependencies &#x4E2D;&#x5199;&#x5165;&#x4F9D;&#x8D56;,&#x7B80;&#x5199;&#x4E3A;-S
+npm install vuex --save
+</code></pre>
+<p>&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x540E;&#x4F1A;&#x5728;src&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0B;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>store</code> &#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5176;&#x4E2D;&#x7684; <code>index.js</code> &#x5185;&#x5BB9;&#x5982;&#x4E0B;:</p>
+<pre><code>import Vue from &apos;vue&apos;
+import Vuex from &apos;vuex&apos;
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {},
+  mutations: {},
+  actions: {},
+  modules: {},
+  getters: {}
+})
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x522B;&#x5FD8;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5728;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;&#x5C31;&#x52FE;&#x9009;&#x4E86; vuex &#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x5728; <code>main.js</code> &#x91CC;&#x5F15;&#x5165; <code>store</code> &#x5E76;&#x5168;&#x5C40;&#x6CE8;&#x6D4B;&#xFF0C;&#x6B64;&#x4E3E;&#x4E3A;&#x4E86;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528; <code>this.$store</code> &#x3002;</p>
+<pre><code>import store from &apos;./store&apos;
+
+new Vue({
+  el: &apos;#app&apos;,
+  router,
+  store, // &#x4F7F;&#x7528; store
+  template: &apos;&lt;App/&gt;&apos;,
+  components: { App }
+})
+</code></pre>
+<blockquote>
+<h3 id>&#x6DF1;&#x5165;&#x6838;&#x5FC3;</h3>
+</blockquote>
+<p>&#x524D;&#x594F;&#x6BD5;&#x81F3;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x91CD;&#x5934;&#x620F;&#xFF0C;&#x522B;&#x5FD8;&#x4E86;&#x4E0A;&#x6BB5;&#x9057;&#x7559;&#x7684;&#x4E94;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;</p>
+<ul>
+<li><strong>State</strong></li>
+</ul>
+<p>Vuex &#x4F7F;&#x7528;&#x5355;&#x4E00;&#x72B6;&#x6001;&#x6811;&#x5373;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5C31;&#x5305;&#x542B;&#x4E86;&#x5168;&#x90E8;&#x7684;&#x5E94;&#x7528;&#x5C42;&#x7EA7;&#x72B6;&#x6001;&#x7684;<u>&#x552F;&#x4E00;&#x6570;&#x636E;&#x6E90;</u>&#x3002;&#x90A3;&#x4E48;&#x6BCF;&#x4E2A;&#x5E94;&#x7528;&#x5C06;&#x4EC5;&#x4EC5;&#x5305;&#x542B;&#x4E00;&#x4E2A; store &#x5B9E;&#x4F8B;&#x3002;</p>
+<pre><code class="language-js">// store &#x4E2D;&#x7684; index.js &#x5185;&#x63D0;&#x4F9B;&#x552F;&#x4E00;&#x516C;&#x5171;&#x6570;&#x636E;&#x6E90;,&#x6240;&#x6709;&#x5171;&#x4EAB;&#x6570;&#x636E;&#x540C;&#x4E00;&#x653E;&#x5728; Store &#x7684; State &#x4E2D;&#x50A8;&#x5B58;
+const store = new Vuex.Store({
+	state: { &#x6570;&#x636E;&#x540D;:&#x6570;&#x636E;&#x503C;, ... } // &#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x5C31;&#x662F;&#x5168;&#x5C40;&#x5171;&#x4EAB;&#x7684;&#x6570;&#x636E;
+})
+</code></pre>
+<pre><code>// &#x7EC4;&#x4EF6;&#x4E2D;&#x8BBF;&#x95EE; State &#x4E2D;&#x6570;&#x636E;&#x7684;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;:
+this.$store.state.&#x5168;&#x5C40;&#x6570;&#x636E;&#x540D;&#x79F0;
+// &#x7EC4;&#x4EF6;&#x4E2D;&#x8BBF;&#x95EE; State &#x4E2D;&#x6570;&#x636E;&#x7684;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;:
+// 1.&#x4ECE; vuex &#x4E2D;&#x6309;&#x9700;&#x5BFC;&#x5165; mapState &#x51FD;&#x6570;
+import { mapState } from &apos;vuex&apos;
+// 2.&#x5C06;&#x5168;&#x5C40;&#x6570;&#x636E;&#x6620;&#x5C04;&#x4E3A;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x7684;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;
+computed: {
+  ...mapState([&apos;&#x6570;&#x636E;&#x540D;&apos;, ...]); // &#x9700;&#x8981;&#x54EA;&#x4E9B;&#x5168;&#x5C40;&#x5C5E;&#x6027;&#x5C31;&#x5728;&#x8FD9;&#x91CC;&#x58F0;&#x660E;
+}
+</code></pre>
+<ul>
+<li><strong>mutation</strong></li>
+</ul>
+<p>&#x7528;&#x4E8E;&#x53D8;&#x66F4; Store &#x4E2D;&#x7684;&#x6570;&#x636E;(&#x4E0D;&#x63A8;&#x8350; <code>this.$store.state.count</code> &#x4FEE;&#x6539;&#x5168;&#x5C40;&#x6570;&#x636E;=&gt;&#x9879;&#x76EE;&#x5927;&#x627E;&#x4E0D;&#x5230;&#x8C01;&#x4FEE;&#x6539;&#x7684;&#x6570;&#x636E;&#x1F4E1;)&#x7684; mutation &#x64CD;&#x4F5C;&#x6539;&#x53D8;&#x6570;&#x636E;&#x867D;&#x8F83;&#x4E3A;&#x7E41;&#x7410;&#x5374;&#x53EF;&#x4EE5;&#x96C6;&#x4E2D;&#x76D1;&#x63A7;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x53D8;&#x5316;&#x3002;</p>
+<p>&#x65B9;&#x5F0F;&#x4E00;:</p>
+<pre><code>// index.js&#x6587;&#x4EF6;
+const store = new Vuex.Store({
+  state: {
+    &#x6570;&#x636E;&#x540D;:&#x6570;&#x636E;&#x503C;,
+    ...
+  },
+  mutations: {
+    func(state, args) {
+    // &#x53D8;&#x66F4;&#x72B6;&#x6001;,&#x64CD;&#x4F5C; state.count
+    }
+  }
+})
+</code></pre>
+<pre><code>// &#x5B50;&#x7EC4;&#x4EF6;&#x6587;&#x4EF6;
+// &#x89E6;&#x53D1; mutation
+methods: {
+  eventfunc() {
+    // &#x89E6;&#x53D1; mutations &#x7684;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;
+    this.$store.commit(&apos;func&apos;)
+  }
+}
+</code></pre>
+<p>&#x65B9;&#x5F0F;&#x4E8C;:</p>
+<pre><code>// &#x5B50;&#x7EC4;&#x4EF6;&#x6587;&#x4EF6;
+// &#x4ECE; vuex &#x4E2D;&#x6309;&#x9700;&#x5BFC;&#x5165; mapMutations &#x51FD;&#x6570;
+import { mapMutations } from &apos;vuex&apos;
+...
+// &#x5728;&#x7EC4;&#x4EF6;&#x4E2D;&#x901A;&#x8FC7;&#x5BFC;&#x5165;&#x7684; mutations &#x51FD;&#x6570;&#x6620;&#x5C04;&#x4E3A;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x7684; methods &#x51FD;&#x6570;
+methods: {
+  ...mapMutations([&apos;func1&apos;,&apos;func2&apos;])
+}
+</code></pre>
+<ul>
+<li><strong>Action</strong></li>
+</ul>
+<p>Mutation &#x4E2D;&#x4E0D;&#x80FD;&#x5199;&#x5F02;&#x6B65;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x800C; Action &#x4E13;&#x95E8;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x3002;&#x5728; Action &#x4E2D;&#x95F4;&#x63A5;&#x5730;&#x89E6;&#x53D1; Mutation &#x65B9;&#x5F0F;&#x95F4;&#x63A5;&#x53D8;&#x66F4;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x65B9;&#x5F0F;&#x4E00;:</p>
+<pre><code>// store &#x4E2D; index.js
+const store = new Vuex Store({
+  ...
+  mutations: {
+    func1(state) {
+	  &#x5177;&#x4F53;&#x7684;&#x64CD;&#x4F5C;state.count
+	},
+    func2(state, args) {
+      // &#x5E26;args&#x53C2;&#x6570;&#x64CD;&#x4F5C;state.count
+    }
+	},
+	actions: {
+	  func1Async(context, args) {
+	  setTimeout(() =&gt; {
+	    context.commit(&apos;func1&apos;, args)
+	  }, 1000)
+	}
+  }
+})
+</code></pre>
+<pre><code>// &#x7EC4;&#x4EF6;&#x89E6;&#x53D1; Actions 
+methods: {
+  eventfunc() {
+    this.$store.dispatch(&apos;func1Async&apos;, args) // &#x4E00;&#x4E2A;&#x662F;dispatch&#x4E00;&#x4E2A;&#x662F;commit
+  }
+}
+</code></pre>
+<p>&#x65B9;&#x5F0F;&#x4E8C;:</p>
+<pre><code>// &#x7EC4;&#x4EF6;&#x4ECE; vuex &#x4E2D;&#x6309;&#x9700;&#x5BFC;&#x5165; mapActions &#x51FD;&#x6570;
+import { mapActions } from &apos;vuex&apos;
+...
+// &#x7EC4;&#x4EF6;&#x6307;&#x5B9A;&#x7684; actions &#x51FD;&#x6570;&#x6620;&#x5C04;&#x4E3A;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x7684; methods &#x51FD;&#x6570;
+// &#x540C;&#x65F6;&#x56E0;&#x4E3A;&#x662F;&#x6620;&#x5C04;,&#x5BFC;&#x5165;&#x540E;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7ED1;&#x5B9A;&#x5230;&#x4E8B;&#x4EF6;
+methods: {
+  ...mapActions([&apos;func1Async&apos;, &apos;func2Async&apos;])
+}
+</code></pre>
+<ul>
+<li><strong>Getter</strong></li>
+</ul>
+<p>&#x7528;&#x4E8E;&#x5BF9; Store &#x4E2D;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x52A0;&#x5DE5;&#x5904;&#x7406;&#x5F62;&#x6210;&#x65B0;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E0D;&#x4F1A;&#x4FEE;&#x6539; Store &#x91CC;&#x7684;&#x539F;&#x6570;&#x636E;&#xFF0C;&#x4EC5;&#x5305;&#x88C5;&#x3002;&#x7C7B;&#x4F3C;&#x4E8E; Vue &#x4E2D;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x3002; Store &#x4E2D;&#x6570;&#x636E;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;Getter &#x6570;&#x636E;&#x4E5F;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;</p>
+<pre><code>// store &#x4E2D; index.js
+const store = new Vuex.Store({
+  state: {
+    &#x6570;&#x636E;&#x540D;: &#x6570;&#x636E;&#x503C;,
+    ...
+  },
+  getters: {
+    funcc: state =&gt; {
+      return &apos;&#x5F53;&#x524D;&#x6700;&#x65B0;&#x7684;&#x6570;&#x636E;&#x662F;[&apos;+ state.&#x6570;&#x636E;&#x540D; +&apos;]&apos;
+    }
+  }
+})
+</code></pre>
+<pre><code>// &#x7EC4;&#x4EF6;&#x5185;&#x5BB9;
+// &#x4F7F;&#x7528; getters &#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;
+this.$store.getters.&#x540D;&#x79F0;
+// &#x4F7F;&#x7528; getters &#x7684;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;
+import { mapGetters } from &apos;vuex&apos;
+computed: {
+  ...mapGetters([&apos;&#x540D;&#x79F0;&apos;])
+}
+</code></pre>
+<ul>
+<li><strong>module</strong></li>
+</ul>
+<p>&#x7531;&#x4E8E;&#x4E0A;&#x8FF0;&#x90FD;&#x662F;&#x4F7F;&#x7528;&#x5355;&#x4E00;&#x72B6;&#x6001;&#x6811;&#xFF0C;&#x5E94;&#x7528;&#x7684;&#x6240;&#x6709;&#x72B6;&#x6001;&#x4F1A;&#x96C6;&#x4E2D;&#x5230;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5F53;&#x5E94;&#x7528;&#x53D8;&#x5F97;&#x975E;&#x5E38;&#x590D;&#x6742;&#x65F6;&#xFF0C;store &#x5BF9;&#x8C61;&#x5C31;&#x6709;&#x53EF;&#x80FD;&#x53D8;&#x5F97;&#x76F8;&#x5F53;&#x81C3;&#x80BF;&#x3002;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x4EE5;&#x4E0A;&#x95EE;&#x9898;&#xFF0C;Vuex &#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x5C06; store &#x5206;&#x5272;&#x6210;&#x6A21;&#x5757;(module)</p>
+<p>&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x548C;&#x64CD;&#x4F5C;&#x90FD;&#x5199;&#x5728;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x548C;&#x5176;&#x5B50;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x5728;&#x590D;&#x76D8;&#x4EE3;&#x7801;&#x5C31;&#x4F1A;&#x76F8;&#x5F53;&#x5403;&#x4F53;&#x529B;&#x3002;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x628A; store &#x62C6;&#x5F00;&#xFF0C;&#x7528;&#x5230;&#x4EC0;&#x4E48;&#x6570;&#x636E;&#xFF0C;&#x64CD;&#x4F5C;&#x4EC0;&#x4E48;&#x6570;&#x636E;&#xFF0C;&#x5C31;&#x5C01;&#x88C5;&#x4E3A;&#x4E00;&#x4E2A;&#x5B50;&#x6A21;&#x5757;&#x3002;</p>
+<pre><code>// &#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x62E5;&#x6709;&#x81EA;&#x5DF1;&#x7684; state&#x3001;mutation&#x3001;action&#x3001;getter&#x3001;&#x751A;&#x81F3;&#x662F;&#x5D4C;&#x5957;&#x5B50;&#x6A21;&#x5757;&#x2014;&#x2014;&#x4ECE;&#x4E0A;&#x81F3;&#x4E0B;&#x8FDB;&#x884C;&#x540C;&#x6837;&#x65B9;&#x5F0F;&#x7684;&#x5206;&#x5272;:
+const moduleA = {
+  state: () =&gt; ({ ... }),
+  mutations: { ... },
+  actions: { ... },
+  getters: { ... }
+}
+
+const moduleB = {
+  state: () =&gt; ({ ... }),
+  mutations: { ... },
+  actions: { ... }
+}
+
+const store = new Vuex.Store({
+  modules: {
+    a: moduleA,
+    b: moduleB
+  }
+})
+
+store.state.a // -&gt; moduleA &#x7684;&#x72B6;&#x6001;
+store.state.b // -&gt; moduleB &#x7684;&#x72B6;&#x6001;
+</code></pre>
+<hr>
+<blockquote>
+<h2 id>&#x7ED3;&#x675F;</h2>
+</blockquote>
+<p>&#x6682;&#x4E14;&#x6CA1;&#x6709;&#x5E96;&#x4E01;&#x89E3;&#x725B;&#x7684;&#x529F;&#x529B;&#x53BB;&#x89E3;&#x6790;&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF0C;&#x672C;&#x6587;&#x4E3B;&#x8981;&#x6D45;&#x8C08;&#x4E86; Vuex &#x5728;&#x9879;&#x76EE;&#x5DE5;&#x4F5C;&#x65F6;&#x7684;&#x5E94;&#x7528;&#x8981;&#x70B9;&#x3002;</p>
+<blockquote>
+<h3 id>&#x4EE5;&#x4E0A;</h3>
+</blockquote>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[微信WePY报错汇总]]></title><description><![CDATA[wepy 框架遇见的 BUGS 解决方案]]></description><link>http://localhost:2368/solve-wepy-error/</link><guid isPermaLink="false">60e11c9ebed9e30a7c1cfdc9</guid><category><![CDATA[BUG handled]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Fri, 01 May 2020 11:32:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><p>&#x4ECE;&#x6A2A;&#x7A7A;&#x51FA;&#x4E16;&#xFF0C;&#x5230;&#x73B0;&#x5728;&#x6846;&#x67B6;&#x7684;&#x767E;&#x82B1;&#x9F50;&#x653E;&#x3002;&#x5FAE;&#x4FE1;&#x7684;&#x539F;&#x751F;&#x8BED;&#x6CD5;&#x4F9D;&#x7136;&#x8FD8;&#x662F;&#x672C;&#x4EBA;&#x5FC3;&#x5934;&#x6700;&#x559C;&#x6B22;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5F88;&#x5C11;&#x4EA7;&#x751F;&#x4E00;&#x4E9B;&#x7A00;&#x5947;&#x53E4;&#x602A;&#x7684;&#x9519;&#x8BEF;&#x3002;&#x81F3;&#x4E8E;&#x6846;&#x67B6;&#xFF0C;Rax/Taro/uni-app/wepy...&#x9009;&#x62E9;&#x6027;&#x8FD8;&#x662F;&#x5F88;&#x591A;&#xFF0C;&#x672C;&#x6587;&#x5C31; wepy &#x4F7F;&#x7528;&#x4E2D;&#x9047;&#x89C1;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x8BB0;&#x5F55;&#x76F8;&#x5E94;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
+<hr>
+<blockquote>
+<p><strong>&#x524D;&#x666F;&#x63D0;&#x8981;&#xFF1A;</strong><br>
+WePY@2.x.x &#x8F83; v1.x.x &#x53D8;&#x5316;&#x8F83;&#x5927;&#xFF0C;&#x672C;&#x6587; WePY &#x7248;&#x672C;&#x4E3A; version1.7.3&#x3002;<br>
+v1.x.x&#x4E0E;<a href="https://wepyjs.github.io/wepy-docs/2.x/#/">v2.x.x</a>&#x76F8;&#x6BD4;&#xFF1A;node&#x2014;modules&#x6587;&#x4EF6;&#x5939;&#x4E00;&#x81F4;&#xFF0C;&#x800C;&#x524D;&#x8005;&#x7684;dist&#x6587;&#x4EF6;&#x5939;&#x5728;&#x540E;&#x8005;&#x4E2D;&#x66F4;&#x65B0;&#x4E3A;weapp&#xFF0C;&#x5373;&#x5B58;&#x653E;&#x5B9E;&#x65F6;&#x7F16;&#x8BD1;&#x540E;&#x4EE3;&#x7801;&#x3002;</p>
+</blockquote>
+<hr>
+<ul>
+<li>WePY &#x521D;&#x59CB;&#x5316;&#x62A5;&#x9519;&#xFF1A;</li>
+</ul>
+<pre><code>$ wepy init standard project_name
+# &#x7F51;&#x7EDC;&#x72B6;&#x6001;&#x5F02;&#x5E38;
+downloading template   wepy-cli &#xB7; Failed to download repo standard: read ECONNRESET
+</code></pre>
+<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> 1.&#x66F4;&#x6362;&#x7F51;&#x7EDC;&#x3001;&#x79D1;&#x5B66;&#x4E0A;&#x7F51; 2.&#x4F7F;&#x7528;&#x672C;&#x5730;&#x4E0B;&#x8F7D;&#x7684;&#x521D;&#x59CB;&#x5316; template&#xFF1A;&#x8FDB;&#x5165; <a href="https://github.com/wepyjs/wepy-templates">WePYGithub</a>&#xFF0C;&#x9009;&#x62E9;&#x4E0B;&#x8F7D;<u>&#x9700;&#x8981;&#x7684;&#x5206;&#x652F;</u>&#x81F3;&#x672C;&#x5730;&#xFF0C;&#x6700;&#x540E;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x7531; <code>wepy init standard project_name</code> &#x4FEE;&#x6539;&#x4E3A; <code>wepy init &#x4E0B;&#x8F7D;&#x6587;&#x4EF6;&#x4E2D; standard &#x5B58;&#x653E;&#x8DEF;&#x5F84; project_name</code></p>
+<ul>
+<li>ESLint &#x8BED;&#x6CD5;&#x62A5;&#x9519;&#xFF1A;</li>
+</ul>
+<pre><code>.../src/app.wpy
+15:1  error  More than 1 blank line not allowed  no-multiple-empty-lines
+
+&#x2716; 1 problem (1 error, 0 warnings)
+
+.../src/pages/index.wpy
+91:1  error  More than 1 blank line not allowed  no-multiple-empty-lines
+
+&#x2716; 1 problem (1 error, 0 warnings)
+</code></pre>
+<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> &#x5728;&#x5BF9;&#x5E94;&#x62A5;&#x9519;&#x76EE;&#x5F55;&#x4E2D;&#x5220;&#x9664;&#x591A;&#x4F59;&#x7A7A;&#x884C;</p>
+<ul>
+<li>&#x672A;&#x627E;&#x5230;&#x5165;&#x53E3; app.json &#x6587;&#x4EF6;&#x3001;&#x6216;&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#x5931;&#x8D25;&#xFF1A;</li>
+</ul>
+<pre><code>[ app.json &#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x9519;&#x8BEF;] app.json: app.json &#x672A;&#x627E;&#x5230;
+</code></pre>
+<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> &#x8865;&#x5168;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>project.config.json</code> &#x6587;&#x4EF6;&#x7F3A;&#x5C11;&#x7684;&#x4EE3;&#x7801;&#xFF1A;<code>&quot;miniprogramRoot&quot;: &quot;/dist&quot;</code>&#x3002;&#x8FD9;&#x91CC;&#x6CE8;&#x610F;&#x8DEF;&#x5F84;&#x7684;&#x6B63;&#x786E;&#x8865;&#x5168;&#x3002;</p>
+<ul>
+<li>VSCode &#x4E2D;&#x914D;&#x7F6E; Vetur&#x540E;&#x4F9D;&#x65E7; <code>.wpy</code> &#x6587;&#x4EF6;&#x62A5;&#x9519;&#xFF1A;</li>
+</ul>
+<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> &#x5728; VSCode &#x4E2D; Settings &#x5185;&#x5173;&#x95ED;&#x52FE;&#x9009;&#x7684; <code>Validation Script</code>&#x3001;<code>Validation Style</code>&#x3001;<code>Validation Template</code></p>
+<ul>
+<li><code>MiniProgramError module &quot;wxs/test.wxs.js&quot; is not defined</code>&#xFF1A;</li>
+</ul>
+<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> &#x8FD9;&#x91CC;&#x628A;&#x62A5;&#x9519;&#x7684; <code>test.wxs</code> &#x540E;&#x7F00;&#x52A0;&#x4E0A; <code>.js</code> &#x53EF;&#x4EE5;&#x6D88;&#x9664;&#x62A5;&#x9519;&#x3002;&#x4EA7;&#x751F;&#x7684;&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x662F;&#x7F13;&#x5B58;&#x95EE;&#x9898;&#xFF0C;&#x5F85;&#x4E0D;&#x62A5;&#x9519;&#x540E;&#x4FEE;&#x6539;&#x56DE;&#x5373;&#x53EF;&#x3002;</p>
+<ul>
+<li>&#x8FD0;&#x884C;&#x65F6;&#x672A;&#x5B9A;&#x4E49;&#xFF1A;</li>
+</ul>
+<pre><code>ReferenceError: regeneratorRuntime is not defined
+</code></pre>
+<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> 1.&#x5C06;&#x65B0;&#x8FD0;&#x884C;&#x65F6;&#x6587;&#x4EF6;&#x5F15;&#x5165;&#x62A5;&#x9519;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x8FD9;&#x91CC;&#x6CE8;&#x610F;&#x5728;&#x6A21;&#x5757;&#x5185; <code>regeneratorRuntime</code> &#x662F;&#x4EE5; <code>runtime</code> &#x8FD0;&#x4F5C;&#xFF0C;&#x4E14;&#x6B64;&#x65B9;&#x6CD5;&#x5B58;&#x5728;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5931;&#x6548;&#x7684;&#x95EE;&#x9898;&#x3002;2.&#x589E;&#x5F3A;&#x7F16;&#x8BD1;&#x4E14;&#x66F4;&#x6362;&#x7248;&#x672C;&#x53EF;&#x4EE5;&#x8F83;&#x4E3A;&#x7B80;&#x4FBF;&#x7684;&#x89E3;&#x51B3;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x5B58;&#x5728;&#x5207;&#x6362;&#x7248;&#x672C;&#x540E;&#x9519;&#x8BEF;&#x7684;&#x590D;&#x73B0;&#x3002;</p>
+<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item></channel></rss>
