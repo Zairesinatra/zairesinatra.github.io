@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-    <title>Queue队列</title>
+    <title>排序算法</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
@@ -17,20 +17,20 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Queue队列" />
-    <meta property="og:description" content="People can&#x27;t do something themselves, they wanna tell you you can&#x27;t do it.If you want something, go get it.
-——《The Pursuit of Happyness》" />
-    <meta property="og:url" content="yourdomain.com/queue/" />
+    <meta property="og:title" content="排序算法" />
+    <meta property="og:description" content="Good morning, and in case I don&#x27;t see you, good afternoon, good evening, and good night!
+——《The Truman Show》" />
+    <meta property="og:url" content="yourdomain.com/algorithms/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
-    <meta property="article:published_time" content="2020-04-01T14:06:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-04T06:31:01.000Z" />
+    <meta property="article:published_time" content="2021-01-06T12:41:00.000Z" />
+    <meta property="article:modified_time" content="2021-07-08T18:58:31.000Z" />
     <meta property="article:tag" content="DataStructuresAndAlgorithms" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Queue队列" />
-    <meta name="twitter:description" content="People can&#x27;t do something themselves, they wanna tell you you can&#x27;t do it.If you want something, go get it.
-——《The Pursuit of Happyness》" />
-    <meta name="twitter:url" content="yourdomain.com/queue/" />
+    <meta name="twitter:title" content="排序算法" />
+    <meta name="twitter:description" content="Good morning, and in case I don&#x27;t see you, good afternoon, good evening, and good night!
+——《The Truman Show》" />
+    <meta name="twitter:url" content="yourdomain.com/algorithms/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
@@ -67,12 +67,12 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "Queue队列",
-    "url": "yourdomain.com/queue/",
-    "datePublished": "2020-04-01T14:06:00.000Z",
-    "dateModified": "2021-07-04T06:31:01.000Z",
+    "headline": "排序算法",
+    "url": "yourdomain.com/algorithms/",
+    "datePublished": "2021-01-06T12:41:00.000Z",
+    "dateModified": "2021-07-08T18:58:31.000Z",
     "keywords": "DataStructuresAndAlgorithms",
-    "description": "People can&#x27;t do something themselves, they wanna tell you you can&#x27;t do it.If you want something, go get it.\n——《The Pursuit of Happyness》",
+    "description": "Good morning, and in case I don&#x27;t see you, good afternoon, good evening, and good night!\n——《The Truman Show》",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -207,10 +207,10 @@
             <a href="../tag/datastructuresandalgorithms/index.html">DataStructuresAndAlgorithms</a>
         </section>
 
-        <h1 class="article-title">Queue队列</h1>
+        <h1 class="article-title">排序算法</h1>
 
-        <p class="article-excerpt">People can&#x27;t do something themselves, they wanna tell you you can&#x27;t do it.If you want something, go get it.
-——《The Pursuit of Happyness》</p>
+        <p class="article-excerpt">Good morning, and in case I don&#x27;t see you, good afternoon, good evening, and good night!
+——《The Truman Show》</p>
 
         <div class="article-byline">
             <section class="article-byline-content">
@@ -224,8 +224,8 @@
                 <div class="article-byline-meta">
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
-                        <time class="byline-meta-date" datetime="2020-04-01">Apr 1, 2020</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
+                        <time class="byline-meta-date" datetime="2021-01-06">Jan 6, 2021</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 6 min read</span>
                     </div>
                 </div>
             </section>
@@ -234,112 +234,323 @@
     </header>
 
     <section class="gh-content gh-canvas">
-        <!--kg-card-begin: markdown--><blockquote>
-<h2 id="">前言</h2>
+        <!--kg-card-begin: markdown--><h3 id="">冒泡排序</h3>
+<pre><code>// zs在数据结构中封装的函数
+function swap (array, a, b) {
+    [array[a], array[b]] = [array[b],array[a]];
+}
+
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+
+// 避免复杂对象数组的属性排序 =&gt; people 的 age 属性
+function defaultCompare(a, b) {
+    if (a === b) {
+      return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+
+function bubbleSort (array) {
+    // 解构赋值
+    const { length } = array
+    // 外循环从数组第一位迭代最后一位
+    for (let i = 0; i &lt; length; i++) {
+        // 内循环从数组第一位迭代最后一位并减少内循环不必要比较
+        for (let j = 0; j &lt; length - 1 - i; j++) {
+            if (defaultCompare(array[j],array[j+1]) === Compare.BIGGER_THAN) {
+                swap(array, j, j+1)
+                // let tmp = array[j];
+                // array[j] = array[j+1];
+                // array[j+1] = tmp
+            }
+        }
+    }
+    return array;
+}
+
+function createNonSortedArray(size) {
+    const array = [];
+    for (let i = size; i &gt; 0; i--) {
+        array.push(i)
+    }
+    return array;
+}
+
+let array = createNonSortedArray(5);
+console.log(array); // [ 5, 4, 3, 2, 1 ]
+array = bubbleSort(array);
+console.log(array.join()); // 1,2,3,4,5
+</code></pre>
+<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/07/----.gif" class="kg-image" alt="buble" loading="lazy" width="788" height="490"><figcaption>buble</figcaption></figure><!--kg-card-begin: markdown--><blockquote>
+<h3 id="">选择排序</h3>
 </blockquote>
-<p>队列和栈一致都是喜欢拿出来比较记忆的点。这里来归总一下相应知识点以及如何使用JavaScript实现。</p>
+<pre><code>function swap (array, a, b) {
+    [array[a], array[b]] = [array[b], array[a]]
+}
+
+// 选择排序是原址比较排序算法-数据结构中最小值放置第一位、第二小值放在第二位,以此类推
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+function defaultCompare(a, b) {
+    if(a === b) {
+        return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+
+function selectionSort(array, compareFn = defaultCompare) {
+    const { length } = array;
+    // 声明当前索引最小值
+    let indexMin;
+    // 外循环迭代数组,控制循环轮次
+    for (let i = 0; i &lt; length-1; i++) {
+        indexMin = i;
+        // 从当前i值至数组结束比较是否有位置j比当前值小
+        for (let j = i+1; j &lt; length; j++) {
+            if (compareFn(array[indexMin], array[j]) === Compare.BIGGER_THAN) {
+                indexMin = j;
+            }
+        }
+        if (i !== indexMin) {
+            swap(array, i, indexMin);
+        }
+    }
+    return array;
+}
+let arr = [2,4,1,5,3]
+let zsarr = selectionSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
 <hr>
 <blockquote>
-<h2 id="">正文</h2>
+<h3 id="">插入排序</h3>
 </blockquote>
-<blockquote>
-<h3 id="">技术储备</h3>
-</blockquote>
-<p>队列遵循先进先出(FiFO)原则的一组有序的项。尾部添加元素，顶部移除元素。最常见的例子就是生活中的排队。</p>
-<blockquote>
-<h3 id="">创建队列</h3>
-</blockquote>
-<pre><code>class Queue {
-    constructor() {
-        this.count = 0; // count作为items对象中的键
-        this.lowestCount = 0;
-        this.items = {}; // 获取元素更高效的数据结构选择{}
+<pre><code>// 选择排序是原址比较排序算法-数据结构中最小值放置第一位、第二小值放在第二位,以此类推
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+function defaultCompare(a, b) {
+    if(a === b) {
+        return Compare.EQUALS;
     }
-    enqueue(element){ // 向队列添加元素
-        this.items[this.count] = element; // 新项仅能添加队列末尾
-        this.count++;
-    }
-    isEmpty(){
-        return this.count - this.lowestCount === 0; // 假设count=2,lowestCount=0,则表示队列中仍有两个元素
-        // return this.size() === 0;
-    }
-    dequeue(){ // 队列移除元素也是遵循先进先出的,最先添加的项被最先移除
-        if(this.isEmpty()){return undefined}
-        const result = this.items[this.lowestCount] // 暂存以便返回
-        delete this.items[this.lowestCount]
-        this.lowestCount++;
-        return result;
-    }
-    peek(){ // 查看列头元素-就是首项
-        if(this.isEmpty()){return undefined}
-        return this.items[this.lowestCount]
-    }
-    size(){ // 返回队列的长度
-        return this.count - this.lowestCount
-    }
-    clear(){
-        this.items = {};
-        this.count = 0;
-        this.lowestCount = 0;
-    }
-    toString(){
-        if(this.isEmpty()){
-            return ''; // 空队列返回空字符串
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+
+function insertionSort(array, compareFn = defaultCompare) {
+    const { length } = array;
+    let tmp;
+    // 迭代数组给第i项找正确的位置
+    // 从数组[1]开始找,默认数组第一项已经排序
+    for (let i = 1; i &lt; length; i++) {
+        let j = i;
+        // tmp赋值可能插入其他位置的当前数组项
+        tmp = array[i];
+        while(j &gt; 0 &amp;&amp; compareFn(array[j-1],tmp) === Compare.BIGGER_THAN) {
+            array[j] = array[j-1];
+            j--;
         }
-        let objString = `${this.items[this.lowestCount]}`;
-        for(let i = this.lowestCount + 1; i&lt;this.count; i++){
-            objString = `${objString},${this.items[i]}`;
+        array[j] = tmp;
+    }
+    return array;
+}
+let arr = [2,4,5,1,3]
+let zsarr = insertionSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="">归并算法</h3>
+</blockquote>
+<pre><code>// 归并排序复杂度为O(nlog(n))
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+function defaultCompare(a, b) {
+    if(a === b) {
+        return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+function mergeSort(array, compareFn = defaultCompare) {
+    // 递归满足的停止条件
+    if (array.length &gt; 1) {
+        const { length } = array;
+        const middle = Math.floor(length/2);
+        // 大数组转换为小数组直到其中只有一个项
+        // slice() 方法返回一个新的数组对象,这一对象是一个由 begin 和 end 决定的原数组的浅拷贝(包括 begin 不包括 end )原始数组不会被改变
+        const left = mergeSort(array.slice(0,middle), compareFn);
+        const right = mergeSort(array.slice(middle, length), compareFn)
+        array = merge(left, right, compareFn);
+    }
+    return array
+}
+function merge(left, right, compareFn) {
+    let i = 0;
+    let j = 0;
+    const result = [];
+    while(i &lt; left.length &amp;&amp; j &lt; right.length) {
+        result.push(
+            compareFn(left[i],right[j]) === Compare.LESS_THAN ? left[i++] : right[j++]
+        );
+    }
+    return result.concat(i &lt; left.length ? left.slice(i) : right.slice(j));
+}
+let arr = [2,4,3,5,1]
+let zsarr = mergeSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="">快速排序</h3>
+</blockquote>
+<p>深感图灵的JavaScript数据结构与算法部分内容存在错误与冗杂，这里记录更加易于理解的快速排序。</p>
+<pre><code>var quickSort = function(arr) {
+    if (arr.length &lt;= 1) { return arr; }
+    var pivotIndex = Math.floor(arr.length / 2);
+    var pivot = arr.splice(pivotIndex, 1)[0];
+    var left = [];
+    var right = [];
+    for (var i = 0; i &lt; arr.length; i++){
+    　　if (arr[i] &lt; pivot) {
+    　　　　left.push(arr[i]);
+    　　} else {
+    　　　　right.push(arr[i]);
+    　　}
+    }
+    return quickSort(left).concat([pivot], quickSort(right));
+};
+let arr = [2,4,1,5,3]
+let zsarr = quickSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="">桶排序</h3>
+</blockquote>
+<pre><code>// 默认情况使用5个桶
+// 元素密集使用较少筒;元素稀少用使用较多桶
+// 使用的映射函数能够将输入的 N 个数据均匀的分配到 M 个桶中
+function bucketSort (array, bucketSize = 5) {
+    if (array.length &lt; 2) {
+        return array;
+    }
+    const buckets = createBuckets(array, bucketSize);
+    return sortBuckets(buckets)
+}
+
+function createBuckets(array, bucketSize) {
+    let minValue = array[0];
+    let maxValue = array[0];
+    for (let i = 1; i &lt; array.length; i++) {
+        if (array[i] &lt; minValue) {
+            minValue = array[i];
+        } else if (array[i] &gt; maxValue) {
+            maxValue = array[i];
         }
-        return objString
+    }
+    const bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
+    const buckets = [];
+    for (let i = 0; i &lt; array.length; i++) {
+        // buckets是数组、buckets包含的内容也是数组
+        buckets[i] = [];
+    }
+    for (let i = 0; i &lt; array.length; i++) {
+        const bucketIndex = Math.floor((array[i] - minValue) / bucketSize);
+        buckets[bucketIndex].push(array[i]);
+    }
+    return buckets;
+}
+
+function insertionSort (array) {
+    const { length } = array;
+    for(let i = 1; i &lt; length; i++) {
+        let temp = array[i];
+        let j = i;
+        while(j&gt;0 &amp;&amp; (array[j-1]&gt;temp)) {
+            array[j] = array[j-1];
+            j--;
+        }
+        array[j] = temp;
+    }
+    return array;
+}
+
+function sortBuckets(buckets) {
+    const sortedArray = [];
+    for (let i = 0; i &lt; buckets.length; i++){
+        if(buckets[i] != null)
+        insertionSort(buckets[i]);
+        sortedArray.push(...buckets[i]);
+    }
+    return sortedArray;
+}
+
+let arr = [2,4,5,1,3]
+let zsarr = bucketSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr>
+<blockquote>
+<h3 id="">基数排序</h3>
+</blockquote>
+<pre><code>// 基数排序是一种非比较型整数排序算法,其原理是将整数按位数切割成不同的数字,然后按每个位数分别比较.由于整数也可以表达字符串(比如名字或日期)和特定格式的浮点数,所以基数排序也不是只能使用于整数
+// 对桶的使用方法上的差异: 基数排序:根据键值的每位数字来分配桶、计数排序:每个桶只存储单一键值、桶排序:每个桶存储一定范围的数值
+function radixSort(arr) {
+    // 取最大值 最大值的位数就是要循环遍历的次数
+    const max = Math.max(...arr);
+    // Array.from() 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例
+    // 定义桶数据结构 digit从0-9的桶 每个桶都是数组
+    const buckets = Array.from({ length: 10 }, () =&gt; []);
+    // m定义当前要遍历的位数 个位 十位 百位...
+    let m = 1;
+    // m &lt; 最大值 =&gt; 保证遍历完所有可能的位数而不超过max
+    while (m &lt; max) {
+      // 放入桶
+      arr.forEach(number =&gt; {
+        // digit表示某位数的值、取余 % 取整 /
+        const digit = ~~((number % (m * 10)) / m);
+  
+        // 把该位数的值放到桶buckets中
+        // 通过索引确定顺序 类比计数排序
+        buckets[digit].push(number);
+      });
+  
+      // 从桶buckets中取值完成位数排序
+      let zs = 0;
+      buckets.forEach(bucket =&gt; {
+        while (bucket.length &gt; 0) {
+          // shift从头部取值、保证按照队列先入先出
+          arr[zs++] = bucket.shift();
+        }
+      });
+      // 每次遍历增加一位
+      // 每次最外层while循环后m要乘等10、也就是要判断下一位 比如当前是个位 下次就要判断十位
+      m *= 10;
     }
 }
-const zsqueue = new Queue()
-zsqueue.enqueue(&quot;needdequeue&quot;)
-zsqueue.enqueue(0)
-zsqueue.enqueue(4)
-zsqueue.enqueue(2)
-zsqueue.enqueue(2)
-zsqueue.dequeue()
-console.log(zsqueue.peek()) // 0
-console.log(zsqueue.toString()); // 0,4,2,2
+const arr = [1, 10, 9680, 577, 5622, 4793, 2030, 3138, 82, 2599, 743, 4127];
+radixSort(arr);
+console.log(arr.join()); // 1,10,82,577,743,2030,2599,3138,4127,4793,5622,9680
+
+console.log(Math.trunc(1.234));
+console.log(Math.trunc(1.834));
+console.log(~~(1.234));
+console.log(~~(1.834));
 </code></pre>
-<blockquote>
-<h3 id="">双端队列数据结构</h3>
-</blockquote>
-<p>双端队列是一种允许我们同时从前端和后端添加和移除元素的特殊队列。现实生活中就像电影院的两侧都是可以出入的，但座位的顺序又是固定的。</p>
-<p>在代码上与队列代码部分相同，而进入与出去的方式不同，附上其一代码实现</p>
-<pre><code>// 双端队列前端添加元素
-// 三种可能出现的情况
-addFront(element){
-        if(this.isEmpty()){
-            this.addBack(element)
-        } else if (this.lowestCount&gt;0){
-            this.lowestCount--;
-            this.items[this.lowestCount] = element;
-        } else {
-            for(let i = this.count; i&gt;0; i--){
-                this.items[i] = this.items[i-1];
-            }
-            this.count++; // 插入element导致count++
-            this.lowestCount = 0;
-            this.items[0] = element; // 完成迭代移动,第一项为空闲,则新element覆盖
-        }
-    }
-</code></pre>
-<blockquote>
-<h3 id="">队列与双端队列解决问题</h3>
-</blockquote>
-<p>1.比如做一款聚会可以玩的游戏时就可以用到这种算法，抢凳子、或者击鼓传花，可以正反循环，设置变量则在经历倒数后执行，停留在谁的名字时谁出局接受惩罚。<br>
-2.回文解释器：单词、词组、数字、等字符串正反都相同，比如:madam、racecar、牙刷刷牙...<br>
-...</p>
-<hr>
-<blockquote>
-<h2 id="">结束</h2>
-</blockquote>
-<blockquote>
-<h2 id="">以上</h2>
-</blockquote>
-<!--kg-card-end: markdown--><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a> ，转载请注明出处！‌</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
     </section>
 
 
@@ -347,8 +558,8 @@ addFront(element){
         <div id="disqus_thread"></div>
         <script>
             var disqus_config = function () {
-                this.page.url = "https://zairesinatra.github.io/604e05c66056d45889a2ef07";
-                this.page.identifier = "ghost-604e05c66056d45889a2ef07"
+                this.page.url = "https://zairesinatra.github.io/6094b13ceba63930443de1d5";
+                this.page.identifier = "ghost-6094b13ceba63930443de1d5"
             };
             (function() {
             var d = document, s = d.createElement('script');
@@ -458,17 +669,26 @@ addFront(element){
 
 </article>
                     
-<article class="post-card post no-image ">
+<article class="post-card post ">
 
+    <a class="post-card-image-link" href="../vuebind/index.html">
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2021/07/pokemon-go.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2021/07/pokemon-go.jpg"
+            alt="🙌🏼双向数据绑定原理"
+            loading="lazy"
+        />
+    </a>
 
     <div class="post-card-content">
 
-        <a class="post-card-content-link" href="../algorithms/index.html">
+        <a class="post-card-content-link" href="../vuebind/index.html">
             <header class="post-card-header">
-                <h2 class="post-card-title">排序算法</h2>
+                <h2 class="post-card-title">🙌🏼双向数据绑定原理</h2>
             </header>
             <section class="post-card-excerpt">
-                <p>Good morning, and in case I don't see you, good afternoon, good evening, and good night! ——《The Truman Show》</p>
+                <p>数据劫持+发布-订阅模式</p>
             </section>
         </a>
 
@@ -482,7 +702,7 @@ addFront(element){
             </ul>
             <div class="post-card-byline-content">
                 <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
-                <span class="post-card-byline-date"><time datetime="2021-01-06">Jan 6, 2021</time> <span class="bull">&bull;</span> 6 min read</span>
+                <span class="post-card-byline-date"><time datetime="2020-12-31">Dec 31, 2020</time> <span class="bull">&bull;</span> 4 min read</span>
             </div>
         </footer>
 

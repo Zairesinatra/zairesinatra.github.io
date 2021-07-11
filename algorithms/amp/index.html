@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>🙌🏼双向数据绑定原理</title>
+    <title>排序算法</title>
 
     <link rel="icon" href="../../favicon.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
@@ -12,26 +12,28 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="🙌🏼双向数据绑定原理" />
-    <meta property="og:description" content="数据劫持+发布-订阅模式" />
-    <meta property="og:url" content="yourdomain.com/vuebind/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/07/pokemon-go.jpg" />
-    <meta property="article:published_time" content="2020-12-31T12:36:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-08T18:59:33.000Z" />
-    <meta property="article:tag" content="Technology growth" />
+    <meta property="og:title" content="排序算法" />
+    <meta property="og:description" content="Good morning, and in case I don&#x27;t see you, good afternoon, good evening, and good night!
+——《The Truman Show》" />
+    <meta property="og:url" content="yourdomain.com/algorithms/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
+    <meta property="article:published_time" content="2021-01-06T12:41:00.000Z" />
+    <meta property="article:modified_time" content="2021-07-08T18:58:31.000Z" />
+    <meta property="article:tag" content="DataStructuresAndAlgorithms" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="🙌🏼双向数据绑定原理" />
-    <meta name="twitter:description" content="数据劫持+发布-订阅模式" />
-    <meta name="twitter:url" content="yourdomain.com/vuebind/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/pokemon-go.jpg" />
+    <meta name="twitter:title" content="排序算法" />
+    <meta name="twitter:description" content="Good morning, and in case I don&#x27;t see you, good afternoon, good evening, and good night!
+——《The Truman Show》" />
+    <meta name="twitter:url" content="yourdomain.com/algorithms/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:data2" content="DataStructuresAndAlgorithms" />
     <meta name="twitter:site" content="@xieziyi0422" />
     <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1250" />
+    <meta property="og:image:height" content="1333" />
     
     <script type="application/ld+json">
 {
@@ -60,18 +62,12 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "🙌🏼双向数据绑定原理",
-    "url": "yourdomain.com/vuebind/",
-    "datePublished": "2020-12-31T12:36:00.000Z",
-    "dateModified": "2021-07-08T18:59:33.000Z",
-    "image": {
-        "@type": "ImageObject",
-        "url": "yourdomain.com/content/images/2021/07/pokemon-go.jpg",
-        "width": 2000,
-        "height": 1250
-    },
-    "keywords": "Technology growth",
-    "description": "数据劫持+发布-订阅模式",
+    "headline": "排序算法",
+    "url": "yourdomain.com/algorithms/",
+    "datePublished": "2021-01-06T12:41:00.000Z",
+    "dateModified": "2021-07-08T18:58:31.000Z",
+    "keywords": "DataStructuresAndAlgorithms",
+    "description": "Good morning, and in case I don&#x27;t see you, good afternoon, good evening, and good night!\n——《The Truman Show》",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -646,7 +642,7 @@
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
-    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
 
 </head>
 
@@ -661,126 +657,329 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">🙌🏼双向数据绑定原理</h1>
+                <h1 class="post-title">排序算法</h1>
                 <section class="post-meta">
                     Ziyi Xie -
-                    <time class="post-date" datetime="2020-12-31">31 Dec 2020</time>
+                    <time class="post-date" datetime="2021-01-06">06 Jan 2021</time>
                 </section>
             </header>
-            <figure class="post-image">
-                <amp-img src="yourdomain.com/content/images/2021/07/pokemon-go.jpg" width="600" height="340" layout="responsive"></amp-img>
-            </figure>
             <section class="post-content">
 
-                <amp-iframe src="https://embed.music.apple.com/us/playlist/soft-lipa-secrets-of-tu-cheng-hsi-renovate/pl.u-xlyNE33Fkpydxlo" height="450px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="600" layout="responsive"></amp-iframe><h2 id>前言</h2>
-<p>最早的 HTML 页面是完全静态的网页，是预先编写好的存放在 Web服务器 上的 html 文件（与本站类似hahaha）。就相当于使用 Node.js 中通过 Express 第三方包托管静态资源。</p>
-<pre><code>app.use(express.static(path.join(__dirname, 'zspublic')));
-</code></pre>
-<p>随着页面需求与功能增加，通过 JavaScript 修改服务器渲染后的数据这种方式已经不能完全满足页面的交互性—— MVVM 模式拉开帷幕。</p>
-<p>MVVM 即模型-视图-视图模型(Model-View-ViewModel)，是一个软件架构的设计模式。这种模式促进了 GUI(Graphical user interface图形用户界面) 以及前后端业务的逐渐分离。</p>
-<p>MVVM 的核心是以 JavaScript、runtime、compiler 为集合的 ViewModel 视图模型层。向上与以 HTML、CSS、模板文件为集合的 view 视图层进行双向数据绑定，向下与以业务处理逻辑 Node.js、Java...和数据库 MySQL、MongoDB...组成的 Model 层通过接口请求进行数据交互(Ajax&lt;=&gt;JSON)。</p>
-<h2 id>双向数据绑定原理</h2>
-<p><strong>双向数据绑定宏观上是通过 <u>数据劫持</u>，并结合 <u>发布-订阅模式</u> 的方法来完成的，数据和视图同步互为变化条件与结果。</strong></p>
-<h2 id>数据劫持</h2>
-<p>在 JavaScript 中通过静态方法 <code>Object.defineProperty(obj, prop, descriptor)</code> 直接在对象上定义一个新的属性，或者修改已有的属性，并返回该对象。随后当需要调用该属性时使用 get 方法；给这个属性赋值时，使用 set 方法来实现效果。</p>
-<table>
-    <thead>
-        <tr>
-            <th> 参数 </th>
-            <th> 说明 </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td> obj 
-            </td><td> 定义属性的对象 
-        </td></tr>
-        <tr>
-            <td> prop 
-            </td><td> (Symbol)定义或修改的属性的名称 
-        </td></tr>
-        <tr>
-            <td> descriptor 
-            </td><td> 正在定义或修改的属性的描述符(方法函数) 
-        </td></tr>
-    </tbody>
-</table>
-<pre><code>var zsobj = {};
-Object.defineProperty(zsobj,'biubiubiu',{
-  // value: 23,
-  get: function () {
-    console.log('调用新定义的 biubiubiu 属性的 get 方法')
-  },
-  set: function(args){
-    console.log('调用新定义的 biubiubiu 属性的 set 方法, 传入的值是' + args);
-  }
-});
-zsobj.biubiubiu; // =&gt; 调用新定义的 biubiubiu 属性的 get 方法
-zsobj.biubiubiu = 'zairesinatra' // 调用新定义的 biubiubiu 属性的 set 方法, 传入的值是zairesinatra
+                <h3 id>冒泡排序</h3>
+<pre><code>// zs在数据结构中封装的函数
+function swap (array, a, b) {
+    [array[a], array[b]] = [array[b],array[a]];
+}
 
-var zy = {};
-Value = 23;
-Object.defineProperty(zy, 'one', {
-  writable: true,
-});
-// 不能尝试混合两者: 数据描述符、访问器描述符
-Object.defineProperty(zy, 'onee', {
-  get () { return console.log(Value) },
-  set (newValue) { Value = newValue; },
-  enumerable: true,
-  configurable: true
-});
-zy.onee // 23
-zy.onee = '24'
-zy.onee // 24
-</code></pre>
-<h2 id>发布-订阅模式</h2>
-<p>发布-订阅模式 和 观察者模式 很像，但是不同的是，观察者模式只有两个角色，且 subject 与 observers 间存在一对多关系。当一个对象被修改时，则会自动通知依赖它的对象，即 obsevers 是知道 subject 的事件，属于行为型模式。但是在 发布-订阅 模式中，publisher、subscriber 不直接取得联系，通过类似于中间件（event bus）的帮助下代理事件通信，传入消息并完成相应的分发。<a href="https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c">更多点此</a></p>
-<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>sub&amp;pub</figcaption></figure><h2 id>实现双向绑定</h2>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;mvvm&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;input type="text"&gt;
-    &lt;span&gt;&lt;/span&gt;
-    &lt;script&gt;
-        // 获取文档中的第一个DOM元素
-        let input = document.querySelector('input');
-        let span = document.querySelector('span');
-        // 建立 event channel
-        let obj = {};
-        let value = '';
-        Object.defineProperty(obj,'dataDescribe',{
-            configurable: true | false, // 如果是false则不可以删除
-            enumerable: true | false, // 如果为false则在枚举时候会忽略
-            writable: true | false // 如果为false则不可采用数据运算符进行赋值
-        });
-        Object.defineProperty(obj, 'zsget', {
-            set: function (newValue) {
-                // fire event
-                value = newValue
-                input.value = newValue
-                span.innerText = newValue
-            },
-            get: function () {
-                return value
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+
+// 避免复杂对象数组的属性排序 =&gt; people 的 age 属性
+function defaultCompare(a, b) {
+    if (a === b) {
+      return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+
+function bubbleSort (array) {
+    // 解构赋值
+    const { length } = array
+    // 外循环从数组第一位迭代最后一位
+    for (let i = 0; i &lt; length; i++) {
+        // 内循环从数组第一位迭代最后一位并减少内循环不必要比较
+        for (let j = 0; j &lt; length - 1 - i; j++) {
+            if (defaultCompare(array[j],array[j+1]) === Compare.BIGGER_THAN) {
+                swap(array, j, j+1)
+                // let tmp = array[j];
+                // array[j] = array[j+1];
+                // array[j+1] = tmp
             }
-        })
-        input.addEventListener('keyup',(e) =&gt; {
-            obj.zsget = e.target.value
-        })
-        input.value = obj.zsget
-        span.innerText = obj.zsget
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+        }
+    }
+    return array;
+}
+
+function createNonSortedArray(size) {
+    const array = [];
+    for (let i = size; i &gt; 0; i--) {
+        array.push(i)
+    }
+    return array;
+}
+
+let array = createNonSortedArray(5);
+console.log(array); // [ 5, 4, 3, 2, 1 ]
+array = bubbleSort(array);
+console.log(array.join()); // 1,2,3,4,5
 </code></pre>
-<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>双向数据绑定实现</figcaption></figure><h2 id>结束</h2>
+<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>buble</figcaption></figure><blockquote>
+<h3 id>选择排序</h3>
+</blockquote>
+<pre><code>function swap (array, a, b) {
+    [array[a], array[b]] = [array[b], array[a]]
+}
+
+// 选择排序是原址比较排序算法-数据结构中最小值放置第一位、第二小值放在第二位,以此类推
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+function defaultCompare(a, b) {
+    if(a === b) {
+        return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+
+function selectionSort(array, compareFn = defaultCompare) {
+    const { length } = array;
+    // 声明当前索引最小值
+    let indexMin;
+    // 外循环迭代数组,控制循环轮次
+    for (let i = 0; i &lt; length-1; i++) {
+        indexMin = i;
+        // 从当前i值至数组结束比较是否有位置j比当前值小
+        for (let j = i+1; j &lt; length; j++) {
+            if (compareFn(array[indexMin], array[j]) === Compare.BIGGER_THAN) {
+                indexMin = j;
+            }
+        }
+        if (i !== indexMin) {
+            swap(array, i, indexMin);
+        }
+    }
+    return array;
+}
+let arr = [2,4,1,5,3]
+let zsarr = selectionSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr></hr>
+<blockquote>
+<h3 id>插入排序</h3>
+</blockquote>
+<pre><code>// 选择排序是原址比较排序算法-数据结构中最小值放置第一位、第二小值放在第二位,以此类推
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+function defaultCompare(a, b) {
+    if(a === b) {
+        return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+
+function insertionSort(array, compareFn = defaultCompare) {
+    const { length } = array;
+    let tmp;
+    // 迭代数组给第i项找正确的位置
+    // 从数组[1]开始找,默认数组第一项已经排序
+    for (let i = 1; i &lt; length; i++) {
+        let j = i;
+        // tmp赋值可能插入其他位置的当前数组项
+        tmp = array[i];
+        while(j &gt; 0 &amp;&amp; compareFn(array[j-1],tmp) === Compare.BIGGER_THAN) {
+            array[j] = array[j-1];
+            j--;
+        }
+        array[j] = tmp;
+    }
+    return array;
+}
+let arr = [2,4,5,1,3]
+let zsarr = insertionSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr></hr>
+<blockquote>
+<h3 id>归并算法</h3>
+</blockquote>
+<pre><code>// 归并排序复杂度为O(nlog(n))
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+function defaultCompare(a, b) {
+    if(a === b) {
+        return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+function mergeSort(array, compareFn = defaultCompare) {
+    // 递归满足的停止条件
+    if (array.length &gt; 1) {
+        const { length } = array;
+        const middle = Math.floor(length/2);
+        // 大数组转换为小数组直到其中只有一个项
+        // slice() 方法返回一个新的数组对象,这一对象是一个由 begin 和 end 决定的原数组的浅拷贝(包括 begin 不包括 end )原始数组不会被改变
+        const left = mergeSort(array.slice(0,middle), compareFn);
+        const right = mergeSort(array.slice(middle, length), compareFn)
+        array = merge(left, right, compareFn);
+    }
+    return array
+}
+function merge(left, right, compareFn) {
+    let i = 0;
+    let j = 0;
+    const result = [];
+    while(i &lt; left.length &amp;&amp; j &lt; right.length) {
+        result.push(
+            compareFn(left[i],right[j]) === Compare.LESS_THAN ? left[i++] : right[j++]
+        );
+    }
+    return result.concat(i &lt; left.length ? left.slice(i) : right.slice(j));
+}
+let arr = [2,4,3,5,1]
+let zsarr = mergeSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr></hr>
+<blockquote>
+<h3 id>快速排序</h3>
+</blockquote>
+<p>深感图灵的JavaScript数据结构与算法部分内容存在错误与冗杂，这里记录更加易于理解的快速排序。</p>
+<pre><code>var quickSort = function(arr) {
+    if (arr.length &lt;= 1) { return arr; }
+    var pivotIndex = Math.floor(arr.length / 2);
+    var pivot = arr.splice(pivotIndex, 1)[0];
+    var left = [];
+    var right = [];
+    for (var i = 0; i &lt; arr.length; i++){
+    　　if (arr[i] &lt; pivot) {
+    　　　　left.push(arr[i]);
+    　　} else {
+    　　　　right.push(arr[i]);
+    　　}
+    }
+    return quickSort(left).concat([pivot], quickSort(right));
+};
+let arr = [2,4,1,5,3]
+let zsarr = quickSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr></hr>
+<blockquote>
+<h3 id>桶排序</h3>
+</blockquote>
+<pre><code>// 默认情况使用5个桶
+// 元素密集使用较少筒;元素稀少用使用较多桶
+// 使用的映射函数能够将输入的 N 个数据均匀的分配到 M 个桶中
+function bucketSort (array, bucketSize = 5) {
+    if (array.length &lt; 2) {
+        return array;
+    }
+    const buckets = createBuckets(array, bucketSize);
+    return sortBuckets(buckets)
+}
+
+function createBuckets(array, bucketSize) {
+    let minValue = array[0];
+    let maxValue = array[0];
+    for (let i = 1; i &lt; array.length; i++) {
+        if (array[i] &lt; minValue) {
+            minValue = array[i];
+        } else if (array[i] &gt; maxValue) {
+            maxValue = array[i];
+        }
+    }
+    const bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
+    const buckets = [];
+    for (let i = 0; i &lt; array.length; i++) {
+        // buckets是数组、buckets包含的内容也是数组
+        buckets[i] = [];
+    }
+    for (let i = 0; i &lt; array.length; i++) {
+        const bucketIndex = Math.floor((array[i] - minValue) / bucketSize);
+        buckets[bucketIndex].push(array[i]);
+    }
+    return buckets;
+}
+
+function insertionSort (array) {
+    const { length } = array;
+    for(let i = 1; i &lt; length; i++) {
+        let temp = array[i];
+        let j = i;
+        while(j&gt;0 &amp;&amp; (array[j-1]&gt;temp)) {
+            array[j] = array[j-1];
+            j--;
+        }
+        array[j] = temp;
+    }
+    return array;
+}
+
+function sortBuckets(buckets) {
+    const sortedArray = [];
+    for (let i = 0; i &lt; buckets.length; i++){
+        if(buckets[i] != null)
+        insertionSort(buckets[i]);
+        sortedArray.push(...buckets[i]);
+    }
+    return sortedArray;
+}
+
+let arr = [2,4,5,1,3]
+let zsarr = bucketSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr></hr>
+<blockquote>
+<h3 id>基数排序</h3>
+</blockquote>
+<pre><code>// 基数排序是一种非比较型整数排序算法,其原理是将整数按位数切割成不同的数字,然后按每个位数分别比较.由于整数也可以表达字符串(比如名字或日期)和特定格式的浮点数,所以基数排序也不是只能使用于整数
+// 对桶的使用方法上的差异: 基数排序:根据键值的每位数字来分配桶、计数排序:每个桶只存储单一键值、桶排序:每个桶存储一定范围的数值
+function radixSort(arr) {
+    // 取最大值 最大值的位数就是要循环遍历的次数
+    const max = Math.max(...arr);
+    // Array.from() 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例
+    // 定义桶数据结构 digit从0-9的桶 每个桶都是数组
+    const buckets = Array.from({ length: 10 }, () =&gt; []);
+    // m定义当前要遍历的位数 个位 十位 百位...
+    let m = 1;
+    // m &lt; 最大值 =&gt; 保证遍历完所有可能的位数而不超过max
+    while (m &lt; max) {
+      // 放入桶
+      arr.forEach(number =&gt; {
+        // digit表示某位数的值、取余 % 取整 /
+        const digit = ~~((number % (m * 10)) / m);
+  
+        // 把该位数的值放到桶buckets中
+        // 通过索引确定顺序 类比计数排序
+        buckets[digit].push(number);
+      });
+  
+      // 从桶buckets中取值完成位数排序
+      let zs = 0;
+      buckets.forEach(bucket =&gt; {
+        while (bucket.length &gt; 0) {
+          // shift从头部取值、保证按照队列先入先出
+          arr[zs++] = bucket.shift();
+        }
+      });
+      // 每次遍历增加一位
+      // 每次最外层while循环后m要乘等10、也就是要判断下一位 比如当前是个位 下次就要判断十位
+      m *= 10;
+    }
+}
+const arr = [1, 10, 9680, 577, 5622, 4793, 2030, 3138, 82, 2599, 743, 4127];
+radixSort(arr);
+console.log(arr.join()); // 1,10,82,577,743,2030,2599,3138,4127,4793,5622,9680
+
+console.log(Math.trunc(1.234));
+console.log(Math.trunc(1.834));
+console.log(~~(1.234));
+console.log(~~(1.834));
+</code></pre>
+<h2 id>结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
 
 

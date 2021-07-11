@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>🙌🏼双向数据绑定原理</title>
+    <title>搜索算法与随机算法</title>
 
     <link rel="icon" href="../../favicon.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
@@ -12,26 +12,28 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="🙌🏼双向数据绑定原理" />
-    <meta property="og:description" content="数据劫持+发布-订阅模式" />
-    <meta property="og:url" content="yourdomain.com/vuebind/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/07/pokemon-go.jpg" />
-    <meta property="article:published_time" content="2020-12-31T12:36:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-08T18:59:33.000Z" />
-    <meta property="article:tag" content="Technology growth" />
+    <meta property="og:title" content="搜索算法与随机算法" />
+    <meta property="og:description" content="搜索：顺序、二分、内插
+随机：Fisher-Yates、反排序" />
+    <meta property="og:url" content="yourdomain.com/searchrandom/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/07/randomAlgo.jpg" />
+    <meta property="article:published_time" content="2021-03-24T07:06:00.000Z" />
+    <meta property="article:modified_time" content="2021-07-08T18:54:26.000Z" />
+    <meta property="article:tag" content="DataStructuresAndAlgorithms" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="🙌🏼双向数据绑定原理" />
-    <meta name="twitter:description" content="数据劫持+发布-订阅模式" />
-    <meta name="twitter:url" content="yourdomain.com/vuebind/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/pokemon-go.jpg" />
+    <meta name="twitter:title" content="搜索算法与随机算法" />
+    <meta name="twitter:description" content="搜索：顺序、二分、内插
+随机：Fisher-Yates、反排序" />
+    <meta name="twitter:url" content="yourdomain.com/searchrandom/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/randomAlgo.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:data2" content="DataStructuresAndAlgorithms" />
     <meta name="twitter:site" content="@xieziyi0422" />
     <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1250" />
+    <meta property="og:image:height" content="1333" />
     
     <script type="application/ld+json">
 {
@@ -60,18 +62,18 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "🙌🏼双向数据绑定原理",
-    "url": "yourdomain.com/vuebind/",
-    "datePublished": "2020-12-31T12:36:00.000Z",
-    "dateModified": "2021-07-08T18:59:33.000Z",
+    "headline": "搜索算法与随机算法",
+    "url": "yourdomain.com/searchrandom/",
+    "datePublished": "2021-03-24T07:06:00.000Z",
+    "dateModified": "2021-07-08T18:54:26.000Z",
     "image": {
         "@type": "ImageObject",
-        "url": "yourdomain.com/content/images/2021/07/pokemon-go.jpg",
+        "url": "yourdomain.com/content/images/2021/07/randomAlgo.jpg",
         "width": 2000,
-        "height": 1250
+        "height": 1333
     },
-    "keywords": "Technology growth",
-    "description": "数据劫持+发布-订阅模式",
+    "keywords": "DataStructuresAndAlgorithms",
+    "description": "搜索：顺序、二分、内插\n随机：Fisher-Yates、反排序",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -646,7 +648,7 @@
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
-    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    
 
 </head>
 
@@ -661,127 +663,119 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">🙌🏼双向数据绑定原理</h1>
+                <h1 class="post-title">搜索算法与随机算法</h1>
                 <section class="post-meta">
                     Ziyi Xie -
-                    <time class="post-date" datetime="2020-12-31">31 Dec 2020</time>
+                    <time class="post-date" datetime="2021-03-24">24 Mar 2021</time>
                 </section>
             </header>
             <figure class="post-image">
-                <amp-img src="yourdomain.com/content/images/2021/07/pokemon-go.jpg" width="600" height="340" layout="responsive"></amp-img>
+                <amp-img src="yourdomain.com/content/images/2021/07/randomAlgo.jpg" width="600" height="340" layout="responsive"></amp-img>
             </figure>
             <section class="post-content">
 
-                <amp-iframe src="https://embed.music.apple.com/us/playlist/soft-lipa-secrets-of-tu-cheng-hsi-renovate/pl.u-xlyNE33Fkpydxlo" height="450px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="600" layout="responsive"></amp-iframe><h2 id>前言</h2>
-<p>最早的 HTML 页面是完全静态的网页，是预先编写好的存放在 Web服务器 上的 html 文件（与本站类似hahaha）。就相当于使用 Node.js 中通过 Express 第三方包托管静态资源。</p>
-<pre><code>app.use(express.static(path.join(__dirname, 'zspublic')));
-</code></pre>
-<p>随着页面需求与功能增加，通过 JavaScript 修改服务器渲染后的数据这种方式已经不能完全满足页面的交互性—— MVVM 模式拉开帷幕。</p>
-<p>MVVM 即模型-视图-视图模型(Model-View-ViewModel)，是一个软件架构的设计模式。这种模式促进了 GUI(Graphical user interface图形用户界面) 以及前后端业务的逐渐分离。</p>
-<p>MVVM 的核心是以 JavaScript、runtime、compiler 为集合的 ViewModel 视图模型层。向上与以 HTML、CSS、模板文件为集合的 view 视图层进行双向数据绑定，向下与以业务处理逻辑 Node.js、Java...和数据库 MySQL、MongoDB...组成的 Model 层通过接口请求进行数据交互(Ajax&lt;=&gt;JSON)。</p>
-<h2 id>双向数据绑定原理</h2>
-<p><strong>双向数据绑定宏观上是通过 <u>数据劫持</u>，并结合 <u>发布-订阅模式</u> 的方法来完成的，数据和视图同步互为变化条件与结果。</strong></p>
-<h2 id>数据劫持</h2>
-<p>在 JavaScript 中通过静态方法 <code>Object.defineProperty(obj, prop, descriptor)</code> 直接在对象上定义一个新的属性，或者修改已有的属性，并返回该对象。随后当需要调用该属性时使用 get 方法；给这个属性赋值时，使用 set 方法来实现效果。</p>
-<table>
-    <thead>
-        <tr>
-            <th> 参数 </th>
-            <th> 说明 </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td> obj 
-            </td><td> 定义属性的对象 
-        </td></tr>
-        <tr>
-            <td> prop 
-            </td><td> (Symbol)定义或修改的属性的名称 
-        </td></tr>
-        <tr>
-            <td> descriptor 
-            </td><td> 正在定义或修改的属性的描述符(方法函数) 
-        </td></tr>
-    </tbody>
-</table>
-<pre><code>var zsobj = {};
-Object.defineProperty(zsobj,'biubiubiu',{
-  // value: 23,
-  get: function () {
-    console.log('调用新定义的 biubiubiu 属性的 get 方法')
-  },
-  set: function(args){
-    console.log('调用新定义的 biubiubiu 属性的 set 方法, 传入的值是' + args);
-  }
-});
-zsobj.biubiubiu; // =&gt; 调用新定义的 biubiubiu 属性的 get 方法
-zsobj.biubiubiu = 'zairesinatra' // 调用新定义的 biubiubiu 属性的 set 方法, 传入的值是zairesinatra
+                <h3 id>顺序搜索</h3>
+<pre><code>// 最基本的搜索算法 —— 顺序搜索
+const noExist = "不存在"
+function sequentialSearch (array, value) {
+    for (let i = 0; i &lt; array.length; i++) {
+        if (value === array[i]) {
+            return i;
+        }
+    }
+    return noExist
+}
+let arr = [1,2,3,4,5]
+let value = 0
+console.log(sequentialSearch(arr,value)); // 不存在
 
-var zy = {};
-Value = 23;
-Object.defineProperty(zy, 'one', {
-  writable: true,
-});
-// 不能尝试混合两者: 数据描述符、访问器描述符
-Object.defineProperty(zy, 'onee', {
-  get () { return console.log(Value) },
-  set (newValue) { Value = newValue; },
-  enumerable: true,
-  configurable: true
-});
-zy.onee // 23
-zy.onee = '24'
-zy.onee // 24
+let zsarr = [1,2,3,4,5]
+let val = 1
+console.log(sequentialSearch(zsarr,val)); // 0
 </code></pre>
-<h2 id>发布-订阅模式</h2>
-<p>发布-订阅模式 和 观察者模式 很像，但是不同的是，观察者模式只有两个角色，且 subject 与 observers 间存在一对多关系。当一个对象被修改时，则会自动通知依赖它的对象，即 obsevers 是知道 subject 的事件，属于行为型模式。但是在 发布-订阅 模式中，publisher、subscriber 不直接取得联系，通过类似于中间件（event bus）的帮助下代理事件通信，传入消息并完成相应的分发。<a href="https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c">更多点此</a></p>
-<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>sub&amp;pub</figcaption></figure><h2 id>实现双向绑定</h2>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;mvvm&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;input type="text"&gt;
-    &lt;span&gt;&lt;/span&gt;
-    &lt;script&gt;
-        // 获取文档中的第一个DOM元素
-        let input = document.querySelector('input');
-        let span = document.querySelector('span');
-        // 建立 event channel
-        let obj = {};
-        let value = '';
-        Object.defineProperty(obj,'dataDescribe',{
-            configurable: true | false, // 如果是false则不可以删除
-            enumerable: true | false, // 如果为false则在枚举时候会忽略
-            writable: true | false // 如果为false则不可采用数据运算符进行赋值
-        });
-        Object.defineProperty(obj, 'zsget', {
-            set: function (newValue) {
-                // fire event
-                value = newValue
-                input.value = newValue
-                span.innerText = newValue
-            },
-            get: function () {
-                return value
-            }
-        })
-        input.addEventListener('keyup',(e) =&gt; {
-            obj.zsget = e.target.value
-        })
-        input.value = obj.zsget
-        span.innerText = obj.zsget
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<h3 id>二分搜索</h3>
+<pre><code>// 算法步骤: 选择数组中间值 =&gt; 确认是待搜索值则搜索完毕,否则比较大小在子数组寻找
+const err = "nonono"
+function BinarySearch (array, value) {
+    let low = 0;
+    let high = array.length - 1;
+    while( low &lt;= high ) {
+        var mid = parseInt((high + low) / 2);
+        if (value == array[mid]) {
+            return mid;
+        } else if (value &gt; array[mid]) {
+            low = mid + 1;
+        } else if (value &lt; array[mid]) {
+            high = mid - 1;
+        }
+    }
+    return err;
+}
+let arr = [1,2,3,4,5]
+let value = 1
+console.log(BinarySearch(arr,value)); // 0
+let array = [1,2,3,4,5]
+let val = 0
+console.log(BinarySearch(array,val)); // nonono
+let array1 = [1,2,3,4,5]
+let val1 = 3
+console.log(BinarySearch(array1,val1)); // 2
 </code></pre>
-<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>双向数据绑定实现</figcaption></figure><h2 id>结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
+<h3 id>内插搜索</h3>
+<pre><code>const no = "nonono"
+function interpolationSearch(arr, value) {
+    let low = 0
+    let high = arr.length - 1
+    let position = -1
+    let delta = -1
+  
+    while (low &lt;= high &amp;&amp; value &gt;= arr[low] &amp;&amp; value &lt;= arr[high]) {
+      delta = (value - arr[low]) / (arr[high] - arr[low])
+      position = low + Math.floor((high - low) * delta)
+      if (arr[position] === value) {
+        return position
+      }
+      if (arr[position] &lt; value) {
+        low = position + 1
+      } else {
+        high = position - 1
+      }
+    }
+    return no
+}
+let arr = [1,2,3,4,5]
+let value = 1
+console.log(interpolationSearch(arr,value)); // 0
+
+let array = [1,2,3,4,5]
+let val = 0
+console.log(interpolationSearch(array,val)); // nonono
+</code></pre>
+<h3 id="fisheryates">Fisher-Yates算法</h3>
+<pre><code>function shuffle (array) {
+    for (let i = array.length - 1; i &gt; 0; i--) {
+        // ~~ 视为 Math.truc() 或者 Math.floor()
+        const randomIndex = ~~(Math.random() * (i+1));
+        [array[i], array[randomIndex]] = [array[randomIndex], array[i]]
+    }
+    return array;
+}
+
+let arr = [1,2,3,4,5]
+let zsarr = shuffle(arr)
+console.log(shuffle(zsarr))
+</code></pre>
+<h3 id>反排序</h3>
+<pre><code>function createNonSortedArray(size) {
+    const array = [];
+    for (let i = size; i &gt; 0; i--) {
+        array.push(i)
+    }
+    return array;
+}
+</code></pre>
+<h2 id>结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议 </a>，转载请注明出处！</p>
 
 
             </section>
