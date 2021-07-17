@@ -1,62 +1,128 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[zairesinatra]]></title><description><![CDATA[The best time to recognize yourself is ten years ago, followed by now.]]></description><link>yourdomain.com/</link><image><url>yourdomain.com/favicon.png</url><title>zairesinatra</title><link>yourdomain.com/</link></image><generator>Ghost 4.8</generator><lastBuildDate>Sun, 11 Jul 2021 15:49:30 GMT</lastBuildDate><atom:link href="yourdomain.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[搜索算法与随机算法]]></title><description><![CDATA[搜索：顺序、二分、内插
-随机：Fisher-Yates、反排序]]></description><link>yourdomain.com/searchrandom/</link><guid isPermaLink="false">60e1e88bdcff0833706c160d</guid><category><![CDATA[DataStructuresAndAlgorithms]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Wed, 24 Mar 2021 07:06:00 GMT</pubDate><media:content url="yourdomain.com/content/images/2021/07/randomAlgo.jpg" medium="image"/><content:encoded><![CDATA[<!--kg-card-begin: markdown--><h3 id>&#x987A;&#x5E8F;&#x641C;&#x7D22;</h3>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[zairesinatra]]></title><description><![CDATA[The best time to recognize yourself is ten years ago, followed by now.]]></description><link>yourdomain.com/</link><image><url>yourdomain.com/favicon.png</url><title>zairesinatra</title><link>yourdomain.com/</link></image><generator>Ghost 4.8</generator><lastBuildDate>Sat, 17 Jul 2021 08:00:16 GMT</lastBuildDate><atom:link href="yourdomain.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[🌒Eclipse配置]]></title><description><![CDATA[Java 开发环境 Eclipse 配置]]></description><link>yourdomain.com/eclipse/</link><guid isPermaLink="false">60f202ed0c77773fa52cbc2c</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Thu, 22 Apr 2021 13:36:00 GMT</pubDate><media:content url="yourdomain.com/content/images/2021/07/eeclipse.jpg" medium="image"/><content:encoded><![CDATA[<!--kg-card-begin: markdown--><h2 id="%E5%AE%89%E8%A3%85-eclipse">&#x5B89;&#x88C5; Eclipse</h2>
+<ul>
+<li>&#x786E;&#x8BA4; Mac &#x4E0A;&#x662F;&#x5426;&#x5DF2;&#x5B89;&#x88C5; java &#x8FD0;&#x884C;&#x73AF;&#x5883;</li>
+</ul>
+<pre><code>$ java -version
+// java version &quot;11.0.11&quot; 2021-04-20 LTS
+// Java(TM) SE Runtime Environment 18.9 (build 11.0.11+9-LTS-194)
+// Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.11+9-LTS-194, mixed mode)
+</code></pre>
+<ul>
+<li>&#x5B89;&#x88C5;&#x5408;&#x9002;&#x7684; Eclipse &#x7248;&#x672C;</li>
+</ul>
+<pre><code>$ brew install --cask eclipse-java
+// &#x6216;&#x8005;&#x53BB;&#x5B98;&#x7F51; https://www.eclipse.org/downloads/packages/
+</code></pre>
+<ul>
+<li>&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#x5728;&#x5148;&#x524D;&#x6307;&#x5B9A;&#x8DEF;&#x5F84;&#x5C06; Eclipse &#x6DFB;&#x52A0;&#x5230;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</li>
+</ul>
+<pre><code>// &#x9ED8;&#x8BA4;&#x8DEF;&#x5F84;
+/Users/${zsxzy}/eclipse
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E9%85%8D%E7%BD%AE-eclipse">&#x914D;&#x7F6E; Eclipse</h2>
+<ul>
+<li>Preferences =&gt; Java =&gt; installed JREs &#x914D;&#x7F6E; JDK &#xFF1A;add &#x589E;&#x52A0; Standard VM &#x7684; JRE Types&#xFF0C;&#x5E76;&#x6307;&#x5B9A; JDK &#x5B89;&#x88C5;&#x7684; Home &#x6587;&#x4EF6;&#x5939;&#x8DEF;&#x5F84;&#x3002;&#x8FD9;&#x91CC;&#x9009;&#x62E9; Standard VM &#x662F;&#x56E0;&#x4E3A; Oracle&#xFF08;&#x4EE5;&#x524D;&#x662F; Sun&#xFF09;&#x5B9E;&#x73B0;&#x7684; JRE Type &#x5411;&#x540E;&#x517C;&#x5BB9;&#x6027;&#x8F83;&#x597D;&#x3002;&#x53C2;&#x8003;&#x672C;&#x4EBA; add JRE &#x586B;&#x5199;&#x540E; Finish&#x3002;</li>
+</ul>
+<pre><code>JRE HOME: /Library/Java/JavaVirtualMachines/jdk-11.0.11.jdk/Contents/Home
+JRE NAME: HOME
+</code></pre>
+<ul>
+<li>&#x4E3A;&#x9632;&#x6B62;&#x5DE5;&#x4F5C;&#x533A;&#x6587;&#x4EF6;&#x4E71;&#x7801;&#xFF0C;&#x5728; Preference =&gt; General =&gt; workspace &#x52FE;&#x9009; Defalt(UTF-8)&#x9009;&#x9879;&#x5E76; Apply &#x3002;</li>
+</ul>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="eclipse-%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87">Eclipse &#x8BBE;&#x7F6E;&#x4E2D;&#x6587;</h2>
+<img src="yourdomain.com/content/images/2021/07/eeclipse.jpg" alt="&#x1F312;Eclipse&#x914D;&#x7F6E;"><p>Help =&gt; Install New SoftWare &#x4E2D;&#x70B9;&#x51FB; add &#x6DFB;&#x52A0;&#x4ECE;<a href="https://www.eclipse.org/babel/downloads.php">&#x6B64;&#x94FE;&#x63A5;</a>&#x9002;&#x914D;&#x7248;&#x672C;&#x7684;&#x4E2D;&#x6587;&#x63D2;&#x4EF6;&#x5305;&#x3002;&#x8FD9;&#x91CC;&#x6CE8;&#x610F;&#x5982;&#x679C;&#x5728;&#x9009;&#x62E9; Babel Language Packs in Chinese(Simplified) &#x5168;&#x90E8;&#x5B89;&#x88C5;&#xFF0C;&#x5728;&#x672C;&#x4EBA; X86 &#x67B6;&#x6784;&#x7684; mac &#x51FA;&#x73B0; Eclipse &#x635F;&#x574F;&#x7684;&#x60C5;&#x51B5;&#xFF08;MacM1 &#x672A;&#x51FA;&#x73B0;&#x6B64;&#x635F;&#x6BC1;&#xFF09;&#x3002;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x662F;&#x4E0D;&#x9009;&#x62E9; for rt.rap &#x7684;&#x9879;&#x76EE;&#x5305;&#x3002;</p>
+<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="yourdomain.com/content/images/2021/07/Eclipse-.png" class="kg-image" alt="&#x1F312;Eclipse&#x914D;&#x7F6E;" loading="lazy" width="1832" height="530" srcset="yourdomain.com/content/images/size/w600/2021/07/Eclipse-.png 600w, yourdomain.com/content/images/size/w1000/2021/07/Eclipse-.png 1000w, yourdomain.com/content/images/size/w1600/2021/07/Eclipse-.png 1600w, yourdomain.com/content/images/2021/07/Eclipse-.png 1832w" sizes="(min-width: 720px) 720px"><figcaption>EclipseLanguage</figcaption></figure><!--kg-card-begin: markdown--><h2 id="git-version-control">Git Version Control</h2>
+<ul>
+<li>
+<p>Help =&gt; Install New SoftWare &#x4E2D;&#x70B9;&#x51FB; add &#x6DFB;&#x52A0;&#x4ECE;<a href="http://download.eclipse.org/egit/updates/">&#x6B64;&#x94FE;&#x63A5;</a>&#x9002;&#x914D;&#x7248;&#x672C;&#x7684; EGit &#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x8F7D;&#x5165;&#x540E;&#x5168;&#x9009;&#x7EC4;&#x4EF6;&#x5E76;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x3002;</p>
+</li>
+<li>
+<p>&#x786E;&#x8BA4; Preference =&gt; version control =&gt; Git =&gt; config =&gt; User Settings &#x6DFB;&#x52A0;&#xFF08;&#x82E5;&#x5B89;&#x88C5;&#x8FC7; Git &#x5E76;&#x94FE;&#x63A5;&#x8FC7; Github &#x5219;&#x4F1A;&#x5B58;&#x5728;&#x5DF2;&#x81EA;&#x52A8;&#x8F7D;&#x5165;&#x5B8C;&#x6BD5;&#xFF09;&#x90AE;&#x7BB1;&#x4E0E;&#x7528;&#x6237;&#x540D;&#x3002;</p>
+</li>
+<li>
+<p>&#x5728; Team =&gt; Share Project &#x5EFA;&#x8BAE;&#x81EA;&#x5B9A;&#x4E49; new repo &#x53BB;&#x5B9E;&#x73B0; Repository &#x5B58;&#x653E;&#x8DEF;&#x5F84;&#x3002;</p>
+</li>
+</ul>
+<pre><code>/User/zsxzy/git/repository/(.git)
+// .git &#x4F1A;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;,&#x65E0;&#x9700;&#x586B;&#x5199;
+</code></pre>
+<ul>
+<li>commit =&gt; Remote =&gt; Push &#x94FE;&#x63A5;&#x81F3; Github &#x5E76;&#x9009;&#x62E9; Source ref &#x522B;&#x79F0;&#x9879;&#x4E3A; <code>refs/head/master</code> &#x5B8C;&#x6210; Add Spec&#x3002;</li>
+</ul>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="java-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8">Java &#x81EA;&#x52A8;&#x8865;&#x5168;</h2>
+<p>Preference =&gt; Java =&gt; Editor =&gt; Content Assist =&gt; java automatic activation trigger &#x4E2D;&#x8865;&#x5168;&#x5355;&#x8BCD;&#x89E6;&#x53D1;&#x3002;</p>
+<pre><code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">&#x7ED3;&#x675F;</h2>
+<p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>&#x534F;&#x8BAE; &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
+<!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[🌀搜索算法与随机算法]]></title><description><![CDATA[1. 搜索：顺序、二分、内插
+2. 随机：Fisher-Yates、反排序]]></description><link>yourdomain.com/searchrandom/</link><guid isPermaLink="false">60e1e88bdcff0833706c160d</guid><category><![CDATA[DataStructuresAndAlgorithms]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Wed, 24 Mar 2021 07:06:00 GMT</pubDate><media:content url="yourdomain.com/content/images/2021/07/randomAlgo.jpg" medium="image"/><content:encoded><![CDATA[<!--kg-card-begin: markdown--><h3 id>&#x987A;&#x5E8F;&#x641C;&#x7D22;</h3>
 <pre><code>// &#x6700;&#x57FA;&#x672C;&#x7684;&#x641C;&#x7D22;&#x7B97;&#x6CD5; &#x2014;&#x2014; &#x987A;&#x5E8F;&#x641C;&#x7D22;
-const noExist = &quot;&#x4E0D;&#x5B58;&#x5728;&quot;
 function sequentialSearch (array, value) {
     for (let i = 0; i &lt; array.length; i++) {
         if (value === array[i]) {
             return i;
         }
     }
-    return noExist
+    return &quot;noExist&quot;
 }
-let arr = [1,2,3,4,5]
-let value = 0
-console.log(sequentialSearch(arr,value)); // &#x4E0D;&#x5B58;&#x5728;
-
-let zsarr = [1,2,3,4,5]
-let val = 1
-console.log(sequentialSearch(zsarr,val)); // 0
+let arr = [1,2,3,4,5], value = 0, val = 1;
+console.log(sequentialSearch(arr,value)); // noExist
+console.log(sequentialSearch(arr,val)); // 0
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h3 id>&#x4E8C;&#x5206;&#x641C;&#x7D22;</h3>
-<pre><code>// &#x7B97;&#x6CD5;&#x6B65;&#x9AA4;: &#x9009;&#x62E9;&#x6570;&#x7EC4;&#x4E2D;&#x95F4;&#x503C; =&gt; &#x786E;&#x8BA4;&#x662F;&#x5F85;&#x641C;&#x7D22;&#x503C;&#x5219;&#x641C;&#x7D22;&#x5B8C;&#x6BD5;,&#x5426;&#x5219;&#x6BD4;&#x8F83;&#x5927;&#x5C0F;&#x5728;&#x5B50;&#x6570;&#x7EC4;&#x5BFB;&#x627E;
-const err = &quot;nonono&quot;
-function BinarySearch (array, value) {
-    let low = 0;
-    let high = array.length - 1;
-    while( low &lt;= high ) {
-        var mid = parseInt((high + low) / 2);
+<img src="yourdomain.com/content/images/2021/07/randomAlgo.jpg" alt="&#x1F300;&#x641C;&#x7D22;&#x7B97;&#x6CD5;&#x4E0E;&#x968F;&#x673A;&#x7B97;&#x6CD5;"><p>&#x5982;&#x679C;&#x5F85;&#x67E5;&#x627E;&#x7684;&#x6570;&#x662F;&#x6574;&#x6570;&#xFF0C;&#x4E14;&#x77E5;&#x9053;&#x8303;&#x56F4;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x3002;</p>
+<ul>
+<li>&#x5148;&#x8BBE;&#x5B9A;&#x5DE6;&#x4E0B;&#x6807; left &#x4E0E;&#x53F3;&#x4E0B;&#x6807; right&#xFF0C;&#x518D;&#x8BA1;&#x7B97;&#x4E2D;&#x95F4;&#x4E0B;&#x6807; mid&#x3002;&#x901A;&#x5E38;&#x8003;&#x8651;&#x6570;&#x7EC4;&#x5934;&#x5C3E;&#x3002;</li>
+<li>&#x6839;&#x636E; <code>arr[mid]</code> &#x548C; target &#x4E4B;&#x95F4;&#x7684;&#x5927;&#x5C0F;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF0C;&#x76F8;&#x7B49;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E0B;&#x6807;&#xFF0C;<code>nums[mid]</code> &lt; target &#x5219; left &#x53F3;&#x79FB;&#xFF0C;<code>nums[mid]</code> &gt; target &#x5219; right &#x5DE6;&#x79FB;&#x3002;</li>
+</ul>
+<pre><code>function BinarySearch (array, value) {
+    let left = 0, right = array.length - 1;
+    while( left &lt;= right ) {
+        var mid = parseInt((left + right) / 2);
         if (value == array[mid]) {
             return mid;
         } else if (value &gt; array[mid]) {
-            low = mid + 1;
+            left = mid + 1;
         } else if (value &lt; array[mid]) {
-            high = mid - 1;
+            right = mid - 1;
         }
     }
-    return err;
+    return &quot;nonono&quot;;
 }
-let arr = [1,2,3,4,5]
-let value = 1
-console.log(BinarySearch(arr,value)); // 0
-let array = [1,2,3,4,5]
-let val = 0
-console.log(BinarySearch(array,val)); // nonono
-let array1 = [1,2,3,4,5]
-let val1 = 3
-console.log(BinarySearch(array1,val1)); // 2
+let arr = [1,2,3,4,5], value = 1, val = 0, val1 = 3;
+BinarySearch(arr,value); // 0
+BinarySearch(arr,val); // nonono
+BinarySearch(arr,val1); // 2
+</code></pre>
+<p>LeetCode: <a href="https://leetcode-cn.com/problems/search-insert-position/">35. &#x641C;&#x7D22;&#x63D2;&#x5165;&#x4F4D;&#x7F6E;</a></p>
+<p>&#x8FD9;&#x91CC;&#x5728;&#x4F7F;&#x7528;&#x4E8C;&#x5206;&#x6CD5;&#x67E5;&#x627E;&#x7ED3;&#x675F;&#x540E;&#x82E5;&#x6CA1;&#x6709;&#x76F8;&#x7B49;&#x503C;&#x5219;&#x8FD4;&#x56DE; left &#x4E3A;&#x63D2;&#x5165;&#x4F4D;&#x7F6E;&#x3002;</p>
+<pre><code>var searchInsert = function(nums, target) {
+    let left = 0, right = nums.length - 1;
+    while(left&lt;=right){ // &#x5F53;&#x8D8A;&#x8FC7;&#x4E34;&#x754C;&#x6761;&#x4EF6;&#x65F6; (left&gt;right) &#x5219;&#x8868;&#x793A;&#x627E;&#x4E0D;&#x5230;&#x5BF9;&#x5E94;&#x503C;,&#x8DF3;&#x51FA;
+        let mid = parseInt((left+right)/2); // &#x6BCF;&#x4E00;&#x6B21; left&#x3001;right &#x6539;&#x53D8;&#x4F1A;&#x4F7F; mid &#x8D4B;&#x65B0;&#x503C;,&#x6545;&#x5FC5;&#x987B;&#x653E;while&#x4E2D;
+        if(target === nums[mid]){
+            return mid;
+        } else if (target &gt; nums[mid]) {
+            left = mid + 1;
+        } else if (target &lt; nums[mid]){
+            right = mid -1;
+        }
+    }
+    return left
+};
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h3 id>&#x5185;&#x63D2;&#x641C;&#x7D22;</h3>
-<pre><code>const no = &quot;nonono&quot;
-function interpolationSearch(arr, value) {
-    let low = 0
-    let high = arr.length - 1
-    let position = -1
-    let delta = -1
-  
+<p>&#x63D2;&#x503C;&#x641C;&#x7D22;&#x4E4B;&#x7B97;&#x6CD5;&#x4E0E;&#x4E8C;&#x5206;&#x641C;&#x7D22;&#x7B97;&#x6CD5;&#x51E0;&#x4E4E;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#xFF0C;&#x5DEE;&#x522B;&#x5728;&#xFF1A;</p>
+<ul>
+<li>&#x4E8C;&#x5206;&#x641C;&#x7D22;&#x6CD5;&#xFF1A;&#x731C;&#x6D4B;&#x952E;&#x503C;&#x5728;&#x4E2D;&#x95F4;&#x4F4D;&#x7F6E;(middle)</li>
+<li>&#x63D2;&#x503C;&#x641C;&#x7D22;&#x6CD5;&#xFF1A;&#x7528;&#x63D2;&#x503C;&#x516C;&#x5F0F;&#x8BA1;&#x7B97;&#x952E;&#x503C;&#x4F4D;&#x7F6E;</li>
+</ul>
+<pre><code>function interpolationSearch(arr, value) {
+    let low = 0, high = arr.length - 1, position = -1, delta = -1;
     while (low &lt;= high &amp;&amp; value &gt;= arr[low] &amp;&amp; value &lt;= arr[high]) {
-      delta = (value - arr[low]) / (arr[high] - arr[low])
-      position = low + Math.floor((high - low) * delta)
+      delta = (value - arr[low]) / (arr[high] - arr[low]);
+      position = low + Math.floor((high - low) * delta);
       if (arr[position] === value) {
         return position
       }
@@ -66,15 +132,11 @@ function interpolationSearch(arr, value) {
         high = position - 1
       }
     }
-    return no
+    return &quot;nonono&quot;
 }
-let arr = [1,2,3,4,5]
-let value = 1
+let arr = [1,2,3,4,5], value = 1, val = 0;
 console.log(interpolationSearch(arr,value)); // 0
-
-let array = [1,2,3,4,5]
-let val = 0
-console.log(interpolationSearch(array,val)); // nonono
+console.log(interpolationSearch(arr,val)); // nonono
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h3 id="fisheryates">Fisher-Yates&#x7B97;&#x6CD5;</h3>
 <pre><code>function shuffle (array) {
@@ -86,9 +148,8 @@ console.log(interpolationSearch(array,val)); // nonono
     return array;
 }
 
-let arr = [1,2,3,4,5]
-let zsarr = shuffle(arr)
-console.log(shuffle(zsarr))
+let arr = [1,2,3,4,5], zsarr = shuffle(arr)
+console.log(shuffle(zsarr)) // &#x6BCF;&#x6B21;&#x4EA7;&#x751F;&#x6253;&#x4E71;&#x7684;&#x968F;&#x673A;&#x6570;&#x7EC4;
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h3 id>&#x53CD;&#x6392;&#x5E8F;</h3>
 <pre><code>function createNonSortedArray(size) {
@@ -100,7 +161,7 @@ console.log(shuffle(zsarr))
 }
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id>&#x7ED3;&#x675F;</h2>
-<img src="yourdomain.com/content/images/2021/07/randomAlgo.jpg" alt="&#x641C;&#x7D22;&#x7B97;&#x6CD5;&#x4E0E;&#x968F;&#x673A;&#x7B97;&#x6CD5;"><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 &#x534F;&#x8BAE; </a>&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
+<p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 &#x534F;&#x8BAE; </a>&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
 <!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[🥷🏻Ghost&Github Config]]></title><description><![CDATA[Vim ninjas count every keystroke!]]></description><link>yourdomain.com/webconfig/</link><guid isPermaLink="false">60e1e88bdcff0833706c161d</guid><category><![CDATA[welcome]]></category><category><![CDATA[Technology growth]]></category><category><![CDATA[BUG handled]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Thu, 14 Jan 2021 13:41:00 GMT</pubDate><media:content url="yourdomain.com/content/images/2021/07/Kunai.jpg" medium="image"/><content:encoded><![CDATA[<!--kg-card-begin: html--><iframe src="https://open.spotify.com/embed/playlist/78ItgKYjnaiz0T9w56Hgce?theme=0" width="100%" height="180" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe><!--kg-card-end: html--><!--kg-card-begin: markdown--><h2 id="%E8%B5%B7%E6%BA%90">&#x8D77;&#x6E90;</h2>
 <img src="yourdomain.com/content/images/2021/07/Kunai.jpg" alt="&#x1F977;&#x1F3FB;Ghost&amp;Github Config"><p>&#x53BB;&#x5E74;&#x9634;&#x9519;&#x9633;&#x5DEE;&#x7684;&#x6574;&#x4E86;&#x4E00;&#x53F0;&#x817E;&#x8BAF;&#x4E91;&#x670D;&#x52A1;&#x5668;&#x3002;&#x522B;&#x95EE;&#xFF0C;&#x95EE;&#x5C31;&#x662F; Fullstack Ninjia &#x559C;&#x6B22;&#x81EA;&#x5DF1;&#x6298;&#x817E;&#x524D;&#x540E;&#x7AEF;&#x3002;&#x653E;&#x5728; GitPage &#x4E0A;&#x7684; Jekyll &#x4E0E; Ghost &#x4ECD;&#x5728;&#x7A33;&#x5B9A;&#x8FD0;&#x884C;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x79D1;&#x5B66;&#x4E0A;&#x7F51;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x8BBF;&#x95EE;&#x4E0A;&#x7684;&#x75DB;&#x70B9;&#x3002;&#x65E2;&#x7136;&#x4F7F;&#x7528;&#x4E91;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5F97;&#x8003;&#x8651;&#x5230;&#x5F80;&#x540E;&#x7684;&#x8FC1;&#x79FB;&#x95EE;&#x9898;&#xFF0C;&#x4E8E;&#x662F;&#x5C31;&#x6709;&#x4E86;&#x8FD9;&#x4E00;&#x7BC7;&#x52A9;&#x529B;&#x50A8;&#x5B58;&#x5907;&#x4EFD;&#x4E0E;&#x6570;&#x636E;&#x914D;&#x7F6E;&#x7684;&#x6587;&#x7AE0;&#x3002;</p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E8%BF%87%E7%A8%8B">&#x8FC7;&#x7A0B;</h2>
@@ -1908,54 +1969,4 @@ store.state.b // -&gt; moduleB &#x7684;&#x72B6;&#x6001;
 <blockquote>
 <h3 id>&#x4EE5;&#x4E0A;</h3>
 </blockquote>
-<!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item><item><title><![CDATA[微信WePY报错汇总]]></title><description><![CDATA[wepy 框架遇见的 BUGS 解决方案]]></description><link>yourdomain.com/solve-wepy-error/</link><guid isPermaLink="false">60e1e88bdcff0833706c15f6</guid><category><![CDATA[BUG handled]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Fri, 01 May 2020 11:32:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><p>&#x4ECE;&#x6A2A;&#x7A7A;&#x51FA;&#x4E16;&#xFF0C;&#x5230;&#x73B0;&#x5728;&#x6846;&#x67B6;&#x7684;&#x767E;&#x82B1;&#x9F50;&#x653E;&#x3002;&#x5FAE;&#x4FE1;&#x7684;&#x539F;&#x751F;&#x8BED;&#x6CD5;&#x4F9D;&#x7136;&#x8FD8;&#x662F;&#x672C;&#x4EBA;&#x5FC3;&#x5934;&#x6700;&#x559C;&#x6B22;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5F88;&#x5C11;&#x4EA7;&#x751F;&#x4E00;&#x4E9B;&#x7A00;&#x5947;&#x53E4;&#x602A;&#x7684;&#x9519;&#x8BEF;&#x3002;&#x81F3;&#x4E8E;&#x6846;&#x67B6;&#xFF0C;Rax/Taro/uni-app/wepy...&#x9009;&#x62E9;&#x6027;&#x8FD8;&#x662F;&#x5F88;&#x591A;&#xFF0C;&#x672C;&#x6587;&#x5C31; wepy &#x4F7F;&#x7528;&#x4E2D;&#x9047;&#x89C1;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x8BB0;&#x5F55;&#x76F8;&#x5E94;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
-<hr>
-<blockquote>
-<p><strong>&#x524D;&#x666F;&#x63D0;&#x8981;&#xFF1A;</strong><br>
-WePY@2.x.x &#x8F83; v1.x.x &#x53D8;&#x5316;&#x8F83;&#x5927;&#xFF0C;&#x672C;&#x6587; WePY &#x7248;&#x672C;&#x4E3A; version1.7.3&#x3002;<br>
-v1.x.x&#x4E0E;<a href="https://wepyjs.github.io/wepy-docs/2.x/#/">v2.x.x</a>&#x76F8;&#x6BD4;&#xFF1A;node&#x2014;modules&#x6587;&#x4EF6;&#x5939;&#x4E00;&#x81F4;&#xFF0C;&#x800C;&#x524D;&#x8005;&#x7684;dist&#x6587;&#x4EF6;&#x5939;&#x5728;&#x540E;&#x8005;&#x4E2D;&#x66F4;&#x65B0;&#x4E3A;weapp&#xFF0C;&#x5373;&#x5B58;&#x653E;&#x5B9E;&#x65F6;&#x7F16;&#x8BD1;&#x540E;&#x4EE3;&#x7801;&#x3002;</p>
-</blockquote>
-<hr>
-<ul>
-<li>WePY &#x521D;&#x59CB;&#x5316;&#x62A5;&#x9519;&#xFF1A;</li>
-</ul>
-<pre><code>$ wepy init standard project_name
-# &#x7F51;&#x7EDC;&#x72B6;&#x6001;&#x5F02;&#x5E38;
-downloading template   wepy-cli &#xB7; Failed to download repo standard: read ECONNRESET
-</code></pre>
-<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> 1.&#x66F4;&#x6362;&#x7F51;&#x7EDC;&#x3001;&#x79D1;&#x5B66;&#x4E0A;&#x7F51; 2.&#x4F7F;&#x7528;&#x672C;&#x5730;&#x4E0B;&#x8F7D;&#x7684;&#x521D;&#x59CB;&#x5316; template&#xFF1A;&#x8FDB;&#x5165; <a href="https://github.com/wepyjs/wepy-templates">WePYGithub</a>&#xFF0C;&#x9009;&#x62E9;&#x4E0B;&#x8F7D;<u>&#x9700;&#x8981;&#x7684;&#x5206;&#x652F;</u>&#x81F3;&#x672C;&#x5730;&#xFF0C;&#x6700;&#x540E;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x7531; <code>wepy init standard project_name</code> &#x4FEE;&#x6539;&#x4E3A; <code>wepy init &#x4E0B;&#x8F7D;&#x6587;&#x4EF6;&#x4E2D; standard &#x5B58;&#x653E;&#x8DEF;&#x5F84; project_name</code></p>
-<ul>
-<li>ESLint &#x8BED;&#x6CD5;&#x62A5;&#x9519;&#xFF1A;</li>
-</ul>
-<pre><code>.../src/app.wpy
-15:1  error  More than 1 blank line not allowed  no-multiple-empty-lines
-
-&#x2716; 1 problem (1 error, 0 warnings)
-
-.../src/pages/index.wpy
-91:1  error  More than 1 blank line not allowed  no-multiple-empty-lines
-
-&#x2716; 1 problem (1 error, 0 warnings)
-</code></pre>
-<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> &#x5728;&#x5BF9;&#x5E94;&#x62A5;&#x9519;&#x76EE;&#x5F55;&#x4E2D;&#x5220;&#x9664;&#x591A;&#x4F59;&#x7A7A;&#x884C;</p>
-<ul>
-<li>&#x672A;&#x627E;&#x5230;&#x5165;&#x53E3; app.json &#x6587;&#x4EF6;&#x3001;&#x6216;&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#x5931;&#x8D25;&#xFF1A;</li>
-</ul>
-<pre><code>[ app.json &#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x9519;&#x8BEF;] app.json: app.json &#x672A;&#x627E;&#x5230;
-</code></pre>
-<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> &#x8865;&#x5168;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>project.config.json</code> &#x6587;&#x4EF6;&#x7F3A;&#x5C11;&#x7684;&#x4EE3;&#x7801;&#xFF1A;<code>&quot;miniprogramRoot&quot;: &quot;/dist&quot;</code>&#x3002;&#x8FD9;&#x91CC;&#x6CE8;&#x610F;&#x8DEF;&#x5F84;&#x7684;&#x6B63;&#x786E;&#x8865;&#x5168;&#x3002;</p>
-<ul>
-<li>VSCode &#x4E2D;&#x914D;&#x7F6E; Vetur&#x540E;&#x4F9D;&#x65E7; <code>.wpy</code> &#x6587;&#x4EF6;&#x62A5;&#x9519;&#xFF1A;</li>
-</ul>
-<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> &#x5728; VSCode &#x4E2D; Settings &#x5185;&#x5173;&#x95ED;&#x52FE;&#x9009;&#x7684; <code>Validation Script</code>&#x3001;<code>Validation Style</code>&#x3001;<code>Validation Template</code></p>
-<ul>
-<li><code>MiniProgramError module &quot;wxs/test.wxs.js&quot; is not defined</code>&#xFF1A;</li>
-</ul>
-<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> &#x8FD9;&#x91CC;&#x628A;&#x62A5;&#x9519;&#x7684; <code>test.wxs</code> &#x540E;&#x7F00;&#x52A0;&#x4E0A; <code>.js</code> &#x53EF;&#x4EE5;&#x6D88;&#x9664;&#x62A5;&#x9519;&#x3002;&#x4EA7;&#x751F;&#x7684;&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x662F;&#x7F13;&#x5B58;&#x95EE;&#x9898;&#xFF0C;&#x5F85;&#x4E0D;&#x62A5;&#x9519;&#x540E;&#x4FEE;&#x6539;&#x56DE;&#x5373;&#x53EF;&#x3002;</p>
-<ul>
-<li>&#x8FD0;&#x884C;&#x65F6;&#x672A;&#x5B9A;&#x4E49;&#xFF1A;</li>
-</ul>
-<pre><code>ReferenceError: regeneratorRuntime is not defined
-</code></pre>
-<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong> 1.&#x5C06;&#x65B0;&#x8FD0;&#x884C;&#x65F6;&#x6587;&#x4EF6;&#x5F15;&#x5165;&#x62A5;&#x9519;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x8FD9;&#x91CC;&#x6CE8;&#x610F;&#x5728;&#x6A21;&#x5757;&#x5185; <code>regeneratorRuntime</code> &#x662F;&#x4EE5; <code>runtime</code> &#x8FD0;&#x4F5C;&#xFF0C;&#x4E14;&#x6B64;&#x65B9;&#x6CD5;&#x5B58;&#x5728;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x5931;&#x6548;&#x7684;&#x95EE;&#x9898;&#x3002;2.&#x589E;&#x5F3A;&#x7F16;&#x8BD1;&#x4E14;&#x66F4;&#x6362;&#x7248;&#x672C;&#x53EF;&#x4EE5;&#x8F83;&#x4E3A;&#x7B80;&#x4FBF;&#x7684;&#x89E3;&#x51B3;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x5B58;&#x5728;&#x5207;&#x6362;&#x7248;&#x672C;&#x540E;&#x9519;&#x8BEF;&#x7684;&#x590D;&#x73B0;&#x3002;</p>
 <!--kg-card-end: markdown--><p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528; <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>]]></content:encoded></item></channel></rss>

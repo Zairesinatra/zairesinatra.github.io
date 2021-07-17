@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>搜索算法与随机算法</title>
+    <title>🌀搜索算法与随机算法</title>
 
     <link rel="icon" href="../../favicon.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
@@ -12,19 +12,19 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="搜索算法与随机算法" />
-    <meta property="og:description" content="搜索：顺序、二分、内插
-随机：Fisher-Yates、反排序" />
+    <meta property="og:title" content="🌀搜索算法与随机算法" />
+    <meta property="og:description" content="1. 搜索：顺序、二分、内插
+2. 随机：Fisher-Yates、反排序" />
     <meta property="og:url" content="yourdomain.com/searchrandom/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/randomAlgo.jpg" />
     <meta property="article:published_time" content="2021-03-24T07:06:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-08T18:54:26.000Z" />
+    <meta property="article:modified_time" content="2021-07-11T18:42:58.000Z" />
     <meta property="article:tag" content="DataStructuresAndAlgorithms" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="搜索算法与随机算法" />
-    <meta name="twitter:description" content="搜索：顺序、二分、内插
-随机：Fisher-Yates、反排序" />
+    <meta name="twitter:title" content="🌀搜索算法与随机算法" />
+    <meta name="twitter:description" content="1. 搜索：顺序、二分、内插
+2. 随机：Fisher-Yates、反排序" />
     <meta name="twitter:url" content="yourdomain.com/searchrandom/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/randomAlgo.jpg" />
     <meta name="twitter:label1" content="Written by" />
@@ -62,10 +62,10 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "搜索算法与随机算法",
+    "headline": "🌀搜索算法与随机算法",
     "url": "yourdomain.com/searchrandom/",
     "datePublished": "2021-03-24T07:06:00.000Z",
-    "dateModified": "2021-07-08T18:54:26.000Z",
+    "dateModified": "2021-07-11T18:42:58.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/randomAlgo.jpg",
@@ -73,7 +73,7 @@
         "height": 1333
     },
     "keywords": "DataStructuresAndAlgorithms",
-    "description": "搜索：顺序、二分、内插\n随机：Fisher-Yates、反排序",
+    "description": "1. 搜索：顺序、二分、内插\n2. 随机：Fisher-Yates、反排序",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -663,7 +663,7 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">搜索算法与随机算法</h1>
+                <h1 class="post-title">🌀搜索算法与随机算法</h1>
                 <section class="post-meta">
                     Ziyi Xie -
                     <time class="post-date" datetime="2021-03-24">24 Mar 2021</time>
@@ -676,62 +676,71 @@
 
                 <h3 id>顺序搜索</h3>
 <pre><code>// 最基本的搜索算法 —— 顺序搜索
-const noExist = "不存在"
 function sequentialSearch (array, value) {
     for (let i = 0; i &lt; array.length; i++) {
         if (value === array[i]) {
             return i;
         }
     }
-    return noExist
+    return "noExist"
 }
-let arr = [1,2,3,4,5]
-let value = 0
-console.log(sequentialSearch(arr,value)); // 不存在
-
-let zsarr = [1,2,3,4,5]
-let val = 1
-console.log(sequentialSearch(zsarr,val)); // 0
+let arr = [1,2,3,4,5], value = 0, val = 1;
+console.log(sequentialSearch(arr,value)); // noExist
+console.log(sequentialSearch(arr,val)); // 0
 </code></pre>
 <h3 id>二分搜索</h3>
-<pre><code>// 算法步骤: 选择数组中间值 =&gt; 确认是待搜索值则搜索完毕,否则比较大小在子数组寻找
-const err = "nonono"
-function BinarySearch (array, value) {
-    let low = 0;
-    let high = array.length - 1;
-    while( low &lt;= high ) {
-        var mid = parseInt((high + low) / 2);
+<p>如果待查找的数是整数，且知道范围，可以考虑二分查找。</p>
+<ul>
+<li>先设定左下标 left 与右下标 right，再计算中间下标 mid。通常考虑数组头尾。</li>
+<li>根据 <code>arr[mid]</code> 和 target 之间的大小进行判断，相等则直接返回下标，<code>nums[mid]</code> &lt; target 则 left 右移，<code>nums[mid]</code> &gt; target 则 right 左移。</li>
+</ul>
+<pre><code>function BinarySearch (array, value) {
+    let left = 0, right = array.length - 1;
+    while( left &lt;= right ) {
+        var mid = parseInt((left + right) / 2);
         if (value == array[mid]) {
             return mid;
         } else if (value &gt; array[mid]) {
-            low = mid + 1;
+            left = mid + 1;
         } else if (value &lt; array[mid]) {
-            high = mid - 1;
+            right = mid - 1;
         }
     }
-    return err;
+    return "nonono";
 }
-let arr = [1,2,3,4,5]
-let value = 1
-console.log(BinarySearch(arr,value)); // 0
-let array = [1,2,3,4,5]
-let val = 0
-console.log(BinarySearch(array,val)); // nonono
-let array1 = [1,2,3,4,5]
-let val1 = 3
-console.log(BinarySearch(array1,val1)); // 2
+let arr = [1,2,3,4,5], value = 1, val = 0, val1 = 3;
+BinarySearch(arr,value); // 0
+BinarySearch(arr,val); // nonono
+BinarySearch(arr,val1); // 2
+</code></pre>
+<p>LeetCode: <a href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a></p>
+<p>这里在使用二分法查找结束后若没有相等值则返回 left 为插入位置。</p>
+<pre><code>var searchInsert = function(nums, target) {
+    let left = 0, right = nums.length - 1;
+    while(left&lt;=right){ // 当越过临界条件时 (left&gt;right) 则表示找不到对应值,跳出
+        let mid = parseInt((left+right)/2); // 每一次 left、right 改变会使 mid 赋新值,故必须放while中
+        if(target === nums[mid]){
+            return mid;
+        } else if (target &gt; nums[mid]) {
+            left = mid + 1;
+        } else if (target &lt; nums[mid]){
+            right = mid -1;
+        }
+    }
+    return left
+};
 </code></pre>
 <h3 id>内插搜索</h3>
-<pre><code>const no = "nonono"
-function interpolationSearch(arr, value) {
-    let low = 0
-    let high = arr.length - 1
-    let position = -1
-    let delta = -1
-  
+<p>插值搜索之算法与二分搜索算法几乎完全相同，差别在：</p>
+<ul>
+<li>二分搜索法：猜测键值在中间位置(middle)</li>
+<li>插值搜索法：用插值公式计算键值位置</li>
+</ul>
+<pre><code>function interpolationSearch(arr, value) {
+    let low = 0, high = arr.length - 1, position = -1, delta = -1;
     while (low &lt;= high &amp;&amp; value &gt;= arr[low] &amp;&amp; value &lt;= arr[high]) {
-      delta = (value - arr[low]) / (arr[high] - arr[low])
-      position = low + Math.floor((high - low) * delta)
+      delta = (value - arr[low]) / (arr[high] - arr[low]);
+      position = low + Math.floor((high - low) * delta);
       if (arr[position] === value) {
         return position
       }
@@ -741,15 +750,11 @@ function interpolationSearch(arr, value) {
         high = position - 1
       }
     }
-    return no
+    return "nonono"
 }
-let arr = [1,2,3,4,5]
-let value = 1
+let arr = [1,2,3,4,5], value = 1, val = 0;
 console.log(interpolationSearch(arr,value)); // 0
-
-let array = [1,2,3,4,5]
-let val = 0
-console.log(interpolationSearch(array,val)); // nonono
+console.log(interpolationSearch(arr,val)); // nonono
 </code></pre>
 <h3 id="fisheryates">Fisher-Yates算法</h3>
 <pre><code>function shuffle (array) {
@@ -761,9 +766,8 @@ console.log(interpolationSearch(array,val)); // nonono
     return array;
 }
 
-let arr = [1,2,3,4,5]
-let zsarr = shuffle(arr)
-console.log(shuffle(zsarr))
+let arr = [1,2,3,4,5], zsarr = shuffle(arr)
+console.log(shuffle(zsarr)) // 每次产生打乱的随机数组
 </code></pre>
 <h3 id>反排序</h3>
 <pre><code>function createNonSortedArray(size) {
