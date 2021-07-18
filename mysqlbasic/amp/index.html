@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>VueCLI 脚手架</title>
+    <title>🛢MySQLBasic</title>
 
     <link rel="icon" href="../../favicon.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
@@ -12,28 +12,27 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="VueCLI 脚手架" />
-    <meta property="og:description" content="父は私に「心配しないで、心配する必要はない」と警告した。彼はまた、「待って、前進する道は自然に開くだろう」と言った。
--黒澤明、「ヒキガエルの油」" />
-    <meta property="og:url" content="yourdomain.com/vuecli/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
-    <meta property="article:published_time" content="2019-09-09T13:32:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-04T06:29:36.000Z" />
+    <meta property="og:title" content="🛢MySQLBasic" />
+    <meta property="og:description" content="MySQL环境配置以及常见问题" />
+    <meta property="og:url" content="yourdomain.com/mysqlbasic/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/07/seabed.jpg" />
+    <meta property="article:published_time" content="2020-03-10T12:25:00.000Z" />
+    <meta property="article:modified_time" content="2021-07-18T13:47:14.000Z" />
     <meta property="article:tag" content="Technology growth" />
+    <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="VueCLI 脚手架" />
-    <meta name="twitter:description" content="父は私に「心配しないで、心配する必要はない」と警告した。彼はまた、「待って、前進する道は自然に開くだろう」と言った。
--黒澤明、「ヒキガエルの油」" />
-    <meta name="twitter:url" content="yourdomain.com/vuecli/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
+    <meta name="twitter:title" content="🛢MySQLBasic" />
+    <meta name="twitter:description" content="MySQL环境配置以及常见问题" />
+    <meta name="twitter:url" content="yourdomain.com/mysqlbasic/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/seabed.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:data2" content="Technology growth, BUG handled" />
     <meta name="twitter:site" content="@xieziyi0422" />
     <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1333" />
+    <meta property="og:image:height" content="1500" />
     
     <script type="application/ld+json">
 {
@@ -62,12 +61,18 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "VueCLI 脚手架",
-    "url": "yourdomain.com/vuecli/",
-    "datePublished": "2019-09-09T13:32:00.000Z",
-    "dateModified": "2021-07-04T06:29:36.000Z",
-    "keywords": "Technology growth",
-    "description": "父は私に「心配しないで、心配する必要はない」と警告した。彼はまた、「待って、前進する道は自然に開くだろう」と言った。\n-黒澤明、「ヒキガエルの油」",
+    "headline": "🛢MySQLBasic",
+    "url": "yourdomain.com/mysqlbasic/",
+    "datePublished": "2020-03-10T12:25:00.000Z",
+    "dateModified": "2021-07-18T13:47:14.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/07/seabed.jpg",
+        "width": 2000,
+        "height": 1500
+    },
+    "keywords": "Technology growth, BUG handled",
+    "description": "MySQL环境配置以及常见问题",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -657,69 +662,129 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">VueCLI 脚手架</h1>
+                <h1 class="post-title">🛢MySQLBasic</h1>
                 <section class="post-meta">
                     Ziyi Xie -
-                    <time class="post-date" datetime="2019-09-09">09 Sep 2019</time>
+                    <time class="post-date" datetime="2020-03-10">10 Mar 2020</time>
                 </section>
             </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2021/07/seabed.jpg" width="600" height="340" layout="responsive"></amp-img>
+            </figure>
             <section class="post-content">
 
-                <blockquote>
-<h2 id>前言</h2>
-</blockquote>
-<p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统。由三部分组成：CLI (@vue/cli)、CLI 服务 (@vue/cli-service)、CLI 插件。</p>
-<blockquote>
-<h2 id>正文</h2>
-</blockquote>
-<blockquote>
-<h3 id="clivuecli"><a href="https://cli.vuejs.org/zh/guide/cli-service.html#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4">CLI (@vue/cli)</a></h3>
-</blockquote>
-<p>CLI (@vue/cli)是一个全局安装的 npm 包，提供了终端里的 vue 命令。也就是说是使用这些命令的必要条件。</p>
-<pre><code class="language-zsh"># 快速原型开发
-vue serve
-# 创建 vue 项目
-vue create
-# 进入 vue 可视化管理界面
-vue ui
+                <h2 id>相关概念</h2>
+<p>不论传统数据库: MySQL、Oracle、SQL Server 还是新型数据库: Mongodb ，都是通过增、删、改、查等系列操作来进行组织、存储、管理数据。而数据库结构又通常分为数据库（database）、数据表（table）、数据行（row）、字段（field）四种组成。</p>
+<h2 id>安装与卸载</h2>
+<ul>
+<li>安装：</li>
+</ul>
+<pre><code># MySQL Server: 提供数据储存、数据服务
+brew install mysql
+# MySQL Workbench: 可视化MySQL管理工具-方便操作存储的数据
+brew install --cask mysqlworkbench
 </code></pre>
-<p>例如对单个 <code>*.vue</code> 文件进行快速原型开发：需要在 <code>npm install -g @vue/cli-service-global</code> 之后才可进行使用 <code>vue serve</code> 启动项目。</p>
-<amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1621408696/vuecreate.png" width="794" height="790" layout="responsive"></amp-img>
-<p>可以借助 npm 进行 Vue 项目的启动和打包等操作，例如： <code>npm run serve</code> 启动项目；<code>npm run build</code> 打包项目。同时在启动 React 项目的时候使用的是 <code>npm start</code>；在打包 React 项目的时候也是使用的 <code>npm run build</code>；但是创建 React项目的是使用的 React 自己的脚手架 create-react-app ；Vue使用的命令是 <code>vue create</code>。</p>
-<blockquote>
-<h3 id="clivuecliservice">CLI 服务 (@vue/cli-service)</h3>
-</blockquote>
-<p>CLI 服务 (@vue/cli-service) 是一个 <strong>开发环境</strong> 依赖。本质是一个 npm 包，局部安装在每个 @vue/cli 创建的项目中。</p>
-<p>在一个 Vue CLI 项目中，@vue/cli-service 安装了一个名为 <code>vue-cli-service</code> 的命令。可以在 npm scripts 中以 <code>vue-cli-service</code>、或者从终端中以 <code>./node_modules/.bin/vue-cli-service</code> 访问这个命令。</p>
-<pre><code>// 使用默认 preset 的项目的 package.json
-{
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  }
-}
+<ul>
+<li>卸载：</li>
+</ul>
+<pre><code class="language-zsh">sudo rm /usr/local/mysql
+sudo rm -rf /usr/local/mysql*
+sudo rm -rf /Library/StartupItems/MySQLCOM
+sudo rm -rf /Library/Receipts/mysql* 
 </code></pre>
-<pre><code>// 通过 npm 调用这些 script
-npm run serve
-npm run build
+<h2 id>常用路径</h2>
+<p>MacOS 可通过在系统偏好设置中 mysql 项目的 configuration 栏查询具体各内容的安装存在位置。</p>
+<pre><code># Base Directory
+/usr/local/mysql
+# Data Directory
+/usr/local/mysql/data
+# Plugin Directory
+/usr/local/mysql/lib/plugin
+# Keyring Data File
+/usr/local/mysql/keyring/keyring
+# Error Log
+/usr/local/mysql/data/mysqld.local.err
+# PID File
+/usr/local/mysql/data/mysqld.local.pid
 </code></pre>
-<pre><code>// 使用 npx (最新版的 npm 应该已经自带)调用
-npx vue-cli-service serve
+<h2 id="mysql">MySQL 操作</h2>
+<ul>
+<li>配置环境变量：</li>
+</ul>
+<pre><code class="language-zsh">vi ~/.zshrc
 </code></pre>
-<blockquote>
-<h3 id="cli">CLI 插件</h3>
-</blockquote>
-<p>CLI 插件是向 Vue 项目提供可选功能的 npm 包，例如 Babel/TypeScript 转译、ESLint 集成等。</p>
-<p>其中 CLI 插件的名字以 <code>@vue/cli-plugin- (xxx)</code>开头，在 <code>package.json</code> 中可查看。</p>
-<p>当在项目内部运行 <code>vue-cli-service</code> 命令时，它会自动解析并加载 <code>package.json</code> 中列出的所有 CLI 插件。</p>
-<blockquote>
-<h2 id>结束</h2>
-</blockquote>
-<p>本文以个人角度简化理解 Vue CLI 的组成作用。需要查看详细解释，<a href="https://cli.vuejs.org/zh/guide/">点击这里</a>。</p>
-<blockquote>
-<h3 id>以上</h3>
-</blockquote>
-<p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+<pre><code class="language-zsh"># mysql
+export PATH="/usr/local/mysql/bin:$PATH"
+alias  mysql='/usr/local/mysql/bin/mysql'
+</code></pre>
+<pre><code class="language-zsh"># 更新配置
+source ~/.zshrc   
+</code></pre>
+<ul>
+<li>数据库创建命名规范与特殊提示：</li>
+</ul>
+<p>数据库创建命名不能中文和空格。</p>
+<p>PK(primary key):主键唯一标识、NN(not null):值不允许为空、UQ(Unique):值唯一、AI(Auto Increment):值自动增长。</p>
+<ul>
+<li>导入<code>.sql</code>文件：</li>
+</ul>
+<p>创建以导入的<code>.sql</code>文件名命名的新数据库。（此处以 <code>mydb</code> 为例）</p>
+<pre><code class="language-zsh">$ mysql -u root -p
+</code></pre>
+<pre><code>$ mysql&gt;use mydb(使用那个数据库的名称)
+</code></pre>
+<pre><code class="language-zsh"># 导入 .spl 文件
+$ mysql&gt;source /Users/zsxzy/Desktop/.../db/mydb.sql
+</code></pre>
+<p>测试查看导入的数据库文件是否成功时可能会因权限问题出现报错：</p>
+<pre><code class="language-zsh"># 粗暴解决
+sudo chmod -R 777 /usr/local/mysql/data/...
+</code></pre>
+<h2 id="bug">BUG 解决</h2>
+<hr></hr>
+<pre><code class="language-js"># 报错情形一
+/Users/.../node_modules/mysql/lib/protocol/Parser.js:80
+        throw err; // Rethrow non-MySQL errors
+        ^
+Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+
+# 报错情形二
+&gt; haozk@0.1.0 start /Users/zsxzy/.../React/...
+&gt; node bin/www
+
+数据库连接异常
+异常指令err: AccessDeniedError [SequelizeAccessDeniedError]: Access denied for user 'root'@'localhost' (using password: YES)
+</code></pre>
+<p>这里报错的原因是配置的数据库密码与设置的密码不一致，在项目配置数据库文件中找到对应的配置代码修改，如 <code>default.json</code> 或 <code>config</code> 中的 <code>mysql.js</code>（登录文件）进行修改。</p>
+<p>多提一个小 Tips ：如果是 No 。那么从 权限 以及 依赖包 考虑。</p>
+<hr></hr>
+<pre><code class="language-js">Your connection attempt failed for user 'root' to the MySQL server at localhost:3306:
+Unable to connect to localhost:3306
+
+Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) 
+</code></pre>
+<p><code>mysql.sock</code> 这个文件是用于 socket 连接的文件，也就是只有守护进程启动起来这个文件才存在。 需要重启 MySQL。</p>
+<h2 id>常用命令</h2>
+<pre><code class="language-zsh"># 登陆 mysql
+mysql -u root -p
+# 退出 mysql
+exit;
+</code></pre>
+<pre><code class="language-zsh">#  查看 MySQL 是否启动
+ps -ef | grep mysql
+</code></pre>
+<pre><code class="language-zsh"># 启动 MySQL 服务
+sudo /usr/local/MySQL/support-files/mysql.server start
+
+# 停止 MySQL 服务
+sudo /usr/local/mysql/support-files/mysql.server stop
+
+# 重启 MySQL 服务
+sudo /usr/local/mysql/support-files/mysql.server restart
+</code></pre>
+<h2 id>以上</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
+
 
             </section>
 
