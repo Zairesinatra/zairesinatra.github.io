@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=74af550076.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=29c56dd793.css" />
 
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -22,7 +22,7 @@
     <meta property="og:url" content="yourdomain.com/mysqlbasic/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/seabed.jpg" />
     <meta property="article:published_time" content="2020-03-10T12:25:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-18T13:47:14.000Z" />
+    <meta property="article:modified_time" content="2021-07-22T18:53:14.000Z" />
     <meta property="article:tag" content="Technology growth" />
     <meta property="article:tag" content="BUG handled" />
     
@@ -69,7 +69,7 @@
     "headline": "🛢MySQLBasic",
     "url": "yourdomain.com/mysqlbasic/",
     "datePublished": "2020-03-10T12:25:00.000Z",
-    "dateModified": "2021-07-18T13:47:14.000Z",
+    "dateModified": "2021-07-22T18:53:14.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/seabed.jpg",
@@ -229,7 +229,7 @@
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
                         <time class="byline-meta-date" datetime="2020-03-10">Mar 10, 2020</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 5 min read</span>
                     </div>
                 </div>
             </section>
@@ -256,6 +256,8 @@
 brew install mysql
 # MySQL Workbench: 可视化MySQL管理工具-方便操作存储的数据
 brew install --cask mysqlworkbench
+# 或官方安装文件安装
+...
 </code></pre>
 <ul>
 <li>卸载：</li>
@@ -263,11 +265,28 @@ brew install --cask mysqlworkbench
 <pre><code class="language-zsh">sudo rm /usr/local/mysql
 sudo rm -rf /usr/local/mysql*
 sudo rm -rf /Library/StartupItems/MySQLCOM
+# 因为有 InstallHisory.plist 注意不要把 Receipts 全删 -- 概率没有 mysql*
+# /Library/Receipts 通常为 user 在 APP Store 中下载的 receipts
 sudo rm -rf /Library/Receipts/mysql* 
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">常用路径</h2>
-<p>MacOS 可通过在系统偏好设置中 mysql 项目的 configuration 栏查询具体各内容的安装存在位置。</p>
-<pre><code># Base Directory
+<ul>
+<li>安装包安装完成配置环境变量(Homebrew不同)：</li>
+</ul>
+<pre><code class="language-zsh">vi ~/.zshrc
+</code></pre>
+<pre><code class="language-zsh"># mysql
+export PATH=&quot;/usr/local/mysql/bin:$PATH&quot;
+alias  mysql='/usr/local/mysql/bin/mysql'
+</code></pre>
+<pre><code class="language-zsh"># 更新配置
+source ~/.zshrc   
+</code></pre>
+<ul>
+<li>安装包安装完成可通过在系统偏好设置中 mysql 项的 configuration 栏查询具体各内容的安装存在位置。(Homebrew不同)</li>
+</ul>
+<pre><code># 安装文件安装,非homebrew
+# Base Directory
 /usr/local/mysql
 # Data Directory
 /usr/local/mysql/data
@@ -280,19 +299,10 @@ sudo rm -rf /Library/Receipts/mysql*
 # PID File
 /usr/local/mysql/data/mysqld.local.pid
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="mysql">MySQL 操作</h2>
 <ul>
-<li>配置环境变量：</li>
+<li>mac 上使用 homebrew 安装 mysql 的配置文件存放路径不是 <code>/etc/my.cnf</code> 而是 <code>/usr/local/etc/my.cnf</code> 。</li>
 </ul>
-<pre><code class="language-zsh">vi ~/.zshrc
-</code></pre>
-<pre><code class="language-zsh"># mysql
-export PATH=&quot;/usr/local/mysql/bin:$PATH&quot;
-alias  mysql='/usr/local/mysql/bin/mysql'
-</code></pre>
-<pre><code class="language-zsh"># 更新配置
-source ~/.zshrc   
-</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="mysql">MySQL 操作</h2>
 <ul>
 <li>数据库创建命名规范与特殊提示：</li>
 </ul>
@@ -315,28 +325,71 @@ sudo chmod -R 777 /usr/local/mysql/data/...
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bug">BUG 解决</h2>
 <hr>
-<pre><code class="language-js"># 报错情形一
-/Users/.../node_modules/mysql/lib/protocol/Parser.js:80
-        throw err; // Rethrow non-MySQL errors
-        ^
-Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+<pre><code class="language-js">Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
 
-# 报错情形二
-&gt; haozk@0.1.0 start /Users/zsxzy/.../React/...
-&gt; node bin/www
-
-数据库连接异常
 异常指令err: AccessDeniedError [SequelizeAccessDeniedError]: Access denied for user 'root'@'localhost' (using password: YES)
 </code></pre>
-<p>这里报错的原因是配置的数据库密码与设置的密码不一致，在项目配置数据库文件中找到对应的配置代码修改，如 <code>default.json</code> 或 <code>config</code> 中的 <code>mysql.js</code>（登录文件）进行修改。</p>
-<p>多提一个小 Tips ：如果是 No 。那么从 权限 以及 依赖包 考虑。</p>
+<p>由于配置的数据库密码与设置的密码不一致，应在项目配置数据库文件脚本找到对应的配置代码修改，如 <code>default.json</code> 或 <code>config</code> 中的 <code>mysql.js</code>（登录文件）进行修改。</p>
+<p>多提一个小 Tips ：如果是 No 。那么从 <strong>权限</strong> 以及 <strong>依赖包</strong> 考虑。</p>
 <hr>
 <pre><code class="language-js">Your connection attempt failed for user 'root' to the MySQL server at localhost:3306:
 Unable to connect to localhost:3306
 
 Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) 
 </code></pre>
-<p><code>mysql.sock</code> 这个文件是用于 socket 连接的文件，也就是只有守护进程启动起来这个文件才存在。 需要重启 MySQL。</p>
+<p><code>mysql.sock</code> 这个文件是用于 socket 连接的文件，也就是只有守护进程启动起来这个文件才存在。 考虑重启 MySQL。</p>
+<hr>
+<pre><code>ERROR! The server quit without updating PID file (/usr/local/var/mysql/xxx.local.pid).
+</code></pre>
+<p>此时退出会有两种情况考虑：1.权限给定、2.上版mysql未删除彻底</p>
+<hr>
+<pre><code># 开启 Node 端口服务时协议不匹配
+ConnectionError [SequelizeConnectionError]: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+</code></pre>
+<p>MySQL 8.0 使用 caching_sha2_password 作为默认身份验证插件，而不是 MySQL 5.7 默认  mysql_native_password。而最新的 mysql 模块并未完全支持 MySQL8 的加密方式。此时考虑重新修订用户 root 的密码，指定 mysql 模块支持的加密方式。</p>
+<pre><code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new password'
+# 默认新协议的密码更改方式
+# ALTER USER 'root'@'localhost' IDENTIFIED BY 'new password';
+</code></pre>
+<hr>
+<pre><code># 在更更改密码时出现如下错误
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+</code></pre>
+<p>由于密码要求修改失败，此时检视密码要求变量</p>
+<pre><code class="language-zsh">$ SHOW VARIABLES LIKE 'validate_password%';
++--------------------------------------+--------+
+| Variable_name                        | Value  |
++--------------------------------------+--------+
+| validate_password.check_user_name    | ON    |
+| validate_password.dictionary_file    |        |
+| validate_password.length             | 8      |
+| validate_password.mixed_case_count   | 1      |
+| validate_password.number_count       | 1      |
+| validate_password.policy             | MEDIUM |
+| validate_password.special_char_count | 1      |
++--------------------------------------+--------+
+</code></pre>
+<p>可以看出 validate_password_policy 为 MEDIUM，应修改为 LOW。但是这里如果通过 <code>set global validate_password.xxx=${refixval}</code> 设置在下次启动 MySQL 时又会失效。所以考虑在 <code>/usr/local/etc/my.cnf</code> 中设置如下配置代码进行重定义加密规则：</p>
+<pre><code>[mysqld]
+validate_password_length=6
+validate_password_policy=LOW
+</code></pre>
+<hr>
+<pre><code>数据库连接异常
+异常指令err: ConnectionError [SequelizeConnectionError]: Connection lost: The server closed the connection.
+</code></pre>
+<p>此时项目后端接口使用 mysql 连接字符串是 localhost。但是将连接字符串替换成 127.0.0.1 则可以成功连接。localhost 是走 socket 127.0.0.1 是走 3306 端口。配置反推这里也不应该出现 localhost 不行而 127.0.0.1 可以，两者应该是相反的连接成功与失败结果。所以考虑测网络环境如下：</p>
+<pre><code>$ ping localhost
+PING localhost.lan (198.18.2.xxx): 56 data bytes
+64 bytes from 198.18.2.xxx: icmp_seq=0 ttl=63 time=0.182 ms
+64 bytes from 198.18.2.xxx: icmp_seq=1 ttl=63 time=0.436 ms
+</code></pre>
+<p>了解了，科学上网导致的网络连通问题。更改后则正常。</p>
+<pre><code>$ ping localhost
+PING localhost.lan (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.051 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.148 ms
+</code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">常用命令</h2>
 <pre><code class="language-zsh"># 登陆 mysql
 mysql -u root -p
@@ -541,7 +594,7 @@ sudo /usr/local/mysql/support-files/mysql.server restart
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=74af550076"></script>
+<script src="../assets/built/casper.js%3Fv=29c56dd793"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
