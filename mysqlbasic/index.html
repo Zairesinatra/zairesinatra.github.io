@@ -22,7 +22,7 @@
     <meta property="og:url" content="yourdomain.com/mysqlbasic/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/seabed.jpg" />
     <meta property="article:published_time" content="2020-03-10T12:25:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-22T18:53:14.000Z" />
+    <meta property="article:modified_time" content="2021-07-22T19:02:31.000Z" />
     <meta property="article:tag" content="Technology growth" />
     <meta property="article:tag" content="BUG handled" />
     
@@ -69,7 +69,7 @@
     "headline": "🛢MySQLBasic",
     "url": "yourdomain.com/mysqlbasic/",
     "datePublished": "2020-03-10T12:25:00.000Z",
-    "dateModified": "2021-07-22T18:53:14.000Z",
+    "dateModified": "2021-07-22T19:02:31.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/seabed.jpg",
@@ -185,6 +185,7 @@
     <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
     <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
     <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+    <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
 </ul>
 
             </div>
@@ -384,7 +385,8 @@ PING localhost.lan (198.18.2.xxx): 56 data bytes
 64 bytes from 198.18.2.xxx: icmp_seq=0 ttl=63 time=0.182 ms
 64 bytes from 198.18.2.xxx: icmp_seq=1 ttl=63 time=0.436 ms
 </code></pre>
-<p>了解了，科学上网导致的网络连通问题。更改后则正常。</p>
+<p>了解了，科学上网导致的网络连通问题。因为 localhost 是个域名，只有把域名解析为 127.0.0.1 才能传输。既然都解析不成 127.0.0.1 ，那么都是无稽之谈。<br>
+更改后则正常。</p>
 <pre><code>$ ping localhost
 PING localhost.lan (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.051 ms
@@ -606,7 +608,12 @@ $(document).ready(function () {
 });
 </script>
 
-
+<script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
+<script>
+    new SearchinGhostEasy({
+        contentApiKey: 'ce7ecba5b9a25fa6cdc7b6808b'
+    });
+</script>
 
 </body>
 </html>
