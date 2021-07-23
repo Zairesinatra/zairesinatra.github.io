@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/searchrandom/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/randomAlgo.jpg" />
     <meta property="article:published_time" content="2021-03-24T07:06:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-11T18:42:58.000Z" />
+    <meta property="article:modified_time" content="2021-07-22T20:14:56.000Z" />
     <meta property="article:tag" content="DataStructuresAndAlgorithms" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -65,7 +65,7 @@
     "headline": "🌀搜索算法与随机算法",
     "url": "yourdomain.com/searchrandom/",
     "datePublished": "2021-03-24T07:06:00.000Z",
-    "dateModified": "2021-07-11T18:42:58.000Z",
+    "dateModified": "2021-07-22T20:14:56.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/randomAlgo.jpg",
@@ -675,7 +675,7 @@
             <section class="post-content">
 
                 <h3 id>顺序搜索</h3>
-<pre><code>// 最基本的搜索算法 —— 顺序搜索
+<pre><code class="language-js">// 最基本的搜索算法 —— 顺序搜索
 function sequentialSearch (array, value) {
     for (let i = 0; i &lt; array.length; i++) {
         if (value === array[i]) {
@@ -694,7 +694,7 @@ console.log(sequentialSearch(arr,val)); // 0
 <li>先设定左下标 left 与右下标 right，再计算中间下标 mid。通常考虑数组头尾。</li>
 <li>根据 <code>arr[mid]</code> 和 target 之间的大小进行判断，相等则直接返回下标，<code>nums[mid]</code> &lt; target 则 left 右移，<code>nums[mid]</code> &gt; target 则 right 左移。</li>
 </ul>
-<pre><code>function BinarySearch (array, value) {
+<pre><code class="language-js">function BinarySearch (array, value) {
     let left = 0, right = array.length - 1;
     while( left &lt;= right ) {
         var mid = parseInt((left + right) / 2);
@@ -715,7 +715,7 @@ BinarySearch(arr,val1); // 2
 </code></pre>
 <p>LeetCode: <a href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a></p>
 <p>这里在使用二分法查找结束后若没有相等值则返回 left 为插入位置。</p>
-<pre><code>var searchInsert = function(nums, target) {
+<pre><code class="language-js">var searchInsert = function(nums, target) {
     let left = 0, right = nums.length - 1;
     while(left&lt;=right){ // 当越过临界条件时 (left&gt;right) 则表示找不到对应值,跳出
         let mid = parseInt((left+right)/2); // 每一次 left、right 改变会使 mid 赋新值,故必须放while中
@@ -736,7 +736,7 @@ BinarySearch(arr,val1); // 2
 <li>二分搜索法：猜测键值在中间位置(middle)</li>
 <li>插值搜索法：用插值公式计算键值位置</li>
 </ul>
-<pre><code>function interpolationSearch(arr, value) {
+<pre><code class="language-js">function interpolationSearch(arr, value) {
     let low = 0, high = arr.length - 1, position = -1, delta = -1;
     while (low &lt;= high &amp;&amp; value &gt;= arr[low] &amp;&amp; value &lt;= arr[high]) {
       delta = (value - arr[low]) / (arr[high] - arr[low]);
@@ -757,7 +757,7 @@ console.log(interpolationSearch(arr,value)); // 0
 console.log(interpolationSearch(arr,val)); // nonono
 </code></pre>
 <h3 id="fisheryates">Fisher-Yates算法</h3>
-<pre><code>function shuffle (array) {
+<pre><code class="language-js">function shuffle (array) {
     for (let i = array.length - 1; i &gt; 0; i--) {
         // ~~ 视为 Math.truc() 或者 Math.floor()
         const randomIndex = ~~(Math.random() * (i+1));
@@ -770,7 +770,7 @@ let arr = [1,2,3,4,5], zsarr = shuffle(arr)
 console.log(shuffle(zsarr)) // 每次产生打乱的随机数组
 </code></pre>
 <h3 id>反排序</h3>
-<pre><code>function createNonSortedArray(size) {
+<pre><code class="language-js">function createNonSortedArray(size) {
     const array = [];
     for (let i = size; i &gt; 0; i--) {
         array.push(i)

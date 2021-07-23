@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/eclipse/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/eeclipse.jpg" />
     <meta property="article:published_time" content="2021-04-22T13:36:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-17T07:56:53.000Z" />
+    <meta property="article:modified_time" content="2021-07-22T20:16:42.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +63,7 @@
     "headline": "🌒Eclipse配置",
     "url": "yourdomain.com/eclipse/",
     "datePublished": "2021-04-22T13:36:00.000Z",
-    "dateModified": "2021-07-17T07:56:53.000Z",
+    "dateModified": "2021-07-22T20:16:42.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/eeclipse.jpg",
@@ -676,28 +676,28 @@
 <ul>
 <li>确认 Mac 上是否已安装 java 运行环境</li>
 </ul>
-<pre><code>$ java -version
-// java version "11.0.11" 2021-04-20 LTS
-// Java(TM) SE Runtime Environment 18.9 (build 11.0.11+9-LTS-194)
-// Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.11+9-LTS-194, mixed mode)
+<pre><code class="language-shell">$ java -version
+# java version "11.0.11" 2021-04-20 LTS
+# Java(TM) SE Runtime Environment 18.9 (build 11.0.11+9-LTS-194)
+# Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.11+9-LTS-194, mixed mode)
 </code></pre>
 <ul>
 <li>安装合适的 Eclipse 版本</li>
 </ul>
-<pre><code>$ brew install --cask eclipse-java
-// 或者去官网 https://www.eclipse.org/downloads/packages/
+<pre><code class="language-shell">$ brew install --cask eclipse-java
+# 或者去官网 https://www.eclipse.org/downloads/packages/
 </code></pre>
 <ul>
 <li>安装完成后在先前指定路径将 Eclipse 添加到应用程序</li>
 </ul>
-<pre><code>// 默认路径
+<pre><code class="language-shell"># 默认路径
 /Users/${zsxzy}/eclipse
 </code></pre>
 <h2 id="%E9%85%8D%E7%BD%AE-eclipse">配置 Eclipse</h2>
 <ul>
 <li>Preferences =&gt; Java =&gt; installed JREs 配置 JDK ：add 增加 Standard VM 的 JRE Types，并指定 JDK 安装的 Home 文件夹路径。这里选择 Standard VM 是因为 Oracle（以前是 Sun）实现的 JRE Type 向后兼容性较好。参考本人 add JRE 填写后 Finish。</li>
 </ul>
-<pre><code>JRE HOME: /Library/Java/JavaVirtualMachines/jdk-11.0.11.jdk/Contents/Home
+<pre><code class="language-shell">JRE HOME: /Library/Java/JavaVirtualMachines/jdk-11.0.11.jdk/Contents/Home
 JRE NAME: HOME
 </code></pre>
 <ul>
@@ -717,15 +717,15 @@ JRE NAME: HOME
 <p>在 Team =&gt; Share Project 建议自定义 new repo 去实现 Repository 存放路径。</p>
 </li>
 </ul>
-<pre><code>/User/zsxzy/git/repository/(.git)
-// .git 会自动添加,无需填写
+<pre><code class="language-shell">/User/zsxzy/git/repository/(.git)
+# .git 会自动添加,无需填写
 </code></pre>
 <ul>
 <li>commit =&gt; Remote =&gt; Push 链接至 Github 并选择 Source ref 别称项为 <code>refs/head/master</code> 完成 Add Spec。</li>
 </ul>
 <h2 id="java-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8">Java 自动补全</h2>
 <p>Preference =&gt; Java =&gt; Editor =&gt; Content Assist =&gt; java automatic activation trigger 中补全单词触发。</p>
-<pre><code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.
+<pre><code class="language-java">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.
 </code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>

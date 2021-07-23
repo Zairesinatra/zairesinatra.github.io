@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/webconfig/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/Kunai.jpg" />
     <meta property="article:published_time" content="2021-01-14T13:41:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-08T19:09:09.000Z" />
+    <meta property="article:modified_time" content="2021-07-22T20:19:10.000Z" />
     <meta property="article:tag" content="welcome" />
     <meta property="article:tag" content="Technology growth" />
     <meta property="article:tag" content="BUG handled" />
@@ -65,7 +65,7 @@
     "headline": "🥷🏻Ghost&amp;Github Config",
     "url": "yourdomain.com/webconfig/",
     "datePublished": "2021-01-14T13:41:00.000Z",
-    "dateModified": "2021-07-08T19:09:09.000Z",
+    "dateModified": "2021-07-22T20:19:10.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/Kunai.jpg",
@@ -695,15 +695,15 @@ Ghost: version:3.0.2</p>
 <ul>
 <li>安装 Ghost-CLI</li>
 </ul>
-<pre><code>sudo npm install -g ghost-cli@latest
+<pre><code class="language-shell">sudo npm install -g ghost-cli@latest
 </code></pre>
 <ul>
 <li>为了后续创建 Ghost 项目，在自定义空文件夹安装 Ghost</li>
 </ul>
-<pre><code>ghost install local
+<pre><code class="language-shell">ghost install local
 </code></pre>
 <p>完成如下：</p>
-<pre><code>xieziyi@xieziyis-MBP Ghost % ghost install local
+<pre><code class="language-shell">xieziyi@xieziyis-MBP Ghost % ghost install local
 ✔ Checking system Node.js version - found v14.17.1
 ✔ Checking current folder permissions
 ✔ Checking memory availability
@@ -731,7 +731,7 @@ yourdomain.com/ghost/
 <li>下载完毕后将 gui.sh 文件保存在本地 Ghost 网站的根目录中。</li>
 <li>修改该文件中 <code># Define urls and https</code> 部分：</li>
 </ul>
-<pre><code># Define urls and https
+<pre><code class="language-shell"># Define urls and https
 from_url=yourdomain.com # change this if your local ghost url is different
 to_url=yourdomain.com # change it to your real domain name (no add https)
 to_https=true # set true to enable HTTPS (e.g. GitHub Pages)
@@ -739,12 +739,12 @@ to_https=true # set true to enable HTTPS (e.g. GitHub Pages)
 <ul>
 <li>增加 shellScript 权限：</li>
 </ul>
-<pre><code>chmod +x gui.sh
+<pre><code class="language-shell">chmod +x gui.sh
 </code></pre>
 <ul>
 <li>运行脚本，生成静态文件目录 static ：</li>
 </ul>
-<pre><code>./gui.sh or source gui.sh or sh gui.sh
+<pre><code class="language-shell">./gui.sh or source gui.sh or sh gui.sh
 </code></pre>
 <ul>
 <li>将 static 目录上传 Github Page 即可。</li>
@@ -753,7 +753,7 @@ to_https=true # set true to enable HTTPS (e.g. GitHub Pages)
 <p>如果没有看到这里，你会发现上传的 Ghost 会由于 <code>src</code> 的路径后缀错误而导致插图显示失败：</p>
 <figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>srcerror</figcaption></figure><p>这是因为默认自动编译生成的是 Ghost 动态网站，而在需要编译成静态网站时应当修改默认文件中的相关配置。</p>
 <p>在 Ghost 根目录中，将<strong>所有的 <code>.hbs</code> 文件</strong>中的格式选型代码进行指定删减：</p>
-<pre><code>{{#if feature_image}}
+<pre><code class="language-hbs">{{#if feature_image}}
     &lt;figure class="article-image"&gt;
         {{!-- This is a responsive image, it loads different sizes depending on device
         https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}

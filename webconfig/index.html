@@ -8,8 +8,8 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=29c56dd793.css" />
-
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=572867d6ff.css" />
+    <link rel="stylesheet" type="text/css" href="yourdomain.com/assets/built/search.css?v=572867d6ff" />
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -22,7 +22,7 @@
     <meta property="og:url" content="yourdomain.com/webconfig/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/Kunai.jpg" />
     <meta property="article:published_time" content="2021-01-14T13:41:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-08T19:09:09.000Z" />
+    <meta property="article:modified_time" content="2021-07-22T20:19:10.000Z" />
     <meta property="article:tag" content="welcome" />
     <meta property="article:tag" content="Technology growth" />
     <meta property="article:tag" content="BUG handled" />
@@ -70,7 +70,7 @@
     "headline": "🥷🏻Ghost&amp;Github Config",
     "url": "yourdomain.com/webconfig/",
     "datePublished": "2021-01-14T13:41:00.000Z",
-    "dateModified": "2021-07-08T19:09:09.000Z",
+    "dateModified": "2021-07-22T20:19:10.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/Kunai.jpg",
@@ -160,7 +160,47 @@
   gtag('js', new Date());
 
   gtag('config', 'G-Q4HQV7NBSG');
-</script><style>:root {--ghost-accent-color: #15171A;}</style>
+</script>
+
+<!-- prism.js -->
+<link href="https://cdn.bootcss.com/prism/1.19.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/prism/1.19.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {      
+        document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+            node.classList.add('line-numbers');
+		});
+        Prism.highlightAll();
+    });
+</script>
+
+<style>
+    /* prism */
+    pre[class*="language-"] {
+        margin: 0 0 1.5em !important;
+    }
+
+    pre[class*="line-numbers"]>code {
+        padding: 0;
+    }
+    
+    code {
+        text-shadow: none !important;
+    }
+    
+    .token.operator {
+        background: none !important;
+    }
+
+    :not(pre)>code[class*="language-"],
+    pre[class*="language-"] {
+        background: #20262E !important;
+    }
+</style>
+
+<!---->
+<style>:root {--ghost-accent-color: #15171A;}</style>
 
 </head>
 <body class="post-template tag-welcome tag-technology-growth tag-bug-handled">
@@ -192,15 +232,15 @@
             </div>
             <div class="gh-head-actions">
                 <div class="gh-social">
+
                         <a class="gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 </a>
                 </div>
-
                     <a class="gh-head-button" href="index.html#/portal/signup">Subscribe</a>
             </div>
         </nav>
     </header>
-
+    <section id="results"></section>
     <main>
         
 
@@ -269,15 +309,15 @@ Ghost: version:3.0.2</p>
 <ul>
 <li>安装 Ghost-CLI</li>
 </ul>
-<pre><code>sudo npm install -g ghost-cli@latest
+<pre><code class="language-shell">sudo npm install -g ghost-cli@latest
 </code></pre>
 <ul>
 <li>为了后续创建 Ghost 项目，在自定义空文件夹安装 Ghost</li>
 </ul>
-<pre><code>ghost install local
+<pre><code class="language-shell">ghost install local
 </code></pre>
 <p>完成如下：</p>
-<pre><code>xieziyi@xieziyis-MBP Ghost % ghost install local
+<pre><code class="language-shell">xieziyi@xieziyis-MBP Ghost % ghost install local
 ✔ Checking system Node.js version - found v14.17.1
 ✔ Checking current folder permissions
 ✔ Checking memory availability
@@ -305,7 +345,7 @@ yourdomain.com/ghost/
 <li>下载完毕后将 gui.sh 文件保存在本地 Ghost 网站的根目录中。</li>
 <li>修改该文件中 <code># Define urls and https</code> 部分：</li>
 </ul>
-<pre><code># Define urls and https
+<pre><code class="language-shell"># Define urls and https
 from_url=yourdomain.com # change this if your local ghost url is different
 to_url=yourdomain.com # change it to your real domain name (no add https)
 to_https=true # set true to enable HTTPS (e.g. GitHub Pages)
@@ -313,12 +353,12 @@ to_https=true # set true to enable HTTPS (e.g. GitHub Pages)
 <ul>
 <li>增加 shellScript 权限：</li>
 </ul>
-<pre><code>chmod +x gui.sh
+<pre><code class="language-shell">chmod +x gui.sh
 </code></pre>
 <ul>
 <li>运行脚本，生成静态文件目录 static ：</li>
 </ul>
-<pre><code>./gui.sh or source gui.sh or sh gui.sh
+<pre><code class="language-shell">./gui.sh or source gui.sh or sh gui.sh
 </code></pre>
 <ul>
 <li>将 static 目录上传 Github Page 即可。</li>
@@ -327,7 +367,7 @@ to_https=true # set true to enable HTTPS (e.g. GitHub Pages)
 <p>如果没有看到这里，你会发现上传的 Ghost 会由于 <code>src</code> 的路径后缀错误而导致插图显示失败：</p>
 <!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/07/--2021-07-05---9.01.46.png" class="kg-image" alt loading="lazy" width="2000" height="352" srcset="../content/images/size/w600/2021/07/--2021-07-05---9.01.46.png 600w, ../content/images/size/w1000/2021/07/--2021-07-05---9.01.46.png 1000w, ../content/images/size/w1600/2021/07/--2021-07-05---9.01.46.png 1600w, ../content/images/size/w2400/2021/07/--2021-07-05---9.01.46.png 2400w" sizes="(min-width: 720px) 720px"><figcaption>srcerror</figcaption></figure><!--kg-card-begin: markdown--><p>这是因为默认自动编译生成的是 Ghost 动态网站，而在需要编译成静态网站时应当修改默认文件中的相关配置。</p>
 <p>在 Ghost 根目录中，将<strong>所有的 <code>.hbs</code> 文件</strong>中的格式选型代码进行指定删减：</p>
-<pre><code>{{#if feature_image}}
+<pre><code class="language-hbs">{{#if feature_image}}
     &lt;figure class=&quot;article-image&quot;&gt;
         {{!-- This is a responsive image, it loads different sizes depending on device
         https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
@@ -526,7 +566,8 @@ to_https=true # set true to enable HTTPS (e.g. GitHub Pages)
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=29c56dd793"></script>
+<script src="../assets/built/casper.js%3Fv=572867d6ff"></script>
+
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
@@ -535,13 +576,23 @@ $(document).ready(function () {
     });
     // FitVids - Makes video embeds responsive
     $(".gh-content").fitVids();
+
 });
 </script>
 
+<!-- prism.js -->
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/components/prism-core.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
+
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+<!---->
 <script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
 <script>
     new SearchinGhostEasy({
-        contentApiKey: 'ce7ecba5b9a25fa6cdc7b6808b'
+        contentApiKey: 'ddb5a2bd6b836a0c93ab890f73'
     });
 </script>
 
