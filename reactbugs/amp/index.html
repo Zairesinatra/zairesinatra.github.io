@@ -6,7 +6,6 @@
 
     <title>⚛️React解忧杂货店</title>
 
-    <link rel="icon" href="../../favicon.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
@@ -15,23 +14,23 @@
     <meta property="og:title" content="⚛️React解忧杂货店" />
     <meta property="og:description" content="React项目常见Bugs解决" />
     <meta property="og:url" content="yourdomain.com/reactbugs/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/07/reacttt-1.jpg" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta property="article:published_time" content="2021-03-04T11:42:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-22T20:17:45.000Z" />
+    <meta property="article:modified_time" content="2021-07-25T08:50:35.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="⚛️React解忧杂货店" />
     <meta name="twitter:description" content="React项目常见Bugs解决" />
     <meta name="twitter:url" content="yourdomain.com/reactbugs/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/reacttt-1.jpg" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="BUG handled" />
     <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="1600" />
-    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1333" />
     
     <script type="application/ld+json">
 {
@@ -63,13 +62,7 @@
     "headline": "⚛️React解忧杂货店",
     "url": "yourdomain.com/reactbugs/",
     "datePublished": "2021-03-04T11:42:00.000Z",
-    "dateModified": "2021-07-22T20:17:45.000Z",
-    "image": {
-        "@type": "ImageObject",
-        "url": "yourdomain.com/content/images/2021/07/reacttt-1.jpg",
-        "width": 1600,
-        "height": 1200
-    },
+    "dateModified": "2021-07-25T08:50:35.000Z",
     "keywords": "BUG handled",
     "description": "React项目常见Bugs解决",
     "mainEntityOfPage": {
@@ -653,7 +646,7 @@
 <body class="amp-template">
     <header class="page-header">
         <a href="../../index.html">
-                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/instagram_profile_image.png" width="50" height="50" layout="fixed"></amp-img>
+                zairesinatra
         </a>
     </header>
 
@@ -667,9 +660,6 @@
                     <time class="post-date" datetime="2021-03-04">04 Mar 2021</time>
                 </section>
             </header>
-            <figure class="post-image">
-                <amp-img src="yourdomain.com/content/images/2021/07/reacttt-1.jpg" width="600" height="340" layout="responsive"></amp-img>
-            </figure>
             <section class="post-content">
 
                 <p>React 使用 antd-mobile 开发移动端项目时，在部分界面用嵌套路由（不同页面渲染内容 + TavBar恒固定）时出现点击无效的情况。经检测是 antd-mobile 中 <a href="https://mobile.ant.design/components/tab-bar-cn/#components-tab-bar-demo-basic">TabBar</a> 组件带有一个检测缩放满屏属性 fullScreen 的盒子将 TabBar 元素包裹。即如下代码：</p>
@@ -679,6 +669,18 @@
 </code></pre>
 <p>这里看到一个解决方案是设置 <code>z-index:-1</code> 。当然在 JSX 行内元素设置务必根据驼峰写法来设置成 <code>zIndex:-1</code> ，但是经本人实践，次方法会将 TabBar 直接隐藏，故不可取。</p>
 <p>实际这一处的代码只是为了演示根据点击标签而更改 TabBar 的放置位置，若不需要还是直接去除这个包裹容器即可。</p>
+<p>自行封装的组件进行 <a href="https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html">props 校验</a>：</p>
+<ol>
+<li>安装：<code>yarn add prop-types</code></li>
+<li>导入 PropTypes：<code>import PropTypes from 'prop-types'</code></li>
+<li>给组件属性添加 props 校验：</li>
+</ol>
+<pre><code class="language-jsx">组件.propTypes = {
+    属性1: PropTypes.string.isrequired,
+    属性2: PropTypes.func
+}
+</code></pre>
+<p>若出现报错：<code>Typo in static class property declaration react/no-typos</code>。那么检查大小写 <code>组件.propTypes = {}</code> 不要写成 <code>组件.PropTypes = {}</code>，propTypes 是React.Component 的特殊属性。</p>
 
 
             </section>
@@ -686,7 +688,6 @@
         </article>
     </main>
     <footer class="page-footer">
-            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/instagram_profile_image.png" width="50" height="50" layout="fixed"></amp-img>
         <h3>zairesinatra</h3>
             <p>The best time to recognize yourself is ten years ago, followed by now.</p>
         <p><a href="../../index.html">Read more posts →</a></p>
