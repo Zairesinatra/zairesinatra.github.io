@@ -22,7 +22,7 @@
     <meta property="og:url" content="yourdomain.com/reactbugs/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta property="article:published_time" content="2021-03-04T11:42:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-25T08:50:35.000Z" />
+    <meta property="article:modified_time" content="2021-07-25T19:38:10.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -68,7 +68,7 @@
     "headline": "⚛️React解忧杂货店",
     "url": "yourdomain.com/reactbugs/",
     "datePublished": "2021-03-04T11:42:00.000Z",
-    "dateModified": "2021-07-25T08:50:35.000Z",
+    "dateModified": "2021-07-25T19:38:10.000Z",
     "keywords": "BUG handled",
     "description": "React项目常见Bugs解决",
     "mainEntityOfPage": {
@@ -261,7 +261,7 @@
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
                         <time class="byline-meta-date" datetime="2021-03-04">Mar 4, 2021</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 4 min read</span>
                     </div>
                 </div>
             </section>
@@ -277,7 +277,8 @@
 </code></pre>
 <p>这里看到一个解决方案是设置 <code>z-index:-1</code> 。当然在 JSX 行内元素设置务必根据驼峰写法来设置成 <code>zIndex:-1</code> ，但是经本人实践，次方法会将 TabBar 直接隐藏，故不可取。</p>
 <p>实际这一处的代码只是为了演示根据点击标签而更改 TabBar 的放置位置，若不需要还是直接去除这个包裹容器即可。</p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><p>自行封装的组件进行 <a href="https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html">props 校验</a>：</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="props-%E6%A0%A1%E9%AA%8C">props 校验</h2>
+<p>自行封装的组件进行 <a href="https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html">props 校验</a>：</p>
 <ol>
 <li>安装：<code>yarn add prop-types</code></li>
 <li>导入 PropTypes：<code>import PropTypes from 'prop-types'</code></li>
@@ -289,6 +290,27 @@
 }
 </code></pre>
 <p>若出现报错：<code>Typo in static class property declaration react/no-typos</code>。那么检查大小写 <code>组件.propTypes = {}</code> 不要写成 <code>组件.PropTypes = {}</code>，propTypes 是React.Component 的特殊属性。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="css-modules">CSS Modules</h2>
+<p>在配置路由时，组件都被导入到项目中，那么组件的样式也就被导入到项目中了。如果组件之间样式名称相同，那么一个组件中的样式就会在另一个组件中也生效，从而造成组件之间样式相互覆盖的问题。</p>
+<p>CSS 仅是网页样式的描述方法。Less、SASS 到 PostCSS 都是为了让 CSS 更像一门编程语言，这也导致使用者增加更多的学习成本。是否存在一种规则少，又保证某个组件的样式不会影响到其他组件的方法—— CSS Modules 通过只加入了局部作用域和模块依赖解决组件样式冲突。</p>
+<p>React 项目在用 <code>npx create-react-app my-app</code> 创建后需要使用 CSS Modules 需保证项目存在 css-loader 插件。这里解释一下为什么需要 css-loader 插件。webpack 是用 JavaScript 编写，运行在 Node 环境里的打包工具，所以默认 webpack 打包的时候只会处理JS之间的依赖关系。如果在 <code>.js</code> 文件中导入了 css，那么就需要使用 css-loader 识别这个导入的 css 模块，通过特定的语法规则进行转换内容最后导出这个模块数组。因为是个页面无法直接识别的数组，这时就需要用到另外一个插件 style-loader 来创建一个style标签去包含处理这些样式。否则会出现报错：</p>
+<pre><code class="language-js">index.module.css (./node_modules/css-loader/dist/cjs.js??ref--5-oneOf-5-1!./node_modules/postcss-loader/src??postcss!. ... not found babel-loader
+</code></pre>
+<p>确保上述依赖完成后即可使用 CSS Modules 。由于 React 已内置 CSS Modules ，只需把要保证独立样式的样式提出再注入保证规范名的样式文件( [name].module.css)即可，最后 <code>.ts</code> 文件中通过自定义对象名引入则可以拿到经 CSS Modules 演化后生成的 css 对象。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEbmapgl%E6%9C%AA%E5%AE%9A%E4%B9%89">百度地图BMapGL未定义</h2>
+<p>React 项目中，使用百度地图 API 在位于 BMapGL 命名空间下的 Map 类通过 new 操作符创建地图实例时，出现了 <code>'BMapGL' is not defined no-undef</code> 的报错。</p>
+<p>这里是因为 React 的生命周期中 render() 阶段负责创建虚 DOM，进行 diff 算法，更新 DOM树。而 render 及之前的阶段，并没有将组件渲染为实际的 DOM 节点，所以不能获取 window 对象。</p>
+<p>这种情况下可以通过在组件外，进行声明拿到 window 对象下的 BMapGL (推荐)，解决脚手架中全局变量访问的问题。再在 componentDidMount 生命周期中通过 new 方法获取实例。</p>
+<pre><code class="language-js">// 方法一
+const BMapGL = window.BMapGL
+// 方法二
+var map = new window.BMapGL.Map(&quot;container&quot;);
+//创建地址解析器实例
+var myGeo = new window.BMapGL.Geocoder();
+...
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
 <!--kg-card-end: markdown-->
     </section>
 
