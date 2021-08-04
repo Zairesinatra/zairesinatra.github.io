@@ -197,7 +197,19 @@
     }
 </style>
 <!-- dark mode -->
-<!--<script>document.documentElement.classList.add('dark-mode');</script>--><style>:root {--ghost-accent-color: #15171A;}</style>
+<!--<script>document.documentElement.classList.add('dark-mode');</script>-->
+
+<!-- 音乐播放器 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<!-- music -->
+    <script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+    <script>
+        var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+        $('.carousel').carousel({
+            interval: 3000
+        })
+    </script><style>:root {--ghost-accent-color: #15171A;}</style>
 
 </head>
 <body class="page-template page-selfintro tag-welcome">
