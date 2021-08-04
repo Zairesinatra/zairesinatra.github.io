@@ -84,11 +84,11 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-  gtag('config', 'G-Q4HQV7NBSG');
+	gtag('config', 'G-Q4HQV7NBSG');
 </script>
 
 <!-- prism.js -->
@@ -96,52 +96,43 @@
 <link href="https://cdn.bootcss.com/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
 <link href="https://cdn.bootcss.com/prism/1.19.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
 <script>
-    window.addEventListener('DOMContentLoaded', (event) => {      
-        document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
-            node.classList.add('line-numbers');
-		});
-        Prism.highlightAll();
-    });
+window.addEventListener('DOMContentLoaded', (event) => {      
+    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+        node.classList.add('line-numbers');
+	});
+    Prism.highlightAll();
+});
 </script>
 
 <style>
-    /* prism */
-    pre[class*="language-"] {
-        margin: 0 0 1.5em !important;
-    }
+/* prism */
+pre[class*="language-"] {
+    margin: 0 0 1.5em !important;
+}
 
-    pre[class*="line-numbers"]>code {
-        padding: 0 ;
-    }
-    
-    code {
-        text-shadow: none !important;
-    }
-    
-    .token.operator {
-        background: none !important;
-    }
+pre[class*="line-numbers"]>code {
+    padding: 0 ;
+}
 
-    :not(pre)>code[class*="language-"],
-    pre[class*="language-"] {
-        background: #353C42 !important;
-    }
+code {
+    text-shadow: none !important;
+}
+
+.token.operator {
+    background: none !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #353C42 !important;
+}
 </style>
 <!-- dark mode -->
 <!--<script>document.documentElement.classList.add('dark-mode');</script>-->
 
 <!-- 音乐播放器 -->
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<!-- music -->
-    <script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-    <script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
-    <script>
-        var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
-        $('.carousel').carousel({
-            interval: 3000
-        })
-    </script><style>:root {--ghost-accent-color: #15171A;}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
 
 </head>
 <body class="author-template author-ziyi paged">
@@ -481,7 +472,7 @@
             </ul>
             <div class="post-card-byline-content">
                 <span><a href="../../index.html">Ziyi Xie</a></span>
-                <span class="post-card-byline-date"><time datetime="2020-01-01">Jan 1, 2020</time> <span class="bull">&bull;</span> 3 min read</span>
+                <span class="post-card-byline-date"><time datetime="2020-01-01">Jan 1, 2020</time> <span class="bull">&bull;</span> 5 min read</span>
             </div>
         </footer>
 
@@ -864,6 +855,16 @@ $(document).ready(function () {
 <script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 <script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/toolbar/prism-toolbar.min.js"></script>
 <script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+<!-- music -->
+<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script>
+	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+		$('.carousel').carousel({
+			interval: 3000
+		})
+</script>
 
 </body>
 </html>
