@@ -222,6 +222,7 @@ pre[class*="language-"] {
     <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
     <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
     <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+    <li class="nav-search"><a href="../index.html#searchinghost-easy">search</a></li>
 </ul>
 
             </div>
@@ -537,15 +538,8 @@ $(document).ready(function () {
     $(".gh-content").fitVids();
 });
 </script>
+<script src="yourdomain.com/calc/searchinghost-easy-basic.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.min.js"></script>
-<script>
-    tocbot.init({
-        tocSelector: '.toc',
-        contentSelector: '.post-content',
-        hasInnerContainers: true
-    });
-</script>
 <!-- prism.js -->
 <script defer src="https://cdn.bootcss.com/prism/1.19.0/components/prism-core.min.js"></script>
 <script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
@@ -562,6 +556,13 @@ $(document).ready(function () {
 		$('.carousel').carousel({
 			interval: 3000
 		})
+</script>
+
+<!--search-->
+<script>
+    new SearchinGhostEasy({
+        contentApiKey: '348ba704525e1c2ea91af3fb0c'
+    });
 </script>
 
 </body>
