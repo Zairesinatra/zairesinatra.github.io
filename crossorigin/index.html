@@ -19,16 +19,16 @@
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="非同源策略请求——跨域" />
-    <meta property="og:description" content="JSONP—CORS—NGINX—Http-proxy—Post-message—Iframe" />
+    <meta property="og:description" content="JSONP—CORS—Proxy" />
     <meta property="og:url" content="yourdomain.com/crossorigin/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/08/familyguy-3.jpg" />
     <meta property="article:published_time" content="2021-02-14T13:47:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-06T03:07:54.000Z" />
+    <meta property="article:modified_time" content="2021-08-07T20:17:31.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="非同源策略请求——跨域" />
-    <meta name="twitter:description" content="JSONP—CORS—NGINX—Http-proxy—Post-message—Iframe" />
+    <meta name="twitter:description" content="JSONP—CORS—Proxy" />
     <meta name="twitter:url" content="yourdomain.com/crossorigin/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2021/08/familyguy-3.jpg" />
     <meta name="twitter:label1" content="Written by" />
@@ -69,7 +69,7 @@
     "headline": "非同源策略请求——跨域",
     "url": "yourdomain.com/crossorigin/",
     "datePublished": "2021-02-14T13:47:00.000Z",
-    "dateModified": "2021-08-06T03:07:54.000Z",
+    "dateModified": "2021-08-07T20:17:31.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/08/familyguy-3.jpg",
@@ -77,7 +77,7 @@
         "height": 1080
     },
     "keywords": "Technology growth",
-    "description": "JSONP—CORS—NGINX—Http-proxy—Post-message—Iframe",
+    "description": "JSONP—CORS—Proxy",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -212,7 +212,7 @@ pre[class*="language-"] {
         <nav class="gh-head-inner inner gh-container">
 
             <div class="gh-head-brand">
-                <a class="gh-head-logo" href="../index.html">
+                <a class="gh-head-logo" href="yourdomain.com">
                         <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
                 </a>
                 <a class="gh-burger" role="button">
@@ -223,7 +223,7 @@ pre[class*="language-"] {
             </div>
             <div class="gh-head-menu">
                 <ul class="nav">
-    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-home"><a href="yourdomain.com/">Home</a></li>
     <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
     <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
     <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
@@ -247,7 +247,7 @@ pre[class*="language-"] {
 
 
 
-<article class="article post tag-technology-growth">
+<article class="article post tag-technology-growth featured">
 
     <header class="article-header gh-canvas">
 
@@ -257,7 +257,7 @@ pre[class*="language-"] {
 
         <h1 class="article-title">非同源策略请求——跨域</h1>
 
-        <p class="article-excerpt">JSONP—CORS—NGINX—Http-proxy—Post-message—Iframe</p>
+        <p class="article-excerpt">JSONP—CORS—Proxy</p>
 
         <div class="article-byline">
             <section class="article-byline-content">
@@ -272,7 +272,7 @@ pre[class*="language-"] {
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
                         <time class="byline-meta-date" datetime="2021-02-14">Feb 14, 2021</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 4 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 6 min read</span>
                     </div>
                 </div>
             </section>
@@ -298,10 +298,10 @@ pre[class*="language-"] {
 <p>同源策略限制以下几种行为：</p>
 <p>（1） Cookie、LocalStorage 和 IndexDB 无法读取。（2） DOM 无法获得。（3） AJAX 请求不能发送。</p>
 </blockquote>
-<p>这里主要强调一下，在域名和域名对应相同 IP 的情况下，由于同源策略，也是不允许通讯的。</p>
+<p>这里主要强调一下，在域名和域名对应相同 IP 的情况下，由于同源策略，也是不允许通讯的。而在服务器端（项目上线部署完成）则不存在跨域问题，跨域是针对浏览器的协议、域名、端口而言的。</p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="jsonp">JSONP</h2>
 <p>浏览器同源策略导致网页中无法通过 Ajax 请求非同源的接口数据， JSONP 的原理是部分 HTML 标签不存在跨域请求的限制，如 script、iframe、img、link。</p>
-<p>在 React 开发中，组件通讯的属性传递一般只能父传子，要是想实现子传父，可以通过父组件提供一个回调函数接收数据，将该函数作为属性的值，传递给子组件，子组件通过 props 调用回调函数。这里使用的就是类似 JSONP 原理。同样的还有 Hybrid APP 混合开发中将 H5 页面嵌入 ios APP 。现在 ios 通讯不仅仅是 JSBridge ，还有伪 url 协议。通过 location.href 与执行 callback 方法，原生 ios APP 会在拦截请求后解析协议执行。</p>
+<p>在 React 开发中，组件通讯的属性传递一般只能父传子，要是想实现子传父，可以通过父组件提供一个回调函数接收数据，将该函数作为属性的值，传递给子组件，子组件通过 props 调用回调函数。这里使用的就是类似 JSONP 原理。同样的还有在 Hybrid APP 混合开发中，考虑到现在 ios 通讯不仅仅是 JSBridge ，还有伪 url 协议。通过 location.href 与执行 callback 方法，原生 ios APP 会在拦截请求后解析协议执行。</p>
 <p>局限同样存在，因为<strong>所有的 src 都是资源文件请求</strong>，导致 JSONP 只能使用 get 方法，且未使用 XHR 对象；在 url 问号传参将函数传递给服务器时，会存在 url 劫持的问题。</p>
 <pre><code class="language-javascript">// nodeJS
 const express = require('express');
@@ -335,6 +335,12 @@ $.get({
 <p>默认情况下使用 jQuery 发送 JSONP 请求会自动携带一个 callback=jQueryxxx参数， jQueryxxx 是随机生成的一个回调函数的名称。</p>
 <p>jQuery 中的 JSONP 实现过程：动态在 <code>&lt;header&gt;</code> 中创建 (append) 和移除 (remove) <code>&lt;script&gt;</code> 标签的方式，发起 JSONP 数据请求。</p>
 <!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/08/--2021-08-06---4.50.33-1.png" class="kg-image" alt="JSONP" loading="lazy" width="1172" height="142" srcset="../content/images/size/w600/2021/08/--2021-08-06---4.50.33-1.png 600w, ../content/images/size/w1000/2021/08/--2021-08-06---4.50.33-1.png 1000w, ../content/images/2021/08/--2021-08-06---4.50.33-1.png 1172w" sizes="(min-width: 720px) 720px"><figcaption>JSONP</figcaption></figure><!--kg-card-begin: markdown--><h2 id="cors-%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB">CORS 跨域资源共享</h2>
+<p>CORS 实质上是一系列决定浏览器是否阻止前端跨域获取资源的 HTTP 响应请求头组。通过配置接口服务器相关 HTTP 响应头可以解除浏览器端跨域访问限制。</p>
+<p>客户端在请求 CORS 时，根据请求方式与请求头不同，可以将 CORS 分为两大类：简单请求、预检请求。</p>
+<ul>
+<li>请求方式是 GET、POST、HEAD 且 HTTP 头部信息不超过上述代码几种字段（无自定义头部字段）则为简单请求。</li>
+<li>请求方式为 GET、POST、HEAD 以外的 METHOD 类型、请求头包含自定义头部字段、向服务器发送了 application\json 格式的数据，满足其中任何一种条件都是预检请求。</li>
+</ul>
 <pre><code class="language-javascript">const express = require('express');
 // const cors = require('cors')
 const app = express();
@@ -343,8 +349,11 @@ const port = 3001;
 // app.use(cors())
 // 使用 express + node 时使用如下配置中间件配置头即可
 app.use((req, res, next) =&gt; {
+    // Access-Control-Allow-Origin - 允许访问该资源的外域URL
+    // 使用 * 避免只有单个源可以访问, 但是就不可以携带 cookie =&gt; 保证安全
     res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS, HEAD');
+    // 支持客户端向服务器发送如下的 9 个请求头
     res.header('Access-Control-Allow-Headers', 'Accept,Accept-Language,Content-Language,DPR,Downlink,Save-Data,Viewport-Width,Width,Content-Type');
     // 是否允许携带资源凭证-cookie
     res.header('Access-Control-Allow-Credentials', true);
@@ -372,6 +381,78 @@ $.ajax({
   success: res =&gt; {
     console.log(res); // zsxzy finished the request!
   }
+})
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8">代理服务器</h2>
+<p>Vue 项目通常在 8080 端口运行起来，在跨域时直接请求本地服务器，而不请求远程服务器（资源服务器、数据服务器...）。此时在 8080 端口只有静态资源没有端口，所以考虑设置请求拦截的接口地址转发到远程服务器。</p>
+<pre><code class="language-javascript">// App.vue
+created () {
+    axios.get('/devserver').then(res =&gt; console.log(res.data))
+    this.testtt()
+},
+methods: {
+    testtt () {
+        var xhr = new XMLHttpRequest()
+        xhr.open('GET', 'http://localhost:8080/getcors', true)
+        xhr.send()
+        xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+          console.log(xhr.responseText);
+        }}
+    }
+}
+</code></pre>
+<pre><code class="language-javascript">// vue.config.js
+// vue.config.js 打包后就不起作用. 可选项 vue.config.js 文件就等同于 webpack 的 webpack.config.js . vue-cli3 之后并不会自动创建 vue.config.js , 因为都是需要修改 webpack 的时候才会创建 vue.config.js 进行配置.
+module.exports = {
+    devServer: {
+        host: 'localhost',
+        // 项目开启端口
+        port: 8080,
+        proxy: {
+            // /getcors 表示拦截以 getcors 开头的地址
+            '/getcors': {
+                target: 'http://localhost:3001',
+                changeOrigin: true
+            },
+            '/devserver': {
+                target: 'http://localhost:3001',
+                changeOrigin: true
+            },
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-javascript">// node.js 后端服务
+const express = require('express');
+const app = express();
+const port = 3001;
+
+app.get('/getcors',function (req, res) {
+    res.send('zsxzy finished the request!')
+});
+app.get('/devserver',function (req, res) {
+    res.send('zsxzy finished the request by devserver!')
+});
+app.listen(port, () =&gt; {
+    console.log(`app listen is running at http://localhost:${port}`);
+})
+</code></pre>
+<pre><code class="language-javascript">// 核心原理: webpack 的 devServer.proxy 使用的 http-proxy-middleware 包
+const express = require('express');
+const { createProxyMiddleware } = require('http-proxy-middleware')
+const app = express();
+const port = 8080;
+app.use(
+    &quot;/&quot;,
+    createProxyMiddleware({
+      target: &quot;http://localhost:3001&quot;,
+      changeOrigin: true
+    })
+)
+
+app.listen(port, () =&gt; {
+    console.log(`app listen is running at http://localhost:${port}`);
 })
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
@@ -528,7 +609,7 @@ $.ajax({
 
     <footer class="site-footer outer">
         <div class="inner">
-            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2021</section>
+            <section class="copyright"><a href="yourdomain.com">zairesinatra</a> &copy; 2021</section>
             <nav class="site-footer-nav">
                 
             </nav>
