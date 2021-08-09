@@ -23,7 +23,7 @@
     <meta property="og:url" content="yourdomain.com/vuebugs/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/jpbuild.jpg" />
     <meta property="article:published_time" content="2020-12-14T12:21:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-08T14:32:09.000Z" />
+    <meta property="article:modified_time" content="2021-08-08T22:17:57.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -69,7 +69,7 @@
     "headline": "Vue札记",
     "url": "yourdomain.com/vuebugs/",
     "datePublished": "2020-12-14T12:21:00.000Z",
-    "dateModified": "2021-08-08T14:32:09.000Z",
+    "dateModified": "2021-08-08T22:17:57.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/jpbuild.jpg",
@@ -212,7 +212,7 @@ pre[class*="language-"] {
         <nav class="gh-head-inner inner gh-container">
 
             <div class="gh-head-brand">
-                <a class="gh-head-logo" href="../index.html">
+                <a class="gh-head-logo" href="yourdomain.com">
                         <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
                 </a>
                 <a class="gh-burger" role="button">
@@ -223,7 +223,7 @@ pre[class*="language-"] {
             </div>
             <div class="gh-head-menu">
                 <ul class="nav">
-    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-home"><a href="yourdomain.com/">Home</a></li>
     <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
     <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
     <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
@@ -352,7 +352,7 @@ module.exports = {
   }
 }
 </code></pre>
-<p>终端运行 <code>npx webpack serve</code> 启动项目，访问：<a href="http://localhost:8080/">http://localhost:8080/</a> 和 <a href="http://127.0.0.1:8080/virtual/bundle.js%EF%BC%8C">http://127.0.0.1:8080/virtual/bundle.js，</a> 可以看到 www/index.html 和 xuni/bundle.js 文件的内容。</p>
+<p>终端运行 <code>npx webpack serve</code> 启动项目，访问：<a href="../index.html">http://localhost:8080/</a> 和 <a href="http://127.0.0.1:8080/virtual/bundle.js%EF%BC%8C">http://127.0.0.1:8080/virtual/bundle.js，</a> 可以看到 www/index.html 和 xuni/bundle.js 文件的内容。</p>
 <p>在 html 文件创建 id 为 container 的 DOM 节点并引入 bundle.js 。如果没有成功创建节点会出现 <code>Uncaught TypeError: Cannot read property 'sel' of null snabbdom</code> 的 console 面板报错。</p>
 <pre><code class="language-html">zairesinatra
 &lt;div id=&quot;container&quot;&gt;&lt;/div&gt;
@@ -405,6 +405,7 @@ patch(vnode, newVnode); // Snabbdom efficiently updates the old view to the new 
 </code></pre>
 <!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/08/--2021-08-08---9.13.18.png" class="kg-image" alt="initcompleted" loading="lazy" width="2000" height="126" srcset="../content/images/size/w600/2021/08/--2021-08-08---9.13.18.png 600w, ../content/images/size/w1000/2021/08/--2021-08-08---9.13.18.png 1000w, ../content/images/size/w1600/2021/08/--2021-08-08---9.13.18.png 1600w, ../content/images/size/w2400/2021/08/--2021-08-08---9.13.18.png 2400w" sizes="(min-width: 720px) 720px"><figcaption>initcompleted</figcaption></figure><!--kg-card-begin: markdown--><p>虚拟 DOM ：用 JavaScript 对象描述 DOM 的层次结构。DOM 中的一切属性都在虚拟 DOM 中有对应的属性。sel 表示元素选择器、data 表示元素属性、children 表示元素子节点。<br>
 diff 是发生在虚拟 DOM 上的：新虚拟 DOM 和老虚拟 DOM 进行 diff （精细化比较），计算最小量更新反映到真实的 DOM 上。</p>
+<p>虚拟节点（vnode）由 h 函数产生。通过 <code>h('a', { props: { href: 'https://blog.zairesinatra.com', target: '_blank'  } }, 'blog')</code> 可生成此类虚拟节点 <code>{ &quot;sel&quot;: &quot;a&quot;, &quot;data&quot;: { &quot;props&quot;: { &quot;href&quot;: &quot;https://blog.zairesinatra.com&quot; } }, &quot;text&quot;: &quot;zsxzy&quot; }</code></p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bug">BUG 分析</h2>
 <blockquote>
 <h3 id="title"><code>title</code>优化 ✔️</h3>
@@ -619,7 +620,7 @@ https://github.com/postcss/postcss/wiki/PostCSS-8-for-end-users
 
     <footer class="site-footer outer">
         <div class="inner">
-            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2021</section>
+            <section class="copyright"><a href="yourdomain.com">zairesinatra</a> &copy; 2021</section>
             <nav class="site-footer-nav">
                 
             </nav>
