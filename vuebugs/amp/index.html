@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/vuebugs/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/jpbuild.jpg" />
     <meta property="article:published_time" content="2020-12-14T12:21:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-08T22:17:57.000Z" />
+    <meta property="article:modified_time" content="2021-08-11T03:01:52.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +63,7 @@
     "headline": "Vue札记",
     "url": "yourdomain.com/vuebugs/",
     "datePublished": "2020-12-14T12:21:00.000Z",
-    "dateModified": "2021-08-08T22:17:57.000Z",
+    "dateModified": "2021-08-11T03:01:52.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/jpbuild.jpg",
@@ -652,7 +652,7 @@
 
 <body class="amp-template">
     <header class="page-header">
-        <a href="yourdomain.com">
+        <a href="../../index.html">
                 <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed"></amp-img>
         </a>
     </header>
@@ -674,11 +674,11 @@
 
                 <h2 id="diffdom">Diff 算法和虚拟 DOM</h2>
 <p>避免新增内容引起整个 DOM 树的重新渲染，而只针对改动区域重新更新。精细化对比，最小量更新的 Diff (from different) 运营而生。</p>
-<p>考虑到源码是用 TypeScript 编写，可以通过 npm 下载使用 build 编译出来的 JavaScript 版 snabbdom 库。</p>
+<p>虚拟 DOM 是通过 snabbdom.js 库实现的，考虑到源码由 TypeScript 编写，可以通过 npm 下载使用 build 编译出来的 JavaScript 版 snabbdom 库。</p>
 <pre><code class="language-javascript"># snabbdom =&gt; 3.0.3
 npm i -S snabbdom
 </code></pre>
-<p>snabbdom 库是 DOM 库，不能在 nodejs 环境运行，所以需要搭建 webpack 和 webpack-dev-server 开发环境（不需安装任何loader）。</p>
+<p>snabbdom 库是 DOM 库，不能在 nodejs 环境运行，所以需要搭建 webpack 和 webpack-dev-server 开发环境（不需安装任何loader）理解实现过程。</p>
 <pre><code class="language-shell">npm i -D webpack webpack-cli webpack-dev-server
 </code></pre>
 <pre><code class="language-shell">[webpack-cli] You need to install 'webpack-dev-server' for running 'webpack serve'.
@@ -704,29 +704,6 @@ module.exports = {
     // 打包出来的文件名
     filename: 'bundle.js'
   },
-  module: {
-      rules: [
-          {
-            test: /\.(jpg|png|gif)$/,
-            loader: 'url-loader',
-            options: {
-              esModule: false
-            }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              // 只在 production 环境启用压缩
-              disable: process.env.NODE_ENV === 'production' ? false : true,
-            }
-        }
-      ]
-  },
-//   plugins:[
-//     new HtmlWebpackPlugin({ 
-//         // 复制 './src/index.html' 文件，并自动引入打包输出的所有资源（JS/CSS）
-//         template: './www/index.html' })
-//   ],
   devServer: {
     // 端口号
     port: 8080,
@@ -735,13 +712,13 @@ module.exports = {
   }
 }
 </code></pre>
-<p>终端运行 <code>npx webpack serve</code> 启动项目，访问：<a href="../../index.html">http://localhost:8080/</a> 和 <a href="http://127.0.0.1:8080/virtual/bundle.js%EF%BC%8C">http://127.0.0.1:8080/virtual/bundle.js，</a> 可以看到 www/index.html 和 xuni/bundle.js 文件的内容。</p>
-<p>在 html 文件创建 id 为 container 的 DOM 节点并引入 bundle.js 。如果没有成功创建节点会出现 <code>Uncaught TypeError: Cannot read property 'sel' of null snabbdom</code> 的 console 面板报错。</p>
+<p>终端运行 <code>npx webpack serve</code> 启动项目，访问：<a href="http://localhost:8080/">http://localhost:8080/</a> 和 <a href="http://127.0.0.1:8080/virtual/bundle.js%EF%BC%8C">http://127.0.0.1:8080/virtual/bundle.js，</a> 可以看到 www/index.html 和 xuni/bundle.js 文件的内容。</p>
+<p>在 html 文件创建 id 为 container 的 DOM 节点并引入 bundle.js 。如果没有成功创建节点会出现 <code>Uncaught TypeError: Cannot read property 'sel' of null snabbdom</code> 的 console 面板报错（div 写在了 script 标签之后）。</p>
 <pre><code class="language-html">zairesinatra
 &lt;div id="container"&gt;&lt;/div&gt;
 &lt;script src="/virtual/bundle.js"&gt;&lt;/script&gt;
 </code></pre>
-<p>在 index.js 中引入 snabbdom 。</p>
+<p>在 index.js 中引入 snabbdom 。主要完成 compile（把真实 DOM 编译成 Vnode ）、diff（比较 oldVnode 和 newVnode 区别）、patch（补丁更新真实 DOM ）的工作。</p>
 <pre><code class="language-javascript">console.log("zsxzy's bundle.js import completed");
 import {
     init,
@@ -786,60 +763,271 @@ const newVnode = h(
 // Second `patch` invocation
 patch(vnode, newVnode); // Snabbdom efficiently updates the old view to the new state
 </code></pre>
-<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>initcompleted</figcaption></figure><p>虚拟 DOM ：用 JavaScript 对象描述 DOM 的层次结构。DOM 中的一切属性都在虚拟 DOM 中有对应的属性。sel 表示元素选择器、data 表示元素属性、children 表示元素子节点。<br />
-diff 是发生在虚拟 DOM 上的：新虚拟 DOM 和老虚拟 DOM 进行 diff （精细化比较），计算最小量更新反映到真实的 DOM 上。</p>
-<p>虚拟节点（vnode）由 h 函数产生。通过 <code>h('a', { props: { href: 'https://blog.zairesinatra.com', target: '_blank'  } }, 'blog')</code> 可生成此类虚拟节点 <code>{ "sel": "a", "data": { "props": { "href": "https://blog.zairesinatra.com" } }, "text": "zsxzy" }</code></p>
+<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>initcompleted</figcaption></figure><p>虚拟 DOM 是用 JavaScript 对象描述 DOM 的层次结构。在 DOM 中的一切属性都能从虚拟 DOM 中找到对应。sel(selector) 表示元素选择器、data 表示元素属性、children 表示元素子节点、elm 表示该元素对应的真正的DOM节点（若值是 undefined 则未上树）、key 为节点唯一标识、text 文本内容。</p>
+<p>diff 是发生在虚拟 DOM 上的：新虚拟 DOM 和老虚拟 DOM 进行 diff （精细化比较），计算最小量更新反映到真实的 DOM 上。key 是节点的唯一标识，告诉 diff 算法在更改前后是否为同一个 DOM 节点。只有是选择器相同且 key 相同的同一个虚拟节点，才进行虚拟化比较，否则就是暴力删除旧的、插入新的。最后注意的是 diff 算法只进行同层比较，不会进行跨层比较。</p>
+<p>通过 h 函数传参数产生一个虚拟节点 (vnode) 对象用来描述真实的 DOM 。<code>h('a', { props: { href: 'https://blog.zairesinatra.com', target: '_blank'  } }, 'blog')</code> 可生成此类虚拟节点 <code>{ "sel": "a", "data": { "props": { "href": "https://blog.zairesinatra.com" } }, "text": "zsxzy" }</code>。h 函数中可以进行子节点的嵌套。</p>
+<p>手写实现简易 diff 算法代码如下。</p>
+<pre><code class="language-javascript">// vnode.js
+export default function (sel, data, children, text, elm) {
+  const key = data.key;
+  return { sel, data, children, text, elm, key }
+}
+</code></pre>
+<pre><code class="language-javascript">// h 函数(强制接受3个参数、弱重置功能)
+// 封装 vnode 函数并抽离后导入
+import vnode from './vnode'
+// 形态可能: h('div', {}, '文字')\h('div', {}, [])\h('div', {}, h())
+export default function (sel, data, c) {
+  if (arguments.length !== 3)
+    throw new Error('此 h 函数强制传入 3 个参数')
+  if (typeof c === 'string' || typeof c === 'number') {
+    return vnode(sel, data, undefined, c, undefined)
+  } else if (Array.isArray(c)) {
+    let children = []
+    for (let i = 0; i &lt; c.length; i++) {
+      if (!(typeof c[i] === 'object' &amp;&amp; c[i].hasOwnProperty('sel'))){
+          throw new Error('传入的数组参数中有不是 h 函数的项')
+      }
+      children.push(c[i])
+    }
+    return vnode(sel, data, children, undefined, undefined)
+  } else if (typeof c === 'object' &amp;&amp; c.hasOwnProperty('sel')) {
+    let children = [c]
+    return vnode(sel, data, children, undefined, undefined)
+  } else {
+    throw new Error('传入的第三个参数类型不对')
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">// createElement 函数
+// 真正创建节点, 将 vnode 创建为 DOM , 但未上树
+export default function createElement(vnode) {
+  // 创建由 tagName 指定的 HTML 元素节点
+  let domNode = document.createElement(vnode.sel);
+  // 仅论述子节点是文本或 children 情况
+  if (vnode.text !== '' &amp;&amp; (vnode.children === undefined ||  vnode.children.length === 0)) {
+    domNode.innerText = vnode.text;
+  } else if (Array.isArray(vnode.children) &amp;&amp; vnode.children.length &gt; 0) {
+    // children 情况递归创建节点
+    for (let i = 0; i &lt; vnode.children.length; i++) {
+      let ch = vnode.children[i];
+      let chDom = createElement(ch);
+      domNode.appendChild(chDom);
+    }
+  }
+  // 补充纯 DOM 对象 —— elm 属性, 并返回
+  vnode.elm = domNode;
+  return vnode.elm;
+}
+</code></pre>
+<pre><code class="language-javascript">// patch 函数
+import vnode from './vnode'
+import patchVnode from './patchVnode'
+import createElement from './createElement'
+export default function patch(oldVnode, newVnode) {
+  // 判断旧节点是 DOM 节点还是虚拟节点, DOM 节点需要包装为虚拟节点
+  if (oldVnode.sel === '' || oldVnode.sel === undefined) {
+    oldVnode = vnode(oldVnode.tagName.toLowerCase(), {}, [], undefined, oldVnode);
+  }
+  // 判断 oldVnode 和 newVnode 是否同一个节点
+  if (oldVnode.key === newVnode.key &amp;&amp; oldVnode.sel === newVnode.sel) {
+    // 同一个节点情况较多, 封装函数
+    patchVnode(oldVnode, newVnode);
+  } else {
+    // 不是同一个节点, 暴力插新删旧
+    let newVnodeElm = createElement(newVnode);
+    if (oldVnode.elm &amp;&amp; newVnodeElm) {
+      oldVnode.elm.parentNode.insertBefore(newVnodeElm, oldVnode.elm);
+    }
+    oldVnode.elm.parentNode.removeChild(oldVnode.elm);
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">// patchVnode.js
+import createElement from './createElement'
+export default function patchVnode(oldVnode, newVnode) {
+  // 判断新旧 vnode 是否为同一个对象
+  if (oldVnode === newVnode) {return}
+  // 若 newVnode 有 text 属性
+  if (
+    newVnode.text != undefined &amp;&amp;
+    (newVnode.children === undefined || newVnode.children.length === 0)
+  ) {
+    if (newVnode.text != oldVnode.text) {
+      // innerText 产生重排, 直接覆盖 oldVnode.elm 故不必考虑 children 情况
+      oldVnode.elm.innerText = newVnode.text;
+    }
+  } else {
+    // newVnode 没有 text 属性 =&gt; 有children
+    // 判断 oldVnode 有无 children
+    if (oldVnode.children !== undefined &amp;&amp; oldVnode.children.length &gt; 0) {
+      // 此时是最复杂的情况 —— oldVnode、newVnode 都有 children 属性
+      // 仅书写新增节点的逻辑, 不考虑删除和更新节点的实现
+      let un = 0;
+      for (let i = 0; i &lt; newVnode.children.length; i++) {
+        const ch = newVnode.children[i]
+        let isExist = false;
+        for (let j = 0; j &lt; oldVnode.children.length; j++) {
+          const oldCh = oldVnode.children[j];
+          if (oldCh.sel === ch.sel &amp;&amp; oldCh.key === ch.key) {
+            isExist = true;
+          }
+        }
+        if (!isExist) {
+          const dom = createElement(ch);
+          ch.elm = dom;
+          if (un &lt; oldVnode.children.length) {
+            oldVnode.elm.insertBefore(dom, oldVnode.children[un].elm);
+          } else {
+            oldVnode.elm.appendChild(dom);
+          }
+        } else {
+          un++;
+        }
+      }
+    } else {
+      // 清空 oldVnode 的内容, 遍历 newVnode 子节点, 创建 DOM 并上树
+      oldVnode.elm.innerText = '';
+      for (let i = 0; i &lt; newVnode.children.length; i++) {
+        const dom = createElement(newVnode.children[i]);
+        oldVnode.elm.appendChild(dom);
+      }
+    }
+  }
+}
+</code></pre>
+<p>diff 算法的子节点更新策略 —— 四种命中查找：新前与旧前、新后与旧后、新后与旧前（旧前指向的节点，移动到旧后之后）、新前与旧后（旧后指向的节点，移动到旧前之前）。上述查找方式命中一种就不在进行判断，若一种未命中则需要使用循环寻找。</p>
+<p>手写对应 snabbdom 源码简易子节点更新策略如下。</p>
+<pre><code class="language-javascript">// updateChildren.js
+import createElement from './createElement'
+import patchVnode from './patchVnode'
+// 判断是否同一个虚拟节点
+function checkSameVnode(a, b) {
+  return a.sel === b.sel &amp;&amp; a.key === b.key;
+}
+export default function updateChildren(parentElm, oldCh, newCh) {
+  let oldStartIdx = 0, newStartIdx = 0, oldEndIdx = oldCh.length - 1, newEndIdx = newCh.length - 1, oldStartVnode = oldCh[oldStartIdx], oldEndVnode = oldCh[oldEndIdx], newStartVnode = newCh[newStartIdx], newEndVnode = newCh[newEndIdx], keyMap = null; // 旧前、新前、旧后、新后、旧前节点、旧后节点、新前节点、新后节点、Map映射
+  while (oldStartIdx &lt;= oldEndIdx &amp;&amp; newStartIdx &lt;= newEndIdx) {
+    // 略过已加 undefined 标记节点
+    if (oldStartVnode === null || oldCh[oldStartIdx] === undefined) {
+      oldStartVnode = oldCh[++oldStartIdx];
+    } else if (oldEndVnode === null || oldCh[oldEndIdx] === undefined) {
+      oldEndVnode = oldCh[--oldEndIdx];
+    } else if (newStartVnode === null || newCh[newStartIdx] === undefined) {
+      newStartVnode = newCh[++newStartIdx];
+    } else if (newEndVnode === null || newCh[newEndIdx] === undefined) {
+      newEndVnode = newCh[--newEndIdx];
+    } else if (checkSameVnode(oldStartVnode, newStartVnode)) { // 判断命中开始
+      patchVnode(oldStartVnode, newStartVnode);
+      oldStartVnode = oldCh[++oldStartIdx];
+      newStartVnode = newCh[++newStartIdx];
+    } else if (checkSameVnode(oldEndVnode, newEndVnode)) {
+      patchVnode(oldEndVnode, newEndVnode);
+      oldEndVnode = oldCh[--oldEndIdx];
+      newEndVnode = newCh[--newEndIdx];
+    } else if (checkSameVnode(oldStartVnode, newEndVnode)) {
+      patchVnode(oldStartVnode, newEndVnode);
+      parentElm.appendChild(oldStartVnode.elm, oldEndVnode.elm.nextSibling);
+      oldStartVnode = oldCh[++oldStartIdx];
+      newEndVnode = newCh[--newEndIdx];
+    } else if (checkSameVnode(oldEndVnode, newStartVnode)) {
+      patchVnode(oldEndVnode, newStartVnode);
+      parentElm.insertBefore(oldEndVnode.elm, oldStartVnode.elm);
+      oldEndVnode = oldCh[--oldEndIdx];
+      newStartVnode = newCh[++newStartIdx];
+    } else {
+      // 四种命中都没有找到则制作 keyMap 缓存 —— 快速遍历
+      if (!keyMap) {
+        keyMap = {};
+        // 从 oldStartIdx 开始，到oldEndIdx结束，创建keyMap映射对象
+        for (let i = oldStartIdx; i &lt;= oldEndIdx; i++) {
+          const key = oldCh[i].key;
+          if (key !== undefined) {
+            keyMap[key] = i;
+          }
+        }
+      }
+      // 寻找当前这项 newStartIdx 这项在 keyMap 中映射的序号
+      const idxInOld = keyMap[newStartVnode.key]
+      if (idxInOld === undefined) {
+        // idxInOld 是 undefined 表示全新的项
+        // 被加入的项 (newStartVnode) 现在不是真实的DOM
+        parentElm.insertBefore(createElement(newStartVnode), oldStartVnode.elm);
+      } else {
+        // idxInOld 不是 undefined 表示不是全新的项, 需移动
+        const elmToMove = oldCh[idxInOld];
+        patchVnode(elmToMove, newStartVnode)
+        // 把这项设置为 undefined 表示已处理完
+        oldCh[idxInOld] = undefined;
+        // 移动调用 insertBefore
+        parentElm.insertBefore(elmToMove.elm, oldStartVnode.elm);
+      }
+      // 指针下移, 仅移动新的头
+      newStartVnode = newCh[++newStartIdx];
+    }
+  }
+  // 继续看有无剩余、循环结束时 newStartIdx 比 newEndIdx 小
+  if (newStartIdx &lt;= newEndIdx) {
+    // new 还有剩余节点没有处理
+    for (let i = newStartIdx; i &lt;= newEndIdx; i++) {
+      // insertBefore 可以自动识别 null, 如果是 null 就会自动排到队尾.和appendChild是一致的
+      parentElm.insertBefore(createElement(newCh[i]), oldCh[oldStartIdx].elm);
+    }
+  } else if (oldStartIdx &lt;= oldEndIdx) {
+    // old 还有剩余节点没有处理
+    for (let i = oldStartIdx; i &lt;= oldEndIdx; i++) {
+      if (oldCh[i]) {
+        parentElm.removeChild(oldCh[i].elm);
+      }
+    }
+  }
+}
+</code></pre>
 <h2 id="bug">BUG 分析</h2>
-<blockquote>
-<h3 id="title"><code>title</code>优化 ✔️</h3>
-</blockquote>
-<p>由于需要对不同的打包环境的 index 内容有所区别，故通过插件方式进行自订制，在插件配置完成后报错如下:</p>
+<ul>
+<li><code>title</code>优化 ✔️</li>
+</ul>
+<p>针对不同打包环境展示不同内容，通过插件方式区别定义后报错如下:</p>
 <pre><code>Template execution failed: ReferenceError: ❌... is not defined
 ReferenceError: ❌... is not defined
   - index.html:7 eval
     [.]/[cli-service]/[html-webpack-plugin]/lib/loader.js!./public/index.html:7:
 </code></pre>
-<p>考虑到新加入的代码 <code>&lt;%= htmlWebpackPlugin.options.isProd ? '' : 'dev - ' %&gt;</code> 是一种模板字符串语法。在排查完语法及其使用规范后，定位到原因是注释的不规范。</p>
-<hr></hr>
-<blockquote>
-<h3 id="vueui">vue-ui新建项目 ✔️</h3>
-</blockquote>
-<p>初始化项目时删除 <code>hello.vue</code> 文件后，在 <code>app.vue</code> 导入组件热编译运行报错如下:</p>
+<p><code>&lt;%= htmlWebpackPlugin.options.isProd ? '' : 'dev - ' %&gt;</code> 在注入模板字符串语法后，注释内容的不规范所导致。</p>
+<ul>
+<li>vue-ui新建项目 ✔️</li>
+</ul>
+<p>初始化项目时删除 <code>hello.vue</code> 后，在 <code>app.vue</code> 导入组件热编译运行报错:</p>
 <pre><code>This relative module was not found:
 * ../views/About.vue in ./src/router/index.js
 </code></pre>
-<p>因创建项目时选中安装 router 依赖，需要及时更新 router 中对应的 index.js 相关初始化配置，指向 <code>app.vue</code></p>
-<hr></hr>
-<blockquote>
-<h3 id="warning">warning ❓</h3>
-</blockquote>
-<p>关于此 "无法解析" 的警告出现几率较为频繁，但是并不影响运行。<br />
-<a href="https://github.com/vuejs/vue-cli/issues/2873">详情移步</a></p>
+<p>项目中安装 router 依赖，需要及时更新 router 中对应的 index.js 相关初始化配置，指向 <code>app.vue</code>。</p>
+<ul>
+<li>warning ❓</li>
+</ul>
+<p>"无法解析" 的警告出现几率较为频繁，但是并不影响运行。<a href="https://github.com/vuejs/vue-cli/issues/2873">详情移步</a></p>
 <pre><code>WARN  
 Couldn't parse bundle asset "/Users/.../zsvuex/dist/js/chunk-vendors.js".
 Analyzer will use module sizes from stats file.
 </code></pre>
-<hr></hr>
-<blockquote>
-<h3 id="echarts">echarts ✔️</h3>
-</blockquote>
-<p>可视化图标往往会考虑 Echarts ，在按照官方文档说明进行敲代码时，遇见如下<a href="https://github.com/PanJiaChen/vue-admin-template/issues/607">报错</a>:</p>
+<ul>
+<li>echarts ✔️</li>
+</ul>
+<p>使用 Echarts 可视化图表，在按照官方文档说明进行敲代码时，遇见如下<a href="https://github.com/PanJiaChen/vue-admin-template/issues/607">报错</a>:</p>
 <pre><code>[Echarts] TypeError: Cannot read property 'init' of undefined
 </code></pre>
-<p>那么其实挺明显的，基于 <code> var myChart = echarts.init(document.getElementById('main'));</code> 可以看出init未定义，作为一个方法只有可能是 <code>echarts</code> 没有引入成功声明定义。补充代码 <code>var echarts = require('echarts');</code>即可解决此问题。</p>
-<hr></hr>
-<blockquote>
-<h3 id="import">import ✔️</h3>
-</blockquote>
+<p><code> var myChart = echarts.init(document.getElementById('main'));</code> 定位到存在  init 报错的位置。方法出现 undefined 考虑此调用对象的声明定义是否成功。补充代码 <code>var echarts = require('echarts');</code>。</p>
+<ul>
+<li>import ✔️</li>
+</ul>
 <p>引入 vant 组件库出现报错</p>
 <pre><code>error  Import in body of module; reorder to top  import/first
 </code></pre>
-<p>代码格式规范要求所有的 <code>import</code> 在代码的顶部，不允许中间出现其他代码，如<code>vue.use(vant)</code></p>
-<hr></hr>
-<blockquote>
-<h3 id="postcsserror">PostCSS Error ✔️</h3>
-</blockquote>
-<p>通过 <code>npm install postcss-pxtorem -D</code> 下载将 px 单位转化为 rem 单位的插件出现报错如下:</p>
+<p>代码格式规范要求所有的 <code>import</code> 在顶部，中间不允许出现其他代码，如<code>vue.use(vant)</code>。</p>
+<ul>
+<li>PostCSS Error ✔️</li>
+</ul>
+<p><code>npm install postcss-pxtorem -D</code> 下载将 px 转化为 rem 单位的插件出现报错:</p>
 <pre><code>Syntax Error: Error: PostCSS plugin postcss-pxtorem requires PostCSS 8.
 Migration guide for end-users:
 https://github.com/postcss/postcss/wiki/PostCSS-8-for-end-users
@@ -849,8 +1037,9 @@ https://github.com/postcss/postcss/wiki/PostCSS-8-for-end-users
  @ ./src/main.js
  @ multi (webpack)-dev-server/client?http://192.xxx.xxx.2:8080&amp;sockPath=/sockjs-node (webpack)/hot/dev-server.js ./src/main.js
 </code></pre>
-<p>报错原因是 postcss-pxtorem 版本过高，PostCSS 8 不会为最终用户带来重大的API更改。但是放弃了对旧 Node.js 版本的支持。先执行: <code>npm uninstall postcss-pxtorem</code> 卸载当前版本。再在项目的 package.json 中 devDependencies 下添加"postcss-pxtorem": "^5.1.1"，执行 <code>npm i</code> 可解决。</p>
-<p>结束本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+<p>由于 postcss-pxtorem 版本过高，放弃了对旧 Node.js 版本的支持。考虑到 PostCSS 8 未带来重大的 API 更改。先执行: <code>npm uninstall postcss-pxtorem</code> 卸载当前版本。在 package.json 中 devDependencies 下添加"postcss-pxtorem": "^5.1.1"，执行 <code>npm i</code> 安装制定版本包。</p>
+<h2 id>结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
 
 
             </section>
@@ -861,7 +1050,7 @@ https://github.com/postcss/postcss/wiki/PostCSS-8-for-end-users
             <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed"></amp-img>
         <h3>zairesinatra</h3>
             <p>The best time to recognize yourself is ten years ago, followed by now.</p>
-        <p><a href="yourdomain.com">Read more posts →</a></p>
+        <p><a href="../../index.html">Read more posts →</a></p>
         <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
     </footer>
     
