@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
 
-    <title>XMLHttpRequest</title>
+    <title>XHR|Ajax|Axios|Fetch</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.css">
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=a3fe44d742.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=3181a9aaca.css" />
 
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -18,20 +17,18 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="XMLHttpRequest" />
-    <meta property="og:description" content="给时光以生命，给岁月以文明。
-——刘慈欣《三体》" />
-    <meta property="og:url" content="yourdomain.com/xhr/" />
+    <meta property="og:title" content="XHR|Ajax|Axios|Fetch" />
+    <meta property="og:description" content="汇总：XMLHttpRequest、Ajax、Axios、fetch" />
+    <meta property="og:url" content="yourdomain.com/webrequest/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta property="article:published_time" content="2020-02-20T12:34:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-04T06:30:28.000Z" />
+    <meta property="article:modified_time" content="2021-08-19T14:45:18.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="XMLHttpRequest" />
-    <meta name="twitter:description" content="给时光以生命，给岁月以文明。
-——刘慈欣《三体》" />
-    <meta name="twitter:url" content="yourdomain.com/xhr/" />
+    <meta name="twitter:title" content="XHR|Ajax|Axios|Fetch" />
+    <meta name="twitter:description" content="汇总：XMLHttpRequest、Ajax、Axios、fetch" />
+    <meta name="twitter:url" content="yourdomain.com/webrequest/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
@@ -68,12 +65,12 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "XMLHttpRequest",
-    "url": "yourdomain.com/xhr/",
+    "headline": "XHR|Ajax|Axios|Fetch",
+    "url": "yourdomain.com/webrequest/",
     "datePublished": "2020-02-20T12:34:00.000Z",
-    "dateModified": "2021-07-04T06:30:28.000Z",
+    "dateModified": "2021-08-19T14:45:18.000Z",
     "keywords": "Technology growth",
-    "description": "给时光以生命，给岁月以文明。\n——刘慈欣《三体》",
+    "description": "汇总：XMLHttpRequest、Ajax、Axios、fetch",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -81,9 +78,9 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 4.10" />
+    <meta name="generator" content="Ghost 4.12" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
-    <script defer src="https://unpkg.com/@tryghost/portal@~1.7.0/umd/portal.min.js" data-ghost="yourdomain.com/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.8.0/umd/portal.min.js" data-ghost="yourdomain.com/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
 .gh-post-upgrade-cta {
     display: flex;
     flex-direction: column;
@@ -251,10 +248,9 @@ pre[class*="language-"] {
             <a href="../tag/technology-growth/index.html">Technology growth</a>
         </section>
 
-        <h1 class="article-title">XMLHttpRequest</h1>
+        <h1 class="article-title">XHR|Ajax|Axios|Fetch</h1>
 
-        <p class="article-excerpt">给时光以生命，给岁月以文明。
-——刘慈欣《三体》</p>
+        <p class="article-excerpt">汇总：XMLHttpRequest、Ajax、Axios、fetch</p>
 
         <div class="article-byline">
             <section class="article-byline-content">
@@ -269,7 +265,7 @@ pre[class*="language-"] {
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
                         <time class="byline-meta-date" datetime="2020-02-20">Feb 20, 2020</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 7 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
                     </div>
                 </div>
             </section>
@@ -278,116 +274,44 @@ pre[class*="language-"] {
     </header>
 
     <section class="gh-content gh-canvas">
-        <!--kg-card-begin: markdown--><blockquote>
-<h2 id="">前言</h2>
-</blockquote>
-<p><code>Ajax</code>(Asynchronous Javascript XML) 技术涉及发送服务器额外请求而不刷新页面，实现了更好的用户体验。虽然名称中包含 XML ，但通讯的数据不一定是 XML 。也可以是 Html 、 JSON 。而将<code>Ajax</code>推向历史舞台的关键是 <code>XMLHttpRequest</code> 对象。在 <code>XHR</code> 对象出现以前，<code>Ajax</code> 风格通信主要通过一些黑科技实现。而 <code>XHR</code> 为发送服务器请求获取响应提供了合理接口。通过 <code>XHR</code> 对象获取数据使用DOM方法将数据插入网页。</p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><blockquote>
-<h2 id="">正文</h2>
-</blockquote>
-<blockquote>
-<h3 id="xmlhttprequest">XMLHttpRequest对象：</h3>
-</blockquote>
-<p>所有现代浏览器都支持通过<code>XMLHttpRequest</code>构造函数原生支持<code>XHR</code>对象。</p>
-<pre><code>let xhr = new XMLHttpRequest()
-</code></pre>
-<blockquote>
-<h3 id="xhr">基本xhr的使用：</h3>
-</blockquote>
-<p>1.调用<code>open()</code>方法，接受三个参数：请求类型、请求URL、是否异步布尔值。</p>
-<pre><code>xhr.open(&quot;get&quot;,&quot;url&quot;,true) // 不会实际发送数据，仅做好准备定义好请求
-</code></pre>
-<p>2.调用<code>send()</code>方法，接受一个参数，作为请求体发送的数据，通常在POST请求中含参</p>
-<pre><code>xhr.send() // 例如: xhr.send(&quot;name=xzy&amp;age=23&quot;);
-</code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><blockquote>
-<h3 id="xmlhttprequest">XMLHttpRequest 的实例属性：</h3>
-</blockquote>
-<ul>
-<li><code>onreadystatechange</code>：</li>
-</ul>
-<p>在 <code>readyState</code> 属性发生改变时，触发 <code>readystatechange</code> 调用：<br>
-<code>XMLHttpRequest.onreadystatechange = callback;</code></p>
-<pre><code>// 示例
-xhr.onreadystatechange =function(){
-if(xhr.readyState !==4|| xhr.status !==200){
-  return;
-}
-  console.log(xhr.responseText);
-};
-</code></pre>
-<ul>
-<li><code>readyState</code>:</li>
-</ul>
-<p>返回一个整数，表示实例对象的当前状态。</p>
-<ul>
-<li><code>response</code>：</li>
-</ul>
-<p>一个对象，其类型取决于 <code>responseType</code> 的值。如果本次请求没有成功或者数据不完整，该属性等于 <code>null</code> 。</p>
-<ul>
-<li><code>responseText</code>：</li>
-</ul>
-<p>返回从服务器接收到的字符串，该属性为只读。如果 <code>responseType</code> 设为空字符串，就等同于默认值 <code>text</code> 。</p>
-<ul>
-<li><code>responseType</code>：</li>
-</ul>
-<p>此属性是一个字符串，告诉服务器返回指定类型的数据，可写属性。在调用 <code>open()</code> 方法之后、调用 <code>send()</code> 方法之前，设置这个属性的值。</p>
-<ul>
-<li><code>responseURL</code>：</li>
-</ul>
-<p>只读属性，返回响应的序列化URL，如果URL为空则返回空字符串。如果URL有锚点，则位于URL # 后面的内容会被删除。如果URL有重定向， responseURL 的值会是经过多次重定向后的最终 URL 。</p>
-<ul>
-<li><code>responseXML</code>：</li>
-</ul>
-<p>返回从服务器接收到的 HTML 或 XML 文档对象，该属性为只读。如果本次请求没有成功，或者收到的数据不能被解析为 XML 或 HTML，该属性等于null。</p>
-<ul>
-<li><code>status</code>：</li>
-</ul>
-<p>返回一个整数，表示服务器回应的 HTTP 状态码。</p>
-<ul>
-<li><code>statusText</code>：</li>
-</ul>
-<p>属性返回一个字符串，表示服务器发送的状态提示。不同于 <code>status</code> 属性，该属性包含整个状态信息，比如 “OK” 和 “Not Found” 。</p>
-<ul>
-<li><code>timeout</code>：</li>
-</ul>
-<p>返回一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止。如果该属性等于0，就表示没有时间限制。</p>
-<ul>
-<li><code>upload</code>：</li>
-</ul>
-<p><code>xhr</code> 不仅可以发送请求，还可以发送文件。发送文件以后，通过 <code>xhr.upload</code> 属性可以得到一个对象，通过观察这个对象，可以得知上传的进展。</p>
-<pre><code>&lt;progress min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot;&gt;0% complete&lt;/progress&gt;
-</code></pre>
-<pre><code>function upload(blobOrFile) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/server', true);
-  xhr.onload = function (e) {};
-  var progressBar = document.querySelector('progress');
-  xhr.upload.onprogress = function (e) {
-    if (e.lengthComputable) {
-      progressBar.value = (e.loaded / e.total) * 100;
-      // 兼容不支持 &lt;progress&gt; 元素的老式浏览器
-      progressBar.textContent = progressBar.value;
+        <!--kg-card-begin: markdown--><h2 id="xmlhttprequest">XMLHttpRequest</h2>
+<p>Ajax (Asynchronous Javascript And XML) 通过客户端与服务器端的异步通信，实现页面局部刷新。其发送的请求主要通过 XMLHttpRequest（标准浏览器）、 ActiveXObject（IE 浏览器）对象实现异步通信效果。</p>
+<pre><code class="language-javascript">// window 必须有一个 html 载体
+const xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;)
+// open 方法接受三个参数: 请求类型、请求 URL、是否异步布尔值; 不会实际发送数据, 仅做准备,定义请求
+xhr.open(&quot;get&quot;, &quot;http://localhost:3001/xhr&quot;, true); // 初始化请求
+xhr.setRequestHeader('Content-Type', 'application/json'); //设置 http 头信息
+xhr.onreadystatechange = function (res) { // 指定回调函数
+    // this 为 XMLHttpRequest{} === xhr实例对象
+    if (this.readyState === 4 &amp;&amp; xhr.status === 200 &amp;&amp; xhr.statusText === 'OK') {
+        let headers = xhr.getAllResponseHeaders();
+        console.log(headers); // content-length: 31 \ncontent-type: text/html; charset=utf-8
+        console.log(res); // {... , currentTarget{}, ...}
+        console.log(res.currentTarget.response); // zsxzy finished the xhr request!
     }
-  };
-  xhr.send(blobOrFile);
 }
-upload(new Blob(['hello world'], {type: 'text/plain'}));
+// send 接受一个参数作为请求体发送的数据, 通常在 POST 请求中含参
+// 例如: xhr.send(&quot;name=xzy&amp;age=23&quot;);
+xhr.send(); //发送请求
 </code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="xhr">值得一提的 xhr 实例属性与方法</h2>
 <ul>
-<li><code>withCredentials</code>：</li>
+<li>
+<p><code>timeout</code>：返回一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止。如果该属性等于0，就表示没有时间限制。</p>
+</li>
+<li>
+<p><code>upload</code>：<code>xhr</code> 不仅可以发送请求，还可以发送文件。发送文件以后，通过 <code>xhr.upload</code> 属性可以得到一个对象，通过观察这个对象掌握上传进度。</p>
+</li>
+<li>
+<p><code>withCredentials</code>：可选值为一个布尔值。跨域请求时，用户信息（比如 Cookie 和认证的 HTTP 头信息）是否会包含在请求之中，默认为 false ，即向 example.com 发出跨域请求时，不会发送 example.com 设置在本机上的 Cookie 。</p>
+</li>
+<li>
+<p><code>abort()</code>：终止已发出的请求。调用此方法后，<code>readyState</code> 变为 4，<code>status</code> 属性变为0。</p>
+</li>
 </ul>
-<p>此属性是一个布尔值，表示跨域请求时，用户信息（比如 Cookie 和认证的 HTTP 头信息）是否会包含在请求之中，默认为 false ，即向 example.com 发出跨域请求时，不会发送 example.com 设置在本机上的 Cookie 。</p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><blockquote>
-<h3 id="xmlhttprequest">XMLHttpRequest实例方法</h3>
-</blockquote>
-<ul>
-<li><code>abort()</code>:</li>
-</ul>
-<p>终止已经发出的 HTTP 请求。调用这个方法以后，readyState属性变为4，status属性变为0。</p>
-<pre><code>// 代码在发出5秒之后，终止一个 AJAX 请求
+<pre><code class="language-javascript">// 代码在发出5秒之后，终止一个 AJAX 请求
 var xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://www.zairesinatra.com/blog.php', true);
+xhr.open('GET', 'http://blog.zairesinatra.com/xhraborttest', true);
 setTimeout(function () {
   if (xhr) {
     xhr.abort();
@@ -396,184 +320,65 @@ setTimeout(function () {
 }, 5000);
 </code></pre>
 <ul>
-<li><code>getAllResponseHeaders()</code>:</li>
+<li><code>setRequestHeader()</code>：通过接收接受两个参数（第一个字符串表示头信息的字段名；第二个参数是字段值字符串）设置浏览器发送请求的头部信息。该方法必须在open()之后、send()之前调用。</li>
 </ul>
-<p>返回一个字符串，表示服务器发来的所有 HTTP 头信息。每个头信息之间使用 CRLF 分隔（回车+换行），如果没有收到服务器回应，该属性为 <code>null</code> 。如果发生网络错误，该属性为空字符串。</p>
-<pre><code>var xhr = new XMLHttpRequest();
-xhr.open('GET', 'zs', true);
-xhr.send();
-xhr.onreadystatechange = function () {
-  if (this.readyState === 4) {
-    var headers = xhr.getAllResponseHeaders();
-    console.log(headers)
-  }
-}
-// content-length: 1008
-// content-type: application/json; charset=utf-8
-// ...
-</code></pre>
-<ul>
-<li><code>getResponseHeader()</code>:</li>
-</ul>
-<p>返回 HTTP 头信息指定字段的值，如果还没有收到服务器回应或者指定字段不存在，返回null。</p>
-<ul>
-<li><code>open()</code>:</li>
-</ul>
-<p>用于指定 HTTP 请求的参数，或者说初始化 <code>xhr</code> 实例对象。<br>
-如果对使用过 <code>open()</code> 方法的 AJAX 请求，再次使用这个方法，等同于调用 <code>abort()</code> ，即终止请求。</p>
-<ul>
-<li><code>overrideMimeType()</code>:</li>
-</ul>
-<p>指定一个 MIME 类型用于替代服务器指定的类型，使服务端响应信息中传输的数据按照该指定 MIME 类型处理。例如强制使流方式处理为 &quot;text/xml&quot; 类型处理时会被使用到，即使服务器在响应头中并没有这样指定。此方法必须在 <code>send</code> 方法之前调用方为有效。</p>
-<pre><code>xhr.overrideMimeType('text/plain')
-</code></pre>
-<ul>
-<li><code>send()</code>:</li>
-</ul>
-<p>实际发出 HTTP 请求。</p>
-<ul>
-<li><code>setRequestHeader()</code>:</li>
-</ul>
-<p>设置浏览器发送的 HTTP 请求的头信息。该方法必须在open()之后、send()之前调用。<br>
-同时接受两个参数。第一个参数是字符串，表示头信息的字段名；第二个参数是字段值。</p>
-<pre><code>xhr.setRequestHeader('Content-Type', 'application/json');
+<pre><code class="language-javascript">xhr.setRequestHeader('Content-Type', 'application/json');
 // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-</code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><blockquote>
-<h3 id="xmlhttprequest">XMLHttpRequest实例的事件</h3>
-</blockquote>
-<p>onreadystatechange、progress、timeout这里不再赘述。</p>
-<table border="1">
-    <thead>
-        <tr>
-            <th>事件名</th>
-            <th>事件描述</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>abort</td>
-            <td>请求被中断</td>
-        </tr>
-        <tr>
-            <td>error</td>
-            <td>请求出错</td>
-        </tr>
-        <tr>
-            <td>load</td>
-            <td>服务器传来的数据接收完毕</td>
-        </tr>
-    </tbody>
-</table>
-<pre><code>var xhr = new XMLHttpRequest();
-xhr.addEventListener('load', transferComplete);
-xhr.addEventListener('error', transferFailed);
-xhr.addEventListener('abort', transferCanceled);
-xhr.open();
-function transferComplete() {
-  console.log('数据接收完毕');
-}
-function transferFailed() {
-  console.log('数据接收出错');
-}
-function transferCanceled() {
-  console.log('用户取消接收');
-}    
-</code></pre>
-<ul>
-<li><code>loadend</code>：</li>
-</ul>
-<p><code>abort</code>、<code>load</code>和<code>error</code>这三个事件，会伴随一个 <code>loadend</code> 事件，表示请求结束，但不知道其是否成功。</p>
-<pre><code>xhr.addEventListener('loadend', loadEnd);
-function loadEnd(e) {
-  console.log('请求结束，状态未知');
-}
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: html--><table border="1">
     <tr>
-        <th> readyState </th>
-        <th> 状态 </th>
+        <th> 状态(readyState) </th>
         <th> 描述 </th>
     </tr>
+    <tbody style="text-align:center">
     <tr>
-        <td> 0 </td>
-        <td> UNSENT </td>
+        <td> 0 - UNSENT </td>
         <td> 未调用 open() 方法 </td>
     </tr>
     <tr>
-        <td> 1 </td>
-        <td> open() </td>
+        <td> 1 - open </td>
         <td> open() 方法已经被调用 </td>
     </tr>
     <tr>
-        <td> 2 </td>
-        <td> HEADERS_RECEIVED() </td>
+        <td> 2 - HEADERS_RECEIVED </td>
         <td> send() 方法已经被调用，并且头部和状态已经可获得 </td>
     </tr>
     <tr>
-        <td> 3 </td>
-        <td> LOADING() </td>
+        <td> 3 - LOADING </td>
         <td> 下载中； responseText 属性已经包含部分数据 </td>
     </tr>
     <tr>
-        <td> <font color="red">4</font> </td>
-        <td> DONE() </td>
+        <td> 4 - DONE </td>
         <td> 下载操作已完成 </td>
     </tr>
+    </tbody>
 </table><!--kg-card-end: html--><!--kg-card-begin: html--><table border="1">
     <thead>
         <tr>
-            <th> status </th>
+            <th> 状态码(status) </th>
             <th> 描述 </th>
     	</tr>
      <thead>
-     <tbody>
+     <tbody style="text-align:center">
         <tr>
-            <td> <font color="red">200</font> </td>
+            <td> 200 </td>
             <td> OK</td>
         </tr>
         <tr>
-            <td> 301 </td>
-            <td> Moved Permanently </td>
+            <td> 301 | 302 | 304 | 307 </td>
+            <td> Moved Permanently | Moved temporarily | Not Modified |  Temporary Redirect </td>
         </tr>
         <tr>
-            <td> 302 </td>
-            <td> Moved temporarily </td>
-        </tr>
-        <tr>
-            <td> 304 </td>
-            <td> Not Modified </td>
-        </tr>
-        <tr>
-            <td> 307 </td>
-            <td> Temporary Redirect </td>
-        </tr>
-        <tr>
-            <td> 401 </td>
-            <td> Unauthorized </td>
-        </tr>
-        <tr>
-            <td> 403 </td>
-            <td> Forbidden </td>
-        </tr>
-		<tr>
-            <td> 404 </td>
-            <td> Not Found </td>
+            <td> 401 | 403 | 404 </td>
+            <td> Unauthorized | Forbidden | Not Found </td>
         </tr>
 		<tr>
             <td> 500 </td>
             <td> Internal Server Error </td>
         </tr>
-
      </tbody>
-</table><!--kg-card-end: html--><!--kg-card-begin: markdown--><blockquote>
-<h3 id="ajax">封装原生Ajax请求</h3>
-</blockquote>
-<p>通过上述的整理，这一步已经可以封装 ajax 。</p>
-<blockquote>
-<h4 id="get">封装get请求</h4>
-</blockquote>
-<pre><code>// 封装
+</table><!--kg-card-end: html--><!--kg-card-begin: markdown--><h2 id="ajax">封装原生 Ajax 请求</h2>
+<pre><code class="language-javascript">// 封装get
 function ajaxGet(url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
@@ -590,11 +395,9 @@ function ajaxGet(url, callback) {
 ajaxGet('zairesinatra/xzy', function (data) {
   console.log(data);
 });
-</code></pre>
-<blockquote>
-<h4 id="post">封装post请求</h4>
-</blockquote>
-<pre><code>function ajaxPost(url, data, callback) {
+
+// 封装post
+function ajaxPost(url, data, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', url, true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -609,32 +412,17 @@ ajaxGet('zairesinatra/xzy', function (data) {
 
 // 调用
 ajaxPost('zairesinatra/xzy', 'sex=male&amp;age=23', function (data) {
-  // 后台返回的数据就是 字符串类型。要转成json，必须自己手动转换。
+  // 后台返回的数据是字符串类型, 需手动转换成 json
   var user = JSON.parse(data);
-  console.log(user.sex;
+  console.log(user.sex);
   console.log(user.age);
 });
 </code></pre>
-<!--kg-card-end: markdown--><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处  <a href="https://blog.zairesinatra.com">zairesinatra's blog</a>！</p>
+<!--kg-card-end: markdown-->
     </section>
 
-    
-    <section class="article-comments gh-canvas">
-        <div id="disqus_thread"></div>
-        <script>
-            var disqus_config = function () {
-                this.page.url = "yourdomain.com/xhr/";
-                this.page.identifier = "ghost-6055c5ccdd63fd04d7186bef"
-            };
-            (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://zsxzy.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-        </script>
-    </section>
-   
 
 </article>
 
@@ -783,7 +571,7 @@ ajaxPost('zairesinatra/xzy', 'sex=male&amp;age=23', function (data) {
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=a3fe44d742"></script>
+<script src="../assets/built/casper.js%3Fv=3181a9aaca"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
