@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/vuebugs/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/jpbuild.jpg" />
     <meta property="article:published_time" content="2020-12-14T12:21:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-11T03:01:52.000Z" />
+    <meta property="article:modified_time" content="2021-08-20T03:06:34.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +63,7 @@
     "headline": "Vue札记",
     "url": "yourdomain.com/vuebugs/",
     "datePublished": "2020-12-14T12:21:00.000Z",
-    "dateModified": "2021-08-11T03:01:52.000Z",
+    "dateModified": "2021-08-20T03:06:34.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/jpbuild.jpg",
@@ -983,6 +983,115 @@ export default function updateChildren(parentElm, oldCh, newCh) {
   }
 }
 </code></pre>
+<h2 id="vuecli">Vue CLI</h2>
+<p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统。由三部分组成：CLI (@vue/cli)、CLI 服务 (@vue/cli-service)、CLI 插件。<a href="https://cli.vuejs.org/zh/guide/cli-service.html#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4">CLI (@vue/cli)</a></p>
+<pre><code class="language-zsh"># 快速原型开发
+vue serve
+# 创建 vue 项目
+vue create
+# 进入 vue 可视化管理界面
+vue ui
+</code></pre>
+<p>例如对单个 <code>*.vue</code> 文件进行快速原型开发：需要在 <code>npm install -g @vue/cli-service-global</code> 之后才可进行使用 <code>vue serve</code> 启动项目。<br />
+可以借助 npm 进行 Vue 项目的启动和打包等操作，例如： <code>npm run serve</code> 启动项目；<code>npm run build</code> 打包项目。同时在启动 React 项目的时候使用的是 <code>npm start</code>；在打包 React 项目的时候也是使用的 <code>npm run build</code>；但是创建 React项目的是使用的 React 自己的脚手架 create-react-app ；Vue使用的命令是 <code>vue create</code>。</p>
+<p>CLI 服务 (@vue/cli-service) 是一个 <strong>开发环境</strong> 依赖。本质是一个 npm 包，局部安装在每个 @vue/cli 创建的项目中。</p>
+<p>在一个 Vue CLI 项目中，@vue/cli-service 安装了一个名为 <code>vue-cli-service</code> 的命令。可以在 npm scripts 中以 <code>vue-cli-service</code>、或者从终端中以 <code>./node_modules/.bin/vue-cli-service</code> 访问这个命令。</p>
+<pre><code>// 使用默认 preset 的项目的 package.json
+{
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  }
+}
+</code></pre>
+<pre><code>// 通过 npm 调用这些 script
+npm run serve
+npm run build
+</code></pre>
+<pre><code>// 使用 npx (最新版的 npm 应该已经自带)调用
+npx vue-cli-service serve
+</code></pre>
+<p>CLI 插件是向 Vue 项目提供可选功能的 npm 包，例如 Babel/TypeScript 转译、ESLint 集成等。</p>
+<p>其中 CLI 插件的名字以 <code>@vue/cli-plugin- (xxx)</code>开头，在 <code>package.json</code> 中可查看。</p>
+<p>当在项目内部运行 <code>vue-cli-service</code> 命令时，它会自动解析并加载 <code>package.json</code> 中列出的所有 CLI 插件。</p>
+<h2 id="vuerouter">Vue-router</h2>
+<p>通过输入 url 地址，浏览器将去请求这个路径对应的资源。路由的本质就是对应关系。</p>
+<p>路由广义上分为前端路由以及后端路由：</p>
+<ul>
+<li>前端路由依靠 hash (锚链接：一种实现同一页面定位不同资源节点的特殊超链接)值的变化实现SPA技术</li>
+<li>后端路由通过服务器实现资源分发(性能较前端低)</li>
+</ul>
+<p>Vue Router 配置步骤：</p>
+<pre><code class="language-html">&lt;!--1. 引入库文件,在全局 window 对象上挂载 VueRouter 构造函数--&gt;
+&lt;script src="lib/vue-router_3.0.2.js"&gt;&lt;/script&gt;
+</code></pre>
+<pre><code class="language-javascript">// 2. 加入默认渲染成超链接的 router 链接 (to属性渲染为 href 属性)
+&lt;router-link to="/zs"&gt;toZs&lt;/router-link&gt;    
+</code></pre>
+<pre><code class="language-javascript">// 3. 设置路由占位符(路由填充位)
+&lt;router-view&gt;&lt;/router-view&gt;  
+</code></pre>
+<pre><code class="language-javascript">// 4. 定义router's component模板
+// 若动态参数较多以及需要换行考虑模板字符串``
+var Haizeiwang = {template:"&lt;div&gt;It's a test&lt;/div&gt;"}
+</code></pre>
+<pre><code class="language-javascript">// 5. 创建VueRouter实例并配置规则
+var myRouter = new VueRouter({routes:
+[{path:"/zs",component:Haizeiwang},...]}) 
+// component后接组件名非string切忌""
+</code></pre>
+<pre><code class="language-javascript">// 6. 路由挂载实例
+var app = new Vue({el:"#app",router:myRouter})
+</code></pre>
+<p>嵌套路由：</p>
+<p>嵌套路由就是在路由实例中存在其他路由：</p>
+<ul>
+<li>被嵌套的路由组件模板中需新增的路由链接与路由占位符，这里有涉及换行，避免转译麻烦则使用ES6新增的模板字符串代替 <code>"</code> ；</li>
+<li>在路由实例的配置文件中通过<code>children:[{},...]</code>属性为url添加子路由规则</li>
+</ul>
+<p>动态路由：</p>
+<p>携带具有规律动态变化的参数的路由规则匹配，重点在动态参数、规则匹配。主要设置地方是创建路由实例对象的规则配置域中。</p>
+<pre><code>&lt;!--示例代码如下：--&gt;
+&lt;router-link to="/zairesinatra/1"&gt;xx&lt;/router-link&gt;
+&lt;router-link to="/zairesinatra/2"&gt;zz&lt;/router-link&gt;
+&lt;router-link to="/zairesinatra/3"&gt;yy&lt;/router-link&gt;
+......
+&lt;!--而配置文件不必写为--&gt;
+{path:'/zairesinatra/1',component:xx}
+{path:'/zairesinatra/2',component:zz}
+{path:'/zairesinatra/3',component:yy}
+......
+</code></pre>
+<p>可简写为：</p>
+<pre><code>// 路由规则配置中：
+var myRouter = new VueRouter({
+    //routes是路由规则数组
+    routes: [
+        //通过/:参数名  的形式传递参数 
+        { path: "/zairesinatra/:id", component: 组件名 },})
+// 路由组件中
+const Zs = {
+	//路由组件中通过$route.params对象来获取路由参数
+	template:'&lt;div&gt;zairesinatra{{$route.params.id}}&lt;/div&gt;'
+}
+</code></pre>
+<p>而时常被诟病与路由高度耦合的的<code>$route.params.id</code>可换成<code>props</code>：</p>
+<pre><code>// 路由组件模板
+// 通过props来接收参数
+var Zs = { 
+    props:["id"],
+    template:"&lt;div&gt;num：{{id}}&lt;/div&gt;"
+    }
+
+// 路由实例与配置域
+var myRouter = new VueRouter({
+    //routes是路由规则数组
+    routes: [
+        // 通过/:参数名的形式传递参数 
+        // 如果props设置为true，则route.params将会被设置为组件属性
+        { path: "/zairesinatra/:id", component: Zs, props:true },...]})
+</code></pre>
+<p>同时注意：如果是传递静态参数，props设置为对象；传递复杂参数时，props设置为箭头函数路由模板应使用mustache传值，且路由实例中props设置为带参数(route)箭头函数,返回值中动态项无需添加$，直接route.params.id即可。</p>
 <h2 id="bug">BUG 分析</h2>
 <ul>
 <li><code>title</code>优化 ✔️</li>

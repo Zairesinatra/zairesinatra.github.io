@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 
-    <title>关于正则表达式</title>
+    <title>正则表达式</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=3181a9aaca.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=47461301c0.css" />
 
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -17,17 +17,17 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="关于正则表达式" />
+    <meta property="og:title" content="正则表达式" />
     <meta property="og:description" content="It takes a strong man to save himself, and a great man to save another.
 -- &quot;The Shawshank Redemption&quot;" />
     <meta property="og:url" content="yourdomain.com/regexp/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta property="article:published_time" content="2019-12-29T06:45:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-04T06:30:13.000Z" />
+    <meta property="article:modified_time" content="2021-08-20T05:35:25.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="关于正则表达式" />
+    <meta name="twitter:title" content="正则表达式" />
     <meta name="twitter:description" content="It takes a strong man to save himself, and a great man to save another.
 -- &quot;The Shawshank Redemption&quot;" />
     <meta name="twitter:url" content="yourdomain.com/regexp/" />
@@ -67,10 +67,10 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "关于正则表达式",
+    "headline": "正则表达式",
     "url": "yourdomain.com/regexp/",
     "datePublished": "2019-12-29T06:45:00.000Z",
-    "dateModified": "2021-07-04T06:30:13.000Z",
+    "dateModified": "2021-08-20T05:35:25.000Z",
     "keywords": "Technology growth",
     "description": "It takes a strong man to save himself, and a great man to save another.\n-- &quot;The Shawshank Redemption&quot;",
     "mainEntityOfPage": {
@@ -250,7 +250,7 @@ pre[class*="language-"] {
             <a href="../tag/technology-growth/index.html">Technology growth</a>
         </section>
 
-        <h1 class="article-title">关于正则表达式</h1>
+        <h1 class="article-title">正则表达式</h1>
 
         <p class="article-excerpt">It takes a strong man to save himself, and a great man to save another.
 -- &quot;The Shawshank Redemption&quot;</p>
@@ -277,43 +277,26 @@ pre[class*="language-"] {
     </header>
 
     <section class="gh-content gh-canvas">
-        <!--kg-card-begin: markdown--><blockquote>
-<h2 id="">前言</h2>
-</blockquote>
-<p>正则表达式是一种文本模式的匹配工具。通常由普通字符(例如字符 a 到 z )以及特殊字符(&quot;元字符&quot;)组成的文字模式。</p>
-<hr>
-<blockquote>
-<h2 id="">正文</h2>
-</blockquote>
-<blockquote>
-<h3 id="">新建正则表达式:</h3>
-</blockquote>
-<pre><code>var regexp = /xzy/g; // 开发中常用的字面量新建正则表达式对象在代码编译时就会生成
+        <!--kg-card-begin: markdown--><p>正则表达式是一种文本模式的匹配工具。通常由普通字符（例如字符 a 到 z ）以及特殊字符（&quot;元字符&quot;）组成的文字模式。</p>
+<pre><code class="language-javascript">// 新建正则表达式
+var regexp = /xzy/g; // 字面量新建正则表达式对象——在代码编译时就会生成
 var regexp = new Regexp(&quot;zairesinatra&quot;,&quot;g&quot;); // 构造函数生成的正则对象在代码运行时生成
 </code></pre>
-<blockquote>
-<h3 id="">使用正则表达式:</h3>
-</blockquote>
-<pre><code>正则对象的方法: RegExp对象.方法(string)
-字符串对象的方法: string.方法(RegExp对象)
-</code></pre>
-<blockquote>
-<h3 id="">修饰符与元字符:</h3>
-</blockquote>
-<pre><code>/pattern/flags
+<h2 id="">修饰符与元字符:</h2>
+<pre><code class="language-javascript">/pattern(元字符)/flags(修饰符)
 </code></pre>
 <ul>
 <li>正则<a href="https://www.runoob.com/regexp/regexp-flags.html">修饰符</a>标记于表达式之外，用于指定额外的匹配策略，同时为正则对象增加对应的的属性</li>
 </ul>
 <table align="center">
-    <thead>
+    <thead style="text-align:center">
         <tr>
             <th width="10%"> 修饰符 </th>
             <th width="40%"> 含义 </th>
             <th width="50%"> 描述 </th>
         <tr>
     </thead>
-    <tbody>
+    <tbody style="text-align:center">
         <tr>
             <td> i </td>
             <td> ignore - 不区分大小写 </td>
@@ -339,20 +322,20 @@ var regexp = new Regexp(&quot;zairesinatra&quot;,&quot;g&quot;); // 构造函数
 <ul>
 <li>元字符即描述正则表达式上下文中的行为的字符</li>
 </ul>
-<pre><code>var str = &quot;abcd test@zairesinatra.com 1234&quot;;
+<pre><code class="language-javascript">var str = &quot;abcd test@zairesinatra.com 1234&quot;;
 // \b 匹配一个单词边界，也就是指单词和空格间的位置
 // 字符集[\w.%+-]匹配字母数字下划线、特殊符号
 // \. 匹配 .
 var pattern = /\b[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}\b/g;
 document.write(str.match(pattern)); // test@zairesinatra.com
 </code></pre>
-<blockquote>
-<h3 id="">正则表达式方法:</h3>
-</blockquote>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">使用方法</h2>
+<p>正则表达式实例对象的方法: <code>RegExp实例对象.方法(string)</code><br>
+字符串实例对象的方法: <code>String实例对象.方法(RegExp对象)</code></p>
 <ul>
-<li>RegExp 的 exec 和 test 方法</li>
+<li>RegExp 的 <code>exec</code> 和 <code>test</code> 方法</li>
 </ul>
-<pre><code>// 空字符串正则匹配
+<pre><code class="language-javascript">// 空字符串正则匹配
 let kong = new RegExp('')
 
 // 字面量新建正则表达式
@@ -377,9 +360,9 @@ console.log(reg3.exec('')); // 空字符串返回 null
 console.log(kong.exec(test3)); // 空字符串正则匹配exec返回 [ '', index: 0, input: '_x_y', groups: undefined ]
 </code></pre>
 <ul>
-<li>字符串对象的 match、search、replace、split 方法</li>
+<li>字符串对象的 <code>match、search、replace、split</code> 方法</li>
 </ul>
-<pre><code>// 字符串对象方法就是字符串写前边
+<pre><code class="language-javascript">// 字符串对象方法就是字符串写前边
 
 // 空字符串正则匹配
 let kong = new RegExp('');
@@ -436,10 +419,8 @@ console.log(strrr.split(/,*/)); // [ 'a', ' ', 'b', 'c', 'd', ' ' ]
 console.log(strrr.split(/, */)); // [ 'a', 'b', 'c', 'd ' ]
 console.log(strrr.split(/, */, 3)); // [ 'a', 'b', 'c' ]
 </code></pre>
-<blockquote>
-<h3 id="">正则表达式应用:</h3>
-</blockquote>
-<pre><code>// 1.连字符转驼峰
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">正则表达式应用:</h2>
+<pre><code class="language-javascript">// 1.连字符转驼峰
 let str = &quot;life-goes-on&quot;;
 let reg = /-\w/g; // 匹配横杆以及之后的一个字符，全局匹配
 // 注意这里不能是/^-\w$/g,会输出life-goes-on,因为^和$分别匹配字符串的开始位置和输出位置导致匹配不到
@@ -488,15 +469,9 @@ var str66 = &quot;&lt;a herf='www.zairesinatra.com'&gt;&quot;;
 var reg66 = /&lt;a[^&gt;]+&gt;/g; // ^&gt; 非 &gt;
 console.log(str66.match(reg66)); // [ &quot;&lt;a herf='www.zairesinatra.com'&gt;&quot; ]
 </code></pre>
-<hr>
-<blockquote>
-<h2 id="">结束</h2>
-</blockquote>
-<p>正则在部分场景还是可以简化代码量的。更多应用与补充移步github repositories。</p>
-<blockquote>
-<h3 id="">以上</h3>
-</blockquote>
-<!--kg-card-end: markdown--><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议 </a>，转载请注明出处！</p>
+<!--kg-card-end: markdown--><p></p><p></p>
     </section>
 
 
@@ -550,6 +525,38 @@ console.log(str66.match(reg66)); // [ &quot;&lt;a herf='www.zairesinatra.com'&gt
 
 </article>
                     
+<article class="post-card post no-image ">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mongodb/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">MongoDB</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>安装 安装 MongoDB 5.0 社区版（先决条件：Xcode 命令行工具、Homebrew）：  下载 MongoDB 和数据库工具 # tap 命令允许 Homebrew 进入另一个公式存储库. 完成此操作则扩展可安装软件的选项 brew tap mongodb/brew 安装 MongoDB brew install mongodb-community@5.0 安装会在以下指定位置创建文件和目录，具体取决于 Apple 硬件：                           英特尔处理器           M1处理器                          配置文件           /usr/local/etc/mongod.conf           /opt/homebrew/etc/mongod.conf                     log directory           /usr/local/</p>
+            </section>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2021-05-20">May 20, 2021</time> <span class="bull">&bull;</span> 1 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+                    
 <article class="post-card post featured ">
 
     <a class="post-card-image-link" href="../eclipse/index.html">
@@ -590,38 +597,6 @@ console.log(str66.match(reg66)); // [ &quot;&lt;a herf='www.zairesinatra.com'&gt
     </div>
 
 </article>
-                    
-<article class="post-card post featured no-image ">
-
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="../susudo/index.html">
-            <header class="post-card-header">
-                <h2 class="post-card-title">Linux 下 su、sudo</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>GOOGLE CLOUD 操作后的反思</p>
-            </section>
-        </a>
-
-        <footer class="post-card-meta">
-            <ul class="author-list">
-                <li class="author-list-item">
-                    <a href="../author/ziyi/index.html" class="static-avatar">
-                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
-                    </a>
-                </li>
-            </ul>
-            <div class="post-card-byline-content">
-                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
-                <span class="post-card-byline-date"><time datetime="2021-03-30">Mar 30, 2021</time> <span class="bull">&bull;</span> 2 min read</span>
-            </div>
-        </footer>
-
-    </div>
-
-</article>
 
     </div>
 </aside>
@@ -647,7 +622,7 @@ console.log(str66.match(reg66)); // [ &quot;&lt;a herf='www.zairesinatra.com'&gt
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=3181a9aaca"></script>
+<script src="../assets/built/casper.js%3Fv=47461301c0"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger

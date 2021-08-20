@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 
-    <title>数组array</title>
+    <title>Data Structure &amp; Algorithm Basis</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=3181a9aaca.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=47461301c0.css" />
 
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -17,16 +17,16 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="数组array" />
+    <meta property="og:title" content="Data Structure &amp; Algorithm Basis" />
     <meta property="og:description" content="&quot;Life is a long lesson in humility.&quot; -James M. Barrie" />
     <meta property="og:url" content="yourdomain.com/array/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta property="article:published_time" content="2020-03-30T14:34:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-04T06:30:47.000Z" />
+    <meta property="article:modified_time" content="2021-08-20T03:21:48.000Z" />
     <meta property="article:tag" content="DataStructuresAndAlgorithms" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="数组array" />
+    <meta name="twitter:title" content="Data Structure &amp; Algorithm Basis" />
     <meta name="twitter:description" content="&quot;Life is a long lesson in humility.&quot; -James M. Barrie" />
     <meta name="twitter:url" content="yourdomain.com/array/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
@@ -65,10 +65,10 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "数组array",
+    "headline": "Data Structure &amp; Algorithm Basis",
     "url": "yourdomain.com/array/",
     "datePublished": "2020-03-30T14:34:00.000Z",
-    "dateModified": "2021-07-04T06:30:47.000Z",
+    "dateModified": "2021-08-20T03:21:48.000Z",
     "keywords": "DataStructuresAndAlgorithms",
     "description": "&quot;Life is a long lesson in humility.&quot; -James M. Barrie",
     "mainEntityOfPage": {
@@ -248,7 +248,7 @@ pre[class*="language-"] {
             <a href="../tag/datastructuresandalgorithms/index.html">DataStructuresAndAlgorithms</a>
         </section>
 
-        <h1 class="article-title">数组array</h1>
+        <h1 class="article-title">Data Structure &amp; Algorithm Basis</h1>
 
         <p class="article-excerpt">&quot;Life is a long lesson in humility.&quot; -James M. Barrie</p>
 
@@ -265,7 +265,7 @@ pre[class*="language-"] {
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
                         <time class="byline-meta-date" datetime="2020-03-30">Mar 30, 2020</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 16 min read</span>
                     </div>
                 </div>
             </section>
@@ -274,24 +274,179 @@ pre[class*="language-"] {
     </header>
 
     <section class="gh-content gh-canvas">
-        <!--kg-card-begin: markdown--><blockquote>
-<h2 id="">前言</h2>
-</blockquote>
-<p>几乎所有编程语言都支持数组类型，因为数组是最简单的内存数据结构。也是为后续算法做出铺垫与引入。</p>
-<hr>
-<blockquote>
-<h2 id="">正文</h2>
-</blockquote>
-<blockquote>
-<h3 id="">定义</h3>
-</blockquote>
+        <!--kg-card-begin: markdown--><h2 id="stack">Stack</h2>
+<p>栈是一种后进先出 (LIFO) 的有序集合，在回溯问题中应用广泛，可以存储访问过的任务路径、撤销操作等。</p>
+<pre><code class="language-javascript">// 基于数组的类表示栈
+class Stack {
+    constructor(){
+        this.items=[]; // 需要一种数据结构保存栈中元素,这里选择数组,大部分方法时间复杂度为O(n)
+    }
+    push(element){
+        this.items.push(element) // 栈添加元素
+    }
+    pop(element){
+        return this.items.pop(element) // 栈顶移除元素
+    }
+    peek(){
+        return this.items[this.items.length-1] // 查看栈顶元素
+    }
+    isEmpty(){
+        return this.items.length === 0 // 检查栈是否为空
+    }
+    size(){
+        return this.items.length // 返回栈长度
+    }
+    clear(){
+        this.items = [] // 清空栈元素
+    }
+}
+const zsstack = new Stack() // 初始化
+console.log(zsstack.isEmpty()) // 判断栈内是否为空 此处返回 true
+zsstack.push(0)
+zsstack.push(4)
+zsstack.push(2)
+zsstack.push(2)
+console.log(zsstack.peek()) // 查看栈顶元素 此处返回 2
+console.log(zsstack.size()) // 返回栈长度 此处返回 4
+console.log(zsstack.isEmpty()) // 判断栈内是否为空 此处返回 false
+zsstack.push(&quot;what&quot;)
+zsstack.pop() // 栈顶移除元素
+console.log(zsstack.size()) // 返回栈长度 此处返回 4
+</code></pre>
+<pre><code class="language-javascript">// 基于对象的 Stack 类
+class Stack {
+    constructor(){
+        // 属性
+        this.count = 0; // 帮助记录栈的大小
+        this.items = {}; // javascript中对象是一系列键值对
+    }
+    // 方法
+    push(element){
+        this.items[this.count] = element; // 插入元素是items对象的值
+        this.count++; // count对象是items对象键名
+    }
+    size(){ return this.count }
+    isEmpty(){ return this.count === 0 }
+    pop(){ // 删除栈顶元素并返回它
+        if(this.isEmpty()){ return undefined;} // 检验栈是否为空
+        this.count--;
+        const result = this.items[this.count];
+        delete this.items[this.count]; // JS运算符从对象删除一特定的值
+        return result
+    }
+    peek(){
+        if(this.isEmpty()){return undefined}{return this.items[this.count-1]}
+    }
+    clear(){this.items = {} ; this.count = 0}
+    toString(){ // 数组版本有直接提供的 toString方法
+        if(this.isEmpty()){
+            return ''
+        }
+        let objString = `${this.items[0]}`;
+        for(let i=1;i&lt;this.count;i++){
+            objString = `${objString},${this.items[i]}`;
+        }
+        return objString;
+    }
+}
+const zsstack = new Stack()
+zsstack.push(0)
+zsstack.push(4)
+zsstack.push(2)
+zsstack.push(2)
+zsstack.push(&quot;needpop&quot;)
+zsstack.pop()
+console.log(zsstack.count); // 返回 4
+console.dir(zsstack.toString()) // '0,4,2,2'
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="queue">Queue</h2>
+<p>队列遵循先进先出(FiFO)原则的一组有序的项。尾部添加元素，顶部移除元素。</p>
+<ul>
+<li>队列 JS 实现</li>
+</ul>
+<pre><code class="language-javascript">class Queue {
+    constructor() {
+        this.count = 0; // count作为items对象中的键
+        this.lowestCount = 0;
+        this.items = {}; // 获取元素更高效的数据结构选择{}
+    }
+    enqueue(element){ // 向队列添加元素
+        this.items[this.count] = element; // 新项仅能添加队列末尾
+        this.count++;
+    }
+    isEmpty(){
+        return this.count - this.lowestCount === 0; // 假设count=2,lowestCount=0,则表示队列中仍有两个元素
+        // return this.size() === 0;
+    }
+    dequeue(){ // 队列移除元素也是遵循先进先出的,最先添加的项被最先移除
+        if(this.isEmpty()){return undefined}
+        const result = this.items[this.lowestCount] // 暂存以便返回
+        delete this.items[this.lowestCount]
+        this.lowestCount++;
+        return result;
+    }
+    peek(){ // 查看列头元素-就是首项
+        if(this.isEmpty()){return undefined}
+        return this.items[this.lowestCount]
+    }
+    size(){ // 返回队列的长度
+        return this.count - this.lowestCount
+    }
+    clear(){
+        this.items = {};
+        this.count = 0;
+        this.lowestCount = 0;
+    }
+    toString(){
+        if(this.isEmpty()){
+            return ''; // 空队列返回空字符串
+        }
+        let objString = `${this.items[this.lowestCount]}`;
+        for(let i = this.lowestCount + 1; i&lt;this.count; i++){
+            objString = `${objString},${this.items[i]}`;
+        }
+        return objString
+    }
+}
+const zsqueue = new Queue()
+zsqueue.enqueue(&quot;needdequeue&quot;)
+zsqueue.enqueue(0)
+zsqueue.enqueue(4)
+zsqueue.enqueue(2)
+zsqueue.enqueue(2)
+zsqueue.dequeue()
+console.log(zsqueue.peek()) // 0
+console.log(zsqueue.toString()); // 0,4,2,2
+</code></pre>
+<ul>
+<li>双端队列 JS 实现</li>
+</ul>
+<p>双端队列是一种允许同时从前端和后端添加和移除元素的特殊队列。</p>
+<pre><code class="language-javascript">// 双端队列前端添加元素
+// 三种可能出现的情况
+addFront(element){
+        if(this.isEmpty()){
+            this.addBack(element)
+        } else if (this.lowestCount&gt;0){
+            this.lowestCount--;
+            this.items[this.lowestCount] = element;
+        } else {
+            for(let i = this.count; i&gt;0; i--){
+                this.items[i] = this.items[i-1];
+            }
+            this.count++; // 插入element导致count++
+            this.lowestCount = 0;
+            this.items[0] = element; // 完成迭代移动,第一项为空闲,则新element覆盖
+        }
+    }
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="array">Array</h2>
+<p>定义初始化数组</p>
 <p>数组存储一系列同一数据类型的值。</p>
-<blockquote>
-<h3 id="">创建和初始化数组</h3>
-</blockquote>
-<p><code>let arr = new Array(); // new关键字声明初始化数组</code><br>
-<code>arr = new Array(6); // 创建指定长度数组</code><br>
-<code>arr = new Array(&quot;zaire&quot;,&quot;sinatra&quot;,&quot;xie&quot;,&quot;zy&quot;); // 直接数组元素做参数传递给他的构造器</code></p>
+<pre><code class="language-javascript">let arr = new Array(); // new关键字声明初始化数组
+arr = new Array(6); // 创建指定长度数组
+arr = new Array(&quot;zaire&quot;,&quot;sinatra&quot;,&quot;xie&quot;,&quot;zy&quot;); // 直接数组元素做参数传递给他的构造器
+</code></pre>
 <blockquote>
 <h3 id="">斐波那契实现</h3>
 </blockquote>
@@ -415,15 +570,461 @@ function printMatrix(zs){
 }
 console.table(zairesinatra)
 </code></pre>
-<img src="yourdomain.com/content/images/2021/03/--2021-03-14-01.55.10.png" width="60%">
-<hr>
-<blockquote>
-<h2 id="">结束</h2>
-</blockquote>
-<blockquote>
-<h2 id="">以上</h2>
-</blockquote>
-<!--kg-card-end: markdown--><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+<p>数组去重（语法自身键、两层循环比较）</p>
+<pre><code class="language-javascript">// 利用 set 集合 =&gt; 无重复、无顺序数组
+// ES5 解构赋值
+let zsset = (arr)=&gt;{ return [...new Set(arr)] }
+console.log(zsset([1,1,2,3,true,true])); // [ 1, 2, 3, true ]
+
+// ES6 中 Array.from
+function zsunique (arr) {
+    return Array.from(new Set(arr))
+}
+var arr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsunique(arr)) // [ 0, 6, 'xzy', true, undefined, null, NaN, {}, {} ]
+
+// 嵌套
+function zsNested(arr){            
+    for(var i=0; i&lt;arr.length; i++){
+        for(var j=i+1; j&lt;arr.length; j++){
+            // 第一个等同于第二个则splice方法删除第二个
+            if(arr[i]==arr[j]){
+                arr.splice(j,1);
+                j--;
+            }
+        }
+    }
+return arr;
+}
+var tarr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsNested(tarr)) // [ 0, 6, 'xzy', true, undefined, NaN, NaN, {}, {} ]
+
+// indexOf
+// 判断结果数组是否存在当前元素,如果有相同的值则跳过,不相同则push进数组
+function zsindex(arr) {
+    if (!Array.isArray(arr)) {
+        console.log('type error!')
+        return
+    }
+    var array = [];
+    for (var i = 0; i &lt; arr.length; i++) {
+        // indexOf()方法返回在数组中可以找到一个给定元素的第一个索引,如果不存在,则返回-1
+        if (array.indexOf(arr[i]) === -1) {
+            array.push(arr[i])
+        }
+    }
+    return array;
+}
+var ttarr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsindex(ttarr)) // [ 0, 6, 'xzy', true, undefined, null, NaN, NaN, {}, {} ]
+
+// includes 去重 =&gt; 与 indexOf 类似
+function zsin(arr) {
+    if (!Array.isArray(arr)) {
+        console.log('type error!')
+        return
+    }
+    var array =[];
+    for(var i = 0; i &lt; arr.length; i++) {
+        if(!array.includes(arr[i])) {
+            array.push(arr[i]);
+        }
+    }
+    return array
+}
+var arrr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsin(arrr)) // [ 0, 6, 'xzy', true, undefined, null, NaN, {}, {} ]
+
+// sort()去重
+function zssort(arr) {
+    if (!Array.isArray(arr)) {
+        console.log('type error!')
+        return;
+    }
+    arr = arr.sort()
+    var array= [arr[0]];
+    for (var i = 1; i &lt; arr.length; i++) {
+        if (arr[i] !== arr[i-1]) {
+            array.push(arr[i]);
+        }
+    }
+    return array;
+}
+var xarr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zssort(xarr)) // [ 0, 6, NaN, NaN, {}, {}, null, true, 'xzy', undefined ]
+
+// filter() 方法创建一个新数组,其包含通过所提供函数实现的测试的所有元素
+function zsfilter(arr) {
+    return arr.filter((item, index, arr) =&gt; {
+        // 当前元素在原始数组中的第一个索引 === 当前索引值，否则返回当前元素
+        return arr.indexOf(item) === index;
+        // 或者 hasOwnProperty 去重
+        // hasOwnProperty()方法会返回一个布尔值,指示对象自身属性中是否具有指定的属性
+    });
+}
+let ffarr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsfilter(ffarr)); // [ 0, 6, 'xzy', true, undefined, null, {}, {} ]
+
+// Map 数据结构去重
+// Map 对象保存键值对,并且能够记住键的原始插入顺序
+function zsMap(aarr) {
+    let map = new Map();
+    let array = new Array();  // 数组用于返回结果
+    for (let i = 0; i &lt; arr.length; i++) {
+        if (map.has(arr[i])) {  // 如果有该key值
+            map.set(arr[i], true); 
+        } else { 
+            map.set(arr[i], false); // 如果没有该key值
+            array.push(arr[i]);
+        }
+    } 
+    return array ;
+}
+var aarr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsMap(aarr)) // [ 0, 6, 'xzy', true, undefined, null, NaN, {}, {} ]
+
+// reduce()
+// reduce() 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行),将其结果汇总为单个返回值
+// Accumulator (acc) (累计器)、Current Value (cur) (当前值)、Current Index (idx) (当前索引)、Source Array (src) (源数组)
+function zszs(arr){
+    return arr.reduce((prev,cur) =&gt; prev.includes(cur) ? prev : [...prev,cur], []);
+}
+var arro = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zszs(arro)); // [ 0, 6, 'xzy', true, undefined, null, NaN, {}, {} ]
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="linkedlist">LinkedList</h2>
+<p>数组作为最常用的数据结构，几乎每一种语言都有默认实现数组的结构(python中称为链表)。但是数组也有很多缺点：</p>
+<ul>
+<li>数组的创建通常需要申请一段连续的内存空间。若当前数组不能满足容量需求时，需要扩容(一般情况是申请一个更大的数组，再将原数组中元素赋值过去)。</li>
+<li>从数组的起点或中间插入的成本较高，需要移动大量元素。</li>
+</ul>
+<p>那么要储存多个元素，另外一个选择就是 <strong>链表</strong> 。链表相对有更高的内存动态管理。且不必在创建时确定大小、可无限延伸。在 <strong>插入和删除</strong> 数据时， <strong>时间复杂度</strong> 可以达到 <font color="red">O(1)</font> 。</p>
+<p>链表是有序的元素集合，但 <strong>不同于数组在内存中连续空间</strong> 。而是每个元素由一个 <strong>存储元素本身的节点</strong> 和 <strong>指向下一个元素的引用（指针）</strong> 组成。</p>
+<p>数组中可以直接通过下标值直接访问任何位置的任何元素，但在链表想访问中间一个元素需要 <strong>从起点迭代链表</strong> ，这是链表的缺点——访问元素时性能低很多。</p>
+<p>在现实中，链表就像是解谜游戏，根据一条线索去寻找下一项的线索，那么线索就是指针。想要得到链表中的线索唯一办法就是从起点顺着链表去寻找。</p>
+<pre><code class="language-javascript">// util.mjs
+export function defaultEquals(a,b){
+    return a === b;
+}
+</code></pre>
+<pre><code class="language-javascript">// node.mjs
+export class Node {
+    constructor(element) {
+        this.element = element;
+        this.next = null;
+    }
+}
+</code></pre>
+<pre><code class="language-javascript">import { Node } from './node.mjs'
+import { defaultEquals } from './util.mjs'
+
+export default class LinkedList { // 对于封装的东西,我们首先考虑有什么共有的属性和方法
+    conductor(equalsFn = defaultEquals){
+        // 1.head指向所有节点的第一个节点 2.node(element、next)
+        this.count = 0; // 存储链表元素的数量
+        this.head = null;
+        this.equalsFn = equalsFn;
+    }
+    append(element){
+        const node = new Node(element); // element作为值传入创建node项
+        let current; // 设一个
+        if (this.head == null) { this.head = node }
+        else { 
+            current = this.head;
+            while(current.next != null){
+                current = current.next;
+            }
+            current.next = node;
+         }
+         this.count++
+    }
+    removeAt(index){ // 这里要验证index是否为有效的index
+        let current = this.head // 通过current创建对列表第一个元素的引用
+        if(index&gt;=0 &amp;&amp; index&lt;this.count){
+            if(index == 0){this.head = current.next}
+            else{
+                let previous;
+                for(i=0;i&lt;index;i++){ // 迭代链表的node
+                    let previous = current;
+                    current = current.next;
+                }
+                previous.next = current.next; // 跳过选择到的current这一项
+            }
+            this.count--; // 少了一个node
+            return current.element; // 返回删除的这个节点元素
+        }
+        return undefined;
+    }
+    getElementAt(index){
+        if(index&gt;=0 &amp;&amp; index&lt;=this.count){
+            let node = this.head;
+            for(i=0; i&lt;index &amp;&amp; node!=null; i++){
+                node = node.next;
+            }
+            return node;
+        }
+        return undefined;
+    }
+    insert(element,index){
+        if(index&gt;=0&amp;&amp;index&lt;=this.count){ // 检查越界值
+            let node = new Node(element);
+            if(index === 0){ // 链表起点添加元素
+                const current = this.head; // current是第一个元素的引用
+                node.next = current; // 插入在current元素之前
+                this.head = node; //head引用改为node
+            }
+            else{
+                const previous = this.getElementAt(index-1); // 迭代找到目标元素
+                const current = previous.next;
+                node.next = current; // 改变previous和current之间的链接
+                previous.next = node;
+            }
+            this.count++;
+            return true;
+        }
+        return false; // 错误的index
+    }
+    indexOf(element){
+        let current = this.head; // 拿到指向的第一节点
+        for(let i=0; i&lt;this.count&amp;&amp;current!=null; i++){
+            if(this.equalsFn(element,current.element)){
+                return i;
+            }
+            current = current.next; // 这里current一直在变为下一项
+        }
+        return -1;
+    }
+    remove(element){ // 复用代码
+        const index = this.indexOf(element)
+        return this.removeAt(index)
+    }
+    size(){
+        return this.count;
+    }
+    isEmpty(){
+        return this.size() === 0;
+    }
+    getHead(){
+        return this.head;
+    }
+    toString(){
+        if(this.head == null){ // 链表为空则返回空字符串
+            return ''
+        }
+        else{
+            let objString = `${this.head.element}`; // 链表第一项初始化最后返回的字符串
+            let current = this.head.next;
+            for(let i=0; i&lt;this.size() &amp;&amp; current != null; i++){
+                objString = `${objString},${current.element}`;
+                current = current.next;
+            }
+            return objString;
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-javascript">// 测试代码
+var ll = new LinkedList()
+ll.append('xzy')
+ll.append('zs')
+ll.append('zairesinatra')
+ll.append(10)
+console.log(ll);
+console.log(ll.isEmpty());
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="set">Set</h2>
+<p>集合是没有重复元素与顺序概念的数组。常作为数组去重方法。</p>
+<pre><code class="language-javascript">// Set 无序且唯一 =&gt; JavaScript 中对象不允许一个键指向两个不同的属性,保证集合元素唯一
+class Set {
+    constructor() {
+        this.items = {};
+    }
+    has(element) {
+        // return element in this.items;
+        return Object.prototype.hasOwnProperty.call(this.items, element)
+        // Object原型有hasOwnProperty的方法,返回一个对象是否具有特定属性的布尔值; 使用call避免ESLint出现问题
+    }
+    add(element) {
+        if(!this.has(element)){
+            this.items[element] = element; // 同时作为键值保存有利于查找
+            return true
+        }
+        return false
+    }
+    delete(element) {
+        if(!this.has(element)){
+            delete this.items[element];
+            return true
+        }
+        false
+    }
+    clear() {
+        this.items = {}
+    }
+
+    // size()方法有三种实现方式
+    // 方法一,设置一个length,每一次进行add、delete、clear执行加一减以与清除
+    // 方法二,Javascript中内置的key方法. =&gt; Object.prototype.keys(this.items).length返回给定对象所有属性的数组
+    size() {
+        return Object.keys(this.items).length
+    }
+    // 方法三,手动提取items对象每一个属性,记录属性个数并返回-迭代
+    sizeLegacy() {
+        let count = 0;
+        for(let key in this.items) {
+            if(this.items.hasOwnProperty((key))){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // Object类内置的 Object.values() 方法返回包含给定对象的所有属性值的数组
+    values() {
+        return Object.values(this.items);
+    }
+    valuesLegacy() {
+        return Object.values(this.items);
+    }
+
+    // 并集
+    union(otherset) {
+        const unionSet = new Set(); // 代表两个集合的并集
+        // 迭代添加并集集合中
+        this.values().forEach((value) =&gt; {unionSet.add(value)});
+        otherset.values().forEach((value) =&gt; {unionSet.add(value)});
+        return unionSet;
+    }
+    
+    // 交集
+    interSection(otherset) {
+        let interSectionSet = new Set(); // 定义要返回的交集集合
+        let otherValues = otherset.values();
+        let biggerSet = this.values();
+        let smallerSet = otherValues;
+        if(otherValues.length-this.values().length&gt;0){
+            biggerSet = otherValues;
+            smallerSet = values;
+        }
+        smallerSet.forEach(value=&gt;{
+            if(biggerSet.includes(value)){
+                interSectionSet.add(value);
+            }
+        });
+        return interSectionSet;
+    }
+
+    // 差集
+    difference(otherset){
+        let differenceset = new Set();
+        this.values().forEach(value=&gt;{
+            if(!otherset.has(value)){
+                differenceset.add(value);
+            }
+        });
+        return differenceset
+    }
+
+    // 子集
+    isSubsetOf(otherset){
+        if(this.sizeLegacy()&gt;otherset.sizeLegacy()){
+            return false;
+        }
+        let isSubset = true;
+        this.values().every(value=&gt;{
+            if(!otherset.has(value)){ // 这里的意思是其他的集合没有则要考虑改变isSubset的布尔值
+                isSubset = false;
+                return false
+            }
+            return true;
+        });
+        return isSubset
+    }
+}
+
+let zsset = new Set()
+zsset.add(&quot;z&quot;);
+zsset.add(&quot;s&quot;);
+console.log(zsset); // Set { items: { z: 'z', s: 's' } }
+console.log(zsset.size()); // 2
+console.log(zsset.sizeLegacy()); // 2
+console.log(zsset.valuesLegacy()); // [ 'z', 's' ]
+const zy = new Set()
+zy.add(1)
+zy.add(2)
+zy.add(&quot;z&quot;)
+console.log(zy); // Set { items: { '1': 1, '2': 2, z: 'z' } }
+const un = zsset.union(zy)
+console.log(un); // 注意这里最后z不存在于un --- Set { items: { '1': 1, '2': 2, z: 'z', s: 's' } }
+let zairesinatra = new Set()
+zairesinatra.add(1)
+zairesinatra.add(2)
+zairesinatra.add(3)
+let xxx = new Set()
+xxx.add(1)
+xxx.add(2)
+console.log(zairesinatra); // Set { items: { '1': 1, '2': 2, '3': 3 } }
+console.log(xxx); // Set { items: { '1': 1, '2': 2 } }
+const interr = zairesinatra.interSection(xxx)
+const dd = zairesinatra.difference(xxx)
+const child = xxx.isSubsetOf(zairesinatra)
+console.log(interr); // Set { items: { '1': 1, '2': 2 } }
+console.log(dd); // Set { items: { '3': 3 } }
+console.log(child); // true
+// 到这里实现了 JavaScript 中Set 类的效果
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="es6">ES6 高级整理</h2>
+<pre><code class="language-javascript">// 函数的参数默认值
+function sum(x=1,y=2,z=3){
+    return x+y+z
+}
+
+// 没有 JS 内置对象 arguments 写法
+// arguments对象是一个伪数组, 包含函数被调用时传入的参数
+function summ (){
+    var x = arguments.length &gt; 0 &amp;&amp; arguments[0] !== undefined ? arguments[0]:1;
+    var y = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1]:2;
+    var z = arguments.length &gt; 2 &amp;&amp; arguments[2] !== undefined ? arguments[2]:3;
+    return x+y+z
+}
+
+console.log(sum(4,2))  // 9
+console.log(summ(4,2));  // 9
+</code></pre>
+<pre><code class="language-javascript">// 声明展开与剩余参数
+let params = [3,4,5]
+
+// 1.展开运算符(...)把数组转化为参数
+console.log(sum(...params)); // 12
+
+// 2.apply() 函数也可以把数组转化为参数
+console.log(sum.apply(undefined,params)); // 12
+
+// 展开运算符可以代替arguments
+function restParamaterFunction (x,y,...a){
+    return (x+y) * a.length
+}
+console.log(restParamaterFunction(1,2,&quot;zairesinatra&quot;,true,6)); // 9
+
+// 等同以上代码
+function restParamaterFunctionn (x,y) {
+    // [].slice.call(arguments) 能将具有 length 属性的对象转成数组
+    var a = Array.prototype.slice.call(arguments,2)
+    return (x+y) * a.length
+}
+console.log(restParamaterFunctionn(1,2,&quot;zairesinatra&quot;,true,6)); // 9
+</code></pre>
+<pre><code class="language-javascript">// 乘方运算符
+let r = 2;
+const area1 = 3.14 * r * r;
+const area2 = 3.14 * Math.pow( r , 2 );
+const area3 = 3.14 * ( r ** 2 ); // ** 为ES6引入指数运算
+let result = (area1 === area2 &amp;&amp; area2 === area3);
+console.log(result) // true
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
     </section>
 
 
@@ -477,6 +1078,38 @@ console.table(zairesinatra)
 
 </article>
                     
+<article class="post-card post no-image ">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mongodb/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">MongoDB</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>安装 安装 MongoDB 5.0 社区版（先决条件：Xcode 命令行工具、Homebrew）：  下载 MongoDB 和数据库工具 # tap 命令允许 Homebrew 进入另一个公式存储库. 完成此操作则扩展可安装软件的选项 brew tap mongodb/brew 安装 MongoDB brew install mongodb-community@5.0 安装会在以下指定位置创建文件和目录，具体取决于 Apple 硬件：                           英特尔处理器           M1处理器                          配置文件           /usr/local/etc/mongod.conf           /opt/homebrew/etc/mongod.conf                     log directory           /usr/local/</p>
+            </section>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2021-05-20">May 20, 2021</time> <span class="bull">&bull;</span> 1 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+                    
 <article class="post-card post featured ">
 
     <a class="post-card-image-link" href="../eclipse/index.html">
@@ -517,38 +1150,6 @@ console.table(zairesinatra)
     </div>
 
 </article>
-                    
-<article class="post-card post featured no-image ">
-
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="../susudo/index.html">
-            <header class="post-card-header">
-                <h2 class="post-card-title">Linux 下 su、sudo</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>GOOGLE CLOUD 操作后的反思</p>
-            </section>
-        </a>
-
-        <footer class="post-card-meta">
-            <ul class="author-list">
-                <li class="author-list-item">
-                    <a href="../author/ziyi/index.html" class="static-avatar">
-                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
-                    </a>
-                </li>
-            </ul>
-            <div class="post-card-byline-content">
-                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
-                <span class="post-card-byline-date"><time datetime="2021-03-30">Mar 30, 2021</time> <span class="bull">&bull;</span> 2 min read</span>
-            </div>
-        </footer>
-
-    </div>
-
-</article>
 
     </div>
 </aside>
@@ -574,7 +1175,7 @@ console.table(zairesinatra)
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=3181a9aaca"></script>
+<script src="../assets/built/casper.js%3Fv=47461301c0"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger

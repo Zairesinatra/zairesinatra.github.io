@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>Vuex</title>
+    <title>webpack</title>
 
     <link rel="icon" href="../../favicon.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
@@ -12,23 +12,23 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Vuex" />
-    <meta property="og:description" content="在开发大型单页应用时，为全局管理状态，避免混乱的数据变更事件分布，常使用 Vue 中 Vuex 和 React 中的 Redux（小型项目使用则适得其反）。" />
-    <meta property="og:url" content="yourdomain.com/vuex/" />
+    <meta property="og:title" content="webpack" />
+    <meta property="og:description" content="webpack配置与异常" />
+    <meta property="og:url" content="yourdomain.com/webpack/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
-    <meta property="article:published_time" content="2020-05-19T16:20:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-20T01:20:34.000Z" />
-    <meta property="article:tag" content="Technology growth" />
+    <meta property="article:published_time" content="2021-03-08T11:55:00.000Z" />
+    <meta property="article:modified_time" content="2021-08-20T01:33:18.000Z" />
+    <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Vuex" />
-    <meta name="twitter:description" content="在开发大型单页应用时，为全局管理状态，避免混乱的数据变更事件分布，常使用 Vue 中 Vuex 和 React 中的 Redux（小型项目使用则适得其反）。" />
-    <meta name="twitter:url" content="yourdomain.com/vuex/" />
+    <meta name="twitter:title" content="webpack" />
+    <meta name="twitter:description" content="webpack配置与异常" />
+    <meta name="twitter:url" content="yourdomain.com/webpack/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:data2" content="BUG handled" />
     <meta name="twitter:site" content="@xieziyi0422" />
     <meta property="og:image:width" content="2000" />
     <meta property="og:image:height" content="1333" />
@@ -60,12 +60,12 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "Vuex",
-    "url": "yourdomain.com/vuex/",
-    "datePublished": "2020-05-19T16:20:00.000Z",
-    "dateModified": "2021-08-20T01:20:34.000Z",
-    "keywords": "Technology growth",
-    "description": "在开发大型单页应用时，为全局管理状态，避免混乱的数据变更事件分布，常使用 Vue 中 Vuex 和 React 中的 Redux（小型项目使用则适得其反）。",
+    "headline": "webpack",
+    "url": "yourdomain.com/webpack/",
+    "datePublished": "2021-03-08T11:55:00.000Z",
+    "dateModified": "2021-08-20T01:33:18.000Z",
+    "keywords": "BUG handled",
+    "description": "webpack配置与异常",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -655,212 +655,42 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">Vuex</h1>
+                <h1 class="post-title">webpack</h1>
                 <section class="post-meta">
                     Ziyi Xie -
-                    <time class="post-date" datetime="2020-05-20">20 May 2020</time>
+                    <time class="post-date" datetime="2021-03-08">08 Mar 2021</time>
                 </section>
             </header>
             <section class="post-content">
 
-                <h2 id>前言</h2>
-<p>个人理解：在 state 中定义了一个数据之后，可以在项目中所在组件里进行获取、修改，且更改后呈全局响应式变更。</p>
-<hr></hr>
-<blockquote>
-<h2 id>正文</h2>
-</blockquote>
-<blockquote>
-<h3 id>初识</h3>
-</blockquote>
-<p>vuex 安装如下:</p>
-<pre><code class="language-zsh"># 基于 Vue@2.0.0+
-# 安装到项目目录下,并在 package.json 文件的 dependencies 中写入依赖,简写为-S
-npm install vuex --save
-</code></pre>
-<p>创建项目后会在src文件目录下生成一个名为 <code>store</code> 的文件夹，其中的 <code>index.js</code> 内容如下:</p>
-<pre><code>import Vue from 'vue'
-import Vuex from 'vuex'
+                <amp-img src="https://img.shields.io/github/package-json/v/webpack/webpack.svg?label=webpack&amp;style=flat-square&amp;maxAge=3600" width="112" height="20" layout="fixed"></amp-img><h2 id="webpackdevserver">webpack-dev-server兼容问题</h2>
+<p>运行<code>webpack-dev-server</code>出现如下报错</p>
+<pre><code class="language-javascript">&gt; webpack-dev-server
 
-Vue.use(Vuex)
+internal/modules/cjs/loader.js:883
+  throw err;
+  ^
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-  getters: {}
-})
+Error: Cannot find module 'webpack-cli/bin/config-yargs'
 </code></pre>
-<p>这里别忘了，如果不是在创建项目时就勾选了 vuex ，还需要在 <code>main.js</code> 里引入 <code>store</code> 并全局注测，此举为了可以在任何一个组件中使用 <code>this.$store</code> 。</p>
-<pre><code>import store from './store'
-
-new Vue({
-  el: '#app',
-  router,
-  store, // 使用 store
-  template: '&lt;App/&gt;',
-  components: { App }
-})
+<p>报错内容为找不到 webpack-cli 中对应模块。报错时项目相应 webpack 配置如下：</p>
+<pre><code class="language-javascript">"webpack": "^5.24.3",
+"webpack-cli": "^4.5.0",
+"webpack-dev-server": "^3.11.2"
 </code></pre>
-<blockquote>
-<h3 id>深入核心</h3>
-</blockquote>
-<p>前奏毕至，接下来就是重头戏，别忘了上段遗留的五个对象。</p>
+<p>解决方案：</p>
 <ul>
-<li><strong>State</strong></li>
+<li>方法一:重装 webpack-cli 与 webpack-dev-server 兼容的版本;</li>
+<li>方法二:修改 <code>package.json</code> 文件中 <code>"script"</code> 项</li>
 </ul>
-<p>Vuex 使用单一状态树即一个对象就包含了全部的应用层级状态的<u>唯一数据源</u>。那么每个应用将仅仅包含一个 store 实例。</p>
-<pre><code class="language-js">// store 中的 index.js 内提供唯一公共数据源,所有共享数据同一放在 Store 的 State 中储存
-const store = new Vuex.Store({
-	state: { 数据名:数据值, ... } // 对象中的数据就是全局共享的数据
-})
+<p>方法二步骤。</p>
+<pre><code>// package.json 配置文件 "script" 中修改 "dev" 项值 "webpack-dev-server" 为 "webpack serve --open Chrome"
 </code></pre>
-<pre><code>// 组件中访问 State 中数据的第一种方式:
-this.$store.state.全局数据名称
-// 组件中访问 State 中数据的第二种方式:
-// 1.从 vuex 中按需导入 mapState 函数
-import { mapState } from 'vuex'
-// 2.将全局数据映射为当前组件的计算属性
-computed: {
-  ...mapState(['数据名', ...]); // 需要哪些全局属性就在这里声明
-}
-</code></pre>
-<ul>
-<li><strong>mutation</strong></li>
-</ul>
-<p>用于变更 Store 中的数据(不推荐 <code>this.$store.state.count</code> 修改全局数据=&gt;项目大找不到谁修改的数据📡)的 mutation 操作改变数据虽较为繁琐却可以集中监控所有的数据变化。</p>
-<p>方式一:</p>
-<pre><code>// index.js文件
-const store = new Vuex.Store({
-  state: {
-    数据名:数据值,
-    ...
-  },
-  mutations: {
-    func(state, args) {
-    // 变更状态,操作 state.count
-    }
-  }
-})
-</code></pre>
-<pre><code>// 子组件文件
-// 触发 mutation
-methods: {
-  eventfunc() {
-    // 触发 mutations 的第一种方式
-    this.$store.commit('func')
-  }
-}
-</code></pre>
-<p>方式二:</p>
-<pre><code>// 子组件文件
-// 从 vuex 中按需导入 mapMutations 函数
-import { mapMutations } from 'vuex'
-...
-// 在组件中通过导入的 mutations 函数映射为当前组件的 methods 函数
-methods: {
-  ...mapMutations(['func1','func2'])
-}
-</code></pre>
-<ul>
-<li><strong>Action</strong></li>
-</ul>
-<p>Mutation 中不能写异步的代码，而 Action 专门处理异步任务。在 Action 中间接地触发 Mutation 方式间接变更数据。</p>
-<p>方式一:</p>
-<pre><code>// store 中 index.js
-const store = new Vuex Store({
-  ...
-  mutations: {
-    func1(state) {
-	  具体的操作state.count
-	},
-    func2(state, args) {
-      // 带args参数操作state.count
-    }
-	},
-	actions: {
-	  func1Async(context, args) {
-	  setTimeout(() =&gt; {
-	    context.commit('func1', args)
-	  }, 1000)
-	}
-  }
-})
-</code></pre>
-<pre><code>// 组件触发 Actions 
-methods: {
-  eventfunc() {
-    this.$store.dispatch('func1Async', args) // 一个是dispatch一个是commit
-  }
-}
-</code></pre>
-<p>方式二:</p>
-<pre><code>// 组件从 vuex 中按需导入 mapActions 函数
-import { mapActions } from 'vuex'
-...
-// 组件指定的 actions 函数映射为当前组件的 methods 函数
-// 同时因为是映射,导入后可以直接绑定到事件
-methods: {
-  ...mapActions(['func1Async', 'func2Async'])
-}
-</code></pre>
-<ul>
-<li><strong>Getter</strong></li>
-</ul>
-<p>用于对 Store 中数据进行加工处理形成新的数据，不会修改 Store 里的原数据，仅包装。类似于 Vue 中计算属性。 Store 中数据发生变化，Getter 数据也会发生变化。</p>
-<pre><code>// store 中 index.js
-const store = new Vuex.Store({
-  state: {
-    数据名: 数据值,
-    ...
-  },
-  getters: {
-    funcc: state =&gt; {
-      return '当前最新的数据是['+ state.数据名 +']'
-    }
-  }
-})
-</code></pre>
-<pre><code>// 组件内容
-// 使用 getters 第一种方式
-this.$store.getters.名称
-// 使用 getters 的第二种方式
-import { mapGetters } from 'vuex'
-computed: {
-  ...mapGetters(['名称'])
-}
-</code></pre>
-<ul>
-<li><strong>module</strong></li>
-</ul>
-<p>由于上述都是使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。为了解决以上问题，Vuex 允许我们将 store 分割成模块(module)</p>
-<p>这里可以理解为所有的数据和操作都写在了一个对象和其子对象时，在复盘代码就会相当吃体力。那么我们把 store 拆开，用到什么数据，操作什么数据，就封装为一个子模块。</p>
-<pre><code>// 每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割:
-const moduleA = {
-  state: () =&gt; ({ ... }),
-  mutations: { ... },
-  actions: { ... },
-  getters: { ... }
-}
-
-const moduleB = {
-  state: () =&gt; ({ ... }),
-  mutations: { ... },
-  actions: { ... }
-}
-
-const store = new Vuex.Store({
-  modules: {
-    a: moduleA,
-    b: moduleB
-  }
-})
-
-store.state.a // -&gt; moduleA 的状态
-store.state.b // -&gt; moduleB 的状态
-</code></pre>
+<p>在重新配置完后<code>Terminal</code>输入：<br />
+<code>npm run dev</code><br />
+经测试，此时可正常实时更新修改的js文件。</p>
 <h2 id>结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议 </a>，转载请注明出处！</p>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
 
 
             </section>
