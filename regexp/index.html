@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=47461301c0.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=21bbae31ea.css" />
 
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -23,7 +23,7 @@
     <meta property="og:url" content="yourdomain.com/regexp/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta property="article:published_time" content="2019-12-29T06:45:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-20T05:35:25.000Z" />
+    <meta property="article:modified_time" content="2021-08-22T05:08:35.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -70,7 +70,7 @@
     "headline": "正则表达式",
     "url": "yourdomain.com/regexp/",
     "datePublished": "2019-12-29T06:45:00.000Z",
-    "dateModified": "2021-08-20T05:35:25.000Z",
+    "dateModified": "2021-08-22T05:08:35.000Z",
     "keywords": "Technology growth",
     "description": "It takes a strong man to save himself, and a great man to save another.\n-- &quot;The Shawshank Redemption&quot;",
     "mainEntityOfPage": {
@@ -268,7 +268,7 @@ pre[class*="language-"] {
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
                         <time class="byline-meta-date" datetime="2019-12-29">Dec 29, 2019</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 7 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 8 min read</span>
                     </div>
                 </div>
             </section>
@@ -422,8 +422,9 @@ console.log(strrr.split(/, */, 3)); // [ 'a', 'b', 'c' ]
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">正则表达式应用:</h2>
 <pre><code class="language-javascript">// 1.连字符转驼峰
 let str = &quot;life-goes-on&quot;;
-let reg = /-\w/g; // 匹配横杆以及之后的一个字符，全局匹配
-// 注意这里不能是/^-\w$/g,会输出life-goes-on,因为^和$分别匹配字符串的开始位置和输出位置导致匹配不到
+let reg = /-\w/g; // 匹配横杆以及之后的一个字符, 全局匹配
+// 注意这里 /^-\w$/g 则会输出 life-goes-on , 因为 ^ 和 $ 分别匹配字符串的开始和输出位置——匹配不到全局
+// $1不是一个变量——它是一个在调用中使用的占位符.$n表示nth正则表达式的捕获组.
 console.log(str.replace(reg,function($1){
     return $1.slice(1).toUpperCase()
 })) // lifeGoesOn
@@ -432,11 +433,14 @@ console.log(str.replace(reg,function($1){
 var strr = &quot;100110011&quot;;
 // [xyz]字符集合-匹配所包含的任意一个字符.例如 [abc] 可以匹配 &quot;plain&quot; 中的&quot;a&quot;
 var regg = /^[01]+$/g;
-console.log(regg.test(strr)); // true
+var regg1 = /[01]+/g
+console.log(strr.match(regg)); // [ '100110011' ]
+console.log(strr.match(regg1)); // [ '100110011' ]
 
 // 3.非负十进制正整
 var num = 66;
 var numm = '+666';
+// ? 非贪婪匹配--尽可能少的匹配所搜索的字符串
 var zsreg = /^\+?[1-9][0-9]*$/;
 var zsregg = /\+?[1-9][0-9]*/g;
 console.log(zsreg.test(num)); // true
@@ -445,8 +449,10 @@ console.log(zsregg.test(8888)); // true
 
 // 4.匹配十二月
 let yue = '10';
+let noexistyue = '20';
 let yuereg = /^(0?[1-9]|1[012])$/g;
 console.log(yue.match(yuereg)); // [ '10' ]
+console.log(yue.match(noexistyue)); // null
 
 // 5.匹配QQ账号-最短5最长11
 let qq = '11111111';
@@ -465,9 +471,46 @@ console.log(ipp.match(ipreg)); // [ '127.0.0.1' ]
 
 // 8.匹配尖括号&lt;&gt;及里面所有的字符
 var str66 = &quot;&lt;a herf='www.zairesinatra.com'&gt;&quot;;
-// ^在方括号表达式中使用,此时它表示不接受该字符集合
+// ^ 在方括号表达式中使用表示不接受该字符集合
 var reg66 = /&lt;a[^&gt;]+&gt;/g; // ^&gt; 非 &gt;
 console.log(str66.match(reg66)); // [ &quot;&lt;a herf='www.zairesinatra.com'&gt;&quot; ]
+
+// 9.分割数字每三个以一个逗号划分(千位分隔符)
+var numstr = '12345678901'
+// ?=正向肯定预查,在任何匹配pattern的字符串开始处匹配查找字符串
+// 找到所有的单个字符,这些字符的后面跟随的字符的个数必须是3的倍数,并在符合条件的单个字符后面添加
+console.log(numstr.replace(/(\d)(?=(\d{3})+$)/g,'$&amp;,'));
+
+// 10.判断电话
+function tel (num) {
+    let reg = /^1[345678]\d{9}$/
+    return console.log(reg.test(num));
+}
+tel(13999999999) // true
+
+// 11.URL正则
+function urlreg (url) {
+    let reg = /^(https?|ftp|file):\/\/[\S]+\.[\S]+\.[\S]+$/;
+    let result = reg.test(url+'')
+    return console.log(result);
+}
+urlreg('https://www.zairesinatra.com') // true
+
+// 12.十六进制颜色正则
+function col (color) {
+    let reg = /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/;
+    let result = reg.test(color+'')
+    return console.log(result);
+}
+col('fff') // true
+
+// 13.邮箱验证
+function email (youxiang) {
+    let reg = /^[a-zA-Z0-9_\-]+@[a-zA-Z0-9_\-]+\.[a-zA-Z0-9_\-]+$/;
+    let result = reg.test(youxiang+'')
+    return console.log(result);
+}
+email('xxxxx@qq.com') // true
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议 </a>，转载请注明出处！</p>
@@ -525,8 +568,17 @@ console.log(str66.match(reg66)); // [ &quot;&lt;a herf='www.zairesinatra.com'&gt
 
 </article>
                     
-<article class="post-card post no-image ">
+<article class="post-card post ">
 
+    <a class="post-card-image-link" href="../mongodb/index.html">
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2021/08/mongodb.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2021/08/mongodb.jpg"
+            alt="MongoDB"
+            loading="lazy"
+        />
+    </a>
 
     <div class="post-card-content">
 
@@ -535,7 +587,7 @@ console.log(str66.match(reg66)); // [ &quot;&lt;a herf='www.zairesinatra.com'&gt
                 <h2 class="post-card-title">MongoDB</h2>
             </header>
             <section class="post-card-excerpt">
-                <p>安装 安装 MongoDB 5.0 社区版（先决条件：Xcode 命令行工具、Homebrew）：  下载 MongoDB 和数据库工具 # tap 命令允许 Homebrew 进入另一个公式存储库. 完成此操作则扩展可安装软件的选项 brew tap mongodb/brew 安装 MongoDB brew install mongodb-community@5.0 安装会在以下指定位置创建文件和目录，具体取决于 Apple 硬件：                           英特尔处理器           M1处理器                          配置文件           /usr/local/etc/mongod.conf           /opt/homebrew/etc/mongod.conf                     log directory           /usr/local/</p>
+                <p>关系型数据库全是表；No SQL 中都键值对。——文档数据库 MongoDB</p>
             </section>
         </a>
 
@@ -622,7 +674,7 @@ console.log(str66.match(reg66)); // [ &quot;&lt;a herf='www.zairesinatra.com'&gt
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=47461301c0"></script>
+<script src="../assets/built/casper.js%3Fv=21bbae31ea"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
