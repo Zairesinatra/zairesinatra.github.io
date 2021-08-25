@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/leetcode14/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/leetcodeques.jpg" />
     <meta property="article:published_time" content="2019-11-06T14:30:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-05T19:49:31.000Z" />
+    <meta property="article:modified_time" content="2021-08-25T09:51:58.000Z" />
     <meta property="article:tag" content="DataStructuresAndAlgorithms" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +63,7 @@
     "headline": "📝朴实无华且枯燥的力扣:14",
     "url": "yourdomain.com/leetcode14/",
     "datePublished": "2019-11-06T14:30:00.000Z",
-    "dateModified": "2021-07-05T19:49:31.000Z",
+    "dateModified": "2021-08-25T09:51:58.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/leetcodeques.jpg",
@@ -675,11 +675,11 @@
                 <amp-iframe src="https://open.spotify.com/embed/playlist/78ItgKYjnaiz0T9w56Hgce?theme=0" width="100%" height="180" frameborder="0" allowtransparency sandbox="allow-scripts allow-same-origin" layout="responsive"></amp-iframe><h2 id="%E9%97%AE%E9%A2%98">问题</h2>
 <p>leetcode: 14. 最长公共前缀：编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串<code>""</code>。</p>
 <p>示例 1：</p>
-<pre><code>输入：strs = ["flower","flow","flight"]
+<pre><code class="language-JavaScript">输入：strs = ["flower","flow","flight"]
 输出："fl"
 </code></pre>
 <p>示例 2：</p>
-<pre><code>输入：strs = ["dog","racecar","car"]
+<pre><code class="language-JavaScript">输入：strs = ["dog","racecar","car"]
 输出：""
 </code></pre>
 <h2 id="%E8%A7%A3%E6%B3%95">解法</h2>
@@ -688,7 +688,7 @@
 <li>初始化最长公共前缀 ans 的值为第一个字符串。</li>
 <li>遍历字符串，依次将其与 ans 比较，循环找出公共前缀，最终结果即为最长公共前缀。</li>
 </ul>
-<pre><code>// JavaScript
+<pre><code class="language-JavaScript">// JavaScript
 var longestCommonPrefix = function(strs) {
     if(strs.length === 0) {
         return '';
@@ -719,20 +719,20 @@ var longestCommonPrefix = function(strs) {
 </ol>
 <p>⭕️ <u><code>slice</code> 可操作数组和字符串，<code>splice</code> 只能操作数组，<code>substring</code> 和 <code>substr</code> 只能操作字符串。</u></p>
 <p><code>slice(start,stop)</code> 截取从下标 start 到下标 stop（不包括该元素）的之间的元素，返回新数组/新字符串，并不修改原数组/原字符串。</p>
-<pre><code>var str = "012345";
+<pre><code class="language-JavaScript">var str = "012345";
 console.log(str.slice(1,4)) // 123
 </code></pre>
 <p><code>splice(start,length,items)</code> 从下标 start 处截取 length 长度的元素后，在 start 处为原数组添加 items，并返回 <u>被截取的新数组</u>，splice会直接修改原数组。</p>
-<pre><code>var arr = [0,1,2,3,4,5];
+<pre><code class="language-JavaScript">var arr = [0,1,2,3,4,5];
 console.log(arr.splice(1,0,2,3,4)); // []
 console.log(arr); // [0,2,3,4,1,2,3,4,5] 
 </code></pre>
 <p><code>substring(start,stop)</code> 返回从 start 开始到 stop 处之间的新字符串。包含 start，但不包含 stop，不修改原字符串。</p>
-<pre><code>var str = "012345";
+<pre><code class="language-JavaScript">var str = "012345";
 console.log(str.substring(2,5)); // 234
 </code></pre>
 <p><code>substr(start,length)</code> 返回从 start 开始直到 length 长度的新字符串，包含 start，不修改原字符串。</p>
-<pre><code>var str = "012345";
+<pre><code class="language-JavaScript">var str = "012345";
 console.log(str.substr(2,2)) // 23
 </code></pre>
 <ol start="3">
@@ -741,7 +741,7 @@ console.log(str.substr(2,2)) // 23
 <p><code>break</code>: 直接跳出当前的循环，从当前循环外面开始执行。忽略且仅忽略当前循环体，只能跳出一层回圈。如果循环逐个嵌套，那么需要按照循环圈的层次，逐步使用 break 跳出。<br />
 <code>return</code>: 从当前的方法中退出，返回到使用该的方法的语句处继续执行。<br />
 <code>continue</code>: 终止当前的一次循环过程，不跳出循环，而是继续往下循环判断条件执行语句。只能结束循环中的一次过程，但不能终止循环继续进行。</p>
-<pre><code>function myBreak() {
+<pre><code class="language-JavaScript">function myBreak() {
     for(var i = 0; i &lt; 5; i++) {
         if(i == 3) {
             break;

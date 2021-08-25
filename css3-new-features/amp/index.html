@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/css3-new-features/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta property="article:published_time" content="2019-12-19T12:36:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-23T10:27:45.000Z" />
+    <meta property="article:modified_time" content="2021-08-25T15:43:15.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +63,7 @@
     "headline": "HTML5|CSS3",
     "url": "yourdomain.com/css3-new-features/",
     "datePublished": "2019-12-19T12:36:00.000Z",
-    "dateModified": "2021-08-23T10:27:45.000Z",
+    "dateModified": "2021-08-25T15:43:15.000Z",
     "keywords": "Technology growth",
     "description": "&quot;The greatest glory in living lies not in never falling, but in rising every time we fall.&quot; -Nelson Mandela",
     "mainEntityOfPage": {
@@ -640,7 +640,8 @@
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
-    <script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"></script>
+    <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
+<script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"></script>
 
 </head>
 
@@ -663,99 +664,76 @@
             </header>
             <section class="post-content">
 
-                <ul>
-<li>语义元素标签</li>
-</ul>
-<table>
-    <thead>
-        <tr><th> 标签 </th><th> 描述 </th></tr>
-    </thead>
-    <tbody>
-        <tr><td> header </td><td> 头部区域 </td></tr>
-        <tr><td> nav </td><td> 导航区域 </td></tr>
-        <tr><td> article </td><td> 内容区域 </td></tr>
-        <tr><td> section </td><td> 文档区段 </td></tr>
-        <tr><td> aside </td><td> 侧边栏 </td></tr>
-        <tr><td> footer </td><td> 底部区域 </td></tr>
-        <tr><td>.........</td><td>.........</td></tr>
-    </tbody>
-</table>
+                <h2 id="html5">HTML5</h2>
+<p>HTML 泛指 v4，XHTML 可以理解为 XML 风格的 HTML4，即标签关闭、属性小写且被包裹引号、id 代替 name 属性。HTML5 从表现上简化了文档类型声明 <code>&lt;!DOCTYPE html&gt;</code>、字符编码 <code>&lt;meta charset = "utf-8"/&gt;</code>、标签也在不区分大小写之余允许属性值不加引号。</p>
+<hr></hr>
 <ul>
-<li>增强表单元素</li>
+<li>新增元素</li>
 </ul>
-<p>输入类型：</p>
-<ul>
-<li>email =&gt; email 类型用于应该包含 e-mail 地址的输入域。在提交表单时，会自动验证 email 域的值。<code>E-mail: &lt;input type="email" name="user_email" /&gt;</code></li>
-<li>url =&gt; url类型用于应该包含 URL 地址的输入域。在提交表单时，会自动验证 url 域的值。<code>Homepage: &lt;input type="url" name="user_url" /&gt;</code></li>
-<li>number =&gt; number 类型用于应该包含数值的输入域。可进行对所接受的数字的限定<code>Points: &lt;input type="number" name="points" min="1" max="10" /&gt;</code></li>
-<li>range =&gt; range 类型用于应该包含一定范围内数字值的输入域。显示为滑动条。<code>&lt;input type="range" name="points" min="1" max="10" /&gt;</code></li>
-<li>Date pickers (date, month, week, time, datetime, datetime-local) =&gt; HTML5 拥有多个可供选取日期和时间的新输入类型：<code>Date: &lt;input type="date" name="user_date" /&gt;</code><br />
-Date: </li>
-<li>search =&gt; search 类型用于搜索域，比如站点搜索或 Google 搜索。</li>
-<li>color =&gt; 这个就比较孤独，仅Opera浏览器支持<br />
-当然以上HTML5新特性的强化表单都不支持IE浏览器。</li>
-</ul>
-<blockquote>
-<h4 id>新表单元素</h4>
-</blockquote>
-<ul>
-<li>datalist: =&gt; datalist 元素规定输入域的选项列表。</li>
-</ul>
-<pre><code>Webpage: &lt;input type="url" list="url_list" name="link" /&gt;
-&lt;datalist id="url_list"&gt;
-&lt;option label="zairesinatra" value="http://www.zairesinatra.com" /&gt;
-&lt;option label="Google" value="http://www.google.com" /&gt;
-&lt;option label="Microsoft" value="http://www.microsoft.com" /&gt;
+<p>为完善语义化标签，提高 SEO 优化，H5 新增结构元素 header、nav、article、aside、section、footer。</p>
+<p>增加 input 元素的验证(email、tel、url)与取值类型(range、number、color、date、time、month、week)。</p>
+<pre><code class="language-html">&lt;!-- 元素验证 --&gt;
+&lt;!-- 提交表单时,会自动验证 email 域的值 --&gt;
+&lt;form method="post"&gt;
+    &lt;p&gt;&lt;label&gt;电子邮件：&lt;input type="email" /&gt;&lt;/label&gt;&lt;/p&gt;
+    &lt;input type="submit" value="提交" /&gt;
+&lt;/form&gt;
+&lt;form method="post"&gt;
+    &lt;p&gt;&lt;label&gt;电话号码：&lt;input type="tel" /&gt;&lt;/label&gt;&lt;/p&gt;
+    &lt;input type="submit" value="提交" /&gt;
+&lt;/form&gt;
+&lt;!-- 验证url正确性 --&gt;
+&lt;form method="post"&gt;
+    &lt;p&gt;&lt;label&gt;你的网址：&lt;input type="url" /&gt;&lt;/label&gt;&lt;/p&gt;￼
+    &lt;input type="submit" value="提交" /&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!-- 取值类型 --&gt;
+&lt;input type="range" min="-10" max="10" step="5" value="-10"/&gt;
+&lt;input type="number" min="-10" max="10" step="5" value="-10"/&gt;
+&lt;input type="color" value="#4e4e4e"/&gt;
+&lt;input type="date|time|month|week" value=""/&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!-- 其他表单元素 --&gt;
+&lt;!-- 定义表单元素的输出结果或计算结果 --&gt;
+&lt;output&gt;&lt;/output&gt;
+&lt;!-- 为文本框提供一个可选的列表 --&gt;
+&lt;datalist id="zs"&gt;
+    &lt;option label="name1" value="111"&gt;&lt;/option&gt;
+    &lt;option label="name2" value="222"&gt;&lt;/option&gt;
+    &lt;option label="name3" value="333"&gt;&lt;/option&gt;
 &lt;/datalist&gt;
 </code></pre>
+<pre><code class="language-html">&lt;!-- 某一个任务的完成度 --&gt;
+&lt;progress max="100" value="90"&gt;&lt;/progress&gt;
+</code></pre>
 <ul>
-<li>keygen: =&gt; keygen 元素的作用是提供一种验证用户的可靠方法。即密钥对生成器。当提交表单时，会生成两个键，一个是私钥，一个公钥。私钥（private key）存储于客户端，公钥（public key）则被发送到服务器。公钥可用于之后验证用户的客户端证书（client certificate）。——当然，实际上这个功能很瓜皮，了解就好</li>
-<li>output: =&gt; output 元素用于不同类型的输出，比如计算或脚本输出 --一样麻瓜。</li>
+<li>元素拖放</li>
 </ul>
-<blockquote>
-<h4 id>新表单属性</h4>
-</blockquote>
-<ol>
-<li>新的 form 属性：</li>
-</ol>
-<ul>
-<li>autocomplete =&gt; autocomplete 属性规定 form 或 input 域应该拥有自动完成功能。</li>
-<li>novalidate =&gt; novalidate 属性规定在提交表单时不应该验证 form 或 input 域。</li>
-</ul>
-<ol start="2">
-<li>新的 input 属性：</li>
-</ol>
-<ul>
-<li>autocomplete =&gt; autocomplete 属性规定 form 或 input 域应该拥有自动完成功能。</li>
-<li>autofocus =&gt; autofocus 属性规定在页面加载时，域自动地获得焦点。</li>
-<li>form =&gt; form 属性规定输入域所属的一个或多个表单。比如firstname\lastname还是一个表单。</li>
-<li>form overrides (formaction, formenctype, formmethod, formnovalidate, formtarget)</li>
-<li>height 和 width =&gt; height 和 width 属性规定用于 image 类型的 input 标签的图像高度和宽度。</li>
-<li>list =&gt; list 属性规定输入域的 datalist。datalist 是输入域的选项列表。和上述的新表单元素一起使用。</li>
-<li>min, max 和 step =&gt; min、max 和 step 属性用于为包含数字或日期的 input 类型规定限定（约束）。</li>
-<li>multiple =&gt; multiple 属性规定输入域中可选择多个值。</li>
-<li>pattern (regexp) =&gt; pattern 属性规定用于验证 input 域的模式（pattern）。模式（pattern） 是正则表达式。</li>
-<li>placeholder =&gt; placeholder 属性提供一种提示（hint），描述输入域所期待的值。</li>
-<li>required =&gt; required 属性规定必须在提交之前填写输入域（不能为空）。</li>
-</ul>
-<hr></hr>
+<p>在 HTML5 中，给元素添加一个 draggable 属性并设置该属性值为 true，就能实现元素的拖放。但此时该元素只具备可拖曳的特点，并不能改变元素的位置。改变位置还需要结合触发事件（源元素、目标元素） ondragstart、ondrag、ondragend 之流进行操作。同时如果需要在元素拖放中实现数据传递，则需要使用 dataTransfer 对象在源元素与目标元素之间传递数据。dataTransfer 对象有两个最重要的方法：setData()和getData()。在整个拖曳过程中，开始拖放源元素时（ondragstart 事件），调用 setData() 方法保存数据；然后在放入目标元素时（ondrop 事件），调用 getData() 方法读取数据。</p>
 <ul>
 <li>音频与视频</li>
-<li>音频元素标签：<code>&lt;audio src="song.ogg" controls="controls"&gt;&lt;/audio&gt;</code></li>
-<li>视频元素标签：<code>&lt;video src="movie.ogg" controls="controls"&gt;&lt;video&gt;</code></li>
 </ul>
-<p><em><code>&lt;audio&gt;</code>元素支持<code>Ogg、MP3、Wav</code>音频格式</em><br />
-<em><code>&lt;video&gt;</code>元素支持<code>Ogg、MPEG、WebM</code>视频格式</em></p>
-<p><amp-audio src="https://res.cloudinary.com/dzb9ldnvl/video/upload/v1615061042/yuanyouhui.mp3" controls="controls"><div>和我一起来听 <em>周杰伦</em> 的<strong>《园游会》</strong> 有任何问题<strong>请联系<em>zairesinatra</em></strong></div></amp-audio></p>
-<hr></hr>
+<p>在HTML5中，使用audio元素来开发音频。支持的格式为 ogg、mp3、wav。</p>
+<pre><code class="language-html">&lt;audio src="music.mp3" autoplay controls loop preload="auto|metadata|none"&gt;
+&lt;/audio&gt;
+</code></pre>
+<p><amp-audio src="https://res.cloudinary.com/dzb9ldnvl/video/upload/v1615061042/yuanyouhui.mp3" controls="controls" loop><div>和我一起来听 <em>周杰伦</em> 的<strong>《园游会》</strong> 有任何问题<strong>请联系<em>zairesinatra</em></strong></div></amp-audio></p>
+<p>在 HTML5 中，使用 video 元素开发嵌入音频。也可以配合使用 video 元素和 source 元素，实现多种格式的视频播放。这里注意，主要支持格式有三种：ogg、mp4、WebM。</p>
+<pre><code class="language-html">&lt;video width="320" height="240" src="media/movie.mp4" autoplay controls loop&gt;&lt;/video&gt;
+&lt;!-- 浏览器能同时识别几种视频格式,则最终将使用第一个可识别的格式文件 --&gt;
+&lt;!-- 此时src属性是放在source元素中 --&gt;
+&lt;video autoplay controls loop preload="auto|metadata|none"&gt;
+    &lt;source type="vdieo/ogg" src="vdieo.ogg" /&gt;
+    &lt;source type="video/mp4" src="vdieo.mp4" /&gt;
+    &lt;source type="video/webm" src="vdieo.webm" /&gt;
+&lt;/video&gt;
+</code></pre>
 <ul>
-<li>Canvas绘图</li>
+<li>Canvas</li>
 </ul>
-<p>HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。</p>
-<p>画布是一个矩形区域，您可以控制其每一像素。</p>
-<p>canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。</p>
-<p>实例：</p>
-<pre><code>!DOCTYPE html&gt;
+<p>HTML5 有两个主要的 2D 图形技术：Canvas 和 SVG。Canvas 是使用 JS 动态生成，而 SVG 是使用 XML 静态描述。Canvas 基于位图，适用于像素处理和动态渲染，图形放大会影响质量，但是 SVG 是基于矢量的，图形放大不会影响质量。也就是说，使用 Canvas 绘制出来的是一个位图，而使用 SVG 绘制出来的是一个矢量图。每次发生修改，Canvas 需要重绘，而 SVG 不需要重绘。Canvas 与 SVG 的关系，简单来说就像美术与几何的一般。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -763,26 +741,21 @@ Date: </li>
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
     &lt;title&gt;canvas&lt;/title&gt;
     &lt;style type="text/css"&gt; 
-        body
-        {
-        font-size:70%;
-        font-family:verdana,helvetica,arial,sans-serif;
+        body{
+            font-size:70%;
+            font-family:verdana,helvetica,arial,sans-serif;
         }
-        &lt;/style&gt;
-        
-        &lt;script type="text/javascript"&gt; 
-        function cnvs_getCoordinates(e)
-        {
-        x=e.clientX;
-        y=e.clientY;
-        document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
+    &lt;/style&gt;
+    &lt;script type="text/javascript"&gt; 
+        function cnvs_getCoordinates(e){
+            x=e.clientX;
+            y=e.clientY;
+            document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
         }
-         
-        function cnvs_clearCoordinates()
-        {
-        document.getElementById("xycoordinates").innerHTML="";
+        function cnvs_clearCoordinates(){
+            document.getElementById("xycoordinates").innerHTML="";
         }
-        &lt;/script&gt;
+    &lt;/script&gt;
 &lt;/head&gt;
 &lt;body style="margin:0px;"&gt;
     &lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
@@ -804,8 +777,11 @@ Date: </li>
     &lt;div id="xycoordinates"&gt;&lt;/div&gt;
 
     &lt;script&gt;
+        // 获取Canvas对象
         var c=document.getElementById("myCanvas");
+        // 获取上下文环境对象Context
         var cxt=c.getContext("2d");
+        // 绘制图形
         cxt.fillStyle="#FF0000";
         cxt.fillRect(0,0,150,75);
         var c=document.getElementById("myCanvas2");
@@ -840,60 +816,126 @@ Date: </li>
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>详见<a href="https://www.w3school.com.cn/html5/html_5_canvas.asp">此处</a>。</p>
-<ul>
-<li>
-<p>SVG绘图<br />
-万维网联盟的标准 SVG 指可伸缩矢量图形 (Scalable Vector Graphics)。用于定义用于网络的基于矢量的图形，使用 XML 格式定义，且SVG 图像在放大或改变尺寸的情况下其图形质量不会有损失。</p>
-</li>
-<li>
-<p>地理定位<br />
-Geolocation API 用于获得用户的地理位置。鉴于该特性可能侵犯用户的隐私，除非用户同意，否则用户位置信息是不可用的。</p>
-</li>
-</ul>
-<p>使用 getCurrentPosition() 方法来获得用户的位置。</p>
-<pre><code>&lt;p id="demo"&gt;点击这个按钮，获得您的坐标：&lt;/p&gt;
-&lt;button onclick="getLocation()"&gt;试一下&lt;/button&gt;
-</code></pre>
-<pre><code>var x=document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
-  }
-function showPosition(position)
-  {// 返回用户位置的经度和纬度
-  x.innerHTML="Latitude: " + position.coords.latitude + 
-  "&lt;br /&gt;Longitude: " + position.coords.longitude;	
-  }
-</code></pre>
-<hr></hr>
-<ul>
-<li>拖放API</li>
-</ul>
-<hr></hr>
 <ul>
 <li>Web Worker</li>
 </ul>
-<p>web worker 是运行在后台的 JavaScript，不会影响页面的性能。</p>
-<p><strong>对比：</strong></p>
+<p>浏览器没有响应往往是因为某段 JavaScript 代码长时间运行（死循环），导致后面的任务无法执行。H5 中提供多线程解决方案，即通过 Web Worker 创建后台线程执行某段耗时较长的 JS 程序，保证页面正常响应。</p>
+<p>在当前 JavaScript 主线程中，使用 Worker() 构造函数新建一个 worker 实例加载某段 JS 文件，发送给一个后台线程处理。</p>
+<pre><code class="language-javascript">// 新建worker实例
+var worker = new Worker('worker.js'); // 参数url表示需要发送到后端线程处理的JavaScript文件的路径
+worker.postMessage("zszszs"); // 向后端发送数据给worker线程 =&gt; 跳入后端
+// 接收后端处理完成的数据
+worker.onmessage = function(e){
+    console.log(e.data) // e.data￼获取发过来的数据 szszsz
+};
+</code></pre>
+<pre><code class="language-javascript">// 后端 worker.js
+onmessage = function(e){
+    // 通过e.data获取前端发送来的数据
+    var str = e.data.split("").reverse().join("");
+    postMessage(str);
+};
+</code></pre>
 <ul>
-<li>当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。</li>
-<li>web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。</li>
-</ul>
-<hr></hr>
-<ul>
-<li>Web Storage<br />
-HTML5 提供了两种在客户端存储数据的新方法：</li>
-<li>localStorage - 没有时间限制的数据存储</li>
-<li>sessionStorage - 针对一个 session 的数据存储<br />
-之前，这些都是由 cookie 完成的。但是 cookie 不适合大量数据的存储，因为它们由每个对服务器的请求来传递，这使得 cookie 速度很慢而且效率也不高。</li>
+<li>地理位置与本地存储详见本博客BOM与本地数据存储</li>
 </ul>
 <h2 id="css3">CSS3</h2>
+<p>CSS3 新技术包括：新选择器、文本|颜色|边框|背景样式、2D变形|过渡|动画、多列|弹性布局等。由于新增的一些属性尚未成为 W3C 标准，因此这部分属性在使用上需要携带具有特定内核浏览器的自身私有前缀属性。如果要求 IE6~IE8 兼容则通过 ie-css3.htc 进行实现。</p>
+<table>
+    <thead>
+        <tr><th> 私有前缀 </th><th> 对应浏览器 </th></tr>
+    </thead>
+    <tbody>
+        <tr><td> -webkit- </td><td> Chrome、Safari </td></tr>
+        <tr><td> -moz- </td><td> Firefox </td></tr>
+        <tr><td> -ms- </td><td> IE </td></tr>
+        <tr><td> -o- </td><td> Opera </td></tr>
+    </tbody>
+</table>
 <hr></hr>
+<ul>
+<li>新增选择器</li>
+</ul>
+<p>在 CSS2 选择器基础上（元素、id、class、群组、层次选择器），CSS3 新增加了三大类选择器：属性选择器、结构伪类选择器、UI伪类选择器。</p>
+<pre><code class="language-css">/* 属性选择器 */
+E[attr^|$|*="xxx"]
+/* 百度文档分类图示实现示例 */
+a[href$="doc"]::before{
+    content: url("..."); /* ::before|after 常配合 content 属性使用 */
+}
+
+/* 结构伪类选择器 */
+ul li:nth-child(odd|even|num)
+E:nth-of-type(n) /* 父类型下的第n个子元素,和上方法有差别 */
+
+/* UI伪类选择器 */
+:focus | ::selection | :checked | :enabled和:disabled | read-write和:read-only
+</code></pre>
+<ul>
+<li>文本样式</li>
+</ul>
+<table>
+    <thead>
+        <tr><th> 属性 </th><th> 说明 </th></tr>
+    </thead>
+    <tbody>
+        <tr><td> text-shadow:x-offset y-offset blur color </td><td> 文本阴影 </td></tr>
+        <tr><td> text-stroke: width color </td><td> 文本描边 </td></tr>
+        <tr><td> text-overflow: ellipsis | clip </td><td> 文本溢出 </td></tr>
+        <tr><td> word-wrap: normal | break-word </td><td> 强制换行 </td></tr>
+        <tr><td> @font-face{ font-family: Arial, src: url() } </td><td> 嵌入服务器端字体 </td></tr>
+    </tbody>
+</table><ul>
+<li>颜色样式</li>
+</ul>
+<p>在 CSS3 中增加了定义颜色方面样式的属性，主要包括3种：opacity透明度、RGBA颜色、CSS3渐变。opacity 属性在实际开发中可以配合 :hover 来开发悬停在某个按钮或图片上改变透明度的动态的效果。需要注意的是 opacity 属性效果会渗透到其子元素中。RGB是一种色彩标准，语法为 <code>rgba(R, G, B, Alpha)</code>。渐变有线性渐变和径向渐变，都是由定位以及始末颜色组成。</p>
+<pre><code class="language-css">background:linear-gradient(to right|left, start-color, stop-color);￼
+background:radial-gradient([position,[ shape[ size,]]] start-color, stop-color)
+</code></pre>
+<ul>
+<li>边框样式</li>
+</ul>
+<p>边框样式即对元素边框增加了修饰属性。主要由 border-radius、box-shadow、border-image 组成。</p>
+<pre><code class="language-css">border-radius: 左上角、右上角、右下角、左下角;
+&lt;!-- 半圆原理: 左上角和右上角的圆角半径定义与元素的高度一致，而右下角和左下角的圆角半径定义为0 --&gt;
+border-radius:50px 50px 0 0;
+&lt;!-- border-radius属性来实现椭圆: x表示圆角的水平半径，y表示圆角的垂直半径 --&gt;
+border-radius:x/y;
+&lt;!-- 派生子属性 --&gt;
+border-position1-position2-radius: xx; &lt;!-- position1 position2 角 --&gt;
+box-shadow:x-offset y-offset blur spread阴影尺寸 color outset|inset;
+&lt;!-- 可以使用 border-image 属性为边框添加背景图片 --&gt;
+border-image:url() 切割宽度 repeat|round|stretch;￼
+</code></pre>
+<ul>
+<li>2D变形|过度|动画</li>
+</ul>
+<pre><code class="language-css">/* 注重变形结果的 transform */
+transform: translateX(x); /* 沿 x 轴方向平移 */
+transform: translateY(y); /* 沿 y 轴方向平移 */
+transform: translate(x, y); /* 沿 x 轴和 y 轴同时平移 */
+transform: scaleX(x); /* 沿x轴方向缩放 */
+transform: scaleY(y); /* 沿y轴方向缩放 */
+transform: scale(x, y); /* 沿x轴和y轴同时缩放 */
+transform: skewX(x); /* 沿x轴方向倾斜deg */
+transform: skewY(y); /* 沿y轴方向倾斜deg */
+transform: skew(x, y);　/* 沿x轴和y轴同时倾斜deg */
+transform: rotate(angle); /* 元素顺旋转角度 */
+transform-origin: 取值; /* 改变元素中心点 */
+/* 注重平滑变形过程的 transition */
+transition-property: property /* CSS属性 */;
+transition-duration: timer; /* 过渡的持续时间 */
+transition-timing-function: ease(渐慢)|linear|ease-in(渐快)|ease-out(渐隐)|ease-in-out(渐显渐隐); /* 过渡方式 */
+transition-delay:0; /* 延迟时间 */
+transition: property timer func delaytimer;
+/* transition属性只能实现一次性的动画效果,而animation属性可以实现连续性的动画效果 */
+@keyframes funcName{
+    0%{border-radius:0;}
+    50%{border-radius:50px; transform:translateX(0);}
+    100%{border-radius:50px; transform:translateX(50px);}
+}
+animation: funcName timer mode;
+</code></pre>
 <ul>
 <li>多列布局——column</li>
 </ul>
@@ -999,124 +1041,14 @@ HTML5 提供了两种在客户端存储数据的新方法：</li>
 </code></pre>
 <pre><code class="language-html">&lt;div class="outer" &gt;
     &lt;div class="item"&gt;
+      &lt;!-- 修改图片大小即可 --&gt;
       &lt;img src="http://source.unsplash.com/random/400x600"/&gt;
       &lt;h2&gt;Title Goes Here&lt;/h2&gt;
       &lt;p&gt;
         I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
       &lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x300"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x500"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x400"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x700"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x200"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x600"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x500"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x800"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x200"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x600"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x300"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x400"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x600"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x200"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x300"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class="item"&gt;
-      &lt;img src="http://source.unsplash.com/random/400x400"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
+    ...
 &lt;/div&gt;
 </code></pre>
 <ul>
@@ -1148,16 +1080,125 @@ HTML5 提供了两种在客户端存储数据的新方法：</li>
         <tr><th> 属性 </th><th> 描述 </th></tr>
     </thead>
     <tbody>
-        <tr><td> flex </td><td> flex-grow、flex-shrink、flex-basis的复合属性 </td></tr>
-        <tr><td> flex-flow </td><td> flex-direction、flex-wrap的复合属性 </td></tr>
+        <tr><td> flex(默认值为 1 0 auto) </td><td> flex-grow、flex-shrink、flex-basis的复合属性 </td></tr>
+        <tr><td> flex-flow(默认值为 row nowrap) </td><td> flex-direction、flex-wrap的复合属性 </td></tr>
         <tr><td> order </td><td> 定义子元素排列顺序 </td></tr>
-        <tr><td> justify-content </td><td> 子元素在横轴对其方式 </td></tr>
-        <tr><td> align-items </td><td> 子元素在纵轴对其方式 </td></tr>
+        <tr><td> justify-content(flex-start|center|flex-end|space-between|space-around) </td><td> 子元素在横轴对其方式(间隔都在中间) </td></tr>
+        <tr><td> align-items(flex-start|center|flex-end|baseline|stretch) </td><td> 子元素在纵轴对其方式(间隔会环绕) </td></tr>
         <tr><td>.........</td><td>.........</td></tr>
     </tbody>
 </table>
 <p>弹性盒模型成立的前提条件是必须为父元素定义 <code>display:flex;</code> 或 <code>display:inline-flex;</code> 属性，这样父元素才具有弹性盒子模型的特点。在弹性盒模型中，子元素宽度之和小于父元素，则子元素最终宽度就是原来定义的宽度；如果说子元素宽度之和大于父元素，那么子元素会按比例来划分宽度。</p>
-<p></p><p></p><figure class="kg-card kg-image-card kg-width-full"><amp-img src="https://static.ghost.org/v3.0.0/images/integrations-icons.png" class="kg-image" alt width="3318" height="801" layout="responsive"></amp-img></figure><h2 id>结束</h2>
+<pre><code class="language-css">// 垂直居中-flex
+#father{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 160px;
+    border: 1px solid silver;
+    }
+#son{
+    width:100px;
+    height:50px;
+    background-color:hotpink;
+    }
+</code></pre>
+<pre><code class="language-html">&lt;div id="father"&gt;
+    &lt;div id="son"&gt;&lt;/div&gt;
+&lt;/div&gt;￼
+</code></pre>
+<ul>
+<li>其他样式</li>
+</ul>
+<p>使用 outline 属性来定义表单中文本框的轮廓线样式，outline 属性跟 border 属性很相似，可以把轮廓线看成是一条特殊的边框来理解。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;canvas&lt;/title&gt;
+    &lt;style type="text/css"&gt; 
+        body
+        {
+            font-size:70%;
+            font-family:verdana,helvetica,arial,sans-serif;
+        }
+    &lt;/style&gt;
+    &lt;script type="text/javascript"&gt; 
+        function cnvs_getCoordinates(e){
+            x=e.clientX;
+            y=e.clientY;
+            document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
+        }
+         
+        function cnvs_clearCoordinates(){
+            document.getElementById("xycoordinates").innerHTML="";
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body style="margin:0px;"&gt;
+    &lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+    &lt;canvas id="myCanvas2" width="200" height="100"&gt;&lt;/canvas&gt;
+    &lt;canvas id="myCanvas3" width="200" height="100" style="border:1px solid #c3c3c3;"&gt;
+        Your browser support the canvas element.
+    &lt;/canvas&gt;
+    &lt;canvas id="myCanvas4" width="200" height="100" style="border:1px solid #c3c3c3;"&gt;
+        Your browser does not support the canvas element.
+    &lt;/canvas&gt;
+    &lt;canvas id="myCanvas5" width="200" height="100" style="border:1px solid #c3c3c3;"&gt;
+        Your browser does not support the canvas element.
+    &lt;/canvas&gt;
+    &lt;p&gt;把鼠标悬停在下面的矩形上可以看到坐标：&lt;/p&gt;
+    &lt;div id="coordiv" style="float:left;width:199px;height:99px;border:1px solid #c3c3c3" onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()"&gt;&lt;/div&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;div id="xycoordinates"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        // 获取Canvas对象
+        var c=document.getElementById("myCanvas");
+        // 获取上下文环境对象Context
+        var cxt=c.getContext("2d");
+        // 绘制图形
+        cxt.fillStyle="#FF0000";
+        cxt.fillRect(0,0,150,75);
+        var c=document.getElementById("myCanvas2");
+        var cxt=c.getContext("2d");
+        cxt.moveTo(0,0);
+        cxt.lineTo(50,50);
+        cxt.lineTo(100,50);
+        cxt.stroke();// 呈现\上色——和线联系在一起
+        // -----圆形-----
+        var cc=document.getElementById("myCanvas3");
+        var cxk=cc.getContext("2d");
+        cxk.fillStyle="#FF0000"; // 注入红色
+        cxk.beginPath(); // 清空子路径列表来启动新路径,当要创建新路径时调用此方法
+        cxk.arc(70,18,15,0,Math.PI*2,true);
+        cxk.closePath();
+        cxk.fill();
+        // -----渐变-----
+        var cdcd=document.getElementById("myCanvas4");
+        var cxtcdcd=cdcd.getContext("2d");
+        var grd=cxtcdcd.createLinearGradient(0,0,175,50);
+        grd.addColorStop(0,"#06B4FE");
+        grd.addColorStop(1,"#00B26A");
+        cxtcdcd.fillStyle=grd;
+        cxtcdcd.fillRect(0,0,175,50);
+        // --图像放置画布--：
+        var cqqq=document.getElementById("myCanvas5");
+        var cxtqqq=cqqq.getContext("2d");
+        var img=new Image()
+        img.src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622656923/blog/nonocat_feqccv.webp"
+        cxtqqq.drawImage(img,0,0);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<amp-anim src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622708217/blog/%E6%9C%80%E5%B0%8F%E5%A4%96%E8%BE%B9%E8%B7%9D_cwtofx.gif" width="2142" height="972" layout="responsive"></amp-anim>
+<p>在 CSS2 中，可以使用 overflow 属性来定义内容超出元素大小时应该如何处理。而 CSS3 中新增的 overflow-x 属性用来定义内容超出元素宽度时应该如何处理，overflow-y 属性用来定义内容超出元素高度时应该如何处理。这两个属性都有4种取值：visible、hidden、scroll、auto。</p>
+<figure class="kg-card kg-image-card kg-width-full"><amp-img src="https://static.ghost.org/v3.0.0/images/integrations-icons.png" class="kg-image" alt width="3318" height="801" layout="responsive"></amp-img></figure><h2 id>结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处  <a href="https://blog.zairesinatra.com">zairesinatra's blog</a>！</p>
 
 

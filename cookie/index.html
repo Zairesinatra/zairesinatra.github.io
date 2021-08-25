@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-    <title>🍪Cookie, LocalStorage 与 SessionStorage</title>
+    <title>🍪本地数据存储</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
@@ -17,26 +17,26 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="🍪Cookie, LocalStorage 与 SessionStorage" />
-    <meta property="og:description" content="Cookie Cookie 是 Netscape 公司最先提出，用作于保存登录信息。通常在进行页面的初次登录后 chrome 会提醒用户是否储存账户信息 —— 往 Cookie 里存入辨别用户身份的数据。  每一次客户发送http请求，浏览器都会查看是否存在对应的cookie。有则自动添加在 RequestHeader 中 cookie 字段。  LocalStorage LocalStorage 是 HTML5 新增的持久化本地存储方案。除非通过 JS 代码或者清除缓存，否则数据一直存在。  SessionStorage SessionStorage（会话存储）可以将一部分数据在当前会话页面中保存，且不惧页面刷新。但当页面关闭后，sessionStorage 中的数据就会被清空。因保存数据的生命周期较 localStorage 更短，所以常应用来保存 Token 。  // 保存数据到 sessionStorage sessionStorage.setItem(&#x27;key&#x27;, &#x27;value&#x27;); // 从 sessionStorage 获取数据" />
+    <meta property="og:title" content="🍪本地数据存储" />
+    <meta property="og:description" content="Cookie、LocalStorage、SessionStorage 和 IndexedDB" />
     <meta property="og:url" content="yourdomain.com/cookie/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/08/Cookies.jpg" />
     <meta property="article:published_time" content="2020-04-11T22:50:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-19T18:13:24.000Z" />
+    <meta property="article:modified_time" content="2021-08-25T09:47:56.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="🍪Cookie, LocalStorage 与 SessionStorage" />
-    <meta name="twitter:description" content="Cookie Cookie 是 Netscape 公司最先提出，用作于保存登录信息。通常在进行页面的初次登录后 chrome 会提醒用户是否储存账户信息 —— 往 Cookie 里存入辨别用户身份的数据。  每一次客户发送http请求，浏览器都会查看是否存在对应的cookie。有则自动添加在 RequestHeader 中 cookie 字段。  LocalStorage LocalStorage 是 HTML5 新增的持久化本地存储方案。除非通过 JS 代码或者清除缓存，否则数据一直存在。  SessionStorage SessionStorage（会话存储）可以将一部分数据在当前会话页面中保存，且不惧页面刷新。但当页面关闭后，sessionStorage 中的数据就会被清空。因保存数据的生命周期较 localStorage 更短，所以常应用来保存 Token 。  // 保存数据到 sessionStorage sessionStorage.setItem(&#x27;key&#x27;, &#x27;value&#x27;); // 从 sessionStorage 获取数据" />
+    <meta name="twitter:title" content="🍪本地数据存储" />
+    <meta name="twitter:description" content="Cookie、LocalStorage、SessionStorage 和 IndexedDB" />
     <meta name="twitter:url" content="yourdomain.com/cookie/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/08/Cookies.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="Technology growth" />
     <meta name="twitter:site" content="@xieziyi0422" />
     <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1333" />
+    <meta property="og:image:height" content="1125" />
     
     <script type="application/ld+json">
 {
@@ -65,12 +65,18 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "🍪Cookie, LocalStorage 与 SessionStorage",
+    "headline": "🍪本地数据存储",
     "url": "yourdomain.com/cookie/",
     "datePublished": "2020-04-11T22:50:00.000Z",
-    "dateModified": "2021-08-19T18:13:24.000Z",
+    "dateModified": "2021-08-25T09:47:56.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/08/Cookies.jpg",
+        "width": 2000,
+        "height": 1125
+    },
     "keywords": "Technology growth",
-    "description": "Cookie\nCookie 是 Netscape 公司最先提出，用作于保存登录信息。通常在进行页面的初次登录后 chrome 会提醒用户是否储存账户信息 —— 往\nCookie 里存入辨别用户身份的数据。\n\n每一次客户发送http请求，浏览器都会查看是否存在对应的cookie。有则自动添加在 RequestHeader 中 cookie 字段。\n\nLocalStorage\nLocalStorage 是 HTML5 新增的持久化本地存储方案。除非通过 JS 代码或者清除缓存，否则数据一直存在。\n\nSessionStorage\nSessionStorage（会话存储）可以将一部分数据在当前会话页面中保存，且不惧页面刷新。但当页面关闭后，sessionStorage\n中的数据就会被清空。因保存数据的生命周期较 localStorage 更短，所以常应用来保存 Token 。\n\n// 保存数据到 sessionStorage\nsessionStorage.setItem(&#x27;key&#x27;, &#x27;value&#x27;);\n\n// 从 sessionStorage 获取数据\nlet data &#x3D; sessionS",
+    "description": "Cookie、LocalStorage、SessionStorage 和 IndexedDB",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -240,7 +246,7 @@ pre[class*="language-"] {
 
 
 
-<article class="article post tag-technology-growth no-image">
+<article class="article post tag-technology-growth">
 
     <header class="article-header gh-canvas">
 
@@ -248,8 +254,9 @@ pre[class*="language-"] {
             <a href="../tag/technology-growth/index.html">Technology growth</a>
         </section>
 
-        <h1 class="article-title">🍪Cookie, LocalStorage 与 SessionStorage</h1>
+        <h1 class="article-title">🍪本地数据存储</h1>
 
+        <p class="article-excerpt">Cookie、LocalStorage、SessionStorage 和 IndexedDB</p>
 
         <div class="article-byline">
             <section class="article-byline-content">
@@ -264,76 +271,36 @@ pre[class*="language-"] {
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
                         <time class="byline-meta-date" datetime="2020-04-12">Apr 12, 2020</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 8 min read</span>
                     </div>
                 </div>
             </section>
         </div>
 
+        <figure class="article-image">
+            <img
+                srcset="../content/images/size/w2000/2021/08/Cookies.jpg 2000w"
+                sizes="(min-width: 1400px) 1400px, 92vw"
+                src="../content/images/size/w2000/2021/08/Cookies.jpg"
+                alt="cookies"
+            />
+                <figcaption>cookies</figcaption>
+        </figure>
     </header>
 
     <section class="gh-content gh-canvas">
         <!--kg-card-begin: markdown--><h2 id="cookie">Cookie</h2>
-<p>Cookie 是 Netscape 公司最先提出，用作于保存登录信息。通常在进行页面的初次登录后 chrome 会提醒用户是否储存账户信息 —— 往 Cookie 里存入辨别用户身份的数据。</p>
-<p>每一次客户发送http请求，浏览器都会查看是否存在对应的cookie。有则自动添加在 RequestHeader 中 cookie 字段。</p>
-<h2 id="localstorage">LocalStorage</h2>
-<p>LocalStorage 是 HTML5 新增的<u>持久化本地存储</u>方案。除非通过 JS 代码或者清除缓存，否则数据一直存在。</p>
-<h2 id="sessionstorage">SessionStorage</h2>
-<p>SessionStorage（会话存储）可以将一部分数据在当前会话页面中保存，且不惧页面刷新。但当页面关闭后，sessionStorage 中的数据就会被清空。因保存数据的生命周期较 localStorage 更短，所以常应用来保存 Token 。</p>
-<pre><code>// 保存数据到 sessionStorage
-sessionStorage.setItem('key', 'value');
-
-// 从 sessionStorage 获取数据
-let data = sessionStorage.getItem('key');
-
-// 从 sessionStorage 删除保存的数据
-sessionStorage.removeItem('key');
-
-// 从 sessionStorage 删除所有保存的数据
-sessionStorage.clear();
-</code></pre>
-<ul>
-<li>三者对比</li>
-</ul>
-<table>
-    <thead style="text-align:center">
-        <tr>
-            <th> 特性 </th>
-            <th> Cookie </th>
-            <th> LocalStorage </th>
-            <th> SessionStorage </th>
-        </tr>
-    </thead>
-    <tbody style="text-align:center">
-        <tr>
-            <td> 数据的生命期 </td>
-            <td> 服务器生成，可设Expires </td>
-            <td> 除非清除，否则永存 </td>
-            <td> 当前会话下有效，关闭页面则清除 </td>
-        </tr>
-        <tr>
-            <td> 存放数据大小 </td>
-            <td> 4K左右 </td>
-            <td> 一般为5MB </td>
-        </tr>
-        <tr>
-            <td> 与服务器端通信 </td>
-            <td> 携带在HTTP请求头 </td>
-            <td> 仅在浏览器中保存，不参与服务器通信 </td>
-        </tr>
-    </tbody>
-</table>
-<ul>
-<li>封装 Cookie 的设置、读取与删除</li>
-</ul>
-<pre><code>// 设置Cookie
+<p>在 HTML4.01 中，想要在浏览器端存储用户的某些数据时，一般只能使用 Cookie 来实现。Cookie 是 Netscape 公司最先提出，用作于保存登录信息。通常在进行页面的初次登录后 chrome 会提醒用户是否储存账户信息 —— 往 Cookie 里存入辨别用户身份的数据。每一次客户发送http请求，浏览器都会查看是否存在对应的cookie。有则自动添加在 RequestHeader 中 cookie 字段。不过 Cookie 这种方式有很多限制因素。大小限制：大多数浏览器支持最大为4KB的 Cookie。数量限制：大多数浏览器只允许每个站点存储20个 Cookie，如果想要存储更多 Cookie，则旧的 Cookie 将会被丢弃。有些浏览器还会对它们将接收的来自所有站点的 Cookie 总数做出绝对限制，通常为300个。 Cookie 默认情况下都会随着 HTTP 请求发送到后台，但是实际上大多数请求都是不需要 Cookie 的。</p>
+<p>为了解决 Cookie 方式的限制，HTML5 新增了3种全新的数据存储方式：localStorage、sessionStorage 和 indexedDB。其中，localStorage 用于永久保存客户端的少量数据， sessionStorage 用于临时保存客户端的少量数据，而 indexedDB 用于永久保存客户端的大量数据。</p>
+<pre><code class="language-javascript">// 封装 Cookie 的设置、读取与删除
+// 设置Cookie
 function setCookie (key, value, t) { // t设置cookie多久过期,通常设置天数
   var myTime = new Date();
   myTime.setDate(myTime.getDate() + t);
   document.cookie = key + &quot;=&quot; + value + &quot;;expires=&quot; + myTime.toUTCString();
 }
-</code></pre>
-<pre><code>// 读取Cookie
+
+// 读取Cookie
 function getCookie (name) {
   var arr = document.cookie.split(';'); // 通过&quot;;&quot;分隔cookie
   for (var i = 0 ; i &lt; arr.length ; i++) {
@@ -344,13 +311,185 @@ function getCookie (name) {
   }
   return &quot;&quot;; // 遍历完成没有找到则返回空
 }
-</code></pre>
-<pre><code>// 删除Cookie
+
+// 删除Cookie
 function removeCookie (key) {
   setCookie(key, &quot;1&quot;, -1) // 设置的value随意,主要是t的意思则是已过期,可删除
 }
 </code></pre>
-<hr>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="localstoragesessionstorage">localStorage 和 sessionStorage</h2>
+<p>Storage 一般为 5MB。仅在客户端（浏览器）中保存，不参与服务器的通信。</p>
+<p>不同浏览器的 localStorage（本地存储）数据是不可以共用的。作为新增的持久化本地存储方案，即使浏览器被关闭，使用 localStorage 对象保存的数据也不会丢失，下次打开浏览器访问网站时仍然可以继续使用。应用于购物车或者页面游戏。</p>
+<p>SessionStorage（会话存储）可以将一部分数据在当前会话页面中保存。不同于页面刷新，当页面关闭后，sessionStorage 中的数据就会被清空。也因为保存数据的生命周期较 localStorage 更短，所以常应用来保存 Token 。</p>
+<pre><code class="language-javascript">// localStorage|sessionStorage通用方法
+// 保存数据
+localStorage|sessionStorage.setItem('key', 'value');
+
+// 获取数据
+let data = localStorage|sessionStorage.getItem('key');
+
+// 删除指定数据
+localStorage|sessionStorage.removeItem('key');
+
+// 删除所有数据
+localStorage|sessionStorage.clear();
+
+// 获取第 n 个数据
+localStorage|sessionStorage.key(n);
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="indexeddb">indexedDB</h2>
+<p>新增的 indexedDB 是一种存储在客户端本地的 NoSQL 数据库（对象数据库而不是关系数据库，相对于传统的关系数据库功能简化，却足够满足实际开发），用于在本地存储大量数据。</p>
+<pre><code class="language-javascript">// 新建\打开数据库
+var request = window.indexedDB.open(&quot;mydb&quot;, 1.0); // 数据库名,版本号
+request.onerror = function(){
+    console.log(&quot;创建或打开数据库失败！&quot;);
+};
+request.onsuccess = function(e){
+    console.log(&quot;创建或打开数据库成功！&quot;);
+};
+
+var data=[{id:1001,name:&quot;zs&quot;,age:22},{id:1002,name:&quot;zy&quot;,age:23},{  id:1003,name:&quot;zszy&quot;,age:24}];
+// 操作数据库
+// 在indexedDB中,一个对象仓库就是一张表
+request.onupgradeneeded=function(e){
+    var db = e.target.result; 
+    // 如果数据库中不包含该对象仓库(表),则创建新的对象仓库 
+    if(!db.objectStoreNames.contains(&quot;zsindexeddb&quot;)){ // 判断对象仓库(表)
+        var store = db.createObjectStore(&quot;zsindexeddb&quot;,{keyPath:&quot;id&quot;}); // keyPath: 主键名
+        for(var i = 0 ; i &lt; data.length;i++){
+            var addRequest = store.add(data[i]);
+            addRequest.onerror = function(){
+                console.log(&quot;添加数据失败！&quot;)
+            };
+            addRequest.onsuccess = function(){
+                console.log(&quot;添加数据成功！&quot;)
+            };
+        }
+    }
+};
+
+// 增删改查
+// 凡是涉及对象仓库的增删查改,都是使用事务来处理
+
+// 删除数据库
+// 执行删除数据库操作后,如果发现数据库依旧存在,可能是因为 indexedDB 没有刷新,在【indexedDB】选项上面单击鼠标右键,点击【Refresh indexedDB】即可实现刷新
+var request = window.indexedDB.deleteDatabase(&quot;mydb&quot;(数据库名));
+request.onerror = function(){
+    console.log(&quot;删除数据库失败！&quot;);
+};
+request.onsuccess = function(e){
+    console.log(&quot;删除数据库成功！&quot;);
+};
+</code></pre>
+<pre><code class="language-javascript">// 凡是涉及对象仓库的增删查改,都是使用事务来处理,都是在请求对象request的onsuccess事件中操作
+// 增加add
+var data=[{id:1004,name:&quot;java&quot;,age:25},{id:1005,name:&quot;js&quot;,age:26},{id:1006,name:&quot;c++&quot;,age:27}];
+var request = window.indexedDB.open(&quot;mydb&quot;,2.0);
+request.onerror = function(){
+    console.log('创建或打开数据库失败！');
+};
+request.onsuccess = function(e){
+    console.log(&quot;创建或打开数据库成功！&quot;);
+    var {result: db} = e.target; // 获取数据库对象IDBOpenDBRequest
+    var transaction = db.transaction([&quot;zsindexeddb&quot;],&quot;readwrite&quot;); // 开启事务 (表名, mode:read|readwrite)
+    var store = transaction.objectStore(&quot;zsindexeddb&quot;); // 调用 transaction 对象的 objectStore() 方法来连接对象仓库
+    for(var i = 0 ; i &lt; data.length;i++){
+        var dataRequest = store.add(data[i]);
+        dataRequest.onerror = function(){
+            console.log(&quot;添加数据失败！&quot;);};
+        dataRequest.onsuccess = function(){
+            console.log(&quot;添加数据成功！&quot;);
+        };
+    }
+};
+// 删除delete
+var request = window.indexedDB.open(&quot;mydb&quot;,2.0);
+request.onerror = function(){
+    console.log('创建或打开数据库失败！');
+};
+request.onsuccess = function(e){
+    console.log(&quot;创建或打开数据库成功！&quot;);
+    var {result: db} = e.target; // 获取数据库对象IDBOpenDBRequest
+    var transaction = db.transaction([&quot;zsindexeddb&quot;],&quot;readwrite&quot;); // 开启事务 (表名, mode:read|readwrite)
+    var store = transaction.objectStore(&quot;zsindexeddb&quot;); // 调用 transaction 对象的 objectStore() 方法来连接对象仓库
+    var dataRequest = store.delete(1006);
+    dataRequest.onerror = function(){
+        console.log(&quot;删除数据失败！&quot;);
+    };
+    dataRequest.onsuccess = function(){
+        console.log(&quot;删除数据成功！&quot;);
+    };
+}
+// 查找数据
+var request = window.indexedDB.open(&quot;mydb&quot;,2.0);
+request.onerror = function(){
+    console.log('创建或打开数据库失败！');
+};
+request.onsuccess = function(e){
+    console.log(&quot;创建或打开数据库成功！&quot;);
+    var {result: db} = e.target; // 获取数据库对象IDBOpenDBRequest
+    var transaction = db.transaction([&quot;zsindexeddb&quot;],&quot;readwrite&quot;); // 开启事务 (表名, mode:read|readwrite)
+    var store = transaction.objectStore(&quot;zsindexeddb&quot;); // 调用 transaction 对象的 objectStore() 方法来连接对象仓库
+    var dataRequest = store.get(1002);
+    dataRequest.onerror = function(){
+        console.log(&quot;获取数据失败！&quot;);
+    };
+    dataRequest.onsuccess = function(){
+        if(this.result == undefined){
+            console.log(&quot;没有符合条件的数据&quot;);
+        } else {
+            console.log(&quot;获取数据成功!&quot;, this.result);
+        }
+    };
+}
+// 改变数据
+var request = window.indexedDB.open(&quot;mydb&quot;,2.0);
+request.onerror = function(){
+    console.log('创建或打开数据库失败！');
+};
+request.onsuccess = function(e){
+    console.log(&quot;创建或打开数据库成功！&quot;);
+    var {result: db} = e.target; // 获取数据库对象IDBOpenDBRequest
+    var transaction = db.transaction([&quot;zsindexeddb&quot;],&quot;readwrite&quot;); // 开启事务 (表名, mode:read|readwrite)
+    var store = transaction.objectStore(&quot;zsindexeddb&quot;); // 调用 transaction 对象的 objectStore() 方法来连接对象仓库
+    var value = {
+        id: 1006,
+        name: &quot;c++&quot;,
+        age: 27
+    }
+    var dataRequest = store.put(value);
+    dataRequest.onerror = function(){
+        console.log(&quot;改变数据失败！&quot;);
+    };
+    dataRequest.onsuccess = function(){
+        if(this.result == undefined){
+            console.log(&quot;没有符合条件的数据&quot;);
+        } else {
+            console.log(&quot;改变数据成功!&quot;, this.result);
+        }
+    };
+}
+// 清空数据
+var request = window.indexedDB.open(&quot;mydb&quot;,2.0);
+request.onerror = function(){
+    console.log('创建或打开数据库失败！');
+};
+request.onsuccess = function(e){
+    console.log(&quot;创建或打开数据库成功！&quot;);
+    var {result: db} = e.target; // 获取数据库对象IDBOpenDBRequest
+    var transaction = db.transaction([&quot;zsindexeddb&quot;],&quot;readwrite&quot;); // 开启事务 (表名, mode:read|readwrite)
+    var store = transaction.objectStore(&quot;zsindexeddb&quot;); // 调用 transaction 对象的 objectStore() 方法来连接对象仓库
+    var dataRequest = store.clear(); // 返回操作数据库的对象
+    dataRequest.onerror = function(){
+        console.log(&quot;获取数据失败！&quot;);
+    };
+    dataRequest.onsuccess = function(){
+        console.log(&quot;清空数据成功!&quot;, this.result);
+    };
+}
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">安全性</h2>
+<p>最后，不是任何数据都适合放在本地存储的。因为只要打开控制台就可以随意修改存储的数据，所以需要时刻注意 XSS 注入的风险，且避免存储系统中的敏感数据。</p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议 </a>，转载请注明出处！</p>
 <!--kg-card-end: markdown-->

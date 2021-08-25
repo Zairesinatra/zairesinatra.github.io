@@ -1099,18 +1099,27 @@ pre[class*="language-"] {
 
 
                 
-<article class="post-card post tag-technology-growth no-image ">
+<article class="post-card post tag-technology-growth ">
 
+    <a class="post-card-image-link" href="cookie/index.html">
+        <img class="post-card-image"
+            srcset="content/images/size/w600/2021/08/Cookies.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="content/images/size/w600/2021/08/Cookies.jpg"
+            alt="cookies"
+            loading="lazy"
+        />
+    </a>
 
     <div class="post-card-content">
 
         <a class="post-card-content-link" href="cookie/index.html">
             <header class="post-card-header">
                     <div class="post-card-primary-tag">Technology growth</div>
-                <h2 class="post-card-title">🍪Cookie, LocalStorage 与 SessionStorage</h2>
+                <h2 class="post-card-title">🍪本地数据存储</h2>
             </header>
             <section class="post-card-excerpt">
-                <p>Cookie Cookie 是 Netscape 公司最先提出，用作于保存登录信息。通常在进行页面的初次登录后 chrome 会提醒用户是否储存账户信息 —— 往 Cookie 里存入辨别用户身份的数据。  每一次客户发送http请求，浏览器都会查看是否存在对应的cookie。有则自动添加在 RequestHeader 中 cookie 字段。  LocalStorage LocalStorage 是 HTML5 新增的持久化本地存储方案。除非通过 JS 代码或者清除缓存，否则数据一直存在。  SessionStorage SessionStorage（会话存储）可以将一部分数据在当前会话页面中保存，且不惧页面刷新。但当页面关闭后，sessionStorage 中的数据就会被清空。因保存数据的生命周期较 localStorage 更短，所以常应用来保存 Token 。  // 保存数据到 sessionStorage sessionStorage.setItem('key', 'value'); // 从 sessionStorage 获取数据</p>
+                <p>Cookie、LocalStorage、SessionStorage 和 IndexedDB</p>
             </section>
         </a>
 
@@ -1124,7 +1133,7 @@ pre[class*="language-"] {
             </ul>
             <div class="post-card-byline-content">
                 <span><a href="author/ziyi/index.html">Ziyi Xie</a></span>
-                <span class="post-card-byline-date"><time datetime="2020-04-12">Apr 12, 2020</time> <span class="bull">&bull;</span> 2 min read</span>
+                <span class="post-card-byline-date"><time datetime="2020-04-12">Apr 12, 2020</time> <span class="bull">&bull;</span> 8 min read</span>
             </div>
         </footer>
 
