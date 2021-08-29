@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=21bbae31ea.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=866972832a.css" />
 
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -22,7 +22,7 @@
     <meta property="og:url" content="yourdomain.com/jest/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/08/jest-1.png" />
     <meta property="article:published_time" content="2020-07-31T13:14:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-21T01:10:32.000Z" />
+    <meta property="article:modified_time" content="2021-08-28T12:53:11.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -68,7 +68,7 @@
     "headline": "Jest",
     "url": "yourdomain.com/jest/",
     "datePublished": "2020-07-31T13:14:00.000Z",
-    "dateModified": "2021-08-21T01:10:32.000Z",
+    "dateModified": "2021-08-28T12:53:11.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/08/jest-1.png",
@@ -271,7 +271,7 @@ pre[class*="language-"] {
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
                         <time class="byline-meta-date" datetime="2020-07-31">Jul 31, 2020</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 6 min read</span>
                     </div>
                 </div>
             </section>
@@ -290,16 +290,61 @@ pre[class*="language-"] {
 
     <section class="gh-content gh-canvas">
         <!--kg-card-begin: markdown--><p>软件测试向相关开发者提供有关被测产品与服务的质量信息。在软件测试时常涉及手动或自动（半自动）检查的过程，以确保代码的按需运行与健壮性。市面上主流的前端测试框架有 Jasmine、MOCHA、Jest。</p>
-<p>体验一圈自动化测试后发现在 IDE拓展性、测试文件隔离性、并行测试以及测试覆盖率等几个方面，Jest 是做的挺棒的。</p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E4%BD%BF%E7%94%A8%E5%8C%B9%E9%85%8D%E5%99%A8">使用匹配器</h2>
-<pre><code class="language-javascript">// nameWriteCasually.test.js
+<p>进行自动化测试与回归测试（回归测试是指修改了旧代码后，重新进行测试并确认修改后没有引入新的错误或导致其他代码产生异常）后发现 Jest 在 IDE拓展性、测试文件隔离性、并行测试以及测试覆盖率等几个方面具有优势。</p>
+<p>测试类型：</p>
+<ul>
+<li>单元测试——独立检查代码的各个单元组件，确保代码的每个单元组件都按需求运行。</li>
+<li>集成测试——将单元组件组合并测试协同工作，暴露各个单元在进行交互中可能存在的错误。</li>
+<li>End-to-End 测试——从头到尾的检查应用程序的系统流程以及行为预期，识别系统错误和选择优化方向，确保系统的安全级别。</li>
+</ul>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<ul>
+<li>安装 Jest</li>
+</ul>
+<pre><code class="language-shell"># 使用 yarn 安装 Jest
+yarn add --dev jest
+# 使用 npm 安装 Jest
+npm install --save-dev jest
+</code></pre>
+<ul>
+<li>使用匹配器</li>
+</ul>
+<pre><code class="language-javascript">// testjsfile.js
+function testjsfile(a, b) {
+    return 'zsxzy';
+}
+module.exports = testjsfile;
+// nameWriteCasually.test.js
+const testjsfile = require('./testjsfile');
 test('theMatchersNameWriteCasually', () =&gt; {
-  // toBe =&gt; Object.is(value1, value2);仅比较值则使用toEqual
-  expect(expectedValue).toBe(actualValue);
+    const expectedValue = testjsfile();
+    const actualValue = 'zsxzy';
+    // toBe =&gt; Object.is(value1, value2);仅比较值则使用toEqual
+    expect(expectedValue).toBe(actualValue);
 });
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="es6-%E8%AF%AD%E6%B3%95">ES6 语法</h2>
-<p>Jest 使用 CommonJS 标准，如果未安装 Babel 转换器就使用 ES6 Modules 语法  (export\import) ，则会出现错误。</p>
+<ul>
+<li>修改 package.json 配置内容</li>
+</ul>
+<pre><code class="language-javascript">{
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;jest&quot;
+  }
+}
+</code></pre>
+<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/08/jesttest1.png" class="kg-image" alt="npm test nameWriteCasually.test.js 输出Jest结果" loading="lazy" width="1138" height="556" srcset="../content/images/size/w600/2021/08/jesttest1.png 600w, ../content/images/size/w1000/2021/08/jesttest1.png 1000w, ../content/images/2021/08/jesttest1.png 1138w" sizes="(min-width: 720px) 720px"><figcaption>npm test nameWriteCasually.test.js 输出Jest结果</figcaption></figure><!--kg-card-begin: markdown--><p>这里需要注意的是 Jest 使用 CommonJS 标准，如果未安装 Babel 转换器就使用 ES6 Modules 语法  (export\import) ，则会出现错误。</p>
+<pre><code class="language-javascript">// testjsfile.js
+export default function testjsfile() {
+    return 'zsxzy';
+}
+// nameWriteCasually.test.js
+import testjsfile from './testjsfile'
+test('theMatchersNameWriteCasually', () =&gt; {
+    const expectedValue = testjsfile();
+    const actualValue = 'zsxzy';
+    expect(expectedValue).toBe(actualValue);
+});
+</code></pre>
 <pre><code class="language-javascript">Jest encountered an unexpected token
     Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
     Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
@@ -310,14 +355,14 @@ test('theMatchersNameWriteCasually', () =&gt; {
 yarn add @babel/core@7.4.5 @babel/preset-env@7.4.5 --dev
 npm install @babel/core@7.4.5 @babel/preset-env@7.4.5 -D
 </code></pre>
-<pre><code class="language-javascript">// 开发环境依赖
+<pre><code class="language-javascript">// 检查开发环境依赖
 &quot;devDependencies&quot;: {
     &quot;@babel/core&quot;: &quot;^7.4.5&quot;,
     &quot;@babel/preset-env&quot;: &quot;^7.4.5&quot;,
     &quot;jest&quot;: &quot;^27.0.6&quot;
   }
 </code></pre>
-<pre><code class="language-javascript">// .babelrc
+<pre><code class="language-javascript">// 配置 .babelrc 规则
 {
     &quot;presets&quot;: [
         [
@@ -330,6 +375,149 @@ npm install @babel/core@7.4.5 @babel/preset-env@7.4.5 -D
     ]
 }
 </code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%B8%B8%E7%94%A8%E5%8C%B9%E9%85%8D%E5%99%A8">常用匹配器</h2>
+<p>在上面的代码中，expect () 返回了一个&quot;预期&quot;的对象。通常不会对这些期望对象调用过多的匹配器。.toBe() 是匹配器。当 Jest 运行时，它会跟踪所有失败的匹配器，以便打印出错误消息。</p>
+<p>.toBe() 是使用 Object.is 来进行<strong>精准匹配</strong>的测试。如果想要检查对象的值，则使用 .toEqual() 递归检查对象或数组的每个字段。需要相反匹配则在匹配器前加上 .not。</p>
+<pre><code class="language-javascript">test('对象赋值', () =&gt; {
+    const useToEqual = {name: 'zs'};
+    useToEqual['age'] = 23;
+    expect(useToEqual).toEqual({name: 'zs', age: 23});
+});
+test('adding positive numbers is not zero', () =&gt; {
+    for (let a = 1; a &lt; 3; a++) {
+      for (let b = 1; b &lt; 3; b++) {
+        expect(a + b).not.toBe(0);
+      }
+    }
+  });
+</code></pre>
+<pre><code class="language-javascript"> PASS  ./useToEqual.test.js
+  ✓ 对象赋值 (2 ms)
+  ✓ adding positive numbers is not zero (1 ms)
+</code></pre>
+<p>代码中的 undefined, null, and false 有不同含义，用真值判断则可以在测试时不加区分。Jest提供 helpers 使用。</p>
+<ul>
+<li>toBeNull 只匹配 null</li>
+<li>toBeUndefined 只匹配 undefined</li>
+<li>toBeDefined 与 toBeUndefined 相反</li>
+<li>toBeTruthy 匹配任何 if 语句为真</li>
+<li>toBeFalsy 匹配任何 if 语句为假</li>
+</ul>
+<pre><code class="language-javascript">test('null', () =&gt; {
+    const n = null;
+    expect(n).toBeNull(); // toBeNull 只匹配 null
+    expect(n).toBeDefined();
+    expect(n).not.toBeUndefined(); // null !== Undefined
+    expect(n).not.toBeTruthy(); // null 非真
+    expect(n).toBeFalsy();
+});
+  
+test('zero', () =&gt; {
+    const z = 0;
+    expect(z).toBeDefined();
+    expect(z).not.toBeUndefined();
+    expect(z).not.toBeTruthy(); // 0 非真
+    expect(z).toBeFalsy(); // 0 假值
+});
+</code></pre>
+<p>Jest 中比较数字等价的匹配器：</p>
+<ul>
+<li>toBeGreaterThan 大于</li>
+<li>toBeGreaterThanOrEqual 大于等于</li>
+<li>toBeLessThan 小于</li>
+<li>toBeLessThanOrEqual 小于等于</li>
+<li>toBe 精确比较</li>
+<li>toEqual 递归检查对象或数组的每个字段</li>
+<li>toBeCloseTo 舍去误差比较浮点数相等</li>
+</ul>
+<pre><code class="language-javascript">test('calc', () =&gt; {
+    const value = 2 + 2;
+    expect(value).toBeGreaterThan(3);
+    expect(value).toBeGreaterThanOrEqual(3.5);
+    expect(value).toBeGreaterThanOrEqual(4);
+    expect(value).toBeLessThan(5);
+    expect(value).toBeLessThanOrEqual(4.5);
+  
+    // toBe and toEqual are equivalent for numbers
+    expect(value).toBe(4);
+    expect(value).toEqual(4);
+});
+test('两个浮点数字相加', () =&gt; {
+    const value = 0.1 + 0.2;
+    // expect(value).toBe(0.3); 因为浮点数有舍入误差报错
+    expect(value).toBeCloseTo(0.3); // 这句可以运行
+});
+</code></pre>
+<p>Jest 使用 toMatch 正则表达式检查字符串。</p>
+<pre><code class="language-javascript">test('stringMatch', () =&gt; {
+    expect('zairesinatra').not.toMatch(/x/i);
+});
+test('matchWord', () =&gt; {
+    expect('zsxzy').toMatch(/zsxzy/);
+});
+</code></pre>
+<p>Jest 使用 toContain 检查数组及可迭代对象是否包含某个特定项。</p>
+<pre><code class="language-javascript">const zsdev = [
+    'Java',
+    'Javascript',
+    'C++'
+];
+test('zsdev has it?', () =&gt; {
+    expect(zsdev).toContain('Java');
+    expect(new Set(zsdev)).toContain('Javascript');
+});
+</code></pre>
+<p>Jest 在测试函数调用时可以使用 toThrow 抛出错误。</p>
+<pre><code class="language-javascript">function compileCode() {
+    throw new Error('err');
+}
+test('throw Error', () =&gt; {
+    // 函数需要在 expect 的包装函数中调用,否则 toThrow 断言总是会失败
+    expect(() =&gt; compileCode()).toThrow(); // 验证成功抛出错误
+    expect(() =&gt; compileCode()).toThrow(Error); // 验证成功抛出错误
+    expect(() =&gt; compileCode()).toThrow('you get the wrong message'); // 错误显示
+    expect(() =&gt; compileCode()).toThrow(/err/);
+});
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95">异步代码测试</h2>
+<p>当有以异步方式运行的代码时，Jest 需要知道当前它测试的代码是否已完成，然后就可以转移到另一个测试。Jest有若干方法处理这种情况。</p>
+<ul>
+<li>callback回调</li>
+</ul>
+<p>默认情况下，一旦到达运行上下文底部 Jest 测试立即结束。这样意味着这个测试将不能按预期工作。异步代码还在队列时，同步代码就执行到 fetchData，此时 Jest 测试就在调用回调函数前结束。</p>
+<pre><code class="language-javascript">// 错误示范
+test('error example', () =&gt; {
+    function callback(data) {
+      expect(data).toBe('errorExample');
+    }
+    setTimeout(callback,0); // 不传参就直接结束了——出现问题
+});
+</code></pre>
+<p>使用单个参数调用 done，而不是将测试放在一个空参数的函数。Jest 会等参数回调函数执行结束后，结束测试。</p>
+<pre><code class="language-javascript">test('solve callback', done =&gt; {
+    function callback(data) {
+      try {
+        expect(data).toBe('zsdev');
+        done();
+      } catch (error) {
+        done(error);
+      }
+    }
+    setTimeout(callback('zsdev'),0);
+});
+</code></pre>
+<ul>
+<li>Promise测试</li>
+</ul>
+<p>Jest 会等待测试返回一个 Promise 成功与否进行测试异步代码。</p>
+<pre><code class="language-javascript">test('the data is zsdev', () =&gt; {
+  return fetchData().then(data =&gt; {
+    expect(data).toBe('zsdev');
+  });
+});
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 <!--kg-card-end: markdown-->
     </section>
 
@@ -490,7 +678,7 @@ npm install @babel/core@7.4.5 @babel/preset-env@7.4.5 -D
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=21bbae31ea"></script>
+<script src="../assets/built/casper.js%3Fv=866972832a"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
