@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/mongodb/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/08/mongodb.jpg" />
     <meta property="article:published_time" content="2021-05-20T14:52:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-31T15:29:54.000Z" />
+    <meta property="article:modified_time" content="2021-09-05T08:25:38.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +63,7 @@
     "headline": "MongoDB",
     "url": "yourdomain.com/mongodb/",
     "datePublished": "2021-05-20T14:52:00.000Z",
-    "dateModified": "2021-08-31T15:29:54.000Z",
+    "dateModified": "2021-09-05T08:25:38.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/08/mongodb.jpg",
@@ -718,6 +718,8 @@ brew services list
 mongosh
 # 展示数据库
 show databases; # 或者 show dbs;
+# 显示当前数据库
+db
 # 选中数据库
 use $yourdatabase; # 如果没有会隐式创建
 # 查看表(集合)
@@ -735,23 +737,292 @@ db.necessities.insert({"name":"Dryer","origin":"San Antonio"}); # ❌ Deprecatio
 db.necessities.insertOne({"name":"Dryer","origin":"San Antonio"}); # ✔️
 db.necessities.insertMany([{"_id":"612e26f5d5f808a806f499e6","name":"dryer","origin":"San Antonio"},{"_id":"612e27b6d5f808a806f499e8","name":"charger","origin":"San Diego"},{"_id":"612e2e03d5f808a806f499e9","name":"conditioner","origin":"Seattle"},{"_id":"612e3737d5f808a806f499ea","name":"waitforremove","origin":"zsxzy"}]);
 </code></pre>
-<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>insertMany</figcaption></figure><pre><code class="language-sql"># 查询集合数据
-db.necessities.find(query, projection) # query(可选):使用查询操作符指定查询条件;projection(可选):使用投影操作符指定返回的键
+<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>insertMany</figcaption></figure><pre><code class="language-sql"># 查询集合数据 —— $currentDB.currentCollection.find(query, projection) 
+# query(可选):使用查询操作符指定查询条件;projection(可选):使用投影操作符指定返回的键
+db.necessities.findOne()|find()|find().count(); # 查看一个文档|最多20个匹配的文档|查看集合中的文档数量
 # 移除集合中的数据
 db.necessities.deleteOne({"name":"waitforremove"});
 # 更新集合数据
 # 如果第二个参数未设置 $set 则会报错 TypeError: Update document requires atomic operators
 db.necessities.updateOne({"_id":"612e3737d5f808a806f499ea","name":"waitforremove","origin":"zsxzy"},{$set:{"name":"toytoytoy"}});
 </code></pre>
+<p>查询将会返回一个数据库游标，游标只会在需要时才将需要的文档批量返回；游标 (cursor) 不是查询结果，而是查询的返回资源或者接口。</p>
+<p>通常文档只会部分更新。可以使用原子性的更新修改器（update modifier），指定对文档中的某些字段进行更新。更新修改器是种特殊的键，用来指定复杂的更新操作，比如修改、增加或者删除键，还可能是操作数组或者内嵌文档。</p>
+<p>假设要在一个集合中放置网站的分析数据，只要有人访问页面，就增加计数器。可以使用更新修改器原子性地完成这个增加。每个 URL 及对应的访问次数都以如下方式存储在文档中：</p>
+<pre><code class="language-javascript">{
+    "_id" : ObjectId("4 字节的时间戳 5 字节的随机值 3 字节递增计数器"),￼
+    "url" : "www.zstheyi.com",
+    "pageviews" : 422
+}
+</code></pre>
+<p>每次有人访问页面，就通过URL找到该页面，并用 $inc 修改器增加 pageviews 的值。使用修改器时，_id 的值不能改变。</p>
+<p>$set 用来指定一个字段的值。如果这个字段不存在，则创建它。常用于更新或者增加文档。删除可以用 $unset 完全删除键。在数组修改器中，$push 会向已有的数组末尾加入元素，要是没有就创建一个新的数组，也可以与 $each 组合一次添加多个值。为了保证数组内元素不重复，$addToSet 与 $ne 可以实现集合数据。$pop 这个修改器根据传入的 key 从数组任何一端删除元素。$pull 会将所有匹配的文档删除，而不是只删除一个。</p>
+<pre><code class="language-sql"># 条件操作符 —— $gt (&gt;), $gte (&gt;=), $in (包含), $lt (&lt;), $lte (&lt;=), $ne (!=), $nin(不包含)、$and (&amp;&amp;), $nor(不符合), $not(不包含), $or (||)
+db.necessities.find({"name":"dryer","origin":"San Diego"}).pretty(); 
+db.necessities.find({$or:[{"name":"dryer"},{"origin":"San Diego"}]}).pretty(); # OR 条件
+db.necessities.find({"price":{$gt:"1"}})|find({"_id":{$gt:"1"}})
+
+# $type键类型操作符
+db.necessities.find({"name":{$type:"string"}}) # 筛选出指定类型键的数据
+
+# Limit 与 Skip 方法
+db.necessities.find().limit(2) # 显示两条文档
+db.necessities.find().skip(4) # 跳过指定数量的数据
+
+# 排序操作 —— db.COLLECTION_NAME.find().sort({KEY:1})
+db.necessities.find().sort({"price":"1"}) # 1为由小到大，-1为由大到小
+
+# 索引操作
+db.necessities.createIndex({"price":1}) # 创建索引
+db.necessities.getIndexes() # 查看索引
+db.necessities.totalIndexSize() # 查看集合索引大小
+db.necessities.dropIndexes() # 删除集合所有索引
+db.necessities.dropIndex("price") # 删除集合指定索引
+
+# 聚合(aggregate) —— 主要用于处理数据(诸如统计平均值，求和等),并返回计算后的数据结果
+db.necessities.aggregate([{$group:{_id:"$origin",total:{$sum:"$price"}}}]) # 通过字段 origin 字段对数据进行分组，并计算 price 字段相同值的总和
+</code></pre>
 <p>插入文档数据不能使用 db.$yourcollection.insert() 进行操作，而是需要采取 insertOne() 或者 insertMany()。更新文档数据时，使用 replaceOne()，只能替换整个文档；而 updateOne() 则允许更新字段，同时还可以访问 update operators 对文档进行可靠更新。移除集合中的数据不再使用 remove()，而改用 deleteOne, deleteMany, findOneAndDelete 或 bulkWrite。</p>
-<p>游标 (cursor) 不是查询结果，而是查询的返回资源或者接口。</p>
 <ul>
 <li>在 Navicat Premium 连接 MongoDB</li>
 </ul>
 <p>在 connection 选择对应数据库后，按照默认规则连接即可，连接的默认端口为 27017。在工具栏的 View 选择 Show Hidden Items 可展示隐藏初始的数据库：admin、config、local。</p>
 <h2 id="mongoose">Mongoose</h2>
-<p>下载 mongoose 连接数据库。Mongoose 是一个 MongoDB 对象建模工具，在异步环境中工作，支持 promise 和异步回调。</p>
-<pre><code class="language-shell">npm i mongoose --save
+<p>Mongoose 是一个 NodeJS 专门用于操作 mongodb 数据库的模块，也是一个在异步环境中工作，支持 promise 和异步回调的对象文档模型库。Mongoose 可以为文档创建一个模式结构 (Schema|约束)，并对模型中的对象/文档进行验证，数据可以通过类型转换为对象模型，以及可以使用中间件来应用业务逻辑挂钩，比较原生的 MongoDB 驱动更容易（进一步封装）。</p>
+<table>
+    <thead>
+        <tr>
+            <th>mongoose对象</th>
+            <th>作用描述</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Schema</td>
+            <td>模式对象定义约束了数据库文档结构</td>
+        </tr>
+        <tr>
+            <td>Model</td>
+            <td>Model 对象作为所有文档的表示，相当于数据库的集合 collection</td>
+        </tr>
+        <tr>
+            <td>Document</td>
+            <td>表示集合中的具体文档，相当于集合中的一个具体文档</td>
+        </tr>
+    </tbody>
+</table>
+<pre><code class="language-shell"># 下载 mongoose 连接数据库
+npm init -y
+npm i mongoose --save
+</code></pre>
+<pre><code class="language-javascript">// 基本连接
+// 项目引入mongoose
+var mongoose = require('mongoose');
+// 连接 mongodb —— 除非项目停止,服务器关闭,否则连接一般不会断开
+mongoose.connect('mongodb://localhost:27017/数据库名');
+// 监听连接状态 —— mongoose 有一个属性叫做 connection,该对象表示数据库连接
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() { // 数据库连接的事件
+  // you're connected!
+});
+db.once('close', function() { // 数据库断开的事件
+  // bye!
+});
+// 断开数据库连接(一般不需要)
+mongoose.disconnect()
+</code></pre>
+<pre><code class="language-javascript">// 使用 Schema
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/mongoose_sgg');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("you're connected!");
+});
+db.once('close', function() {
+  console.log("bye!");
+});
+// Schema是构造函数
+var Schema = mongoose.Schema;
+var stuSchema = new Schema({ // 创建对数据库的约束
+    name: String,
+    age: Number,
+    gender:{
+        type: String, // Boolean限制太多,开发不常用
+        default: "female"
+    },
+    address: String
+})
+// 通过 Schema 创建 Model 数据库中的集合
+// mongoose.model(modelName, schema);
+// 和数据库的modelName的集合映射,通过stuSchema进行约束
+var StuModel = mongoose.model("student", stuSchema); // mongoose会自动将集合名变为复数
+// 数据库插入文档
+StuModel.create({
+    name: "bjj",
+    age: 17,
+    address: "whitebonehole"
+}, function(err){
+    if(!err){
+        console.log("插入成功");
+    }
+})
+</code></pre>
+<pre><code class="language-javascript">var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/mongoose_sgg');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("you're connected!");
+});
+db.once('close', function() {
+  console.log("bye!");
+});
+var Schema = mongoose.Schema;
+var stuSchema = new Schema({
+    name: String,
+    age: Number,
+    gender:{
+        type: String,
+        default: "female"
+    },
+    address: String
+})
+var StuModel = mongoose.model("student", stuSchema);
+// 有了文档对象就可以对文档进行增删改差
+// Model.create(docs,[callback])
+// StuModel.create([
+//     {
+//         name: "zbj",
+//         age: 28,
+//         gender: "male",
+//         address: "gaolaozhuang"
+//     },
+//     {
+//         name: "ts",
+//         age: 15,
+//         gender: "male",
+//         address: "datang"
+//     }
+// ], function(err, jellybean, snickers){ // 返回成功状态以及插入结果
+//     if(!err){
+//         console.log("插入成功");
+//     }
+// })
+// projection-投影(需要获取的字段)、options-查询选项(skip、limit)、callback-查询结果通过回调函数返回
+// Model.find(conditions, [projection], [options], [callback]); —— 查询符合条件文档,总会返回数组
+// Model.findById(conditions, [projection], [options], [callback]);
+// Model.findOne(conditions, [projection], [options], [callback]);
+StuModel.find({name:"ts"}, {name:1, _id:0, address:1}, function(err,docs){ // 显示name不显示_id =&gt; 可以直接写字符串,不需要的前面加上-
+    if(!err){
+        console.log(docs); // 返回的是数组 [ { name: 'ts', address: 'datang' } ]
+        console.log(docs[0].name); // ts
+    }
+})
+StuModel.find({}, "name -_id", {skip:1}, function(err,docs){ // 显示name不显示_id =&gt; 可以直接写字符串,不需要的前面加上-
+    if(!err){
+        console.log(docs); // [ { name: 'bjj' }, { name: 'zbj' }, { name: 'ts' } ]
+    }
+})
+StuModel.findById("613397ae66319ccd3dbb0c05", function(err,doc){ // 显示name不显示_id =&gt; 可以直接写字符串,不需要的前面加上-
+    if(!err){
+        console.log(doc); // 指定_id的对象
+    }
+})
+StuModel.findOne({}, "name -_id", {skip:1}, function(err,doc){ // 显示name不显示_id =&gt; 可以直接写字符串,不需要的前面加上-
+    if(!err){
+        console.log(doc); // { name: 'bjj' }
+        // Document对象是Model的实例
+        console.log(doc instanceof StuModel) // true
+    }
+})
+// doc为修改后的对象
+// Model.update(conditions, doc, [options], [callback]);
+// Model.updateMany(conditions, doc, [options], [callback]);
+// Model.updateOne(conditions, doc, [options], [callback]);
+// 修改ts年龄为20
+StuModel.updateOne({name: 'ts'}, {$set:{age:20}}, function(err){
+    if(!err) {
+        console.log("修改成功");
+    }
+})
+// Model.remove(conditions, [callback]); 一个已弃用的函数,已被 deleteOne() 删除单个文档和 deleteMany() 删除多个文档取代
+// Model.deleteOne(conditions, [callback]); 用于删除单个文档
+// Model.deleteMany(conditions, [callback]); 在删除后返回已删除的文档以防在删除操作后需要其内容
+StuModel.remove({name: 'zbj'},function(err){
+    if(!err) {
+        console.log("删除成功");
+    }
+})
+// Module.count(condition, [callback])
+StuModel.count({}, function(err, count){
+    if(!err){
+        console.log(count); // 效果比find得出数组后length好,不必查找每个文档
+    }
+})
+</code></pre>
+<pre><code class="language-javascript">var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/mongoose_sgg');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("you're connected!");
+});
+db.once('close', function() {
+  console.log("bye!");
+});
+var Schema = mongoose.Schema;
+var stuSchema = new Schema({
+    name: String,
+    age: Number,
+    gender:{
+        type: String,
+        default: "female"
+    },
+    address: String
+})
+var StuModel = mongoose.model("student", stuSchema);
+// Document和集合中文档一一对应,Document是Model实例
+// 通过Model查询结果都是Document
+// 创建一个document
+// var stu = new StuModel({
+//     name:"zxxz",
+//     age:19,
+//     gender: "female",
+//     address: "tiangong"
+// });
+// stu.save(function(err){
+//     if(!err){
+//         console.log("保存成功"); // Saves this document.
+//     }
+// })
+StuModel.findOne({},function(err, doc){
+    // 方式一
+    // if(!err){
+    //     // update(update,[option],[callback])
+    //     doc.updateOne({$set:{age:20}},function(err){
+    //         if(!err){
+    //             console.log("修改成功");
+    //         }
+    //     })
+    // }
+    // 方式二
+    // doc.age = 19;
+    // doc.save();
+    // doc.remove(function(err) {
+    //     if(!err){
+    //         console.log("大师兄再见");
+    //     }
+    // })
+    // get(name) 获取文档中指定属性值
+    // console.log(doc.get("name")); // 等价于 console.log(doc.name);
+    // set(name, value) 设置文档指定属性值
+    // doc.set("name","nicebjj") // 数据库不变,因为没有调用save 等价于 doc.name="hahaha"
+    // console.log(doc);
+    // toJSON() 转换为一个JSON对象
+    // toObject() 文档对象转化为一个普通的js对象 —— 部分方法使用不了
+})
 </code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处  <a href="https://blog.zairesinatra.com">zairesinatra's blog</a>！</p>
