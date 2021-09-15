@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=6f67de0e49.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=72650aaeff.css" />
 
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -23,7 +23,7 @@
     <meta property="og:url" content="yourdomain.com/debouncethrottle/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
     <meta property="article:published_time" content="2020-09-20T11:28:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-04T06:27:24.000Z" />
+    <meta property="article:modified_time" content="2021-09-15T15:57:04.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -70,7 +70,7 @@
     "headline": "Debounce&amp;Throttle",
     "url": "yourdomain.com/debouncethrottle/",
     "datePublished": "2020-09-20T11:28:00.000Z",
-    "dateModified": "2021-07-04T06:27:24.000Z",
+    "dateModified": "2021-09-15T15:57:04.000Z",
     "keywords": "Technology growth",
     "description": "星星发亮是为了让每一个人有一天都能找到属于自己的星星\n——《小王子》",
     "mainEntityOfPage": {
@@ -268,7 +268,7 @@ pre[class*="language-"] {
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
                         <time class="byline-meta-date" datetime="2020-09-20">Sep 20, 2020</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 4 min read</span>
                     </div>
                 </div>
             </section>
@@ -277,35 +277,21 @@ pre[class*="language-"] {
     </header>
 
     <section class="gh-content gh-canvas">
-        <!--kg-card-begin: markdown--><blockquote>
-<h2 id="">前言</h2>
-</blockquote>
-<p>防抖与节流。</p>
-<hr>
-<blockquote>
-<h2 id="">正文</h2>
-</blockquote>
-<blockquote>
-<h3 id="fontcolorfb4b63debouncefont"><font color="FB4B63">防抖策略(debounce)：</font></h3>
-</blockquote>
+        <!--kg-card-begin: markdown--><h2 id="fontcolorfb4b63debouncefont"><font color="FB4B63">防抖策略(debounce)</font></h2>
 <p><strong>意义：</strong> 保证频繁触发事件时，事件回调仅被触发一次。减少请求次数、节约请求资源。</p>
 <p><strong>定义：</strong> 当事件被触发后，延迟n秒再执行回调，若在这n秒内事件又被触发则重新计时。——类似游戏英雄联盟的回城操作。</p>
-<p><strong>图例：</strong> <img src="yourdomain.com/content/images/2021/03/--2021-03-17-02.31.45.png" width="50%" /></p>
 <p><strong>应用：</strong> 输入框防抖-淘宝搜索框中连续输入字符，保证仅在输入完成后才进行查询的请求。</p>
 <p><strong>不采用防抖问题复现：</strong></p>
-<pre><code>// 如果不加防抖函数,chrome控制台每当你按下键盘则输出
+<pre><code class="language-html">// 如果不加防抖函数,chrome控制台每当你按下键盘则输出
 &lt;input type=&quot;text&quot; class=&quot;ipt&quot;&gt;
 </code></pre>
-<pre><code>&lt;script&gt;
-        const ipt = document.querySelector('.ipt')
-        ipt.onkeyup = function(){
-            console.log(ipt.value)
-        }
-&lt;/script&gt;
+<pre><code class="language-javascript">const ipt = document.querySelector('.ipt')
+ipt.onkeyup = function(){
+    console.log(ipt.value)
+}
 </code></pre>
-<img src="yourdomain.com/content/images/2021/03/nodebounce.gif" width="50%" />
-<p><strong>采用防抖解决：</strong></p>
-<pre><code>let timer = null
+<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/09/nodebounce.gif" class="kg-image" alt="nodebounce" loading="lazy" width="916" height="368"><figcaption>nodebounce</figcaption></figure><!--kg-card-begin: markdown--><p><strong>采用防抖解决：</strong></p>
+<pre><code class="language-javascript">let timer = null
 ipt.onkeyup = function(){
     if(timer){
         clearTimeout(timer)
@@ -316,41 +302,34 @@ ipt.onkeyup = function(){
 }
 </code></pre>
 <p>由于以上代码可以抽离出来封装自己的业务逻辑。避免每遇见防抖又得手写一遍。封装成debounce：</p>
-<pre><code>function debounce(fn,delay=2000) { // 传入自定义函数与延迟;延迟不传入设默认值
-            let timer; // const必须初始化,这里用let
-            return ()=&gt;{ // 用外函数的timer形成闭包
-                if(timer){clearTimeout(timer)} // 有timer
-                timer = setTimeout(() =&gt; { // 没timer
-                    fn();
-                }, delay);
-            }
-        }
+<pre><code class="language-javascript">function debounce(fn,delay=2000) { // 传入自定义函数与延迟;延迟不传入设默认值
+    let timer; // const必须初始化,这里用let
+    return ()=&gt;{ // 用外函数的timer形成闭包
+        if(timer){clearTimeout(timer)} // 有timer
+        timer = setTimeout(() =&gt; { // 没timer
+            fn();
+        }, delay);
+    }
+}
 ipt.onkeyup = debounce(()=&gt;{console.log(ipt.value)},1500)
 </code></pre>
-<p><strong>实现效果：</strong><br>
-<img src="yourdomain.com/content/images/2021/03/debounce.gif" width="50%" /></p>
-<hr>
-<blockquote>
-<h3 id="fontcolorfb4b63throttlefont"><font color="FB4B63">节流策略(throttle)：</font></h3>
-</blockquote>
+<p><strong>实现效果：</strong></p>
+<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/09/debounce.gif" class="kg-image" alt="debounce" loading="lazy" width="916" height="368"><figcaption>debounce</figcaption></figure><!--kg-card-begin: markdown--><h2 id="fontcolorfb4b63throttlefont"><font color="FB4B63">节流策略(throttle)</font></h2>
 <p><strong>意义：</strong> 解决因频繁触发可能造成的卡顿现象。</p>
 <p><strong>定义：</strong> 连续发生的事情在n秒内只执行一次回调函数。——类似射击游戏进行连续点击，但枪械存在固定射速。</p>
-<p><strong>图例：</strong> <img src="yourdomain.com/content/images/2021/03/--2021-03-17-05.27.10.png" width="50%" /></p>
 <p><strong>应用：</strong> 拖拽效果的节流、云服务器更新内存使用比率、移动端后台刷新定位频率。</p>
 <p><strong>不采用节流问题复现：</strong></p>
-<pre><code>&lt;style&gt;
-   .zs{
-       width: 50px;
-       height: 50px;
-       background-color: #424242;
-       border-radius: 50%;
-       color:red;
-       font-size: 5px;
-       text-align: center;
-   }
-&lt;/style&gt;
+<pre><code class="language-css">.zs{
+    width: 50px;
+    height: 50px;
+    background-color: #424242;
+    border-radius: 50%;
+    color:red;
+    font-size: 5px;
+    text-align: center;
+}
 </code></pre>
-<pre><code>&lt;div class=&quot;zs&quot; draggable=&quot;true&quot;&gt;zy&lt;/div&gt;
+<pre><code class="language-html">&lt;div class=&quot;zs&quot; draggable=&quot;true&quot;&gt;zy&lt;/div&gt;
 &lt;script&gt;
     const zs = document.querySelector('.zs')
     zs.ondrag = function(e){
@@ -358,22 +337,19 @@ ipt.onkeyup = debounce(()=&gt;{console.log(ipt.value)},1500)
     }
 &lt;/script&gt;
 </code></pre>
-<img src="yourdomain.com/content/images/2021/03/nothrottle.gif" width="50%" />
-<p><strong>采用节流解决：</strong></p>
-<pre><code>&lt;script&gt;
-    const zs = document.querySelector('.zs')
-    let timer = null;
-    zs.ondrag = function(e){
-        if(timer){return;}
-        timer = setTimeout(()=&gt;{
-            console.log(e.offsetX,e.offsetY)
-            timer = null
-        },2000)
-    }
-&lt;/script&gt;
+<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/09/nothrottle.gif" class="kg-image" alt="nothrottle" loading="lazy" width="916" height="368"><figcaption>nothrottle</figcaption></figure><!--kg-card-begin: markdown--><p><strong>采用节流解决：</strong></p>
+<pre><code class="language-javascript">const zs = document.querySelector('.zs')
+let timer = null;
+zs.ondrag = function(e){
+    if(timer){return;}
+    timer = setTimeout(()=&gt;{
+        console.log(e.offsetX,e.offsetY)
+        timer = null
+    },2000)
+}
 </code></pre>
 <p>同上，为复用封装为throttle函数。</p>
-<pre><code>const zs = document.querySelector('.zs')
+<pre><code class="language-javascript">const zs = document.querySelector('.zs')
 function throttle(fn,delay=2000){
     let timer
     return function(){
@@ -385,16 +361,63 @@ function throttle(fn,delay=2000){
 }
 zs.ondrag = throttle((zy)=&gt;{console.log(zy.offsetX,zy.offsetY)},1500)
 </code></pre>
-<p><strong>实现效果：</strong><br>
-<img src="yourdomain.com/content/images/2021/03/throttle.gif" width="50%" /></p>
-<hr>
-<blockquote>
-<h2 id="">结束</h2>
-</blockquote>
-<blockquote>
-<h2 id="">以上</h2>
-</blockquote>
-<!--kg-card-end: markdown--><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+<p><strong>实现效果：</strong></p>
+<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/09/throttle.gif" class="kg-image" alt="throttle" loading="lazy" width="680" height="364"><figcaption>throttle</figcaption></figure><!--kg-card-begin: markdown--><h2 id="">防抖与节流的指向</h2>
+<pre><code class="language-html">&lt;div id=&quot;content&quot; style=&quot;height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;&quot;&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-javascript">// 防抖
+let num = 1;
+let content = document.getElementById('content');
+function count(e) {
+    console.log(this); // &lt;div id=&quot;content&quot; style=&quot;height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;&quot;&gt;2&lt;/div&gt;
+    console.log(e); // MouseEvent {isTrusted: true, screenX: 691, screenY: 217, clientX: 691, clientY: 81, …}
+    content.innerHTML = num++;
+};
+function debounce (func, delay) {
+    let timer = null;
+    return function() {
+        // this也是指向的DOM元素,事件参数也是绑定的onmousemove
+        if(timer) {
+            clearTimeout(timer)
+        }
+        timer = setTimeout(() =&gt; {
+            func.apply(this, arguments)
+            // func() // Window {window: Window, self: Window, document: document, name: '', location: Location, …} undefined
+            timer = null
+        }, delay)
+    }
+}
+// content.onmousemove = count;
+content.onmousemove = debounce(count, 1500);
+</code></pre>
+<pre><code class="language-javascript">// 节流
+let num = 1;
+let content = document.getElementById('content');
+function count(e) {
+    console.log(this); // &lt;div id=&quot;content&quot; style=&quot;height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;&quot;&gt;2&lt;/div&gt;
+    console.log(e); // MouseEvent {isTrusted: true, screenX: 691, screenY: 217, clientX: 691, clientY: 81, …}
+    content.innerHTML = num++;
+};
+function throttle (func, delay) {
+    let timer = null;
+    return function() {
+        // this也是指向的DOM元素,事件参数也是绑定的onmousemove
+        if(timer) {
+            return
+        }
+        timer = setTimeout(() =&gt; {
+            func.apply(this, arguments)
+            // func() // Window {window: Window, self: Window, document: document, name: '', location: Location, …} undefined
+            timer = null
+        }, delay)
+    }
+}
+// content.onmousemove = count;
+content.onmousemove = throttle(count, 1500);
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a>，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
     </section>
 
 
@@ -554,7 +577,7 @@ zs.ondrag = throttle((zy)=&gt;{console.log(zy.offsetX,zy.offsetY)},1500)
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=6f67de0e49"></script>
+<script src="../assets/built/casper.js%3Fv=72650aaeff"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
