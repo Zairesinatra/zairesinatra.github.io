@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[zairesinatra]]></title><description><![CDATA[The best time to recognize yourself is ten years ago, followed by now.]]></description><link>yourdomain.com/</link><image><url>yourdomain.com/favicon.png</url><title>zairesinatra</title><link>yourdomain.com/</link></image><generator>Ghost 4.12</generator><lastBuildDate>Wed, 15 Sep 2021 15:58:41 GMT</lastBuildDate><atom:link href="yourdomain.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Ghost更新与迁移]]></title><description><![CDATA[Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。]]></description><link>yourdomain.com/newghostzs/</link><guid isPermaLink="false">60fac2bca763a10c85416efc</guid><category><![CDATA[GHOSTblog]]></category><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Fri, 23 Jul 2021 13:38:41 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><p>&#x7531;&#x4E8E; Githubpage &#x7684;&#x9759;&#x6001;&#x7F16;&#x8BD1; Ghost &#x5728;&#x8868;&#x73B0;&#x4E0A;&#x4E0D;&#x540C;&#x4E8E;&#x672C;&#x7AD9;&#x7684;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#xFF0C;&#x5BF9;&#x90E8;&#x5206;&#x529F;&#x80FD;&#x4E0E;&#x6548;&#x679C;&#x652F;&#x6301;&#x4E0D;&#x597D;&#x3002;&#x4E3A;&#x540C;&#x6B65;&#x9700;&#x6C42;&#xFF0C;&#x8BB0;&#x5F55;&#x672C;&#x6B21;&#x7684; TX&#x4E91; Ubuntu &#x4E2D; Ghost &#x4E0E; Node &#x7248;&#x672C;&#x66F4;&#x65B0;&#x8FC7;&#x7A0B;&#x4EE5;&#x53CA; Nginx &#x518D;&#x914D;&#x7F6E;&#x3002;&#xFF08;&#x53C8;&#x56DE;&#x6765;&#x4E86;&#xFF09;</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[zairesinatra]]></title><description><![CDATA[The best time to recognize yourself is ten years ago, followed by now.]]></description><link>yourdomain.com/</link><image><url>yourdomain.com/favicon.png</url><title>zairesinatra</title><link>yourdomain.com/</link></image><generator>Ghost 4.12</generator><lastBuildDate>Thu, 16 Sep 2021 15:59:21 GMT</lastBuildDate><atom:link href="yourdomain.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Ghost更新与迁移]]></title><description><![CDATA[Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。]]></description><link>yourdomain.com/newghostzs/</link><guid isPermaLink="false">60fac2bca763a10c85416efc</guid><category><![CDATA[GHOSTblog]]></category><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Fri, 23 Jul 2021 13:38:41 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><p>&#x7531;&#x4E8E; Githubpage &#x7684;&#x9759;&#x6001;&#x7F16;&#x8BD1; Ghost &#x5728;&#x8868;&#x73B0;&#x4E0A;&#x4E0D;&#x540C;&#x4E8E;&#x672C;&#x7AD9;&#x7684;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#xFF0C;&#x5BF9;&#x90E8;&#x5206;&#x529F;&#x80FD;&#x4E0E;&#x6548;&#x679C;&#x652F;&#x6301;&#x4E0D;&#x597D;&#x3002;&#x4E3A;&#x540C;&#x6B65;&#x9700;&#x6C42;&#xFF0C;&#x8BB0;&#x5F55;&#x672C;&#x6B21;&#x7684; TX&#x4E91; Ubuntu &#x4E2D; Ghost &#x4E0E; Node &#x7248;&#x672C;&#x66F4;&#x65B0;&#x8FC7;&#x7A0B;&#x4EE5;&#x53CA; Nginx &#x518D;&#x914D;&#x7F6E;&#x3002;&#xFF08;&#x53C8;&#x56DE;&#x6765;&#x4E86;&#xFF09;</p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="node">Node</h2>
 <p>&#x6700;&#x65B0;&#x7684; Ghost &#x7248;&#x672C;&#x9700;&#x8981; Node.js 14.x &#xFF0C;&#x6545;&#x5B89;&#x88C5;&#x9002;&#x7528; Ubuntu &#x7684; <a href="https://github.com/nodesource/distributions">&#x4E8C;&#x8FDB;&#x5236;&#x53D1;&#x884C;&#x7248;</a>&#x3002;</p>
 <pre><code class="language-shell"># Using Ubuntu &#x6DFB;&#x52A0; Node.js ppa(Person Package achives) &#x5B89;&#x88C5; Node.js
@@ -567,6 +567,227 @@ StuModel.findOne({},function(err, doc){
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">&#x7ED3;&#x675F;</h2>
 <p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;  <a href="https://blog.zairesinatra.com">zairesinatra&apos;s blog</a>&#xFF01;</p>
+<!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[React Hooks]]></title><description><![CDATA[常用 React hooks 总结]]></description><link>yourdomain.com/react/</link><guid isPermaLink="false">613b1addc96a89175de94fb4</guid><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Sun, 16 May 2021 14:57:00 GMT</pubDate><media:content url="yourdomain.com/content/images/2021/09/react-hooks.jpg" medium="image"/><content:encoded><![CDATA[<img src="yourdomain.com/content/images/2021/09/react-hooks.jpg" alt="React Hooks"><p>Hook &#x662F; React 16.8 &#x7684;&#x65B0;&#x7279;&#x6027;&#x3002;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x7F16;&#x5199; class &#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528; state &#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x7684; React &#x7279;&#x6027;&#x3002;Hook &#x4E0D;&#x80FD;&#x51FA;&#x73B0;&#x5728;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;&#x5FC5;&#x987B;&#x4FDD;&#x6301;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#x7684;&#x6E32;&#x67D3;&#x987A;&#x5E8F;&#x3002;&#x5C06;&#x7EC4;&#x4EF6;&#x4F5C;&#x4E3A;&#x7EAF;&#x7CB9;&#x7684;&#x4F20;&#x9012;&#x6570;&#x636E;&#x7684;&#x7BA1;&#x9053;&#x5C31;&#x662F; Hooks &#x5B58;&#x5728;&#x7684;&#x610F;&#x4E49;&#x3002;</p><!--kg-card-begin: markdown--><h2 id="usestate-%E7%8A%B6%E6%80%81%E9%92%A9%E5%AD%90">useState &#x72B6;&#x6001;&#x94A9;&#x5B50;</h2>
+<p>&#x7EAF;&#x51FD;&#x6570;&#x7EC4;&#x4EF6;&#x6CA1;&#x6709;&#x72B6;&#x6001;&#xFF0C;&#x6545;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; useState &#x4E3A;&#x51FD;&#x6570;&#x7EC4;&#x4EF6;&#x5F15;&#x5165;&#x72B6;&#x6001;&#x3002;useState &#x63A5;&#x53D7;&#x72B6;&#x6001;&#x7684;&#x521D;&#x59CB;&#x503C;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5176;&#x4E2D;&#x6570;&#x7EC4;&#x7B2C;&#x4E00;&#x9879;&#x4E3A;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x6307;&#x5411;&#x72B6;&#x6001;&#x7684;&#x5F53;&#x524D;&#x503C;&#xFF0C;&#x7C7B;&#x4F3C; this.state&#x3002;&#x7B2C;&#x4E8C;&#x9879;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6765;&#x66F4;&#x65B0;&#x72B6;&#x6001;&#xFF0C;&#x7C7B;&#x4F3C; this.setState&#x3002;&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x547D;&#x540D;&#x7EA6;&#x5B9A; set &#x524D;&#x7F00;&#x52A0;&#x72B6;&#x6001;&#x53D8;&#x91CF;&#x540D;&#x3002;</p>
+<pre><code class="language-js">import React, { useState } from &quot;react&quot;;
+
+function UseStatehook() {
+  // ES6&#x8BED;&#x6CD5;&#x4E2D;&#x7684;&#x6570;&#x7EC4;&#x89E3;&#x6784;
+  const [name, setName] = useState(&quot;zstheyi&quot;);
+  const [age, setAge] = useState(22);
+  const [work, setWork] = useState(&quot;frontendenv&quot;);
+  return (
+    &lt;div&gt;
+      &lt;span&gt;{name}&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+      &lt;span&gt;{age}&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+      &lt;span&gt;{work}&lt;/span&gt;&amp;nbsp;
+      &lt;button
+        onClick={() =&gt; {
+          setAge(age + 1);
+        }}
+      &gt;
+        click me add age
+      &lt;/button&gt;
+      &lt;button
+        onClick={() =&gt; {
+          setName(&quot;zsxzy&quot;);
+        }}
+      &gt;
+        change my name
+      &lt;/button&gt;
+      &lt;button
+        onClick={() =&gt; {
+          setWork(&quot;fullstack&quot;);
+        }}
+      &gt;
+        what&apos;s my field
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+export default UseStatehook;
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="usecontext-%E5%85%B1%E4%BA%AB%E7%8A%B6%E6%80%81%E9%92%A9%E5%AD%90">useContext &#x5171;&#x4EAB;&#x72B6;&#x6001;&#x94A9;&#x5B50;</h2>
+<p>useContext hook &#x7684;&#x4F5C;&#x7528;&#x662F;&#x5728;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x72B6;&#x6001;&#x3002;&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;Context &#x4F5C;&#x7528;&#x662F;&#x72B6;&#x6001;&#x7684;&#x5206;&#x53D1;&#xFF0C;&#x907F;&#x514D; react &#x9010;&#x5C42;&#x901A;&#x8FC7; props &#x4F20;&#x9012;&#x6570;&#x636E;&#x3002;</p>
+<pre><code class="language-js">import React, { useState, createContext, useContext } from &quot;react&quot;;
+// CountContext&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;
+const CountContext = createContext();
+function UseContexthook() {
+  const [count, setCount] = useState(6);
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button
+        onClick={() =&gt; {
+          setCount(count + 1);
+        }}
+      &gt;
+        click me
+      &lt;/button&gt;
+      &lt;CountContext.Provider value={count}&gt;
+        &lt;Isolation /&gt;
+      &lt;/CountContext.Provider&gt;
+    &lt;/div&gt;
+  );
+}
+// &#x7A7F;&#x900F;&#x9694;&#x79BB;&#x7EC4;&#x4EF6;
+function Isolation() {
+  return (
+    &lt;Counter /&gt;
+  )
+}
+// &#x63D0;&#x4F9B;&#x63A5;&#x6536;&#x7EC4;&#x4EF6;
+function Counter() {
+  const count = useContext(CountContext); //&#x4E00;&#x53E5;&#x8BDD;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;count
+  return &lt;h3&gt;{count}&lt;/h3&gt;;
+}
+export default UseContexthook;
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="useeffect-%E4%BB%A3%E6%9B%BF%E5%B8%B8%E7%94%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0">useEffect &#x4EE3;&#x66FF;&#x5E38;&#x7528;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;</h2>
+<p>&#x7C7B;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x5904;&#x7406;&#x989D;&#x5916;&#x7684;&#x64CD;&#x4F5C;&#xFF08;Ajax &#x8BF7;&#x6C42;&#x6570;&#x636E;&#xFF0C;&#x767B;&#x5F55;&#x76D1;&#x542C;&#x548C;&#x53D6;&#x6D88;&#x767B;&#x5F55;&#xFF0C;&#x624B;&#x52A8;&#x4FEE;&#x6539; DOM &#x7B49;&#xFF09;&#x3002;useEffect Hook &#x53EF;&#x4EE5;&#x770B;&#x505A; componentDidMount&#xFF0C;componentDidUpdate &#x548C; componentWillUnmount &#x8FD9;&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x7EC4;&#x5408;&#xFF0C;&#x5728;&#x51FD;&#x6570;&#x7EC4;&#x4EF6;&#x4E2D;&#x6267;&#x884C;&#x526F;&#x4F5C;&#x7528;&#x64CD;&#x4F5C;&#x3002;&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F; useEffect &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x6267;&#x884C;&#x4E0D;&#x4F1A;&#x963B;&#x788D;&#x6D4F;&#x89C8;&#x5668;&#x66F4;&#x65B0;&#x89C6;&#x56FE;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x662F;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x800C;&#x7C7B;&#x7EC4;&#x4EF6;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x662F;&#x540C;&#x6B65;&#x6267;&#x884C;&#x7684;&#x3002;useEffect &#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x8868;&#x793A;&#x671F;&#x5F85;&#x7684;&#x526F;&#x4F5C;&#x7528;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#x89E3;&#x7ED1;&#x65F6;&#x7684;&#x64CD;&#x4F5C;&#x3002;useEffect hook &#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x6570;&#x7EC4;&#x4E2D;&#x53EF;&#x4EE5;&#x5199;&#x5165;&#x5F88;&#x591A;&#x72B6;&#x6001;&#x5BF9;&#x5E94;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x610F;&#x601D;&#x662F;&#x5F53;&#x72B6;&#x6001;&#x503C;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#x624D;&#x8FDB;&#x884C;&#x89E3;&#x7ED1;&#x3002;&#x4F46;&#x662F;&#x5F53;&#x4F20;&#x7A7A;&#x6570;&#x7EC4; [] &#x65F6;&#xFF0C;&#x5219;&#x4E3A;&#x5F53;&#x7EC4;&#x4EF6;&#x5C06;&#x88AB;&#x9500;&#x6BC1;&#x624D;&#x8FDB;&#x884C;&#x89E3;&#x7ED1;&#xFF0C;&#x5B9E;&#x73B0;&#x7CBE;&#x786E;&#x7684; componentWillUnmount &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="language-js">import React, { useState, useEffect } from &quot;react&quot;;
+import { BrowserRouter as Router, Route, Link } from &quot;react-router-dom&quot;;
+function Index() {
+  useEffect(() =&gt; {
+    console.log(&quot;useEffect=&gt;Indexpage&quot;);
+    return () =&gt; {
+      console.log(&quot;&#x544A;&#x8F9E; Index page&quot;);
+    };
+    // &#x5F53;&#x4F20;&#x7A7A;&#x6570;&#x7EC4;[]&#x65F6;&#x5C31;&#x662F;&#x5F53;&#x7EC4;&#x4EF6;&#x5C06;&#x88AB;&#x9500;&#x6BC1;&#x65F6;&#x624D;&#x8FDB;&#x884C;&#x89E3;&#x7ED1;
+  }, []);
+  return &lt;h2&gt;indexxx&lt;/h2&gt;;
+}
+
+function OtherPage() {
+  useEffect(() =&gt; {
+    console.log(&quot;useEffect=&gt;otherPage&quot;);
+    return () =&gt; {
+      console.log(&quot;&#x544A;&#x8F9E; Other page&quot;);
+    };
+  }, []);
+  return &lt;h2&gt;otherPage&lt;/h2&gt;;
+}
+function useEffectHook() {
+  const [count, setCount] = useState(0);
+  useEffect(() =&gt; {
+    console.log(`useEffect=&gt;You clicked ${count} times`);
+    return () =&gt; {
+      console.log(&quot;&#x6211;&#x9500;&#x6BC1;&#x4E86;&#x7B28;&#x86CB;&quot;);
+    };
+    // &#x5F53;count&#x53D8;&#x5316;&#x65F6;&#x63A5;&#x7ED1;
+  }, [count]);
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button
+        onClick={() =&gt; {
+          setCount(count + 1);
+        }}
+      &gt;
+        click me
+      &lt;/button&gt;
+      &lt;Router&gt;
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;Link to=&quot;/&quot;&gt;indexPage&lt;/Link&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;Link to=&quot;/otherPage&quot;&gt;otherPage&lt;/Link&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;Route path=&quot;/&quot; exact component={Index} /&gt;
+        &lt;Route path=&quot;/otherPage&quot; component={OtherPage} /&gt;
+      &lt;/Router&gt;
+    &lt;/div&gt;
+  );
+}
+export default useEffectHook;
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="usereducer">useReducer</h2>
+<p>useReducer &#x662F; useState &#x7684;&#x66FF;&#x4EE3;&#x65B9;&#x6848;&#x3002;&#x63A5;&#x6536;&#x4E00;&#x4E2A; reducer&#xFF08;reducer &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x72B6;&#x6001;&#xFF0C;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x63A7;&#x5236;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x5224;&#x65AD;&#x53C2;&#x6570;&#x3002;(state, action) =&gt; newState&#xFF09;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7684; state &#x4EE5;&#x53CA;&#x4E0E;&#x5176;&#x914D;&#x5957;&#x7684; dispatch &#x65B9;&#x6CD5;&#x3002;&#x5728;&#x67D0;&#x4E9B;&#x573A;&#x666F;&#x4E0B;&#xFF0C;useReducer &#x4F1A;&#x6BD4; useState &#x66F4;&#x9002;&#x7528;&#xFF0C;&#x4F8B;&#x5982; state &#x903B;&#x8F91;&#x8F83;&#x590D;&#x6742;&#x4E14;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x5B50;&#x503C;&#xFF0C;&#x6216;&#x8005;&#x4E0B;&#x4E00;&#x4E2A; state &#x4F9D;&#x8D56;&#x4E8E;&#x4E4B;&#x524D;&#x7684; state &#x7B49;&#x3002;&#x5E76;&#x4E14;&#x4F7F;&#x7528; useReducer &#x8FD8;&#x80FD;&#x7ED9;&#x90A3;&#x4E9B;&#x4F1A;&#x89E6;&#x53D1;&#x6DF1;&#x66F4;&#x65B0;&#x7684;&#x7EC4;&#x4EF6;&#x505A;&#x6027;&#x80FD;&#x4F18;&#x5316;&#xFF0C;&#x56E0;&#x4E3A;&#x53EF;&#x4EE5;&#x5411;&#x5B50;&#x7EC4;&#x4EF6;&#x4F20;&#x9012; dispatch &#x800C;&#x4E0D;&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;useReducer &#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E00;&#x9879;&#x662F; reducer &#x51FD;&#x6570;&#xFF0C;&#x7B2C;&#x4E8C;&#x9879;&#x662F;&#x6307;&#x5B9A;&#x521D;&#x59CB;  state&#x3002;</p>
+<pre><code class="language-js">import React, { useReducer } from &quot;react&quot;;
+const reducerrr = (state, action) =&gt; {
+  switch (action) {
+    case &quot;add&quot;:
+      return state + 1;
+    case &quot;sub&quot;:
+      return state - 1;
+    case &quot;reset&quot;:
+      return state - state;
+    default:
+      return state;
+  }
+};
+function UseReducee() {
+  const [count, dispatch] = useReducer(reducerrr, 0);
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;reduce control {count}&lt;/h2&gt;
+      &lt;button onClick={() =&gt; dispatch(&quot;add&quot;)}&gt;Increment&lt;/button&gt;
+      &lt;button onClick={() =&gt; dispatch(&quot;sub&quot;)}&gt;Decrement&lt;/button&gt;
+      &lt;button onClick={() =&gt; dispatch(&quot;reset&quot;)}&gt;Reset&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default UseReducee;
+</code></pre>
+<p>&#x60F0;&#x6027;&#x521D;&#x59CB;&#x5316; state</p>
+<pre><code class="language-js">import React, { useReducer } from &quot;react&quot;;
+
+const initCount = 0;
+
+const init = (initCount) =&gt; {
+  return { count: initCount };
+};
+
+const reducer = (state, action) =&gt; {
+  switch (action.type) {
+    case &quot;increment&quot;:
+      return { count: state.count + 1 };
+    case &quot;decrement&quot;:
+      return { count: state.count - 1 };
+    case &quot;reset&quot;:
+      return init(action.payload || 0);
+    default:
+      throw new Error();
+  }
+};
+const UseReduceHook = () =&gt; {
+  const [state, dispatch] = useReducer(reducer, initCount, init);
+
+  return (
+    &lt;div className=&quot;App&quot;&gt;
+      &lt;div&gt;useReducer Count:{state.count}&lt;/div&gt;
+      &lt;button
+        onClick={() =&gt; {
+          dispatch({ type: &quot;decrement&quot; });
+        }}
+      &gt;
+        useReducer &#x51CF;&#x5C11;
+      &lt;/button&gt;
+      &lt;button
+        onClick={() =&gt; {
+          dispatch({ type: &quot;increment&quot; });
+        }}
+      &gt;
+        useReducer &#x589E;&#x52A0;
+      &lt;/button&gt;
+      &lt;button
+        onClick={() =&gt; {
+          dispatch({ type: &quot;reset&quot;, payload: 999 });
+        }}
+      &gt;
+        resetTo
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+export default UseReduceHook;
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: html--><h2>&#x5168;&#x5C40;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h2>
+<iframe src="https://codesandbox.io/embed/adoring-chatelet-u0pc9?fontsize=14&amp;hidenavigation=1&amp;theme=dark" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="adoring-chatelet-u0pc9" allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe><!--kg-card-end: html--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">&#x7ED3;&#x675F;</h2>
+<p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>&#x534F;&#x8BAE;&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
 <!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[🌒Eclipse配置]]></title><description><![CDATA[Java 开发环境 Eclipse 配置]]></description><link>yourdomain.com/eclipse/</link><guid isPermaLink="false">60f202ed0c77773fa52cbc2c</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Thu, 22 Apr 2021 13:36:00 GMT</pubDate><media:content url="yourdomain.com/content/images/2021/07/eeclipse.jpg" medium="image"/><content:encoded><![CDATA[<!--kg-card-begin: markdown--><h2 id="%E5%AE%89%E8%A3%85-eclipse">&#x5B89;&#x88C5; Eclipse</h2>
 <ul>
 <li>&#x786E;&#x8BA4; Mac &#x4E0A;&#x662F;&#x5426;&#x5DF2;&#x5B89;&#x88C5; java &#x8FD0;&#x884C;&#x73AF;&#x5883;</li>
@@ -2158,382 +2379,5 @@ function throttle (func, delay) {
 content.onmousemove = throttle(count, 1500);
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id>&#x7ED3;&#x675F;</h2>
-<p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 &#x534F;&#x8BAE;</a>&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
-<!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[Sass | Less]]></title><description><![CDATA[预处理器 Less 和 Sass | Scss]]></description><link>yourdomain.com/lesssass/</link><guid isPermaLink="false">61288978f60ced083418fc01</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Sat, 22 Aug 2020 12:56:00 GMT</pubDate><media:content url="yourdomain.com/content/images/2021/08/sass-less.png" medium="image"/><content:encoded><![CDATA[<!--kg-card-begin: markdown--><h2 id="css-%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8">CSS &#x9884;&#x5904;&#x7406;&#x5668;</h2>
-<img src="yourdomain.com/content/images/2021/08/sass-less.png" alt="Sass | Less"><p>CSS &#x9884;&#x5904;&#x7406;&#x5668;&#x662F;&#x72EC;&#x6709;&#x7684;&#x8BED;&#x6CD5;&#x6765;&#x751F;&#x6210; CSS &#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x5982; Sass&#x3001;Less&#x3001;PostCSS&#x3002;&#x9884;&#x5904;&#x7406;&#x5668;&#x662F;&#x4E00;&#x79CD;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;&#x5728;&#x6269;&#x5C55; CSS &#x7684;&#x540C;&#x65F6;&#xFF0C;&#x4F7F;&#x5176;&#x5177;&#x6709;&#x6613;&#x4E8E;&#x7EF4;&#x62A4;&#x4E14;&#x53EF;&#x8BFB;&#x6027;&#x9AD8;&#x7684;&#x7279;&#x70B9;&#xFF0C;&#x5E76;&#x6700;&#x7EC8;&#x5C06;&#x5176;&#x7F16;&#x8BD1;&#x56DE;&#x5E38;&#x89C4; CSS &#x8F93;&#x51FA;&#x3002;</p>
-<hr>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="sassscss">Sass|Scss</h2>
-<p>SASS (Syntactically Awesome Style Sheets) &#x662F; CSS &#x7684;&#x6269;&#x5C55;&#xFF0C;&#x5728;&#x8BED;&#x6CD5;&#x4E0A;&#x65E0;&#x9700;&#x4F7F;&#x7528;&#x5206;&#x53F7;&#x3001;&#x66F2;&#x7EBF;&#x3001;&#x5927;&#x62EC;&#x53F7;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x63D0;&#x4F9B;&#x5D4C;&#x5957;&#x89C4;&#x5219;&#x3001;&#x7EE7;&#x627F;&#x3001;Mixins &#x7B49;&#x7279;&#x6027;&#xFF1B;SCSS (Sassy Cascaded Style Sheets) &#x662F; SASS 3 &#x624D;&#x5F15;&#x5165;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x80FD;&#x5B8C;&#x5168;&#x517C;&#x5BB9; CSS3&#xFF0C;&#x5E76;&#x4E14;&#x7EE7;&#x627F;&#x4E86; SASS &#x7684;&#x5F3A;&#x5927;&#x529F;&#x80FD;&#x3002;</p>
-<p>SASS &#x5F88;&#x96BE;&#x901A;&#x8FC7;&#x91CD;&#x5199;&#x4EE3;&#x7801;&#x4E0E;&#x73B0;&#x6709; CSS &#x9879;&#x76EE;&#x96C6;&#x6210;&#x3002;SCSS &#x4E0D;&#x9700;&#x8981;&#x91CD;&#x5199;&#x73B0;&#x6709;&#x4EE3;&#x7801;&#x5E93;&#xFF0C;&#x800C;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x91C7;&#x6837;&#x6DFB;&#x52A0;&#x65B0;&#x4EE3;&#x7801;&#x7684;&#x65B9;&#x5F0F;&#x4E0E;&#x73B0;&#x6709;&#x4EE3;&#x7801;&#x5E93;&#x96C6;&#x6210;&#x3002;</p>
-<h3 id="%E5%8F%98%E9%87%8F%E6%8F%92%E5%85%A5">&#x53D8;&#x91CF;&#x63D2;&#x5165;</h3>
-<p>&#x5C06;&#x53D8;&#x91CF;&#x89C6;&#x4E3A;&#x4E00;&#x79CD;&#x5B58;&#x50A8;&#x4FE1;&#x606F;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5728;&#x6574;&#x4E2A;&#x6837;&#x5F0F;&#x8868;&#x4E2D;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x3002;&#x5B58;&#x50A8;&#x8BF8;&#x5982;&#x989C;&#x8272;&#x3001;&#x5B57;&#x4F53;&#x5806;&#x6808;&#x6216;&#x4EFB;&#x4F55; CSS &#x503C;&#x4E4B;&#x7C7B;&#x7684;&#x5185;&#x5BB9;&#x3002;Sass &#x4F7F;&#x7528; $ &#x7B26;&#x53F7;&#x6765;&#x4F7F;&#x67D0;&#x4E9B;&#x6570;&#x636E;&#x6210;&#x4E3A;&#x53D8;&#x91CF;&#x3002;</p>
-<pre><code class="language-sass">$font-stack: Helvetica, sans-serif;
-$primary-color: #333;
-body {
-  font: 100% $font-stack; // font: 100% Helvetica, sans-serif;
-  color: $primary-color; // color: #333;
-}
-</code></pre>
-<h3 id="%E5%B1%82%E6%AC%A1%E5%B5%8C%E5%A5%97">&#x5C42;&#x6B21;&#x5D4C;&#x5957;</h3>
-<p>Sass &#x53EF;&#x4EE5;&#x5D4C;&#x5957; CSS &#x9009;&#x62E9;&#x5668;&#xFF0C;&#x4EE5;&#x9075;&#x5FAA; HTML &#x7684;&#x76F8;&#x540C;&#x89C6;&#x89C9;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x3002;&#x4E0D;&#x8FC7;&#x6CE8;&#x610F;&#xFF0C;&#x4F7F;&#x7528;&#x8FC7;&#x5EA6;&#x7684;&#x5D4C;&#x5957;&#x89C4;&#x5219;&#x5C06;&#x5BFC;&#x81F4;&#x9AD8;&#x5EA6;&#x8026;&#x5408;&#x7684; CSS&#xFF0C;&#x8FD9;&#x4F1A;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x96BE;&#x4EE5;&#x7EF4;&#x62A4;&#x3002;</p>
-<pre><code class="language-sass">// sass&#x4EE3;&#x7801;
-nav {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  li { display: inline-block; }
-  a {
-    display: block;
-    padding: 6px 12px;
-    text-decoration: none;
-  }
-}
-// &#x7B49;&#x4EF7;&#x4E8E;css
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-nav li {
-  display: inline-block;
-}
-nav a {
-  display: block;
-  padding: 6px 12px;
-  text-decoration: none;
-}
-</code></pre>
-<h3 id="partials%E6%A8%A1%E5%9D%97">Partials&#x6A21;&#x5757;</h3>
-<p>&#x521B;&#x5EFA;&#x6A21;&#x5757;&#x5316;&#x7684; Sass &#x6587;&#x4EF6;&#xFF0C;&#x5176;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x5305;&#x542B;&#x5728;&#x5176;&#x4ED6; Sass &#x6587;&#x4EF6;&#x4E2D;&#x7684; CSS &#x7247;&#x6BB5;&#xFF0C;&#x6613;&#x4E8E;&#x7EF4;&#x62A4;&#x3002;Partial  &#x662F;&#x4E00;&#x4E2A;&#x4EE5;&#x4E0B;&#x5212;&#x7EBF;&#x5F00;&#x5934;&#x7684; Sass &#x6587;&#x4EF6;&#xFF0C;&#x5176;&#x547D;&#x540D;&#x4E3A; _partial.scss. &#x4E0B;&#x5212;&#x7EBF;&#x8BA9; Sass &#x77E5;&#x9053;&#x8BE5;&#x6587;&#x4EF6;&#x53EA;&#x662F;&#x90E8;&#x5206;&#x6587;&#x4EF6;&#xFF0C;&#x4E0D;&#x5E94;&#x5C06;&#x5176;&#x751F;&#x6210;&#x4E3A;CSS&#x6587;&#x4EF6;&#x3002;Sass &#x90E8;&#x5206;&#x4E0E;@use &#x89C4;&#x5219;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</p>
-<p>&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x5C06; Sass &#x5176;&#x62C6;&#x5206;&#x4E3A; @use &#x89C4;&#x5219;&#x3002;&#x6B64;&#x89C4;&#x5219;&#x5C06;&#x53E6;&#x4E00;&#x4E2A; Sass &#x6587;&#x4EF6;&#x52A0;&#x8F7D;&#x4E3A; module&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5728; Sass &#x6587;&#x4EF6;&#x4E2D;&#x5F15;&#x7528;&#x5176;&#x53D8;&#x91CF;&#x3001;mixin&#x548C;&#x51FD;&#x6570;&#x3002;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x8FD8;&#x5C06;&#x5728;&#x7F16;&#x8BD1;&#x8F93;&#x51FA;&#x4E2D;&#x5305;&#x542B;&#x5B83;&#x751F;&#x6210;&#x7684; CSS&#x3002;</p>
-<pre><code class="language-sass">// _base.scss
-$font-stack: Helvetica, sans-serif;
-$primary-color: #333;
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-}
-// styles.scss
-@use &apos;base&apos;;
-.inverse {
-  background-color: base.$primary-color;
-  color: white;
-}
-// &#x8F93;&#x51FA; css
-body {
-  font: 100% Helvetica, sans-serif;
-  color: #333;
-}
-
-.inverse {
-  background-color: #333;
-  color: white;
-}
-</code></pre>
-<h3 id="mixins">Mixins</h3>
-<p>mixin &#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x53EF;&#x590D;&#x7528;&#x7684; scss &#x5757;&#xFF0C;&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x7ED9; mixin&#x3002;@mixin &#x4F5C;&#x4E3A;&#x590D;&#x7528;&#x4EE3;&#x7801;&#x5757;&#x524D;&#x7F00;&#x5E38;&#x4F34;&#x968F; @include &#x8C03;&#x7528;&#x5E76;&#x6307;&#x5B9A;&#x4F20;&#x53C2;&#x3002;</p>
-<pre><code class="language-sass">// scss
-@mixin theme($theme: DarkGray) {
-  background: $theme;
-  box-shadow: 0 0 1px rgba($theme, .25);
-  color: #fff;
-}
-.info {
-  @include theme;
-}
-.alert {
-  @include theme($theme: DarkRed);
-}
-.success {
-  @include theme($theme: DarkGreen);
-}
-// css
-.info {
-  background: DarkGray;
-  box-shadow: 0 0 1px rgba(169, 169, 169, 0.25);
-  color: #fff;
-}
-.alert {
-  background: DarkRed;
-  box-shadow: 0 0 1px rgba(139, 0, 0, 0.25);
-  color: #fff;
-}
-.success {
-  background: DarkGreen;
-  box-shadow: 0 0 1px rgba(0, 100, 0, 0.25);
-  color: #fff;
-}
-</code></pre>
-<h3 id="%E6%89%A9%E5%B1%95%E4%B8%8E%E7%BB%A7%E6%89%BF">&#x6269;&#x5C55;&#x4E0E;&#x7EE7;&#x627F;</h3>
-<p>@extend &#x5141;&#x8BB8;&#x5C06;&#x4E00;&#x7EC4;CSS&#x5C5E;&#x6027;&#x4ECE;&#x4E00;&#x4E2A;&#x9009;&#x62E9;&#x5668;&#x5171;&#x4EAB;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x9009;&#x62E9;&#x5668;&#x3002;&#x5B83;&#x6709;&#x52A9;&#x4E8E;&#x4FDD;&#x6301;&#x4F60;&#x7684; Sass &#x975E;&#x5E38;&#x5E72;&#x71E5;&#x3002;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4F7F;&#x7528;&#x53E6;&#x4E00;&#x4E2A;&#x4E0E;&#x6269;&#x5C55;&#x3001;&#x5360;&#x4F4D;&#x7B26;&#x7C7B;&#x9F50;&#x5934;&#x5E76;&#x8FDB;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4E3A;&#x9519;&#x8BEF;&#x3001;&#x8B66;&#x544A;&#x548C;&#x6210;&#x529F;&#x521B;&#x5EFA;&#x4E00;&#x7CFB;&#x5217;&#x7B80;&#x5355;&#x7684;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x3002;&#x5360;&#x4F4D;&#x7B26;&#x7C7B;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#x7684;&#x7C7B;&#xFF0C;&#x4EC5;&#x5728;&#x6269;&#x5C55;&#x65F6;&#x624D;&#x6253;&#x5370;&#xFF0C;&#x6709;&#x52A9;&#x4E8E;&#x4FDD;&#x6301;&#x7F16;&#x8BD1;&#x540E;&#x7684;CSS&#x6574;&#x6D01;&#x5E72;&#x51C0;&#x3002;</p>
-<pre><code class="language-scss">// scss
-// %message-shared &#x4E0E; %equal-heights &#x4E0D;&#x4F1A;&#x88AB;&#x6253;&#x5370; 
-%message-shared {
-  border: 1px solid #ccc;
-  padding: 10px;
-  color: #333;
-}
-%equal-heights {
-  display: flex;
-  flex-wrap: wrap;
-}
-.message {
-  @extend %message-shared;
-}
-.success {
-  @extend %message-shared;
-  border-color: green;
-}
-.error {
-  @extend %message-shared;
-  border-color: red;
-}
-.warning {
-  @extend %message-shared;
-  border-color: yellow;
-}
-// css
-.message, .success, .error, .warning {
-  border: 1px solid #ccc;
-  padding: 10px;
-  color: #333;
-}
-.success {
-  border-color: green;
-}
-.error {
-  border-color: red;
-}
-.warning {
-  border-color: yellow;
-}
-</code></pre>
-<h3 id="%E7%AE%97%E6%95%B0%E6%93%8D%E4%BD%9Coperate">&#x7B97;&#x6570;&#x64CD;&#x4F5C;Operate</h3>
-<p>&#x5728; SCSS &#x4E2D;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6570;&#x5B66;&#x8FD0;&#x7B97;&#xFF0C;&#x5728; CSS &#x4E2D;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x501F;&#x52A9; calc()&#x3002;SCSS &#x62E5;&#x6709;&#x6807;&#x51C6;&#x7684;&#x6570;&#x5B66;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;+&#x3001;-&#x3001;*&#x3001;/ &#x548C; %&#x3002;</p>
-<pre><code class="language-scss">.container {
-  width: 100%;
-}
-article[role=&quot;main&quot;] {
-  float: left;
-  width: 600px / 960px * 100%;
-}
-aside[role=&quot;complementary&quot;] {
-  float: right;
-  width: 300px / 960px * 100%;
-}
-// css
-.container {
-  width: 100%;
-}
-article[role=&quot;main&quot;] {
-  float: left;
-  width: 62.5%;
-}
-aside[role=&quot;complementary&quot;] {
-  float: right;
-  width: 31.25%;
-}
-</code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="less">Less</h2>
-<h3 id="%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0">&#x64CD;&#x4F5C;&#x51FD;&#x6570;</h3>
-<p>&#x652F;&#x6301;&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x7B26;&#x3001;&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x7B26;&#x7B49;&#xFF0C;&#x4EE5;&#x5BF9;&#x4EFB;&#x4F55;&#x6570;&#x5B57;&#x3001;&#x989C;&#x8272;&#x6216;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8FD0;&#x7B97;&#xFF0C;&#x751A;&#x81F3;&#x7F16;&#x7801;&#x64CD;&#x4F5C;(scape)&#x3002;</p>
-<pre><code class="language-less">// if(condition, value1, value2)
-@some: foo;
-div {
-    margin: if((2 &gt; 1), 0, 3px); // margin: 0;
-    color:  if((iscolor(@some)), @some, black); // color:  black;
-}
-// boolean
-@bg: black;
-@bg-light: boolean(luma(@bg) &gt; 50%);
-div {
-  background: @bg; // background: black;
-  color: if(@bg-light, black, white); // color: white;
-}
-</code></pre>
-<h3 id="%E5%8F%98%E9%87%8F%E6%8F%92%E5%85%A5">&#x53D8;&#x91CF;&#x63D2;&#x5165;</h3>
-<pre><code class="language-less">// Selectors
-@my-selector: banner;
-.@{my-selector} {
-  font-weight: bold;
-  line-height: 40px;
-  margin: 0 auto;
-}
-// URLs
-@images: &quot;../img&quot;;
-@themes: &quot;../../src/themes&quot;;
-body {
-  color: #444;
-  background: url(&quot;@{images}/white-sand.png&quot;);
-}
-@import &quot;@{themes}/tidal-wave.less&quot;;
-// Properties
-@property: color;
-.widget {
-  @{property}: #0ee;
-  background-@{property}: #999;
-}
-// Variable Variables
-@primary:  green;
-@secondary: blue;
-.section {
-  @color: primary;
-  .element {
-    color: @@color;
-  }
-}
-// Lazy Evaluation
-.lazy-eval {
-  width: @var;
-}
-@var: @a;
-@a: 9%;
-// Properties as Variables
-.block {
-  color: red; 
-  .inner {
-    background-color: $color; // blue --&gt; choose the last property within the current
-  }
-  color: blue;  
-} 
-// Default Variables --&gt; &#x6CA1;&#x5927;&#x770B;&#x61C2;,&#x7801;&#x4E2A;&#x5751;
-</code></pre>
-<h3 id="%E7%88%B6%E9%80%89%E6%8B%A9%E5%99%A8">&#x7236;&#x9009;&#x62E9;&#x5668;</h3>
-<pre><code class="language-less">// Referencing parent selectors with &amp;
-a {
-  color: blue;
-  &amp;:hover {
-    color: green;
-  }
-} // a { color: blue;} a:hover { color: green; }
-// Changing Selector Order
-.header {
-  .menu {
-    border-radius: 5px;
-    .no-borderradius &amp; {
-      background-image: url(&apos;images/button-background.png&apos;);
-    }
-  }
-} // .no-borderradius .header .menu {...}
-// Combinatorial Explosion -- &#x6392;&#x5217;&#x7EC4;&#x5408;
-p, a, ul, li {
-  border-top: 2px dotted #366;
-  &amp; + &amp; { // p + p, p + a, p + ul, p + li, a + p, a + a...li + li
-    border-top: 0;
-  }
-}
-</code></pre>
-<h3 id="%E6%8B%93%E5%B1%95%E8%AF%AD%E6%B3%95">&#x62D3;&#x5C55;&#x8BED;&#x6CD5;</h3>
-<pre><code class="language-less">// &#x6269;&#x5C55;&#x5D4C;&#x5957;&#x9009;&#x62E9;&#x5668;
-.bucket {
-  tr { // nested ruleset with target selector
-    color: blue;
-  }
-}
-.some-class:extend(.bucket tr) {} // nested ruleset is recognized
-// &#x8F93;&#x51FA;
-.bucket tr,
-.some-class {
-  color: blue;
-}
-</code></pre>
-<h3 id="%E7%BB%84%E5%90%88%E5%B1%9E%E6%80%A7">&#x7EC4;&#x5408;&#x5C5E;&#x6027;</h3>
-<pre><code class="language-less">// &#x5141;&#x8BB8;&#x5C06;&#x591A;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x805A;&#x5408;
-.mixin() {
-  box-shadow+: inset 0 0 10px #555;
-}
-.myclass {
-  .mixin();
-  box-shadow+: 0 0 20px black;
-}
-// .myclass { box-shadow: inset 0 0 10px #555, 0 0 20px black; }
-</code></pre>
-<h3 id="%E6%B7%B7%E5%90%88%E5%B1%9E%E6%80%A7">&#x6DF7;&#x5408;&#x5C5E;&#x6027;</h3>
-<pre><code class="language-less">// mix-in class selectors and id selectors
-.a, #b {
-  color: red;
-}
-.mixin-class {
-  .a(); // color: red;
-}
-.mixin-id {
-  #b(); // color: red;
-}
-// Mixins With Parentheses
-// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; mixin,&#x4F46;&#x53C8;&#x4E0D;&#x5E0C;&#x671B;&#x8BE5; mixin &#x51FA;&#x73B0;&#x5728; CSS &#x8F93;&#x51FA;&#x4E2D;
-.my-mixin {
-  color: black;
-}
-.my-other-mixin() {
-  background: white;
-}
-.class {
-  .my-mixin();
-  .my-other-mixin();
-} // .my-mixin { color: black; } .class { color: black; background: white; }
-// Selectors in Mixins
-.my-hover-mixin() {
-  &amp;:hover {
-    border: 1px solid red;
-  }
-}
-button {
-  .my-hover-mixin();
-} // button:hover { border: 1px solid red; }
-// Guarded Namespaces -- &#x5219;&#x4EC5;&#x5F53;&#x4FDD;&#x62A4;&#x6761;&#x4EF6;&#x8FD4;&#x56DE; true &#x65F6;&#x624D;&#x4F7F;&#x7528;&#x7531;&#x5B83;&#x5B9A;&#x4E49;&#x7684; mixin
-#namespace when (@mode = huge) {
-  .mixin() { /* */ }
-}
-</code></pre>
-<h3 id="import-%E8%A7%84%E5%88%99">@import &#x89C4;&#x5219;</h3>
-<p>&#x5728;&#x6807;&#x51C6; CSS &#x4E2D;&#xFF0C;@importat &#x89C4;&#x5219;&#x5FC5;&#x987B;&#x5728;&#x6240;&#x6709;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x89C4;&#x5219;&#x4E4B;&#x524D;&#x3002;&#x4F46;&#x662F; Less &#x5E76;&#x4E0D;&#x5173;&#x5FC3;&#x4F60;&#x628A; @import &#x8BED;&#x53E5;&#x653E;&#x5728;&#x54EA;&#x91CC;&#x3002;@import &#x6839;&#x636E;&#x4E0D;&#x540C;&#x6587;&#x4EF6;&#x6269;&#x5C55;&#x540D;&#x4F1A;&#x4EE5;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x5904;&#x7406;&#x8BED;&#x53E5;&#xFF1A;.css &#x6269;&#x5C55;&#x540D;&#x5C06;&#x88AB;&#x89C6;&#x4E3A; CSS &#x5E76;&#x4E14; @import &#x8BED;&#x53E5;&#x4FDD;&#x6301;&#x539F;&#x6837;&#x3001;&#x6709;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x6269;&#x5C55;&#x540D;&#x5C06;&#x88AB;&#x89C6;&#x4E3A; Less &#x5E76;&#x5BFC;&#x5165;&#x3001;&#x6CA1;&#x6709;&#x6269;&#x5C55;&#x540D;&#x5C06;&#x4F5C;&#x4E3A;&#x5BFC;&#x5165;&#x7684; Less &#x6587;&#x4EF6;&#x4E14; .less &#x5C06;&#x88AB;&#x9644;&#x52A0;&#x5305;&#x542B;&#x5728;&#x5185;&#x3002;</p>
-<pre><code class="language-less">@import &quot;foo&quot;;      // foo.less is imported
-@import &quot;foo.less&quot;; // foo.less is imported
-@import &quot;foo.php&quot;;  // foo.php imported as a Less file
-@import &quot;foo.css&quot;;  // foo.css is imported as a css file
-</code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="less-%E4%B8%8E-sass-%E7%9A%84%E5%BC%82%E5%90%8C">less &#x4E0E; sass &#x7684;&#x5F02;&#x540C;</h2>
-<p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x770B;&#x51FA; less &#x548C; sass &#x5728;&#x8BED;&#x6CD5;&#x4E0A;&#x6709;&#x8F83;&#x591A;&#x7684;&#x5171;&#x6027;&#xFF1A;&#x53C2;&#x6570;&#x6DF7;&#x5165;&#x4E0E;&#x4F20;&#x9012;&#x3001;&#x5D4C;&#x5957;&#x89C4;&#x5219;&#x3001;Mixins&#x3001;&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#xFF08;&#x8BA1;&#x7B97;&#x989C;&#x8272;&#x4E0E;&#x5C3A;&#x5BF8;&#xFF09;&#x3001;namespace &#x7684;&#x5206;&#x7EC4;&#x6837;&#x5F0F;&#x3001;&#x4F5C;&#x7528;&#x57DF;&#x7B49;&#x3002;</p>
-<table>
-    <thead>
-        <tr>
-            <th colspan="3"> less &#x4E0E; sass &#x7684;&#x533A;&#x522B;&#x6BD4;&#x8F83; </th>
-        </tr>
-    </thead>
-    <tbody style="text-align:center">
-        <tr>
-            <td> &#x4E24;&#x8005;&#x6BD4;&#x8F83; </td>
-            <td> SASS </td>
-            <td> LESS </td>
-        </tr>
-        <tr>
-            <td> &#x57FA;&#x672C;&#x533A;&#x522B; </td>
-            <td> Ruby &#x7F16;&#x7801; </td>
-            <td> JavaScript &#x7F16;&#x5199; </td>
-        </tr>
-        <tr>
-            <td> &#x73AF;&#x5883;&#x7279;&#x5F81; </td>
-            <td> Dart Sass(&#x8FC7;&#x53BB;&#x662F;Ruby) </td>
-            <td> Node &#x6216;&#x6D4F;&#x89C8;&#x5668;&#x7AEF; </td>
-        </tr>
-        <tr>
-            <td> &#x53D8;&#x91CF;&#x8868;&#x793A; </td>
-            <td> &#x4EE5; $ &#x5F00;&#x5934; </td>
-            <td> &#x4EE5; @ &#x5F00;&#x5934; </td>
-        </tr>
-        <tr>
-            <td> &#x6587;&#x4EF6;&#x540E;&#x7F00; </td>
-            <td> .sass|.scss </td>
-            <td> .less </td>
-        </tr>
-        <tr>
-            <td> &#x4E0A;&#x624B;&#x666E;&#x53CA; </td>
-            <td> &#x4E2D;&#x7B49;|&#x4E2D;&#x7B49; </td>
-            <td> &#x7B80;&#x5355;|&#x8F83;&#x5E7F; </td>
-        </tr>
-    </tbody>
-</table><!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">&#x7ED3;&#x675F;</h2>
 <p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 &#x534F;&#x8BAE;</a>&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
 <!--kg-card-end: markdown-->]]></content:encoded></item></channel></rss>
