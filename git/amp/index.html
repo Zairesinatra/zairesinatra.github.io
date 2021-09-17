@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/git/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/githubbg.jpg" />
     <meta property="article:published_time" content="2019-10-17T14:02:00.000Z" />
-    <meta property="article:modified_time" content="2021-09-16T19:41:39.000Z" />
+    <meta property="article:modified_time" content="2021-09-17T14:29:11.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +63,7 @@
     "headline": "Git",
     "url": "yourdomain.com/git/",
     "datePublished": "2019-10-17T14:02:00.000Z",
-    "dateModified": "2021-09-16T19:41:39.000Z",
+    "dateModified": "2021-09-17T14:29:11.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/githubbg.jpg",
@@ -672,9 +672,82 @@
             </figure>
             <section class="post-content">
 
-                <p>Git 是为更好管理 Linux 内核而开发的分散式版本控制系统，常用作历史记录保存、复原到指定的状态、显示编辑的内容差异、生成覆盖警告等工作。在此之前的集中式版本控制系统最大弊端是必须联网才能工作。而分布式版本控制系统根本没有 "中央服务器"，每台电脑上的 Repository 都是一个完整的版本库，这样工作的时候就不需要再考虑联网，因为版本库已存在个人的电脑中。</p><p>Git的 Repository 分为远端 repo 和本地的 repo。远端的 Repository 是为多人共享而建立的 repo，如常见的 Github 与 Gitee。本地端 repo 通常指的就是个人 PC。为直观理解 Working Tree 也可以在本地安装 Git 后通过 sourcetree 可视化控制与管理版本。</p><h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+                <amp-iframe frameborder="1" width="100%" height="86" src="https://music.163.com/outchain/player?type=2&amp;id=22821100&amp;auto=0&amp;height=66" sandbox="allow-scripts allow-same-origin" layout="responsive"></amp-iframe><p>Git 是为更好管理 Linux 内核而开发的分散式版本控制系统，常用作历史记录保存、复原到指定的状态、显示编辑的内容差异、生成覆盖警告等工作。在此之前的集中式版本控制系统最大弊端是必须联网才能工作。而分布式版本控制系统根本没有 "中央服务器"，每台电脑上的 Repository 都是一个完整的版本库，这样工作的时候就不需要再考虑联网，因为版本库已存在个人的电脑中。</p><p>Git的 Repository 分为远端 repo 和本地的 repo。远端的 Repository 是为多人共享而建立的 repo，如常见的 Github 与 Gitee。本地端 repo 通常指的就是个人 PC。为直观理解 Working Tree 也可以在本地安装 Git 后通过 sourcetree 可视化控制与管理版本。</p><h2 id="git-%E6%96%87%E4%BB%B6%E5%A4%B9">.git 文件夹</h2>
+<p>初始化操作会生成 git 隐藏文件夹。在 .git 中使用 'watch -n 1 -d find .' 定时查看目录内容变化。此外在项目根目录也可以使用 'tree .git' 查看文件夹结构。</p>
+<pre><code class="language-shell"># command not found 解决
+# Homebrew 安装监视命令
+brew install watch
+# Homebrew 安装 tree 命令
+brew install tree
+</code></pre>
+<ul>
+<li>config 文件</li>
+</ul>
+<pre><code class="language-shell"># config —— 本地的项目配置选项(全局的配置文件在用户目录下 cat ~/.gitconfig)
+[core]
+	repositoryformatversion = 0
+    # 文件权限的修改是否为差异.值为 true 则 git 把文件权限也算作文件差异
+	filemode = true
+    # 裸仓库,使用 --bare 参数初始化的仓库一般称之为裸仓库.因为这样创建的仓库并不包含工作区,也就是说不能在这个目录下执行一般使用的 Git 命令
+	bare = false
+    # 日志引用更新
+	logallrefupdates = true
+    # 忽略文件的大小写
+	ignorecase = true
+    # 预组合 Unicode 常用于安全性认证
+	precomposeunicode = true
+</code></pre>
+<p>在 config 文件中不配置 user info 会默认选择全局的用户信息。如果在文件夹进行 user.name 以及 user.email 配置则会使 config 文件中多出 [user] 的信息，此外代码仓库会优先选择本地文件中 local 的配置。</p>
+<pre><code class="language-shell"># 配置 local user info
+git config user.name "zyy"
+git config user.email "zy@zs.com"
+git config -l # 查看
+cat .git/config
+</code></pre>
+<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>add userinfo</figcaption></figure><ul>
+<li>objects 文件夹与 index</li>
+</ul>
+<p>在代码仓库创建修改文件时，.git 文件夹中内容不会发生变化，即工作区内容不会被 git 所管理。但是能被状态识别。想要通过 git 进行管理需要使用添加命令 'git add' 将内容提交至缓存区（索引区或 stage area）。index 是一个索引文件，当执行添加后，文件就会存入 objects 里，并使用索引进行定位，后续执行 commit，那么提交的是当前索引 index 里的内容，而不是工作目录中的内容，同时 objects 中会新增 commit type 以及 tree type 对象。commit type 里引用的 tree type 对象包含本次 commit 的 blob 对象。objects 的优势在于若 add 的两个文件内容一致，只会新增一个文件。</p>
+<pre><code class="language-shell">echo "something"&gt; README.md # 创建修改文件
+# 查看当前文件状态
+git status # 当前状态 untracked
+# 交至缓存区
+git add README.md
+# 查看 Objects 的文件类型
+git cat-file -t 6位 SHA1 哈希值 # blob 表示对象 Objects 的类型是用来存储文件内容的
+# 查看具体 Objects 的内容
+git cat-file -p 6位 SHA1 哈希值 # 通常是提交文件的具体内容
+# 查看具体 Objects 的大小
+git cat-file -s 6位 SHA1 哈希值
+# 列出目录中文件(每当状态改变其 hash 值都会改变)
+git ls-files -s # 权限 哈希值 文件名
+</code></pre>
+<p>哈希算法(Hash)又称摘要算法(Digest)，作用是对任意一组输入数据进行计算，得到一个固定长度的输出。</p>
+<table>
+    <thead>
+        <tr><th> 算法 </th><th> 输出长度（位） </th><th> 输出长度（字节） </th></tr>
+    </thead>
+    <tbody>
+        <tr><td> MD5 </td><td> 128 bits </td><td> 16 bytes </td></tr>
+        <tr><td> SHA-1 </td><td> 160 bits </td><td> 20 bytes </td></tr>
+        <tr><td> RipeMD-160 </td><td> 160 bits </td><td> 20 bytes </td></tr>
+        <tr><td> SHA-256 </td><td> 256 bits </td><td> 32 bytes </td></tr>
+        <tr><td> SHA-512 </td><td> 512 bits </td><td> 64 bytes </td></tr>
+    </tbody>
+</table><ul>
+<li>refs 与 HEAD</li>
+</ul>
+<p>HEAD 文件永远<u>存储当前工作区的分支，且永远指向最新的 commit</u>。所谓的 Master 分支也就是一个 40 个字节的档案。如果切换分支，那么再执行 'cat .git/HEAD' ，其内容会发生改变。HEAD 的內容也会变成 'refs/heads/切换的分支'。但值得一提的是 HEAD 也不一定总是会指向某个分支，当 HEAD 没有指向某个分支的时候会造成「detached HEAD」的状态。</p>
+<pre><code class="language-shell">cat refs/heads/master # 最新的 commit 分支
+8c9588c5965a18bd89ccc3f7006a03cb0a0a463b
+cat HEAD
+ref: refs/heads/master
+</code></pre>
+<h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
 <pre><code class="language-shell"># 目录变成 Git 仓库
 git init
+# 列出文件夹内容(-l 参数为列出详细资料,-a 为列出隐藏资料夹)
+ls -la
 # 查看状态
 git status
 # 创建 README 文件
@@ -692,6 +765,97 @@ git reset --soft HEAD^ # 成功撤销 commit; HEAD^ 表示上一个版本,即上
 git reset --hard HEAD^ # 连着 add 也撤销 —— 删除工作空间的改动代码(在 README.md 中的改动完全消失)
 # 这里如果只是 commit 注释写错了需要修改注释
 git commit --amend
+# 查看 gitglobal 配置文件
+cat ~/.gitconfig
+# 打印 global 的配置
+git config --global -l
+</code></pre>
+<p>在操作分支时尽量不使用 -D 强行删除分支，而是使用有提示的 --delete 较为安全。删除分支后特有的分支对象不会删除，而是保留下来。从底层上，分支删除的操作只是删除某个指向特定 commit 的指针而已，那个 commit 本身没有被删除。在开发中的意义在于找到删除分支的 commit，就可以通过切换分支 'checkout commit' 来恢复工作区。那么找到误删分支的 commit 的方法，在代码区不多的情况下可以通过在 objects 中使用 'git cat-file -t' 查询类型是 commit 的对象。在代码仓库历史较长的情况下可以通过 'git reflog' 查看到此前分支的操作。通过哈希值再次进入此分支进行操作。</p>
+<pre><code class="language-shell">$ git branch -D dev
+$ Deleted branch dev (was 45de930).
+$ git cat-file -t 45de930
+commit
+$ git cat-file -p 45de930
+tree efb888bed3302a0cb8808046c501d9f3e2a881e8
+parent 8c9588c5965a18bd89ccc3f7006a03cb0a0a463b
+author zyy &lt;zy@zs.com&gt; 1631881325 +0800
+committer zyy &lt;zy@zs.com&gt; 1631881325 +0800
+$ git cat-file -p efb888
+100644 blob 5008ddfcf53c02e82d7eee2e57c38e5672ef89f6	.DS_Store
+100644 blob 58c9bdf9d017fcd178dc8c073cbfcbb7ff240d6c	README.md
+100644 blob 38f8e886e1a6d733aa9bfa7282568f83c133ecd6	dev.txt
+$ git cat-file -p 38f8e886
+dev # 垃圾对象 —— 原文件的内容
+</code></pre>
+<pre><code class="language-shell">git reflog
+</code></pre>
+<p>从最新的 commit 分支根据查看历史日志将分支切换到某次 commit，会出现 'detached HEAD' 的效果。即 HEAD 文件指向具体的 commit 而不是 master 的现象。此时的 'git log' 日志也会仅存本次提交前的内容。可以在此处创建分支再进行 commit 操作 'git checkout -b xxx'。</p>
+<pre><code class="language-shell">git checkout 8c9588c5
+Note: switching to '8c9588c5'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c &lt;new-branch-name&gt;
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 8c9588c ctx
+</code></pre>
+<p>在工作中直接使用 'git diff' 的情况较少，通常都是通过 IDE 直接在编辑器中查看。在 VS code 中的源代码管理文件单击即可打开 diff 面板查看 modified 内容。</p>
+<pre><code class="language-shell">$ git diff
+diff --git a/README.md b/README.md #具体区别文件
+index 58c9bdf..4dc48ab 100644 # index 58c9bdf表示索引区哈希值,4dc48ab表示工作区
+--- a/README.md # 索引区文件内容
++++ b/README.md # 工作区内容
+@@ -1 +1,2 @@ # 通过 block 块进行内容 diff ; -1表示索引区的第1行、+1,2表示工作区的1行数2行内容
+ 111
++11
+\ No newline at end of file
+(END)
+</code></pre>
+<h2 id="%E8%BF%9C%E7%A8%8B-repo">远程 repo</h2>
+<p>在与远程 repo 建立链接后，除了 config 中出现远程相关配置外，其他配置不会改变直到提交的时刻。</p>
+<pre><code class="language-shell">// config 增加
+[remote "origin"]
+	url = git@github.com:Zairesinatra/gittest.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+</code></pre>
+<p>进行提交操作后，可以通过 'tree .git' 发现 directories 以及 files 增加目录、文件。在 refs 以及 logs 中会增加 remotes 以及 origin 的目录，对应的在 origin 中会存在 master or main 文件。此时通过 'cat .git/refs/remotes/origin/main' 以及 'cat .git/refs/heads/main' 可以发现这两者是相同的 commit 类型对象。即本地的 main 分支与远程的 main 分支为同步的。若通过修改文件再执行 commit 操作，则 main 分支会领先 origin 分支一次提交，此时通过 push 进行同步。</p>
+<pre><code class="language-shell">$ cat .git/refs/remotes/origin/main
+8c9588c5965a18bd89ccc3f7006a03cb0a0a463b
+$ git cat-file -t 8c9588
+commit
+$ cat .git/refs/heads/main
+8c9588c5965a18bd89ccc3f7006a03cb0a0a463b
+$ git add file
+$ git commit -m "addfile1"
+main 5a98647] addfile1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file.txt
+$ git log
+commit 5a986476d1f7245ded472c2e1074fe00fd1eb5bb (HEAD -&gt; main)
+Author: zyy &lt;zy@zs.com&gt;
+Date:   Fri Sep 17 22:26:35 2021 +0800
+
+    addfile1
+
+commit 8c9588c5965a18bd89ccc3f7006a03cb0a0a463b (origin/main, tmp)
+Author: zszszszs &lt;zszyzy@gmail.com&gt;
+Date:   Fri Sep 17 02:58:03 2021 +0800
+
+    ctx
 </code></pre>
 <amp-iframe id="embed_dom" frameborder="0" src="https://www.processon.com/embed/61439cc6e0b34d66cf84d068" sandbox="allow-scripts allow-same-origin" width="600" height="400" layout="responsive"></amp-iframe><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
