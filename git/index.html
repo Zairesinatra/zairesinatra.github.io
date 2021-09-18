@@ -21,8 +21,8 @@
     <meta property="og:description" content="撷英采华 —— Git 从炼气到大乘" />
     <meta property="og:url" content="yourdomain.com/git/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/githubbg.jpg" />
-    <meta property="article:published_time" content="2019-10-17T14:02:00.000Z" />
-    <meta property="article:modified_time" content="2021-09-17T14:29:11.000Z" />
+    <meta property="article:published_time" content="2021-06-01T14:02:00.000Z" />
+    <meta property="article:modified_time" content="2021-09-18T16:48:00.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -67,8 +67,8 @@
     },
     "headline": "Git",
     "url": "yourdomain.com/git/",
-    "datePublished": "2019-10-17T14:02:00.000Z",
-    "dateModified": "2021-09-17T14:29:11.000Z",
+    "datePublished": "2021-06-01T14:02:00.000Z",
+    "dateModified": "2021-09-18T16:48:00.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/githubbg.jpg",
@@ -246,7 +246,7 @@ pre[class*="language-"] {
 
 
 
-<article class="article post tag-technology-growth">
+<article class="article post tag-technology-growth featured">
 
     <header class="article-header gh-canvas">
 
@@ -270,8 +270,8 @@ pre[class*="language-"] {
                 <div class="article-byline-meta">
                     <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                     <div class="byline-meta-content">
-                        <time class="byline-meta-date" datetime="2019-10-17">Oct 17, 2019</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 9 min read</span>
+                        <time class="byline-meta-date" datetime="2021-06-01">Jun 1, 2021</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 28 min read</span>
                     </div>
                 </div>
             </section>
@@ -289,7 +289,7 @@ pre[class*="language-"] {
     </header>
 
     <section class="gh-content gh-canvas">
-        <!--kg-card-begin: html--><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="86" src="http://music.163.com/outchain/player?type=2&amp;id=22821100&amp;auto=0&amp;height=66"></iframe><!--kg-card-end: html--><p>Git 是为更好管理 Linux 内核而开发的分散式版本控制系统，常用作历史记录保存、复原到指定的状态、显示编辑的内容差异、生成覆盖警告等工作。在此之前的集中式版本控制系统最大弊端是必须联网才能工作。而分布式版本控制系统根本没有 "中央服务器"，每台电脑上的 Repository 都是一个完整的版本库，这样工作的时候就不需要再考虑联网，因为版本库已存在个人的电脑中。</p><p>Git的 Repository 分为远端 repo 和本地的 repo。远端的 Repository 是为多人共享而建立的 repo，如常见的 Github 与 Gitee。本地端 repo 通常指的就是个人 PC。为直观理解 Working Tree 也可以在本地安装 Git 后通过 sourcetree 可视化控制与管理版本。</p><!--kg-card-begin: markdown--><h2 id="git-%E6%96%87%E4%BB%B6%E5%A4%B9">.git 文件夹</h2>
+        <!--kg-card-begin: html--><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="86" src="http://music.163.com/outchain/player?type=2&amp;id=22821100&amp;auto=0&amp;height=66"></iframe><!--kg-card-end: html--><p>Git 是为更好管理 Linux 内核而开发的分散式版本控制系统，常用作历史记录保存、复原到指定的状态、显示编辑的内容差异、生成覆盖警告等工作。在此之前的集中式版本控制系统最大弊端是必须联网才能工作。而分布式版本控制系统根本没有 "中央服务器"，每台电脑上的 Repository 都是一个完整的版本库，这样工作的时候就不需要再考虑联网，因为版本库已存在个人的电脑中。</p><p>Git 的 Repository 分为远端 repo 和本地的 repo。远端的 Repository 是为多人共享而建立的 repo，如常见的 Github 与 Gitee。本地端 repo 通常指的就是个人 PC。为直观理解 Working Tree 也可以在本地安装 Git 后通过 sourcetree 可视化控制与管理版本。</p><!--kg-card-begin: markdown--><h2 id="git-%E6%96%87%E4%BB%B6%E5%A4%B9">.git 文件夹</h2>
 <p>初始化操作会生成 git 隐藏文件夹。在 .git 中使用 'watch -n 1 -d find .' 定时查看目录内容变化。此外在项目根目录也可以使用 'tree .git' 查看文件夹结构。</p>
 <pre><code class="language-shell"># command not found 解决
 # Homebrew 安装监视命令
@@ -321,7 +321,8 @@ git config user.email &quot;zy@zs.com&quot;
 git config -l # 查看
 cat .git/config
 </code></pre>
-<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/09/configinfo.png" class="kg-image" alt="add userinfo" loading="lazy" width="1302" height="602" srcset="../content/images/size/w600/2021/09/configinfo.png 600w, ../content/images/size/w1000/2021/09/configinfo.png 1000w, ../content/images/2021/09/configinfo.png 1302w" sizes="(min-width: 720px) 720px"><figcaption>add userinfo</figcaption></figure><!--kg-card-begin: markdown--><ul>
+<p><img src="../content/images/2021/09/configinfo-1.png" alt="configinfo-1" loading="lazy"></p>
+<ul>
 <li>objects 文件夹与 index</li>
 </ul>
 <p>在代码仓库创建修改文件时，.git 文件夹中内容不会发生变化，即工作区内容不会被 git 所管理。但是能被状态识别。想要通过 git 进行管理需要使用添加命令 'git add' 将内容提交至缓存区（索引区或 stage area）。index 是一个索引文件，当执行添加后，文件就会存入 objects 里，并使用索引进行定位，后续执行 commit，那么提交的是当前索引 index 里的内容，而不是工作目录中的内容，同时 objects 中会新增 commit type 以及 tree type 对象。commit type 里引用的 tree type 对象包含本次 commit 的 blob 对象。objects 的优势在于若 add 的两个文件内容一致，只会新增一个文件。</p>
@@ -386,6 +387,8 @@ git commit --amend
 cat ~/.gitconfig
 # 打印 global 的配置
 git config --global -l
+# git 分支 master 改为 main
+git branch -M main
 </code></pre>
 <p>在操作分支时尽量不使用 -D 强行删除分支，而是使用有提示的 --delete 较为安全。删除分支后特有的分支对象不会删除，而是保留下来。从底层上，分支删除的操作只是删除某个指向特定 commit 的指针而已，那个 commit 本身没有被删除。在开发中的意义在于找到删除分支的 commit，就可以通过切换分支 'checkout commit' 来恢复工作区。那么找到误删分支的 commit 的方法，在代码区不多的情况下可以通过在 objects 中使用 'git cat-file -t' 查询类型是 commit 的对象。在代码仓库历史较长的情况下可以通过 'git reflog' 查看到此前分支的操作。通过哈希值再次进入此分支进行操作。</p>
 <pre><code class="language-shell">$ git branch -D dev
@@ -463,8 +466,8 @@ main 5a98647] addfile1
  create mode 100644 file.txt
 $ git log
 commit 5a986476d1f7245ded472c2e1074fe00fd1eb5bb (HEAD -&gt; main)
-Author: zyy &lt;zy@zs.com&gt;
-Date:   Fri Sep 17 22:26:35 2021 +0800
+Author:
+Date:
 
     addfile1
 
@@ -473,8 +476,690 @@ Author: zszszszs &lt;zszyzy@gmail.com&gt;
 Date:   Fri Sep 17 02:58:03 2021 +0800
 
     ctx
+$ git branch -r # 查看远程仓库
+$ tree .git
+...
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    │   └── main
+    ├── remotes
+    │   └── origin
+    │       └── main
+    └── tags
+$ git remote # 显示远程仓库名
+$ git remote -v # 打印远程仓库 fetch 与 push 的url
+$ git remote show origin # 检查远程分支与本地分支关联情况
+# 此时远程的master代码存在更新
+$ more .git/refs/remotes/origin/main # 未 fetch 前本地master的最新 commit 不会变化
+435245397979f64d929d29a0bf1572a6ee14e4ec
+$ git fetch # 同步远程分支代码
+Enter passphrase for key '/Users/xieziyi/.ssh/id_rsa':
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 658 bytes | 164.00 KiB/s, done.
+From github.com:
+   4352453..4c033c4  main       -&gt; origin/main
+$ more .git/refs/remotes/origin/main # fetch 后本地 master 的最新 commit 变化
+4c033c40e0982de4b403ad9018d5a8fd625b3f9a
+# 当远程仓库删除或创建分支
+git remote show origin # 连接网络查看远程仓库情况
+Enter passphrase for key '/Users/xieziyi/.ssh/id_rsa':
+* remote origin
+  Fetch URL: git@github.com:xx.git
+  Push  URL: git@github.com:xx.git
+  HEAD branch: main
+  Remote branches:
+    dev  new (next fetch will store in remotes/origin) # 未追踪
+    main tracked
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local ref configured for 'git push':
+    main pushes to main (local out of date)
+$ git fetch
+Enter passphrase for key 'xx':
+From github.com:xx
+ * [new branch]      dev        -&gt; origin/dev
+git remote show origin
+Enter passphrase for key '/Users/xieziyi/.ssh/id_rsa':
+* remote origin
+  Fetch URL: git@github.com:xx.git
+  Push  URL: git@github.com:xx.git
+  HEAD branch: main
+  Remote branches:
+    dev  tracked
+    main tracked
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local ref configured for 'git push':
+    main pushes to main (local out of date)
+$ git branch -r
+origin/dev
+origin/main
+# 删除远程分支操作
+# 本地依然存在分支,且不能通过 git fetch 去将本地的分支去除
+$ git branch -r
+origin/dev
+origin/main
+$ git remote show origin
+Enter passphrase for key '/Users/xieziyi/.ssh/id_rsa':
+* remote origin
+  Fetch URL: git@github.com:xx.git
+  Push  URL: git@github.com:xx.git
+  HEAD branch: main
+  Remote branches:
+    main                    tracked
+    # 存在分支过期
+    refs/remotes/origin/dev stale (use 'git remote prune' to remove)
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local ref configured for 'git push':
+    main pushes to main (local out of date)
+$ git remote prune # 修剪分支;也可以使用 git fetch --prune
+Enter passphrase for key 'xx':
+From github.com:xx
+ - [deleted]         (none)     -&gt; origin/dev
+$ tree .git # dev相关分支没有了
+# 在本地创建的分支与远程分支若分别创建则不会有联系
+$ git branch -vv # 查看与远程仓库链接情况
+dev  4352453 1 # 并未与远程分支关联
+main 4352453 [origin/main: behind 1] 1 # 中括号表示和远程origin/main关联且落后
+# 远程分支与本地分支其实不是直接对应,git fetch可以同步远程与本地代码,但是 git fetch 不能同步本地分支
+$ git checkout main
+Switched to branch 'main'
+# 分支落后提示
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use &quot;git pull&quot; to update your local branch)
+# 将 origin/main 内容 merge 到本地的 main
+$ git merge origin/main
+Updating 4352453..4c033c4
+Fast-forward
+ 1.txt | 1 +
+ 1 file changed, 1 insertion(+)
+$ git branch -vv
+dev  4352453 1
+* main 4c033c4 [origin/main] Update 1.txt # 当前main与远程同步
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: html--><iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:100%; height:400px;" src="https://www.processon.com/embed/61439cc6e0b34d66cf84d068"></iframe><!--kg-card-end: html--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="git-%E5%AF%B9%E8%B1%A1%E5%8E%8B%E7%BC%A9">Git 对象压缩</h2>
+<p>Git 对象压缩主要指 blob 对象，因为文件内容存储在 blob 对象中。blob 存储的文件并不是文件内容本身而是文件内容的压缩。在执行 'git add ' 操作后使得 objects 中对应的文件体积缩小。尽管如此，每一次通过 'commit' 修改内容，Git 还是会累积存储整个对象的压缩。在通过 'git gc' 清理优化后, pack 文件夹生成于 .git/objects 目录中，其中包含 .idx 与 .pack 两个文件。通过查看 pack 夹中内容的大小可知，压缩的主要信息存储在 .pack 文件中。通过索引文件(.idx)，Git 可以快速定位在 .pack 中被压缩的对象 —— 尽管对象被压缩，还是可以通过日志命令查询到目标对象信息，这也是索引文件提供的定位信息能力。对象压缩的作用在于本地仓库于远程仓库交互时，若远程仓库较大，进行克隆时 Git 为提高传输效率传输到本地的都是压缩对象。那么从 Git 上传输本地的 pack 文件可以通过 unpack 命令解压，但是注意不能放在 objects 目录下解压。</p>
+<pre><code class="language-shell"># 人类可读性查看文件夹空间使用
+$ du -h
+#  清理不必要的文件并优化本地存储库
+$ git gc
+$ tree .git/objects
+.git/objects
+├── info
+│   ├── commit-graph
+│   └── packs
+└── pack
+    ├── pack-643cfb32d355bf2f34006da363c59b5dfd6af348.idx
+    └── pack-643cfb32d355bf2f34006da363c59b5dfd6af348.pack
+
+2 directories, 4 files
+$ ls -lh .git/objects/pack
+total 44728
+-r--r--r--  1 xzy  staff   155K Sep 18 00:18 pack-643cfb32d355bf2f34006da363c59b5dfd6af348.idx
+-r--r--r--  1 xzy  staff    22M Sep 18 00:18 pack-643cfb32d355bf2f34006da363c59b5dfd6af348.pack
+# 查看 pack 文件到底存储的对象详细信息
+git verify-pack -v .git/objects/pack/pack-643cfb32d355bf2f34006da363c59b5dfd6af348.idx
+.....
+.....
+# 解压从 github 下载的压缩文件
+mv .git/objects/pack/pack-xxx.pack .git/
+git unpack-objects &lt; .git/pack-xxx.pack
+du -sh .git/objetcs # ??G
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%9E%83%E5%9C%BE%E5%AF%B9%E8%B1%A1%E6%B8%85%E7%90%86">垃圾对象清理</h2>
+<p>一个文件提交一次通常产生三个对象，'commit'、'tree' 和 'blob'。但是多次修改会产生中间状态的 blob 对象残余，可以认为这些就是垃圾对象。在使用 'git gc' 生成 pack 文件夹后，垃圾对象会存留在 .git/objects 中。此时可以通过 'git prune' 修剪残余。但是这里存在一个特殊场景，若一个分支提交改动后，未通过合并 merge 却强制删除该分支，就会存在余留的文件在 .git/objects 中。这里的余留的文件只与删除的分支相关，属于垃圾对象。这个垃圾对象存在的机制就是可以通过 commit 与 checkout 找回删除的分支。但是此处的垃圾对象使用 'git prune' 无法删除，而且会被 'git gc' 压入干净的 pack 文件，并且 'git fsck' 也不会将其视为悬空的对象。<a href="https://stackoverflow.com/questions/3797907/how-to-remove-unused-objects-from-a-git-repository">此时可以参考SOF的解决方案</a>。</p>
+<pre><code class="language-shell">git -c gc.reflogExpire=0 -c gc.reflogExpireUnreachable=0 \
+  -c gc.rerereresolved=0 -c gc.rerereunresolved=0 \
+  -c gc.pruneExpire=now gc &quot;$@&quot;
+</code></pre>
+<pre><code class="language-shell">...
+├── eb
+│   └── 5ba8320582830bc125255c614a99f783eee4e4
+├── f4
+│   └── c3a4fd871786674ad955a1346aff85deb21ece
+├── f6
+│   └── 2bc87aab0e26dcfad058bac0922df2cc018440
+├── f7
+│   └── 5048e6ee2f678a883ea01c30e5c9ef7e5e3fcc
+├── fd
+│   └── acdf72972e722927c6179a4a8dfc0386d1f0de
+├── info
+│   ├── commit-graph
+│   └── packs
+└── pack
+    ├── pack-349bdde18259ef3a0141e73ecc82de3bd9dc4a25.idx
+    └── pack-349bdde18259ef3a0141e73ecc82de3bd9dc4a25.pack
+
+56 directories, 66 files
+$ git -c gc.reflogExpire=0 -c gc.reflogExpireUnreachable=0 \
+  -c gc.rerereresolved=0 -c gc.rerereunresolved=0 \
+  -c gc.pruneExpire=now gc &quot;$@&quot;
+Enumerating objects: 4402, done.
+Counting objects: 100% (4402/4402), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3260/3260), done.
+Writing objects: 100% (4402/4402), done.
+Total 4402 (delta 901), reused 4402 (delta 901), pack-reused 0
+$ tree .git/objects
+.git/objects
+├── info
+│   ├── commit-graph
+│   └── packs
+└── pack
+    ├── pack-349bdde18259ef3a0141e73ecc82de3bd9dc4a25.idx
+    └── pack-349bdde18259ef3a0141e73ecc82de3bd9dc4a25.pack
+
+2 directories, 4 files
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6-git-merge">分支合并 Git Merge</h2>
+<ul>
+<li>Fast Forward</li>
+</ul>
+<p>通过当前 HEAD 指针指向的 master 分支（master 分支指向 c1 这次 commit）创建新分支 ff，并执行一次 commit（此时 ff 分支指向 c2，c2 分支的 parent 是 c1）。与此同时想将当前分支 ff merge 到 c1 ，可以通过切回 master 分支后执行 'git merge ff' 完成。实际上 Git 是将 master 指向的 commit 从 c1 更改为 c2。Fast Forward 的前提是从创建分支到合并分支，master 都未发生改变。</p>
+<pre><code class="language-shell">$ git init
+$ echo &quot;c1&quot;&gt;c1.txt
+$ git add . &amp;&amp; git commit -m &quot;c1&quot;
+$ git checkout -b c2
+$ git log
+commit f7c6966f24995619b802c6020525f22af7536ea4 (HEAD -&gt; c2, master)
+Author: zszszs &lt;zszszy@gmail.com&gt;
+Date:   -
+
+    c1
+$ git checkout -b c2
+$ echo &quot;c2&quot;&gt;c2.txt
+$ git add . &amp;&amp; git commit -m &quot;c2&quot;
+$ git log # 此时 c2 分支超前 c1 分支一次提交,且 HEAD 指向 c2
+commit 15e040fed9ae0f1f2e1a9a0079022142cad159d2 (HEAD -&gt; c2)
+Author: zszszs &lt;zszszy@gmail.com&gt;
+Date:   -
+
+    c2
+
+commit f7c6966f24995619b802c6020525f22af7536ea4 (master)
+Author: zszszs &lt;zszszy@gmail.com&gt;
+Date:   -
+
+    c1
+$ tree .git # 18 directories, 31 files
+$ git checkout master &amp;&amp; git merge c2
+Updating f7c6966..15e040f # master指针从此前的f7c6966指向现在的15e040f的commit对象
+Fast-forward
+ c2.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 c2.txt
+$ tree .git # 18 directories, 32 files 
+# 多了一个ORIG_HEAD文件,是当前 HEAD 的之前状态 =&gt; 也就是说 HEAD 为 15e040f, ORIG_HEAD 为 f7c6966
+$ cat .git/ORIG_HEAD
+f7c6966f24995619b802c6020525f22af7536ea4
+$ cat .git/refs/heads/master
+15e040fed9ae0f1f2e1a9a0079022142cad159d2
+# ORIG_HEAD 通常用作回滚操作
+$ git reset ORIG_HEAD # 将最新一次 commit 删除, 回滚到 c1 状态,即 f7c6966
+</code></pre>
+<ul>
+<li>3 way merge</li>
+</ul>
+<p>当前 master 所在分支有一个最新的 commit 分支为 c1，基于 c1 创建新的分支 c2，并进行一次提交 commit，同时 master 分支有所更新并进行了 commit 操作指向 c3。当再通过回到 master 分支进行合并操作时，会产生一次新 merge commit 的 c4。且 c4 有两个 parent，一个为 c3 的 commit 与 c2 的 commit。</p>
+<pre><code class="language-shell">$ echo &quot;c1&quot;&gt;c1.txt
+$ git add . &amp;&amp; git commit -m &quot;c1&quot;
+[master (root-commit) 9122c92] c1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 c1.txt
+$ git checkout -b c2 &amp;&amp; echo &quot;c2&quot;&gt;c2.txt
+$ git checkout master
+$ echo &quot;c3&quot;&gt;c3.txt &amp;&amp; git add . &amp;&amp; git commit -m &quot;c3&quot;
+[master 33a9447] c3
+ 2 files changed, 2 insertions(+)
+ create mode 100644 c2.txt
+ create mode 100644 c3.txt
+$ git checkout c2 &amp;&amp; git add . &amp;&amp; git commit -m &quot;c2&quot;
+$ git checkout master &amp;&amp; git merge c2 # 进行确认操作
+$ git log
+$ git cat-file -p a714ae4
+tree fc88a9c9de3667ac068fa176bb960ed4b22c5d4a
+parent 33a944756abf9c080965484925dc6a499ec3118a # master前一次parent
+parent edeea19869d9b1081226260d5ae72488e0a93ddc # c2前一次parent
+
+Merge branch 'c2'
+</code></pre>
+<p><img src="../content/images/2021/09/3waymerge1-1.png" alt="3waymerge1-1" loading="lazy"></p>
+<p>在合并操作时，若修改了同一个文件内容，Git 不能自动进行 merge commmit 操作。需要手动解决 Merge conflict 问题。</p>
+<pre><code class="language-shell">$ echo &quot;c1&quot;&gt;c1.txt &amp;&amp; git add . &amp;&amp; git commit -m &quot;c1&quot;
+[master (root-commit) 88a1c7c] c1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 c1.txt
+$ git checkout -b c2 &amp;&amp; vim c1.txt &amp;&amp; git add . &amp;&amp; git commit -m &quot;c2&quot;
+[c2 9ac22d2] c2
+ 1 file changed, 1 insertion(+)
+$ git checkout master &amp;&amp; vim c1.txt &amp;&amp; git add . &amp;&amp; git commit -m &quot;c3&quot;
+[master efccf84] c3
+ 1 file changed, 1 insertion(+)
+$ tree .git
+.git
+├── COMMIT_EDITMSG
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── fsmonitor-watchman.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-merge-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   ├── push-to-checkout.sample
+│   └── update.sample
+├── index
+├── info
+│   └── exclude
+├── logs
+│   ├── HEAD
+│   └── refs
+│       └── heads
+│           ├── c2
+│           └── master
+├── objects
+│   ├── 10
+│   │   └── 8ca45bd135d8f680516b10afb1613ef70c578c
+│   ├── 16
+│   │   └── ce22e1889103213f8d35f9481f7dbeb6283918
+│   ├── 60
+│   │   └── c9e82c319059addb81b6b66205f158b70dc942
+│   ├── 83
+│   │   └── 5da11381dee94c71a04164cdaa533d0673e4e5
+│   ├── 88
+│   │   └── a1c7c211171ec6656d845442bdd724b8e266b0
+│   ├── 9a
+│   │   └── c22d2b7f0fa383126790b26e6214e925d39087
+│   ├── ae
+│   │   └── 9304576a6ec3419b231b2b9c8e33a06f97f9fb
+│   ├── df
+│   │   └── b7794bb61ad9a514620eb2a3c1b74e0d8dde31
+│   ├── ef
+│   │   └── ccf84918c54849121a77da36149fe2b95a14a8
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    │   ├── c2
+    │   └── master
+    └── tags
+
+20 directories, 33 files
+$ git ls-files -s
+100644 16ce22e1889103213f8d35f9481f7dbeb6283918 0	c1.txt
+$ git merge c2
+Auto-merging c1.txt
+CONFLICT (content): Merge conflict in c1.txt
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+  (use &quot;git merge --abort&quot; to abort the merge)
+
+Unmerged paths:
+  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+	both modified:   c1.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+$ cat c1.txt
+c1
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+add from master
+=======
+add from 'c2'
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; c2
+$ git ls-files -s
+100644 ae9304576a6ec3419b231b2b9c8e33a06f97f9fb 1	c1.txt
+100644 16ce22e1889103213f8d35f9481f7dbeb6283918 2	c1.txt
+100644 dfb7794bb61ad9a514620eb2a3c1b74e0d8dde31 3	c1.txt
+$ git cat-file -p ae9304576
+c1
+$ git cat-file -p 16ce22e18
+c1
+add from master
+$ git cat-file -p dfb7794bb
+c1
+add from 'c2'
+$ vim c1.txt
+$ git add .
+$ git ls-files -s
+100644 e64e3ee53068082c7f0b367df587a7fa9a9873ca 0	c1.txt
+$ git commit # 不需要加message,存在一个commit等待执行
+[master d959a3b] Merge branch 'c2'
+$ git cat-file -p d959a3b33
+tree 8d5f8aeb13335807a0fc0b073b103f5fd92231b8
+parent efccf84918c54849121a77da36149fe2b95a14a8
+parent 9ac22d2b7f0fa383126790b26e6214e925d39087
+
+Merge branch 'c2'
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="gitrebase">git --rebase</h2>
+<p>Fast-forward (--ff) 线性分支 commit 提交历史存在分支操作不清晰的缺点。<br>
+<img src="../content/images/2021/09/fastforward.gif" alt="fastforward" loading="lazy"><br>
+No-fast-foward (--no-ff) 通常结构复杂。<br>
+<img src="../content/images/2021/09/noff.gif" alt="noff" loading="lazy"><br>
+实际开发中需要根据情况切换分支操作的提交方式，而 git --rebase 可以使分支拥有 master 的最新 commit，即有将 --no-ff 转换为 --ff 的能力。通过在非 master 分支进行 git --rebase 同步 master 分支的 commit，并重写非 master 分支的 commit（此时在非 master 分支上的所有 commit SHA1 哈希值会被重写，也会难免的发生冲突）。由此完成转换为 --ff 的前置条件。</p>
+<p>git --rebase 在使用上也是存在风险的。若在 rebase 操作之前已将非 master 分支 commit  push 到远程仓库，这时完成 rebase 再想 push 远程仓库会出现错误，虽然可以使用强制 push，但是依然可能存在对已拉取此非 master 分支完成的 commit push 操作的开发者造成影响。<br>
+<img src="../content/images/2021/09/rebase.gif" alt="rebase" loading="lazy"></p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="tags-operation">Tags Operation</h2>
+<p>创建标签时会在当前所在分支的最近一次 commit 为基准去创建。标签其实是一个指针，静态指向的就是创建 tag 时刻所在分支的最新 commit。标签主要用于发布版本的管理，版本发布之后可以为 Git 打上 v.1.0.1 v.1.0.2 …这样的标签。</p>
+<p><strong>Create tag:</strong><br>
+git tag &lt;tag name&gt; create a Lightweight tag (i.e. git tag v1.0)<br>
+git tag - a &lt;tag name＞ -m &lt;tag message&gt; create annotated tag that have all the associated meta-data (like email, date, etc.).(i.e. git tag - a v1.0 -m &quot;version 1.0&quot;)<br>
+git tag - a &lt;tag name＞ &lt;commit SHA1 value&gt; create annotated tag for an older commit (i.e. git tag - a v1.0 236elef5d755f6ea6894f8f46f36186190be7b92 )<br>
+<strong>List tags:</strong> git tag<br>
+<strong>Delete tags:</strong> git tag -d &lt;tag name&gt; (i.e. git tag - d v1.0)</p>
+<pre><code class="language-shell">$ echo &quot;c1&quot;&gt;c1.txt
+$ git add . &amp;&amp; git commit -m &quot;c1&quot; &amp;&amp; tree .git
+.git
+├── COMMIT_EDITMSG
+├── HEAD
+├── config
+├── description
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── fsmonitor-watchman.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-merge-commit.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── prepare-commit-msg.sample
+│   ├── push-to-checkout.sample
+│   └── update.sample
+├── index
+├── info
+│   └── exclude
+├── logs
+│   ├── HEAD
+│   └── refs
+│       └── heads
+│           └── master
+├── objects
+│   ├── 09
+│   │   └── 6f096ac50cd84bdb6c39d56e5dce0badcc4e86
+│   ├── 83
+│   │   └── 5da11381dee94c71a04164cdaa533d0673e4e5
+│   ├── ae
+│   │   └── 9304576a6ec3419b231b2b9c8e33a06f97f9fb
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    │   └── master
+    └── tags # 此时为空文件
+14 directories, 25 files
+$ git tag v1.0.0
+......
+    └── tags
+        └── v1.0.0
+
+14 directories, 26 files # 多一个文件
+$ cat .git/refs/tags/v1.0.0
+096f096ac50cd84bdb6c39d56e5dce0badcc4e86 # 指向当前分支commit
+$ git tag -d v1.0.0
+$ git tag v1.0.0 -m &quot;version v1.0.0&quot; # 增加一个目录(objects中标签对象),两个文件
+$ git cat-file -t 2f08782
+tag # git 中第四种objects
+$ git cat-file -p 2f08782
+object 096f096ac50cd84bdb6c39d56e5dce0badcc4e86
+type commit
+tag v1.0.0
+tagger zszszs &lt;zszszs@zy.com&gt; 1571954764 +0800
+
+version v1.0.0
+$ git tag -d v1.0.0 # tag 对象并不会被删除
+# 基于特定的 commit 创建tag
+$ git tag -a v1.0.0 ae9304 -m &quot;version 1&quot;
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="git-fetch-git-pull">Git Fetch &amp; Git Pull</h2>
+<p>git pull 相当于 git fetch 加上 git merge origin/master 操作。从使用上若明确知道会产生冲突，则建议先 git fetch 拉取，再通过 git diff origin/master 查看区别后继续操作。</p>
+<pre><code class="language-shell"># git fetch
+# sb push a new commit to github
+                master                           master
+                  |                                 |
+aaaa &lt;- bbbb &lt;- cccc  =&gt;  aaaa &lt;- bbbb &lt;- cccc &lt;- dddd
+
+---
+# use git fetch to sync remote master
+             origin/master                     origin/master
+                  |                                 |
+aaaa &lt;- bbbb &lt;- cccc  =&gt;  aaaa &lt;- bbbb &lt;- cccc &lt;- dddd
+                  |                         |
+                master                   master 
+
+---
+# git merge origin/master(--ff)
+                    origin/master                   origin/master
+                         |                                 |
+aaaa &lt;- bbbb &lt;- cccc &lt;- dddd =&gt;  aaaa &lt;- bbbb &lt;- cccc &lt;- dddd
+                  |                                        |
+                master                                   master 
+</code></pre>
+<pre><code class="language-shell"># 3waysmerge
+# 远程master被修改并commit
+# 本地代码如下
+$ vim 1.txt
+$ echo &quot;file3w&quot;&gt;file3w.txt
+$ git add . &amp;&amp; git commit -m &quot;超前当前master(未fetch最新master commit)一次commit&quot;
+[main 91a9193] 超前一次commit
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file3w.txt
+$ git log # 可查看超前于未fetch 的 master
+$ git fetch
+Enter passphrase for key 'xx':
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 659 bytes | 219.00 KiB/s, done.
+From github.com:xx
+   4c033c4..c8c91d0  main       -&gt; origin/main
+$ git log # 此时查看不到 remote/origin 因为出现分支
+$ git merge origin/main
+Auto-merging 1.txt
+CONFLICT (content): Merge conflict in 1.txt
+Automatic merge failed; fix conflicts and then commit the result.
+$ git diff
+diff --cc 1.txt
+index e491003,1c72fe9..0000000
+--- a/1.txt
++++ b/1.txt
+@@@ -3,4 -3,4 +3,8 @@@
+
+  111
+  修改1
+++&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+ +修改333way
+++=======
++ 修改3w
+++&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main
+$ git branch -vv
+dev  4352453 1
+* main 91a9193 [origin/main: ahead 1, behind 1] 超前一次commit
+# 解决冲突后再提交
+$ git branch -vv
+dev  4352453 1
+* main eef9eea [origin/main: ahead 2] fixconflic
+$ git log
+commit eef9eea7ec3bfcf258acede9304bd2b1ae5cc975 (HEAD -&gt; main)
+Merge: 91a9193 c8c91d0
+    fixconflic
+
+commit 91a9193875b8f37e7e327adeca8db4952a25065d
+    超前一次commit
+
+commit c8c91d01f4eda40e09578f7b0720682e8c46d694 (origin/main)
+    Update 1.txt
+$ git push
+$ git log
+  dev  4352453 1
+* main eef9eea [origin/main] fixconflic # 本地远程完成同步
+$ git branch -vv
+dev  4352453 1
+* main eef9eea [origin/main] fixconflic
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="fetchhead">FETCH_HEAD</h2>
+<p>FETCH_HEAD 记录远程分支每个分支最新的 commit 对象。在哪一条分支执行 git fetch，在 FETCH_HEAD 中第一条为对应远程分支所在的最新 commit 对象。切换分支若不运行 git fetch，FETCH_HEAD 排序不会变化。</p>
+<p>若远程仓库修改其他分支文件，在本地 master 分支运行 git pull 只相当于 git fetch，但是 FETCH_HEAD 会存在变化，因为远程仓库修改其他分支发生了修改。</p>
+<pre><code class="language-shell"># 查看总分支情况
+$ git branch -a
+main
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/main
+$ git remote show origin
+Enter passphrase for key 'xx':
+* remote origin
+  Fetch URL: git@github.com:xx.git
+  Push  URL: git@github.com:xx.git
+  HEAD branch: main
+  Remote branch:
+    main tracked
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local ref configured for 'git push':
+    main pushes to main (up to date)
+# 此时在远程仓库新增文件,通过 git fetch 拉取本地通过 tree .git 查看多出 6 个文件
+# objects 新增三个文件;refs/remotes/origin/main;logs/refs/remotes/origin/main;FETCH_HEAD
+$ cat .git/FETCH_HEAD # 本质是远程分支提交的对象
+5bdb272f7317a44fbe9146c95b8273a3a41646b4		branch 'main' of github.com:xxx
+$ git fetch -v # 打印debug信息与其他内容
+ = [up to date]      main       -&gt; origin/main # 最新同步
+</code></pre>
+<p>使用 git clone 将项目下载倘若远程仓库有多个分支，而使用 git branch 查看本地分支时只有一个 master 分支，可以通过 'git checkout -b branchName origin/branchName' 将远程的其他分支拉下来与本地仓库建立联系。</p>
+<pre><code class="language-shell">git checkout -b branchName origin/branchName
+git checkout -t origin/branchName
+</code></pre>
+<pre><code class="language-shell"># 远程仓库两个分支与本地仓库同步
+$ git branch -vv
+FHbranch 906f11e [origin/FHbranch] Create fh.txt
+  main     5bdb272 [origin/main] Create 2.txt
+$ git remote show origin
+* remote origin
+  Fetch URL: git@github.com:
+  Push  URL: git@github.com:
+  HEAD branch: main
+  Remote branches:
+    FHbranch tracked # tracked表示在本地有对应的分支
+    main     tracked
+  Local branches configured for 'git pull':
+    FHbranch merges with remote FHbranch
+    main     merges with remote main
+  Local refs configured for 'git push':
+    FHbranch pushes to FHbranch (up to date)
+    main     pushes to main     (up to date)
+# 在远程仓库进行更改
+$ tree .git # 15 directories, 30 files
+# 主分支 git pull 仅相当于 git fetch
+$ cat .git/FETCH_HEAD
+5bdb272f7317a44fbe9146c95b8273a3a41646b4		branch 'main' of github.com:xxx
+73b69468556da87fc7f181bc1424ff3a806c012f	not-for-merge	branch 'FHbranch' of github.com:
+$ git checkout FHbranch # 改动分支
+$ git pull -v # merge 在 FETCH_HEAD 排在前面的分支
+# 分支通过 POST 进行 commit 哈西对比
+remote: Enumerating objects: 5, done. # fetch 操作
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 671 bytes | 167.00 KiB/s, done.
+From github.com:
+   720d518..77d1e53  FHbranch   -&gt; origin/FHbranch # merge操作
+Updating 720d518..77d1e53
+Fast-forward # 未分叉
+ 2.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ cat .git/FETCH_HEAD
+77d1e53b415e9742b840a26c135bd327d6efca90		branch 'FHbranch' of github.com:
+5bdb272f7317a44fbe9146c95b8273a3a41646b4	not-for-merge	branch 'main' of github.com:
+# 上述操作多出 ORIG_HEAD 文件,即指向之前分支 commit 的指针,方便回滚
+$ cat .git/ORIG_HEAD
+720d518555aae5906b7315d800604f88d06459ef
+$ git reset --hard ORIG_HEAD # 硬回滚
+HEAD is now at 720d518 Update 2.txt
+$ git branch -vv # 此时可查看 FHbranch 分支落后一次 commit
+FHbranch 720d518 [origin/FHbranch: behind 1] Update 2.txt
+  main     5bdb272 [origin/main] Create 2.txt
+$ git merge origin/FHbranch # 还是可以 merge 到最新
+Updating 720d518..77d1e53
+Fast-forward
+ 2.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="git-push">Git push</h2>
+<p>在存在与远程仓库关联的本地分支，可以直接 push。但是如果本地新仓库没有远程分支，直接 push 会出现错误。需要 push 时设置上游的分支。</p>
+<pre><code class="language-shell">$ git push
+fatal: The current branch no has no upstream branch.
+To push the current branch and set the remote as upstream, use git push --set-upstream origin no # origin no 的分支git push --set-upstream origin no # 
+# 直接推送远程仓库
+$ git push origin no # 但是通过 git branch -vv 查看不到关联的情况
+$ git push --set-upstream origin no # --set-upstream 是进行关联
+Branch 'no' set up to track remote branch 'no' from 'origin'. # 与远程仓库关联
+# git push --set-upstream origin 远程仓库名 =简写=&gt; git push -u origin 远程仓库名
+$ git push origin -d 远程仓库名 # 删除远程仓库
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="git-hooks">Git Hooks</h2>
+<p>Git 可以在发生某些重要操作时触发自定义脚本，即 hooks。这些 hooks 分为客户端和服务器端 hook。VSCode 在设置 -&gt; exclude -&gt; 移除 .git 隐藏限制。Hooks 中带 .sample 结尾的各种 hook 需要在删除后缀时生效。</p>
+<p><a href="https://www.npmjs.com/package/pre-commit">pre-commit</a>是一个可以帮助 JavaScript 生成提交前测试的开发包。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%A5%87%E6%80%AA%E7%9A%84-bugs">奇怪的 Bugs</h2>
+<ul>
+<li>
+<ol>
+<li>Unable to create './.../.git/index.lock': File exists.</li>
+</ol>
+</li>
+</ul>
+<pre><code class="language-shell">fatal: Unable to create './.../.git/index.lock': File exists.
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+</code></pre>
+<p>此类问题一般发生在 git 同时执行两个命令时；也许一个来自命令提示符，一个来自 IDE。通过删除 .git文件中的 index.lock 解决。<a href="https://stackoverflow.com/questions/38004148/another-git-process-seems-to-be-running-in-this-repository">SOF</a></p>
+<pre><code class="language-shell">rm -f .git/index.lock
+</code></pre>
+<ul>
+<li>
+<ol start="2">
+<li>refs/remotes/origin 没有 ref to master？ <a href="https://stackoverflow.com/questions/22855567/why-does-my-refs-remotes-origin-not-have-a-ref-to-master">SOF</a></li>
+</ol>
+</li>
+</ul>
+<p>并非所有引用都必须在文件中。引用可以并且已经 &quot;打包&quot;。目前打包的引用可以在纯文本文件 .git/packed-refs 中找到。Git 将 refs/remotes/origin/master 在 .git/packed-refs. 上。</p>
+<ul>
+<li>
+<ol start="3">
+<li>fatal: refusing to merge unrelated histories</li>
+</ol>
+</li>
+</ul>
+<p>由于两个分支没有取得关联，在需要合并操作后加上 --allow-unrelated-histories。</p>
+<pre><code class="language-shell">git merge master --allow-unrelated-histories
+git pull origin master --allow-unrelated-histories
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: html--><h2>脑图总结<h2>
+<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:100%; height:400px;" src="https://www.processon.com/embed/61439cc6e0b34d66cf84d068"></iframe><!--kg-card-end: html--><!--kg-card-begin: markdown--><h2 id="%E6%8E%A8%E8%8D%90%E5%8F%82%E8%80%83">推荐参考</h2>
+<p><a href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1">dev blog by lydiahallie</a></p>
+<p><a href="https://git-scm.com/book/en/v2">GitBook</a></p>
+<p><a href="https://space.bilibili.com/364122352?spm_id_from=333.788.b_765f7570696e666f.2">麦兜 Git 系列</a></p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 <!--kg-card-end: markdown-->
     </section>
