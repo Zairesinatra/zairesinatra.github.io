@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[zairesinatra]]></title><description><![CDATA[The best time to recognize yourself is ten years ago, followed by now.]]></description><link>yourdomain.com/</link><image><url>yourdomain.com/favicon.png</url><title>zairesinatra</title><link>yourdomain.com/</link></image><generator>Ghost 4.12</generator><lastBuildDate>Sat, 18 Sep 2021 22:09:53 GMT</lastBuildDate><atom:link href="yourdomain.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Ghost更新与迁移]]></title><description><![CDATA[Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。]]></description><link>yourdomain.com/newghostzs/</link><guid isPermaLink="false">60fac2bca763a10c85416efc</guid><category><![CDATA[GHOSTblog]]></category><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Fri, 23 Jul 2021 13:38:41 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><p>&#x7531;&#x4E8E; Githubpage &#x7684;&#x9759;&#x6001;&#x7F16;&#x8BD1; Ghost &#x5728;&#x8868;&#x73B0;&#x4E0A;&#x4E0D;&#x540C;&#x4E8E;&#x672C;&#x7AD9;&#x7684;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#xFF0C;&#x5BF9;&#x90E8;&#x5206;&#x529F;&#x80FD;&#x4E0E;&#x6548;&#x679C;&#x652F;&#x6301;&#x4E0D;&#x597D;&#x3002;&#x4E3A;&#x540C;&#x6B65;&#x9700;&#x6C42;&#xFF0C;&#x8BB0;&#x5F55;&#x672C;&#x6B21;&#x7684; TX&#x4E91; Ubuntu &#x4E2D; Ghost &#x4E0E; Node &#x7248;&#x672C;&#x66F4;&#x65B0;&#x8FC7;&#x7A0B;&#x4EE5;&#x53CA; Nginx &#x518D;&#x914D;&#x7F6E;&#x3002;&#xFF08;&#x53C8;&#x56DE;&#x6765;&#x4E86;&#xFF09;</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[zairesinatra]]></title><description><![CDATA[The best time to recognize yourself is ten years ago, followed by now.]]></description><link>yourdomain.com/</link><image><url>yourdomain.com/favicon.png</url><title>zairesinatra</title><link>yourdomain.com/</link></image><generator>Ghost 4.12</generator><lastBuildDate>Fri, 24 Sep 2021 12:09:02 GMT</lastBuildDate><atom:link href="yourdomain.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Ghost更新与迁移]]></title><description><![CDATA[Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。]]></description><link>yourdomain.com/newghostzs/</link><guid isPermaLink="false">60fac2bca763a10c85416efc</guid><category><![CDATA[GHOSTblog]]></category><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Fri, 23 Jul 2021 13:38:41 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><p>&#x7531;&#x4E8E; Githubpage &#x7684;&#x9759;&#x6001;&#x7F16;&#x8BD1; Ghost &#x5728;&#x8868;&#x73B0;&#x4E0A;&#x4E0D;&#x540C;&#x4E8E;&#x672C;&#x7AD9;&#x7684;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#xFF0C;&#x5BF9;&#x90E8;&#x5206;&#x529F;&#x80FD;&#x4E0E;&#x6548;&#x679C;&#x652F;&#x6301;&#x4E0D;&#x597D;&#x3002;&#x4E3A;&#x540C;&#x6B65;&#x9700;&#x6C42;&#xFF0C;&#x8BB0;&#x5F55;&#x672C;&#x6B21;&#x7684; TX&#x4E91; Ubuntu &#x4E2D; Ghost &#x4E0E; Node &#x7248;&#x672C;&#x66F4;&#x65B0;&#x8FC7;&#x7A0B;&#x4EE5;&#x53CA; Nginx &#x518D;&#x914D;&#x7F6E;&#x3002;&#xFF08;&#x53C8;&#x56DE;&#x6765;&#x4E86;&#xFF09;</p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="node">Node</h2>
 <p>&#x6700;&#x65B0;&#x7684; Ghost &#x7248;&#x672C;&#x9700;&#x8981; Node.js 14.x &#xFF0C;&#x6545;&#x5B89;&#x88C5;&#x9002;&#x7528; Ubuntu &#x7684; <a href="https://github.com/nodesource/distributions">&#x4E8C;&#x8FDB;&#x5236;&#x53D1;&#x884C;&#x7248;</a>&#x3002;</p>
 <pre><code class="language-shell"># Using Ubuntu &#x6DFB;&#x52A0; Node.js ppa(Person Package achives) &#x5B89;&#x88C5; Node.js
@@ -211,6 +211,90 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 <pre><code class="language-shell">$ grep -r mydomain.com /etc/nginx/sites-enabled
 </code></pre>
 <p>&#x5728;&#x7AEF;&#x53E3; 80 &#x7684;&#x591A;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x5757;&#x4E2D;&#x770B;&#x5230;&#x57DF;&#x540D;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5220;&#x9664;&#x91CD;&#x590D;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x542F;&#x52A8; Nginx&#x3002;&#x4E00;&#x822C;&#x5C06;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5355;&#x72EC;&#x5206;&#x79BB;&#x51FA;&#x6765;&#x5BB9;&#x6613;&#x51FA;&#x73B0;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#x3002;</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">&#x7ED3;&#x675F;</h2>
+<p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>&#x534F;&#x8BAE;&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
+<!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[jenv AdoptOpenJDK JDKs]]></title><description><![CDATA[Use jenv and AdoptOpenJDK to set up multiple JDKs]]></description><link>yourdomain.com/jdks/</link><guid isPermaLink="false">614ccdb5f7263c9315a75845</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Sat, 19 Jun 2021 08:48:00 GMT</pubDate><media:content url="yourdomain.com/content/images/2021/09/javajdk.png" medium="image"/><content:encoded><![CDATA[<!--kg-card-begin: markdown--><h2 id="open-jdk">Open JDK</h2>
+<img src="yourdomain.com/content/images/2021/09/javajdk.png" alt="jenv AdoptOpenJDK JDKs"><p>&#x5173;&#x4E8E; OpenJDK &#x53EA;&#x9700;&#x8981;&#x77E5;&#x9053;&#x5F53;&#x4E0B; Java &#x5F00;&#x53D1;&#x662F;&#x4EE5; OpenJDK &#x5F00;&#x6E90;&#x9879;&#x76EE;&#x7684;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x7684;(GPLv2+CE)&#x3002;&#x7531; Oracle &#x4E3B;&#x5BFC;&#xFF0C;&#x6C47;&#x805A;&#x793E;&#x533A;&#x529B;&#x91CF;&#x53C2;&#x4E0E;&#x5F00;&#x53D1;&#x3002;Oracle &#x63D0;&#x4F9B;&#x9884;&#x5148;&#x7F16;&#x8BD1;&#x7684; OpenJDK &#x79F0;&#x4E3A; Oracle&apos;s OpenJDK&#xFF1B;&#x628A;&#x793E;&#x533A;&#x63D0;&#x4F9B;&#x9884;&#x6784;&#x5EFA;&#x7684; OpenJDK &#x79F0;&#x4E4B;&#x4E3A; <a href="https://adoptopenjdk.net/?variant=openjdk8&amp;jvmVariant=hotspot">AdoptOpenJDK</a>&#x3002;Oracle &#x5BF9; OracleJDK &#x63D0;&#x4F9B;&#x957F;&#x671F;&#x652F;&#x6301;&#x670D;&#x52A1;&#xFF0C;&#x4F46;&#x53EA;&#x63D0;&#x4F9B; 6 &#x4E2A;&#x6708;&#x7684;&#x5B89;&#x5168;&#x66F4;&#x65B0;&#x670D;&#x52A1;&#x7ED9; Oracle&#x2019;s OpenJDK&#x3002;&#x4E3A;&#x6B64; AdoptOpenJDK &#x4EE5;&#x514D;&#x8D39;&#x7684;&#x5F62;&#x5F0F;&#x63D0;&#x4F9B;&#x793E;&#x533A;&#x7248; OpenJDK &#x4E8C;&#x8FDB;&#x5236;&#x5305; 4 &#x5E74;&#x7684;&#x514D;&#x8D39;&#x957F;&#x671F;&#x652F;&#x6301;(LTS)&#x3002;</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%8D%B8%E8%BD%BD-jdk">&#x5378;&#x8F7D; JDK</h2>
+<p>&#x7EC8;&#x7AEF;&#x67E5;&#x770B; mac &#x4E2D;&#x88C5;&#x4E86;&#x54EA;&#x4E9B; jdk &#x7248;&#x672C;&#xFF0C;&#x5E76;&#x4EE5;&#x7BA1;&#x7406;&#x5458;&#x8EAB;&#x4EFD;&#x8FDB;&#x884C;&#x5378;&#x8F7D;&#x3002;&#x968F;&#x540E;&#x5C06; .zshrc &#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x6CE8;&#x91CA;&#x3002;</p>
+<pre><code class="language-shell">$ ls /Library/Java/JavaVirtualMachines/
+jdk-11.0.11.jdk
+$ sudo rm -rf /Library/Java/JavaVirtualMachines/jdk-11.0.11.jdk
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="jenv%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6">JENV&#x7248;&#x672C;&#x63A7;&#x5236;</h2>
+<pre><code class="language-shell">$ brew install jenv
+$ jenv doctor
+&gt; jenv doctor
+[OK]	No JAVA_HOME set
+[ERROR]	Java binary in path is not in the jenv shims.
+[ERROR]	Please check your path, or try using /path/to/java/home is not a valid path to java installation.
+	PATH : 
+[OK]	Jenv is correctly loaded
+# &#x82E5;&#x51FA;&#x73B0;&#x5982;&#x4E0B;&#x60C5;&#x51B5;&#x5219;&#x8868;&#x793A;&#x5B58;&#x5728;&#x914D;&#x7F6E;&#x540D;&#x5360;&#x7528;,&#x9700;&#x8981;&#x5378;&#x8F7D; jdk
+[ERROR] JAVA_HOME variable already set, scripts that use it directly could not use java version set by jenv [ERROR] Java binary in path is not in the jenv shims. 
+# &#x6CE8;&#x610F;&#x5B89;&#x88C5; jenv &#x914D;&#x7F6E;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x5C06; iterm2 &#x914D;&#x7F6E;&#x635F;&#x574F;
+</code></pre>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684; Java &#x662F; system &#x5728; macOS &#x4E0A;&#x7684;&#x9ED8;&#x8BA4;&#x7248;&#x672C;&#x3002;&#x901A;&#x8FC7; jenv local VERSION &#x4E3A;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x672C;&#x5730; Java &#x7248;&#x672C;&#x3002;&#x540C;&#x65F6;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; .java-version &#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x4E3A;&#x9879;&#x76EE;&#x68C0;&#x5165; Git&#xFF0C;&#x4E14;&#x542F;&#x52A8; shell &#x65F6; jenv &#x786E;&#x4FDD;&#x52A0;&#x8F7D;&#x6B64; java&#x3002;</p>
+<pre><code class="language-shell"># &#x6DFB;&#x52A0; Java &#x73AF;&#x5883;
+$ brew install openjdk@11
+# &#x6CE8;&#x610F;&#x901A;&#x8FC7; brew &#x5B89;&#x88C5;&#x7684; jdk &#x5B58;&#x5728;&#x4E8E; /usr/local/Cellar/...
+$ jenv add /usr/local/Cellar/openjdk@11/11.0.12
+openjdk64-11.0.12 added
+11.0.12 added
+11.0 added
+11 added
+$ brew install openjdk@8
+$ jenv add /usr/local/Cellar/openjdk@8/1.8.0+302
+openjdk64-1.8.0.302 added
+1.8.0.302 added
+1.8 added
+$ jenv versions
+* system (set by /Users/zsxzy/.jenv/version)
+  1.8
+  1.8.0.302
+  11
+  11.0
+  11.0.12
+  openjdk64-1.8.0.302
+  openjdk64-11.0.12
+$ jenv local 1.8.0.302
+$ exec $SHELL -l
+$ cat .java-version
+1.8.0.302
+$ echo ${JAVA_HOME}
+/Users/zsxzy/.jenv/versions/1.8.0.302
+$ jenv global 1.8.0.302
+$ java -version
+openjdk version &quot;1.8.0_302&quot;
+OpenJDK Runtime Environment (build 1.8.0_302-bre_2021_08_14_21_34-b00)
+OpenJDK 64-Bit Server VM (build 25.302-b00, mixed mode)
+</code></pre>
+<p>&#x5728;&#x8BBE;&#x7F6E;&#x597D;&#x9009;&#x62E9;&#x7684; Java &#x7248;&#x672C;&#x540E;&#xFF0C;&#x901A;&#x8FC7; Java8 &#x7684; java -version &#x6216; Java 9+ &#x7684; java --version &#x67E5;&#x770B;&#x7248;&#x672C;&#x3002;</p>
+<p>&#x4F7F;&#x7528; jenv shell VERSION &#x5728;&#x5F53;&#x524D;&#x7279;&#x6B8A;&#x7684; shell &#x4F1A;&#x8BDD;&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x8BBE;&#x7F6E;&#x7684; Java&#x3002;jenv which java &#x663E;&#x793A;&#x53EF;&#x6267;&#x884C;&#x7684; Java &#x7684;&#x5B8C;&#x6574;&#x8DEF;&#x5F84;&#x3002;</p>
+<pre><code class="language-shell">$ jenv shell 11
+$ jenv which java
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="adoptopenjdk">AdoptOpenJDK</h2>
+<p>Homebrew &#x9ED8;&#x8BA4;&#x53EA;&#x6709;&#x4E24;&#x4E2A;&#x4ED3;&#x5E93; Formulae &#x4E0E; Casks&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; tap &#x6307;&#x4EE4;&#x6DFB;&#x52A0;&#x66F4;&#x591A;&#x4ED3;&#x5E93;&#xFF0C;search &#x5230;&#x66F4;&#x591A;&#x7684;&#x5185;&#x5BB9;&#x3002;<a href="https://github.com/AdoptOpenJDK/homebrew-openjdk">OpenJDK releases</a> &#x9700;&#x8981;&#x5728; tap &#x4E2D;&#x67E5;&#x770B;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x662F;&#x4ECE; brew casks &#x4E2D;&#x5206;&#x79BB;&#x7684;&#x90E8;&#x5206;&#x3002;&#x901A;&#x8FC7; brew tap add &#x6307;&#x5B9A;&#x4ED3;&#x5E93;&#x8FDB;&#x884C;&#x6DFB;&#x52A0;&#x3002;</p>
+<pre><code class="language-shell">$ brew tap AdoptOpenJDK/openjdk
+$ brew search /adoptopenjdk/
+# &#x5B89;&#x88C5;&#x9700;&#x8981;&#x7684; jdk &#x7248;&#x672C;
+$ brew install adoptopenjdk11
+$ brew install adoptopenjdk8
+# &#x6CE8;&#x518C; jenv
+$ jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-11|8.jdk/Contents/Home
+# &#x5168;&#x5C40;&#x8BBE;&#x7F6E; JDK
+$ jenv global 11
+# &#x6216;&#x8005;&#x5BF9;&#x4E8E;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x7279;&#x5B9A;&#x9879;&#x76EE;
+$ cd ~/projects/my_project
+$ jenv local 1.8
+$ java -version
+openjdk version &quot;1.8.0_202&quot;
+# &#x53D6;&#x6D88;&#x7248;&#x672C;&#x8BBE;&#x7F6E;
+$ jenv global system
+$ cd ~/projects/my_project
+$ jenv local --unset
+</code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">&#x7ED3;&#x675F;</h2>
 <p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>&#x534F;&#x8BAE;&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
 <!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[MongoDB]]></title><description><![CDATA[关系型数据库全是表；No SQL 中都键值对。——文档数据库 MongoDB]]></description><link>yourdomain.com/mongodb/</link><guid isPermaLink="false">611e8b4a0de60f0cb667f229</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Thu, 20 May 2021 14:52:00 GMT</pubDate><media:content url="yourdomain.com/content/images/2021/08/mongodb.jpg" medium="image"/><content:encoded><![CDATA[<img src="yourdomain.com/content/images/2021/08/mongodb.jpg" alt="MongoDB"><p></p><!--kg-card-begin: markdown--><h2 id="%E5%88%9D%E8%AF%86">&#x521D;&#x8BC6;</h2>
@@ -819,9 +903,20 @@ JRE NAME: HOME
 <ul>
 <li>&#x4E3A;&#x9632;&#x6B62;&#x5DE5;&#x4F5C;&#x533A;&#x6587;&#x4EF6;&#x4E71;&#x7801;&#xFF0C;&#x5728; Preference =&gt; General =&gt; workspace &#x52FE;&#x9009; Defalt(UTF-8)&#x9009;&#x9879;&#x5E76; Apply &#x3002;</li>
 </ul>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="eclipse-%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87">Eclipse &#x8BBE;&#x7F6E;&#x4E2D;&#x6587;</h2>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="eclipse-%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80">Eclipse &#x8BBE;&#x7F6E;&#x8BED;&#x8A00;</h2>
+<ul>
+<li>&#x4E2D;&#x6587;</li>
+</ul>
 <img src="yourdomain.com/content/images/2021/07/eeclipse.jpg" alt="&#x1F312;Eclipse&#x914D;&#x7F6E;"><p>Help =&gt; Install New SoftWare &#x4E2D;&#x70B9;&#x51FB; add &#x6DFB;&#x52A0;&#x4ECE;<a href="https://www.eclipse.org/babel/downloads.php">&#x6B64;&#x94FE;&#x63A5;</a>&#x9002;&#x914D;&#x7248;&#x672C;&#x7684;&#x4E2D;&#x6587;&#x63D2;&#x4EF6;&#x5305;&#x3002;&#x8FD9;&#x91CC;&#x6CE8;&#x610F;&#x5982;&#x679C;&#x5728;&#x9009;&#x62E9; Babel Language Packs in Chinese(Simplified) &#x5168;&#x90E8;&#x5B89;&#x88C5;&#xFF0C;&#x5728;&#x672C;&#x4EBA; X86 &#x67B6;&#x6784;&#x7684; mac &#x51FA;&#x73B0; Eclipse &#x635F;&#x574F;&#x7684;&#x60C5;&#x51B5;&#xFF08;MacM1 &#x672A;&#x51FA;&#x73B0;&#x6B64;&#x635F;&#x6BC1;&#xFF09;&#x3002;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x662F;&#x4E0D;&#x9009;&#x62E9; for rt.rap &#x7684;&#x9879;&#x76EE;&#x5305;&#x3002;</p>
-<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="yourdomain.com/content/images/2021/07/Eclipse-.png" class="kg-image" alt="&#x1F312;Eclipse&#x914D;&#x7F6E;" loading="lazy" width="1832" height="530" srcset="yourdomain.com/content/images/size/w600/2021/07/Eclipse-.png 600w, yourdomain.com/content/images/size/w1000/2021/07/Eclipse-.png 1000w, yourdomain.com/content/images/size/w1600/2021/07/Eclipse-.png 1600w, yourdomain.com/content/images/2021/07/Eclipse-.png 1832w" sizes="(min-width: 720px) 720px"><figcaption>EclipseLanguage</figcaption></figure><!--kg-card-begin: markdown--><h2 id="git-version-control">Git Version Control</h2>
+<p><img src="yourdomain.com/content/images/2021/09/choosezh.png" alt="&#x1F312;Eclipse&#x914D;&#x7F6E;" loading="lazy"></p>
+<ul>
+<li>&#x82F1;&#x6587;</li>
+</ul>
+<p>&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x627E;&#x5230; Eclipse&#xFF0C;&#x9009;&#x62E9; Show Package Contents&#xFF0C;&#x4F7F;&#x7528;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#x6253;&#x5F00;&#x5728; Contents &#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684; Info.plist&#x3002;&#x5728;&#x5728; Eclipsekey &#x672B;&#x5C3E;&#x6DFB;&#x52A0;&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;&#x3002;</p>
+<pre><code class="language-javascript">&lt;string&gt;-nl&lt;/string&gt;&lt;string&gt;en&lt;/string&gt;
+</code></pre>
+<p><img src="yourdomain.com/content/images/2021/09/changebacken.png" alt="&#x1F312;Eclipse&#x914D;&#x7F6E;" loading="lazy"></p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="git-version-control">Git Version Control</h2>
 <ul>
 <li>
 <p>Help =&gt; Install New SoftWare &#x4E2D;&#x70B9;&#x51FB; add &#x6DFB;&#x52A0;&#x4ECE;<a href="http://download.eclipse.org/egit/updates/">&#x6B64;&#x94FE;&#x63A5;</a>&#x9002;&#x914D;&#x7248;&#x672C;&#x7684; EGit &#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x8F7D;&#x5165;&#x540E;&#x5168;&#x9009;&#x7EC4;&#x4EF6;&#x5E76;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x3002;</p>
@@ -843,6 +938,22 @@ JRE NAME: HOME
 <p>Preference =&gt; Java =&gt; Editor =&gt; Content Assist =&gt; java automatic activation trigger &#x4E2D;&#x8865;&#x5168;&#x5355;&#x8BCD;&#x89E6;&#x53D1;&#x3002;</p>
 <pre><code class="language-java">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.
 </code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="javaee-perspective">JavaEE perspective</h2>
+<p>Help -&gt; install new software &#x641C;&#x7D22;&#x7B26;&#x5408;&#x5F53;&#x524D; eclipse &#x7248;&#x672C;&#x53F7;&#x7684; item work with&#x3002;&#x627E;&#x5230; Web, XML, Java EE and OSGI Enterprise Development&#xFF08;&#x53EF;&#x4EE5;&#x5177;&#x4F53;&#x5230;  Eclipse IDE for Java EE Developers&#xFF09;&#x3002;</p>
+<pre><code class="language-shell">2021-06 - http://download.eclipse.org/releases/2021-06/202106161001
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%B7%A5%E4%BD%9C%E5%8C%BA%E9%85%8D%E7%BD%AE">&#x5DE5;&#x4F5C;&#x533A;&#x914D;&#x7F6E;</h2>
+<ul>
+<li>Access Commands and other items</li>
+</ul>
+<p>navigator&#x3001;workspace&#x3001;outline&#x3001;console</p>
+<ul>
+<li>New</li>
+</ul>
+<p>window -&gt; perspective -&gt; customize perspective -&gt; menu visibility -&gt; file &#x914D;&#x7F6E; new &#x76F8;&#x5173;&#x3002;</p>
+<p>Java Project&#x3001;Package&#x3001;Class&#x3001;Interface&#x3001;Enum&#x3001;Annotation&#x3001;JUnit Test Case&#x3001;Folder&#x3001;File&#x3001;HTML File&#x3001;Static Web Project&#x3001;JSP File&#x3001;Dynamic Web Project&#x3001;Servlet&#x3001;Filter&#x3001;Listener&#x3001;XML File</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="eclipse-jee-vs-eclipse-java">eclipse-jee vs eclipse-java</h2>
+<p>&#x5728; Homebrew &#x4E0A;&#x5B58;&#x5728;&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#x7684; eclipse &#x7248;&#x672C;&#xFF0C;cpp&#x3001;jee&#x3001;java&#x3002;&#x5176;&#x4E2D; Eclipse for Java &#x662F;&#x5E26;&#x6709; GUI &#x548C; Swings &#x5E93;&#x7684;&#x57FA;&#x672C; IDE&#x3002;&#x4F46;&#x7F3A;&#x5C11;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x6570;&#x636E;&#x5E93;&#x548C; Web &#x5F00;&#x53D1;&#x7684;&#x90E8;&#x5206;&#x63D2;&#x4EF6;&#x3002;&#x9002;&#x7528;&#x4E8E; Java EE &#x7684; Eclipse IDE&#xFF08;EE &#x4EE3;&#x8868;&#x4F01;&#x4E1A;&#x7248;&#xFF09;&#x9884;&#x88C5;&#x4E86;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x63D2;&#x4EF6;&#xFF0C;&#x4FBF;&#x4E8E;&#x5236;&#x4F5C;&#x5B8C;&#x6574;&#x7684;&#x8F6F;&#x4EF6;&#xFF0C;&#x4E5F;&#x662F;&#x6700;&#x7406;&#x60F3;&#x7684;&#x9009;&#x62E9;&#x3002;&#x7406;&#x8BBA;&#x4E0A;&#x53EF;&#x4EE5;&#x5C06;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x4ECE; Eclipse Java EE &#x5B89;&#x88C5;&#x5230; Eclipse for Java&#x3002;&#x4F46;&#x662F;&#x5FC5;&#x987B;&#x4E0B;&#x8F7D;&#x5E76;&#x89E3;&#x538B;&#x7F29; Eclipse for Java Developers &#x5E76;&#x5B89;&#x88C5;&#x540D;&#x4E3A; web tools platform &#x7684;&#x63D2;&#x4EF6;&#x3002;&#x800C; cpp &#x7248;&#x672C;&#x5219;&#x662F;&#x5B89;&#x88C5;&#x4E86; C/C++ &#x5728;&#x6B64;&#x7248;&#x672C;&#x7684; eclipse &#x4E0A;&#x3002;</p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">&#x7ED3;&#x675F;</h2>
 <p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>&#x534F;&#x8BAE; &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
 <!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[Linux 下 su、sudo]]></title><description><![CDATA[GOOGLE CLOUD 操作后的反思]]></description><link>yourdomain.com/susudo/</link><guid isPermaLink="false">61041f419d12cb59362406b9</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Tue, 30 Mar 2021 14:03:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><p><code>su</code> &#x548C; <code>su -</code> &#x90FD;&#x662F;&#x9700;&#x8981;&#x8F93;&#x5165;&#x76EE;&#x6807;&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;&#x4EE5;&#x5207;&#x6362;&#x5230;&#x53E6;&#x5916;&#x7684; shell &#x5B9E;&#x4F8B;&#x3002;&#x90A3;&#x4E48;&#x5F88;&#x660E;&#x663E;&#x7684;&#xFF0C;&#x7531;&#x4E8E;&#x767B;&#x5F55; root &#x7528;&#x6237;&#x5C31;&#x9700;&#x8981; root &#x8EAB;&#x4EFD;&#x5BC6;&#x7801;&#xFF0C;&#x5728;&#x591A;&#x7528;&#x6237;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x901A;&#x8FC7; <code>su</code>&#x3001;<code>su -</code> &#x8FDB;&#x884C; root &#x8BBF;&#x95EE;&#x6743;&#x9650;&#x610F;&#x5473;&#x7740; root &#x7528;&#x6237;&#x5BC6;&#x7801;&#x9690;&#x79C1;&#x6027;&#x6B20;&#x4F73;&#x3002;</p>
@@ -2239,145 +2350,4 @@ https://github.com/postcss/postcss/wiki/PostCSS-8-for-end-users
 <p>&#x7531;&#x4E8E; postcss-pxtorem &#x7248;&#x672C;&#x8FC7;&#x9AD8;&#xFF0C;&#x653E;&#x5F03;&#x4E86;&#x5BF9;&#x65E7; Node.js &#x7248;&#x672C;&#x7684;&#x652F;&#x6301;&#x3002;&#x8003;&#x8651;&#x5230; PostCSS 8 &#x672A;&#x5E26;&#x6765;&#x91CD;&#x5927;&#x7684; API &#x66F4;&#x6539;&#x3002;&#x5148;&#x6267;&#x884C;: <code>npm uninstall postcss-pxtorem</code> &#x5378;&#x8F7D;&#x5F53;&#x524D;&#x7248;&#x672C;&#x3002;&#x5728; package.json &#x4E2D; devDependencies &#x4E0B;&#x6DFB;&#x52A0;&quot;postcss-pxtorem&quot;: &quot;^5.1.1&quot;&#xFF0C;&#x6267;&#x884C; <code>npm i</code> &#x5B89;&#x88C5;&#x5236;&#x5B9A;&#x7248;&#x672C;&#x5305;&#x3002;</p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id>&#x7ED3;&#x675F;</h2>
 <p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 &#x534F;&#x8BAE;</a> &#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
-<!--kg-card-end: markdown-->]]></content:encoded></item><item><title><![CDATA[Debounce&Throttle]]></title><description><![CDATA[星星发亮是为了让每一个人有一天都能找到属于自己的星星
-——《小王子》]]></description><link>yourdomain.com/debouncethrottle/</link><guid isPermaLink="false">60e1e88bdcff0833706c1604</guid><category><![CDATA[Technology growth]]></category><dc:creator><![CDATA[Ziyi Xie]]></dc:creator><pubDate>Sun, 20 Sep 2020 11:28:00 GMT</pubDate><content:encoded><![CDATA[<!--kg-card-begin: markdown--><h2 id="fontcolorfb4b63debouncefont"><font color="FB4B63">&#x9632;&#x6296;&#x7B56;&#x7565;(debounce)</font></h2>
-<p><strong>&#x610F;&#x4E49;&#xFF1A;</strong> &#x4FDD;&#x8BC1;&#x9891;&#x7E41;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;&#x4EC5;&#x88AB;&#x89E6;&#x53D1;&#x4E00;&#x6B21;&#x3002;&#x51CF;&#x5C11;&#x8BF7;&#x6C42;&#x6B21;&#x6570;&#x3001;&#x8282;&#x7EA6;&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#x3002;</p>
-<p><strong>&#x5B9A;&#x4E49;&#xFF1A;</strong> &#x5F53;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x540E;&#xFF0C;&#x5EF6;&#x8FDF;n&#x79D2;&#x518D;&#x6267;&#x884C;&#x56DE;&#x8C03;&#xFF0C;&#x82E5;&#x5728;&#x8FD9;n&#x79D2;&#x5185;&#x4E8B;&#x4EF6;&#x53C8;&#x88AB;&#x89E6;&#x53D1;&#x5219;&#x91CD;&#x65B0;&#x8BA1;&#x65F6;&#x3002;&#x2014;&#x2014;&#x7C7B;&#x4F3C;&#x6E38;&#x620F;&#x82F1;&#x96C4;&#x8054;&#x76DF;&#x7684;&#x56DE;&#x57CE;&#x64CD;&#x4F5C;&#x3002;</p>
-<p><strong>&#x5E94;&#x7528;&#xFF1A;</strong> &#x8F93;&#x5165;&#x6846;&#x9632;&#x6296;-&#x6DD8;&#x5B9D;&#x641C;&#x7D22;&#x6846;&#x4E2D;&#x8FDE;&#x7EED;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#xFF0C;&#x4FDD;&#x8BC1;&#x4EC5;&#x5728;&#x8F93;&#x5165;&#x5B8C;&#x6210;&#x540E;&#x624D;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#x7684;&#x8BF7;&#x6C42;&#x3002;</p>
-<p><strong>&#x4E0D;&#x91C7;&#x7528;&#x9632;&#x6296;&#x95EE;&#x9898;&#x590D;&#x73B0;&#xFF1A;</strong></p>
-<pre><code class="language-html">// &#x5982;&#x679C;&#x4E0D;&#x52A0;&#x9632;&#x6296;&#x51FD;&#x6570;,chrome&#x63A7;&#x5236;&#x53F0;&#x6BCF;&#x5F53;&#x4F60;&#x6309;&#x4E0B;&#x952E;&#x76D8;&#x5219;&#x8F93;&#x51FA;
-&lt;input type=&quot;text&quot; class=&quot;ipt&quot;&gt;
-</code></pre>
-<pre><code class="language-javascript">const ipt = document.querySelector(&apos;.ipt&apos;)
-ipt.onkeyup = function(){
-    console.log(ipt.value)
-}
-</code></pre>
-<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="yourdomain.com/content/images/2021/09/nodebounce.gif" class="kg-image" alt="nodebounce" loading="lazy" width="916" height="368"><figcaption>nodebounce</figcaption></figure><!--kg-card-begin: markdown--><p><strong>&#x91C7;&#x7528;&#x9632;&#x6296;&#x89E3;&#x51B3;&#xFF1A;</strong></p>
-<pre><code class="language-javascript">let timer = null
-ipt.onkeyup = function(){
-    if(timer){
-        clearTimeout(timer)
-    }
-    timer = setTimeout(()=&gt;{
-        console.log(ipt.value)
-    },2000)
-}
-</code></pre>
-<p>&#x7531;&#x4E8E;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x62BD;&#x79BB;&#x51FA;&#x6765;&#x5C01;&#x88C5;&#x81EA;&#x5DF1;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x3002;&#x907F;&#x514D;&#x6BCF;&#x9047;&#x89C1;&#x9632;&#x6296;&#x53C8;&#x5F97;&#x624B;&#x5199;&#x4E00;&#x904D;&#x3002;&#x5C01;&#x88C5;&#x6210;debounce&#xFF1A;</p>
-<pre><code class="language-javascript">function debounce(fn,delay=2000) { // &#x4F20;&#x5165;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x4E0E;&#x5EF6;&#x8FDF;;&#x5EF6;&#x8FDF;&#x4E0D;&#x4F20;&#x5165;&#x8BBE;&#x9ED8;&#x8BA4;&#x503C;
-    let timer; // const&#x5FC5;&#x987B;&#x521D;&#x59CB;&#x5316;,&#x8FD9;&#x91CC;&#x7528;let
-    return ()=&gt;{ // &#x7528;&#x5916;&#x51FD;&#x6570;&#x7684;timer&#x5F62;&#x6210;&#x95ED;&#x5305;
-        if(timer){clearTimeout(timer)} // &#x6709;timer
-        timer = setTimeout(() =&gt; { // &#x6CA1;timer
-            fn();
-        }, delay);
-    }
-}
-ipt.onkeyup = debounce(()=&gt;{console.log(ipt.value)},1500)
-</code></pre>
-<p><strong>&#x5B9E;&#x73B0;&#x6548;&#x679C;&#xFF1A;</strong></p>
-<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="yourdomain.com/content/images/2021/09/debounce.gif" class="kg-image" alt="debounce" loading="lazy" width="916" height="368"><figcaption>debounce</figcaption></figure><!--kg-card-begin: markdown--><h2 id="fontcolorfb4b63throttlefont"><font color="FB4B63">&#x8282;&#x6D41;&#x7B56;&#x7565;(throttle)</font></h2>
-<p><strong>&#x610F;&#x4E49;&#xFF1A;</strong> &#x89E3;&#x51B3;&#x56E0;&#x9891;&#x7E41;&#x89E6;&#x53D1;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x7684;&#x5361;&#x987F;&#x73B0;&#x8C61;&#x3002;</p>
-<p><strong>&#x5B9A;&#x4E49;&#xFF1A;</strong> &#x8FDE;&#x7EED;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x60C5;&#x5728;n&#x79D2;&#x5185;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x2014;&#x2014;&#x7C7B;&#x4F3C;&#x5C04;&#x51FB;&#x6E38;&#x620F;&#x8FDB;&#x884C;&#x8FDE;&#x7EED;&#x70B9;&#x51FB;&#xFF0C;&#x4F46;&#x67AA;&#x68B0;&#x5B58;&#x5728;&#x56FA;&#x5B9A;&#x5C04;&#x901F;&#x3002;</p>
-<p><strong>&#x5E94;&#x7528;&#xFF1A;</strong> &#x62D6;&#x62FD;&#x6548;&#x679C;&#x7684;&#x8282;&#x6D41;&#x3001;&#x4E91;&#x670D;&#x52A1;&#x5668;&#x66F4;&#x65B0;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x6BD4;&#x7387;&#x3001;&#x79FB;&#x52A8;&#x7AEF;&#x540E;&#x53F0;&#x5237;&#x65B0;&#x5B9A;&#x4F4D;&#x9891;&#x7387;&#x3002;</p>
-<p><strong>&#x4E0D;&#x91C7;&#x7528;&#x8282;&#x6D41;&#x95EE;&#x9898;&#x590D;&#x73B0;&#xFF1A;</strong></p>
-<pre><code class="language-css">.zs{
-    width: 50px;
-    height: 50px;
-    background-color: #424242;
-    border-radius: 50%;
-    color:red;
-    font-size: 5px;
-    text-align: center;
-}
-</code></pre>
-<pre><code class="language-html">&lt;div class=&quot;zs&quot; draggable=&quot;true&quot;&gt;zy&lt;/div&gt;
-&lt;script&gt;
-    const zs = document.querySelector(&apos;.zs&apos;)
-    zs.ondrag = function(e){
-        console.log(e.offsetX,e.offsetY)
-    }
-&lt;/script&gt;
-</code></pre>
-<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="yourdomain.com/content/images/2021/09/nothrottle.gif" class="kg-image" alt="nothrottle" loading="lazy" width="916" height="368"><figcaption>nothrottle</figcaption></figure><!--kg-card-begin: markdown--><p><strong>&#x91C7;&#x7528;&#x8282;&#x6D41;&#x89E3;&#x51B3;&#xFF1A;</strong></p>
-<pre><code class="language-javascript">const zs = document.querySelector(&apos;.zs&apos;)
-let timer = null;
-zs.ondrag = function(e){
-    if(timer){return;}
-    timer = setTimeout(()=&gt;{
-        console.log(e.offsetX,e.offsetY)
-        timer = null
-    },2000)
-}
-</code></pre>
-<p>&#x540C;&#x4E0A;&#xFF0C;&#x4E3A;&#x590D;&#x7528;&#x5C01;&#x88C5;&#x4E3A;throttle&#x51FD;&#x6570;&#x3002;</p>
-<pre><code class="language-javascript">const zs = document.querySelector(&apos;.zs&apos;)
-function throttle(fn,delay=2000){
-    let timer
-    return function(){
-        if(timer) {return;}
-        // console.log(arguments)
-        fn.apply(this,arguments)
-        timer = setTimeout(()=&gt;{fn;timer=null},delay)
-    }
-}
-zs.ondrag = throttle((zy)=&gt;{console.log(zy.offsetX,zy.offsetY)},1500)
-</code></pre>
-<p><strong>&#x5B9E;&#x73B0;&#x6548;&#x679C;&#xFF1A;</strong></p>
-<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="yourdomain.com/content/images/2021/09/throttle.gif" class="kg-image" alt="throttle" loading="lazy" width="680" height="364"><figcaption>throttle</figcaption></figure><!--kg-card-begin: markdown--><h2 id>&#x9632;&#x6296;&#x4E0E;&#x8282;&#x6D41;&#x7684;&#x6307;&#x5411;</h2>
-<pre><code class="language-html">&lt;div id=&quot;content&quot; style=&quot;height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;&quot;&gt;&lt;/div&gt;
-</code></pre>
-<pre><code class="language-javascript">// &#x9632;&#x6296;
-let num = 1;
-let content = document.getElementById(&apos;content&apos;);
-function count(e) {
-    console.log(this); // &lt;div id=&quot;content&quot; style=&quot;height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;&quot;&gt;2&lt;/div&gt;
-    console.log(e); // MouseEvent {isTrusted: true, screenX: 691, screenY: 217, clientX: 691, clientY: 81, &#x2026;}
-    content.innerHTML = num++;
-};
-function debounce (func, delay) {
-    let timer = null;
-    return function() {
-        // this&#x4E5F;&#x662F;&#x6307;&#x5411;&#x7684;DOM&#x5143;&#x7D20;,&#x4E8B;&#x4EF6;&#x53C2;&#x6570;&#x4E5F;&#x662F;&#x7ED1;&#x5B9A;&#x7684;onmousemove
-        if(timer) {
-            clearTimeout(timer)
-        }
-        timer = setTimeout(() =&gt; {
-            func.apply(this, arguments)
-            // func() // Window {window: Window, self: Window, document: document, name: &apos;&apos;, location: Location, &#x2026;} undefined
-            timer = null
-        }, delay)
-    }
-}
-// content.onmousemove = count;
-content.onmousemove = debounce(count, 1500);
-</code></pre>
-<pre><code class="language-javascript">// &#x8282;&#x6D41;
-let num = 1;
-let content = document.getElementById(&apos;content&apos;);
-function count(e) {
-    console.log(this); // &lt;div id=&quot;content&quot; style=&quot;height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;&quot;&gt;2&lt;/div&gt;
-    console.log(e); // MouseEvent {isTrusted: true, screenX: 691, screenY: 217, clientX: 691, clientY: 81, &#x2026;}
-    content.innerHTML = num++;
-};
-function throttle (func, delay) {
-    let timer = null;
-    return function() {
-        // this&#x4E5F;&#x662F;&#x6307;&#x5411;&#x7684;DOM&#x5143;&#x7D20;,&#x4E8B;&#x4EF6;&#x53C2;&#x6570;&#x4E5F;&#x662F;&#x7ED1;&#x5B9A;&#x7684;onmousemove
-        if(timer) {
-            return
-        }
-        timer = setTimeout(() =&gt; {
-            func.apply(this, arguments)
-            // func() // Window {window: Window, self: Window, document: document, name: &apos;&apos;, location: Location, &#x2026;} undefined
-            timer = null
-        }, delay)
-    }
-}
-// content.onmousemove = count;
-content.onmousemove = throttle(count, 1500);
-</code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id>&#x7ED3;&#x675F;</h2>
-<p>&#x672C;&#x535A;&#x5BA2;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x9664;&#x7279;&#x522B;&#x58F0;&#x660E;&#x5916;&#xFF0C;&#x5747;&#x91C7;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 &#x534F;&#x8BAE;</a>&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF01;</p>
 <!--kg-card-end: markdown-->]]></content:encoded></item></channel></rss>

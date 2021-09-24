@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/ikcss/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/csscss.png" />
     <meta property="article:published_time" content="2019-05-19T21:23:00.000Z" />
-    <meta property="article:modified_time" content="2021-09-18T22:09:05.000Z" />
+    <meta property="article:modified_time" content="2021-09-24T10:34:19.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +63,7 @@
     "headline": "CSS回顾",
     "url": "yourdomain.com/ikcss/",
     "datePublished": "2019-05-19T21:23:00.000Z",
-    "dateModified": "2021-09-18T22:09:05.000Z",
+    "dateModified": "2021-09-24T10:34:19.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/csscss.png",
@@ -748,6 +748,75 @@ img { float: left; margin-right: 30px; }
 <li>自适应两栏布局</li>
 <li>阻止外边距塌陷</li>
 </ul>
+<h2 id="%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD">水平垂直居中</h2>
+<pre><code class="language-html">&lt;div class="box"&gt;
+    &lt;img src="https://images.unsplash.com/photo-1610663711502-35f870cfaea2?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=687&amp;q=80" alt=""&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>水平居中</strong></p>
+<ul>
+<li>margin: 0 auto;</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; }
+img{ display: block; width: 100px; height: 100px; margin: 0 auto; }
+</code></pre>
+<ul>
+<li>text-align: center；</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+/* 仅适用于块级元素设置文本对齐方式 text-align: center; */
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; text-align: center; }
+img{ width: 100px; height: 100px; }
+</code></pre>
+<p><strong>垂直居中</strong></p>
+<ul>
+<li>计算 margin</li>
+</ul>
+<pre><code class="language-css">/* 需知父子元素宽高 */
+*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; }
+img{ width: 100px; height: 100px; margin-top: 100px; margin-left: 100px; }
+</code></pre>
+<ul>
+<li>定位和 margin:auto;</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; position: relative; }
+img{ width: 100px; height: 100px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; }
+</code></pre>
+<ul>
+<li>定位和 transfrom</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; position: relative; }
+img{ width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+</code></pre>
+<ul>
+<li>diplay：table-cell;</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: table-cell; vertical-align: middle; text-align: center; }
+img{ width: 100px; height: 100px; }
+/* 若是块元素应修改为行内块 */
+*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: table-cell; vertical-align: middle; text-align: center; }
+.box div{ width: 100px; height: 100px; background-color: red; display: inline-block; }
+</code></pre>
+<ul>
+<li>flex 布局</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: flex; justify-content: center; align-items: center; }
+img{ width: 100px; height: 100px; }
+</code></pre>
+<ul>
+<li>calc 计算</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e;}
+.box div { height: 100px; width: 100px; background-color: red; margin: calc(50% - 50px) auto }
+</code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 

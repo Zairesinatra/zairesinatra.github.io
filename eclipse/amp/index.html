@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/eclipse/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/eeclipse.jpg" />
     <meta property="article:published_time" content="2021-04-22T13:36:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-22T20:16:42.000Z" />
+    <meta property="article:modified_time" content="2021-09-24T06:39:53.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +63,7 @@
     "headline": "🌒Eclipse配置",
     "url": "yourdomain.com/eclipse/",
     "datePublished": "2021-04-22T13:36:00.000Z",
-    "dateModified": "2021-07-22T20:16:42.000Z",
+    "dateModified": "2021-09-24T06:39:53.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/eeclipse.jpg",
@@ -703,9 +703,20 @@ JRE NAME: HOME
 <ul>
 <li>为防止工作区文件乱码，在 Preference =&gt; General =&gt; workspace 勾选 Defalt(UTF-8)选项并 Apply 。</li>
 </ul>
-<h2 id="eclipse-%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87">Eclipse 设置中文</h2>
+<h2 id="eclipse-%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80">Eclipse 设置语言</h2>
+<ul>
+<li>中文</li>
+</ul>
 <p>Help =&gt; Install New SoftWare 中点击 add 添加从<a href="https://www.eclipse.org/babel/downloads.php">此链接</a>适配版本的中文插件包。这里注意如果在选择 Babel Language Packs in Chinese(Simplified) 全部安装，在本人 X86 架构的 mac 出现 Eclipse 损坏的情况（MacM1 未出现此损毁）。解决方案是不选择 for rt.rap 的项目包。</p>
-<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>EclipseLanguage</figcaption></figure><h2 id="git-version-control">Git Version Control</h2>
+<p></p>
+<ul>
+<li>英文</li>
+</ul>
+<p>在应用程序中找到 Eclipse，选择 Show Package Contents，使用文本编辑器打开在 Contents 文件夹中的 Info.plist。在在 Eclipsekey 末尾添加命令行选项。</p>
+<pre><code class="language-javascript">&lt;string&gt;-nl&lt;/string&gt;&lt;string&gt;en&lt;/string&gt;
+</code></pre>
+<p></p>
+<h2 id="git-version-control">Git Version Control</h2>
 <ul>
 <li>
 <p>Help =&gt; Install New SoftWare 中点击 add 添加从<a href="http://download.eclipse.org/egit/updates/">此链接</a>适配版本的 EGit 插件包，载入后全选组件并进行安装。</p>
@@ -727,6 +738,22 @@ JRE NAME: HOME
 <p>Preference =&gt; Java =&gt; Editor =&gt; Content Assist =&gt; java automatic activation trigger 中补全单词触发。</p>
 <pre><code class="language-java">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.
 </code></pre>
+<h2 id="javaee-perspective">JavaEE perspective</h2>
+<p>Help -&gt; install new software 搜索符合当前 eclipse 版本号的 item work with。找到 Web, XML, Java EE and OSGI Enterprise Development（可以具体到  Eclipse IDE for Java EE Developers）。</p>
+<pre><code class="language-shell">2021-06 - http://download.eclipse.org/releases/2021-06/202106161001
+</code></pre>
+<h2 id="%E5%B7%A5%E4%BD%9C%E5%8C%BA%E9%85%8D%E7%BD%AE">工作区配置</h2>
+<ul>
+<li>Access Commands and other items</li>
+</ul>
+<p>navigator、workspace、outline、console</p>
+<ul>
+<li>New</li>
+</ul>
+<p>window -&gt; perspective -&gt; customize perspective -&gt; menu visibility -&gt; file 配置 new 相关。</p>
+<p>Java Project、Package、Class、Interface、Enum、Annotation、JUnit Test Case、Folder、File、HTML File、Static Web Project、JSP File、Dynamic Web Project、Servlet、Filter、Listener、XML File</p>
+<h2 id="eclipse-jee-vs-eclipse-java">eclipse-jee vs eclipse-java</h2>
+<p>在 Homebrew 上存在三种类型的 eclipse 版本，cpp、jee、java。其中 Eclipse for Java 是带有 GUI 和 Swings 库的基本 IDE。但缺少用于处理数据库和 Web 开发的部分插件。适用于 Java EE 的 Eclipse IDE（EE 代表企业版）预装了所有这些插件，便于制作完整的软件，也是最理想的选择。理论上可以将所有组件从 Eclipse Java EE 安装到 Eclipse for Java。但是必须下载并解压缩 Eclipse for Java Developers 并安装名为 web tools platform 的插件。而 cpp 版本则是安装了 C/C++ 在此版本的 eclipse 上。</p>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
 
