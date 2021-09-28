@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=c6a9e594c0.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=50bb6a72fa.css" />
 
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -78,9 +78,9 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 4.12" />
+    <meta name="generator" content="Ghost 4.16" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
-    <script defer src="https://unpkg.com/@tryghost/portal@~1.8.0/umd/portal.min.js" data-ghost="yourdomain.com/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.10.0/umd/portal.min.js" data-ghost="yourdomain.com/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
 .gh-post-upgrade-cta {
     display: flex;
     flex-direction: column;
@@ -235,46 +235,47 @@ pre[class*="language-"] {
         </nav>
     </header>
 
-    <main>
+    <div class="site-content">
         
 
 
 
-<article class="article post tag-technology-growth no-image">
+<main id="site-main" class="site-main">
+    <article class="article post tag-technology-growth no-image">
 
-    <header class="article-header gh-canvas">
+        <header class="article-header gh-canvas">
 
-        <section class="article-tag">
-            <a href="../tag/technology-growth/index.html">Technology growth</a>
-        </section>
-
-        <h1 class="article-title">Null与Undefined区别</h1>
-
-        <p class="article-excerpt">“以小明大，见一叶落而知岁之将暮，睹瓶中之冰，而知天下之寒。”——《淮南子·说山川》</p>
-
-        <div class="article-byline">
-            <section class="article-byline-content">
-                <ul class="author-list">
-                    <li class="author-list-item">
-                        <a href="../author/ziyi/index.html" class="author-avatar">
-                            <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
-                        </a>
-                    </li>
-                </ul>
-                <div class="article-byline-meta">
-                    <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
-                    <div class="byline-meta-content">
-                        <time class="byline-meta-date" datetime="2020-04-22">Apr 22, 2020</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
-                    </div>
-                </div>
+            <section class="article-tag">
+                <a href="../tag/technology-growth/index.html">Technology growth</a>
             </section>
-        </div>
 
-    </header>
+            <h1 class="article-title">Null与Undefined区别</h1>
 
-    <section class="gh-content gh-canvas">
-        <p>通俗来说null与undefined概念较简单,但是这里有意思的是在基本数据类型中JavaScript语言存在<strong>两个</strong>表示"无"的值，这里拎出来比较一二。</p><!--kg-card-begin: markdown--><h3 id="test">控制台test如下：</h3>
+            <p class="article-excerpt">“以小明大，见一叶落而知岁之将暮，睹瓶中之冰，而知天下之寒。”——《淮南子·说山川》</p>
+
+            <div class="article-byline">
+                <section class="article-byline-content">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <a href="../author/ziyi/index.html" class="author-avatar">
+                                <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="article-byline-meta">
+                        <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                        <div class="byline-meta-content">
+                            <time class="byline-meta-date" datetime="2020-04-22">Apr 22, 2020</time>
+                            <span class="byline-reading-time"><span class="bull">&bull;</span> 3 min read</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </header>
+
+        <section class="gh-content gh-canvas">
+            <p>通俗来说null与undefined概念较简单,但是这里有意思的是在基本数据类型中JavaScript语言存在<strong>两个</strong>表示"无"的值，这里拎出来比较一二。</p><!--kg-card-begin: markdown--><h3 id="test">控制台test如下：</h3>
 <pre><code>if (!undefined) 
     console.log('undefined is false');
 // undefined is false
@@ -328,10 +329,28 @@ hrb() // undefined
 
 </code></pre>
 <!--kg-card-end: markdown--><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://blog.csdn.net/xxxzzzyyybiu/article/details/113811647?spm&#x3D;1001.2014.3001.5502"><div class="kg-bookmark-content"><div class="kg-bookmark-title">浅谈原型与原型对象_xxxzzzyyybiu的博客-CSDN博客</div><div class="kg-bookmark-description">1.什么是原型，原型对象？原型(prototype)是函数的一个特殊属性，即指针指向原型对象。原型对象(prototype object)是一个属于其所在函数的空对象,可以添加属性和方法。其自身constructor属性指向其函数。2.浅谈原型链首先通过一张核心图更好的理解相互之间的关系。proto谈到继承时，JavaScript 只有一种结构：对象。每个实例对象（ object ）都有一个私有属性（称之为 proto）指向它的构造函数的原型对象（	prototype	）。该原型对象</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://g.csdnimg.cn/static/logo/favicon32.ico" alt=""></div></div><div class="kg-bookmark-thumbnail"><img src="https://img-blog.csdnimg.cn/2021021719285627.png?x-oss-process&#x3D;image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h4eHp6enl5eWJpdQ&#x3D;&#x3D;,size_16,color_FFFFFF,t_70" alt=""></div></a></figure><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-    </section>
+        </section>
 
 
-</article>
+        <section class="article-comments gh-canvas">
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function () {
+                    this.page.url = "yourdomain.com/null-undefined/";
+                    this.page.identifier = "ghost-604129c435cce204a1cbfb39"
+                };
+                (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://zsxzy.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+            </script>
+        </section>
+
+
+    </article>
+</main>
 
 <section class="footer-cta">
     <div class="inner">
@@ -349,8 +368,17 @@ hrb() // undefined
 
 
                     
-<article class="post-card post featured no-image ">
+<article class="post-card post featured ">
 
+    <a class="post-card-image-link" href="../newghostzs/index.html">
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2021/09/ghostbg.png 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2021/09/ghostbg.png"
+            alt="The migration of Ghost blog"
+            loading="lazy"
+        />
+    </a>
 
     <div class="post-card-content">
 
@@ -358,9 +386,9 @@ hrb() // undefined
             <header class="post-card-header">
                 <h2 class="post-card-title">Ghost更新与迁移</h2>
             </header>
-            <section class="post-card-excerpt">
+            <div class="post-card-excerpt">
                 <p>Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。</p>
-            </section>
+            </div>
         </a>
 
         <footer class="post-card-meta">
@@ -399,9 +427,9 @@ hrb() // undefined
             <header class="post-card-header">
                 <h2 class="post-card-title">jenv AdoptOpenJDK JDKs</h2>
             </header>
-            <section class="post-card-excerpt">
+            <div class="post-card-excerpt">
                 <p>Use jenv and AdoptOpenJDK to set up multiple JDKs</p>
-            </section>
+            </div>
         </a>
 
         <footer class="post-card-meta">
@@ -440,9 +468,9 @@ hrb() // undefined
             <header class="post-card-header">
                 <h2 class="post-card-title">MongoDB</h2>
             </header>
-            <section class="post-card-excerpt">
+            <div class="post-card-excerpt">
                 <p>关系型数据库全是表；No SQL 中都键值对。——文档数据库 MongoDB</p>
-            </section>
+            </div>
         </a>
 
         <footer class="post-card-meta">
@@ -467,7 +495,7 @@ hrb() // undefined
 </aside>
 
 
-    </main>
+    </div>
 
     <footer class="site-footer outer">
         <div class="inner">
@@ -487,7 +515,7 @@ hrb() // undefined
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=c6a9e594c0"></script>
+<script src="../assets/built/casper.js%3Fv=50bb6a72fa"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger

@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=c6a9e594c0.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=50bb6a72fa.css" />
 
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -20,9 +20,9 @@
     <meta property="og:title" content="Ghost更新与迁移" />
     <meta property="og:description" content="Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。" />
     <meta property="og:url" content="yourdomain.com/newghostzs/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/09/ghostbg.png" />
     <meta property="article:published_time" content="2021-07-23T13:38:41.000Z" />
-    <meta property="article:modified_time" content="2021-08-26T16:17:02.000Z" />
+    <meta property="article:modified_time" content="2021-09-25T16:44:41.000Z" />
     <meta property="article:tag" content="GHOSTblog" />
     <meta property="article:tag" content="Technology growth" />
     
@@ -30,14 +30,14 @@
     <meta name="twitter:title" content="Ghost更新与迁移" />
     <meta name="twitter:description" content="Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。" />
     <meta name="twitter:url" content="yourdomain.com/newghostzs/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/09/ghostbg.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="GHOSTblog, Technology growth" />
     <meta name="twitter:site" content="@xieziyi0422" />
     <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1333" />
+    <meta property="og:image:height" content="1216" />
     
     <script type="application/ld+json">
 {
@@ -69,7 +69,13 @@
     "headline": "Ghost更新与迁移",
     "url": "yourdomain.com/newghostzs/",
     "datePublished": "2021-07-23T13:38:41.000Z",
-    "dateModified": "2021-08-26T16:17:02.000Z",
+    "dateModified": "2021-09-25T16:44:41.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/09/ghostbg.png",
+        "width": 2000,
+        "height": 1216
+    },
     "keywords": "GHOSTblog, Technology growth",
     "description": "Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。",
     "mainEntityOfPage": {
@@ -79,9 +85,9 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 4.12" />
+    <meta name="generator" content="Ghost 4.16" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
-    <script defer src="https://unpkg.com/@tryghost/portal@~1.8.0/umd/portal.min.js" data-ghost="yourdomain.com/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.10.0/umd/portal.min.js" data-ghost="yourdomain.com/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
 .gh-post-upgrade-cta {
     display: flex;
     flex-direction: column;
@@ -236,46 +242,56 @@ pre[class*="language-"] {
         </nav>
     </header>
 
-    <main>
+    <div class="site-content">
         
 
 
 
-<article class="article post tag-ghostblog tag-technology-growth featured no-image">
+<main id="site-main" class="site-main">
+    <article class="article post tag-ghostblog tag-technology-growth featured">
 
-    <header class="article-header gh-canvas">
+        <header class="article-header gh-canvas">
 
-        <section class="article-tag">
-            <a href="../tag/ghostblog/index.html">GHOSTblog</a>
-        </section>
-
-        <h1 class="article-title">Ghost更新与迁移</h1>
-
-        <p class="article-excerpt">Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。</p>
-
-        <div class="article-byline">
-            <section class="article-byline-content">
-                <ul class="author-list">
-                    <li class="author-list-item">
-                        <a href="../author/ziyi/index.html" class="author-avatar">
-                            <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
-                        </a>
-                    </li>
-                </ul>
-                <div class="article-byline-meta">
-                    <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
-                    <div class="byline-meta-content">
-                        <time class="byline-meta-date" datetime="2021-07-23">Jul 23, 2021</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 6 min read</span>
-                    </div>
-                </div>
+            <section class="article-tag">
+                <a href="../tag/ghostblog/index.html">GHOSTblog</a>
             </section>
-        </div>
 
-    </header>
+            <h1 class="article-title">Ghost更新与迁移</h1>
 
-    <section class="gh-content gh-canvas">
-        <!--kg-card-begin: markdown--><p>由于 Githubpage 的静态编译 Ghost 在表现上不同于本站的反向代理，对部分功能与效果支持不好。为同步需求，记录本次的 TX云 Ubuntu 中 Ghost 与 Node 版本更新过程以及 Nginx 再配置。（又回来了）</p>
+            <p class="article-excerpt">Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。</p>
+
+            <div class="article-byline">
+                <section class="article-byline-content">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <a href="../author/ziyi/index.html" class="author-avatar">
+                                <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="article-byline-meta">
+                        <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                        <div class="byline-meta-content">
+                            <time class="byline-meta-date" datetime="2021-07-23">Jul 23, 2021</time>
+                            <span class="byline-reading-time"><span class="bull">&bull;</span> 6 min read</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w2000/2021/09/ghostbg.png 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2021/09/ghostbg.png"
+                    alt="The migration of Ghost blog"
+                />
+                    <figcaption>The migration of Ghost blog</figcaption>
+            </figure>
+        </header>
+
+        <section class="gh-content gh-canvas">
+            <!--kg-card-begin: markdown--><p>由于 Githubpage 的静态编译 Ghost 在表现上不同于本站的反向代理，对部分功能与效果支持不好。为同步需求，记录本次的 TX云 Ubuntu 中 Ghost 与 Node 版本更新过程以及 Nginx 再配置。（又回来了）</p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="node">Node</h2>
 <p>最新的 Ghost 版本需要 Node.js 14.x ，故安装适用 Ubuntu 的 <a href="https://github.com/nodesource/distributions">二进制发行版</a>。</p>
 <pre><code class="language-shell"># Using Ubuntu 添加 Node.js ppa(Person Package achives) 安装 Node.js
@@ -491,10 +507,28 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 <!--kg-card-end: markdown-->
-    </section>
+        </section>
 
 
-</article>
+        <section class="article-comments gh-canvas">
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function () {
+                    this.page.url = "yourdomain.com/newghostzs/";
+                    this.page.identifier = "ghost-60fac2bca763a10c85416efc"
+                };
+                (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://zsxzy.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+            </script>
+        </section>
+
+
+    </article>
+</main>
 
 <section class="footer-cta">
     <div class="inner">
@@ -530,9 +564,9 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
             <header class="post-card-header">
                 <h2 class="post-card-title">jenv AdoptOpenJDK JDKs</h2>
             </header>
-            <section class="post-card-excerpt">
+            <div class="post-card-excerpt">
                 <p>Use jenv and AdoptOpenJDK to set up multiple JDKs</p>
-            </section>
+            </div>
         </a>
 
         <footer class="post-card-meta">
@@ -571,9 +605,9 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
             <header class="post-card-header">
                 <h2 class="post-card-title">MongoDB</h2>
             </header>
-            <section class="post-card-excerpt">
+            <div class="post-card-excerpt">
                 <p>关系型数据库全是表；No SQL 中都键值对。——文档数据库 MongoDB</p>
-            </section>
+            </div>
         </a>
 
         <footer class="post-card-meta">
@@ -612,9 +646,9 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
             <header class="post-card-header">
                 <h2 class="post-card-title">React Hooks</h2>
             </header>
-            <section class="post-card-excerpt">
+            <div class="post-card-excerpt">
                 <p>常用 React hooks 总结</p>
-            </section>
+            </div>
         </a>
 
         <footer class="post-card-meta">
@@ -639,7 +673,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 </aside>
 
 
-    </main>
+    </div>
 
     <footer class="site-footer outer">
         <div class="inner">
@@ -659,7 +693,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=c6a9e594c0"></script>
+<script src="../assets/built/casper.js%3Fv=50bb6a72fa"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger

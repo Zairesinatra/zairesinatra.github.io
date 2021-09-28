@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>Linux 下 su、sudo</title>
+    <title>Linux</title>
 
     <link rel="icon" href="../../favicon.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
@@ -12,26 +12,26 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Linux 下 su、sudo" />
+    <meta property="og:title" content="Linux" />
     <meta property="og:description" content="GOOGLE CLOUD 操作后的反思" />
     <meta property="og:url" content="yourdomain.com/susudo/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/09/linuxbg.jpg" />
     <meta property="article:published_time" content="2021-03-30T14:03:00.000Z" />
-    <meta property="article:modified_time" content="2021-07-30T18:18:38.000Z" />
+    <meta property="article:modified_time" content="2021-09-25T17:50:26.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Linux 下 su、sudo" />
+    <meta name="twitter:title" content="Linux" />
     <meta name="twitter:description" content="GOOGLE CLOUD 操作后的反思" />
     <meta name="twitter:url" content="yourdomain.com/susudo/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/09/linuxbg.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="Technology growth" />
     <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1333" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1200" />
     
     <script type="application/ld+json">
 {
@@ -60,10 +60,16 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "Linux 下 su、sudo",
+    "headline": "Linux",
     "url": "yourdomain.com/susudo/",
     "datePublished": "2021-03-30T14:03:00.000Z",
-    "dateModified": "2021-07-30T18:18:38.000Z",
+    "dateModified": "2021-09-25T17:50:26.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/09/linuxbg.jpg",
+        "width": 1920,
+        "height": 1200
+    },
     "keywords": "Technology growth",
     "description": "GOOGLE CLOUD 操作后的反思",
     "mainEntityOfPage": {
@@ -73,7 +79,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 4.12" />
+    <meta name="generator" content="Ghost 4.16" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -655,22 +661,31 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">Linux 下 su、sudo</h1>
+                <h1 class="post-title">Linux</h1>
                 <section class="post-meta">
                     Ziyi Xie -
                     <time class="post-date" datetime="2021-03-30">30 Mar 2021</time>
                 </section>
             </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2021/09/linuxbg.jpg" width="600" height="340" layout="responsive"></amp-img>
+            </figure>
             <section class="post-content">
 
-                <p><code>su</code> 和 <code>su -</code> 都是需要输入目标用户的密码以切换到另外的 shell 实例。那么很明显的，由于登录 root 用户就需要 root 身份密码，在多用户服务器中通过 <code>su</code>、<code>su -</code> 进行 root 访问权限意味着 root 用户密码隐私性欠佳。</p>
+                <h2 id="su%E3%80%81su-%E3%80%81sudo">su、su-、sudo</h2>
+<ul>
+<li>su、sudo</li>
+</ul>
+<p><code>su</code> 和 <code>su -</code> 都是需要输入目标用户的密码以切换到另外的 shell 实例。那么很明显的，由于登录 root 用户就需要 root 身份密码，在多用户服务器中通过 <code>su</code>、<code>su -</code> 进行 root 访问权限意味着 root 用户密码隐私性欠佳。</p>
 <p><code>sudo</code> (superuser-do助记符) 的使用原理与上述是南辕北辙的。即通过一个配置文件(/etc/sudoers) 列出每个用户的特定操作权限。当调用时，要求验证配置文件中的用户身份密码来允许提升权限运行单个命令且不会启动一个新的 shell。</p>
 <p>通常在 Linux 系统中非 root 用户运行sudo命令，会提示以下信息</p>
 <pre><code class="language-shell"># xxx 当前用户无法执行 sudo 命令
 $ xxx is not in the sudoers file.  This incident will be reported. 
 </code></pre>
 <p>那么就需要 <code>su -</code> 进入超级用户后给配置文件 <code>/etc/sudoers</code> 添加添加 xxx 权限。这里注意编辑配置文件可能操作会因权限问题被阻止，可以使用 <code>chmod u+w /etc/sudoers</code> 加写权利。在 <code>nvim /etc/sudoers</code> 完成添加 <code>xxx ALL=(ALL)ALL</code> 后撤销文件的写权利 <code>chmod u-w /etc/sudoers</code>。</p>
-<h2 id="su-%E4%B8%8E-su">su 与 su -</h2>
+<ul>
+<li>su 与 su -</li>
+</ul>
 <p>这里有个问题，上文中使用 <code>su -i</code> 是什么意思，和直接 <code>su</code> 有什么区别？</p>
 <p>首先能确定的是 <code>su</code> 和 <code>su -</code> 都会切换到 root 用户。但是就环境来说，<code>su</code> 切换到 root 的同时，当前目录保持普通用户的不变。而 <code>su -</code> 可以看成用户和环境一起切为 root 身份。</p>
 <pre><code class="language-shell">newghostzs@VM-4-10-ubuntu:~$ pwd
@@ -685,8 +700,17 @@ Password:
 root@VM-4-10-ubuntu:~# pwd
 /root
 </code></pre>
-<h2 id="sudos-%E4%B8%8E-sudoi">sudo -s 与 sudo -i</h2>
+<ul>
+<li>sudo -s 与 sudo -i</li>
+</ul>
 <p>和 <code>sudo</code> 允许以自己的用戶账户以 root 权限运行命令又不同。<code>sudo -s</code> 以 root 权限运行一个 shell 。而 <code>sudo -i</code> 不但以 root 权限运行一个 shell，还会获取 root 用户的环境。更直观来说前者在用户环境中保留 <code>~/.bashrc</code> 后者在根环境忽略 <code>~/.bashrc</code>。</p>
+<h2 id="scp">scp</h2>
+<p>scp 即 secure copy，是一个用于在 Linux(MAC) 环境下进行远程加密传输文件（目录）的命令。类似的有仅在本机进行拷贝的 cp。</p>
+<pre><code class="language-shell"># 大写 P 为端口参数，2368 表示更改后的 SSH 端口，如果未更改 SSH 端口则不必添加。
+# -r 参数表示递归复制（即复制该目录下面的文件和目录）；
+scp -P 2368 -r /Users/zszs/.../images root@x.xx.xx.xxx:/var/www/.../content
+</code></pre>
+<p>若传输目录未使用 -r 修饰则会出现 'Error using SCP: "not a regular file"' 的报错。</p>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
 

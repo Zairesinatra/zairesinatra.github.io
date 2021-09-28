@@ -17,7 +17,7 @@
     <meta property="og:url" content="yourdomain.com/eclipse/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/eeclipse.jpg" />
     <meta property="article:published_time" content="2021-04-22T13:36:00.000Z" />
-    <meta property="article:modified_time" content="2021-09-24T06:39:53.000Z" />
+    <meta property="article:modified_time" content="2021-09-28T00:52:33.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +63,7 @@
     "headline": "🌒Eclipse配置",
     "url": "yourdomain.com/eclipse/",
     "datePublished": "2021-04-22T13:36:00.000Z",
-    "dateModified": "2021-09-24T06:39:53.000Z",
+    "dateModified": "2021-09-28T00:52:33.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/eeclipse.jpg",
@@ -79,7 +79,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 4.12" />
+    <meta name="generator" content="Ghost 4.16" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -754,6 +754,20 @@ JRE NAME: HOME
 <p>Java Project、Package、Class、Interface、Enum、Annotation、JUnit Test Case、Folder、File、HTML File、Static Web Project、JSP File、Dynamic Web Project、Servlet、Filter、Listener、XML File</p>
 <h2 id="eclipse-jee-vs-eclipse-java">eclipse-jee vs eclipse-java</h2>
 <p>在 Homebrew 上存在三种类型的 eclipse 版本，cpp、jee、java。其中 Eclipse for Java 是带有 GUI 和 Swings 库的基本 IDE。但缺少用于处理数据库和 Web 开发的部分插件。适用于 Java EE 的 Eclipse IDE（EE 代表企业版）预装了所有这些插件，便于制作完整的软件，也是最理想的选择。理论上可以将所有组件从 Eclipse Java EE 安装到 Eclipse for Java。但是必须下载并解压缩 Eclipse for Java Developers 并安装名为 web tools platform 的插件。而 cpp 版本则是安装了 C/C++ 在此版本的 eclipse 上。</p>
+<h2 id="bugs-fixed">Bugs fixed</h2>
+<p>"You do not have permission to open the application Eclipse JEE.app.Contact your computer or network administrator for assistance."</p>
+<pre><code class="language-shell"># Problem Report for eclipse
+Crashed Thread:        Unknown
+
+Exception Type:        EXC_CRASH (Code Signature Invalid)
+Exception Codes:       0x0000000000000000, 0x0000000000000000
+Exception Note:        EXC_CORPSE_NOTIFY
+</code></pre>
+<p>程序运行 crashed 是由于 Code Signature Invalid（签名问题）。虽然 Mac 启用的安全机制默认只信任 Mac App Store 以及拥有开发者 ID 签名的软件，同时阻止没有开发者签名的软件。但是这不是我第一次打开此软件，而是进行系统更新操作后的副作用。在尝试重新给软件进行签名后问题解决。<a href="https://www.quwenqing.com/archives/1539.html">类似问题</a>。</p>
+<pre><code class="language-shell">$ sudo codesign --force --deep --sign - /Applications/Eclipse\ JEE.app
+Password:
+/Applications/Eclipse JEE.app: replacing existing signature
+</code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
 
