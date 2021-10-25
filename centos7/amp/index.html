@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>CSS回顾</title>
+    <title>CentOS7</title>
 
     <link rel="icon" href="../../favicon.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
@@ -12,26 +12,26 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="CSS回顾" />
-    <meta property="og:description" content="I KNOW CSS" />
-    <meta property="og:url" content="yourdomain.com/ikcss/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/09/csscss.png" />
-    <meta property="article:published_time" content="2019-05-19T21:23:00.000Z" />
-    <meta property="article:modified_time" content="2021-10-24T14:08:26.000Z" />
+    <meta property="og:title" content="CentOS7" />
+    <meta property="og:description" content="ssh root@???" />
+    <meta property="og:url" content="yourdomain.com/centos7/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/10/penguinCentOS.jpg" />
+    <meta property="article:published_time" content="2019-07-16T12:23:00.000Z" />
+    <meta property="article:modified_time" content="2021-10-03T15:41:22.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="CSS回顾" />
-    <meta name="twitter:description" content="I KNOW CSS" />
-    <meta name="twitter:url" content="yourdomain.com/ikcss/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/09/csscss.png" />
+    <meta name="twitter:title" content="CentOS7" />
+    <meta name="twitter:description" content="ssh root@???" />
+    <meta name="twitter:url" content="yourdomain.com/centos7/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/10/penguinCentOS.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="Technology growth" />
     <meta name="twitter:site" content="@xieziyi0422" />
     <meta property="og:image:width" content="1280" />
-    <meta property="og:image:height" content="720" />
+    <meta property="og:image:height" content="800" />
     
     <script type="application/ld+json">
 {
@@ -60,18 +60,18 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "CSS回顾",
-    "url": "yourdomain.com/ikcss/",
-    "datePublished": "2019-05-19T21:23:00.000Z",
-    "dateModified": "2021-10-24T14:08:26.000Z",
+    "headline": "CentOS7",
+    "url": "yourdomain.com/centos7/",
+    "datePublished": "2019-07-16T12:23:00.000Z",
+    "dateModified": "2021-10-03T15:41:22.000Z",
     "image": {
         "@type": "ImageObject",
-        "url": "yourdomain.com/content/images/2021/09/csscss.png",
+        "url": "yourdomain.com/content/images/2021/10/penguinCentOS.jpg",
         "width": 1280,
-        "height": 720
+        "height": 800
     },
     "keywords": "Technology growth",
-    "description": "I KNOW CSS",
+    "description": "ssh root@???",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -661,289 +661,152 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">CSS回顾</h1>
+                <h1 class="post-title">CentOS7</h1>
                 <section class="post-meta">
                     Ziyi Xie -
-                    <time class="post-date" datetime="2019-05-20">20 May 2019</time>
+                    <time class="post-date" datetime="2019-07-16">16 Jul 2019</time>
                 </section>
             </header>
             <figure class="post-image">
-                <amp-img src="yourdomain.com/content/images/2021/09/csscss.png" width="600" height="340" layout="responsive"></amp-img>
+                <amp-img src="yourdomain.com/content/images/2021/10/penguinCentOS.jpg" width="600" height="340" layout="responsive"></amp-img>
             </figure>
             <section class="post-content">
 
-                <h2 id="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8">清除浮动</h2>
-<p><strong>文字环绕</strong></p>
-<pre><code class="language-css">p { line-height: 2; word-spacing: 0.1rem; text-indent: 3%; }
-img { float: left; margin-right: 30px; }
+                <p>CentOS 即 "RHEL (Red Hat Enterprise Linux)" 发行版本，每个版本都会获得七年安全更新的支持。而 Ubuntu 是从 Debian 开发版本衍生而来的。在包管理上，CentOS 采用 RPM 与 YUM 的集成。</p><h2 id="mac-%E8%BF%9E%E6%8E%A5">Mac 连接</h2>
+<p>Centos 远程服务器在重装系统后会产生导致 Mac 无法正常连接的情况，伴随出现 "REMOTE HOST IDENTIFICATION HAS CHANGED" 的终端提示。此时需要删除 Mac 保存的配置文件才能重新连接。</p>
+<p>出现 "Permission denied (publickey,gssapi-keyex,gssapi-with-mic)." 的拒绝，则需要在服务器中的 sshd_config 更改设置，最后重启服务即可。</p>
+<pre><code class="language-shell"># centOS
+vim /etc/ssh/sshd_config # 更改为 PasswordAuthentication yes
 </code></pre>
-<pre><code class="language-html">&lt;h3&gt;最初引入 float 属性是为了实现文字环绕效果&lt;/h3&gt;
-&lt;img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622656923/blog/nonocat_feqccv.webp" alt="cat"&gt;
-&lt;p&gt; I’m pretty sure none of this would have happened if I hadn’t been fired from Apple. It was awful tasting medicine, but I guess the patient needed it. Sometimes life hits you in the head with a brick. Don’t lose faith. I’m convinced that the only thing that kept me going was that I loved what I did. You’ve got to find what you love. And that is as true for your work as it is for your lovers. Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it. And, like any great relationship, it just gets better and better as the years roll on. So keep looking until you find it. Don’t settle.&lt;/p&gt;
+<h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<p>可在<a href="https://github.com/Zairesinatra/Advanced-Frontend/blob/main/lib/Linux/01.md">仓库</a>查看具体指令。</p>
+<pre><code class="language-shell"># 切换成 root 用户
+[lighthouse@VM-4-17-centos ~]$ sudo su -
+# 退出 root 用户并切换回普通用户
+[root@VM-4-17-centos ~]# exit
+# ~ 表示在 home 目录,切换为 / 根目录
+[root@VM-4-17-centos ~]# cd /
+# 切换为 / 根目录
+[root@VM-4-17-centos /]# ls -l
+total 72
+lrwxrwxrwx.   1 root root     7 Mar  7  2019 bin -&gt; usr/bin # 系统预设执行文件目录(ls)
+drwxr-xr-x.  98 root root 12288 Oct  1 00:14 etc # 系统配置文件(更改可导致系统不能重启)
+...
+lrwxrwxrwx.   1 root root     8 Mar  7  2019 sbin -&gt; usr/sbin # 系统预设执行文件目录
+...
+drwxr-xr-x.  14 root root  4096 Jan  8  2021 usr # 系统预设执行文件目录
+drwxr-xr-x.  20 root root  4096 Jan  8  2021 var # /var/log程序运行日志的存放目录
 </code></pre>
-<p><strong>清除方法</strong></p>
-<pre><code class="language-css">/* 样式模块 */
-.parent{ width: 400px;border: 1px solid #424242; }
-.left{ width: 200px;height: 200px;background: #00B26A;float: left; }
-.leftt{ width: 120px;height: 120px;background: #06B4FE;float: right; }
-.footer{ width: 900px;height: 100px;background: darkslateblue; }
-</code></pre>
-<pre><code class="language-html">&lt;!-- 模板模块 --&gt;
-&lt;div class="parent"&gt;
-    &lt;div class="left"&gt;left&lt;/div&gt;
-    &lt;div class="leftt"&gt;leftt&lt;/div&gt;
-&lt;/div&gt;
+<h2 id="nodejs">NodeJS</h2>
+<ul>
+<li><a href="https://nodejs.org/download/release/">官方编译的安装包</a></li>
+</ul>
+<pre><code class="language-shell"># 官网发行版下载安装包
+$ wget https://nodejs.org/download/release/v14.17.1/node-v14.17.1-linux-x64.tar.gz
+# 将安装包解压缩至 /usr/local 目录并安装
+$ tar --strip-components 1 -xzvf node-v* -C /usr/local
+# 查看版本
+$ node -v &amp;&amp; npm -v
+v14.17.1
+6.14.13
 </code></pre>
 <ul>
-<li>额外标签</li>
+<li>使用 EPEL —— Linux 的额外软件包</li>
 </ul>
-<p>给需要清除浮动的元素后额外添加一个空标签设置<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear"> clear 属性</a>。该属性指定一个元素是否必须移动（清除浮动后）到之前的浮动元素下方，适用于浮动和非浮动元素。在通俗的同时，却额外加入无意义的标签。</p>
-<pre><code class="language-css">.clear{ clear:both; }
+<pre><code class="language-shell"># 由于 CentOS yum 预设并没有提供 Node.js，须通过 EPEL 安装
+$ yum install epel-release
+# 查看仓库源
+$ yum repolist
+Loaded plugins: fastestmirror, langpacks
+Repository epel is listed more than once in the configuration
+Loading mirror speeds from cached hostfile
+repo id                                          repo name                                                status
+docker-ce-stable/7/x86_64                        Docker CE Stable - x86_64                                     122
+epel/7/x86_64                                    EPEL for redhat/centos 7 - x86_64                          13,674
+extras/7/x86_64                                  Qcloud centos extras - x86_64                                 500
+os/7/x86_64                                      Qcloud centos os - x86_64                                10,070+2
+updates/7/x86_64                                 Qcloud centos updates - x86_64                              2,751
+repolist: 27,117
+# 查看 yum 能提供的软件包的全部版本,此方式安装的 node 版本较旧
+$ yum list nodejs  --showduplicates| sort -r
+Loaded plugins: fastestmirror, langpacks
+Repository epel is listed more than once in the configuration
+Loading mirror speeds from cached hostfile
+Available Packages
+nodejs.x86_64                        1:6.17.1-1.el7
+# EPEL 安装完成直接使用 yum 來安装 Node.js：
+$ yum install nodejs
 </code></pre>
-<pre><code class="language-html">&lt;div class="parent"&gt;
-    ...
-    &lt;div class="clear"&gt;额外标签&lt;/div&gt;
-&lt;/div&gt;
+<h2 id="nginx">Nginx</h2>
+<p>Nginx 相关配置文件位于 /etc/nginx/ 目录，服务配置文件都以 .conf 结尾存储在 /etc/nginx/conf.d 目录。若域名是 nginxdevtest.com，那么对应的配置文件应该为 /etc/nginx/conf.d/nginxdevtest.com.port.conf。</p>
+<pre><code class="language-shell"># 将要部署的代码文件一般推荐存放位
+/home/&lt;user_name&gt;/&lt;site_name&gt;
+/var/www/&lt;site_name&gt;
+/var/www/html/&lt;site_name&gt;
+/opt/&lt;site_name&gt;
+/usr/share/nginx/html
+# Nginx 日志文件(access.log 和 error.log)
+/var/log/nginx/
+# 复用配置代码文件
+/etc/nginx/snippets
+# 相关的配置文件
+/etc/nginx/
+# 主配置文件
+/etc/nginx/nginx.conf
+</code></pre>
+<pre><code class="language-shell"># 安装 Nginx
+sudo yum install nginx
+# 设置开机启动|关闭
+sudo systemctl enable|disable nginx # 运行此命令以后,会输出软连接关联信息
+# 启动关闭重启 —— systemctl - Control the systemd system and service manager
+sudo systemctl start|stop|restart nginx
+# 查看运行状态
+sudo systemctl status nginx
+# 查看80口是否被占用
+sudo lsof -i :80 # 查看80的nginx -&gt; sudo lsof -i :80 | grep nginx
+# 杀死端口
+lsof -P | grep ':80' | awk '{print $2}' | xargs kill
+</code></pre>
+<h2 id="tomcat">Tomcat</h2>
+<ul>
+<li>安装配置</li>
+</ul>
+<p>详见本人 tomcat 博文。</p>
+<ul>
+<li>tomcat 启动成功外网无法访问</li>
+</ul>
+<p>部署的服务器没有将处于过滤状态的 8080 端口放通，所以 tomcat 无法从外部进行访问。需从控制台进入云服务器对防火墙规则进行配置。局域网没有固定的公网 IP，所以不能将局域网的 IP (192.168.124.2) 设置为安全组。被 NAT 转换的公网 IP 可以通过<a href="http://ip138.com">国内</a>或<a href="http://ifconfig.me">国外</a>的网站进行查询检测。</p>
+<h2 id="%E9%98%B2%E7%81%AB%E5%A2%99">防火墙</h2>
+<p>CentOS7 默认使用 firewall 作为防火墙，而 CentOS6 及以下使用 iptables。</p>
+<ul>
+<li>firewall</li>
+</ul>
+<pre><code class="language-shell"># 查看状态
+systemctl status firewalld # 或 firewall-cmd --state
+# 启动|禁用防火墙
+systemctl start|stop firewalld
+# 重启防火墙
+firewall-cmd --reload
+# 设置开机启动|停止并禁用开机启动
+systemctl enable|disable firewalld
+...
 </code></pre>
 <ul>
-<li>父级 overflow</li>
+<li>iptables</li>
 </ul>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow">overflow 属性</a>定义了当一个元素的内容太大而无法适应块级格式化上下文的处理方式。即通过触发 BFC 实现清除浮动。虽然代码简洁，但是无法解决显示要溢出元素的问题。</p>
-<pre><code class="language-css">/* 修改parent样式;此处overflow必须为hidden */
-.parent{ width: 400px;border: 1px solid #424242;overflow: hidden; }
+<pre><code class="language-shell"># 开启防火墙(重启后永久生效)
+chkconfig iptables on
+# 关闭防火墙(重启后永久生效)
+chkconfig iptables off
+# 开启防火墙(即时生效，重启后失效)
+service iptables start
+# 关闭防火墙(即时生效，重启后失效)
+service iptables stop
+# 重启防火墙
+service iptables restartd
 </code></pre>
-<p>额外提一点，overflow 设置为 hidden 主要作用于溢出隐藏、清除浮动、外边距塌陷等问题。外边距塌陷也称为外边距合并，是指两个在正常流中相邻（兄弟或父子关系）的块级元素外边距，组合在一起变成单个外边距，不过只有上下外边距才会有塌陷，左右外边距不会出现这种问题。</p>
-<pre><code class="language-css">.big{ width: 200px;height: 200px;background: #00B26A;overflow: hidden; }
-.small{ width: 120px;height: 120px;background: #35393b;margin-top: 30px; }
-</code></pre>
-<pre><code class="language-html">&lt;div class="big"&gt;
-    &lt;div class="small"&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<ul>
-<li>after 伪元素</li>
-</ul>
-<p>给容器增加伪元素清除浮动样式的语义化较好，符合闭合浮动思想。但是存在兼容性问题，使用 zoom:1 触发 hasLayout。</p>
-<pre><code class="language-css">/* 伪元素是行内元素 */
-.clearfix:after{ display: block;clear:both;visibility: hidden;content: ""; }
-.clearfix{ *zoom: 1; }
-</code></pre>
-<ul>
-<li>双伪元素</li>
-</ul>
-<pre><code class="language-css">/* display符合BFC即可:block、flex、table */
-.clearfix:after,.clearfix:before{ content: ""; display: flex; }
-.clearfix:after{ clear: both; }
-.clearfix{ *zoom: 1; }
-</code></pre>
-<h2 id="bfc">BFC</h2>
-<p>块格式化上下文 (Block Formatting Context，BFC) 是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域（自主规则，无关外部）。</p>
-<p><strong>布局规则</strong></p>
-<p>内部 Box 在垂直方向逐个排列；Box 垂直方向的距离由 margin 决定；同属一个 BFC 的两个相邻 Box 的 margin 会发生重叠；即使存在浮动，每个元素的 margin box 的左边，与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)；BFC 区域不会与 float box 重叠；BFC 是页面上的隔离独立容器；浮动元素的高度参与 BFC 的高度计算。</p>
-<p><strong>触发条件</strong></p>
-<p>根元素 &lt;html&gt;；float 值非 none；overflow 值非 visible；display 取值 table、grid、flex，inline-flex、table-cell、table-caption、inline-block；position 取值 absolute、fixed。</p>
-<p><strong>作用场景</strong></p>
-<ul>
-<li>清除浮动</li>
-<li>自适应两栏布局</li>
-<li>阻止外边距塌陷</li>
-</ul>
-<h2 id="%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD">水平垂直居中</h2>
-<pre><code class="language-html">&lt;div class="box"&gt;
-    &lt;img src="https://images.unsplash.com/photo-1610663711502-35f870cfaea2?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=687&amp;q=80" alt=""&gt;
-&lt;/div&gt;
-</code></pre>
-<p><strong>水平居中</strong></p>
-<ul>
-<li>margin: 0 auto;</li>
-</ul>
-<pre><code class="language-css">*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; }
-img{ display: block; width: 100px; height: 100px; margin: 0 auto; }
-</code></pre>
-<ul>
-<li>text-align: center；</li>
-</ul>
-<pre><code class="language-css">*{ padding: 0;margin: 0; }
-/* 仅适用于块级元素设置文本对齐方式 text-align: center; */
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; text-align: center; }
-img{ width: 100px; height: 100px; }
-</code></pre>
-<p><strong>垂直居中</strong></p>
-<ul>
-<li>计算 margin</li>
-</ul>
-<pre><code class="language-css">/* 需知父子元素宽高 */
-*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; }
-img{ width: 100px; height: 100px; margin-top: 100px; margin-left: 100px; }
-</code></pre>
-<ul>
-<li>定位和 margin:auto;</li>
-</ul>
-<pre><code class="language-css">*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; position: relative; }
-img{ width: 100px; height: 100px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; }
-</code></pre>
-<ul>
-<li>定位和 transfrom</li>
-</ul>
-<pre><code class="language-css">*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; position: relative; }
-img{ width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-</code></pre>
-<ul>
-<li>diplay：table-cell;</li>
-</ul>
-<pre><code class="language-css">*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: table-cell; vertical-align: middle; text-align: center; }
-img{ width: 100px; height: 100px; }
-/* 若是块元素应修改为行内块 */
-*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: table-cell; vertical-align: middle; text-align: center; }
-.box div{ width: 100px; height: 100px; background-color: red; display: inline-block; }
-</code></pre>
-<ul>
-<li>flex 布局</li>
-</ul>
-<pre><code class="language-css">*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: flex; justify-content: center; align-items: center; }
-img{ width: 100px; height: 100px; }
-</code></pre>
-<ul>
-<li>calc 计算</li>
-</ul>
-<pre><code class="language-css">*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e;}
-.box div { height: 100px; width: 100px; background-color: red; margin: calc(50% - 50px) auto }
-</code></pre>
-<h2 id="animation">Animation</h2>
-<ul>
-<li>animation</li>
-</ul>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations">animation</a> 是一个简写属性形式，由 animation-name，animation-duration，animation-timing-function，animation-delay，animation-iteration-count，animation-direction，animation-fill-mode 和 animation-play-state 组成。</p>
-<p>animation-name 指定应用的系列动画，每个名称代表一个由 @keyframes 定义的动画序列。</p>
-<p>animation-duration 属性指定元素上的动画从开始到结束耗费时长。</p>
-<p>animation-iteration-count 用以指定动画重复的<strong>次数</strong>，仅仅使用该属性就能使动画重复播放。在该例中，设该属性为 infinite 以使动画无限重复。</p>
-<p>animation-timing-function 属性是动画的速度函数。这个属性使用<a href="https://cubic-bezier.com/#.17,.67,.83,.67">贝塞尔曲线</a>(Cubic Bezier)函数来生成或直接使用 ease、ease-in、ease-out 或 linear。</p>
-<p>animation-direction 属性为 alternate 设置来回滑动。</p>
-<amp-iframe src="https://codesandbox.io/embed/animation-uic6h?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="animation" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe>
-<ul>
-<li>通过 animation 实现一个圆弧运动的球体</li>
-</ul>
-<p>CSS3 的 transfrom 过渡效果可以实现元素位移、旋转、缩放。结合 animation 属性，就可以实现元素的动画效果。</p>
-<p>球体运动可拆分成 X 和 Y 轴两个运动，X 轴将以慢 —&gt; 快这样的速度运动；而 Y 轴的方向是以快 —&gt; 慢这样的速度运动（从斜率方面思考）；结合两个轴的运动，实现弧线效果。</p>
-<pre><code class="language-css">.box {
-  width: 400px;
-  height: 400px;
-  border: 5px solid #262626;
-}
-aside {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #222;
-  animation: arc1 5s ease-in forwards;
-}
-/* 这个虚拟元素默认是行内元素 */
-aside::after {
-  content: "";
-  display: block;
-  width: 20px;
-  height: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  background: #424242;
-  animation: arc2 5s ease-out forwards;
-}
-@keyframes arc1 {
-  to {
-    transform: translateX(380px);
-  }
-}
-@keyframes arc2 {
-  to {
-    transform: translateY(380px);
-  }
-}
-</code></pre>
-<pre><code class="language-html">&lt;div class="box"&gt;
-  &lt;aside&gt;&lt;/aside&gt;
-&lt;/div&gt;
-</code></pre>
-<amp-iframe src="https://codesandbox.io/embed/animationarc-6sfkc?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="animationarc" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe><h2 id="%E5%B8%B8%E8%A7%81%E7%BB%98%E5%88%B6">常见绘制</h2>
-<ul>
-<li>绘制半圆弧</li>
-</ul>
-<p>border-radius 是一个允许设置元素的外边框圆角的简写属性：border-top-left-radius、border-top-right-radius、border-bottom-right-radius 和 border-bottom-left-radius。</p>
-<pre><code class="language-css">div {
-  /*半圆弧*/
-  width: 160px;
-  height: 80px;
-  background-color: transparent;
-  border-bottom-right-radius: 90px;
-  border-bottom-left-radius: 90px; /*增加了边框，圆角半径也要变化*/
-  border-left: 10px solid black; /*边框左边线*/
-  border-right: 10px solid black; /*边框右边线*/
-  border-bottom: 10px solid black; /*边框底边线*/
-}
-</code></pre>
-<ul>
-<li>三角形原理</li>
-</ul>
-<pre><code class="language-css">div{
-  width: 0;
-  height: 0;
-  border-left:100px solid transparent;  
-  border-top:80px solid transparent;  
-  border-right:40px solid transparent;  
-  border-bottom:70px solid #424242;
-}
-</code></pre>
-<ul>
-<li>圣杯布局</li>
-</ul>
-<p>圣杯布局为左右宽度固定，中间自适应且优先加载。</p>
-<pre><code class="language-css">* { margin: 0; padding: 0; }
-html, body { height: 100%; width: 100%; }
-header { width: 100%; background-color: #06b4fe; }
-/* 清除浮动塌陷 */
-footer { width: 100%; background-color: #ff6c37; clear: both; }
-.center, .left, .right { float: left; }
-.wrapper { padding: 0 100px; }
-.center { width: 100%; height: 100px; background-color: lightblue; }
-.left { width: 100px; height: 100px; background-color: lightgreen; margin-left: -100%; position: relative; left: -100px; }
-.right { width: 100px; height: 100px; background-color: yellow; margin-left: -100px; position: relative; right: -100px; }
-</code></pre>
-<pre><code class="language-html">&lt;header&gt;header&lt;/header&gt;
-&lt;!-- 优先加载 --&gt;
-&lt;div class="wrapper"&gt;
-  &lt;div class="center"&gt;center&lt;/div&gt;
-  &lt;div class="left"&gt;left&lt;/div&gt;
-  &lt;div class="right"&gt;right&lt;/div&gt;
-&lt;/div&gt;
-&lt;footer&gt;footer&lt;/footer&gt;
-</code></pre>
-<ul>
-<li>双飞翼布局</li>
-</ul>
-<p>和圣杯布局所要实现的布局是一样的，只不过方法不同。</p>
-<pre><code class="language-css">.main { width: 100%; float: left; }
-.middle { background-color: lightblue; margin: 0 100px; }
-.leftt { width: 100px; background-color: lightgreen; float: left; margin-left: -100%; }
-.rightt { width: 100px; background-color: yellow; float: left; margin-left: -100px; }
-.footer { clear: both; }
-</code></pre>
-<pre><code class="language-html">&lt;div class="header"&gt;header&lt;/div&gt;
-  &lt;div class="main"&gt;
-    &lt;div class="middle"&gt;middle&lt;/div&gt;
-  &lt;/div&gt;
-&lt;div class="leftt"&gt;leftt&lt;/div&gt;
-&lt;div class="rightt"&gt;rightt&lt;/div&gt;
-&lt;div class="footer"&gt;footer&lt;/div&gt;
-</code></pre>
-<amp-iframe src="https://codesandbox.io/embed/hgdw-tlf61?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="hgdw" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议。转载请注明出处！</p>
 
 
             </section>

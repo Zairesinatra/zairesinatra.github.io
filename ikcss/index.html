@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=50bb6a72fa.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=3356f45d0b.css" />
 
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -22,7 +22,7 @@
     <meta property="og:url" content="yourdomain.com/ikcss/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/csscss.png" />
     <meta property="article:published_time" content="2019-05-19T21:23:00.000Z" />
-    <meta property="article:modified_time" content="2021-09-24T10:34:19.000Z" />
+    <meta property="article:modified_time" content="2021-10-24T14:08:26.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -68,7 +68,7 @@
     "headline": "CSS回顾",
     "url": "yourdomain.com/ikcss/",
     "datePublished": "2019-05-19T21:23:00.000Z",
-    "dateModified": "2021-09-24T10:34:19.000Z",
+    "dateModified": "2021-10-24T14:08:26.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/csscss.png",
@@ -272,7 +272,7 @@ pre[class*="language-"] {
                         <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                         <div class="byline-meta-content">
                             <time class="byline-meta-date" datetime="2019-05-20">May 20, 2019</time>
-                            <span class="byline-reading-time"><span class="bull">&bull;</span> 5 min read</span>
+                            <span class="byline-reading-time"><span class="bull">&bull;</span> 8 min read</span>
                         </div>
                     </div>
                 </section>
@@ -435,7 +435,147 @@ img{ width: 100px; height: 100px; }
 .box{ width: 300px; height: 300px; border: 3px solid #4e4e4e;}
 .box div { height: 100px; width: 100px; background-color: red; margin: calc(50% - 50px) auto }
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="animation">Animation</h2>
+<ul>
+<li>animation</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations">animation</a> 是一个简写属性形式，由 animation-name，animation-duration，animation-timing-function，animation-delay，animation-iteration-count，animation-direction，animation-fill-mode 和 animation-play-state 组成。</p>
+<p>animation-name 指定应用的系列动画，每个名称代表一个由 @keyframes 定义的动画序列。</p>
+<p>animation-duration 属性指定元素上的动画从开始到结束耗费时长。</p>
+<p>animation-iteration-count 用以指定动画重复的<strong>次数</strong>，仅仅使用该属性就能使动画重复播放。在该例中，设该属性为 infinite 以使动画无限重复。</p>
+<p>animation-timing-function 属性是动画的速度函数。这个属性使用<a href="https://cubic-bezier.com/#.17,.67,.83,.67">贝塞尔曲线</a>(Cubic Bezier)函数来生成或直接使用 ease、ease-in、ease-out 或 linear。</p>
+<p>animation-direction 属性为 alternate 设置来回滑动。</p>
+<iframe src="https://codesandbox.io/embed/animation-uic6h?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="animation"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+<ul>
+<li>通过 animation 实现一个圆弧运动的球体</li>
+</ul>
+<p>CSS3 的 transfrom 过渡效果可以实现元素位移、旋转、缩放。结合 animation 属性，就可以实现元素的动画效果。</p>
+<p>球体运动可拆分成 X 和 Y 轴两个运动，X 轴将以慢 —&gt; 快这样的速度运动；而 Y 轴的方向是以快 —&gt; 慢这样的速度运动（从斜率方面思考）；结合两个轴的运动，实现弧线效果。</p>
+<pre><code class="language-css">.box {
+  width: 400px;
+  height: 400px;
+  border: 5px solid #262626;
+}
+aside {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #222;
+  animation: arc1 5s ease-in forwards;
+}
+/* 这个虚拟元素默认是行内元素 */
+aside::after {
+  content: &quot;&quot;;
+  display: block;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #424242;
+  animation: arc2 5s ease-out forwards;
+}
+@keyframes arc1 {
+  to {
+    transform: translateX(380px);
+  }
+}
+@keyframes arc2 {
+  to {
+    transform: translateY(380px);
+  }
+}
+</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;box&quot;&gt;
+  &lt;aside&gt;&lt;/aside&gt;
+&lt;/div&gt;
+</code></pre>
+<iframe src="https://codesandbox.io/embed/animationarc-6sfkc?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="animationarc"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe><!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%B8%B8%E8%A7%81%E7%BB%98%E5%88%B6">常见绘制</h2>
+<ul>
+<li>绘制半圆弧</li>
+</ul>
+<p>border-radius 是一个允许设置元素的外边框圆角的简写属性：border-top-left-radius、border-top-right-radius、border-bottom-right-radius 和 border-bottom-left-radius。</p>
+<pre><code class="language-css">div {
+  /*半圆弧*/
+  width: 160px;
+  height: 80px;
+  background-color: transparent;
+  border-bottom-right-radius: 90px;
+  border-bottom-left-radius: 90px; /*增加了边框，圆角半径也要变化*/
+  border-left: 10px solid black; /*边框左边线*/
+  border-right: 10px solid black; /*边框右边线*/
+  border-bottom: 10px solid black; /*边框底边线*/
+}
+</code></pre>
+<ul>
+<li>三角形原理</li>
+</ul>
+<pre><code class="language-css">div{
+  width: 0;
+  height: 0;
+  border-left:100px solid transparent;  
+  border-top:80px solid transparent;  
+  border-right:40px solid transparent;  
+  border-bottom:70px solid #424242;
+}
+</code></pre>
+<ul>
+<li>圣杯布局</li>
+</ul>
+<p>圣杯布局为左右宽度固定，中间自适应且优先加载。</p>
+<pre><code class="language-css">* { margin: 0; padding: 0; }
+html, body { height: 100%; width: 100%; }
+header { width: 100%; background-color: #06b4fe; }
+/* 清除浮动塌陷 */
+footer { width: 100%; background-color: #ff6c37; clear: both; }
+.center, .left, .right { float: left; }
+.wrapper { padding: 0 100px; }
+.center { width: 100%; height: 100px; background-color: lightblue; }
+.left { width: 100px; height: 100px; background-color: lightgreen; margin-left: -100%; position: relative; left: -100px; }
+.right { width: 100px; height: 100px; background-color: yellow; margin-left: -100px; position: relative; right: -100px; }
+</code></pre>
+<pre><code class="language-html">&lt;header&gt;header&lt;/header&gt;
+&lt;!-- 优先加载 --&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;div class=&quot;center&quot;&gt;center&lt;/div&gt;
+  &lt;div class=&quot;left&quot;&gt;left&lt;/div&gt;
+  &lt;div class=&quot;right&quot;&gt;right&lt;/div&gt;
+&lt;/div&gt;
+&lt;footer&gt;footer&lt;/footer&gt;
+</code></pre>
+<ul>
+<li>双飞翼布局</li>
+</ul>
+<p>和圣杯布局所要实现的布局是一样的，只不过方法不同。</p>
+<pre><code class="language-css">.main { width: 100%; float: left; }
+.middle { background-color: lightblue; margin: 0 100px; }
+.leftt { width: 100px; background-color: lightgreen; float: left; margin-left: -100%; }
+.rightt { width: 100px; background-color: yellow; float: left; margin-left: -100px; }
+.footer { clear: both; }
+</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;header&quot;&gt;header&lt;/div&gt;
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;div class=&quot;middle&quot;&gt;middle&lt;/div&gt;
+  &lt;/div&gt;
+&lt;div class=&quot;leftt&quot;&gt;leftt&lt;/div&gt;
+&lt;div class=&quot;rightt&quot;&gt;rightt&lt;/div&gt;
+&lt;div class=&quot;footer&quot;&gt;footer&lt;/div&gt;
+</code></pre>
+<iframe src="https://codesandbox.io/embed/hgdw-tlf61?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="hgdw"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe><!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 <!--kg-card-end: markdown-->
         </section>
@@ -624,7 +764,7 @@ img{ width: 100px; height: 100px; }
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=50bb6a72fa"></script>
+<script src="../assets/built/casper.js%3Fv=3356f45d0b"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
