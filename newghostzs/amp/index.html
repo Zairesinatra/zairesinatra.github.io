@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>Ghost更新与迁移</title>
+    <title>Ghost 更新与迁移</title>
 
     <meta name="description" content="Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。" />
     <link rel="icon" href="../../favicon.png" type="image/png" />
@@ -13,17 +13,17 @@
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Ghost更新与迁移" />
+    <meta property="og:title" content="Ghost 更新与迁移" />
     <meta property="og:description" content="Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。" />
     <meta property="og:url" content="yourdomain.com/newghostzs/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/ghostbg.png" />
     <meta property="article:published_time" content="2021-07-23T13:38:41.000Z" />
-    <meta property="article:modified_time" content="2021-09-25T16:44:41.000Z" />
+    <meta property="article:modified_time" content="2022-04-24T14:10:00.000Z" />
     <meta property="article:tag" content="GHOSTblog" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ghost更新与迁移" />
+    <meta name="twitter:title" content="Ghost 更新与迁移" />
     <meta name="twitter:description" content="Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。" />
     <meta name="twitter:url" content="yourdomain.com/newghostzs/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2021/09/ghostbg.png" />
@@ -62,10 +62,10 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "Ghost更新与迁移",
+    "headline": "Ghost 更新与迁移",
     "url": "yourdomain.com/newghostzs/",
     "datePublished": "2021-07-23T13:38:41.000Z",
-    "dateModified": "2021-09-25T16:44:41.000Z",
+    "dateModified": "2022-04-24T14:10:00.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/ghostbg.png",
@@ -1068,7 +1068,7 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">Ghost更新与迁移</h1>
+                <h1 class="post-title">Ghost 更新与迁移</h1>
                 <section class="post-meta">
                     Ziyi Xie -
                     <time class="post-date" datetime="2021-07-23">23 Jul 2021</time>
@@ -1079,7 +1079,7 @@
             </figure>
             <section class="post-content">
 
-                <p>由于 Githubpage 的静态编译 Ghost 在表现上不同于本站的反向代理，对部分功能与效果支持不好。为同步需求，记录本次的 TX云 Ubuntu 中 Ghost 与 Node 版本更新过程以及 Nginx 再配置。（又回来了）</p>
+                <p>由于 Githubpage 静态编译的 Ghost 在部分功能与效果上稍逊于云服务器的反向代理，为同步需求，记录本次云服务器 Ubuntu 中 Ghost 与 Node 版本更新过程以及 Nginx 配置。</p>
 <h2 id="node">Node</h2>
 <p>最新的 Ghost 版本需要 Node.js 14.x ，故安装适用 Ubuntu 的 <a href="https://github.com/nodesource/distributions">二进制发行版</a>。</p>
 <pre><code class="language-shell"># Using Ubuntu 添加 Node.js ppa(Person Package achives) 安装 Node.js
@@ -1094,7 +1094,7 @@ node -v
 </code></pre>
 <h2 id="ghost">Ghost</h2>
 <p>此前 Ghost 为 v3，运行 <code>ghost update v3</code> 获取最新的 v3.x版本，然后运行 <code>ghost update</code> 获取v4。</p>
-<p>在更新 ghost 期间出现 ghost 目录所属权限问题：</p>
+<p>在更新 ghost 期间出现 ghost 目录所属权限问题。</p>
 <pre><code class="language-shell">sudo systemctl is-active ghost_zairesinatra-com
 ✔ Checking system Node.js version - found v10.24.0
 ✔ Ensuring user is not logged in as ghost user
@@ -1129,17 +1129,17 @@ Debug Information:
 
 Try running ghost doctor to check your system for known issues.
 </code></pre>
-<p>解决方法是给 ghost 文件夹当前用户权限：</p>
+<p>解决方法是给 ghost 文件夹当前用户权限。</p>
 <pre><code class="language-shell">sudo chown /var/www/ghost
 </code></pre>
-<p>这时由于此前更新准备时出现的报错，从 Ghost-CLI 1.5.0 开始，root不允许运行 Ghost 命令。因此，需要将当前安装迁移到新的 Linux 用户。</p>
+<p>这是更新准备时出现的报错，从 Ghost-CLI 1.5.0 开始，root不允许运行 Ghost 命令。因此，需要将当前安装迁移到新的 Linux 用户。</p>
 <pre><code class="language-shell">We discovered that you are using the DigitalOcean One-Click install. You need to create a user with regular account privileges and migrate your installation to this user.
 </code></pre>
-<p>添加一个新用户，并将用户添加到 sudo 组</p>
+<p>添加一个新用户，并将用户添加到 sudo 组。</p>
 <pre><code class="language-shell">$ adduser &lt;user&gt;
 $ usermod -aG sudo &lt;user&gt;
 </code></pre>
-<p>创建一个新的实例文件并移动到新的用户位置</p>
+<p>创建一个新的实例文件移动到指定位置，最后文件从属关系给予新用户。</p>
 <pre><code class="language-shell">mkdir -p /home/&lt;user&gt;/.ghost/
 
 chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost
@@ -1148,15 +1148,15 @@ mv /root/.ghost/config /home/&lt;user&gt;/.ghost/config
 
 chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost/config
 </code></pre>
-<p>接下来，切换到 Ghost 安装目录（/var/www/ghost/在 DigitOcean One-Click 安装中是默认的）以更改安装文件的所有权：</p>
+<p>接下来切换到 Ghost 安装目录（/var/www/ghost/在 DigitOcean One-Click 安装中是默认的）以更改安装文件的所有权。</p>
 <pre><code class="language-shell">$ cd /var/www/ghost
 $ find . -group root -user root -exec chown &lt;user&gt;:&lt;user&gt; {} \;
 </code></pre>
-<p>以新用户身份登录：</p>
+<p>以新用户身份登录。</p>
 <pre><code class="language-shell">$ su - &lt;user&gt;
 </code></pre>
-<p>完成后则可继续进行 ghost 更新</p>
-<pre><code class="language-shell">newghostzs@VM-4-10-ubuntu:/var/www/ghost$ ghost update v3
+<p>完成后则可继续进行 ghost 更新。</p>
+<pre><code class="language-shell">$ ghost update v3
 + sudo systemctl is-active ghost_zairesinatra-com
 ✔ Checking system Node.js version - found v14.17.2
 ✔ Ensuring user is not logged in as ghost user
@@ -1228,70 +1228,101 @@ Please review the full list of breaking changes at https://ghost.org/docs/change
 ✔ Linking latest Ghost and recording versions
 ✔ Removing old Ghost versions
 </code></pre>
-<p>完成启动后发现网站非 https 状态，进入 <code>var/www/ghost</code> 配置 config.production.json 文件后重启即可。</p>
-<pre><code class="language-shell">newghostzs@VM-4-10-ubuntu:/var/www/ghost$ cat config.production.json
-{
-  "url": "https://zairesinatra.com",
-  "server": {
-    "port": 2368,
-    "host": "127.0.0.1"
-  },
-  "database": {
-    "client": "mysql",
-    "connection": {
-      "host": "localhost",
-      "user": "ghost-431",
-      "password": "Wh8\")#R.9~hbw)Zh&amp;;fy",
-      "database": "ghost_data"
-    }
-  },
-  "mail": {
-    "transport": "Direct"
-  },
-  "logging": {
-    "transports": [
-      "file",
-      "stdout"
-    ]
-  },
-  "process": "systemd",
-  "paths": {
-    "contentPath": "/var/www/ghost/content"
-  }
+<p>完成启动后非 https 状态，配置 config.production.json 文件后重启即可。</p>
+<h2 id="nginx">Nginx</h2>
+<p>考虑到直接输入根域名重定向到 www 的页面，在 ghost 自带生成的 nginx ssl 配置外，额外自行写一个 nginx 重定向的 conf 配置。</p>
+<pre><code class="language-shell"># sites-available 中的 zs.com-ssl.conf
+server {
+	#监听 80 和 443端口
+        listen 80;
+        listen 443 ssl http2;
+        #域名
+        server_name	zs.com;
+        # 放置的项目路径
+        root /var/www/html;
+        # 显示首页
+        index index.html;
+        # 配置ssl证书的位置-放置位置
+        # 也可通过 ghost config url https://xxx.com 与 ghost setup nginx ssl 完成
+        # ghost 初次设置了url后可通过 ghost setup ssl 直接生成 ssl nginx 配置
+        ssl_certificate	/etc/nginx/ssl/zs.com_nginx/zs.com_bundle.crt;
+        ssl_certificate_key	/etc/nginx/ssl/zs.com_nginx/zs.com.key;
+        #开启强制http跳转https
+        if ($server_port = 80){
+       	rewrite ^(/.*)$ https://$host$1 permanent;
+       	}
+	location / {
+		return 301 https://www.zs.com$request_uri;
+	}
 }
 </code></pre>
-<h2 id="nginx">Nginx</h2>
-<p>而此时不能通过 www.zairesinatra.com 访问网站而仅能使用 zairesinatra.com 访问。那么有两种方法，第一种是配置 Nginx 使 www.zairesinatra.com 同样渲染 Ghost；第二种是使得 www.zairesinatra.com 进入则重定向到 zairesinatra.com 。</p>
-<p>出于 SEO 的目的，Ghost 本身只能指向一个域。接下来详述第二种方法执行过程。</p>
-<pre><code class="language-shell"># Determine your secondary URL
-ghost config url https://my-second-domain.com
-
-# Get Ghost-CLI to generate an SSL setup for you:
-ghost setup nginx ssl
-
-# Change your config back to your canonical domain
-ghost config url https://my-canonical-domain.com
-
-# Edit the nginx config files for your second domain to redirect to your canonical domain. In both files replace the content of the first location block with:
-return 301 https://my-canonical-domain.com$request_uri;
-
-# Get nginx to verify your config
-sudo nginx -t
-
-# Reload nginx with your new config
-sudo nginx -s reload
+<pre><code class="language-shell"># 建立软连接
+$ ln -s /etc/nginx/sites-available/zs.com-ssl.conf /etc/nginx/sites-enabled/zs.com-ssl.conf
 </code></pre>
-<p>这里在 <code>sudo nginx -t</code> 时，可能会遇见如下 Error。</p>
-<pre><code class="language-shell">newghostzs@VM-4-10-ubuntu:/etc/nginx/sites-available$ sudo nginx -t
-nginx: [warn] conflicting server name "www.zairesinatra.com" on 0.0.0.0:80, ignored
-nginx: [warn] conflicting server name "www.zairesinatra.com" on [::]:80, ignored
+<pre><code class="language-shell"># 测试配置文件
+$ sudo nginx -t
 nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful
+# 重启服务
+$ sudo nginx -s reload
 </code></pre>
-<p>这里的警告意思是重复绑定了 server name，在 /etc/nginx/sites-enabled 文件夹中搜索域：</p>
-<pre><code class="language-shell">$ grep -r mydomain.com /etc/nginx/sites-enabled
+<h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
+<p>迁移一开始很顺利，Ghost 支持导出所有文章内容。然而内置 Labs 以 json 文件导入文章的功能并不适用于导入图像。使用 FTP 连接服务器并将所有的图像直接复制到 content/images/ 文件夹后，看起来一切正常。但是次日写了一篇新帖，在准备上传文章图片时，却提示上传失败，原因是内部服务器错误。</p>
+<p>Ghost 无法将图像保存在 content 文件夹中通常应该从权限方面考虑。众所周知，应该使用 ghost 用户访问和修改博客的内容。就我而言，可能因为是复制粘贴的 images-backup 文件夹，所以会具有不同用户权限，这就阻止了 Ghost 保存图像。</p>
+<pre><code class="language-shell"># 解决 ghost Internal server error, cannot upload image 的方式
+sudo chown -R &lt;ghostuser&gt;:&lt;ghostuser&gt; ./content
 </code></pre>
-<p>在端口 80 的多个服务器块中看到域名，则需要删除重复的域名，然后重新启动 Nginx。一般将配置文件单独分离出来容易出现这个错误。</p>
+<p>从逻辑上来说，到此问题就应该结束了，但在我将服务器重启进行测试的时候又出现了新的 Bug。</p>
+<pre><code class="language-shell">$ ghost start
++ sudo systemctl is-active ghost_www-zairesinatra-com
+✔ Checking system Node.js version - found v16.14.2
+✔ Ensuring user is not logged in as ghost user
+✔ Checking if logged in user is directory owner
+✔ Checking current folder permissions
++ sudo systemctl is-active ghost_www-zairesinatra-com
+✔ Validating config
+✔ Checking folder permissions
+✔ Checking file permissions
+✔ Checking memory availability
+✔ Checking binary dependencies
+✔ Checking systemd unit file
+✔ Checking systemd node version - found v16.14.2
+✖ Starting Ghost: www-zairesinatra-com
+A SystemError occurred.
+
+Message: Systemd process manager has not been set up or is corrupted.
+Help: Run ghost setup linux-user systemd and try again.
+
+Debug Information:
+    OS: Ubuntu, v18.04.4 LTS
+    Node Version: v16.14.2
+    Ghost Version: 4.44.0
+    Ghost-CLI Version: 1.19.3
+    Environment: production
+    Command: 'ghost start'
+
+Try running ghost doctor to check your system for known issues.
+
+You can always refer to https://ghost.org/docs/ghost-cli/ for troubleshooting.
+</code></pre>
+<p>尽管提示说可以尝试 setup 命令解决此问题，但在运行后会发现跳过设置的尴尬现状。</p>
+<pre><code class="language-shell">$ ghost setup linux-user systemd
+Systemd service has already been set up. Skipping Systemd setup
+ℹ Setting up Systemd [skipped]
+</code></pre>
+<p>此时观摩<a href="https://ghost.org/docs/ghost-cli/">官方文档</a>，由于 Ghost 的某些输出可能不会出现在日志文件中，出于调试目的尝试 <code>ghost run</code> 命令。</p>
+<pre><code class="language-shell">$ ghost run
+INFO Ghost is running in production...
+...
+Sharp wasn't installed
+</code></pre>
+<p>在 github issue 上查到与 Sharp 相关的问题<a href="https://github.com/TryGhost/Ghost/issues/10421">点此</a>。</p>
+<p>由于是更换了文件夹内容后出现的状况，且开始并未表示 Sharp 存在问题，根据<a href="https://github.com/TryGhost/Ghost-CLI/issues/397">此处</a>下述这段话的理解，尝试重新进行设置，最后成功的完成修复。</p>
+<p>"Directory was linked using NFS so ghost-cli couldn't change its permissions or owner, therefore it kind of silently failed where it did."</p>
+<pre><code class="language-shell">$ id -u ghost
+$ stat /var/www/&lt;ghost-blog&gt;
+$ ghost setup # or ghost setup systemd
+</code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 

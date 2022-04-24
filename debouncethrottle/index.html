@@ -432,6 +432,23 @@ content.onmousemove = throttle(count, 1500);
 <!--kg-card-end: markdown-->
         </section>
 
+        
+        <section class="article-comments gh-canvas">
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function () {
+                    this.page.url = "yourdomain.com/debouncethrottle/";
+                    this.page.identifier = "ghost-6050f7df6056d45889a2f122"
+                };
+                (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://zsxzy.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+            </script>
+        </section>
+        
 
     </article>
 </main>
