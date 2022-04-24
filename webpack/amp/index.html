@@ -6,6 +6,7 @@
 
     <title>webpack</title>
 
+    <meta name="description" content="webpack配置与异常" />
     <link rel="icon" href="../../favicon.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -17,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/webpack/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/DroopyAndDripple.jpg" />
     <meta property="article:published_time" content="2021-03-08T11:55:00.000Z" />
-    <meta property="article:modified_time" content="2021-10-20T19:40:43.000Z" />
+    <meta property="article:modified_time" content="2021-12-01T14:03:32.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +64,7 @@
     "headline": "webpack",
     "url": "yourdomain.com/webpack/",
     "datePublished": "2021-03-08T11:55:00.000Z",
-    "dateModified": "2021-10-20T19:40:43.000Z",
+    "dateModified": "2021-12-01T14:03:32.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/DroopyAndDripple.jpg",
@@ -79,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 4.16" />
+    <meta name="generator" content="Ghost 4.45" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -355,6 +356,19 @@
         background: var(--ghost-accent-color, #1292EE);
     }
 
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
     .post-content :not(.kg-card):not([id]) + .kg-card {
         margin-top: 40px;
     }
@@ -449,7 +463,7 @@
         background: rgba(255,255,255,0.6);
         font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
         text-decoration: none;
-        border-radius: 5px;
+        border-radius: 3px;
         box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
         overflow: hidden;
     }
@@ -529,6 +543,398 @@
     .kg-bookmark-publisher::before {
         content: "•";
         margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
     }
 
     .kg-width-full.kg-card-hascaption {
@@ -672,7 +1078,1209 @@
             </figure>
             <section class="post-content">
 
-                <p></p><h2 id="webpackdevserver">webpack-dev-server兼容问题</h2>
+                <p>webpack 是一款前端资源构建工具，即静态模块打包器 module bundler，将前端的所有资源文件 js/json/css/img/less... 都作为模块处理。根据模块的依赖关系进行静态分析，打包生成对应的静态资源 bundle。</p><h2 id>五个核心</h2>
+<ul>
+<li>Entry 入口指示 webpack 以哪个文件为入口起点开始打包，分析构建内部依赖图。</li>
+<li>Output 输出指示 webpack 打包后的资源 bundles 输出到哪里去，以及如何命名。</li>
+<li>Loader 让 webpack 能够去处理那些非 JS 文件 (webpack 自身只理解 JS)。</li>
+<li>Plugins 插件可以用于执行范围更广的任务。插件的范围包括从打包优化和压缩到重新定义环境中的变量等。</li>
+<li>Mode 模式指示 webpack 使用相应模式的配置。
+<ul>
+<li>development 会将 DefinePlugin 中 process.env.NODE_ENV 的值设置为 development。启用 NamedChunksPlugin 和 NamedModulesPlugin。</li>
+<li>production 会将 DefinePlugin 中 process.env.NODE_ENV 的值设置为 production。启用 FlagDependencyUsagePlugin, FlagIncludedChunksPlugin, ModuleConcatenationPlugin, NoEmitOnErrorsPlugin, OccurrenceOrderPlugin, SideEffectsFlagPlugin 和 TerserPlugin。</li>
+</ul>
+</li>
+</ul>
+<h2 id>快速上手</h2>
+<ul>
+<li>初始化配置</li>
+</ul>
+<pre><code class="language-shell"># 初始化 package.json
+npm init
+# 下载并安装 webpack
+npm install webpack webpack-cli -g
+npm install webpack webpack-cli -D
+</code></pre>
+<ul>
+<li>编译打包应用</li>
+</ul>
+<pre><code class="language-shell"># 开发环境指令 - webpack 能够编译打包 js 和 json 文件,并且能将 es6 的模块化语法转换成 浏览器能识别的语法
+webpack src/js/index.js -o build/js/built.js --mode=development
+# 生产环境指令 - 在开发配置功能上多出压缩代码的功能
+webpack src/js/index.js -o build/js/built.js --mode=production
+</code></pre>
+<ul>
+<li>快速上手小结</li>
+</ul>
+<p>webpack 能够编译打包 js 和 json 文件；能将 es6 的模块化语法转换成浏览器能识别的语法；能压缩代码。局限在于不能编译打包 css、img 等文件。不能将 js 的 es6 基本语法转化为 es5 以下语法。</p>
+<h2 id>开发环境配置</h2>
+<h3 id>基础打包</h3>
+<pre><code class="language-javascript">// webpack.config.js
+const { resolve } = require('path'); // node 内置核心模块处理路径问题
+module.exports = { 
+  entry: './src/js/index.js', // 入口文件
+  output: { // 输出配置 
+  	filename: './built.js', // 输出文件名 
+  	path: resolve(__dirname, 'build/js') // 输出文件路径配置 
+  },
+  mode: 'development' //开发环境 
+};
+</code></pre>
+<h3 id>打包样式资源</h3>
+<p>下载安装 loader 包</p>
+<pre><code class="language-shell">npm i css-loader style-loader less-loader less -D
+</code></pre>
+<pre><code class="language-javascript">...
+// loader 的配置 —— module.rules 允许在 webpack 配置中指定多个 loader
+module: { // 不同文件必须配置不同 loader 处理
+  rules: [
+    {
+      test: /\.css$/, // test 正则匹配文件
+      use: [ // use 数组中使用 loader 的执行顺序为从右到左\从下到上依次执行
+        // 创建 style 标签并将 js 里的样式资源添加到 head 中生效 
+        'style-loader',
+        // 将 css 文件变成样式字符串的 commonjs 模块加载至 js
+        'css-loader'
+        ]
+      },
+      { 
+        test: /\.less$/, 
+        use: [ 
+          // 需要下载 less-loader 和 less 将 less 文件编译成 css
+          'style-loader', 'css-loader', 'less-loader'
+        ] 
+      } 
+    ] 
+  },
+...
+</code></pre>
+<p>有了配置文件，只需在终端中运行 webpack 命令就可进行打包，这条命令会自动引用 webpack.config.js 文件中的配置选项。</p>
+<h3 id="html">打包 HTML 资源</h3>
+<pre><code>文件夹---src---index.js
+	|	 └──---index.html
+	└──----------webpack.config.js
+</code></pre>
+<pre><code class="language-shell"># 下载安装 plugin 包
+npm install --save-dev html-webpack-plugin
+</code></pre>
+<pre><code class="language-javascript">...
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = { 
+...
+plugins: [  // plugins 的配置 
+    // html-webpack-plugin 默认会创建一个空的 HTML 并自动引入打包输出的所有资源 JS/CSS 适合需要有结构的 HTML 文件 
+    new HtmlWebpackPlugin({ 
+      // 复制 './src/index.html' 文件并自动引入打包输出的所有资源JS/CSS
+      template: './src/index.html' 
+    }) 
+  ],
+...
+}
+</code></pre>
+<h3 id>打包图片资源</h3>
+<pre><code class="language-shell"># 下载安装 loader 包
+npm install --save-dev html-loader url-loader
+</code></pre>
+<pre><code class="language-javascript">...
+module.exports = { 
+  ...
+  module: { 
+    rules: [ 
+      ...,
+      {
+        // 处理图片资源-默认处理不了 html 中 img 图片
+        test: /\.(jpg|png|gif)$/, 
+        // 仅使用一个 loader 可以直接指明 loader 而不需要 use
+        // 下载 url-loader
+        loader: 'url-loader',
+        options: {
+          // 图片大小小于 8kb，就会被 base64 处理 
+          // 优点能减少请求数量-减轻服务器压力；缺点是图片体积会更大-文件请求速度更慢 
+          limit: 8 * 1024, 
+          // 问题: url-loader 默认 es6 模块化解析; html-loader 引入图片是 commonjs
+          // 解决解析时出现的[object Module]: 关闭 url-loader 的 es6 模块化并使用 commonjs 解析 
+          esModule: false, 
+          // 给图片进行重命名 - [hash:10]取图片的 hash 的前 10 位 [ext]取文件原来扩展名 
+          name: '[hash:10].[ext]' 
+        }
+      },
+      { // 图片除了样式中引入还可能需要 html 标签引入
+        test: /\.html$/, 
+        // 处理 html 文件的 img 图片 - 负责引入 img 从而能被 url-loader 处理 
+        loader: 'html-loader' 
+      } 
+    ] 
+  },
+  ...
+}
+</code></pre>
+<h3 id>打包其他资源</h3>
+<pre><code class="language-shell"># 下载安装 loader 包
+npm install --save-dev file-loader
+</code></pre>
+<pre><code class="language-javascript">...
+module.exports = { 
+  ...,
+  module: { 
+    rules: [ 
+      ...,
+      // 打包其他资源-除了 html/js/css 资源以外的资源-通常为矢量图标库
+      { // 排除 css/js/html
+        exclude: /\.(css|js|html|less)$/, 
+        loader: 'file-loader', 
+        options: { name: '[hash:10].[ext]' } 
+      }
+    ] 
+  },
+  ...
+}
+</code></pre>
+<h3 id="devserver">devserver</h3>
+<p>开发服务器 devServer 自动化编译、打开浏览器、刷新浏览器。只会在内存中编译打包，不会有任何输出。</p>
+<pre><code class="language-shell"># 下载包
+npm i webpack-dev-server
+</code></pre>
+<pre><code class="language-javascript">...
+module.exports = { 
+  ...,
+  module: {
+    rules: [ 
+      ...
+    ] 
+  },
+  plugins: [ 
+    ... 
+  ],
+  mode: 'development',
+  devServer: {
+    contentBase: resolve(__dirname, 'build'), // 项目构建后路径
+    compress: true, // 启动 gzip 压缩
+    port: 3000, // 端口号 
+    open: true // 自动打开浏览器 
+  } 
+};
+</code></pre>
+<p>NPM package.json 脚本是一种方便运行本地安装的二进制文件的方法，且不必担心其完整路径。可以简单地定义一个脚本并运行指令。</p>
+<pre><code class="language-shell">npx webpack-dev-server
+</code></pre>
+<p>这里需要注意，如果使用的是 <strong>webpack-cli 4</strong>  或 <strong>webpack 5</strong>，更改 <code>webpack-dev-server</code> 为 <code>webpack serve</code> 。<a href="https://stackoverflow.com/questions/40379139/cannot-find-module-webpack-bin-config-yargs">stackoverflow链接</a>。</p>
+<ul>
+<li>对于 webpack-cli 3.x：</li>
+</ul>
+<pre><code class="language-js">"scripts": { "start:dev": "webpack-dev-server" }
+</code></pre>
+<ul>
+<li>对于 webpack-cli 4.x：</li>
+</ul>
+<pre><code class="language-js">"scripts": { "start:dev": "webpack serve" }
+</code></pre>
+<h3 id>开发环境配置小结</h3>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = { 
+  entry: './src/js/index.js', 
+  output: { 
+    filename: 'js/built.js', 
+    path: resolve(__dirname, 'build') 
+  },
+  module: { 
+    rules: [ // loader 的配置 
+      { // 处理 less 资源 
+        test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] 
+      },{ // 处理 css 资源 
+        test: /\.css$/, use: ['style-loader', 'css-loader'] 
+      },{ // 处理图片资源 
+        test: /\.(jpg|png|gif)$/, 
+        loader: 'url-loader', 
+        options: { 
+          limit: 8 * 1024, 
+          name: '[hash:10].[ext]', // 关闭 es6 模块化 
+          esModule: false, 
+          outputPath: 'imgs' 
+        } 
+      },{ // 处理 html 中 img 资源 
+        test: /\.html$/, 
+        loader: 'html-loader' 
+      },{ // 处理其他资源 
+        exclude: /\.(html|js|css|less|jpg|png|gif)/, 
+        loader: 'file-loader',
+        options: {
+          name: '[hash:10].[ext]', 
+          outputPath: 'media' 
+        } 
+      } 
+    ] 
+  },plugins: [ // plugins 的配置 
+    new HtmlWebpackPlugin({ template: './src/index.html' }) 
+  ],
+  mode: 'development',
+  devServer: { 
+    contentBase: resolve(__dirname, 'build'),
+    compress: true, 
+    port: 3000,
+    open: true 
+  } 
+};
+</code></pre>
+<h2 id>生产环境配置</h2>
+<h3 id="css">提取 css 成单独文件</h3>
+<p>样式经过处理整合在 <code>.js</code> 中（css-loader）会使 <code>.js</code> 体积非常大，下载速度慢。同时必须先加载才能创建标签加载在页面中，这里又会出现闪屏现象。故需要将 <code>.css</code> 文件从 <code>.js</code> 文件提取出来。又考虑代码体积较大，需要进行压缩处理。部分样式代码与 <code>.js</code> 代码存在兼容问题，如部分 CSS3 需要加上前缀才可以在低版本进行运行。<a href="https://webpack.js.org/plugins/mini-css-extract-plugin/">详细信息点此</a>。</p>
+<pre><code class="language-shell"># 下载插件
+npm install --save-dev mini-css-extract-plugin
+</code></pre>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+module.exports = {
+  entry: './src/js/index.js',
+  output: {
+    filename: 'js/built.js',
+    path: resolve(__dirname, 'build')
+  },
+  module: {
+    rules: [
+      { 
+        test: /\.css$/,
+        use: [ 
+          // 创建 style 标签，将样式放入 
+          // 'style-loader', 
+          // 这个 loader 取代 style-loader。作用：提取 js 中的 css 成单独文件 
+          MiniCssExtractPlugin.loader, // 不需要引号
+          // 将 css 文件整合到 js 文件中 
+          'css-loader' 
+        ] 
+      } 
+    ] 
+  },
+  plugins: [ 
+    new HtmlWebpackPlugin({ 
+      template: './src/index.html' 
+    }), 
+    new MiniCssExtractPlugin({ 
+      // 对输出的 css 文件进行重命名 
+      filename: 'css/built.css' 
+    }) 
+  ],
+  mode: 'development' 
+};
+</code></pre>
+<h3 id="css">css 兼容性处理</h3>
+<p>兼容处理需要 postcss --&gt; postcss-loader 保证在 webpack 中使用，同时通过 postcss-preset-env 识别环境，帮助 post-css 找到  package.json 中 browserlist 里的配置，通过配置加载指定的 css 兼容性样式。<a href="https://www.webpackjs.com/loaders/postcss-loader/">详情点此</a>。</p>
+<pre><code class="language-shell"># 下载插件
+npm install --save-dev postcss-loader postcss-preset-env
+</code></pre>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
+// 设置 nodejs 环境变量 -- 指明使用 package.json 中哪个环境的配置
+// process.env.NODE_ENV = 'development'; // 不进行配置则会默认为生产环境
+module.exports = { 
+  entry: './src/js/index.js', 
+  output: { 
+    filename: 'js/built.js', 
+    path: resolve(__dirname, 'build') 
+  },
+  module: { 
+    rules: [ 
+      { 
+        test: /\.css$/, 
+        use: [ 
+          MiniCssExtractPlugin.loader, 
+          'css-loader', 
+          // 修改配置需要写成对象的方式
+          { 
+            loader: 'postcss-loader', 
+            options: { 
+              ident: 'postcss', // 固定写法
+              plugins: () =&gt; [ 
+                // postcss 的插件 
+                require('postcss-preset-env')() 
+              ] 
+            } 
+          } 
+        ]
+      } 
+    ] 
+  },
+  plugins: [
+    new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new MiniCssExtractPlugin({ filename: 'css/built.css' }) 
+  ],
+  mode: 'development' 
+};
+</code></pre>
+<p>browserlist 仓库<a href="https://github.com/browserslist/browserslist">点此跳转</a>。</p>
+<pre><code class="language-javascript">// package.json
+"browserslist": { 
+  "development": [ 
+    // 兼容最近的浏览器版本
+    "last 1 chrome version", 
+    "last 1 firefox version",
+    "last 1 safari version" 
+  ],
+  "production": [ 
+    "&gt;0.2%",
+    "not dead",
+    "not op_mini all" 
+  ]
+}
+</code></pre>
+<h3 id="js">js 语法检查</h3>
+<p>规范代码书写风格可以在检查常见语法错误的同时增强健壮性。最常使用的是基于 eslint 库的 eslint-loader。注意 eslint 仅检查开发者书写的源代码，不检查第三方的库。部分需要忽略检查的代码前可以加上 <code>eslint-disable-next-line</code>。<a href="https://www.npmjs.com/package/eslint-config-airbnb-base">详细移步</a>。</p>
+<pre><code class="language-shell"># 下载安装包使用 slint-config-airbnb-base 库进行语法检查
+npm install --save-dev eslint-loader eslint eslint-config-airbnb-base eslint-plugin-import
+</code></pre>
+<pre><code class="language-javascript">// 配置 package.json
+// 官方是说加入 .eslintrc 此处加入 package.json 即可
+"eslintConfig": { "extends": "airbnb-base", "env": { "browser": true } }
+</code></pre>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin' )
+// 设置 nodejs 环境变量
+// process.env.NODE_ENV = 'development';
+module.exports = { 
+  entry: './src/js/index.js',
+  output: {
+    filename: 'js/built.js',
+    path: resolve(__dirname, 'build') 
+  },
+  module: { 
+    rules: [ 
+      /*
+      语法检查： eslint-loader eslint 
+      注意：只检查自己写的源代码，第三方的库是不用检查的 
+      设置检查规则: package.json 中 eslintConfig 中设置~ 
+      "eslintConfig": {
+      "extends": "airbnb-base" 
+      } 
+      airbnb 需要 eslint-config-airbnb-base eslint-plugin-import eslint 三个库
+      */
+      { 
+        test: /\.js$/,
+        exclude: /node_modules/,  // 一定要注意, 否则会对 node_modules 进行检查
+        loader: 'eslint-loader', 
+        options: { 
+          // 自动修复 eslint 的错误 
+          fix: true 
+        } 
+      } 
+    ] 
+  },
+  plugins: [ 
+    new HtmlWebpackPlugin({ template: './src/index.html' }), 
+    new MiniCssExtractPlugin({ filename: 'css/built.css' }),
+    // 压缩 css 
+    new OptimizeCssAssetsWebpackPlugin() ],
+  mode: 'development'
+};
+</code></pre>
+<h3 id="js">js 兼容性处理</h3>
+<p>chrome 浏览器中可以识别不代表 IE 浏览器可以识别 ES6 及其以上语法。<code>@babel/preset-env</code> 转换基本语法，<code>@babel/polyfill</code> 全部兼容性处理（包括 promise ）。<code>@babel/polyfill</code> 下载后引入 <code>js</code> 文件即可（暴力）。需要兼容性处理按需加载则考虑 <code>core-js</code> 。但是使用 <code>core-js</code> 时，不能使用<code>@babel/polyfill</code> ，在 <code>.js</code> 中引入的需要注释掉。</p>
+<pre><code class="language-shell"># 下载安装包
+npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/polyfill core-js
+</code></pre>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  entry: './src/js/index.js',
+  output: { 
+    filename: 'js/built.js',
+    path: resolve(__dirname, 'build')
+    },
+  module: {
+    rules: [ { 
+      test: /\.js$/, 
+      exclude: /node_modules/, 
+      loader: 'babel-loader', 
+      options: { // 预设：指示 babel 做怎么样的兼容性处理 
+        presets: 
+        [[ 
+          '@babel/preset-env', { 
+          // 按需加载 useBuiltIns: 'usage',
+          // 指定 core-js 版本
+          corejs: { version: 3 },
+          // 指定兼容性做到哪个版本浏览器 -- core-js
+          targets: { chrome: '60', firefox: '60', ie: '9', safari: '10', edge: '17' }
+          }
+				]]
+      }
+    }] 
+  },
+  plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ],
+  mode: 'development'
+</code></pre>
+<h3 id="jshtml">js 压缩与 html 压缩</h3>
+<p>生产环境会自动压缩 <code>.js</code> 代码。</p>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  entry: './src/js/index.js',
+  output: {
+    filename: 'js/built.js',
+    path: resolve(__dirname, 'build') 
+  },
+  plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ],
+  // 生产环境下会自动压缩 js 代码 
+  mode: 'production' 
+};
+</code></pre>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  entry: './src/js/index.js',
+  output: {
+    filename: 'js/built.js',
+    path: resolve(__dirname, 'build') },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html', 
+      // 压缩 html 代码 
+      minify: { // 移除空格 
+        collapseWhitespace: true, 
+        // 移除注释
+        removeComments: true } }) 
+  ],
+  mode: 'production' 
+};
+</code></pre>
+<h3 id>生产环境配置汇总</h3>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin' );
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 定义 nodejs 环境变量: 决定使用 browserslist 的哪个环境 
+process.env.NODE_ENV = 'production';
+// 复用 loader 
+const commonCssLoader = [
+  MiniCssExtractPlugin.loader,
+  'css-loader',
+  { 
+    // 还需要在 package.json 中定义 browserslist
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss', 
+      plugins: () =&gt; [require('postcss-preset-env')()] 
+    } 
+  } 
+];
+module.exports = {
+  entry: './src/js/index.js',
+  output: { filename: 'js/built.js', path: resolve(__dirname, 'build') },
+  module: { 
+    rules: [
+      { test: /\.css$/, use: [...commonCssLoader] },
+      { test: /\.less$/, use: [...commonCssLoader, 'less-loader'] },
+      /* 正常来讲, 一个文件只能被一个 loader 处理. 当一个文件要被多个 loader 处理, 那么一定要指定 loader 执行的先后顺序: 先执行 eslint 再执行 babel (先执行 babel-loader再执行 eslint 就会报错) */
+      { // 在 package.json 中 eslintConfig --&gt; airbnb 
+        test: /\.js$/,
+        exclude: /node_modules/,
+        // 优先执行 不论放在哪里的位置!!!
+        enforce: 'pre', 
+        loader: 'eslint-loader',
+        options: { fix: true }
+      },
+      {
+        test: /\.js$/, // 需要检查的 js 文件
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [
+              '@babel/preset-env',
+              // @babel/preset-env - @babel/polifill(太大) - core-js
+              { // 按需加载 core-js
+                useBuiltIns: 'usage', corejs: {version: 3}, // corejs 版本
+                targets: { chrome:'60', firefox: '50' } // 指定做到浏览器版本
+              }
+            ]
+          ]
+        }
+      },
+      { 
+        test: /\.(jpg|png|gif)/,
+        loader: 'url-loader',
+        // 记住关闭 es6
+        options: { limit: 8 * 1024, name: '[hash:10].[ext]', outputPath: 'imgs', esModule: false }
+      },
+      // 专门处理 html 中图片问题
+      { test: /\.html$/, loader: 'html-loader' }, // 使用的是 commonjs 而 url-loader 使用的是 es6
+      { 
+        exclude: /\.(js|css|less|html|jpg|png|gif)/,
+        loader: 'file-loader',
+        options: { outputPath: 'media' }
+      }
+    ]
+  },
+  plugins:[ 
+    new MiniCssExtractPlugin({ filename: 'css/built.css' }),
+    new OptimizeCssAssetsWebpackPlugin(),
+    new HtmlWebpackPlugin({ 
+      template: './src/index.html',
+      // html 文件通过 minify 属性进行压缩
+      // 压缩空格、清除注释
+      minify: { collapseWhitespace: true, removeComments: true}
+    })
+  ],
+  mode: 'production' 
+};
+</code></pre>
+<pre><code class="language-javascript">"browserlist": {
+  "development": [
+    "last 1 chrome version",
+    "last 1 firefox version",
+    "last 1 safari version"
+  ],
+  "production": [
+    "&gt;0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
+}
+"eslintConfig": {
+  "extends": "airbnb-base"
+}
+</code></pre>
+<h2 id="webpack">webpack 优化配置</h2>
+<h3 id>开发环境优化</h3>
+<p>开发环境优化指优化打包构建速度（调试、开发友好）、优化代码调试（提醒开发代码错误位置）。</p>
+<ul>
+<li>HMR(Hot Module Replace)</li>
+</ul>
+<p>热模块替换即一个模块发生变化，只需重新打包这一个模块，而并重新打包全部模块。本地代码改变，重新编译、刷新浏览器即为热更新。HMR 功能对于 <code>.js</code> 的处理只能处理非入口文件的其他文件。入口文件进行 HMR 则所有文件都会重新打包。</p>
+<table>
+    <thead>
+        <tr>
+            <th>文件</th>
+            <th>热更新</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>样式文件</td>
+            <td>可以使用 HMR功能，因为 style-loader 内部已实现</td>
+        </tr>
+        <tr>
+            <td>JS  文件</td>
+            <td>默认不能使用 HMR 功能</td>
+        </tr>
+        <tr>
+            <td>html 文件</td>
+            <td>默认不能使用 HMR，只有一个文件不需要考虑 HMR 功能</td>
+        </tr>
+    </tbody>
+</table>
+<pre><code class="language-javascript">...
+devServer: { // 修改 webpack 配置一定要重启 webpack 服务
+  ...,
+  hot: true // 开启 HMR 功能
+}
+</code></pre>
+<pre><code class="language-javascript">...
+import print from './print.js'
+if(module.hot) { // 一旦 module.hot 为 true 则开启 HMR 属性 -- 让 HMR 功能生效
+  module.hot.accept('./print.js', function(){ // 这里的 print.js 已经存在
+    // 方法监听 print.js 文件变化, 一旦变化其他默认不会重新打包构建
+    // 执行后面的回调函数
+    print();
+  })
+}
+</code></pre>
+<ul>
+<li>source-map</li>
+</ul>
+<p>一款开发环境调试代码问题工具，提供源代码到构建后代码映射的技术。构建后代码出错可以通过映射关系追踪源代码的错误。</p>
+<pre><code class="language-javascript">[inline-|hidden-|eval-][nosource-][cheap-[module-]]source-map
+devtool: "eval-source-map" // 开发环境最佳
+devtool: "source-map" // 生产环境最佳
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>前缀</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inline</td>
+<td>内联文件：外部生成文件，<strong>内联没有生成</strong>；构建速度快；</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>只生成一个 source-map。能提示错误代码错误原因，不能追踪源代码错误。</td>
+</tr>
+<tr>
+<td>eval</td>
+<td>每一个文件会追加 source-map，都在 eval。能提示错误代码错误原因，能追踪源代码错误，多了哈希值。</td>
+</tr>
+<tr>
+<td>nosource</td>
+<td>同样生成外部 source-map。能提示错误代码错误原因，不能追踪源代码错误。防止源代码泄漏。</td>
+</tr>
+<tr>
+<td>cheap</td>
+<td>生成外部 source-map。能提示错误代码错误原因，能追踪源代码错误，提示到具体的一行。</td>
+</tr>
+<tr>
+<td>cheap-module</td>
+<td>生成外部 source-map。能提示错误代码错误原因，能追踪源代码错误，提示到具体的行列。且加上 loader 中加入。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>oneOf</li>
+</ul>
+<p>在匹配 loader 时会进行多次匹配，使用 <code>oneOf</code> 表示一下数组中的 loader 仅会匹配一个，节省时间与功耗。类似于 React 的 Switch。</p>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin' );
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 定义 nodejs 环境变量: 决定使用 browserslist 的哪个环境 
+process.env.NODE_ENV = 'production';
+// 复用 loader 
+const commonCssLoader = [
+  MiniCssExtractPlugin.loader,
+  'css-loader',
+  { 
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss', 
+      plugins: () =&gt; [require('postcss-preset-env')()] 
+    } 
+  } 
+];
+module.exports = {
+  entry: './src/js/index.js',
+  output: { filename: 'js/built.js', path: resolve(__dirname, 'build') },
+  module: { 
+    rules: [
+      {
+        // 以下 loader 只会匹配一个 节省时间与内存损耗
+        // 注意: 不能两个 loader 处理同一个文件
+        { // 在 package.json 中 eslintConfig --&gt; airbnb 
+        		test: /\.js$/,
+        		exclude: /node_modules/,
+        		// 优先执行 不论放在哪里的位置!!!
+        		enforce: 'pre', 
+        		loader: 'eslint-loader',
+        		options: { fix: true }
+      		}
+      },
+      {
+        oneOf: [
+          { test: /\.css$/, use: [...commonCssLoader] },
+      		{ test: /\.less$/, use: [...commonCssLoader, 'less-loader'] },
+        	// 不能两个 loader 处理同一类文件 -- 提出
+      		/* { // 在 package.json 中 eslintConfig --&gt; airbnb 
+        		test: /\.js$/,
+        		exclude: /node_modules/,
+        		// 优先执行 不论放在哪里的位置!!!
+        		enforce: 'pre', 
+        		loader: 'eslint-loader',
+        		options: { fix: true }
+      		}, */
+      		{
+        		test: /\.js$/,
+        		exclude: /node_modules/,
+        		loader: 'babel-loader',
+        		options: {
+          		presets: [
+            		[
+              		'@babel/preset-env',
+              		{
+                		useBuiltIns: 'usage', corejs: {version: 3},
+                		targets: { chrome:'60', firefox: '50' }
+              		}
+            		]
+          		]
+        		}
+      		},
+      		{ 
+        		test: /\.(jpg|png|gif)/,
+        		loader: 'url-loader',
+        		options: { limit: 8 * 1024, name: '[hash:10].[ext]', outputPath: 'imgs', esModule: false }
+      		},
+            { test: /\.html$/, loader: 'html-loader' },
+      		{ 
+        		exclude: /\.(js|css|less|html|jpg|png|gif)/,
+        		loader: 'file-loader',
+        		options: { outputPath: 'media' }
+      		}
+        ]
+      }	
+    ]
+  },
+  plugins:[ 
+    new MiniCssExtractPlugin({ filename: 'css/built.css' }),
+    new OptimizeCssAssetsWebpackPlugin(),
+    new HtmlWebpackPlugin({ 
+      template: './src/index.html',
+      minify: { collapseWhitespace: true, removeComments: true}
+    })
+  ],
+  mode: 'production' 
+};
+</code></pre>
+<ul>
+<li>babel 缓存</li>
+</ul>
+<p>考虑生产环境能用 HMR 功能，因为 HMR 基于 devServer 。在 babel 进行翻译时，应该时更改文件变化而其他文件不变，此时应该开启 babel 缓存，将之前编译好的文件进行缓存处理。如果文件没有变化则直接使用缓存而不是再构建一次。</p>
+<pre><code class="language-javascript">...{ 
+  // babel 缓存
+  test: /\.js$/, 
+  exclude: /node_modules/, 
+  loader: 'babel-loader', 
+  options: { 
+    presets: [ 
+      [ 
+        '@babel/preset-env', 
+        { 
+          useBuiltIns: 'usage', 
+          corejs: { version: 3 },
+          targets: { chrome: '60', firefox: '50' } 
+        } 
+      ]
+    ],
+    // 开启 babel 缓存 
+    // 第二次构建时，会读取之前的缓存 
+    cacheDirectory: true 
+  } 
+},...
+</code></pre>
+<p>文件资源缓存修改文件名——增加 hash 值。<strong>每次构建 webpack 生成唯一的 hash 值</strong>。那么会因为 <code>.js</code> 和 <code>.css</code> 使用唯一一个 hash 值导致所有缓存失效（改动一个文件）。那么考虑 chunkhash 值，根据 chunk 生成的 hash 值，如果打包来<strong>源于同一个 chunk</strong> ，那么 hash 值一样。（所有根据入口文件被引入的文件都会生成一个 chunk）。最终选择 contenthash ，<strong>根据文件内容生成 hash 值</strong>，不同文件 hash 值一定不一样。</p>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin' );
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 定义 nodejs 环境变量：决定使用 browserslist 的哪个环境 
+process.env.NODE_ENV = 'production'; 
+// 复用 loader
+const commonCssLoader = [ 
+  MiniCssExtractPlugin.loader,
+  'css-loader',
+  { // 还需要在 package.json 中定义 browserslist
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss',
+      plugins: () =&gt; [require('postcss-preset-env')()] } 
+  }
+];
+module.exports = { 
+  entry: './src/js/index.js',
+  output: {
+    // contenthash
+    filename: 'js/built.[contenthash:10].js',
+    path: resolve(__dirname, 'build')
+  },
+  module: {
+    rules: [
+      { // 在 package.json 中 eslintConfig --&gt; airbnb
+        test: /\.js$/, exclude: /node_modules/,
+        // 优先执行 
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        options: { fix: true } 
+      },
+      { 
+        // 以下 loader 只会匹配一个
+        // 注意：不能有两个配置处理同一种类型文件
+        oneOf: [
+          { test: /\.css$/, use: [...commonCssLoader] },
+          { test: /\.less$/, use: [...commonCssLoader, 'less-loader'] },
+          /*正常来讲，一个文件只能被一个 loader 处理。 当一个文件要被多个 loader 处理，那么一定要指定 loader 执行的先后顺序： 先执行 eslint 在执行 babel */
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            options:
+            {
+              presets:[
+                [
+                  '@babel/preset-env',
+                  {
+                    useBuiltIns: 'usage',
+                    corejs: { version: 3 },
+                    targets: { chrome: '60', firefox: '50' }
+                  }
+                ]
+              ],
+							// 开启 babel 缓存 
+							// 第二次构建时，会读取之前的缓存 
+              cacheDirectory: true
+            }
+          },
+          {
+            test: /\.(jpg|png|gif)/,
+            loader: 'url-loader',
+            options: { limit: 8 * 1024, name: '[hash:10].[ext]', outputPath: 'imgs', esModule: false } },
+          {
+            test: /\.html$/,
+            loader: 'html-loader'
+          },
+          {
+            exclude: /\.(js|css|less|html|jpg|png|gif)/,
+            loader: 'file-loader',
+            options: { outputPath: 'media' } 
+          } 
+        ] 
+      } 
+    ] 
+  },
+  plugins: [
+    // contenthash
+    new MiniCssExtractPlugin({ filename: 'css/built.[contenthash:10].css' }),
+    new OptimizeCssAssetsWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      minify: { collapseWhitespace: true, removeComments: true } 
+    }) 
+  ],
+  mode: 'production',
+  devtool: 'source-map' 
+};
+</code></pre>
+<ul>
+<li>tree shaking</li>
+</ul>
+<p>tree shaking 可以去除在应用程序中没有使用的代码（引用的源代码，第三方的库），使得应用体积更小，请求、加载速度更快。应用其的前提是使用 ES6 模块化并开启 production 环境。但是可能会将未经引用的 CSS 代码也忽略。如在 package.json 中设置 <code>"sideEffects": false</code> 则所有代码都无副作用（可进行 tree shaking）会导致去除 <code>.css</code> 文件。应当修改为 <code>"sideEffects": ["*.css", "*.less"]</code></p>
+<ul>
+<li>code split</li>
+</ul>
+<p>代码分割主要进行于 <code>.js</code> 代码，完成按需加载。</p>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  // 单入口 
+  // entry: './src/js/index.js',
+  entry: {
+    index: './src/js/index.js',
+    test: './src/js/test.js'
+  },
+  output: {
+    // [name]：取文件名
+    filename: 'js/[name].[contenthash:10].js',
+    path: resolve(__dirname, 'build') 
+  },
+  plugins: [
+    new HtmlWebpackPlugin({ template: './src/index.html', minify: { collapseWhitespace: true, removeComments: true } }) ],
+  /*1. 可以将 node_modules 中代码单独打包一个 chunk 最终输出 2. 自动分析多入口 chunk 中，有没有公共的文件。如果有会打包成单独一个 chunk */
+  optimization: { splitChunks: { chunks: 'all' } },
+  mode: 'production'
+};
+</code></pre>
+<ul>
+<li>pwa</li>
+</ul>
+<p>pwa 又称渐进式网络开发应用程序 Progressive Web Apps，即离线可访问。通常在 webpack 中使用插件 workbox-webpack-plugin。</p>
+<pre><code class="language-javascript">// package.json
+// 避免 eslint 不认识 window、navigator此类变量
+"eslintConfig": {
+  "extends": "airbnb-base",
+    "env": {
+      // 支持浏览器中变量
+      "browser": true
+    }
+}
+</code></pre>
+<pre><code class="language-javascript">// src/index.js
+...
+// 注意此处 serviceWorker 中 w 首字母大写
+if('serviceWorker' in navigator) {
+  window.addEventListener('load', () =&gt; {
+    navigator.serviceworker.register('/service-worker.js')
+    .then(() =&gt; {
+      console.log('sw注册成功~')
+    })
+    .catch(() =&gt; {
+      console.log('sw注册失败~')
+    })
+  })
+}
+</code></pre>
+<pre><code class="language-javascript">...
+plugins: [
+  new MiniCssExtractPlugin({ filename: 'css/built.[contenthash:10].css' }),
+  new OptimizeCssAssetsWebpackPlugin(),
+  new HtmlWebpackPlugin({
+    template: './src/index.html',
+    minify: { collapseWhitespace: true, removeComments: true }
+  }),
+  new WorkboxWebpackPlugin.GenerateSW({
+    /*1. 帮助 serviceworker 快速启动 2. 删除旧的 serviceworker 生成一个 serviceworker 配置文件~ */
+    clientsClaim: true,
+    skipWaiting: true 
+  })
+],...
+</code></pre>
+<p>上述的 sw 代码必须运行在服务器上，可通过 serve 快速启动服务器</p>
+<pre><code class="language-shell">npm i serve -g
+serve -s build # 启动服务器
+</code></pre>
+<ul>
+<li>多进程打包</li>
+</ul>
+<p>Js 主线程引擎是单线程的，同一时间只能做一件事。可以通过多进程优化打包速度。</p>
+<pre><code class="language-shell"># 下载安装包, 通常给 babel-loader 使用
+npm install --save-dev thread-loader
+</code></pre>
+<pre><code class="language-javascript">...{
+  test: /\.js$/,
+	exclude: /node_modules/,
+	use: [
+    /*开启多进程打包。 进程启动大概为 600ms，进程通信也有开销。 只有工作消耗时间比较长，才需要多进程打包 */
+    {
+      loader: 'thread-loader',
+      options: {
+        workers: 2 // 进程 2 个
+			}
+    },...
+</code></pre>
+<p>多进程也是双刃剑，进程启动大概 600ms ，进程通信也有开销。只有工作时间消耗比较长，才进行多进程打包。</p>
+<ul>
+<li>externals</li>
+</ul>
+<p>防止将某些包打包进最终的 bundle.js 中。</p>
+<pre><code class="language-javascript">mode: 'production',
+externals: { 
+  // 拒绝 jQuery 被打包进来 
+  // 忽略库名 -- npm 包名
+  jquery: 'jQuery' 
+}
+</code></pre>
+<ul>
+<li>dll</li>
+</ul>
+<p>如果对第三方库（jquery、react、vue...）打包成一个文件体积会太大，通过 dll 可以将库拆开打包成不同的 chunk 文件。</p>
+<pre><code class="language-shell"># 下载插件
+npm i add-asset-html-webpack-plugin -D
+</code></pre>
+<pre><code class="language-javascript">const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'built.js', path: resolve(__dirname, 'build')
+  },
+  plugins: [
+    new HtmlWebpackPlugin({ template: './src/index.html' }),
+    // 告诉 webpack 哪些库不参与打包，同时使用时的名称也得变~ 
+    new webpack.DllReferencePlugin({ manifest: resolve(__dirname, 'dll/manifest.json') }),
+    // 将某个文件打包输出去，并在 html 中自动引入该资源 
+    new AddAssetHtmlWebpackPlugin({ filepath: resolve(__dirname, 'dll/jquery.js') }) ],
+  mode: 'production' 
+};
+</code></pre>
+<p>相比于 external 彻底不打包，需要 cdn 连接进来，而 dll 需要打包一次，将来不需要重复打包。</p>
+<h2 id="webpack">webpack 配置详情</h2>
+<h3 id="entry">entry</h3>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  entry: {
+    index: ['./src/index.js', './src/count.js'],
+    add: './src/add.js' 
+  },
+  output: { filename: '[name].js', path: resolve(__dirname, 'build') },
+  // 如果传入 template 会以某个文件为模板去创建 html; 直接写会创建空的新 html 文件
+  plugins: [new HtmlWebpackPlugin()],
+  mode: 'development'
+};
+</code></pre>
+<ol>
+<li>string --&gt; './src/index.js'，单入口打包形成一个 chunk。 输出一个 bundle 文件。此时 chunk 的名称默认是 main。</li>
+<li>array --&gt; ['./src/index.js', './src/add.js']，多入口所有入口文件最终只会形成一个 chunk，输出出去只有一个 bundle 文件。（一般只用在 HMR 功能中让 html 热更新生效） <code>react:['react', 'react-dom', 'react-router-dom']</code></li>
+<li>object，多入口有几个入口文件就形成几个 chunk，输出几个 bundle 文件，此时 chunk 的名称是 key 值。</li>
+<li>特殊用法：多入口打包成一个 chunk，再分别打包</li>
+</ol>
+<pre><code class="language-javascript">entry: { // bundle 是由 chunk 组成
+  // 最终只会形成一个chunk, 输出出去只有一个bundle文件
+  index: ['./src/index.js', './src/count.js'], 
+  // 形成一个chunk, 输出一个bundle文件。
+  add: './src/add.js'
+}
+</code></pre>
+<h3 id="output">output</h3>
+<pre><code class="language-javascript">output: {
+  // 文件名称（指定名称+目录）
+  filename: 'js/[name].js',
+  // 输出文件目录（将来所有资源输出的公共目录）
+  path: resolve(__dirname, 'build'),
+  // 所有资源引入公共路径前缀 --&gt; 'imgs/a.jpg' --&gt; '/imgs/a.jpg'
+  publicPath: '/',
+  chunkFilename: 'js/[name]_chunk.js', // 指定非入口chunk的名称
+  library: '[name]', // 打包整个库后向外暴露的变量名
+  libraryTarget: 'window' // 变量名添加到哪个上 browser：window
+  // libraryTarget: 'global' // node：global
+  // libraryTarget: 'commonjs' // conmmonjs模块 exports
+},
+</code></pre>
+<h3 id="module">module</h3>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  entry: './src/index.js',
+  output: { filename: 'js/[name].js', path: resolve(__dirname, 'build') },
+  module: {
+    rules: [
+      // loader 的配置
+      { test: /\.css$/,
+       // 多个 loader 用 use
+       use: ['style-loader', 'css-loader']
+      },
+      { test: /\.js$/,
+       // 排除 node_modules 下的 js 文件
+       exclude: /node_modules/,
+       // 只检查 src 下的 js 文件
+       include: resolve(__dirname, 'src'),
+       // 优先执行
+       enforce: 'pre',
+       // 延后执行 // enforce: 'post',
+       // 单个 loader 用 loader
+       loader: 'eslint-loader',
+       options: {}
+      },
+      { // 以下配置只会生效一个
+        oneOf: []
+      }
+    ]
+  },
+  plugins: [new HtmlWebpackPlugin()],
+  mode: 'development'
+};
+</code></pre>
+<h3 id="resolve">resolve</h3>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  entry: './src/js/index.js',
+  output: { filename: 'js/[name].js', path: resolve(__dirname, 'build') },
+  module: { rules: [ { test: /\.css$/, use: ['style-loader', 'css-loader'] } ] },
+  plugins: [new HtmlWebpackPlugin()],
+  mode: 'development',
+  // 解析模块的规则
+  resolve: {
+    // 配置解析模块路径别名: 优点简写路径 缺点路径没有提示
+    alias: { $css: resolve(__dirname, 'src/css') },
+    // 配置省略文件路径的后缀名
+    extensions: ['.js', '.json', '.jsx', '.css'],
+    // 告诉 webpack 解析模块是去找哪个目录 -- 当前目录找不到会去上一层目录
+    modules: [resolve(__dirname, '../../node_modules'), 'node_modules']
+  }
+};
+</code></pre>
+<h3 id="devserver">dev server</h3>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  entry: './src/js/index.js',
+  output: { filename: 'js/[name].js', path: resolve(__dirname, 'build') },
+  module: { rules: [ { test: /\.css$/, use: ['style-loader', 'css-loader'] } ] },
+  plugins: [new HtmlWebpackPlugin()],
+  mode: 'development',
+  resolve: {
+    alias: { $css: resolve(__dirname, 'src/css') },
+    extensions: ['.js', '.json', '.jsx', '.css'],
+    modules: [resolve(__dirname, '../../node_modules'), 'node_modules']
+  },
+  devServer: {
+    // 运行代码的目录 contentBase: resolve(__dirname, 'build'),
+    // 监视 contentBase 目录下的所有文件，一旦文件变化就会 reload
+    watchContentBase: true,
+    watchOptions: {
+      // 忽略文件 —— 高效
+      ignored: /node_modules/
+    },
+    // 启动 gzip 压缩
+    compress: true,
+    // 端口号
+    port: 5000,
+    // 域名
+    host: 'localhost',
+    // 自动打开浏览器
+    open: true,
+    // 开启 HMR 功能
+    hot: true,
+    // 不要显示启动服务器日志信息
+    clientLogLevel: 'none',
+    // 除了一些基本启动信息以外，其他内容都不要显示
+    quiet: true,
+    // 如果出错了，不要全屏提示~
+    overlay: false,
+    // 服务器代理 --&gt; 解决开发环境跨域问题
+    proxy: {
+      // 一旦 devServer(5000)服务器接受到 /api/xxx 的请求，就会把请求转发到另外一个服务器 (3000)
+      '/api': { target: 'http://localhost:3000',
+               // 发送请求时，请求路径重写：将 /api/xxx --&gt; /xxx （去掉/api）
+               pathRewrite: { '^/api': '' }
+              }
+    }
+  }
+};
+</code></pre>
+<h3 id="optimization">optimization</h3>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+module.exports = {
+  entry: './src/js/index.js',
+  output: {
+    filename: 'js/[name].[contenthash:10].js',
+    path: resolve(__dirname, 'build'),
+    chunkFilename: 'js/[name].[contenthash:10]_chunk.js'
+  },
+  module: { rules: [ { test: /\.css$/, use: ['style-loader', 'css-loader'] } ] },
+  plugins: [new HtmlWebpackPlugin()],
+  mode: 'production',
+  resolve: {
+    alias: {
+      $css: resolve(__dirname, 'src/css')
+    },
+    extensions: ['.js', '.json', '.jsx', '.css'],
+    modules: [resolve(__dirname, '../../node_modules'), 'node_modules']
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all' // 默认值，可以不写~ ,
+      minSize: 30 * 1024, // 分割的 chunk 最小为 30kb
+      maxSize: 0, // 最大没有限制
+      minChunks: 1, // 要提取的 chunk 最少被引用 1 次
+      maxAsyncRequest: 5, // 按需加载并行加载文件最大数量
+      maxInitialRequests: 3, // 入口js文件最大并行请求数量
+      automaticNameDelimiter: '~' , // 名称连接符
+      name: true, // 可以命名规则
+      cacheGroups: { // 分割chunk组
+      	vendors：{ // node_modules文件被打包到 vendors 组的 chunk 中 --&gt; vendors~xxx.js
+      		test: /[||/]node_modules[\\/]/,
+      		priority: -10
+   			},
+    		default: {
+      		minChunks: 2, // 被提取的 chunk 至少被引用两次
+          priority: -10,
+          // 当前打包木块和之前被提取模块是同一个则可以复用
+          reuseExistingChunk: true
+    		}
+    	}
+    },
+    // 将当前模块的记录其他模块的 hash 单独打包为一个文件 runtime
+    // 解决：修改 a 文件导致 b 文件的 contenthash 变化 -- 某一个文件修改导致 hash 变化导致缓存失效
+    runtimeChunk: { name: entrypoint =&gt; `runtime-${entrypoint.name}` },
+    minimizer: [
+      // 配置生产环境的压缩方案：js 和 css
+      new TerserWebpackPlugin({
+        // 开启缓存
+        cache: true,
+        // 开启多进程打包
+        parallel: true,
+        // 启动 source-map
+        sourceMap: true })
+    ]
+  }
+}; 
+</code></pre>
+<h2 id="webpackdevserver">webpack-dev-server兼容问题</h2>
 <p>运行<code>webpack-dev-server</code>出现如下报错</p>
 <pre><code class="language-javascript">&gt; webpack-dev-server
 

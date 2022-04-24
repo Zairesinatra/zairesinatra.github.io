@@ -8,8 +8,16 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=3356f45d0b.css" />
+    <style>
+        :root {
+            --button-bg-color: #ffffff;
+            --button-text-color: var(--color-darkgrey);
+        }
+    </style>
 
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=97b8e8157e.css" />
+
+    <meta name="description" content="分而治之、动态规划、贪婪算法、回溯算法" />
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -84,9 +92,9 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 4.16" />
+    <meta name="generator" content="Ghost 4.45" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
-    <script defer src="https://unpkg.com/@tryghost/portal@~1.10.0/umd/portal.min.js" data-ghost="yourdomain.com/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.21.0/umd/portal.min.js" data-ghost="yourdomain.com/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
 .gh-post-upgrade-cta {
     display: flex;
     flex-direction: column;
@@ -150,6 +158,8 @@
 .gh-post-upgrade-cta a.gh-btn:hover {
     opacity: 0.92;
 }</style>
+    <script defer src="../public/cards.min.js%3Fv=97b8e8157e"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=97b8e8157e.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
 <script>
@@ -236,7 +246,7 @@ pre[class*="language-"] {
 </a>
                 </div>
 
-                    <a class="gh-head-button" href="index.html#/portal/signup">Subscribe</a>
+                    <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
             </div>
         </nav>
     </header>
@@ -247,7 +257,7 @@ pre[class*="language-"] {
 
 
 <main id="site-main" class="site-main">
-    <article class="article post tag-datastructuresandalgorithms">
+    <article class="article post tag-datastructuresandalgorithms ">
 
         <header class="article-header gh-canvas">
 
@@ -430,103 +440,46 @@ console.log(NQueens(4)); // [[ '.Q..', '...Q', 'Q...', '..Q.' ], [ '..Q.', 'Q...
         </section>
 
 
-        <section class="article-comments gh-canvas">
-            <div id="disqus_thread"></div>
-            <script>
-                var disqus_config = function () {
-                    this.page.url = "yourdomain.com/algomethods/";
-                    this.page.identifier = "ghost-60e14527bed9e30a7c1cfe7b"
-                };
-                (function() {
-                var d = document, s = d.createElement('script');
-                s.src = 'https://zsxzy.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-                })();
-            </script>
-        </section>
-
-
     </article>
 </main>
 
-<section class="footer-cta">
-    <div class="inner">
-        <h2>Sign up for more like this.</h2>
-        <a class="footer-cta-button" href="index.html#/portal">
-            <div>Enter your email</div>
-            <span>Subscribe</span>
-        </a>
-    </div>
-</section>
+
+    <section class="footer-cta ">
+        <div class="inner">
+            <h2>Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
 
 
-<aside class="read-more-wrap">
-    <div class="read-more inner">
 
 
-                    
-<article class="post-card post featured ">
-
-    <a class="post-card-image-link" href="../newghostzs/index.html">
-        <img class="post-card-image"
-            srcset="../content/images/size/w600/2021/09/ghostbg.png 600w"
-            sizes="(max-width: 1000px) 400px, 800px"
-            src="../content/images/size/w600/2021/09/ghostbg.png"
-            alt="The migration of Ghost blog"
-            loading="lazy"
-        />
-    </a>
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="../newghostzs/index.html">
-            <header class="post-card-header">
-                <h2 class="post-card-title">Ghost更新与迁移</h2>
-            </header>
-            <div class="post-card-excerpt">
-                <p>Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。</p>
-            </div>
-        </a>
-
-        <footer class="post-card-meta">
-            <ul class="author-list">
-                <li class="author-list-item">
-                    <a href="../author/ziyi/index.html" class="static-avatar">
-                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
-                    </a>
-                </li>
-            </ul>
-            <div class="post-card-byline-content">
-                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
-                <span class="post-card-byline-date"><time datetime="2021-07-23">Jul 23, 2021</time> <span class="bull">&bull;</span> 6 min read</span>
-            </div>
-        </footer>
-
-    </div>
-
-</article>
-                    
+            <aside class="read-more-wrap">
+                <div class="read-more inner">
+                        
 <article class="post-card post ">
 
-    <a class="post-card-image-link" href="../jdks/index.html">
+    <a class="post-card-image-link" href="../mysqlnote/index.html">
         <img class="post-card-image"
-            srcset="../content/images/size/w600/2021/09/javajdk.png 600w"
+            srcset="../content/images/size/w600/2022/04/cloud.jpg 600w"
             sizes="(max-width: 1000px) 400px, 800px"
-            src="../content/images/size/w600/2021/09/javajdk.png"
-            alt="Java11 &amp; Java8"
+            src="../content/images/size/w600/2022/04/cloud.jpg"
+            alt="mysql"
             loading="lazy"
         />
     </a>
 
     <div class="post-card-content">
 
-        <a class="post-card-content-link" href="../jdks/index.html">
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
             <header class="post-card-header">
-                <h2 class="post-card-title">jenv AdoptOpenJDK JDKs</h2>
+                <h2 class="post-card-title">MySQL笔记</h2>
             </header>
             <div class="post-card-excerpt">
-                <p>Use jenv and AdoptOpenJDK to set up multiple JDKs</p>
+                <p>MYSQL必知必会笔记（此时版本5）</p>
             </div>
         </a>
 
@@ -534,40 +487,40 @@ console.log(NQueens(4)); // [[ '.Q..', '...Q', 'Q...', '..Q.' ], [ '..Q.', 'Q...
             <ul class="author-list">
                 <li class="author-list-item">
                     <a href="../author/ziyi/index.html" class="static-avatar">
-                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" loading="lazy" />
                     </a>
                 </li>
             </ul>
             <div class="post-card-byline-content">
-                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
-                <span class="post-card-byline-date"><time datetime="2021-06-19">Jun 19, 2021</time> <span class="bull">&bull;</span> 3 min read</span>
+                <span class="post-card-byline-author"><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2021-12-22">Dec 22, 2021</time> <span class="bull">&bull;</span> 39 min read</span>
             </div>
         </footer>
 
     </div>
 
 </article>
-                    
+                        
 <article class="post-card post ">
 
-    <a class="post-card-image-link" href="../mongodb/index.html">
+    <a class="post-card-image-link" href="../zu-jian-tong-xun/index.html">
         <img class="post-card-image"
-            srcset="../content/images/size/w600/2021/08/mongodb.jpg 600w"
+            srcset="../content/images/size/w600/2022/04/treecommunicate.jpg 600w"
             sizes="(max-width: 1000px) 400px, 800px"
-            src="../content/images/size/w600/2021/08/mongodb.jpg"
-            alt="MongoDB"
+            src="../content/images/size/w600/2022/04/treecommunicate.jpg"
+            alt="Component communication"
             loading="lazy"
         />
     </a>
 
     <div class="post-card-content">
 
-        <a class="post-card-content-link" href="../mongodb/index.html">
+        <a class="post-card-content-link" href="../zu-jian-tong-xun/index.html">
             <header class="post-card-header">
-                <h2 class="post-card-title">MongoDB</h2>
+                <h2 class="post-card-title">组件通讯</h2>
             </header>
             <div class="post-card-excerpt">
-                <p>关系型数据库全是表；No SQL 中都键值对。——文档数据库 MongoDB</p>
+                <p>vuex与redux</p>
             </div>
         </a>
 
@@ -575,29 +528,70 @@ console.log(NQueens(4)); // [[ '.Q..', '...Q', 'Q...', '..Q.' ], [ '..Q.', 'Q...
             <ul class="author-list">
                 <li class="author-list-item">
                     <a href="../author/ziyi/index.html" class="static-avatar">
-                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" loading="lazy" />
                     </a>
                 </li>
             </ul>
             <div class="post-card-byline-content">
-                <span><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
-                <span class="post-card-byline-date"><time datetime="2021-05-20">May 20, 2021</time> <span class="bull">&bull;</span> 11 min read</span>
+                <span class="post-card-byline-author"><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2021-10-01">Oct 1, 2021</time> <span class="bull">&bull;</span> 9 min read</span>
             </div>
         </footer>
 
     </div>
 
 </article>
+                        
+<article class="post-card post ">
+
+    <a class="post-card-image-link" href="../httptextbook/index.html">
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/http-https.png 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/http-https.png"
+            alt="http&amp;https"
+            loading="lazy"
+        />
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../httptextbook/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">图解 HTTP 摘要</h2>
+            </header>
+            <div class="post-card-excerpt">
+                <p>据 [日] 上野宣 HTTPの教科書 的部分总结于摘要。</p>
+            </div>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="static-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" loading="lazy" />
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span class="post-card-byline-author"><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
+                <span class="post-card-byline-date"><time datetime="2021-08-09">Aug 9, 2021</time> <span class="bull">&bull;</span> 34 min read</span>
+            </div>
+        </footer>
 
     </div>
-</aside>
+
+</article>
+                </div>
+            </aside>
+
 
 
     </div>
 
     <footer class="site-footer outer">
         <div class="inner">
-            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2021</section>
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
             <nav class="site-footer-nav">
                 
             </nav>
@@ -613,7 +607,7 @@ console.log(NQueens(4)); // [[ '.Q..', '...Q', 'Q...', '..Q.' ], [ '..Q.', 'Q...
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=3356f45d0b"></script>
+<script src="../assets/built/casper.js%3Fv=97b8e8157e"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
