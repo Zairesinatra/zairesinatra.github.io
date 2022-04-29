@@ -15,8 +15,10 @@
         }
     </style>
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=97b8e8157e.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=ae7b9485a6.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=ae7b9485a6.css" />
     <meta name="description" content="MySQL环境配置以及常见问题" />
     <link rel="icon" href="../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -30,7 +32,7 @@
     <meta property="og:url" content="yourdomain.com/mysqlbasic/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/seabed.jpg" />
     <meta property="article:published_time" content="2020-03-10T12:25:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-20T09:32:33.000Z" />
+    <meta property="article:modified_time" content="2022-04-29T12:52:15.000Z" />
     <meta property="article:tag" content="Technology growth" />
     <meta property="article:tag" content="BUG handled" />
     
@@ -77,7 +79,7 @@
     "headline": "🛢MySQLBasic",
     "url": "yourdomain.com/mysqlbasic/",
     "datePublished": "2020-03-10T12:25:00.000Z",
-    "dateModified": "2021-08-20T09:32:33.000Z",
+    "dateModified": "2022-04-29T12:52:15.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/seabed.jpg",
@@ -159,8 +161,8 @@
 .gh-post-upgrade-cta a.gh-btn:hover {
     opacity: 0.92;
 }</style>
-    <script defer src="../public/cards.min.js%3Fv=97b8e8157e"></script>
-    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=97b8e8157e.css">
+    <script defer src="../public/cards.min.js%3Fv=ae7b9485a6"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=ae7b9485a6.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
 <script>
@@ -212,7 +214,10 @@ pre[class*="language-"] {
 
 <!-- 音乐播放器 -->
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+
+<!-- table of content -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css" /><style>:root {--ghost-accent-color: #15171A;}</style>
 
 </head>
 <body class="post-template tag-technology-growth tag-bug-handled">
@@ -283,7 +288,7 @@ pre[class*="language-"] {
                         <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                         <div class="byline-meta-content">
                             <time class="byline-meta-date" datetime="2020-03-10">Mar 10, 2020</time>
-                            <span class="byline-reading-time"><span class="bull">&bull;</span> 7 min read</span>
+                            <span class="byline-reading-time"><span class="bull">&bull;</span> 12 min read</span>
                         </div>
                     </div>
                 </section>
@@ -300,44 +305,43 @@ pre[class*="language-"] {
         </header>
 
         <section class="gh-content gh-canvas">
-            <!--kg-card-begin: markdown--><p>不论传统数据库: MySQL、Oracle、SQL Server 还是新型数据库: Mongodb ，都是通过结构化查询语言 SQL (Structured Query Language) 进行增、删、改、查等系列操作来进行组织、存储、管理数据。</p>
-<p>关系行数据库 (RDBMS) 结构通常由数据库 (database)、数据表 (table)、数据行 (row)、字段 (field) 四种组成。</p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">安装与卸载</h2>
-<ul>
-<li>安装：</li>
-</ul>
-<pre><code class="language-shell"># MySQL Server: 提供数据储存、数据服务
-brew install mysql
+                <aside class="toc-container">
+                    <div class="toc"></div>
+                </aside>
+                <p>关系型数据库常见 MySQL、Oracle 与 SQL Server，非关系型数据库有键值型数据库 Redis、文档型数据库 Mongodb、搜索引擎数据库 ES 与 Solr、列式数据库 HBase、图形数据库 InfoGrid。</p><!--kg-card-begin: markdown--><h2 id="">快速上手</h2>
+<h3 id="">安装与卸载</h3>
+<pre><code class="language-shell"># 安装
+# MySQL Server 提供数据储存、数据服务
+$ brew install mysql
 # MySQL Workbench: 可视化MySQL管理工具-方便操作存储的数据
-brew install --cask mysqlworkbench
+$ brew install --cask mysqlworkbench
 # 或官方安装文件安装
 ...
-</code></pre>
-<ul>
-<li>卸载：</li>
-</ul>
-<pre><code class="language-shell">sudo rm /usr/local/mysql
-sudo rm -rf /usr/local/mysql*
-sudo rm -rf /Library/StartupItems/MySQLCOM
+# 卸载
+$ mysql --version
+# mysql  Ver 8.0.28 for macos12.2 on x86_64 (Homebrew)
+$ sudo rm /usr/local/mysql
+$ sudo rm -rf /usr/local/mysql*
+$ sudo rm -rf /Library/StartupItems/MySQLCOM
 # 因为有 InstallHisory.plist 注意不要把 Receipts 全删 -- 概率没有 mysql*
 # /Library/Receipts 通常为 user 在 APP Store 中下载的 receipts
-sudo rm -rf /Library/Receipts/mysql* 
+$ sudo rm -rf /Library/Receipts/mysql* 
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">常用路径</h2>
+<h3 id="">常用路径</h3>
 <ul>
-<li>安装包安装完成配置环境变量(Homebrew不同)：</li>
+<li>安装完成配置环境变量。</li>
 </ul>
-<pre><code class="language-shell">vi ~/.zshrc
+<pre><code class="language-shell">$ vi ~/.zshrc
 </code></pre>
 <pre><code class="language-shell"># mysql
 export PATH=&quot;/usr/local/mysql/bin:$PATH&quot;
 alias  mysql='/usr/local/mysql/bin/mysql'
 </code></pre>
 <pre><code class="language-shell"># 更新配置
-source ~/.zshrc   
+$ source ~/.zshrc   
 </code></pre>
 <ul>
-<li>安装包安装完成可通过在系统偏好设置中 mysql 项的 configuration 栏查询具体各内容的安装存在位置。(Homebrew不同)</li>
+<li>安装包安装完成可通过在系统偏好设置中 mysql 项的 configuration 栏查询具体各内容的安装存在位置。</li>
 </ul>
 <pre><code class="language-shell"># 安装文件安装,非homebrew
 # Base Directory
@@ -354,28 +358,168 @@ source ~/.zshrc
 /usr/local/mysql/data/mysqld.local.pid
 </code></pre>
 <ul>
-<li>mac 上使用 homebrew 安装 mysql 的配置文件存放路径不是 <code>/etc/my.cnf</code> 而是 <code>/usr/local/etc/my.cnf</code> 。</li>
+<li>mac 上使用 homebrew 安装的配置文件存放路径。</li>
 </ul>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="mysql">MySQL 操作</h2>
+<pre><code class="language-shell">$ mysqld --help --verbose | more
+/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf
+# 注意 /usr/local/etc/my.cnf !!
+</code></pre>
+<h3 id="">常用命令</h3>
 <ul>
-<li>数据库创建命名规范与特殊提示：</li>
+<li>前置命令</li>
 </ul>
-<p>数据库创建命名不能中文和空格。</p>
-<p>PK(primary key):主键唯一标识、NN(not null):值不允许为空、UQ(Unique):值唯一、AI(Auto Increment):值自动增长。</p>
+<pre><code class="language-shell"># ---准备---
+
+# 1.线程查看 MySQL 是否启动
+$ ps -ef | grep mysql
+
+# 2. brew 查看启动程序
+$ brew services list
+
+# --启动--
+
+# 1.开始/停止/重启 MySQL 服务
+$ sudo /usr/local/MySQL/support-files/mysql.server start/stop/restart
+
+# 2. brew 开始/停止 MySQL 服务
+$ brew services start/stop mysql
+$ mysql.server start/stop
+
+# ---登入登出---
+
+# 登陆 mysql
+$ mysql -u root -p
+# 退出 mysql
+mysql&gt; exit;
+</code></pre>
 <ul>
-<li>导入<code>.sql</code>文件：</li>
+<li>导入 .sql 文件</li>
 </ul>
-<p>创建以导入的<code>.sql</code>文件名命名的新数据库。（此处以 <code>mydb</code> 为例）</p>
+<p>创建以导入的 .sql 文件名命名的新数据库。（此处以 mydb 为例）</p>
 <pre><code class="language-shell"># 登入数据库
+# 常用格式 =&gt; mysql -u root -p xxx -h localhost -P 3306
 $ mysql -u root -p
 
 # 使用数据库(前提存在此数据库)
 $ mysql&gt;use mydb(使用那个数据库的名称)
 
 # 导入 .spl 文件
-$ mysql&gt;source /Users/zsxzy/Desktop/.../db/mydb.sql
+$ mysql&gt; source /Users/zsxzy/Desktop/.../db/mydb.sql
 </code></pre>
 <p>在测试文件是否成功导入时，可能因权限问题报错，在确保数据安全的情况下粗暴解决：<code>sudo chmod -R 777 /usr/local/mysql/data/...</code></p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="sqlstructuredquerylanguage">SQL Structured Query Language</h2>
+<h3 id="">功能分类</h3>
+<p>DDL Data Definition Languages <strong>数据定义语言</strong>用于定义库、表、视图、索引等数据库不同的对象，还可以用来创建、删除、修改数据库和数据表的结构。</p>
+<pre><code class="language-javascript">CREATE|DROP|ALTER|TRUNCATE|RENAME
+</code></pre>
+<p>DML Data Manipulation language <strong>数据操作语言</strong>用于添加、删除、更新和查询数据库记录，并检查数据完整性。</p>
+<pre><code class="language-javascript">INSERT|DELETE|UPDATE|SELECT
+</code></pre>
+<p>DCL Data Control language <strong>数据控制语言</strong>用于定义库、表、字段、用户的访问权限和安全级别。</p>
+<pre><code class="language-javascript">GRANT|REVOKE|COMMIT|ROLLBACK|SAVEPOINT
+</code></pre>
+<p>因查询语句的使用频繁，故很多人把查询语句单拎出来作为一类 DQL 数据查询语言。还有单独的将 COMMIT、ROLLBACK 取出来称为 TCL Transaction Control Language 事务控制语言。</p>
+<h3 id="">规则与规范</h3>
+<p>SQL 可以写在一行或者多行。为了提高可读性各子句分行写，必要时使用缩进。每条命令以 ; 或 \g 或 \G 结束。对于字符串和时间类型的数据可以使用单引号 ''，但是列的别名建议使用双引号 &quot;&quot;，且不建议省略。</p>
+<p>建议数据库名、表名、表别名、字段名、字段别名等都小写；SQL 关键字、函数名、绑定变量等都大写。</p>
+<p>数据库命名不能中文和空格。PK primary key 主键唯一标识、NN not null 值不允许为空、UQ Unique 值唯一、AI Auto Increment 值自动增长。</p>
+<p>单行注释可以使用 <code>#</code> 注释符，直接后边接注释内容。也可以使用 <code>-- </code> 注释符，注意这里有一个空格才能生效。行注释使用 <code>/* */</code>注释符。</p>
+<p>MySQL 中可直接执行 <code>select ...;</code> 不加 <code>from table;</code>，而 Oracle 中需满足 <code>select * from table;</code> 的结构，故引入虚拟表 DUAL。MySQL5.5 以上版本也引入了虚拟表 DUAL，但执行 <code>select * from dual;</code> 会报错。</p>
+<p>按提出时间标准命名的 SQL92 和 SQL99 对应着 SQL 的两个主要标准 SQL-2 和 SQL-3。</p>
+<h3 id="sql">SQL 基础</h3>
+<ul>
+<li>列的别名</li>
+</ul>
+<p>as 全称 alias 别名，可以省略，同时列的别名可以使用一对双引号包裹。如果列名称包含空格，要求使用双引号或方括号。需要注意，别名可以在 ORDER BY 使用，不能在 WHERE 使用。</p>
+<pre><code class="language-javascript">SELECT employee_id emp_id,last_name AS lname,department_id &quot;dept_id&quot;,salary*12 &quot;annual sal&quot;
+FROM employees;
++--------+-------------+---------+
+| emp_id | lname       | dept_id |
++--------+-------------+---------+
+|    ... | ....        |     ... |
++--------+-------------+---------+
+# 错误示范
+SELECT employee_id,salary,salary * 12 annual_sal FROM employees WHERE annual_sal &gt; 81600;
+</code></pre>
+<ul>
+<li>着重号</li>
+</ul>
+<p>通常情况下，表名、字段加上着重号是没有问题的，但是一般不需要。如果出现表名、字段名与关键字重名的情况，需要明确加上着重号表明不是关键字。</p>
+<pre><code class="language-javascript">SELECT * FROM `order`;
+</code></pre>
+<ul>
+<li>查询常数</li>
+</ul>
+<p>在开发场景中，若需将不存在于表中字段里的数据加在结果显示中，可以考虑使用查询常数。</p>
+<pre><code class="language-javascript">SELECT 'zs',123,employee_id,last_name FROM employees;
+</code></pre>
+<ul>
+<li>显示表结构</li>
+</ul>
+<p>刻画表创建时，字段的相关信息。</p>
+<pre><code class="language-javascript">DESCRIBE employees;
+DESC employees;
+</code></pre>
+<ul>
+<li>算术运算符</li>
+</ul>
+<p>在 SQL 中，+ 没有连接作用，仅表示加法运算，此时会将字符串转化为数值（隐式转换）。</p>
+<pre><code class="language-javascript">SELECT 100 + '1' FROM DUAL; # 101
+SELECT 100 + 'a' FROM DUAL; # 此时将不可转换的字符串转化为0
+SELECT 100 + NULL FROM DUAL; # NULL参与运算结果均为 null
+</code></pre>
+<ul>
+<li>比较运算符</li>
+</ul>
+<p>字符串存在隐式转换，如果转换数值不成功，则看作 0。两边都是字符串的情况下，按照 ANST 规则进行比较。UTF-8 向下兼容了 ASCII 码，比较转换后数值是否一致。只要有 NULL 参与的比较，结果都是 NULL。</p>
+<pre><code class="language-javascript">mysql&gt; SELECT 1 = 2,1 != 2,1 = '1',1 = 'a',0 = 'a' FROM DUAL;
++-------+--------+---------+---------+---------+
+| 1 = 2 | 1 != 2 | 1 = '1' | 1 = 'a' | 0 = 'a' |
++-------+--------+---------+---------+---------+
+|     0 |      1 |       1 |       0 |       1 |
++-------+--------+---------+---------+---------+
+mysql&gt; SELECT 'a' = 'a','ab' = 'ab','a' = 'b' FROM DUAL;
++-----------+-------------+-----------+
+| 'a' = 'a' | 'ab' = 'ab' | 'a' = 'b' |
++-----------+-------------+-----------+
+|         1 |           1 |         0 |
++-----------+-------------+-----------+
+mysql&gt; SELECT 1 = NULL,NULL = NULL FROM DUAL;
+</code></pre>
+<ul>
+<li>安全等于运算符</li>
+</ul>
+<p>安全等于运算符 &lt;=&gt; 与等于运算符 = 的作用是相似的，唯一的区别是 &lt;=&gt; 可以用来对 NULL 进行判断。在两个操作数均为 NULL 时，其返回值为 1，而不是为 NULL；当一个操作数为 NULL，其返回值为 0，不为 NULL。</p>
+<pre><code class="language-javascript">mysql&gt; SELECT 1 &lt;=&gt; 2,1 &lt;=&gt; '1',0 &lt;=&gt; 'a' FROM DUAL;
++---------+-----------+-----------+
+| 1 &lt;=&gt; 2 | 1 &lt;=&gt; '1' | 0 &lt;=&gt; 'a' |
++---------+-----------+-----------+
+|       0 |         1 |         1 |
++---------+-----------+-----------+
+mysql&gt; SELECT 1 &lt;=&gt; NULL, NULL &lt;=&gt; NULL FROM DUAL;
++------------+---------------+
+| 1 &lt;=&gt; NULL | NULL &lt;=&gt; NULL |
++------------+---------------+
+|          0 |             1 |
++------------+---------------+
+# 查询表中 commission_pct 为 NULL 的字段
+SELECT last_name,salary,commission_pct FROM employees WHERE commission_pct &lt;=&gt; NULL;
+SELECT last_name,salary,commission_pct FROM employees WHERE commission_pct = NULL; # 没有数据
+</code></pre>
+<ul>
+<li>BETWEEN AND 与 IN</li>
+</ul>
+<p>BETWEEN AND 区分条件上下界，不可交换，查询条件范围内包含边界的数据。IN 则是在 set 范围中<strong>离散</strong>的查找匹配符合的数据。</p>
+<ul>
+<li>LIKE</li>
+</ul>
+<p>模糊匹配 LIKE 常搭配不确定个数的字符 % 与代表一个不确定的字符 _ 使用。</p>
+<pre><code class="language-javascript">SELECT last_name FROM employees WHERE last_name LIKE '%a%';
+SELECT last_name FROM employees WHERE last_name LIKE '%a%' OR last_name LIKE '%e%';
+SELECT last_name FROM employees WHERE last_name LIKE '_a'; # 模糊查询 _a
+SELECT last_name FROM employees WHERE last_name LIKE '_\_a%'; # 模糊查询 _ a
+SELECT last_name FROM employees WHERE last_name LIKE '_$_a%' ESCAPE '$';
+</code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bug">BUG 解决</h2>
 <hr>
 <pre><code class="language-shell">Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
@@ -389,7 +533,7 @@ Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
 ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
 ERROR! The server quit without updating PID file
 </code></pre>
-<p>这几类问题网上有很多说法，但是最重要的还是要确保完全卸载旧版本的 Mysql 再去安装新版 Mysql ，此时再重新启动 MySQL 的服务就不会存在问题。<code>mysql.sock</code> 这个文件是用于 socket 连接的文件，也就是只有守护进程启动起来这个文件才存在。如仍有疑问，<a href="https://stackoverflow.com/questions/16325607/cant-connect-to-local-mysql-server-through-socket-tmp-mysql-sock">点此传送门</a>。</p>
+<p>要确保完全卸载旧版本再去安装新版 Mysql。mysql.sock 文件用于 socket 连接的文件，只有守护进程启动起来这个文件才存在。<a href="https://stackoverflow.com/questions/16325607/cant-connect-to-local-mysql-server-through-socket-tmp-mysql-sock">SOF传送门</a>。</p>
 <hr>
 <pre><code class="language-shell">ERROR! The server quit without updating PID file (/usr/local/var/mysql/xxx.local.pid).
 </code></pre>
@@ -407,7 +551,7 @@ ConnectionError [SequelizeConnectionError]: Client does not support authenticati
 <pre><code class="language-shell"># 在更更改密码时出现如下错误
 ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
 </code></pre>
-<p>由于密码要求修改失败，此时检视密码要求变量</p>
+<p>由于密码要求修改失败，此时检查密码要求变量。</p>
 <pre><code class="language-shell">$ SHOW VARIABLES LIKE 'validate_password%';
 +--------------------------------------+--------+
 | Variable_name                        | Value  |
@@ -421,7 +565,7 @@ ERROR 1819 (HY000): Your password does not satisfy the current policy requiremen
 | validate_password.special_char_count | 1      |
 +--------------------------------------+--------+
 </code></pre>
-<p>可以看出应修改 validate_password_policy 的 MEDIUM 为 LOW 。但是需要注意一点是，如果直接在此处设置 <code>set global validate_password.xxx=${refixval}</code> 的话，加密配置会在下一次启动 MySQL 时失效。正解是应该在 <code>/usr/local/etc/my.cnf</code> 中进行如下重定义加密规则的配置：</p>
+<p>修改 validate_password_policy 的 MEDIUM 为 LOW 。但是需要注意，若直接在此处设置 <code>set global validate_password.xxx=${refixval}</code> 的话，加密配置会在下一次启动 MySQL 时失效。应在 <code>/usr/local/etc/my.cnf</code> 中重新定义加密规则。</p>
 <pre><code class="language-shell">[mysqld]
 validate_password_length=6
 validate_password_policy=LOW
@@ -443,41 +587,91 @@ PING localhost.lan (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.148 ms
 </code></pre>
 <hr>
-<pre><code class="language-shell">2019-08-08T03:57:00.919252Z 0 [System] [MY-013169] [Server] /usr/local/Cellar/mysql/8.0.25_1/bin/mysqld (mysqld 8.0.25) initializing of server in progress as process 2624
+<p>安装 mysql 不成功的原因通常可能是没有将其旧版完全卸载，导致存在残余文件与安装文件冲突，建议彻底删除后重试。</p>
+<pre><code class="language-shell"># 错误信息
+2019-08-08T03:57:00.919252Z 0 [System] [MY-013169] [Server] /usr/local/Cellar/mysql/8.0.25_1/bin/mysqld (mysqld 8.0.25) initializing of server in progress as process 2624
 2019-08-08T03:57:00.921626Z 0 [ERROR] [MY-010457] [Server] --initialize specified but the data directory has files in it. Aborting.
 2019-08-08T03:57:00.921638Z 0 [ERROR] [MY-013236] [Server] The designated data directory /usr/local/var/mysql/ is unusable. You can remove all files that the server added to it.
 2019-08-08T03:57:00.921780Z 0 [ERROR] [MY-010119] [Server] Aborting
 2019-08-08T03:57:00.922020Z 0 [System] [MY-010910] [Server] /usr/local/Cellar/mysql/8.0.25_1/bin/mysqld: Shutdown complete (mysqld 8.0.25)  Homebrew.
 Warning: The post-install step did not complete successfully
 </code></pre>
-<p>使用 <code>brew install mysql</code> 未能成功安装的原因通常定位在没有将旧版 mysql 完全卸载，由于存在参与文件导致初始化失败。通常残余文件存在位置为 <code>/usr/local/var</code>、<code>/usr/local/etc/my.*</code>。</p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">常用命令</h2>
-<pre><code class="language-shell"># ---准备---
-
-# 1.线程查看 MySQL 是否启动
-ps -ef | grep mysql
-
-# 2. brew 查看启动程序
-brew services list
-
-# --启动--
-
-# 1.开始/停止/重启 MySQL 服务
-sudo /usr/local/MySQL/support-files/mysql.server start/stop/restart
-
-# 2. brew 开始/停止 MySQL 服务
-brew services start/stop mysql
-mysql.server start/stop
-
-# ---登入登出---
-
-# 登陆 mysql
-mysql -u root -p
-# 退出 mysql
-exit;
+<pre><code class="language-shell"># 残余文件存在位置
+/usr/local/var
+/usr/local/etc/my.*
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">以上</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
+<hr>
+<p>mysql5 版本向指定的数据库中添加中文信息不成功，导致命令行操作 sql 乱码问题。</p>
+<pre><code class="language-javascript">mysql&gt; INSERT INTO &lt;table_name&gt; VALUES(...,&quot;&lt;中文&gt;&quot;,...)
+ERROR 1366 (HY000): Incorrect string value: '\x[][]' for column 'xx' at row 1
+</code></pre>
+<pre><code class="language-javascript"># 查看表信息
+mysql&gt; show create table &lt;table_name&gt;;
+ENGINE=InnoDB DEFAULT latin1
+# 查看编码命令
+mysql&gt; show variables like 'character_%';
++--------------------------+--------------------------------------------------------+
+| Variable_name            | Value                                                  |
++--------------------------+--------------------------------------------------------+
+| character_set_client     | utf8mb4                                                |
+| character_set_connection | utf8mb4                                                |
+| character_set_database   | utf8mb4 # 检查此处是否为latin1                           |
+| character_set_filesystem | binary                                                 |
+| character_set_results    | utf8mb4                                                |
+| character_set_server     | utf8mb4 # 检查此处是否为latin1                           |
+| character_set_system     | utf8mb3                                                |
+| character_sets_dir       | /usr/local/Cellar/mysql/8.0.28_1/share/mysql/charsets/ |
++--------------------------+--------------------------------------------------------+
+mysql&gt; show variables like 'collation_%';
++----------------------+--------------------+
+| Variable_name        | Value              |
++----------------------+--------------------+
+| collation_connection | utf8mb4_0900_ai_ci |
+| collation_database   | utf8mb4_0900_ai_ci |
+| collation_server     | utf8mb4_0900_ai_ci |
++----------------------+--------------------+
+# 修改 mysql 配置文件 my.cnf / my.ini
+# mac homebrew
+$ mysqld --help --verbose | more
+Default options are read from the following files in the given order:
+/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf
+</code></pre>
+<pre><code class="language-shell"># my.cnf 样例
+[mysql]
+...
+default_character_set=utf8
+[mysqld]
+#
+# * Basic Settings
+#
+user            = mysql
+# pid-file      = /var/run/mysqld/mysqld.pid
+# socket        = /var/run/mysqld/mysqld.sock
+# port          = 3306
+# datadir       = /var/lib/mysql
+
+bind-address            = 127.0.0.1
+mysqlx-bind-address     = 127.0.0.1
+#
+# * Fine Tuning
+#
+key_buffer_size         = 16M
+# max_allowed_packet    = 64M
+# thread_stack          = 256K
+# thread_cache_size       = -1
+myisam-recover-options  = BACKUP
+# max_connections        = 151
+# table_open_cache       = 4000
+log_error = /var/log/mysql/error.log
+
+max_binlog_size   = 100M
+secure_file_priv=''
+...
+character-set-server=utf-8
+collation-server=utf8_general_ci
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 <!--kg-card-end: markdown-->
         </section>
 
@@ -535,7 +729,7 @@ exit;
 
         <a class="post-card-content-link" href="../mysqlnote/index.html">
             <header class="post-card-header">
-                <h2 class="post-card-title">MySQL笔记</h2>
+                <h2 class="post-card-title">MySQL 笔记</h2>
             </header>
             <div class="post-card-excerpt">
                 <p>MYSQL必知必会笔记（此时版本5）</p>
@@ -552,7 +746,7 @@ exit;
             </ul>
             <div class="post-card-byline-content">
                 <span class="post-card-byline-author"><a href="../author/ziyi/index.html">Ziyi Xie</a></span>
-                <span class="post-card-byline-date"><time datetime="2021-12-22">Dec 22, 2021</time> <span class="bull">&bull;</span> 39 min read</span>
+                <span class="post-card-byline-date"><time datetime="2021-12-22">Dec 22, 2021</time> <span class="bull">&bull;</span> 41 min read</span>
             </div>
         </footer>
 
@@ -666,7 +860,7 @@ exit;
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=97b8e8157e"></script>
+<script src="../assets/built/casper.js%3Fv=ae7b9485a6"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
@@ -678,6 +872,41 @@ $(document).ready(function () {
 });
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.gh-content',
+        hasInnerContainers: true
+    });
+</script>
+<script>
+    var tc = document.querySelector(".toc-container");
+    var tch = tc.clientHeight;
+    var ah = document.querySelector(".article-header");
+    var ahh = ah.clientHeight;
+
+    window.addEventListener("scroll", function () {
+    if(document.body.clientWidth > 1170){
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop
+    	if(scrollY >= 2*tch + ahh){
+    		var ctc = document.querySelector(".toc-container");
+			ctc.style.position="sticky";
+            ctc.style.position="-webkit-sticky";
+			ctc.style.top = "120px";
+            ctc.style.marginLeft = "800px";
+            ctc.style.minWidth= "260px";
+    	}
+        if(scrollY < tch + ahh -10){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="";
+            ctc.style.top = "";
+            ctc.style.marginLeft = "";
+            console.log("zszszs")
+        }
+    }
+})
+</script>
 <!-- prism.js -->
 <script defer src="https://cdn.bootcss.com/prism/1.19.0/components/prism-core.min.js"></script>
 <script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
@@ -694,6 +923,15 @@ $(document).ready(function () {
 		$('.carousel').carousel({
 			interval: 3000
 		})
+</script>
+<!-- table of content -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.gh-content',
+        hasInnerContainers: true
+    });
 </script>
 
 </body>
