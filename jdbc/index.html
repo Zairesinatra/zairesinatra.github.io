@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>JDBC</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=3b495c44d6.css" />
+
+    <meta name="description" content="JDBC" />
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="JDBC" />
+    <meta property="og:description" content="JDBC" />
+    <meta property="og:url" content="yourdomain.com/jdbc/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/05/coco.jpg" />
+    <meta property="article:published_time" content="2020-11-29T14:42:00.000Z" />
+    <meta property="article:modified_time" content="2022-05-18T14:25:53.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JDBC" />
+    <meta name="twitter:description" content="JDBC" />
+    <meta name="twitter:url" content="yourdomain.com/jdbc/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/05/coco.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1234" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "JDBC",
+    "url": "yourdomain.com/jdbc/",
+    "datePublished": "2020-11-29T14:42:00.000Z",
+    "dateModified": "2022-05-18T14:25:53.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/05/coco.jpg",
+        "width": 2000,
+        "height": 1234
+    },
+    "keywords": "Technology growth",
+    "description": "JDBC",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.0" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~2.1.0/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="../public/cards.min.js%3Fv=3b495c44d6"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=3b495c44d6.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Q4HQV7NBSG');
+</script>
+
+<!-- 2022 prismjs update -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {      
+    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+        node.classList.add('line-numbers');
+	});
+    Prism.highlightAll();
+});
+</script>
+
+<!-- prism -->
+<style>
+pre[class*="language-"] {
+    margin: 0 0 1.5em !important;
+}
+pre[class*="line-numbers"]>code {
+    padding: 0 ;
+}
+code {
+    text-shadow: none !important;
+}
+.token.operator {
+    background: none !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #202124 !important;
+}
+</style>
+
+<!-- 音乐播放器 -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
+</head>
+<body class="post-template tag-technology-growth has-cover-image">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <nav class="gh-head-inner inner">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <a class="gh-burger" role="button">
+                    <div class="gh-burger-box">
+                        <div class="gh-burger-inner"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
+    <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                    <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-technology-growth ">
+
+    <header class="article-header gh-canvas">
+
+            <section class="article-tag post-card-primary-tag">
+                <a href="../tag/technology-growth/index.html">Technology growth</a>
+            </section>
+
+        <h1 class="article-title">JDBC</h1>
+
+            <p class="article-excerpt">JDBC</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2020-11-29">Nov 29, 2020</time>
+                    <span class="byline-reading-time"><span class="bull">&bull;</span> 41 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w1000/2022/05/coco.jpg 1000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2022/05/coco.jpg"
+                    alt="coco"
+                />
+                    <figcaption>coco</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <!--kg-card-begin: markdown--><h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<p>常用的数据库存取技术有 JDBC、JDO Java Data Object 和其他第三方 O/R 工具。其中 JDBC 是 Java 访问数据库的基石，JDO、Hibernate、MyBatis 等只是进一步的封装了 JDBC。</p>
+<p>Java Database Connectivity 是一个独立于特定数据库的通用数据库存取和操作的公共接口。通过定义访问数据库的标准类库，并使用 java.sql、javax.sql 这些类库，可以以一种标准的方法访问数据库资源。</p>
+<p>面向应用的 Java API 抽象接口，供开发人员连接数据库并执行 SQL。面向数据库的 Java Driver API，供开发商开发数据库驱动程序用。</p>
+<blockquote>
+<p>JDBC 是 SUN 公司提供一套用于数据库操作的接口，开发者只需要面向这套接口编程即可。不同的数据库厂商，需要针对这套接口，提供不同实现。不同的实现的集合，即为不同数据库的驱动。</p>
+<p>ODBC Open Database Connectivity 开放式数据库连接是微软在 Windows 平台下推出的。使用者在程序中只需要调用 ODBC API，由 ODBC 驱动程序将调用转换成为对特定的数据库的调用请求。</p>
+</blockquote>
+<h2 id="%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5">获取数据库连接</h2>
+<h3 id="%E8%BF%9E%E6%8E%A5%E8%A6%81%E7%B4%A0">连接要素</h3>
+<ul>
+<li>Driver 接口实现类</li>
+</ul>
+<p>java.sql.Driver 接口是所有 JDBC 驱动程序需要实现的接口。此接口提供给数据库厂商使用，不同数据库厂商提供不同的实现。在程序中不需要直接去访问实现 Driver 接口的类，而是由驱动程序管理器类 java.sql.DriverManager 去调用这些 Driver 实现。</p>
+<p>将 <a href="https://dev.mysql.com/downloads/connector/j/">connector-mysql-java</a> 的 jar 包拷贝到工程的目录中的新建 lib 文件夹。勿忘在驱动 jar 包上点击右键选择 Build Path =&gt; Add to Build Path。</p>
+<p>若是 Dynamic Web Project 动态项目的话，则将驱动 jar 包放入 WebContent 或 WebRoot 目录中 WEB-INF 的 lib 内。</p>
+<p>加载驱动需调用 Class 类的静态方法 <code>forName()</code>，并向其传递待加载 JDBC 驱动的类名。</p>
+<pre><code class="language-java">// 加载驱动
+Class.forName(“com.mysql.cj.jdbc.Driver”);
+</code></pre>
+<p>DriverManager 是驱动程序管理器类，负责管理驱动程序。通常不用显式调用此类的 <code>registerDriver()</code> 方法来注册驱动程序类的实例，因 Driver 接口的驱动程序类都包含了注册自身实例的静态代码块，而在这个静态代码块中，会调用 <code>DriverManager.registerDriver()</code>。</p>
+<pre><code class="language-java">// 注册驱动 =&gt; 通常不需显示调用
+DriverManager.registerDriver(com.mysql.cj.jdbc.Driver)
+</code></pre>
+<ul>
+<li>配置信息</li>
+</ul>
+<p>JDBCURL 用于标识一个被注册的驱动程序，驱动程序管理器通过这个 URL 选择正确的驱动程序，从而建立到数据库的连接。</p>
+<pre><code class="language-java">/* 几种常用数据库的 JDBC URL */
+// 1.MySQL
+// jdbc协议:标识数据库驱动程序的子协议://子名称 =&gt; 标识数据库的方法
+jdbc:mysql://localhost:3306/&lt;DatabaseName&gt;
+// jdbc:mysql://主机名称:mysql服务端口号/数据库名称?参数=值&amp;参数=值
+// 如果JDBC程序与服务器端的字符集不一致会导致乱码,可以通过参数指定服务器端的字符集.
+jdbc:mysql://localhost:3306/&lt;DatabaseName&gt;?useUnicode=true&amp;characterEncoding=utf8
+jdbc:mysql://localhost:3306/&lt;DatabaseName&gt;?user=&lt;user&gt;&amp;password=&lt;password&gt;
+// 2.Oracle
+// jdbc:oracle:thin:@主机名称:oracle服务端口号:数据库名称
+jdbc:oracle:thin:@localhost:1521:&lt;DatabaseName&gt;
+// 3.SQLServer
+// jdbc:sqlserver://主机名称:sqlserver服务端口号:DatabaseName=数据库名称
+jdbc:sqlserver://localhost:1433:DatabaseName=&lt;DatabaseName&gt;
+</code></pre>
+<h3 id="%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F">连接方式</h3>
+<pre><code class="language-java">// jdbc.properties
+url=jdbc:mysql://localhost:3306/jdbc_learn
+user=&lt;user&gt;
+password=&lt;password&gt;
+driverClass=com.mysql.cj.jdbc.Driver
+</code></pre>
+<pre><code class="language-java">// ConnectionTest.java
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import org.junit.Test;
+
+public class ConnectionTest {
+	// 方式一
+	@Test
+	public void testConnection1() throws SQLException {
+		// 获取 Driver 的实现类对象
+		// Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. 
+		// Driver driver = new com.mysql.jdbc.Driver(); =&gt; 被废弃
+		Driver driver = new com.mysql.cj.jdbc.Driver();
+		// jdbc:mysql =&gt; 协议
+		String url = &quot;jdbc:mysql://localhost:3306/jdbc_learn&quot;;
+		// 用户名与密码封装在properties中
+		Properties info = new Properties();
+		info.setProperty(&quot;user&quot;, &lt;user&gt;);
+		info.setProperty(&quot;password&quot;, &lt;password&gt;);
+		Connection conn = driver.connect(url, info);
+		System.out.println(conn);
+	}
+	// 方式二 =&gt; 提高可移植性 =&gt; 不要出现第三方 API =&gt; 通用性增加
+	@Test
+	public void testConnection2() throws Exception {
+		// 获取 Driver 的实现类对象 =&gt; 反射
+		Class clazz = Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+		Driver driver = (Driver) clazz.newInstance();
+		// 提供待连接的数据库
+		String url = &quot;jdbc:mysql://localhost:3306/jdbc_learn&quot;;
+		Properties info = new Properties();
+		info.setProperty(&quot;user&quot;, &lt;user&gt;);
+		info.setProperty(&quot;password&quot;, &lt;password&gt;);
+		Connection conn = driver.connect(url, info);
+		System.out.println(conn);
+	}
+	// 方式三 =&gt; 使用 DriverManager 替换 Driver
+	@Test
+	public void testConnection3() throws Exception {
+		// 1.获取Driver的实现类对象
+		Class clazz = Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+		Driver driver = (Driver) clazz.newInstance();
+		// 2.提供连接的基本信息
+		String url = &quot;jdbc:mysql://localhost:3306/jdbc_learn&quot;;
+		String user = &lt;user&gt;;
+		String password = &lt;password&gt;;
+		// 注册驱动
+		DriverManager.registerDriver(driver);
+		// 获取连接
+		Connection conn = DriverManager.getConnection(url, user, password);
+		System.out.println(conn);
+	}
+	// 方式四 =&gt; 可以只加载驱动,无需显示的注册驱动
+	@Test
+	public void testConnection4() throws Exception {
+		// 1.提供连接的基本信息
+		String url = &quot;jdbc:mysql://localhost:3306/jdbc_learn&quot;;
+		String user = &lt;user&gt;;
+		String password = &lt;password&gt;;
+		// 2.加载Driver
+		// mysql 的 Driver 类加载进内存自动进行 =&gt; 静态代码块随着类的加载而执行
+		// 这一步 mysql 也可以省,但是oracle就不行了 =&gt; Jar包入路径自动加载了
+		Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+		// 获取连接
+		Connection conn = DriverManager.getConnection(url, user, password);
+		System.out.println(conn);
+	}
+	// 方式五 =&gt; 配置信息不以硬编码方式写入代码中 =&gt; 最终版 =&gt; 配置文件方式引入
+	// 数据与代码分离 =&gt; 实现解耦; 修改配置避免重新打包
+	@Test
+	public void testConnection5() throws Exception {
+		// 1.读取配置文件
+		InputStream is = ConnectionTest.class.getClassLoader().getResourceAsStream(&quot;jdbc.properties&quot;);
+		Properties props= new Properties();
+		props.load(is);
+		String user = props.getProperty(&quot;user&quot;);
+		String password = props.getProperty(&quot;password&quot;);
+		String url = props.getProperty(&quot;url&quot;);
+		String driverClass = props.getProperty(&quot;driverClass&quot;);
+		// 2.加载Driver
+		Class.forName(driverClass);
+		// 获取连接
+		Connection conn = DriverManager.getConnection(url, user, password);
+		System.out.println(conn);
+	}
+}
+</code></pre>
+<hr>
+<h2 id="crud-%E6%93%8D%E4%BD%9C">CRUD 操作</h2>
+<p>数据库连接被用于向数据库服务器发送命令和语句，并接受返回的结果。其实一个数据库连接就是一个 Socket 连接。java.sql 中定义了以不同方式调用数据库的接口。Statement 执行静态 sql 语句并返回结果对象。PreparedStatement 将被预编译的 sql 语句存储在此对象中，并能使用此对象多次高效地执行该语句。CallableStatement 用于执行 SQL 存储过程。</p>
+<p>Statement 操作存在弊端，其一是存在繁琐的拼串操作，其二是存在 SQL 注入的风险。</p>
+<pre><code class="language-sql">SELECT user, password FROM user_table WHERE user='a' OR 1 = ' AND password = ' OR '1' = '1';
+</code></pre>
+<h3 id="preparedstatement">PreparedStatement</h3>
+<p>PreparedStatement 接口是 Statement 的子接口，该接口实现的对象表示一条预编译过的 SQL 语句。调用 Connection 对象的 <code>prepareStatement(String sql)</code> 方法能获取 PreparedStatement 对象。通常存在于 PreparedStatement 对象里的 SQL 语句参数起初会以问号 ? 进行表示，需调用 PreparedStatement 对象的 <code>setXxx()</code> 方法来具体指定设置这些参数。此方法有两个参数，SQL 语句中的参数索引（从 1 开始）和参数的具体值。</p>
+<p>DBServer 会对预编译语句提供性能优化，即被 DBServer 的编译器编译后的执行代码会被缓存下来，下次调用时只要是相同的预编译语句就不需要编译，只要将参数直接传入编译过的语句执行代码中就会直接执行。在 statement 语句中，即使是相同操作，但因数据内容不一样，所以整个语句本身不能匹配，就没有缓存语句这一说。事实是没有数据库会对普通语句编译后的执行代码进行缓存，这样每执行一次都要对传入的语句编译一次。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Java类型</th>
+<th style="text-align:center">SQL类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">BIT</td>
+</tr>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">TINYINT</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">SMALLINT</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">INTEGER</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">BIGINT</td>
+</tr>
+<tr>
+<td style="text-align:center">String</td>
+<td style="text-align:center">CHAR,VARCHAR,LONGVARCHAR</td>
+</tr>
+<tr>
+<td style="text-align:center">byte array</td>
+<td style="text-align:center">BINARY , VAR BINARY</td>
+</tr>
+<tr>
+<td style="text-align:center">java.sql.Date</td>
+<td style="text-align:center">DATE</td>
+</tr>
+<tr>
+<td style="text-align:center">java.sql.Time</td>
+<td style="text-align:center">TIME</td>
+</tr>
+<tr>
+<td style="text-align:center">java.sql.Timestamp</td>
+<td style="text-align:center">TIMESTAMP</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interface-resultset">Interface <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html">ResultSet</a></h3>
+<p>查询需调用 PreparedStatement 的 <code>executeQuery()</code> 方法，其返回结果是一个 ResultSet 对象。该对象以表格的形式封装了执行数据库操作的结果集，或者说是一张有限定的数据表。注意此时存在一个指针指在数据表的第一条记录前，可以通过 ResultSet 对象的 <code>next()</code> 方法移动到下一行。该方法检测下一行是否有效，若有效则返回 true，且指针下移。</p>
+<blockquote>
+<p>...<br>
+当指针指向一行时, 可以调用 get[?](index|label) 获取所需数据 =&gt; 主要是拿&quot;值&quot;<br>
+int	getInt(int columnIndex)<br>
+Retrieves the value of the designated column in the current row of this ResultSet object as an int in the Java programming language.<br>
+int	getInt(String columnLabel)<br>
+Retrieves the value of the designated column in the current row of this ResultSet object as an int in the Java programming language.<br>
+...</p>
+</blockquote>
+<p><img src="../content/images/2022/05/ResultSet.png" alt="ResultSet" loading="lazy"></p>
+<h3 id="resultsetmetadata"><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/ResultSetMetaData.html">ResultSetMetaData</a></h3>
+<p>ResultSetMetaData 可用于获取关于 ResultSet 对象中列的类型和属性信息的对象。</p>
+<pre><code class="language-java">ResultSetMetaData meta = rs.getMetaData(); =&gt; 获取 meta.
+getColumnName(int column) =&gt; 获取指定列的名称.
+getColumnLabel(int column) =&gt; 获取指定列的别名. !!!
+getColumnCount() =&gt; 返回当前 ResultSet 对象中的列数. !!!
+getColumnTypeName(int column) =&gt; 检索指定列的数据库特定的类型名称.
+getColumnDisplaySize(int column) =&gt; 指示指定列的最大标准宽度,以字符为单位.
+isNullable(int column) =&gt; 指示指定列中的值是否可以为 null.
+isAutoIncrement(int column) =&gt; 指示是否自动为指定列进行编号,注意这些列仍然只读.
+</code></pre>
+<h3 id="orm-object-relational-mapping">ORM object relational mapping</h3>
+<p>一个数据表对应一个 java 类，表中的一条记录对应 java 类的一个对象，表中的一个字段对应 java 类的一个属性。</p>
+<h3 id="%E5%AE%9E%E7%8E%B0%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5">实现增删改查</h3>
+<p>PreparedStatement 预编译对象传入 sql 并执行方法后可得到 ResultSet 结果集，从结果集能获取到制作反射对象的&quot;值&quot;，而结果集的 ResultSetMetaData 元数据对象能获取到结果集的列数与对应列的属性。最后根据传入运行时类指定的对象使用反射具体的属性，指定具体的值。</p>
+<pre><code class="language-java">/*
+ * 通用的增删改操作
+ */
+public void GeneralUpdate(String sql,Object ...args){
+    Connection connection = null;
+    PreparedStatement prepareStatement = null;
+    try {
+        connection = JDBCUtils.getConnection();
+        prepareStatement = connection.prepareStatement(sql);
+        for(int i = 0;i &lt; args.length;i++) {
+            prepareStatement.setObject(i+1, args[i]);
+        }
+        // 信使完成sql转而执行
+        prepareStatement.execute();
+	} catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        JDBCUtils.closeResource(connection, prepareStatement);
+    }
+}
+// ---
+/*
+ * 针对不同表的通用查询,返回表中一条记录.
+ */
+public &lt;T&gt; T getInstance(Class&lt;T&gt; clazz, String sql,Object ...args) {
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet executeQuery = null;
+    try {
+        connection = JDBCUtils.getConnection();
+        preparedStatement = connection.prepareStatement(sql);
+        for (int i = 0; i &lt; args.length; i++) {
+            preparedStatement.setObject(i+1, args[i]);
+        }
+        executeQuery = preparedStatement.executeQuery();
+        // 获取结果集的原数据 =&gt; 元注解
+        ResultSetMetaData metaData = executeQuery.getMetaData();
+        // 通过结果集元数据获取结果集中的列数
+        int columnCount = metaData.getColumnCount();
+        if(executeQuery.next()) {
+            // 查到结果再造结果集
+            T t = clazz.newInstance();
+//				Customer customer = new Customer();
+            // 处理一行数据中的每一个列
+            for (int i = 0; i &lt; columnCount; i++) {
+                Object columnValue = executeQuery.getObject(i+1);
+                // 获取每个列的列名
+				String columnLabel = metaData.getColumnLabel(i+1);
+				// 通过反射给cust对象指定的columnName赋值为columnValue
+				Field field = clazz.getDeclaredField(columnLabel);
+				field.setAccessible(true);
+				field.set(t, columnValue);
+			}
+			return t;
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		JDBCUtils.closeResource(connection, preparedStatement, executeQuery);
+	}
+	return null;
+}
+</code></pre>
+<pre><code class="language-java">/**
+ * 
+ * @Description	操作数据库的工具类 =&gt; JDBCUtils
+ * @author zsxzy
+ * @version	1.0.0
+ *
+ */
+
+import java.io.InputStream;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Properties;
+
+
+public class JDBCUtils {
+	/**
+	 * 
+	 * @Description 获取数据库连接
+	 * @author zsxzy
+	 * @return
+	 * @throws Exception
+	 */
+	public static Connection getConnection() throws Exception {
+		// 1.读取配置文件
+		InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream(&quot;jdbc.properties&quot;);
+		Properties props= new Properties();
+		props.load(is);
+		String user = props.getProperty(&quot;user&quot;);
+		String password = props.getProperty(&quot;password&quot;);
+		String url = props.getProperty(&quot;url&quot;);
+		String driverClass = props.getProperty(&quot;driverClass&quot;);
+		// 2.加载Driver
+		Class.forName(driverClass);
+		// 获取连接
+		Connection conn = DriverManager.getConnection(url, user, password);
+		return conn;
+	}
+	/**
+	 * 
+	 * @Description 关闭资源操作
+	 * @author zsxzy
+	 * @param conn
+	 * @param ps
+	 */
+	public static void closeResource(Connection conn,PreparedStatement ps) {
+		try {
+			if(ps != null)
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			if(conn != null)
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void closeResource(Connection conn,PreparedStatement ps,ResultSet resultSet) {
+		try {
+			if(ps != null)
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			if(conn != null)
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			if(resultSet != null)
+				resultSet.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+</code></pre>
+<h2 id="%E6%93%8D%E4%BD%9C-blob-%E7%B1%BB%E5%9E%8B%E5%AD%97%E6%AE%B5">操作 BLOB 类型字段</h2>
+<p>插入 BLOB 类型的数据必须使用 PreparedStatement，因为此类型的数据无法使用字符串拼接。在指定类型后仍然报错 xxx too large，那么需要在配置文件加上 <code>max_allowed_packet=16M</code>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">大小（单位：字节）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">TinyBlob</td>
+<td style="text-align:center">Max_225</td>
+</tr>
+<tr>
+<td style="text-align:center">Blob</td>
+<td style="text-align:center">Max_65K</td>
+</tr>
+<tr>
+<td style="text-align:center">MediumBlob</td>
+<td style="text-align:center">Max_16M</td>
+</tr>
+<tr>
+<td style="text-align:center">LongBlob</td>
+<td style="text-align:center">Max_4G</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.junit.Test;
+
+import com.mysql.cj.exceptions.RSAException;
+import com.zszyjdbc.bean.Customer;
+import com.zszyjdbc.util.JDBCUtils;
+
+public class BlobTest {
+	// 向数据表插入blob类型字段
+	@Test
+	public void testInsert() throws Exception {
+		Connection connection = JDBCUtils.getConnection();
+		String sql = &quot;INSERT INTO customers(name,email,birth,photo) VALUES (?,?,?,?)&quot;;
+		PreparedStatement prepareStatement = connection.prepareStatement(sql);
+		prepareStatement.setObject(1, &quot;gz&quot;);
+		prepareStatement.setObject(2, &quot;gz@mail.com&quot;);
+		prepareStatement.setObject(3, &quot;1997-01-01&quot;);
+		FileInputStream is = new FileInputStream(new File(&quot;gz.jpg&quot;));
+		prepareStatement.setBlob(4, is);
+		prepareStatement.execute();
+		JDBCUtils.closeResource(connection, prepareStatement);
+	}
+	// 查询数据表blob类型字段
+	@Test
+	public void testQuery(){
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		InputStream is = null;
+		FileOutputStream fos = null;
+		ResultSet resultSet = null;
+		try {
+			connection = JDBCUtils.getConnection();
+			String sql = &quot;SELECT id,name,email,birth,photo FROM customers WHERE id = ?&quot;;
+			prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setObject(1, 21);
+			resultSet = prepareStatement.executeQuery();
+			if(resultSet.next()) {
+				int id = resultSet.getInt(1);
+				String name = resultSet.getString(2);
+				String email = resultSet.getString(3);
+				Date birth = resultSet.getDate(4);
+				Customer customer = new Customer(id,name,email,birth); 
+				System.out.println(customer);
+				Blob photo = resultSet.getBlob(&quot;photo&quot;);
+				is = photo.getBinaryStream();
+				fos = new FileOutputStream(&quot;doggz.jpg&quot;);
+				byte[] buffer = new byte[1024];
+				int len;
+				while((len = is.read(buffer))!= -1) {
+					fos.write(buffer,0,len);
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if(is != null)
+				is.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				if(fos != null)
+				fos.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			JDBCUtils.closeResource(connection, prepareStatement,resultSet);	
+		}
+	}
+}
+</code></pre>
+<h2 id="%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5">批量插入</h2>
+<p>Java 的批量更新机制是当需要成批的插入或更新记录时，允许多条语句一次性提交给数据库进行批量处理。此方法通常情况下比单独提交处理更有效率。</p>
+<pre><code class="language-java">// 使用批量执行的情况 =&gt; 1.多条SQL语句的批量处理;2.一个SQL语句的批量传参
+JDBC的批量处理语句方法:
+addBatch(String) =&gt; 添加需要批量处理的SQL语句或是参数；
+executeBatch() =&gt; 执行批量处理语句；
+clearBatch() =&gt; 清空缓存的数据
+</code></pre>
+<pre><code class="language-sql"># 提供goods表
+CREATE TABLE goods(id INT PRIMARY KEY AUTO_INCREMENT,NAME VARCHAR(20));
+</code></pre>
+<pre><code class="language-java">import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+
+import org.junit.Test;
+import com.zszyjdbc.util.JDBCUtils;
+
+public class BatchTest {
+	@Test
+	public void testInsert() throws Exception{
+		long start = System.currentTimeMillis();
+		Connection conn = JDBCUtils.getConnection();
+		// 1.设置为不自动提交数据
+		conn.setAutoCommit(false);
+		String sql = &quot;insert into goods(name)values(?)&quot;;
+		PreparedStatement ps = conn.prepareStatement(sql);
+		for(int i = 1;i &lt;= 1000;i++){
+			ps.setString(1, &quot;name_&quot; + i);	
+			// 1.攒sql
+			ps.addBatch();	
+			if(i % 500 == 0){
+				// 2.执行
+				ps.executeBatch();
+				// 3.清空
+				ps.clearBatch();
+			}
+		}
+		// 2.提交数据
+		conn.commit();
+		long end = System.currentTimeMillis();
+		System.out.println(&quot;花费的时间为 =&gt; &quot; + (end - start));
+		JDBCUtils.closeResource(conn, ps);
+	}
+}
+</code></pre>
+<h2 id="%E4%BA%8B%E5%8A%A1">事务</h2>
+<h3 id="%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1">数据库事务</h3>
+<p>数据库事务即一组逻辑操作单元，使数据从一种状态变换到另一种状态。事务处理保证所有事务都作为一个工作单元来执行，即使出现了故障，都不能改变这种执行方式。在事务中执行多个操作时，要么所有的事务都被提交，所做修改永久保存；要么放弃所作的所有修改，整个事务回滚到最初状态。</p>
+<h3 id="jdbc-%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86">JDBC 事务处理</h3>
+<p>当一个连接对象被创建时，默认情况下是自动提交事务。此外在关闭数据库连接时，数据也会自动的提交。如果多个操作都是使用的是各自单独的连接，则无法保证事务。即同一个事务的多个操作必须在同一个连接下。</p>
+<p>JDBC 可调用 Connection 对象的 <code>setAutoCommit(false);</code> 取消自动提交事务。在语句都成功执行后，可调用 <code>commit();</code> 提交事务。出现异常时应调用 <code>rollback();</code> 回滚事务。此时若数据库连接没有关闭，则应恢复自动提交状态 <code>setAutoCommit(true)</code>。尤其是使用数据库连接池时，应在 <code>close()</code> 方法前恢复其自动提交状态。</p>
+<pre><code class="language-java">import java.lang.reflect.Field;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.junit.Test;
+
+import com.zszyjdbc.util.JDBCUtils;
+
+public class TransactionTest {
+	// 通用增删改操作---version1.0
+	public void update(String sql,Object ...args){
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			connection = JDBCUtils.getConnection();
+			prepareStatement = connection.prepareStatement(sql);
+			for(int i = 0;i &lt; args.length;i++) {
+				prepareStatement.setObject(i+1, args[i]);
+			}
+			prepareStatement.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtils.closeResource(connection, prepareStatement);
+		}
+	}
+	@Test
+	public void testUpdate() {
+		/*
+		 * user_table AA给BB转账100
+		 */
+		String sql1 = &quot;UPDATE user_table SET balance = balance - 100 WHERE user = ?&quot;;
+		String sql2 = &quot;UPDATE user_table SET balance = balance + 100 WHERE user = ?&quot;;
+		update(sql1, &quot;AA&quot;);
+		// 模拟网络异常 =&gt; System.out.println(10/0);
+		update(sql2, &quot;BB&quot;);
+		System.out.println(&quot;okk&quot;);
+	}
+	@Test
+	public void testUpdatenew(){
+		Connection conn = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			// 默认情况会提交
+			System.out.println(conn.getAutoCommit());
+			// 取消数据的自动提交
+			conn.setAutoCommit(false);
+			String sql1 = &quot;UPDATE user_table SET balance = balance - 100 WHERE user = ?&quot;;
+			String sql2 = &quot;UPDATE user_table SET balance = balance + 100 WHERE user = ?&quot;;
+			updateNew(conn,sql1, &quot;AA&quot;);
+			// 模拟网络异常 =&gt; System.out.println(10/0);
+			System.out.println(10/0);
+			updateNew(conn,sql2, &quot;BB&quot;);
+			System.out.println(&quot;okk&quot;);
+			// 手动提交
+			conn.commit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			try {
+				// 出现异常就回滚
+				conn.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} finally {
+			JDBCUtils.closeResource(conn, null);	
+		}
+	}
+	// 考虑事务的增删改
+	public int updateNew(Connection conn, String sql,Object ...args){
+		PreparedStatement prepareStatement = null;
+		try {
+			prepareStatement = ((Connection) conn).prepareStatement(sql);
+			for(int i = 0;i &lt; args.length;i++) {
+				prepareStatement.setObject(i+1, args[i]);
+			}
+			prepareStatement.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtils.closeResource(null, prepareStatement);
+		}
+		return 0;
+	}
+	@Test
+	public void testTransactionSelect() throws Exception {
+		Connection connection = JDBCUtils.getConnection();
+		// 获取当前隔离级别 =&gt; 1=read uncommit
+		System.out.println(connection.getTransactionIsolation());
+		// 设置数据库的隔离级别
+		connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+		// 取消自动提交
+		connection.setAutoCommit(false);
+		String sql = &quot;SELECT user,password,balance FROM user_table WHERE user = ?&quot;;
+		User user = getInstance(connection,User.class,sql,&quot;CC&quot;);
+		System.out.println(user);
+	}
+	public void testTransactionUpdate() throws Exception {
+		Connection connection = JDBCUtils.getConnection();
+		// 取消自动提交
+		connection.setAutoCommit(false);
+		String sql = &quot;UPDATE user_table SET balance = ? WHERE user = ?&quot;;
+		updateTransac(connection, sql,5000,&quot;CC&quot;);
+		Thread.sleep(15000);
+		System.out.println(&quot;修改结束&quot;);
+	}
+	// 通用的查询操作,返回数据表中的一条记录 VERSION2.0 =&gt; 考虑事务
+	public &lt;T&gt; T getInstance(Connection conn, Class&lt;T&gt; clazz, String sql,Object ...args) {
+		PreparedStatement preparedStatement = null;
+		ResultSet executeQuery = null;
+		try {
+			preparedStatement = conn.prepareStatement(sql);
+			for (int i = 0; i &lt; args.length; i++) {
+				preparedStatement.setObject(i+1, args[i]);
+			}
+			executeQuery = preparedStatement.executeQuery();
+			// 获取结果集的原数据 =&gt; 元注解
+			ResultSetMetaData metaData = executeQuery.getMetaData();
+			// 通过结果集元数据获取结果集中的列数
+			int columnCount = metaData.getColumnCount();
+			if(executeQuery.next()) {
+				// 查到结果再造结果集
+				T t = clazz.newInstance();
+//				Customer customer = new Customer();
+				// 处理一行数据中的每一个列
+				for (int i = 0; i &lt; columnCount; i++) {
+					Object columnValue = executeQuery.getObject(i+1);
+					// 获取每个列的列名
+					String columnLabel = metaData.getColumnLabel(i+1);
+					// 通过反射给cust对象指定的columnName赋值为columnValue
+					Field field = clazz.getDeclaredField(columnLabel);
+					field.setAccessible(true);
+					field.set(t, columnValue);
+				}
+				return t;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtils.closeResource(null, preparedStatement, executeQuery);
+		}
+		return null;
+	}
+	// 通用增删改操作---version2.0 =&gt; 插入事务
+	public int updateTransac(Connection conn,String sql,Object ...args){
+		PreparedStatement prepareStatement = null;
+		try {
+			prepareStatement = conn.prepareStatement(sql);
+			for(int i = 0;i &lt; args.length;i++) {
+				prepareStatement.setObject(i+1, args[i]);
+			}
+			return prepareStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtils.closeResource(null, prepareStatement);
+		}
+		return 0;
+	}
+}
+</code></pre>
+<h3 id="%E4%BA%8B%E5%8A%A1%E7%9A%84-acid-%E5%B1%9E%E6%80%A7">事务的 ACID 属性</h3>
+<pre><code class="language-java">原子性 Atomicity =&gt; 事务是一个不可分割的工作单位，操作要么都发生，要么都不发生。
+一致性 Consistency =&gt; 事务必须使数据库从一个一致性状态变换到另外一个一致性状态。
+隔离性 Isolation =&gt; 一个事务内部的操作及使用的数据对并发的其他事务是隔离的，并发执行的各个事务之间不能互相干扰。
+持久性 Durability =&gt; 一个事务一旦被提交，其对数据库中数据的改变就是永久性的，接下来的其他操作和数据库故障不应该对其有任何影响。
+</code></pre>
+<h3 id="%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98">并发问题</h3>
+<p>对于同时运行的多个事务访问数据库中相同的数据时，如果没有采取隔离机制，就会导致各种并发问题。一个事务与其他事务隔离的程度称为隔离级别。数据库规定了多种事务隔离级别，不同隔离级别对应不同的干扰程度, 隔离级别越高, 数据一致性就越好, 但并发性越弱。</p>
+<pre><code class="language-java">脏读 =&gt; 对于两个事务 T1、T2，T1 读取了已经被 T2 更新但还没有被提交的字段。之后 T2 回滚，T1 读取的内容就是临时且无效的。
+不可重复读 =&gt; 对于两个事务T1、T2, T1 读取了一个字段，然后 T2 更新了该字段。之后 T1 再次读取同一个字段，值就不同了。
+幻读 =&gt; 对于两个事务T1、T2, T1 从一个表中读取了一个字段，然后 T2 在该表中插入了一些新的行。如果 T1 再次读取同一个表，就会多出几行。
+</code></pre>
+<h3 id="%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB">隔离级别</h3>
+<p>Oracle 支持 READ COMMITED、SERIALIZABLE 事务隔离级别。默认的事务隔离级别为 READ COMMITED。Mysql 支持四种种事务隔离级别，默认的事务隔离级别为 REPEATABLE READ。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">隔离级别</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">READ UNCOMMITTED 读未提交数据</td>
+<td style="text-align:center">允许事务读取未被提交的更改。脏读，不可重复读和幻读的问题都会出现。</td>
+</tr>
+<tr>
+<td style="text-align:center">READ COMMTED 读已提交数据</td>
+<td style="text-align:center">只允许事务读取已经被其他事务提交的变更。可以避免脏读，但不可重复读和幻读问题仍然存在。</td>
+</tr>
+<tr>
+<td style="text-align:center">REPEATABLE READ 可重复读</td>
+<td style="text-align:center">确保事务可多次从一个字段中读取相同的值。在这个事务持续期间，禁止其他事物对这个字段进行更新。可以避免脏读和不可重复读，但幻读的问题仍然存在。</td>
+</tr>
+<tr>
+<td style="text-align:center">SERIALIZABLE 串行化</td>
+<td style="text-align:center">确保事务可从一个表中读取相同的行，在这个事务持续期间，禁止其他事务对该表执行插入、更新和删除操作。所有并发问题都可以避免，但性能十分低下。</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">/*
+在MySql中设置隔离级别
+每启动一个 mysql 程序, 就会获得一个单独的数据库连接. 每个数据库连接都有一个全局变量 @@tx_isolation, 表示当前的事务隔离级别。
+*/
+# 查看当前的隔离级别
+mysql&gt; SELECT @@tx_isolation;
+mysql&gt; SELECT @@transaction_isolation;
++-------------------------+
+| @@transaction_isolation |
++-------------------------+
+| REPEATABLE-READ         |
++-------------------------+
+# 设置当前连接的隔离级别
+mysql&gt; set transaction isolation level read committed;
+# 设置数据库系统的全局的隔离级别
+mysql&gt; set global transaction isolation level read committed;
+# 创建 mysql 数据库用户
+mysql&gt; create user gz identified by 'abc123';
+#授予通过网络方式登录的tom用户，对所有库所有表的全部权限，密码设为abc123.
+mysql&gt; grant all privileges on *.* to gz@'%'  identified by 'abc123'; 
+# 给tom用户使用本地命令行方式，授予 xxxdb 这个库下的所有表的插删改查的权限。
+grant select,insert,delete,update on xxxdb.* to gz@localhost identified by 'abc123'; 
+</code></pre>
+<h2 id="dao-%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%AE%9E%E7%8E%B0%E7%B1%BB">DAO 及相关实现类</h2>
+<p>DAO Data Access Object 访问数据信息的类和接口，有时也称作 BaseDAO。包括了对数据的 CRUD，而不包含任何业务相关的信息。实现功能的模块化，有利于代码的维护和升级。</p>
+<pre><code class="language-java">import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.zszyjdbc.bean.Customer;
+import com.zszyjdbc.util.JDBCUtils;
+
+/*
+ * 封装针对数据表的通用操作
+ */
+public abstract class BaseDao &lt;T&gt;{
+	private Class&lt;T&gt; clazz = null;
+	public BaseDao(){
+		
+	}
+	{
+		/*
+		 * 获取当前BaseDAO的子类继承的父类中的泛型
+		 */
+		// getClass() =&gt; 获取运行时类
+		// getGenericSuperclass() =&gt; 获得带有泛型的父类
+		Type genericSuperclass = this.getClass().getGenericSuperclass();
+		System.out.println(this.getClass()); // class com.zszyjdbc.dao.CustomersDAOImpl
+		System.out.println(genericSuperclass); // com.zszyjdbc.dao.BaseDao&lt;com.zszyjdbc.bean.Customer&gt;
+		ParameterizedType parameterizedType = (ParameterizedType) genericSuperclass;
+		Type[] actualTypeArguments = parameterizedType.getActualTypeArguments(); // 获取父类泛型参数
+		clazz = (Class&lt;T&gt;) actualTypeArguments[0]; // 泛型第一个参数 =&gt; Customer
+	}
+	// 通用的增删改操作 -- version2 考虑事务
+	public int updateTransac(Connection conn,String sql,Object ...args){
+		PreparedStatement prepareStatement = null;
+		try {
+			prepareStatement = conn.prepareStatement(sql);
+			for(int i = 0;i &lt; args.length;i++) {
+				prepareStatement.setObject(i+1, args[i]);
+			}
+			return prepareStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtils.closeResource(null, prepareStatement);
+		}
+		return 0;
+	}
+	public T getInstance(Connection conn, String sql,Object ...args) {
+		PreparedStatement preparedStatement = null;
+		ResultSet executeQuery = null;
+		try {
+			preparedStatement = conn.prepareStatement(sql);
+			for (int i = 0; i &lt; args.length; i++) {
+				preparedStatement.setObject(i+1, args[i]);
+			}
+			executeQuery = preparedStatement.executeQuery();
+			// 获取结果集的原数据 =&gt; 元注解
+			ResultSetMetaData metaData = executeQuery.getMetaData();
+			// 通过结果集元数据获取结果集中的列数
+			int columnCount = metaData.getColumnCount();
+			if(executeQuery.next()) {
+				// 查到结果再造结果集
+				T t = clazz.newInstance();
+//				Customer customer = new Customer();
+				// 处理一行数据中的每一个列
+				for (int i = 0; i &lt; columnCount; i++) {
+					Object columnValue = executeQuery.getObject(i+1);
+					// 获取每个列的列名
+					String columnLabel = metaData.getColumnLabel(i+1);
+					// 通过反射给cust对象指定的columnName赋值为columnValue
+					Field field = clazz.getDeclaredField(columnLabel);
+					field.setAccessible(true);
+					field.set(t, columnValue);
+				}
+				return t;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtils.closeResource(null, preparedStatement, executeQuery);
+		}
+		return null;
+	}
+	// 通用查询,返回数据表多条记录构成的集合2.0.0
+	public List&lt;T&gt; getForList(Connection conn, String sql,Object ...args){
+		PreparedStatement preparedStatement = null;
+		ResultSet executeQuery = null;
+		try {
+			preparedStatement = conn.prepareStatement(sql);
+			for (int i = 0; i &lt; args.length; i++) {
+				preparedStatement.setObject(i+1, args[i]);
+			}
+			executeQuery = preparedStatement.executeQuery();
+			// 获取结果集的原数据 =&gt; 元注解
+			ResultSetMetaData metaData = executeQuery.getMetaData();
+			// 通过结果集元数据获取结果集中的列数
+			int columnCount = metaData.getColumnCount();
+			// 创建存储结果的集合对象
+			ArrayList&lt;T&gt; arrayList = new ArrayList&lt;T&gt;();
+			while(executeQuery.next()) {
+				// 查到结果再造结果集
+				T t = clazz.newInstance();
+//				Customer customer = new Customer();
+				// 处理一行数据中的每一个列 =&gt; 给t对象指定的属性赋值
+				for (int i = 0; i &lt; columnCount; i++) {
+					Object columnValue = executeQuery.getObject(i+1);
+					// 获取每个列的列名
+					String columnLabel = metaData.getColumnLabel(i+1);
+					// 通过反射给cust对象指定的columnName赋值为columnValue
+					Field field = clazz.getDeclaredField(columnLabel);
+					field.setAccessible(true);
+					field.set(t, columnValue);
+				}
+				arrayList.add(t);
+			}
+			return arrayList;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtils.closeResource(null, preparedStatement, executeQuery);
+		}
+		return null;
+	}
+	// 查询特殊值的通用方法
+	public &lt;E&gt; E getValue(Connection conn, String sql,Object ...args) {
+		PreparedStatement prepareStatement = null;
+		ResultSet rs = null;
+		try {
+			prepareStatement = conn.prepareStatement(sql);
+			for (int i = 0; i &lt; args.length; i++) {
+				prepareStatement.setObject(i+1, args[i]);
+			}
+			rs = prepareStatement.executeQuery();
+			if(rs.next()) {
+				return(E) rs.getObject(1);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtils.closeResource(null, prepareStatement,rs);
+		}
+		return null;
+	}
+}
+</code></pre>
+<h2 id="%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0">数据库连接池</h2>
+<p>传统模式开发存在的问题是，每次向数据库建立连接时都要将连接加载到内存中进行用户验证。需要数据库连接的时候，向数据库要求一个，执行完成后断开连接。这种模式将会消耗大量的资源和时间。若多人频繁的进行数据库连接操作将占用很多的系统资源，严重的甚至会造成服务器的崩溃。对于每一次数据库连接，使用完后都得断开。若程序出现异常而未能关闭，将会导致数据库系统的内存泄漏，最终重启数据库。Java 的内存泄漏即内存中存在有对象不能被回收的情况。这种开发模式也不能控制被创建的连接对象数，系统资源会被毫无顾及的分配，而连接过多，也可能导致内存泄漏，服务器崩溃。</p>
+<p>数据库连接池技术即为数据库连接建立一个缓冲池。预先在缓冲池中放入一定数量的连接，当需要建立数据库连接时，只需从缓冲池中取出一个，使用完毕后再放回去。数据库连接池负责分配、管理和释放数据库连接，允许应用程序重复使用一个现有的数据库连接，而不是重新建立一个。无论这些数据库连接是否被使用，连接池都将一直保证至少拥有这么多的连接数量。连接池的最大数据库连接数量限定了这个连接池能占有的最大连接数，当应用程序向连接池请求的连接数超过最大连接数量时，这些请求将被加入到等待队列中。</p>
+<p>使用数据库连接池技术的优点</p>
+<ol>
+<li>
+<p><strong>资源重用</strong>，避免了频繁创建，释放连接引起的大量性能开销。在减少系统消耗的基础上，另一方面也增加了系统运行环境的平稳性。</p>
+</li>
+<li>
+<p>数据库连接池在初始化过程中，往往已经创建了若干数据库连接置于连接池中备用。此时连接的初始化工作均已完成。对于业务请求处理而言，直接利用现有可用连接，避免了数据库连接初始化和释放过程的时间开销，从而<strong>减少系统的响应时间</strong>。</p>
+</li>
+<li>
+<p><strong>作为新的资源分配手段</strong>。对于多应用共享同一数据库的系统而言，可在应用层通过数据库连接池的配置，实现某一应用最大可用数据库连接数的限制，避免某一应用独占所有的数据库资源。</p>
+</li>
+<li>
+<p><strong>统一的连接管理，避免数据库连接泄漏</strong>。根据预先的占用超时设定，强制回收被占用连接，从而避免了常规数据库连接操作中可能出现的资源泄露。</p>
+</li>
+</ol>
+<p>JDBC 的数据库连接池使用 javax.sql.DataSource 来表示，DataSource 只是一个接口，通常由服务器 Weblogic、WebSphere、Tomcat 提供实现。</p>
+<p>包含连接池和连接池管理的 DataSource 称为数据源或连接池，使用其取代 DriverManager 来获取 Connection 可以大幅度提高访问速度。</p>
+<h3 id="c3p0-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0">C3P0 数据库连接池</h3>
+<p>hibernate 官方推荐的 C3P0 是一个开源组织提供的数据库连接池，速度相对较慢，稳定性适中。</p>
+<pre><code class="language-java">import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.activation.DataSource;
+
+import org.junit.Test;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.mchange.v2.c3p0.DataSources;
+
+public class C3P0Test {
+	// 方式一
+	@Test
+	public void testGetConnection() throws Exception {
+		// 获取C3P0数据库连接池
+		ComboPooledDataSource cpds = new ComboPooledDataSource();
+		cpds.setDriverClass( &quot;com.mysql.cj.jdbc.Driver&quot; ); //loads the jdbc driver            
+		cpds.setJdbcUrl(&quot;jdbc:mysql://localhost:3306/jdbc_learn&quot;);
+		cpds.setUser(&quot;&lt;username&gt;&quot;);                                  
+		cpds.setPassword(&quot;&lt;password&gt;&quot;);
+		// 配置信息 =&gt; Appendix A: Configuration Properties
+		// 设置初始时数据库连接池中的连接数
+//		cpds.setInitialPoolSize(10);
+		Connection connection = cpds.getConnection();
+		System.out.println(connection);
+		// 销毁c3p0数据库连接池
+		// DataSources.destroy(cpds);
+	}
+	// 方式二
+	// 连接池一个就够,不用每次调用都得新造
+	ComboPooledDataSource cpds = new ComboPooledDataSource(&quot;helloc3p0&quot;);
+	@Test
+	public void testConnectionGet() throws Exception {
+		Connection connection = cpds.getConnection();
+		System.out.println(connection);
+	}
+}
+</code></pre>
+<pre><code class="language-xml">&lt;!-- c3p0-config --&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;c3p0-config&gt;
+  &lt;named-config name=&quot;helloc3p0&quot;&gt; 
+  	&lt;!-- 提供获取连接的4个基本信息 --&gt;&gt;
+  	&lt;property name=&quot;driverClass&quot;&gt;com.mysql.cj.jdbc.Driver&lt;/property&gt;
+    &lt;property name=&quot;jdbcUrl&quot;&gt;jdbc:mysql://localhost:3306/jdbc_learn&lt;/property&gt;
+    &lt;property name=&quot;user&quot;&gt;&lt;username&gt;&lt;/property&gt;
+    &lt;property name=&quot;password&quot;&gt;&lt;yourpassword&gt;&lt;/property&gt;
+    &lt;!-- 数据库连接池管理的基本信息 --&gt;
+    &lt;!-- 当数据库连接池的连接数不够,c3p0一次性向数据库服务器申请的连接数 --&gt;
+    &lt;property name=&quot;acquireIncrement&quot;&gt;5&lt;/property&gt;
+    &lt;!-- 初始化的连接池容量 --&gt;
+    &lt;property name=&quot;initialPoolSize&quot;&gt;10&lt;/property&gt;
+    &lt;!-- c3p0数据库连接池维护的最少连接数 --&gt;
+    &lt;property name=&quot;minPoolSize&quot;&gt;10&lt;/property&gt;
+     &lt;!-- c3p0数据库连接池维护的连接数上限 --&gt;
+    &lt;property name=&quot;maxPoolSize&quot;&gt;100&lt;/property&gt;
+    &lt;!-- c3p0连接池维护的最多statement的个数 --&gt;
+    &lt;property name=&quot;maxStatements&quot;&gt;50&lt;/property&gt; 
+    &lt;!-- 每一个连接中可以最多使用statement的个数 --&gt;
+    &lt;property name=&quot;maxStatementsPerConnection&quot;&gt;5&lt;/property&gt;
+  &lt;/named-config&gt;
+&lt;/c3p0-config&gt;
+</code></pre>
+<h3 id="dbcp-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0">DBCP 数据库连接池</h3>
+<p>DBCP 是 Apache 软件基金组织下的开源连接池实现，该连接池依赖该组织下的另一个开源系统：Common-pool。如需使用该连接池实现，应在系统中增加如下两个 jar 文件：<br>
+Commons-dbcp.jar：连接池的实现<br>
+Commons-pool.jar：连接池实现的依赖库<br>
+Tomcat 的连接池正是采用该连接池来实现的。该数据库连接池既可以与应用服务器整合使用，也可由应用程序独立使用。<br>
+数据源和数据库连接不同，数据源无需创建多个，它是产生数据库连接的工厂，因此整个应用只需要一个数据源即可。<br>
+当数据库访问结束后，程序还是像以前一样关闭数据库连接：conn.close(); 但上面的代码并没有关闭数据库的物理连接，它仅仅把数据库连接释放，归还给了数据库连接池。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">initialSize</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">连接池启动时创建的初始化连接数量</td>
+</tr>
+<tr>
+<td style="text-align:center">maxActive</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">连接池中可同时连接的最大的连接数</td>
+</tr>
+<tr>
+<td style="text-align:center">maxIdle</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">连接池中最大的空闲的连接数，超过的空闲连接将被释放，如果设置为负数表示不限制</td>
+</tr>
+<tr>
+<td style="text-align:center">minIdle</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">连接池中最小的空闲的连接数，低于这个数量会被创建新的连接。该参数越接近maxIdle，性能越好，因为连接的创建和销毁，都是需要消耗资源的；但是不能太大。</td>
+</tr>
+<tr>
+<td style="text-align:center">maxWait</td>
+<td style="text-align:center">无限制</td>
+<td style="text-align:center">最大等待时间，当没有可用连接时，连接池等待连接释放的最大时间，超过该时间限制会抛出异常，如果设置-1表示无限等待</td>
+</tr>
+<tr>
+<td style="text-align:center">poolPreparedStatements</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">开启池的Statement是否prepared</td>
+</tr>
+<tr>
+<td style="text-align:center">maxOpenPreparedStatements</td>
+<td style="text-align:center">无限制</td>
+<td style="text-align:center">开启池的prepared 后的同时最大连接数</td>
+</tr>
+<tr>
+<td style="text-align:center">minEvictableIdleTimeMillis</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">连接池中连接，在时间段内一直空闲， 被逐出连接池的时间</td>
+</tr>
+<tr>
+<td style="text-align:center">removeAbandonedTimeout</td>
+<td style="text-align:center">300</td>
+<td style="text-align:center">超过时间限制，回收没有用(废弃)的连接</td>
+</tr>
+<tr>
+<td style="text-align:center">removeAbandoned</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">超过removeAbandonedTimeout时间后，是否进 行没用连接（废弃）的回收</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp.BasicDataSourceFactory;
+import org.junit.Test;
+
+public class DBCPTest {
+	// 方式一 =&gt; 硬编码
+	@Test
+	// 测试DBCP数据库连接池
+	public void testGetConnection() throws Exception {
+		// 创建DBCP数据库连接池
+		// command+t =&gt; BasicDataSource
+		BasicDataSource source = new BasicDataSource();
+		// 设置基本信息
+		source.setDriverClassName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+		source.setUrl(&quot;jdbc:mysql://localhost:3306/jdbc_learn&quot;);
+		source.setUsername(&quot;&lt;username&gt;&quot;);
+		source.setPassword(&quot;&lt;password&gt;&quot;);
+		// 设置其他设计数据库连接池管理的相关属性
+		source.setInitialSize(10);
+		source.setMaxActive(10);
+		// ...
+		Connection connection = source.getConnection();
+		System.out.println(connection);
+	}
+	// 方式二 =&gt; 配置文件
+	@Test
+	public void testConnectionGet() throws Exception {
+		Properties pros = new Properties();
+		// 方式一
+		// InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream(&quot;dbcp.properties&quot;);
+		// 方式二 =&gt; 识别的是当前工程
+		FileInputStream is = new FileInputStream(new File(&quot;src/dbcp.properties&quot;));
+		pros.load(is);
+		DataSource dataSource = BasicDataSourceFactory.createDataSource(pros);
+		Connection connection = dataSource.getConnection();
+		System.out.println(connection);
+	}
+}
+</code></pre>
+<pre><code class="language-java">// dbcp.properties
+driverClassName=com.mysql.cj.jdbc.Driver
+url=jdbc:mysql://localhost:3306/jdbc_learn
+username=&lt;username&gt;
+password=&lt;password&gt;
+initialSize=10
+</code></pre>
+<h3 id="druid-%E5%BE%B7%E9%B2%81%E4%BC%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0">Druid 德鲁伊数据库连接池</h3>
+<p>Druid是阿里巴巴开源平台上一个数据库连接池实现，它结合了C3P0、DBCP、Proxool等DB池的优点，同时加入了日志监控，可以很好的监控DB池连接和SQL的执行情况，可以说是针对监控而生的DB连接池，可以说是目前最好的连接池之一。</p>
+<pre><code class="language-java">import java.io.InputStream;
+import java.sql.Connection;
+import java.util.Properties;
+
+
+import org.junit.Test;
+
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+public class Druidtest {
+	@Test
+	public void getConnection() throws Exception {
+		Properties props = new Properties();
+		InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream(&quot;druid.properties&quot;);
+		props.load(is);
+		javax.sql.DataSource source = DruidDataSourceFactory.createDataSource(props);
+		Connection connection = source.getConnection();
+		System.out.println(connection);
+	}
+}
+</code></pre>
+<pre><code class="language-java">// druid.properties
+url=jdbc:mysql://localhost:3306/jdbc_learn
+username=&lt;username&gt;
+password=&lt;password&gt;
+driverClassName=com.mysql.cj.jdbc.Driver
+</code></pre>
+<h2 id="apache-dbutils"><a href="https://commons.apache.org/proper/commons-dbutils/apidocs/">Apache-DBUtils</a></h2>
+<p>commons-dbutils 是 Apache 组织提供的一个开源 JDBC 工具类库，通过对 JDBC 的封装，极大简化 JDBC 编码的工作量，同时也不会影响程序的性能。</p>
+<pre><code class="language-java">org.apache.commons.dbutils.QueryRunner
+org.apache.commons.dbutils.ResultSetHandler
+org.apache.commons.dbutils.DbUtils
+</code></pre>
+<h3 id="dbutils"><a href="https://www.demo2s.com/java/java-org-apache-commons-dbutils-dbutils.html">DbUtils</a></h3>
+<p>DbUtils 类是一个提供关闭资源（连接）、装载驱动与事务处理方法的工具类，其中的所有方法都是静态的。</p>
+<pre><code class="language-java">public static void close(…) throws java.sql.SQLException =&gt; 三个重载的关闭方法;检查所提供的参数是不是 NULL, 如果不是就关闭 Connection、Statement 和 ResultSet.
+public static void closeQuietly(…) =&gt; 三个重载的关闭方法;在 Connection、Statement 和 ResultSet 为 NULL 时能避免关闭,同时隐藏一些在程序中抛出的 SQLEeception.
+public static void commitAndClose(Connection conn) throws SQLException =&gt; 提交连接的事务,然后关闭连接.
+public static void commitAndCloseQuietly(Connection conn) =&gt; 用来提交连接,然后关闭连接,并且在关闭连接时不抛出SQL异常.
+public static void rollback(Connection conn)throws SQLException =&gt; 允许 conn 为 null,因方法内部做出判断.
+public static void rollbackAndClose(Connection conn) throws SQLException
+public static void rollbackAndCloseQuietly(Connection) =&gt; 回滚操作并关闭连接
+public static boolean loadDriver(java.lang.String driverClassName) =&gt; 装载并注册JDBC驱动程序,成功返回true. 使用该方法，不需要捕捉这个异常ClassNotFoundException。
+</code></pre>
+<h3 id="queryrunner-%E7%B1%BB"><a href="https://commons.apache.org/proper/commons-dbutils/apidocs/">QueryRunner</a> 类</h3>
+<p>QueryRunner 提供对 sql 语句操作的 API，与 ResultSetHandler 组合在一起使用可以完成大部分的数据库操作。QueryRunner 类提供了默认的构造器以及需要一个 javax.sql.DataSource 来作参数的构造器。</p>
+<pre><code class="language-java">/* QueryRunner 类的主要方法 */
+执行一个更新、插入或删除操作 =&gt; public int update(Connection conn, String sql, Object… params) throws SQLException
+// rsh =&gt; The handler used to create the result object from the ResultSet of auto-generated keys. 返回值 =&gt; An object generated by the handler =&gt; 自动生成的键值.
+支持 INSERT 语句 =&gt; public T insert(Connection conn,String sql,ResultSetHandler rsh, Object… params) throws SQLException
+批处理 INSERT、UPDATE or DELETE 语句 =&gt; public int[] batch(Connection conn,String sql,Object[][] params)throws SQLException
+只支持 INSERT 语句的批处理 =&gt; public T insertBatch(Connection conn,String sql,ResultSetHandler rsh,Object[][] params)throws SQLException
+// 该方法会自行处理 PreparedStatement 和 ResultSet 的创建和关闭.
+// 对象数组中的每个元素值被用来作为查询语句的置换参数.
+执行一个查询操作 =&gt; public Object query(Connection conn, String sql, ResultSetHandler rsh, Object… params) throws SQLException
+</code></pre>
+<h3 id="resultsethandler"><a href="https://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/ResultSetHandler.html">ResultSetHandler</a></h3>
+<p>ResultSetHandler 接口用于处理 java.sql.ResultSet，将结果集按要求封装为另一种形式。</p>
+<pre><code class="language-java">/* ResultSetHandler接口的主要实现类 */
+ArrayHandler =&gt; 把结果集中的第一行数据转成对象数组.
+ArrayListHandler =&gt; 把结果集中的每一行数据都转成一个数组再存放到 List 中.
+BeanHandler =&gt; 将结果集中的第一行数据封装到一个对应的 JavaBean 实例.
+BeanListHandler =&gt; 将结果集中的每一行数据都封装到一个对应的 JavaBean 实例中,存放到List里.
+ColumnListHandler =&gt; 将结果集中某一列的数据存放到List中.
+KeyedHandler(name) =&gt; ResultSetHandler implementation that returns a Map of Maps. ResultSet rows are converted into Maps which are then stored in a Map under the given key.
+MapHandler =&gt; 将结果集中的第一行数据封装到一个 Map 里,key 是列名，value 是对应的值.
+MapListHandler =&gt; 将结果集中的每一行数据都封装到一个 Map 里,然后再存放到 List.
+ScalarHandler =&gt; 查询单个值对象.
+</code></pre>
+<h3 id="dbutils-%E5%AE%9E%E7%8E%B0-crud">DBUtils 实现 CRUD</h3>
+<pre><code class="language-java">import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.MapHandler;
+import org.apache.commons.dbutils.handlers.MapListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.junit.Test;
+
+import com.zsztjdbc.utilsP.JDBCUtilsP;
+import com.zszyjdbc.bean.Customer;
+
+public class QueryRunnerTest {
+	// 插入测试
+	@Test
+	public void testInsert() {
+		Connection connectiond = null;
+		try {
+			QueryRunner runner = new QueryRunner();
+			connectiond = JDBCUtilsP.getConnectiond();
+			String sql = &quot;INSERT INTO customers (name,email,birth) VALUES (?,?,?)&quot;;
+			int insertCount = runner.update(connectiond, sql, &quot;hz&quot;,&quot;hz@mail.com&quot;,&quot;1997-01-01&quot;);
+			System.out.println(&quot;添加了&quot;+insertCount+&quot;条数据&quot;);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtilsP.closeResource(connectiond,null);
+		}
+	}
+	// 查询测试
+	// BeanHandler是ResultSethandler接口的实现类,用于封装表中的一条记录
+	@Test
+	public void testQuery1() {
+		Connection connectiond = null;
+		try {
+			QueryRunner runner = new QueryRunner();
+			connectiond = JDBCUtilsP.getConnectiond();
+			String sql = &quot;SELECT id,name,email,birth FROM customers WHERE id = ?&quot;;
+			BeanHandler&lt;Customer&gt; handler = new BeanHandler&lt;Customer&gt;(Customer.class);
+			Customer customer = runner.query(connectiond, sql, handler, 10);
+			System.out.println(customer);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtilsP.closeResource(connectiond, null);	
+		}
+	}
+	// BeanlistHandler是ResultSethandler接口的实现类,用于封装表中的多条记录构成的集合
+	@Test
+	public void testQuery2() throws Exception {
+		Connection connectiond = null;
+		try {
+			QueryRunner runner = new QueryRunner();
+			connectiond = JDBCUtilsP.getConnectiond();
+			String sql = &quot;SELECT id,name,email,birth FROM customers WHERE id &lt; ?&quot;;
+			BeanListHandler&lt;Customer&gt; handler = new BeanListHandler&lt;Customer&gt;(Customer.class);
+			List&lt;Customer&gt; list = runner.query(connectiond, sql, handler, 10);
+			System.out.println(list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtilsP.closeResource(connectiond, null);	
+		}
+	}
+	// MapHandler是ResultSethandler接口的实现类,对应表中一条记录,将字段即相应字段的值作为map的key和value
+	@Test
+	public void testQuery3() throws Exception {
+		Connection connectiond = null;
+		try {
+			QueryRunner runner = new QueryRunner();
+			connectiond = JDBCUtilsP.getConnectiond();
+			String sql = &quot;SELECT id,name,email,birth FROM customers WHERE id = ?&quot;;
+			MapHandler handler = new MapHandler();
+			Map&lt;String, Object&gt; map = runner.query(connectiond, sql, handler, 10);
+			System.out.println(map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtilsP.closeResource(connectiond, null);	
+		}
+	}
+	// MapListHandler是ResultSethandler接口的实现类,对应表中多条记录,将字段即相应字段的值作为map的key和value,将这些map添加到对应的list中
+	@Test
+	public void testQuery4() throws Exception {
+		Connection connectiond = null;
+		try {
+			QueryRunner runner = new QueryRunner();
+			connectiond = JDBCUtilsP.getConnectiond();
+			String sql = &quot;SELECT id,name,email,birth FROM customers WHERE id &lt; ?&quot;;
+			MapListHandler handler = new MapListHandler();
+			List&lt;Map&lt;String, Object&gt;&gt; maplist = runner.query(connectiond, sql, handler, 10);
+			maplist.forEach(System.out::println);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtilsP.closeResource(connectiond, null);	
+		}
+	}
+	// scalarhandler 使用特殊值
+	@Test
+	public void testQuery5() throws Exception {
+		Connection connectiond = null;
+		try {
+			QueryRunner runner = new QueryRunner();
+			connectiond = JDBCUtilsP.getConnectiond();
+			String sql = &quot;SELECT COUNT(*) FROM customers&quot;;
+			ScalarHandler handler = new ScalarHandler();
+			Long count = (Long) runner.query(connectiond, sql, handler);
+			System.out.println(count);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtilsP.closeResource(connectiond, null);	
+		}
+	}
+	@Test
+	public void testQuery6() throws Exception {
+		Connection connectiond = null;
+		try {
+			QueryRunner runner = new QueryRunner();
+			connectiond = JDBCUtilsP.getConnectiond();
+			String sql = &quot;SELECT max(birth) FROM customers&quot;;
+			ScalarHandler handler = new ScalarHandler();
+			Date maxdate = (Date) runner.query(connectiond, sql, handler);
+			System.out.println(maxdate);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtilsP.closeResource(connectiond, null);	
+		}
+	}
+	// 自定义ResultSetHandler实现类
+	@Test
+	public void testQuerybymyself() throws Exception {
+		Connection connectiond = null;
+		try {
+			QueryRunner runner = new QueryRunner();
+			connectiond = JDBCUtilsP.getConnectiond();
+			String sql = &quot;SELECT id,name,email,birth FROM customers WHERE id = ?&quot;;
+			// 普通类可以推断 =&gt; 匿名实现类在Java7还不能识别 =&gt; java10可
+			ResultSetHandler&lt;Customer&gt; handler = new ResultSetHandler&lt;Customer&gt;(){
+
+				@Override
+				public Customer handle(ResultSet rs) throws SQLException {
+					if(rs.next()) {
+						int id = rs.getInt(&quot;id&quot;);
+						String name = rs.getString(&quot;name&quot;);
+						String email = rs.getString(&quot;email&quot;);
+						Date birth = rs.getDate(&quot;birth&quot;);
+						Customer customer = new Customer(id,name,email,birth);
+						return customer;
+					}
+					return null;
+				}
+			};
+			Customer customer = runner.query(connectiond, sql, handler,10); // 重写方法的返回值即此行返回值
+			System.out.println(customer);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtilsP.closeResource(connectiond, null);	
+		}
+	}
+}
+</code></pre>
+<h2 id="bugs-%E5%A4%84%E7%90%86">BUGS 处理</h2>
+<p>用 druid 连接池与数据库建立链接时无法使用 <code>createDataSource()</code> 方法。</p>
+<p>概率是导包导入了不正确的包。应是 <code>com.alibaba.druid.pool</code>，而不是 <code>com.alibaba.druid.support.ibatis</code>。</p>
+<h2 id="%E9%99%84%E5%BD%95">附录</h2>
+<pre><code class="language-java">// JDBCUtilsP.java
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp.BasicDataSourceFactory;
+import org.apache.commons.dbutils.DbUtils;
+
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.mysql.cj.xdevapi.Statement;
+
+public class JDBCUtilsP {
+	/**
+	 * 
+	 * @Description		使用c3p0数据库连接池
+	 * @author zsxzy
+	 * @return
+	 * @throws Exception
+	 */
+	public static Connection getConnection() throws Exception {
+		ComboPooledDataSource cpds = new ComboPooledDataSource(&quot;helloc3p0&quot;);
+		Connection connection = cpds.getConnection();
+		return connection;
+	}
+	/**
+	 * 
+	 * @Description		使用DBCP数据库连接池技术获取数据连接
+	 * @author zsxzy
+	 * @return
+	 * @throws Exception
+	 */
+	
+	private static DataSource dataSource;
+	static {
+		// 静态代码快随着类的加载而加载,只执行一次
+		// 创建一个 DBCP 数据库连接池
+		try {
+			Properties pros = new Properties();
+			FileInputStream is = new FileInputStream(new File(&quot;src/dbcp.properties&quot;));
+			pros.load(is);
+			dataSource = BasicDataSourceFactory.createDataSource(pros);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static Connection connectionget() throws Exception {
+		Connection connection = dataSource.getConnection();
+		return connection;
+	}
+	
+	/**
+	 * Druid
+	 */
+	private static DataSource sourcee;
+	static {
+		try {
+			Properties props = new Properties();
+			InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream(&quot;druid.properties&quot;);
+			props.load(is);
+			sourcee = DruidDataSourceFactory.createDataSource(props);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static Connection getConnectiond() throws Exception {
+		Connection connection = sourcee.getConnection();
+		return connection;
+	}
+	public static void closeResource(Connection conn,PreparedStatement ps) {
+		try {
+			if(ps != null)
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			if(conn != null)
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	// 使用dbutils.jar中提供的工具类实现资源的关闭
+	public static void closeResourceP(Connection conn,Statement sm,ResultSet rs) {
+//		try {
+//			DbUtils.close(conn);
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		try {
+//			DbUtils.close((Connection) sm);
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		try {
+//			DbUtils.close(rs);
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		DbUtils.closeQuietly(conn);
+		DbUtils.closeQuietly(rs);
+		DbUtils.closeQuietly((Connection) sm);
+	}
+}
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+
+</article>
+</main>
+
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+        <a class="post-card-image-link" href="../g-toc-css/index.html">
+            <img class="post-card-image"
+                srcset="../content/images/size/w1000/2022/04/SLAMDUNK.png 1000w"
+                sizes="(max-width: 1000px) 400px, 800px"
+                src="../content/images/size/w600/2022/04/SLAMDUNK.png"
+                alt="SLAM DUNK"
+                loading="lazy"
+            />
+        </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">G&amp;TOC&amp;CSS</h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+        <a class="post-card-image-link" href="../mysqlnote/index.html">
+            <img class="post-card-image"
+                srcset="../content/images/size/w1000/2022/04/cloud.jpg 1000w"
+                sizes="(max-width: 1000px) 400px, 800px"
+                src="../content/images/size/w600/2022/04/cloud.jpg"
+                alt="mysql"
+                loading="lazy"
+            />
+        </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">MySQL 笔记</h2>
+            </header>
+                <div class="post-card-excerpt">MYSQL 基础篇</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">81 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+        <a class="post-card-image-link" href="../zu-jian-tong-xun/index.html">
+            <img class="post-card-image"
+                srcset="../content/images/size/w1000/2022/04/treecommunicate.jpg 1000w"
+                sizes="(max-width: 1000px) 400px, 800px"
+                src="../content/images/size/w600/2022/04/treecommunicate.jpg"
+                alt="Component communication"
+                loading="lazy"
+            />
+        </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../zu-jian-tong-xun/index.html">
+            <header class="post-card-header">
+                <h2 class="post-card-title">组件通讯</h2>
+            </header>
+                <div class="post-card-excerpt">vuex与redux</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-10-01">Oct 1, 2021</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">9 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=3b495c44d6"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<!-- 2022 prismjs update -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-powershell.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+
+
+<!-- music -->
+<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script>
+	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+		$('.carousel').carousel({
+			interval: 3000
+		})
+</script>
+
+</body>
+</html>

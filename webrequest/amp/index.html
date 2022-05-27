@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/webrequest/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/08/legoflash.jpg" />
     <meta property="article:published_time" content="2020-02-20T12:34:00.000Z" />
-    <meta property="article:modified_time" content="2021-08-21T00:51:28.000Z" />
+    <meta property="article:modified_time" content="2022-05-04T16:47:39.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "XHR|Ajax|Promise|Axios|Fetch",
     "url": "yourdomain.com/webrequest/",
     "datePublished": "2020-02-20T12:34:00.000Z",
-    "dateModified": "2021-08-21T00:51:28.000Z",
+    "dateModified": "2022-05-04T16:47:39.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/08/legoflash.jpg",
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 4.45" />
+    <meta name="generator" content="Ghost 5.0" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1059,7 +1059,7 @@
 <body class="amp-template">
     <header class="page-header">
         <a href="../../index.html">
-                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed"></amp-img>
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
         </a>
     </header>
 
@@ -1074,12 +1074,14 @@
                 </section>
             </header>
             <figure class="post-image">
-                <amp-img src="yourdomain.com/content/images/2021/08/legoflash.jpg" width="600" height="340" layout="responsive"></amp-img>
+                <amp-img src="yourdomain.com/content/images/2021/08/legoflash.jpg" width="600" height="340" layout="responsive" 
+                alt="Lego Flash"
+                ></amp-img>
             </figure>
             <section class="post-content">
 
                 <h2 id="xmlhttprequest">XMLHttpRequest</h2>
-<p>Ajax (Asynchronous Javascript And XML) 通过客户端与服务器端的异步通信，实现页面局部刷新。其发送的请求主要通过 XMLHttpRequest（标准浏览器）、 ActiveXObject（IE 浏览器）对象实现异步通信效果。</p>
+<p>Ajax Asynchronous Javascript And XML 通过客户端与服务器端的异步通信实现页面局部刷新。发送请求主要通过标准浏览器的 XMLHttpRequest 和 IE 浏览器的 ActiveXObject 对象实现异步通信效果。</p>
 <pre><code class="language-javascript">// window 必须有一个 html 载体
 const xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP")
 // open 方法接受三个参数: 请求类型、请求 URL、是否异步布尔值; 不会实际发送数据, 仅做准备,定义请求
@@ -1098,22 +1100,12 @@ xhr.onreadystatechange = function (res) { // 指定回调函数
 // 例如: xhr.send("name=xzy&amp;age=23");
 xhr.send(); //发送请求
 </code></pre>
-<p><strong>值得一提的 xhr 实例属性与方法</strong></p>
-<ul>
-<li>
-<p><code>timeout</code>：返回一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止。如果该属性等于0，就表示没有时间限制。</p>
-</li>
-<li>
-<p><code>upload</code>：<code>xhr</code> 不仅可以发送请求，还可以发送文件。发送文件以后，通过 <code>xhr.upload</code> 属性可以得到一个对象，通过观察这个对象掌握上传进度。</p>
-</li>
-<li>
-<p><code>withCredentials</code>：可选值为一个布尔值。跨域请求时，用户信息（比如 Cookie 和认证的 HTTP 头信息）是否会包含在请求之中，默认为 false ，即向 example.com 发出跨域请求时，不会发送 example.com 设置在本机上的 Cookie 。</p>
-</li>
-<li>
-<p><code>abort()</code>：终止已发出的请求。调用此方法后，<code>readyState</code> 变为 4，<code>status</code> 属性变为0。</p>
-</li>
-</ul>
-<pre><code class="language-javascript">// 代码在发出5秒之后，终止一个 AJAX 请求
+<pre><code class="language-javascript">/* xhr 实例属性与方法 */
+// timeout =&gt; 返回一个整数表示多少毫秒后,如果请求仍然没有得到结果就会自动终止.该属性等于0就表示没有时间限制.
+// upload =&gt; xhr 不仅可以发送请求还可以发送文件.发送文件后通过 xhr.upload 属性可以得到一个掌握上传进度的对象.
+// withCredentials =&gt; 布尔值.跨域请求用户信息(Cookie\HTTP 头信息)是否会包含在请求中,默认为 false,即向 example.com 发出跨域请求时,不会发送其设置在本机上的 Cookie.
+// abort() =&gt; 终止已发出的请求.调用此方法后 readyState 变为4,status 属性变为0.
+// 代码在发出5秒之后，终止一个 AJAX 请求
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://blog.zairesinatra.com/xhraborttest', true);
 setTimeout(function () {
@@ -1122,12 +1114,9 @@ setTimeout(function () {
     xhr = null;
   }
 }, 5000);
-</code></pre>
-<ul>
-<li><code>setRequestHeader()</code>：通过接收接受两个参数（第一个字符串表示头信息的字段名；第二个参数是字段值字符串）设置浏览器发送请求的头部信息。该方法必须在open()之后、send()之前调用。</li>
-</ul>
-<pre><code class="language-javascript">xhr.setRequestHeader('Content-Type', 'application/json');
-// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+// setRequestHeader() =&gt; 通过接收接受两个参数 (头信息的字段名,字段值) =&gt; 设置浏览器发送请求的头部信息.该方法必须在open()之后、send()之前调用.
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
 </code></pre>
 <table border="1">
     <tr>
@@ -1250,7 +1239,7 @@ p.then(
   }
 )
 </code></pre>
-<pre><code>// 使用catch、finally
+<pre><code class="language-javascript">// 使用catch、finally
 // resolve 和 reject 都是函数，其中调用 resolve 代表一切正常，reject 是出现异常时所调用的：
 new Promise(function (resolve, reject) {
     var a = 0;
@@ -1268,9 +1257,8 @@ new Promise(function (resolve, reject) {
 // a / b = 0
 // End
 </code></pre>
-<hr></hr>
 <h2 id="axios">axios</h2>
-<p>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。开发中最常用的就是<code>axios.js</code>包。</p>
+<p>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中使用。</p>
 <p><strong>作用：</strong></p>
 <ul>
 <li>从浏览器中创建 XMLHttpRequests</li>
@@ -1338,23 +1326,11 @@ axios({
   // fs 是 Node.js 的 file-system 模块
 });
 </code></pre>
-<hr></hr>
-<blockquote>
-<h3 id="fetch"><code>fetch</code></h3>
-</blockquote>
-<p><code>fetch()</code>方法暴露在全局作用域，包括主页面执行线程、模块和工作线程。调用这个方法，浏览器会向给定的 url 发送请求。</p>
-<ul>
-<li>fetch在ES6出现，号称AJAX的替代品，基于并使用了ES6中的promise对象。Fetch的代码结构较ajax简单。</li>
-<li>但fetch不是ajax的进一步封装，而是原生js，没有使用XMLHttpRequest对象。</li>
-<li>XMLHttpRequest可以选择异步，但Fetch API必须是异步。</li>
-</ul>
-<blockquote>
-<h3 id>基本用法：</h3>
-</blockquote>
-<ul>
-<li>分派请求：</li>
-</ul>
-<p><code>fetch()</code>只有一个必须参数 input 。多数情况这个参数为要获取资源的 url 。这个方法返回一个期约。</p>
+<h2 id="fetch">fetch</h2>
+<p>fetch 方法暴露在全局作用域，包括主页面执行线程、模块和工作线程。调用这个方法，浏览器会向给定的 url 发送请求。</p>
+<p>fetch 号称 AJAX 的替代品在 ES6 出现，基于 ES6 的 promise 对象。Fetch 的代码结构较 ajax 更简单。但 fetch 不是 ajax 的进一步封装，而是原生 js，且没有使用 XMLHttpRequest 对象。XMLHttpRequest 可以选择异步，但是 Fetch 必须是异步。</p>
+<h3 id>分派请求</h3>
+<p>fetch 函数只有一个资源 url 作为必须参数。该方法返回一个期约。</p>
 <pre><code>let zs = fetch('http://127.0.0.1/zairesinatra')
 console.log(zs) // Promise&lt;pending&gt;
 </code></pre>
@@ -1362,20 +1338,16 @@ console.log(zs) // Promise&lt;pending&gt;
     .then((response)=&gt;{console.log(response)})
      // response{type:"cors",url:...}
 </code></pre>
-<ul>
-<li>读取响应：</li>
-</ul>
+<h3 id>读取响应</h3>
 <p>读取响应内容最简单方式是取得纯文本格式内容，这里用到 <code>text()</code> API。这个方法返回一个期约Promise实例对象。</p>
 <pre><code>fetch("http://127.0.0.1/zs")
     .then((response) =&gt; response.text())
     .then((msg) =&gt; console.log(msg)); // {"msg":"xieziyi"}
 </code></pre>
-<ul>
-<li>处理状态码和请求失败</li>
-</ul>
+<h3 id>处理状态码和请求失败</h3>
 <p>Fetch API通过 Response 的 status(状态码) 和 statusText(状态文本) 属性检查响应状态。获取响应成功请求通常产生 200 的状态码与 "OK" 的状态文书。</p>
 <h2 id>结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处  <a href="https://blog.zairesinatra.com">zairesinatra's blog</a>！</p>
+<p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a>，转载请注明出处！</p>
 
 
             </section>
@@ -1383,7 +1355,7 @@ console.log(zs) // Promise&lt;pending&gt;
         </article>
     </main>
     <footer class="page-footer">
-            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed"></amp-img>
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
         <h3>zairesinatra</h3>
             <p>The best time to recognize yourself is ten years ago, followed by now.</p>
         <p><a href="../../index.html">Read more posts →</a></p>
