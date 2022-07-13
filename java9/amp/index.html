@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>Java9+</title>
+
+    <meta name="description" content="Java9-11新特性" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Java9+" />
+    <meta property="og:description" content="Java9-11新特性" />
+    <meta property="og:url" content="yourdomain.com/java9/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/04/java91011.png" />
+    <meta property="article:published_time" content="2019-12-12T13:07:00.000Z" />
+    <meta property="article:modified_time" content="2022-04-26T09:21:42.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Java9+" />
+    <meta name="twitter:description" content="Java9-11新特性" />
+    <meta name="twitter:url" content="yourdomain.com/java9/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/04/java91011.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="787" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "Java9+",
+    "url": "yourdomain.com/java9/",
+    "datePublished": "2019-12-12T13:07:00.000Z",
+    "dateModified": "2022-04-26T09:21:42.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/04/java91011.png",
+        "width": 1400,
+        "height": 787
+    },
+    "keywords": "Technology growth",
+    "description": "Java9-11新特性",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">Java9+</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2019-12-12">12 Dec 2019</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2022/04/java91011.png" width="600" height="340" layout="responsive" 
+                alt="Java9-11"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <p>经历四次跳票的 Java9 于 2017 年 9 月 21 日正式发布，Oracle 宣布今后按照每六个月一次的节奏进行更新。意味着从以特性驱动的发布周期转向以时间驱动的模式。并以三年为周期发布长期支持版本 Long Term Support(LTS)。</p><h2 id="%E5%AE%89%E8%A3%85%E4%B8%8E%E5%88%87%E6%8D%A2">安装与切换</h2>
+<p>推荐安装 LTS 版本，即 Java8、11。<a href="https://www.oracle.com/java/technologies/downloads/">点此</a>快速进入 oracle Java 页面。</p>
+<ul>
+<li>Mac 下查看已安装的 jdk 版本及其安装目录</li>
+</ul>
+<pre><code class="language-shell"># 输入命令参数区分大小写
+/usr/libexec/java_home -V
+# 结果默认排序为当前已安装jdk目录、Mac默认使用的jdk版本
+</code></pre>
+<ul>
+<li>IDEA 开发环境设置</li>
+</ul>
+<p>在 IntelliJ 中 File 下选择 Project Structure 查看项目的 SDK。新下载版本需要在 new 选项里进行导入。完成后在左侧 Project Settings 中点击 Modules 项可以指定 Sources 与 Dependencies 需要识别 SDK 的版本。前者是核心，作用当前的 module 可以识别的语法；后者仅决定当前的 module 使用何种 JDK。</p>
+<h2 id="java9-%E6%96%B0%E7%89%B9%E6%80%A7">Java9 新特性</h2>
+<h3 id="%E6%A8%A1%E5%9D%97%E5%8C%96%E7%B3%BB%E7%BB%9F-jigsawmodularity">模块化系统 Jigsaw|Modularity</h3>
+<p>Java9 首先想到的就是 Jigsaw|Modularity 项目。众所周知 Java 从 95 至今已经发展超过 20 年，在相关生态在不断丰富的同时也越来越暴露出一些问题。</p>
+<p>每次 JVM 启动的时候，至少会有 30~60MB 的内存加载，主要原因是 JVM 加载 rt.jar。不论其中的类是否被 classloader 加载，整个 jar 都会被 JVM 加载到内存当中去（而模块化可以根据模块的需要加载程序运行需要的 class）。当代码库逐步复杂，盘根错节的不同版本类库交叉依赖导致产生许多令人头疼的问题，这些阻碍了 Java 开发和运行效率的提升。系统没有对不同 JAR 文件之间的依赖关系添加明确概念，这导致每一个公共类都可以被类路径之下任何其它的公共类所访问，可能会导致无意中使用了并不想被公开访问的 API。</p>
+<p>要设置模块，首先需要在包的根目录 src 文件夹下放置一个名为 module-info.java 的特殊文件，该文件称为模块描述符，包含构建和使用新模块所需的所有数据。用一个声明来构造模块，其主体要么是空的，要么由模块指令组成。</p>
+<pre><code class="language-java"># 一个工程下不同的 module 之间实现类的导入
+# module-info.java
+module exportsContentModuleName{
+    # 对外暴露内容在此体现
+    exports com.xxx.bean; // 暴露相关包bean下内容
+}
+---
+module requiresContentModuleName{
+    requires exportsContentModuleName; # 直接导入暴露的模块名
+}
+</code></pre>
+<h3 id="jshell">jshell</h3>
+<p>诸如 python 与 scala 之流的语言早有交互式编程环境 REPL Read Evaluate Print Loop 运行语句和表达式，以在编译前获得对程序的反馈。jdk9 中新增 jshell 工具，同样可以帮助运行一些简单如 HelloWorld 的代码。</p>
+<pre><code class="language-java"># 进入 jshell
+$ jshell
+|  Welcome to JShell -- Version 17.0.2
+|  For an introduction type: /help intro
+jshell&gt; System.out.println("hello jeshell")
+# 获取帮助|查看导入|退出
+jshell&gt; /help| /import| /exit
+</code></pre>
+<h3 id="%E6%8E%A5%E5%8F%A3%E4%B8%AD%E5%A3%B0%E6%98%8E%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95">接口中声明私有方法</h3>
+<p>Java8 规定接口中除抽象方法外，还可定义静态与默认方法。由于静态和默认方法里可能存在的方法体会扩展接口的功能，此时的接口更像是一个抽象类。</p>
+<p>Java9 中更甚，连方法的访问权限修饰符都可以声明为 private，那么实现类的接口里，私有方法将不会成为对外暴露 API 的一部分。其实现的意义在于，对于接口中的部分方法体可能存在重复的逻辑，那么可在私有方法中完成定义。</p>
+<pre><code class="language-java">public interface MyInterface {
+    // 下述前三方法省略权限修饰符都是 public
+    void methodAbstract();
+    static void methodStatic(){
+        System.out.println("static method");
+    }
+    default void methodDefault(){
+        System.out.println("default method");
+        // 接口中自行调用私有方法
+        methodPrivate();
+    }
+    private void methodPrivate(){
+        System.out.println("private method");
+    }
+}
+</code></pre>
+<pre><code class="language-java">public class MyInterfaceImpl implements MyInterface{
+
+    @Override
+    public void methodAbstract() {
+
+    }
+    public static void main(String[] args){
+        // 接口中的静态方法只能由接口调用
+        MyInterface.methodStatic();
+        // 接口中的实现类不能调用接口的静态方法
+        // MyInterfaceImpl.methodStatic();
+        MyInterfaceImpl impl = new MyInterfaceImpl();
+        impl.methodDefault(); // 不重写情况下相当于间接的调用了接口的私有方法
+        // 私有方法不能在接口外部调用
+        // impl.methodPrivate();
+    }
+}
+</code></pre>
+<h3 id="%E9%92%BB%E7%9F%B3%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8D%87%E7%BA%A7">钻石操作符升级</h3>
+<p>在 Java9 中能与匿名实现类共同使用钻石操作符，若在 Java8 中则会报错。</p>
+<pre><code class="language-java">public class Java9Test {
+    @Test
+    public void test2(){
+        // JDK8不可识别;钻石操作符与匿名内部类在Java8不可共存
+        Comparator&lt;Object&gt; com = new Comparator&lt;&gt;(){
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        };
+        // JDK7允许的类型推断
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+    }
+}
+</code></pre>
+<h3 id="try%E8%AF%AD%E5%8F%A5">try语句</h3>
+<p>Java8 可以实现资源的自动关闭，要求执行后必须关闭所有的资源必须在 try 子句初始化，否则编译不通过。</p>
+<pre><code class="language-java">public class Java9Test {
+    // java8之前资源关闭操作
+    @Test
+    public void test3(){
+        InputStreamReader reader = null;
+        try{
+            reader = new InputStreamReader(System.in);
+            char[] cbuf = new char[20];
+            int len;
+            if((len = reader.read(cbuf)) != -1){
+                String str = new String(cbuf,0,len);
+                System.out.println(str);
+            }
+        } catch (IOExcerption e) {
+            e.printStackTrace();
+        } finally {
+            if(reader != null){
+                try{
+                    reader.close();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    // java8资源关闭操作 =&gt; 自动关闭reader
+    @Test
+    public void test4(){
+        try(InputStreamReader reader = new InputStreamReader(System.in)){
+            char[] cbuf = new char[20];
+            int len;
+            if((len = reader.read(cbuf)) != -1){
+                String str = new String(cbuf,0,len);
+                System.out.println(str);
+            }
+        } catch (IOExcerption e){
+            e.printStackTrace();
+        }
+    }
+    // java9资源关闭操作需要自动关闭的资源的实例化放在try的一堆小括号外
+    // 此时资源变量是常量
+    @Test
+    public void test5(){
+        InputStreamReader reader = new InputStreamReader(System.in)
+        try(reader){
+            char[] cbuf = new char[20];
+            int len;
+            if((len = reader.read(cbuf)) != -1){
+                String str = new String(cbuf,0,len);
+                System.out.println(str);
+            }
+        } catch (IOExcerption e){
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<h3 id="string-%E5%BA%95%E5%B1%82%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%9A%84%E5%8F%98%E6%9B%B4">String 底层存储结构的变更</h3>
+<blockquote>
+<p>The current implementation of the String class stores characters in a char array, using two bytes (sixteen bits) for each character. Data gathered from many different applications indicates that strings are a major component of heap usage and, moreover, that most String objects contain only Latin-1 characters. Such characters require only one byte of storage, hence half of the space in the internal char arrays of such String objects is going unused.</p>
+</blockquote>
+<blockquote>
+<p>We propose to change the internal representation of the String class from a UTF-16 char array to a byte array plus an encoding-flag field. The new String class will store characters encoded either as ISO-8859-1/Latin-1 (one byte per character), or as UTF-16 (two bytes per character), based upon the contents of the string. The encoding flag will indicate which encoding is used.</p>
+</blockquote>
+<p>总结一下即是 string 不再用 char[] 来存储，而是改成 byte[] 加上编码标记来节约空间。StringBuffer 和 StringBuilder 也同样</p>
+<pre><code class="language-java">// adopt-open-jdk-11 =&gt; java.base =&gt; java =&gt; lang
+public final class String
+    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
+    @Stable
+    private final byte[] value;
+    ...
+    }
+
+abstract class AbstractStringBuilder implements Appendable, CharSequence {
+    // The value is used for character storage.
+    byte[] value;
+    // The id of the encoding used to encode the bytes in {@code value}.
+    byte coder;
+    ...
+}
+</code></pre>
+<h3 id="%E9%9B%86%E5%90%88%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95">集合工厂方法</h3>
+<p>此前创建一个只读不可改变的集合，必须完成构造分配再添加元素，最后包装成一个不可修改的集合。</p>
+<pre><code class="language-java">public class Java9Test {
+    @Test
+    public void test3(){
+        // JDK8创建只读集合
+        List&lt;String&gt; nameList = new ArrayList&lt;&gt;();
+        nameList.add("zs");
+        nameList = Collections.unmodifiableList(nameList);
+        System.out.println(nameList);
+        List&lt;Integer&gt; list = Arrays.asList(1, 2, 3);
+        // java.lang.UnsupportedOperationException
+        // list.add(4);
+        System.out.println(list);
+        // java9集合工厂创建只读集合
+        List&lt;Integer&gt; llist = List.of(1, 2, 3);
+        // UnsupportedOperationException
+        // llist.add(4);
+        System.out.println(llist);
+        Map&lt;String, Integer&gt; map = Map.of("gz", 20, "hz", 22, "zs", 21);
+        // UnsupportedOperationException
+        // map.put("test",1);
+        System.out.println(map);
+        Map&lt;String, Integer&gt; kvMap = Map.ofEntries(Map.entry("gz", 20), Map.entry("hz", 22));
+        // UnsupportedOperationException
+        // kvMap.put("test",1);
+        System.out.println(kvMap);
+    }
+}
+</code></pre>
+<h3 id="inputstream-%E5%8A%A0%E5%BC%BA">InputStream 加强</h3>
+<p>InputStream 推出方法 transferTo 将数据直接传输到 OutputStream 处理原始数据流。</p>
+<pre><code class="language-java">public class Java9Test {
+    // java9新特性 InputStream 的 transferTo()
+    @Test
+    public void test4(){
+        ClassLoader cl = this.getClass().getClassLoader();
+        try(InputStream is = cl.getResourceAsStream("hello.txt");OutputStream os = new FileOutputStream("src/hi.txt")){
+            is.transferTo(os); // 输入流数据直接获取到输出流
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<h3 id="streamapi-%E7%9A%84%E5%A2%9E%E5%BC%BA">StreamAPI 的增强</h3>
+<p>Java9 中 Stream API 添加4个新的方法 takeWhile、dropWhile、ofNullable 与 iterate 新重载方法。对于容器 Optional 也提供转化为流的方法，便于对数据进行处理操作。</p>
+<pre><code class="language-java">public class Java9Test {
+    // 增强STREAM API
+    @Test
+    public void test5(){
+        List&lt;Integer&gt; list = Arrays.asList(1, 2, 3);
+        // takeWhile 返回从开头开始尽可能多的元素
+        list.stream().takeWhile(x -&gt; x &lt; 2).forEach(System.out::println);
+        // dropWhile 返回没有drop掉的元素
+        list.stream().dropWhile(x -&gt; x &lt; 2).forEach(System.out::println);
+        Stream.of(1, 2, 3, null).forEach(System.out::println);
+        // 不被允许 NullPointerException =&gt; java8的stream不能完全为null
+        // Stream&lt;Integer&gt; integerStream1 = Stream.of(null);
+        // integerStream1.forEach(System.out::println);
+        Stream.ofNullable(null).forEach(System.out::println); // 只放一个null认为什么也没有
+        // java8的无限流
+        Stream.iterate(0,x -&gt; x+1).limit(10).forEach(System.out::println);
+        // java9重载方法
+        Stream.iterate(0,x -&gt; x&lt;100,x -&gt; x+1).forEach(System.out::println);
+    }
+}
+</code></pre>
+<pre><code class="language-java">public class Java9Test {
+    @Test
+    public void test6(){
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add("gz");
+        list.add("zs");
+        Optional&lt;List&lt;String&gt;&gt; optional = Optional.ofNullable(list);
+        Stream&lt;List&lt;String&gt;&gt; stream = optional.stream();
+        stream.flatMap(x-&gt;x.stream()).forEach(System.out::println);
+    }
+}
+</code></pre>
+<h3 id="js-%E5%BC%95%E6%93%8E%E5%8D%87%E7%BA%A7">JS 引擎升级</h3>
+<p>Nashorn 使得 Java 应用能嵌入 Javascript，但在 JDK9 新增包含一个用于解析 Nashorn 的 ECMAScript 语法树 API，使 IDE 和服务端不需依赖 Nashorn 项目内部实现类就能分析 ECMAScript 代码。</p>
+<h2 id="java10-%E6%96%B0%E7%89%B9%E6%80%A7">Java10 新特性</h2>
+<p>需要注意的是 Java 9 和 Java 10 都不是 LTS Long-Term-Support 版本，和过去的 Java 大版本升级不同，这两个只有半年左右的开发和维护期。而未来的 Java 11，也就是 18.9 才是 Java8 后的第一个 LTS 版本。</p>
+<p>JDK10 一共定义了109个新特性，其中包含12个 JEP，对于开发者来说，真正的特性只有一个，此外还有一些 API 和 JVM 规范的改动。</p>
+<h3 id="local-variable-type-inference-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD">Local-Variable type Inference 局部变量类型推断</h3>
+<p>局部变量的显示类型声明，常常被认为是不必须的。为减少形式冗余，JDK 10 新增局部变量类型推断。</p>
+<p>在处理 var 时，编译器先是查看表达式右边部分，并根据右边变量值的类型进行推断，作为左边变量的类型，然后将该类型写入字节码当中。</p>
+<p>var 不是一个关键字而是一个类型名，故不需要担心变量名或方法名会与 var 发生冲突，只有在编译器需要知道类型的地方才需要用到。此外，作为一个普通合法的标识符，除了不能用作为类名，其他的都可以。值得注意的，var 并不会改变 Java 是一门静态类型语言的事实。</p>
+<pre><code class="language-java">public class Java10Test {
+    // 局部变量的类型推断 =&gt; 右边判断左边
+    @Test
+    public void test1(){
+        // 声明变量时根据所赋值推断变量的类型
+        var num = 10;
+        // 没有指明泛型则推断为 Object
+        var list = new ArrayList&lt;&gt;();
+        list.add(123);
+        for(var i:list){
+            System.out.println(i);
+            System.out.println(i.getClass()); // class java.lang.Integer
+        }
+    }
+    @Test
+    public void test2(){
+        // 不能用测试
+        // 1.未初始化的局部变量声明不行
+        // var num;
+        // 2.Lambda表达式中左边的函数式接口不能声明为var =&gt; 不能确定是否为函数接口
+        // var sup = () -&gt; Math.random();
+        Supplier&lt;Double&gt; sup = () -&gt; Math.random();
+        // 3.方法引用左边的函数式接口不能声明为var
+        Consumer&lt;String&gt; con = System.out::println;
+        // var con = System.out::println;
+        // 4.数组的静态初始化注意如下情况不可
+        int[] arr = {1,2,3,4};
+        // var arr = {1,2,3,4};
+    }
+    // 4.方法的返回值类型不可推断
+    // 5.方法/构造器的参数类型不可推断
+    // public var test3(var num){}
+}
+</code></pre>
+<h3 id="%E6%96%B0%E5%A2%9E%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%8F%AF%E5%8F%98%E9%9B%86%E5%90%88%E6%96%B9%E6%B3%95-copyof">新增创建不可变集合方法 copyOf</h3>
+<p>JDK 为集合添加了 of 和 copyOf 方法，用于创建不可变集合。后者是 JDK 10 新增，若传入集合已是不可变，那么直接返回该集合，否则调用 of 创建不可变集合。</p>
+<pre><code class="language-java">public class Java10Test {
+    @Test
+    public void test3(){
+        var list1 = List.of("gz","hz");
+        var copy1 = List.copyOf(list1);
+        // 本身就是可读集合,那么copyOf返回同一个
+        System.out.println(list1 == copy1); // true
+        var list2 = new ArrayList&lt;String&gt;();
+        var copy2 = List.copyOf(list2);
+        // 本身不是可读集合,那么copyOf返回新建可读的
+        System.out.println(list2 == copy2); // false
+    }
+}
+</code></pre>
+<h2 id="java11-%E6%96%B0%E7%89%B9%E6%80%A7">Java11 新特性</h2>
+<p>Java11 是大版本周期变化后的第一个长期支持版本，一共包含 17 个 JEP JDK Enhancement Proposals，即 JDK 增强提案。从 JVM GC 的角度，JDK11 引入了两种新的 GC，包括目前还处于实验阶段但也许是划时代意义的 ZGC，为特定生产环境的苛刻需求提供了一个可能的选择。对部分企业核心存储产品，如果能够保证不超过 10ms 的 GC 暂停，可靠性将会上一个大的台阶，这是过去 GC 调优几乎做不到的。</p>
+<h3 id="string-%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95">String 新增方法</h3>
+<pre><code class="language-java">import org.junit.Test;
+
+public class Java11Test {
+    @Test
+    public void test1(){
+        // 判断字符串是否空白 =&gt; isBlank() =&gt; 制表符换行符空白
+        System.out.println((" \t \n ").isBlank());
+        // 去除首位空白 =&gt; strip()
+        System.out.println(("---" + "\t zs \n ".strip() + "---"));
+        // 去除尾部空白 =&gt; stripTrailing()
+        System.out.println(("---" + "\t zs \n ".stripTrailing() + "---"));
+        // 去除前部空格 =&gt; stripLeading()
+        System.out.println(("---" + "\t zs".stripLeading() + "---"));
+        // 复制字符串 =&gt; repeat()
+        System.out.println("zsgzhz".repeat(3));
+        // 行数统计 =&gt; lines().count()
+        System.out.println("zsgzhz \n abc \n abc".lines().count());
+    }
+}
+</code></pre>
+<h3 id="optional-%E5%A2%9E%E5%BC%BA">Optional 增强</h3>
+<pre><code class="language-java">import org.junit.Test;
+
+import java.util.Optional;
+
+public class Java11Test {
+    @Test
+    public void test2(){
+        Optional&lt;Object&gt; op = Optional.empty();
+        System.out.println(op.isPresent()); // 判断内部value是否存在
+        // java11 新增 isEmpty()
+        System.out.println(op.isEmpty()); // 判断内部value是否为空
+    }
+}
+</code></pre>
+<h3 id="%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD%E6%B3%A8%E8%A7%A3">局部变量类型推断注解</h3>
+<p>在 var 上添加注解的语法形式在 JDK11 中得以实现。</p>
+<pre><code class="language-java">import org.junit.Test;
+import java.util.function.Consumer;
+
+public class Java11Test {
+    @Test
+    public void test3(){
+        // 允许
+        // Consumer&lt;String&gt; con = (t) -&gt; System.out.println(t.toUpperCase());
+        // 错误 =&gt; 必须有类型;可以是var
+        // Consumer&lt;String&gt; con1 = (@Deprecated t) -&gt; System.out.println(t.toUpperCase());
+        // 优势 =&gt; 在使用 Lambda 表达式给参数加上注解
+        Consumer&lt;String&gt; con2 = (@Deprecated var t) -&gt; System.out.println(t.toUpperCase());
+
+    }
+}
+</code></pre>
+<h3 id="%E5%85%A8%E6%96%B0-http-%E5%AE%A2%E6%88%B7%E7%AB%AF-api">全新 HTTP 客户端 API</h3>
+<p>HTTP 用于传输网页的协议，早在1997年就被采用在目前的1.1版本中。到2015年，HTTP2 才成为标准。两者主要区别在于客户端和服务器之间构建和传输数据的方式。前者依赖于请求/响应周期，后者允许服务器 push 数据。</p>
+<p>Java9 引入处理 HTTP 请求的 HTTP Client API 支持同步与异步，在 Java11 已成正式可用状态，储于 java.net 包中。其替代仅适用于 blocking 模式的 HttpURLConnection，并提供对 WebSocket 和 HTTP2 的支持。</p>
+<pre><code class="language-java">import org.junit.Test;
+
+import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
+import java.net.*;
+
+public class Java11Test {
+    @Test
+    public void test4() throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder(URI.create("http://127/0/0/1:8080/test/")).build();
+        HttpResponse.BodyHandler&lt;String&gt; responseBodyHandler = HttpResponse.BodyHandlers.ofString();
+        HttpResponse&lt;String&gt; response = client.send(request, responseBodyHandler);
+        String body = response.body();
+        System.out.println(body);
+    }
+    @Test
+    public void test5() {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder(URI.create("http://127/0/0/1:8080/test/")).build();
+        HttpResponse.BodyHandler&lt;String&gt; responseBodyHandler = HttpResponse.BodyHandlers.ofString();
+        CompletableFuture&lt;HttpResponse&lt;String&gt;&gt; sendAsync = client.sendAsync(request,responseBodyHandler);
+        sendAsync.thenApply(t -&gt; t.body()).thenAccept(System.out::println);
+    }
+}
+</code></pre>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

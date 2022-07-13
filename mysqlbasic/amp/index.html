@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>🛢MySQLBasic</title>
+
+    <meta name="description" content="MySQL环境配置以及常见问题" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="🛢MySQLBasic" />
+    <meta property="og:description" content="MySQL环境配置以及常见问题" />
+    <meta property="og:url" content="yourdomain.com/mysqlbasic/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/07/seabed.jpg" />
+    <meta property="article:published_time" content="2020-03-10T12:25:00.000Z" />
+    <meta property="article:modified_time" content="2022-04-30T11:21:01.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    <meta property="article:tag" content="BUG handled" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="🛢MySQLBasic" />
+    <meta name="twitter:description" content="MySQL环境配置以及常见问题" />
+    <meta name="twitter:url" content="yourdomain.com/mysqlbasic/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/seabed.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth, BUG handled" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1500" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "🛢MySQLBasic",
+    "url": "yourdomain.com/mysqlbasic/",
+    "datePublished": "2020-03-10T12:25:00.000Z",
+    "dateModified": "2022-04-30T11:21:01.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/07/seabed.jpg",
+        "width": 2000,
+        "height": 1500
+    },
+    "keywords": "Technology growth, BUG handled",
+    "description": "MySQL环境配置以及常见问题",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">🛢MySQLBasic</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2020-03-10">10 Mar 2020</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2021/07/seabed.jpg" width="600" height="340" layout="responsive" 
+                alt="🛢MySQLBasic"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <p>关系型数据库常见 MySQL、Oracle 与 SQL Server，非关系型数据库有键值型数据库 Redis、文档型数据库 Mongodb、搜索引擎数据库 ES 与 Solr、列式数据库 HBase、图形数据库 InfoGrid。</p><h2 id>快速上手</h2>
+<h3 id>安装与卸载</h3>
+<pre><code class="language-shell"># 安装
+# MySQL Server 提供数据储存、数据服务
+$ brew install mysql
+# MySQL Workbench: 可视化MySQL管理工具-方便操作存储的数据
+$ brew install --cask mysqlworkbench
+# 或官方安装文件安装
+...
+# 卸载
+$ mysql --version
+# mysql  Ver 8.0.28 for macos12.2 on x86_64 (Homebrew)
+$ sudo rm /usr/local/mysql
+$ sudo rm -rf /usr/local/mysql*
+$ sudo rm -rf /Library/StartupItems/MySQLCOM
+# 因为有 InstallHisory.plist 注意不要把 Receipts 全删 -- 概率没有 mysql*
+# /Library/Receipts 通常为 user 在 APP Store 中下载的 receipts
+$ sudo rm -rf /Library/Receipts/mysql* 
+</code></pre>
+<h3 id>常用路径</h3>
+<ul>
+<li>安装完成配置环境变量。</li>
+</ul>
+<pre><code class="language-shell">$ vi ~/.zshrc
+</code></pre>
+<pre><code class="language-shell"># mysql
+export PATH="/usr/local/mysql/bin:$PATH"
+alias  mysql='/usr/local/mysql/bin/mysql'
+</code></pre>
+<pre><code class="language-shell"># 更新配置
+$ source ~/.zshrc   
+</code></pre>
+<ul>
+<li>安装包安装完成可通过在系统偏好设置中 mysql 项的 configuration 栏查询具体各内容的安装存在位置。</li>
+</ul>
+<pre><code class="language-shell"># 安装文件安装,非homebrew
+# Base Directory
+/usr/local/mysql
+# Data Directory
+/usr/local/mysql/data
+# Plugin Directory
+/usr/local/mysql/lib/plugin
+# Keyring Data File
+/usr/local/mysql/keyring/keyring
+# Error Log
+/usr/local/mysql/data/mysqld.local.err
+# PID File
+/usr/local/mysql/data/mysqld.local.pid
+</code></pre>
+<ul>
+<li>mac 上使用 homebrew 安装的配置文件存放路径。</li>
+</ul>
+<pre><code class="language-shell">$ mysqld --help --verbose | more
+/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf
+# 注意 /usr/local/etc/my.cnf !!
+</code></pre>
+<h3 id>常用命令</h3>
+<ul>
+<li>前置命令</li>
+</ul>
+<pre><code class="language-shell"># ---准备---
+
+# 1.线程查看 MySQL 是否启动
+$ ps -ef | grep mysql
+
+# 2. brew 查看启动程序
+$ brew services list
+
+# --启动--
+
+# 1.开始/停止/重启 MySQL 服务
+$ sudo /usr/local/MySQL/support-files/mysql.server start/stop/restart
+
+# 2. brew 开始/停止 MySQL 服务
+$ brew services start/stop mysql
+$ mysql.server start/stop
+
+# ---登入登出---
+
+# 登陆 mysql
+$ mysql -u root -p
+# 退出 mysql
+mysql&gt; exit;
+</code></pre>
+<ul>
+<li>导入 .sql 文件</li>
+</ul>
+<p>创建以导入的 .sql 文件名命名的新数据库。（此处以 mydb 为例）</p>
+<pre><code class="language-shell"># 登入数据库
+# 常用格式 =&gt; mysql -u root -p xxx -h localhost -P 3306
+$ mysql -u root -p
+
+# 使用数据库(前提存在此数据库)
+$ mysql&gt;use mydb(使用那个数据库的名称)
+
+# 导入 .spl 文件
+$ mysql&gt; source /Users/zsxzy/Desktop/.../db/mydb.sql
+</code></pre>
+<p>在测试文件是否成功导入时，可能因权限问题报错，在确保数据安全的情况下粗暴解决：<code>sudo chmod -R 777 /usr/local/mysql/data/...</code></p>
+<h2 id="sqlstructuredquerylanguage">SQL Structured Query Language</h2>
+<h3 id>功能分类</h3>
+<p>DDL Data Definition Languages <strong>数据定义语言</strong>用于定义库、表、视图、索引等数据库不同的对象，还可以用来创建、删除、修改数据库和数据表的结构。</p>
+<pre><code class="language-javascript">CREATE|DROP|ALTER|TRUNCATE|RENAME
+</code></pre>
+<p>DML Data Manipulation language <strong>数据操作语言</strong>用于添加、删除、更新和查询数据库记录，并检查数据完整性。</p>
+<pre><code class="language-javascript">INSERT|DELETE|UPDATE|SELECT
+</code></pre>
+<p>DCL Data Control language <strong>数据控制语言</strong>用于定义库、表、字段、用户的访问权限和安全级别。</p>
+<pre><code class="language-javascript">GRANT|REVOKE|COMMIT|ROLLBACK|SAVEPOINT
+</code></pre>
+<p>因查询语句的使用频繁，故很多人把查询语句单拎出来作为一类 DQL 数据查询语言。还有单独的将 COMMIT、ROLLBACK 取出来称为 TCL Transaction Control Language 事务控制语言。</p>
+<h3 id>规则与规范</h3>
+<p>SQL 可以写在一行或者多行。为了提高可读性各子句分行写，必要时使用缩进。每条命令以 ; 或 \g 或 \G 结束。对于字符串和时间类型的数据可以使用单引号 ''，但是列的别名建议使用双引号 ""，且不建议省略。</p>
+<p>建议数据库名、表名、表别名、字段名、字段别名等都小写；SQL 关键字、函数名、绑定变量等都大写。</p>
+<p>数据库命名不能中文和空格。PK primary key 主键唯一标识、NN not null 值不允许为空、UQ Unique 值唯一、AI Auto Increment 值自动增长。</p>
+<p>单行注释可以使用 <code>#</code> 注释符，直接后边接注释内容。也可以使用 <code>-- </code> 注释符，注意这里有一个空格才能生效。行注释使用 <code>/* */</code>注释符。</p>
+<p>MySQL 中可直接执行 <code>select ...;</code> 不加 <code>from table;</code>，而 Oracle 中需满足 <code>select * from table;</code> 的结构，故引入虚拟表 DUAL。MySQL5.5 以上版本也引入了虚拟表 DUAL，但执行 <code>select * from dual;</code> 会报错。</p>
+<p>按提出时间标准命名的 SQL92 和 SQL99 对应着 SQL 的两个主要标准 SQL-2 和 SQL-3。SQL99  在 SQL92 的基础上提供了一些特殊语法，比如 NATURAL JOIN 用来表示自然连接。可以把自然连接理解为 SQL92 中的等值连接。其会帮助自动查询两张连接表中<strong>所有相同的字段</strong>，然后进行<strong>等值连接</strong>。SQL99 还支持使用 USING 指定表里的同名字段等值连接。与自然连接不同，USING 括号中指定了具体的相同字段名称。使用 JOIN USING 可以简化 JOIN ON 的等值连接。</p>
+<pre><code class="language-javascript"># 表employees和departments存在两个字段相同
+SELECT employee_id,last_name,department_name FROM employees e JOIN departments d ON e.department_id = d.department_id AND e.manager_id = d.manager_id;
+# 使用自然连接
+SELECT employee_id,last_name,department_name FROM employees e NATURAL JOIN departments d;
+# 92语法
+SELECT employee_id,last_name,department_name FROM employees e JOIN departments d WHERE e.department_id = d.department_id;
+# using =&gt; 不适用于自连接
+SELECT employee_id,last_name,department_name FROM employees e JOIN departments d USING (department_id);
+</code></pre>
+<h3 id="sql">SQL 基础</h3>
+<ul>
+<li>列的别名</li>
+</ul>
+<p>as 全称 alias 别名，可以省略，同时列的别名可以使用一对双引号包裹。如果列名称包含空格，要求使用双引号或方括号。需要注意，别名可以在 ORDER BY 使用，不能在 WHERE 使用。</p>
+<pre><code class="language-javascript">SELECT employee_id emp_id,last_name AS lname,department_id "dept_id",salary*12 "annual sal"
+FROM employees;
++--------+-------------+---------+
+| emp_id | lname       | dept_id |
++--------+-------------+---------+
+|    ... | ....        |     ... |
++--------+-------------+---------+
+# 错误示范
+SELECT employee_id,salary,salary * 12 annual_sal FROM employees WHERE annual_sal &gt; 81600;
+</code></pre>
+<ul>
+<li>着重号</li>
+</ul>
+<p>通常情况下，表名、字段加上着重号是没有问题的，但是一般不需要。如果出现表名、字段名与关键字重名的情况，需要明确加上着重号表明不是关键字。</p>
+<pre><code class="language-javascript">SELECT * FROM `order`;
+</code></pre>
+<ul>
+<li>查询常数</li>
+</ul>
+<p>在开发场景中，若需将不存在于表中字段里的数据加在结果显示中，可以考虑使用查询常数。</p>
+<pre><code class="language-javascript">SELECT 'zs',123,employee_id,last_name FROM employees;
+</code></pre>
+<ul>
+<li>显示表结构</li>
+</ul>
+<p>刻画表创建时，字段的相关信息。</p>
+<pre><code class="language-javascript">DESCRIBE employees;
+DESC employees;
+</code></pre>
+<ul>
+<li>算术运算符</li>
+</ul>
+<p>在 SQL 中，+ 没有连接作用，仅表示加法运算，此时会将字符串转化为数值（隐式转换）。</p>
+<pre><code class="language-javascript">SELECT 100 + '1' FROM DUAL; # 101
+SELECT 100 + 'a' FROM DUAL; # 此时将不可转换的字符串转化为0
+SELECT 100 + NULL FROM DUAL; # NULL参与运算结果均为 null
+</code></pre>
+<ul>
+<li>比较运算符</li>
+</ul>
+<p>字符串存在隐式转换，如果转换数值不成功，则看作 0。两边都是字符串的情况下，按照 ANST 规则进行比较。UTF-8 向下兼容了 ASCII 码，比较转换后数值是否一致。只要有 NULL 参与的比较，结果都是 NULL。</p>
+<pre><code class="language-javascript">mysql&gt; SELECT 1 = 2,1 != 2,1 = '1',1 = 'a',0 = 'a' FROM DUAL;
++-------+--------+---------+---------+---------+
+| 1 = 2 | 1 != 2 | 1 = '1' | 1 = 'a' | 0 = 'a' |
++-------+--------+---------+---------+---------+
+|     0 |      1 |       1 |       0 |       1 |
++-------+--------+---------+---------+---------+
+mysql&gt; SELECT 'a' = 'a','ab' = 'ab','a' = 'b' FROM DUAL;
++-----------+-------------+-----------+
+| 'a' = 'a' | 'ab' = 'ab' | 'a' = 'b' |
++-----------+-------------+-----------+
+|         1 |           1 |         0 |
++-----------+-------------+-----------+
+mysql&gt; SELECT 1 = NULL,NULL = NULL FROM DUAL;
+</code></pre>
+<ul>
+<li>安全等于运算符</li>
+</ul>
+<p>安全等于运算符 &lt;=&gt; 与等于运算符 = 的作用是相似的，唯一的区别是 &lt;=&gt; 可以用来对 NULL 进行判断。在两个操作数均为 NULL 时，其返回值为 1，而不是为 NULL；当一个操作数为 NULL，其返回值为 0，不为 NULL。</p>
+<pre><code class="language-javascript">mysql&gt; SELECT 1 &lt;=&gt; 2,1 &lt;=&gt; '1',0 &lt;=&gt; 'a' FROM DUAL;
++---------+-----------+-----------+
+| 1 &lt;=&gt; 2 | 1 &lt;=&gt; '1' | 0 &lt;=&gt; 'a' |
++---------+-----------+-----------+
+|       0 |         1 |         1 |
++---------+-----------+-----------+
+mysql&gt; SELECT 1 &lt;=&gt; NULL, NULL &lt;=&gt; NULL FROM DUAL;
++------------+---------------+
+| 1 &lt;=&gt; NULL | NULL &lt;=&gt; NULL |
++------------+---------------+
+|          0 |             1 |
++------------+---------------+
+# 查询表中 commission_pct 为 NULL 的字段
+SELECT last_name,salary,commission_pct FROM employees WHERE commission_pct &lt;=&gt; NULL;
+SELECT last_name,salary,commission_pct FROM employees WHERE commission_pct = NULL; # 没有数据
+</code></pre>
+<ul>
+<li>BETWEEN AND 与 IN</li>
+</ul>
+<p>BETWEEN AND 区分条件上下界，不可交换，查询条件范围内包含边界的数据。IN 则是在 set 范围中<strong>离散</strong>的查找匹配符合的数据。</p>
+<ul>
+<li>LIKE</li>
+</ul>
+<p>模糊匹配 LIKE 常搭配不确定个数的字符 % 与代表一个不确定的字符 _ 使用。</p>
+<pre><code class="language-javascript">SELECT last_name FROM employees WHERE last_name LIKE '%a%';
+SELECT last_name FROM employees WHERE last_name LIKE '%a%' OR last_name LIKE '%e%';
+SELECT last_name FROM employees WHERE last_name LIKE '_a'; # 模糊查询 _a
+SELECT last_name FROM employees WHERE last_name LIKE '_\_a%'; # 模糊查询 _ a
+SELECT last_name FROM employees WHERE last_name LIKE '_$_a%' ESCAPE '$';
+</code></pre>
+<h2 id="bug">BUG 解决</h2>
+<hr></hr>
+<pre><code class="language-shell">Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'localhost' (using password: YES)
+异常指令err: AccessDeniedError [SequelizeAccessDeniedError]: Access denied for user 'root'@'localhost' (using password: YES)
+</code></pre>
+<p>此问题是 配置的数据库密码 与 数据库设置的密码 不同所导致，应在项目配置数据库文件脚本找到对应的配置代码进行修改，如 <code>default.json</code> 或 <code>config</code> 中的 <code>mysql.js</code>（登录文件）。要是这里 using password 后接的是 No 。那么应从 <strong>权限</strong> 以及 <strong>依赖包</strong> 进行考虑。</p>
+<hr></hr>
+<pre><code class="language-shell">Your connection attempt failed for user 'root' to the MySQL server at localhost:3306:
+Unable to connect to localhost:3306
+Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+ERROR! The server quit without updating PID file
+</code></pre>
+<p>要确保完全卸载旧版本再去安装新版 Mysql。mysql.sock 文件用于 socket 连接的文件，只有守护进程启动起来这个文件才存在。<a href="https://stackoverflow.com/questions/16325607/cant-connect-to-local-mysql-server-through-socket-tmp-mysql-sock">SOF传送门</a>。</p>
+<hr></hr>
+<pre><code class="language-shell">ERROR! The server quit without updating PID file (/usr/local/var/mysql/xxx.local.pid).
+</code></pre>
+<p>此时退出会有两种情况考虑：1.权限给定、2.上版mysql未删除彻底</p>
+<hr></hr>
+<pre><code class="language-shell"># 开启 Node 端口服务时协议不匹配
+ConnectionError [SequelizeConnectionError]: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+</code></pre>
+<p>MySQL 8.0 使用 caching_sha2_password 作为默认身份验证插件，而不是 MySQL 5.7 默认  mysql_native_password。而最新的 mysql 模块并未完全支持 MySQL8 的加密方式。此时考虑重新修订用户 root 的密码，指定 mysql 模块支持的加密方式。</p>
+<pre><code class="language-shell">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new password'
+# 默认新协议的密码更改方式
+# ALTER USER 'root'@'localhost' IDENTIFIED BY 'new password';
+</code></pre>
+<hr></hr>
+<pre><code class="language-shell"># 在更更改密码时出现如下错误
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+</code></pre>
+<p>由于密码要求修改失败，此时检查密码要求变量。</p>
+<pre><code class="language-shell">$ SHOW VARIABLES LIKE 'validate_password%';
++--------------------------------------+--------+
+| Variable_name                        | Value  |
++--------------------------------------+--------+
+| validate_password.check_user_name    | ON    |
+| validate_password.dictionary_file    |        |
+| validate_password.length             | 8      |
+| validate_password.mixed_case_count   | 1      |
+| validate_password.number_count       | 1      |
+| validate_password.policy             | MEDIUM |
+| validate_password.special_char_count | 1      |
++--------------------------------------+--------+
+</code></pre>
+<p>修改 validate_password_policy 的 MEDIUM 为 LOW 。但是需要注意，若直接在此处设置 <code>set global validate_password.xxx=${refixval}</code> 的话，加密配置会在下一次启动 MySQL 时失效。应在 <code>/usr/local/etc/my.cnf</code> 中重新定义加密规则。</p>
+<pre><code class="language-shell">[mysqld]
+validate_password_length=6
+validate_password_policy=LOW
+</code></pre>
+<hr></hr>
+<pre><code class="language-shell">数据库连接异常
+异常指令err: ConnectionError [SequelizeConnectionError]: Connection lost: The server closed the connection.
+</code></pre>
+<p>此时项目后端接口使用 mysql 连接字符串是 localhost。在将连接字符串替换成 127.0.0.1 可以成功连接。localhost 是走 socket 127.0.0.1 是走 3306 端口。配置反推两者应该是相反的连接成功与失败结果，这里也不应该出现 localhost 不行而 127.0.0.1 可以。所以考虑测网络环境问题，测试如下：</p>
+<pre><code class="language-shell">$ ping localhost
+PING localhost.lan (198.18.2.xxx): 56 data bytes
+64 bytes from 198.18.2.xxx: icmp_seq=0 ttl=63 time=0.182 ms
+64 bytes from 198.18.2.xxx: icmp_seq=1 ttl=63 time=0.436 ms
+</code></pre>
+<p>根据上述测试得出结果：由于科学上网导致网络连通问题。因为 localhost 是一个域名，只有把域名解析为 127.0.0.1 才能传输。既然都解析不成 127.0.0.1 ，那么连接就是无稽之谈。</p>
+<pre><code class="language-shell">$ ping localhost
+PING localhost.lan (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.051 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.148 ms
+</code></pre>
+<hr></hr>
+<p>安装 mysql 不成功的原因通常可能是没有将其旧版完全卸载，导致存在残余文件与安装文件冲突，建议彻底删除后重试。</p>
+<pre><code class="language-shell"># 错误信息
+2019-08-08T03:57:00.919252Z 0 [System] [MY-013169] [Server] /usr/local/Cellar/mysql/8.0.25_1/bin/mysqld (mysqld 8.0.25) initializing of server in progress as process 2624
+2019-08-08T03:57:00.921626Z 0 [ERROR] [MY-010457] [Server] --initialize specified but the data directory has files in it. Aborting.
+2019-08-08T03:57:00.921638Z 0 [ERROR] [MY-013236] [Server] The designated data directory /usr/local/var/mysql/ is unusable. You can remove all files that the server added to it.
+2019-08-08T03:57:00.921780Z 0 [ERROR] [MY-010119] [Server] Aborting
+2019-08-08T03:57:00.922020Z 0 [System] [MY-010910] [Server] /usr/local/Cellar/mysql/8.0.25_1/bin/mysqld: Shutdown complete (mysqld 8.0.25)  Homebrew.
+Warning: The post-install step did not complete successfully
+</code></pre>
+<pre><code class="language-shell"># 残余文件存在位置
+/usr/local/var
+/usr/local/etc/my.*
+</code></pre>
+<hr></hr>
+<p>mysql5 版本向指定的数据库中添加中文信息不成功，导致命令行操作 sql 乱码问题。</p>
+<pre><code class="language-javascript">mysql&gt; INSERT INTO &lt;table_name&gt; VALUES(...,"&lt;中文&gt;",...)
+ERROR 1366 (HY000): Incorrect string value: '\x[][]' for column 'xx' at row 1
+</code></pre>
+<pre><code class="language-javascript"># 查看表信息
+mysql&gt; show create table &lt;table_name&gt;;
+ENGINE=InnoDB DEFAULT latin1
+# 查看编码命令
+mysql&gt; show variables like 'character_%';
++--------------------------+--------------------------------------------------------+
+| Variable_name            | Value                                                  |
++--------------------------+--------------------------------------------------------+
+| character_set_client     | utf8mb4                                                |
+| character_set_connection | utf8mb4                                                |
+| character_set_database   | utf8mb4 # 检查此处是否为latin1                           |
+| character_set_filesystem | binary                                                 |
+| character_set_results    | utf8mb4                                                |
+| character_set_server     | utf8mb4 # 检查此处是否为latin1                           |
+| character_set_system     | utf8mb3                                                |
+| character_sets_dir       | /usr/local/Cellar/mysql/8.0.28_1/share/mysql/charsets/ |
++--------------------------+--------------------------------------------------------+
+mysql&gt; show variables like 'collation_%';
++----------------------+--------------------+
+| Variable_name        | Value              |
++----------------------+--------------------+
+| collation_connection | utf8mb4_0900_ai_ci |
+| collation_database   | utf8mb4_0900_ai_ci |
+| collation_server     | utf8mb4_0900_ai_ci |
++----------------------+--------------------+
+# 修改 mysql 配置文件 my.cnf / my.ini
+# mac homebrew
+$ mysqld --help --verbose | more
+Default options are read from the following files in the given order:
+/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf
+</code></pre>
+<pre><code class="language-shell"># my.cnf 样例
+[mysql]
+...
+default_character_set=utf8
+[mysqld]
+#
+# * Basic Settings
+#
+user            = mysql
+# pid-file      = /var/run/mysqld/mysqld.pid
+# socket        = /var/run/mysqld/mysqld.sock
+# port          = 3306
+# datadir       = /var/lib/mysql
+
+bind-address            = 127.0.0.1
+mysqlx-bind-address     = 127.0.0.1
+#
+# * Fine Tuning
+#
+key_buffer_size         = 16M
+# max_allowed_packet    = 64M
+# thread_stack          = 256K
+# thread_cache_size       = -1
+myisam-recover-options  = BACKUP
+# max_connections        = 151
+# table_open_cache       = 4000
+log_error = /var/log/mysql/error.log
+
+max_binlog_size   = 100M
+secure_file_priv=''
+...
+character-set-server=utf-8
+collation-server=utf8_general_ci
+</code></pre>
+<h2 id>结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

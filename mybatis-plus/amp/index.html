@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>MyBatis-Plus</title>
+
+    <meta name="description" content="MyBatis 的增强工具 &#x3D;&gt; MyBatis-Plus" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="MyBatis-Plus" />
+    <meta property="og:description" content="MyBatis 的增强工具 &#x3D;&gt; MyBatis-Plus" />
+    <meta property="og:url" content="yourdomain.com/mybatis-plus/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/06/GameBoy.jpg" />
+    <meta property="article:published_time" content="2020-04-22T14:22:00.000Z" />
+    <meta property="article:modified_time" content="2022-07-01T17:48:25.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MyBatis-Plus" />
+    <meta name="twitter:description" content="MyBatis 的增强工具 &#x3D;&gt; MyBatis-Plus" />
+    <meta name="twitter:url" content="yourdomain.com/mybatis-plus/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/06/GameBoy.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "MyBatis-Plus",
+    "url": "yourdomain.com/mybatis-plus/",
+    "datePublished": "2020-04-22T14:22:00.000Z",
+    "dateModified": "2022-07-01T17:48:25.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/06/GameBoy.jpg",
+        "width": 1920,
+        "height": 1080
+    },
+    "keywords": "Technology growth",
+    "description": "MyBatis 的增强工具 &#x3D;&gt; MyBatis-Plus",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">MyBatis-Plus</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2020-04-22">22 Apr 2020</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2022/06/GameBoy.jpg" width="600" height="340" layout="responsive" 
+                alt="GameBoy"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<h3 id="%E6%9C%80%E5%B0%8F%E5%8D%95%E5%85%83">最小单元</h3>
+<p>逆向工程只能生成 mapper 接口、映射文件、实体类 Model。MyBatis-Plus 可以生成 mapper 接口、映射文件、实体类 Model、service、controller。</p>
+<pre><code class="language-xml">&lt;!-- connector --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!-- MyBatis-Plus 核心依赖 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;3.5.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- lombok 简化实体类 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<pre><code class="language-yml">spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;userSSL=false
+    username: &lt;username&gt;
+    password: &lt;password&gt;
+# MyBatis-Plus 相关配置
+mybatis-plus:
+  configuration:
+    #配置日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+</code></pre>
+<pre><code class="language-java">@SpringBootApplication
+@MapperScan("com.zszy.mybatisplus.mapper")
+public class MybatisplusApplication { // mapper 接口所在包和映射文件所在包
+    public static void main(String[] args) { SpringApplication.run(MybatisplusApplication.class, args); }
+}
+</code></pre>
+<pre><code class="language-java">@Data // 等于 @NoArgsConstructor + @AllArgsConstructor + @Getter + @Setter + @EqualsAndHashCode
+public class User {
+    private Long id;
+    private String name;
+    private Integer age;
+    private String email;
+}
+</code></pre>
+<pre><code class="language-java">@Repository
+public interface UserMapper extends BaseMapper&lt;User&gt; {}
+</code></pre>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusTest {
+    // @Autowired 飘红是由于 MapperScan 扫描包下所有的接口, 并不是把接口交给 IOC 管理 =&gt; IOC 只能存在类所对应的 Bean, 不能存在接口对应的 Bean
+    // 故是将 UserMapper 动态生成的代理类交给 IOC 容器管理 =&gt; IDEA 在编译时认为 UserMapper 无法进行自动装配 =&gt; 其实在运行阶段没有问题
+    @Resource
+    private UserMapper userMapper;
+    /* 测试查询所有数据 */
+    @Test
+    void testSelectList(){
+        // 通过条件构造器查询一个list集合 =&gt; 若没有条件则可设置null为参数
+        List&lt;User&gt; users = userMapper.selectList(null);
+        users.forEach(System.out::println);
+    }
+}
+</code></pre>
+<p>BaseMapper =&gt; 不用写 sql 也能实现数据库操作，但是没有通用 service 的批量添加。在开发场景中添加的数据可能是海量的，此时这些数据全部拼在一个 sql 语句是不现实的，故批量添加的方法在 service 中而不在 mapper。</p>
+<p>mapper 层 =&gt; dao 层，用作对数据库进行数据持久化操作。</p>
+<p>controller 层 =&gt; 负责具体模块的业务流程控制，需要调用 service 逻辑设计层的接口来控制业务流程。接收前端传来的参数并进行业务操作，再将处理结果返回。</p>
+<h2 id="crud">CRUD</h2>
+<h3 id="basemappert">BaseMapper&lt;T&gt;</h3>
+<p>基本 crud 的操作在内置的 BaseMapper 中都已得到实现，因此在 xxxMapper 中只需继承该接口后就可以直接使用。</p>
+<ul>
+<li>BaseMapper 接口的源码封装</li>
+</ul>
+<pre><code class="language-java">/* BaseMapper 源码 */
+public interface BaseMapper&lt;T&gt; extends Mapper&lt;T&gt; {
+    // 插入一条记录
+    int insert(T entity);
+    // 根据 ID 删除
+    int deleteById(Serializable id);
+    // 根据 entity 条件删除记录
+    int deleteById(T entity);
+    // 根据 columnMap 条件删除记录
+    int deleteByMap(@Param("cm") Map&lt;String, Object&gt; columnMap);
+
+    int delete(@Param("ew") Wrapper&lt;T&gt; queryWrapper);
+    // 根据 ID 批量删除
+    int deleteBatchIds(@Param("coll") Collection&lt;?&gt; idList);
+    // 根据 ID 修改
+    int updateById(@Param("et") T entity);
+    // 根据 Wrapper 条件更新记录
+    int update(@Param("et") T entity, @Param("ew") Wrapper&lt;T&gt; updateWrapper);
+    // 根据 ID 查询
+    T selectById(Serializable id);
+    // 根据 ID 批量查询
+    List&lt;T&gt; selectBatchIds(@Param("coll") Collection&lt;? extends Serializable&gt; idList);
+    // 根据 columnMap 条件查询
+    List&lt;T&gt; selectByMap(@Param("cm") Map&lt;String, Object&gt; columnMap);
+    // 根据 entity 条件查询一条记录
+    default T selectOne(@Param("ew") Wrapper&lt;T&gt; queryWrapper) {
+        List&lt;T&gt; ts = this.selectList(queryWrapper);
+        if (CollectionUtils.isNotEmpty(ts)) {
+            if (ts.size() != 1) {
+                throw ExceptionUtils.mpe("One record is expected, but the query result is multiple records", new Object[0]);
+            } else {
+                return ts.get(0);
+            }
+        } else {
+            return null;
+        }
+    }
+
+    default boolean exists(Wrapper&lt;T&gt; queryWrapper) {
+        Long count = this.selectCount(queryWrapper);
+        return null != count &amp;&amp; count &gt; 0L;
+    }
+    // 根据 Wrapper 条件查询总记录数
+    Long selectCount(@Param("ew") Wrapper&lt;T&gt; queryWrapper);
+
+    List&lt;T&gt; selectList(@Param("ew") Wrapper&lt;T&gt; queryWrapper);
+    // 根据 Wrapper 条件查询全部记录
+    List&lt;Map&lt;String, Object&gt;&gt; selectMaps(@Param("ew") Wrapper&lt;T&gt; queryWrapper);
+    // 根据 Wrapper 条件查询全部记录 =&gt; 注意只返回第一个字段的值
+    List&lt;Object&gt; selectObjs(@Param("ew") Wrapper&lt;T&gt; queryWrapper);
+    // 根据 entity 条件查询全部记录（并翻页）
+    &lt;P extends IPage&lt;T&gt;&gt; P selectPage(P page, @Param("ew") Wrapper&lt;T&gt; queryWrapper);
+    // 根据 Wrapper 条件查询全部记录（并翻页）
+    &lt;P extends IPage&lt;Map&lt;String, Object&gt;&gt;&gt; P selectMapsPage(P page, @Param("ew") Wrapper&lt;T&gt; queryWrapper);
+}
+</code></pre>
+<ul>
+<li>调用 Mapper 层实现 CRUD</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusTest {
+    ...
+    /* 测试插入数据 */
+    @Test
+    void testInsert(){
+        // 新增用户信息
+        User user = new User();
+        user.setName("zs");
+        user.setAge(22);
+        user.setEmail("zs@mail.com");
+        int insert = userMapper.insert(user);
+        System.out.println("insert =&gt; " + insert + "---" + "userId =&gt; " +user.getUid());
+    }
+    /* 测试删除数据 */
+    @Test
+    void testDelete(){
+        // 删除用户信息
+//        int i = userMapper.deleteById(1538798688154005506L);
+//        System.out.println(i);
+        // 根据 map 集合所设置的条件删除用户信息
+        // 执行 SQL =&gt; DELETE FROM user WHERE name = ? AND age = ?
+//        Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+//        map.put("name","zs");
+//        map.put("age",22);
+//        int i = userMapper.deleteByMap(map);
+//        System.out.println(i);
+        // 通过多个 id 实现批量删除 =&gt; DELETE * FROM user WHERE id IN (?,?,?)
+        List&lt;Long&gt; list = Arrays.asList(1L, 2L, 3L);
+        int i = userMapper.deleteBatchIds(list);
+        System.out.println("result =&gt; " +i);
+    }
+    /* 测试更新数据 */
+    @Test
+    void testUpdate(){
+        // UPDATE user SET name=?, age=?, email=? WHERE id=?
+        User user = new User();
+        user.setUid(4L);
+        user.setName("jr");
+        user.setAge(20);
+        user.setEmail("jr@mail.com");
+        int i = userMapper.updateById(user);
+        System.out.println(i);
+    }
+    /* 测试查询数据 */
+    @Test
+    void testSelect(){
+//        User user = userMapper.selectById(1L);
+//        System.out.println(user);
+//        List&lt;Long&gt; list = Arrays.asList(1L,2L,3L);
+//        List&lt;User&gt; users = userMapper.selectBatchIds(list);
+//        users.forEach(System.out::println);
+        // 根据 map 集合条件查询 =&gt; SELECT id,name,age,email FROM user WHERE name = ? AND age = ?
+//        Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+//        map.put("name","jr");
+//        map.put("age","20");
+//        List&lt;User&gt; users = userMapper.selectByMap(map);
+//        users.forEach(System.out::println);
+//        List&lt;User&gt; users = userMapper.selectList(null);
+//        users.forEach(System.out::println);
+        // 测试自定义查询
+        Map&lt;String, Object&gt; stringObjectMap = userMapper.selectMapByIdByZs(1L);
+        System.out.println(stringObjectMap);
+    }
+}
+</code></pre>
+<pre><code class="language-java">@Repository
+public interface UserMapper extends BaseMapper&lt;User&gt; {
+    /**
+     * 根据 uid 查询用户信息为 map 的集合
+     * @param uid
+     * @return
+     */
+    @MapKey("uid")
+    Map&lt;String,Object&gt; selectMapByIdByZs(Long uid);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace="com.zszy.mybatisplus.mapper.UserMapper"&gt;
+    &lt;!-- Map&lt;String,Object&gt; selectMapByIdByZs(Long id); --&gt;
+    &lt;select id="selectMapByIdByZs" resultType="map"&gt;
+        select uid,user_name,age,email from t_user where uid = #{uid};
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<h3 id="iservicet"><a href="https://baomidou.com/pages/49cc81/#service-crud-%E6%8E%A5%E5%8F%A3">Iservice&lt;T&gt;</a></h3>
+<p>MybatisPlus 不止提供通用的 mapper 还提供通用的 service。即 service 也可使用其提供的通用 service 中的方法。IService 与其实现类 ServiceImpl 封装了常见的业务层逻辑。</p>
+<ul>
+<li>IService</li>
+</ul>
+<pre><code class="language-java">// IService 简易源码
+public interface IService&lt;T&gt; {... save、remove、update、get、page、list}
+</code></pre>
+<ul>
+<li>ServiceImpl</li>
+</ul>
+<pre><code class="language-java">// ServiceImpl 简易源码
+// M 即开发者定义的 xxxMapper、T 是当前操作的实体类对象
+public class ServiceImpl&lt;M extends BaseMapper&lt;T&gt;, T&gt; implements IService&lt;T&gt; {}
+</code></pre>
+<ul>
+<li>调用 Service 层实现 CRUD</li>
+</ul>
+<pre><code class="language-java">/* service */
+public interface UserService extends IService&lt;User&gt; {}
+</code></pre>
+<pre><code class="language-java">/* service.impl */
+// mybatis-plus 提供的通用 service =&gt; 不必自己重写 -&gt; 直接继承 IService 的实现类
+@Service
+public class UserServiceImpl extends ServiceImpl&lt;UserMapper, User&gt; implements UserService {}
+</code></pre>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusServiceTest {
+    @Autowired
+    private UserService userService;
+    @Test
+    public void testGetCount(){
+        // 查询总记录数
+        long count = userService.count();
+        System.out.println("总记录数 =&gt; " + count);
+    }
+    // 批量添加
+    @Test
+    public void testInsertMore(){
+        List&lt;User&gt; list = new ArrayList&lt;&gt;();
+        for (int i = 1; i &lt;= 5; i++){
+            User user = new User();
+            user.setName("gz"+i);
+            user.setAge(20+i);
+            list.add(user);
+        }
+        boolean b = userService.saveBatch(list);
+        System.out.println(b);
+    }
+}
+</code></pre>
+<h3 id="%E4%B8%AA%E4%BA%BA%E5%B0%8F%E7%BB%93">个人小结</h3>
+<ul>
+<li>关于批处理</li>
+</ul>
+<p>IService 接口是对 BaseMapper 的进一步封装，为什么主要是封装批量操作？（为什么在 BaseMapper 没有批量添加，而 Iservice 有？）</p>
+<p>从分层角度来看，BaseMapper 是 DAO 层的 CRUD 封装，而 IService 是业务逻辑层的 CRUD 封装，所以增加批量 CRUD 操作封装，符合官方指南中的阐述。</p>
+<p>从源码角度来看，IService 是对 BaseMapper 的扩展 =&gt; BaseMapper、IService、ServiceImpl。</p>
+<p>从具体实现来看，若<u>继承</u> BaseMapper（确实是继承接口），那么不需要去实现其内部方法，而是根据 MyBatis 的动态代理即实现的 CRUD 操作；如果是用自定义 IBaseService 去继承 IService，那么需要去实现 IService 中的方法。</p>
+<h2 id="%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3">常用注解</h2>
+<p>MyBatis-Plus 提供的注解常用作解决数据库与实体间相互映射的问题。</p>
+<h3 id="tablename">@TableName</h3>
+<p>异常 BadSqlGrammarException =&gt; 实体类的类名和操作表的表名不一致，导致出现当前操作的表不存在的提示 =&gt; Table 'xxx' doesn't exist。</p>
+<ul>
+<li>处理方式一 =&gt; 在 pojo 类上使用注解 @TableName("指定数据库中表名")</li>
+</ul>
+<pre><code class="language-java">@Data
+@TableName("xxx_xxx")
+public class Xxx(){}
+</code></pre>
+<ul>
+<li>处理方式二 =&gt; 通过全局配置对所有实体类加上对应的表的前缀</li>
+</ul>
+<pre><code class="language-yml">mybatis-plus:
+  ...
+  global-config:
+    db-config:
+      table-prefix: t_ # 对实体类所有表加上这个指定的前缀
+</code></pre>
+<h3 id="tableid">@TableId</h3>
+<p>MyBatis-Plus 在实现 CRUD 时，会默认将 id 作为主键列，并在插入数据时，默认基于雪花算法的策略生成 id。</p>
+<p>当实体类和表中表示主键的不是 id，而是其他字段时，MyBatisPlus 不会自动识别出主键。</p>
+<p>异常 DataIntegrityViolationException =&gt; 没有在实体类中发现其默认的 id，同时指明当前实体类中本意作为主键的属性没有默认值 =&gt; Field 'xxxx' doesn't have a default value。</p>
+<ul>
+<li>解决方式 =&gt; 对实体类中指定属性以 @TableId 标识其为主键</li>
+</ul>
+<pre><code class="language-java">@Date
+public class Xxx {
+    @TableId
+    private Long uid;
+    ...
+}
+</code></pre>
+<ul>
+<li>@TableId 的 value 属性</li>
+</ul>
+<p>异常 BadSqlGrammarException =&gt; 当实体类主键对应 id，表中主键对应 uid，且不对 @TableId 进行 value 属性的指定 =&gt; Unknown column 'id' in 'field list'。</p>
+<p>原因是 MyBatis-Plus 仍然会将 id 作为表的主键进行操作，而表中表示主键的是字段 uid。解决方式是显式指明 value。</p>
+<pre><code class="language-java">@TableId("uid") or @TableId(value="uid")
+</code></pre>
+<ul>
+<li>@TableId 的 type 属性 =&gt; 定义主键的生成策略 -&gt; 默认为雪花算法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IdType.ASSIGN_ID(default)</td>
+<td>雪花算法生成数据 id，与数据库 id 是否设置自增无关</td>
+</tr>
+<tr>
+<td>IdType.AUTO</td>
+<td>使用数据库的自增策略，注意该类型在使用时应确保数据库已设置 id 的自增</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-java">public class User {
+    @TableId("uid", type=IdType.AUTO)
+    private Long id;
+    ...
+}
+</code></pre>
+<pre><code class="language-yml">#MyBatis-Plus相关配置
+mybatis-plus:
+  configuration:
+    #配置日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 配置mp的主键策略为自增
+      id-type: auto
+      # 设置实体类所对应的表的统一前缀
+      table-prefix: t_
+</code></pre>
+<h3 id="%E5%88%86%E8%A1%A8%E4%B8%8E%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95">分表与雪花算法</h3>
+<p>为应对数据规模的增长，以应对逐渐增长的访问压力和数据量。数据库的扩展可以使用业务分库、主从复制以及数据库分表。</p>
+<ul>
+<li>垂直分表</li>
+</ul>
+<p>垂直分表适合将表中某些不常用且占据大量空间的列拆分出去。简而言之就是将不常用的字段独立到另外一张表。</p>
+<ul>
+<li>水平分表</li>
+</ul>
+<p>水平分表适合表行数特别大的表，通常表的数据量达到千万级别时，就应该考虑架构的性能瓶颈或者隐患。</p>
+<p>以自增主键进行阶段分表的优势在于可以随着数据的增加平滑地扩充新表，但是可能造成分布不均的情况。取模分表的复杂性在于初始表数量的确定，单数具有分布均匀的优势，缺点就是扩充新表需要重新将数据分布。</p>
+<ul>
+<li>雪花算法</li>
+</ul>
+<p>雪花算法是分布式主键的生成算法，能够保证不同表的主键的不重复性，以及相同表主键的有序性。</p>
+<p>其值是由 1bit 符号位、41bit 时间截、10bit 机器 ID 以及 12bit 流水号组成。</p>
+<h3 id="tbalefield">@TbaleField</h3>
+<p>@TbaleField =&gt; 处理实体类中的属性名和数据库中字段名不一致的情况</p>
+<p>在实体类的属性中使用驼峰命名，表中字段使用的下划线命名时，自动将下划线命名风格转化为驼峰命名风格。但是其他情况下，纯粹的实体类属性名与数据库字段不一致时，要在实体类属性上使用 @TableField("xxx") 以对应字段名。</p>
+<pre><code class="language-java">public class User {
+    @TableId("uid")
+    private Long id;
+    @TableField("username")
+    private String name;
+    ...
+}
+</code></pre>
+<h3 id="tablelogic">@TableLogic</h3>
+<p>物理删除是真实删除，即从数据库删除对应数据，之后的查询就不能查到此条被删除的记录；逻辑删除是表面删除，是将对应数据中代表是否被删除字段的状态修改为"被删除的状态"，之后在数据库中仍旧能看到此条数据的记录，方便数据恢复。</p>
+<ul>
+<li>于数据库创建逻辑删除状态列 is_deleted，默认值为零</li>
+<li>在实体类中添加逻辑删除属性 isDeleted，并标记 @TableLogic 注释</li>
+<li>此后调用删除方法就会进行逻辑删除</li>
+</ul>
+<h2 id="%E6%9D%A1%E4%BB%B6%E6%9E%84%E9%80%A0%E5%99%A8">条件构造器</h2>
+<h3 id="wrapper">Wrapper</h3>
+<p>Wrapper 条件构造器用于封装当前操作的条件，也是当前条件构造器最顶层的抽象类。BaseMapper 中带有条件构造器的方法在使用时要确定好是具体 Wrapper 类型的哪种子类。</p>
+<div>
+<svg width="838.1015625px" height="188px"><defs></defs><g id="svgbackgroundid"><defs></defs><rect x="0" y="0" width="838.1015625" height="188" fill="#333333"></rect></g><g transform="translate(-9914.5, -9849)" id="sdjakdjak2"><defs></defs><g class="svg-topic-con" transform="translate(0.5,0.5)"><path part="right" sub="true" id="line_093e2250ddd7" d="M 10000 9943.5 C 10030 9943.5 10010 9963.609375 10115.5 9963.609375 L 10272.6015625 9963.609375" stroke="#ddd" fill="none" stroke-width="2"></path></g><g class="svg-connection-con" transform="translate(0.5,0.5)"></g><g class="svg-freesums-con" transform="translate(0.5,0.5)"></g><g class="svg-freebos-con" transform="translate(0.5,0.5)"></g></g><g transform="translate(30, 68)" id="sdjakdjak1"><g id="subline_root" transform="translate(0.5,0.5)"></g><g transform="translate(0.5,0.5)"></g><g class="svg-summary-con" transform="translate(0.5,0.5)"></g><g class="svg-boundary-con" transform="translate(0.5,0.5)"></g></g><g transform="translate(201, 30)" id="sdjakdjak0"><g id="subline_093e2250ddd7" transform="translate(0.5,0.5)"><path id="line_cbfad666f885" d="M 157.1015625 84.609375 L 176 84.609375 M 176 84.609375 C 183.1015625 84.609375 180.1015625 40.59375 203.1015625 40.59375 L 381.1015625 40.59375" p="093e2250ddd7" stroke="#eee" fill="none" stroke-linecap="square" stroke-width="1"></path><path id="line_ccee03c54ce7" d="M 381.359375 40.59375 L 400 40.59375 M 400 40.59375 C 407.359375 40.59375 404.359375 23.3984375 427.359375 23.3984375 L 606.359375 23.3984375" p="cbfad666f885" stroke="#eee" fill="none" stroke-linecap="square" stroke-width="1"></path><path id="line_02f3ecb66c4d" d="M 381.359375 40.59375 L 400 40.59375 M 400 40.59375 C 407.359375 40.59375 404.359375 57.796875 427.359375 57.796875 L 601.359375 57.796875" p="cbfad666f885" stroke="#eee" fill="none" stroke-linecap="square" stroke-width="1"></path><path id="line_8d200a469d6b" d="M 157.1015625 84.609375 L 176 84.609375 M 176 84.609375 C 183.1015625 84.609375 180.1015625 92.1953125 203.1015625 92.1953125 L 332.1015625 92.1953125" p="093e2250ddd7" stroke="#eee" fill="none" stroke-linecap="square" stroke-width="1"></path><path id="line_580aa2b3e61b" d="M 157.1015625 84.609375 L 176 84.609375 M 176 84.609375 C 183.1015625 84.609375 180.1015625 126.59375 203.1015625 126.59375 L 325.1015625 126.59375" p="093e2250ddd7" stroke="#eee" fill="none" stroke-linecap="square" stroke-width="1"></path></g><g transform="translate(0.5,0.5)"></g><g class="svg-summary-con" transform="translate(0.5,0.5)"></g><g class="svg-boundary-con" transform="translate(0.5,0.5)"></g></g><g id="093e2250ddd7"><rect x="201" y="71.484375" rx="1px" ry="1px" width="157" height="43" style="fill:transparent;stroke:none"></rect><g><text text-anchor="start" align="top" anchor="start" font-size="15px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:15px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="227.9765625" y="98.109375"><tspan>AbstractWrapper</tspan></tspan></text></g><g><text text-anchor="start" align="top" anchor="start" font-size="15px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:15px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="213" y="98.109375"><tspan>1.</tspan></tspan></text></g><line x1="201" y1="115" x2="358" y2="115" style="stroke:rgb(238, 238, 238);stroke-width:2"></line></g><g id="cbfad666f885"><rect x="404.1015625" y="47.1953125" rx="1px" ry="1px" width="178" height="22" style="fill:transparent;stroke:none"></rect><g><text text-anchor="start" align="top" anchor="start" font-size="12px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:12px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="434.0625" y="60.75375"><tspan>AbstractLambdaWrapper</tspan></tspan></text></g><g><text text-anchor="start" align="top" anchor="start" font-size="12px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:12px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="413.1015625" y="61.50375"><tspan>1.1.</tspan></tspan></text></g></g><g id="ccee03c54ce7"><rect x="628.359375" y="30" rx="1px" ry="1px" width="179" height="22" style="fill:transparent;stroke:none"></rect><g><text text-anchor="start" align="top" anchor="start" font-size="12px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:12px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="666.3046875" y="43.5584375"><tspan>LambdaUpdateWrapper</tspan></tspan></text></g><g><text text-anchor="start" align="top" anchor="start" font-size="12px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:12px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="637.359375" y="44.3084375"><tspan>1.1.1.</tspan></tspan></text></g></g><g id="02f3ecb66c4d"><rect x="628.359375" y="64.3984375" rx="1px" ry="1px" width="174" height="22" style="fill:transparent;stroke:none"></rect><g><text text-anchor="start" align="top" anchor="start" font-size="12px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:12px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="668.6875" y="77.956875"><tspan>LambdaQueryWrapper</tspan></tspan></text></g><g><text text-anchor="start" align="top" anchor="start" font-size="12px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:12px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="637.359375" y="78.706875"><tspan>1.1.2.</tspan></tspan></text></g></g><g id="8d200a469d6b"><rect x="404.1015625" y="98.796875" rx="1px" ry="1px" width="129" height="22" style="fill:transparent;stroke:none"></rect><g><text text-anchor="start" align="top" anchor="start" font-size="12px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:12px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="436.453125" y="112.3553125"><tspan>UpdateWrapper</tspan></tspan></text></g><g><text text-anchor="start" align="top" anchor="start" font-size="12px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:12px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="413.1015625" y="113.1053125"><tspan>1.2.</tspan></tspan></text></g></g><g id="580aa2b3e61b"><rect x="404.1015625" y="133.1953125" rx="1px" ry="1px" width="122" height="22" style="fill:transparent;stroke:none"></rect><g><text text-anchor="start" align="top" anchor="start" font-size="12px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:12px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="436.453125" y="146.75375"><tspan>QueryWrapper</tspan></tspan></text></g><g><text text-anchor="start" align="top" anchor="start" font-size="12px" font-weight="normal" fill="rgb(238, 238, 238)" style="font-size:12px;font-family:微软雅黑;color:#eee;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="413.1015625" y="147.50375"><tspan>1.3.</tspan></tspan></text></g></g><g id="root"><rect x="30" y="68" rx="6px" ry="6px" width="111" height="53" style="fill:#00a5ff;stroke:none"></rect><g><text text-anchor="start" align="top" anchor="start" font-size="22px" font-weight="normal" fill="rgb(255, 255, 255)" style="font-size:22px;font-family:微软雅黑;color:#ffffff;font-style:normal;text-align:left;font-weight:normal;font-style:normal"><tspan x="42" y="102.4140625"><tspan>Wrapper</tspan></tspan></text></g></g></svg></div>
+<ul>
+<li>源码分析</li>
+</ul>
+<pre><code class="language-java">// AbstractWrapper 源码
+public abstract class AbstractWrapper&lt;T, R, Children extends AbstractWrapper&lt;T, R, Children&gt;&gt; extends Wrapper&lt;T&gt; implements Compare&lt;Children, R&gt;, Nested&lt;Children, Children&gt;, Join&lt;Children&gt;, Func&lt;Children, R&gt; {
+    ...
+    public Children like(boolean condition, R column, Object val) {} // like(数据库字段名, 模糊值)
+    public Children between(boolean condition, R column, Object val1, Object val2) {} // between(数据库字段名, 范围1, 范围2)
+    public Children isNotNull(boolean condition, R column) {} // isNotNull(数据库字段名)
+}
+</code></pre>
+<ul>
+<li>组装查询条件</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    // 查询条件
+    @Test
+    public void test01(){
+        QueryWrapper&lt;User&gt; queryWrapper = new QueryWrapper&lt;User&gt;();
+        queryWrapper.like("user_name","a")
+                        .between("age",20,30)
+                                .isNotNull("email");
+        List&lt;User&gt; list = userMapper.selectList(queryWrapper);
+        list.forEach(System.out::println);
+    }
+}
+</code></pre>
+<ul>
+<li>组装排序条件</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    // 排序条件
+    @Test
+    public void test02(){
+        QueryWrapper&lt;User&gt; queryWrapper = new QueryWrapper&lt;&gt;();
+        // 先按照年龄降序排再按照升序排
+        queryWrapper.orderByDesc("age")
+                        .orderByAsc("uid");
+        List&lt;User&gt; list = userMapper.selectList(queryWrapper);
+        list.forEach(System.out::println);
+    }
+}
+</code></pre>
+<ul>
+<li>组装删除条件</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    // 组装删除条件
+    @Test
+    public void test03(){
+        // 删除邮箱地址为 null 的用户信息
+        QueryWrapper&lt;User&gt; queryWrapper = new QueryWrapper&lt;&gt;();
+        queryWrapper.isNull("email");
+        int i = userMapper.delete(queryWrapper);
+        System.out.println(i);
+    }
+}
+</code></pre>
+<ul>
+<li>通过条件构造器实现修改功能</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    // queryWrapper 实现修改操作
+    @Test
+    public void test04(){
+        // 修改年龄大于20且用户名包含a或邮箱为null的用户信息
+        QueryWrapper&lt;User&gt; queryWrapper = new QueryWrapper&lt;&gt;();
+        queryWrapper.gt("age",20)
+                .like("user_name","aa")
+                .or()
+                .isNull("email");
+        User user = new User();
+        user.setName("zs");
+        user.setEmail("zs@mail.com");
+        int update = userMapper.update(user, queryWrapper); // 参数一设置修改的内容、参数二设置修改的条件
+        System.out.println(update);
+    }
+}
+</code></pre>
+<ul>
+<li>条件优先级</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    // 优先级
+    @Test
+    public void test05(){
+        // 修改用户名包含a且（年龄大于20或邮箱为null）的用户信息
+        // lambda 中条件优先执行
+        QueryWrapper&lt;User&gt; queryWrapper = new QueryWrapper&lt;&gt;();
+        queryWrapper.like("user_name","a")
+                .and(i -&gt; i.gt("age",20).or().isNull("email"));
+        User user = new User();
+        user.setName("gz");
+        user.setEmail("gz@mail.com");
+        int update = userMapper.update(user, queryWrapper);
+        System.out.println(update);
+    }
+}
+</code></pre>
+<ul>
+<li>查询指定字段</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    // 组装 select 字句
+    @Test
+    public void test06(){
+        // 查询用户名、年龄、邮箱
+        QueryWrapper&lt;User&gt; queryWrapper = new QueryWrapper&lt;&gt;();
+        queryWrapper.select("user_name","age","email");
+        List&lt;Map&lt;String, Object&gt;&gt; maps = userMapper.selectMaps(queryWrapper);
+        maps.forEach(System.out::println);
+    }
+}
+</code></pre>
+<ul>
+<li>组装子查询</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    // 条件构造器实现子查询
+    @Test
+    public void test07(){
+        // 查询 id 小于等于 100 的用户信息
+        QueryWrapper&lt;User&gt; queryWrapper = new QueryWrapper&lt;&gt;();
+        queryWrapper.inSql("uid","select uid from t_user where uid &lt;= 100");
+        List&lt;User&gt; users = userMapper.selectList(queryWrapper);
+        users.forEach(System.out::println);
+    }
+}
+</code></pre>
+<h3 id="updatewrapper">UpdateWrapper</h3>
+<p>QueryWrapper 与 UpdateWrapper 都能进行修改功能的操作，但是前者需要创建实体类对象，后者不需要显示的创建实体类对象。同时 UpdateWrapper 既可以设置修改条件，也可以设置修改字段。</p>
+<ul>
+<li>通过条件构造器实现修改功能</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    // 通过条件构造器实现修改功能
+    @Test
+    public void test08(){
+        UpdateWrapper&lt;User&gt; updateWrapper = new UpdateWrapper&lt;&gt;();
+        updateWrapper.like("user_name","a")
+                .and(i -&gt; i.gt("age",20).or().isNull("email"));
+        updateWrapper.set("user_name","hz").set("email","hz@mail.com");
+        int update = userMapper.update(null, updateWrapper);
+        System.out.println(update);
+    }
+}
+</code></pre>
+<ul>
+<li>模拟开发组装条件</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    @Test
+    public void test09(){
+        String username = "a";
+        Integer ageBegin = null;
+        Integer ageEnd = 30;
+        QueryWrapper&lt;User&gt; queryWrapper = new QueryWrapper&lt;&gt;();
+        if(StringUtils.isNotBlank(username)){
+            //isNotBlank判断某个字符创是否不为空字符串、不为null、不为空白符
+            queryWrapper.like("user_name", username);
+        }
+        if(ageBegin != null){
+            queryWrapper.ge("age", ageBegin);
+        }
+        if(ageEnd != null){
+            queryWrapper.le("age", ageEnd);
+        }
+        List&lt;User&gt; list = userMapper.selectList(queryWrapper);
+        list.forEach(System.out::println);
+    }
+}
+</code></pre>
+<ul>
+<li>使用 condition 组装条件 =&gt; 简化开发中的组装过程</li>
+</ul>
+<p>在方法中布尔类型的 condition 满足条件则组装内容，不满足则不组装。</p>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    // condition
+    @Test
+    public void test10(){
+        String username = "a";
+        Integer ageBegin = null;
+        Integer ageEnd = 30;
+        QueryWrapper&lt;User&gt; queryWrapper = new QueryWrapper&lt;&gt;();
+        queryWrapper.like(StringUtils.isNotBlank(username), "user_name", username)
+                .ge(ageBegin != null, "age", ageBegin)
+                .le(ageEnd != null, "age", ageEnd);
+        List&lt;User&gt; list = userMapper.selectList(queryWrapper);
+        list.forEach(System.out::println);
+    }
+}
+</code></pre>
+<h3 id="lambda-%E5%89%8D%E7%BC%80">lambda 前缀</h3>
+<p>此前常使用字符串类型的字段名作为方法中的第二个参数描述字段，但在 Lambda 前缀的情况下，改为一个函数式接口 SFunction&lt;Xxx, ?&gt;。这个接口主要是为防止将字段名写错，通过一个函数访问实体类的属性所对应的字段名。</p>
+<ul>
+<li>LambdaQueryWrapper</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    @Test
+    public void test11(){
+        String username = "a";
+        Integer ageBegin = null;
+        Integer ageEnd = 30;
+        LambdaQueryWrapper&lt;User&gt; queryWrapper = new LambdaQueryWrapper&lt;&gt;();
+        queryWrapper.like(StringUtils.isNotBlank(username), User::getName, username)
+                // 使用函数式接口访问实体类某个属性对应的字段名 =&gt; 防止字段名写错
+                .ge(ageBegin != null, User::getAge, ageBegin)
+                .le(ageEnd != null, User::getAge, ageEnd);
+        List&lt;User&gt; list = userMapper.selectList(queryWrapper); // 顶层抽象类的任何子类都可为其赋值
+        list.forEach(System.out::println);
+    }
+}
+</code></pre>
+<ul>
+<li>LambdaUpdateWrapper</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusWrapperTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    @Test
+    public void test12(){
+        //将用户名中包含有a并且（年龄大于20或邮箱为null）的用户信息修改
+        LambdaUpdateWrapper&lt;User&gt; updateWrapper = new LambdaUpdateWrapper&lt;&gt;();
+        updateWrapper.like(User::getName, "aaa")
+                .and(i -&gt; i.gt(User::getAge, 20).or().isNull(User::getEmail));
+        updateWrapper.set(User::getName, "okk").set(User::getEmail,"okk@mail.com");
+        int result = userMapper.update(null, updateWrapper);
+        System.out.println("result："+result);
+    }
+}
+</code></pre>
+<h2 id="%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6%E4%B8%8E%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B">相关插件与逆向工程</h2>
+<h3 id="%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6"><a href="https://baomidou.com/pages/97710a/#paginationinnerinterceptor">分页插件</a></h3>
+<ul>
+<li>基本使用</li>
+</ul>
+<pre><code class="language-java">@Configuration
+@MapperScan("com.zszy.mybatisplus.mapper")
+public class MyBatisPlusConfig {
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor(){ // MybatisPlusInterceptor 用于配置插件
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        // 添加分页插件
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+        return interceptor;
+    }
+}
+</code></pre>
+<pre><code class="language-java">@SpringBootTest
+public class MybatisplusPluginTest {
+    @Autowired
+    private UserMapper userMapper;
+    @Test
+    public void testPage(){
+        // new Page()中的两个参数分别是当前页码、每页显示数量
+        Page&lt;User&gt; page = userMapper.selectPage(new Page&lt;&gt;(1, 2), null);
+        List&lt;User&gt; users = page.getRecords();
+        users.forEach(System.out::println);
+    }
+    @Test
+    public void testPageVo(){
+        Page&lt;User&gt; page = userMapper.selectPageVo(new Page&lt;User&gt;(1,2), 20);
+        List&lt;User&gt; users = page.getRecords();
+        users.forEach(System.out::println);
+    }
+}
+</code></pre>
+<ul>
+<li>特殊使用 =&gt; 查询语句自定义的情况</li>
+</ul>
+<pre><code class="language-java">@Repository
+public interface UserMapper extends BaseMapper&lt;User&gt; {
+    /**
+     * 根据年龄查询用户列表分页显示
+     * @param page 分页对象,xml中可以从里面进行取值,传递参数 Page 即自动分页,必须放在第一位
+     * @param age 年龄
+     * @return
+     */
+    Page&lt;User&gt; selectPageVo(@Param("page") Page&lt;User&gt; page, @Param("age") Integer age);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace="com.zszy.mybatisplus.mapper.UserMapper"&gt;
+    &lt;!-- Page&lt;User&gt; selectPageVo(@Param("page") Page&lt;User&gt; page, @Param("age") Integer age); --&gt;
+    &lt;select id="selectPageVo" resultType="User"&gt;
+        select uid,username as name,age,email from t_user where age &gt; #{age}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-yml">mybatis-plus:
+  ...
+  type-aliases-package: com.zszy.mybatisplus.pojo # 配置类型别名对应的包
+</code></pre>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusPluginsTest {
+    @Autowired
+    private UserMapper userMapper;
+    /* 条件构造器 */
+    @Test
+    public void testPageVo(){
+        Page&lt;User&gt; page = userMapper.selectPageVo(new Page&lt;User&gt;(1,2), 20);
+        List&lt;User&gt; users = page.getRecords();
+        users.forEach(System.out::println);
+    }
+}
+</code></pre>
+<h3 id="%E4%B9%90%E8%A7%82%E9%94%81%E6%8F%92%E4%BB%B6"><a href="https://baomidou.com/pages/0d93c0/">乐观锁插件</a></h3>
+<pre><code class="language-java">@Data
+public class Product {
+    private Long id;
+    private String name;
+    private Integer price;
+    @Version // @Version =&gt; 乐观锁版本号字段
+    private Integer version;
+}
+</code></pre>
+<pre><code class="language-java">@Configuration
+@MapperScan("com.zszy.mybatisplus.mapper")
+public class MyBatisPlusConfig {
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor(){
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        //添加乐观锁插件
+        interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
+        return interceptor;
+    }
+}
+</code></pre>
+<pre><code class="language-java">@SpringBootTest
+public class MybatisplusPluginTest {
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private ProductMapper productMapper;
+    @Test
+    public void testOptimisticLocking(){
+        //1.小李获取商品价格
+        Product productLi = productMapper.selectById(1);
+        System.out.println("小李获取的商品价格为：" + productLi.getPrice());
+
+        //2.小王获取商品价格
+        Product productWang = productMapper.selectById(1);
+        System.out.println("小李获取的商品价格为：" + productWang.getPrice());
+
+        //3.小李修改商品价格+50
+        productLi.setPrice(productLi.getPrice()+50);
+        productMapper.updateById(productLi);
+
+        //4.小王修改商品价格-30
+        productWang.setPrice(productWang.getPrice()-30);
+        int result = productMapper.updateById(productWang);
+        if(result == 0){
+            //操作失败，重试
+            Product productNew = productMapper.selectById(1);
+            productNew.setPrice(productNew.getPrice()-30);
+            productMapper.updateById(productNew);
+        }
+
+        //5.老板查询商品价格
+        Product productBoss = productMapper.selectById(1);
+        System.out.println("老板获取的商品价格为：" + productBoss.getPrice());
+    }
+}
+</code></pre>
+<h3 id="mybatisx"><a href="https://baomidou.com/pages/ba5b24/">MyBatisX</a></h3>
+<p>MyBatisX 用于快速代码生成。先在 Idea 配置 Database 数据源，再在指定数据库的数据表上用右键选择 MyBatisX-Generator。生成代码后，在相应的 XxxMapper 中定义见名识意的方法，最好是以 CRUD 开头接操作字段。最后通过快捷键 alt + enter 选择 [MybatisX] Generate Mybatis Sql 进行自动补全。</p>
+<pre><code class="language-java">public interface UserMapper extends BaseMapper&lt;User&gt; {
+    int insertSelective(User user); // 传输的实体类对象中属性为 null 不会添加在字段
+
+    int updateAgeAndSexByUid(@Param("age") Integer age, @Param("sex") Integer sex, @Param("uid") Long uid);
+
+    List&lt;User&gt; selectAgeAndSexByAgeBetween(@Param("beginAge") Integer beginAge, @Param("endAge") Integer endAge);
+
+    List&lt;User&gt; selectAllOrderByAgeDesc();
+}
+</code></pre>
+<h3 id="%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8">代码生成器</h3>
+<p>逆向工程也是一种代码生成器，即通过表生成实体类、映射文件、Mapper 接口。</p>
+<p>MyBatisPlus 中的代码生成器虽然同样是根据表进行逆向生成，但是除了上述产物，还能生成更多类似控制层、业务层、持久层的代码。</p>
+<ul>
+<li>相关依赖</li>
+</ul>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-plus-generator&lt;/artifactId&gt;
+    &lt;version&gt;3.5.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- java.lang.NoClassDefFoundError: freemarker/template/Configuration --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.freemarker&lt;/groupId&gt;
+    &lt;artifactId&gt;freemarker&lt;/artifactId&gt;
+    &lt;version&gt;2.3.31&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>测试代码</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+public class FastAutoGeneratorTest {
+    @Test
+    public void testAutoGenerate() {
+        FastAutoGenerator.create("jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;userSSL=false", "&lt;UserName&gt;", "&lt;PassWord&gt;")
+                .globalConfig(builder -&gt; {
+                    builder.author("zszy") // 设置作者
+                            .enableSwagger() // 开启 swagger 模式
+                            .fileOverride() // 覆盖已生成文件
+                            .outputDir("/Users/xxx/IdeaProjects/zsSpringBoot/mybatisplus/src/main/java/com/zszy/mybatisplus/generateDir"); // 指定输出目录
+                })
+                .packageConfig(builder -&gt; {
+                    builder.parent("com.zszy.mybatisplus.samples.generator") // 设置父包名
+                            .moduleName("mybatisPlus") // 设置父包模块名
+                            .pathInfo(Collections.singletonMap(OutputFile.xml, "/Users/xieziyi/IdeaProjects/zsSpringBoot/mybatisplus/src/main/java/com/zszy/mybatisplus/generateDir")); // 设置mapperXml生成路径
+                })
+                .strategyConfig(builder -&gt; {
+                    builder.addInclude("t_user") // 设置需要生成的表名
+                            .addTablePrefix("t_", "c_"); // 设置过滤表前缀
+                })
+                .templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
+                .execute();
+
+    }
+}
+</code></pre>
+<h2 id="%E5%BC%80%E5%8F%91%E5%B8%B8%E8%A7%81%E5%9C%BA%E6%99%AF">开发常见场景</h2>
+<h3 id="%E9%80%9A%E7%94%A8%E6%9E%9A%E4%B8%BE"><a href="https://baomidou.com/pages/8390a4/">通用枚举</a></h3>
+<p>开发中某些表的字段是固定值，可以使用通用枚举进行实现。</p>
+<pre><code class="language-java">@Getter
+public enum SexEnum {
+    MALE(1,"male"),
+    FEMALE(2,"female");
+    @EnumValue // 将注解所标识的属性的值存储到数据库中
+    private Integer sex;
+    private String sexName;
+
+    SexEnum(Integer sex, String sexName) {
+        this.sex = sex;
+        this.sexName = sexName;
+    }
+}
+</code></pre>
+<pre><code class="language-yml">mybatis-plus:
+  ...
+  # 扫描通用枚举的包
+  type-enums-package: com.zszy.mybatisplus.enums
+</code></pre>
+<pre><code class="language-java">@Data // 等于 @NoArgsConstructor + @AllArgsConstructor + @Getter + @Setter + @EqualsAndHashCode
+public class User {
+    ...
+    private SexEnum sex;
+}
+</code></pre>
+<pre><code class="language-java">@SpringBootTest
+public class MyBatisPlusEnumTest {
+    @Autowired
+    private UserMapper userMapper;
+    @Test
+    public void test(){
+        User user = new User();
+        user.setName("admin");
+        user.setEmail("admin@mail.com");
+        user.setAge(29);
+        user.setSex(SexEnum.MALE);
+        int insert = userMapper.insert(user);
+        System.out.println(insert);
+    }
+}
+</code></pre>
+<h3 id="%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90"><a href="https://baomidou.com/pages/a61e1b/#%E6%96%87%E6%A1%A3-documentation">多数据源</a></h3>
+<p>多数据源适用于纯粹多库、读写分离、一主多从、混合模式的开发，通过多库中的表分别获取数据。</p>
+<ul>
+<li>创建测试数据库和表</li>
+</ul>
+<pre><code class="language-sql">CREATE DATABASE `mybatis_plus_1` /*!40100 DEFAULT CHARACTER SET utf8mb4 */; use `mybatis_plus_1`; CREATE TABLE product ( id BIGINT(20) NOT NULL COMMENT '主键ID', name VARCHAR(30) NULL DEFAULT NULL COMMENT '商品名称', price INT(11) DEFAULT 0 COMMENT '价格', version INT(11) DEFAULT 0 COMMENT '乐观锁版本号', PRIMARY KEY (id) );
+</code></pre>
+<ul>
+<li>添加测试数据</li>
+</ul>
+<pre><code class="language-sql">INSERT INTO product (id, NAME, price) VALUES (1, 'mbp', 100);
+</code></pre>
+<ul>
+<li>删除 mybatis_plus 库 product 表</li>
+</ul>
+<pre><code class="language-sql">use mybatis_plus; DROP TABLE IF EXISTS product;
+</code></pre>
+<ul>
+<li>引入依赖</li>
+</ul>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+    &lt;artifactId&gt;dynamic-datasource-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;3.5.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>多数据源配置文件 =&gt; application.yml</li>
+</ul>
+<pre><code class="language-yml">spring:
+  # 配置数据源信息
+  datasource:
+    dynamic:
+      # 设置默认的数据源或者数据源组, 默认值即为 master
+      primary: master
+      # 严格匹配数据源, 默认false =&gt; true -&gt; 未匹配到指定数据源时抛异常, false -&gt; 使用默认数据源
+      strict: false
+      datasource:
+        master: # 和上述设置的 master 保持一致
+          url: jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;userSSL=false
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: &lt;username&gt;
+          password: &lt;password&gt;
+        slave_1:
+          url: jdbc:mysql://localhost:3306/mybatis_plus_1?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;userSSL=false
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: &lt;username&gt;
+          password: &lt;password&gt;
+</code></pre>
+<ul>
+<li>测试文件</li>
+</ul>
+<pre><code class="language-java">@SpringBootTest
+class MyBatisPlusXApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+    @Autowired
+    private UserService userService;
+    @Autowired // 忘记写了导致 java.lang.NullPointerException
+    private ProductService productService;
+
+    @Test
+    public void test01(){
+        System.out.println(userService.getById(1));
+        System.out.println(productService.getById(1));
+    }
+}
+</code></pre>
+<ul>
+<li>ServiceImpl 文件配置</li>
+</ul>
+<pre><code class="language-java">@Service
+@DS("master")
+public class UserServiceImpl extends ServiceImpl&lt;UserMapper, User&gt; implements UserService {}
+</code></pre>
+<pre><code class="language-java">@Service
+@DS("slave_1")
+public class ProductServiceImpl extends ServiceImpl&lt;ProductMapper, Product&gt; implements ProductService {}
+</code></pre>
+<h2 id="bugs-%E5%A4%84%E7%90%86">Bugs 处理</h2>
+<ul>
+<li>AnnotationFormatError + MapperScan</li>
+</ul>
+<pre><code class="language-java">java.lang.annotation.AnnotationFormatError: Invalid default: public abstract java.lang.Class org.mybatis.spring.annotation.MapperScan.factoryBean()
+</code></pre>
+<p>关于 MapperScan.factoryBean 的注解格式化异常，可定位到导入的 Mapper 包范围，应确认导入 <code>import org.mybatis.spring.annotation.MapperScan;</code>。</p>
+<p>注意在 pom 中应导入 &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt; 而不是 &lt;artifactId&gt;mybatis-plus&lt;/artifactId&gt;。</p>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

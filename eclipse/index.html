@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>🌒Eclipse配置</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=ab47967965.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=ab47967965.css" />
+    <meta name="description" content="Java 开发环境 Eclipse 配置" />
+    <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="🌒Eclipse配置" />
+    <meta property="og:description" content="Java 开发环境 Eclipse 配置" />
+    <meta property="og:url" content="yourdomain.com/eclipse/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/07/eeclipse.jpg" />
+    <meta property="article:published_time" content="2021-04-22T13:36:00.000Z" />
+    <meta property="article:modified_time" content="2022-05-18T14:20:24.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="🌒Eclipse配置" />
+    <meta name="twitter:description" content="Java 开发环境 Eclipse 配置" />
+    <meta name="twitter:url" content="yourdomain.com/eclipse/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/eeclipse.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1334" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "🌒Eclipse配置",
+    "url": "yourdomain.com/eclipse/",
+    "datePublished": "2021-04-22T13:36:00.000Z",
+    "dateModified": "2022-05-18T14:20:24.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/07/eeclipse.jpg",
+        "width": 2000,
+        "height": 1334
+    },
+    "keywords": "Technology growth",
+    "description": "Java 开发环境 Eclipse 配置",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~2.2.0/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="../public/cards.min.js%3Fv=ab47967965"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=ab47967965.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Q4HQV7NBSG');
+</script>
+
+<!-- 2022 prismjs update -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {      
+    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+        node.classList.add('line-numbers');
+	});
+    Prism.highlightAll();
+});
+</script>
+
+<!-- prism -->
+<style>
+pre[class*="language-"] {
+    margin: 0 0 1.5em !important;
+}
+pre[class*="line-numbers"]>code {
+    padding: 0 ;
+}
+code {
+    text-shadow: none !important;
+}
+.token.operator {
+    background: none !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #202124 !important;
+}
+</style>
+
+<!-- customer theme by zs -->
+<style>
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #d98e73;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+}
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #1e1e1f;
+}
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #f9f2f4;
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1;
+}
+.token.punctuation {
+  color: #f3f3f3;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #88deff;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #ddb974;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #f3f3f3;
+  background: #1e1e1f;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #06b4fe;
+}
+.token.function {
+  color: #80caf1;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ee9900;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #1e1e1f;
+  box-shadow: inset 5px 0 0 #1e1e1f;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+</style>
+
+<!-- 音乐播放器 -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
+</head>
+<body class="post-template tag-technology-growth has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <nav class="gh-head-inner inner">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <a class="gh-burger" role="button">
+                    <div class="gh-burger-box">
+                        <div class="gh-burger-inner"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
+    <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <div class="gh-social">
+                        <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
+                </div>
+                        <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-technology-growth ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="../tag/technology-growth/index.html">Technology growth</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">🌒Eclipse配置</h1>
+
+            <p class="article-excerpt">Java 开发环境 Eclipse 配置</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2021-04-22">Apr 22, 2021</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 5 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w2000/2021/07/eeclipse.jpg 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2021/07/eeclipse.jpg"
+                    alt="eclipse"
+                />
+                    <figcaption>eclipse</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <aside class="toc-container">
+            <div class="toc"></div>
+        </aside>
+        <!--kg-card-begin: markdown--><h2 id="%E5%AE%89%E8%A3%85-eclipse">安装 Eclipse</h2>
+<ul>
+<li>确认 Mac 上是否已安装 java 运行环境</li>
+</ul>
+<pre><code class="language-shell">$ java -version
+# java version &quot;11.0.11&quot; 2021-04-20 LTS
+# Java(TM) SE Runtime Environment 18.9 (build 11.0.11+9-LTS-194)
+# Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.11+9-LTS-194, mixed mode)
+</code></pre>
+<ul>
+<li>安装合适的 Eclipse 版本</li>
+</ul>
+<pre><code class="language-shell">$ brew install --cask eclipse-java
+# 或者去官网 https://www.eclipse.org/downloads/packages/
+</code></pre>
+<ul>
+<li>安装完成后在先前指定路径将 Eclipse 添加到应用程序</li>
+</ul>
+<pre><code class="language-shell"># 默认路径
+/Users/${zsxzy}/eclipse
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E9%85%8D%E7%BD%AE-eclipse">配置 Eclipse</h2>
+<ul>
+<li>Preferences =&gt; Java =&gt; installed JREs 配置 JDK ：add 增加 Standard VM 的 JRE Types，并指定 JDK 安装的 Home 文件夹路径。这里选择 Standard VM 是因为 Oracle（以前是 Sun）实现的 JRE Type 向后兼容性较好。参考本人 add JRE 填写后 Finish。</li>
+</ul>
+<pre><code class="language-shell">JRE HOME: /Library/Java/JavaVirtualMachines/jdk-11.0.11.jdk/Contents/Home
+JRE NAME: HOME
+</code></pre>
+<ul>
+<li>为防止工作区文件乱码，在 Preference =&gt; General =&gt; workspace 勾选 Defalt(UTF-8)选项并 Apply 。</li>
+</ul>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="eclipse-%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80">Eclipse 设置语言</h2>
+<ul>
+<li>中文</li>
+</ul>
+<p>Help =&gt; Install New SoftWare 中点击 add 添加从<a href="https://www.eclipse.org/babel/downloads.php">此链接</a>适配版本的中文插件包。这里注意如果在选择 Babel Language Packs in Chinese(Simplified) 全部安装，在本人 X86 架构的 mac 出现 Eclipse 损坏的情况（MacM1 未出现此损毁）。解决方案是不选择 for rt.rap 的项目包。</p>
+<p><img src="../content/images/2021/09/choosezh.png" alt="choosezh" loading="lazy"></p>
+<ul>
+<li>英文</li>
+</ul>
+<p>在应用程序中找到 Eclipse，选择 Show Package Contents，使用文本编辑器打开在 Contents 文件夹中的 Info.plist。在在 Eclipsekey 末尾添加命令行选项。</p>
+<pre><code class="language-javascript">&lt;string&gt;-nl&lt;/string&gt;&lt;string&gt;en&lt;/string&gt;
+</code></pre>
+<p><img src="../content/images/2021/09/changebacken.png" alt="changebacken" loading="lazy"></p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="git-version-control">Git Version Control</h2>
+<ul>
+<li>
+<p>Help =&gt; Install New SoftWare 中点击 add 添加从<a href="http://download.eclipse.org/egit/updates/">此链接</a>适配版本的 EGit 插件包，载入后全选组件并进行安装。</p>
+</li>
+<li>
+<p>确认 Preference =&gt; version control =&gt; Git =&gt; config =&gt; User Settings 添加（若安装过 Git 并链接过 Github 则会存在已自动载入完毕）邮箱与用户名。</p>
+</li>
+<li>
+<p>在 Team =&gt; Share Project 建议自定义 new repo 去实现 Repository 存放路径。</p>
+</li>
+</ul>
+<pre><code class="language-shell">/User/zsxzy/git/repository/(.git)
+# .git 会自动添加,无需填写
+</code></pre>
+<ul>
+<li>commit =&gt; Remote =&gt; Push 链接至 Github 并选择 Source ref 别称项为 <code>refs/head/master</code> 完成 Add Spec。</li>
+</ul>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="java-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8">Java 自动补全</h2>
+<p>Preference =&gt; Java =&gt; Editor =&gt; Content Assist =&gt; java automatic activation trigger 中补全单词触发。</p>
+<pre><code class="language-java">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="javaee-perspective">JavaEE perspective</h2>
+<p>Help -&gt; install new software 搜索符合当前 eclipse 版本号的 item work with。找到 Web, XML, Java EE and OSGI Enterprise Development（可以具体到  Eclipse IDE for Java EE Developers）。</p>
+<pre><code class="language-shell">2021-06 - http://download.eclipse.org/releases/2021-06/202106161001
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%B7%A5%E4%BD%9C%E5%8C%BA%E9%85%8D%E7%BD%AE">工作区配置</h2>
+<ul>
+<li>Access Commands and other items</li>
+</ul>
+<p>navigator、workspace、outline、console</p>
+<ul>
+<li>New</li>
+</ul>
+<p>window -&gt; perspective -&gt; customize perspective -&gt; menu visibility -&gt; file 配置 new 相关。</p>
+<p>Java Project、Package、Class、Interface、Enum、Annotation、JUnit Test Case、Folder、File、HTML File、Static Web Project、JSP File、Dynamic Web Project、Servlet、Filter、Listener、XML File</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="eclipse-jee-vs-eclipse-java">eclipse-jee vs eclipse-java</h2>
+<p>在 Homebrew 上存在三种类型的 eclipse 版本，cpp、jee、java。其中 Eclipse for Java 是带有 GUI 和 Swings 库的基本 IDE。但缺少用于处理数据库和 Web 开发的部分插件。适用于 Java EE 的 Eclipse IDE（EE 代表企业版）预装了所有这些插件，便于制作完整的软件，也是最理想的选择。理论上可以将所有组件从 Eclipse Java EE 安装到 Eclipse for Java。但是必须下载并解压缩 Eclipse for Java Developers 并安装名为 web tools platform 的插件。而 cpp 版本则是安装了 C/C++ 在此版本的 eclipse 上。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bugs-fixed">Bugs fixed</h2>
+<p>&quot;You do not have permission to open the application Eclipse JEE.app.Contact your computer or network administrator for assistance.&quot;</p>
+<pre><code class="language-shell"># Problem Report for eclipse
+Crashed Thread:        Unknown
+
+Exception Type:        EXC_CRASH (Code Signature Invalid)
+Exception Codes:       0x0000000000000000, 0x0000000000000000
+Exception Note:        EXC_CORPSE_NOTIFY
+</code></pre>
+<p>程序运行 crashed 是由于 Code Signature Invalid（签名问题）。虽然 Mac 启用的安全机制默认只信任 Mac App Store 以及拥有开发者 ID 签名的软件，同时阻止没有开发者签名的软件。但是这不是我第一次打开此软件，而是进行系统更新操作后的副作用。在尝试重新给软件进行签名后问题解决。<a href="https://www.quwenqing.com/archives/1539.html">类似问题</a>。</p>
+<pre><code class="language-shell">$ sudo codesign --force --deep --sign - /Applications/Eclipse\ JEE.app
+Password:
+/Applications/Eclipse JEE.app: replacing existing signature
+</code></pre>
+<p>&quot;The word 'localhost' is not correctly spelled.&quot; 提示处理。</p>
+<p>Preference 输入 spell，将复选框 &quot;Enable spell checking&quot; 去掉即可。</p>
+<p>junit 报错 =&gt; java.lang.Exception: No tests found matching [{ExactMatcher:fDisplayName=testQuery1]</p>
+<p>考虑三个方面，是不是没写 @Test；是否是 public、参数、返回值、修饰符的错误；是不是 spring 包与 junit 的包的兼容问题；是否日志已添加。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+
+    
+    <section class="article-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "yourdomain.com/eclipse/";
+                this.page.identifier = "ghost-60f202ed0c77773fa52cbc2c"
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    </section>
+   
+
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../g-toc-css/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/SLAMDUNK.png 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/SLAMDUNK.png"
+            alt="SLAM DUNK"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    G&amp;TOC&amp;CSS
+                </h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mybatis/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg"
+            alt="Green Trees Under Blue Sky"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mybatis/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MyBatis
+                </h2>
+            </header>
+                <div class="post-card-excerpt">半自动 ORM Object Relation Mapping 持久层框架 MyBatis</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-02-02">Feb 2, 2022</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">44 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mysqlnote/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/cloud.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/cloud.jpg"
+            alt="mysql"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MySQL 笔记
+                </h2>
+            </header>
+                <div class="post-card-excerpt">MYSQL 基础篇</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">82 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=ab47967965"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<!-- 2022 prismjs update -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-powershell.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+
+
+<!-- music -->
+<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script>
+	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+		$('.carousel').carousel({
+			interval: 3000
+		})
+</script>
+<!-- music -->
+<div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.gh-content',
+        hasInnerContainers: true
+    });
+    var tc = document.querySelector(".toc-container");
+    var tch = tc.clientHeight;
+    var ah = document.querySelector(".article-header");
+    var ahh = ah.clientHeight;
+    window.addEventListener("scroll", function () {
+    if(document.body.clientWidth > 1170){
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+        var ihh = window.innerHeight;
+        if(scrollY >= ihh + tch + ahh){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="sticky";
+            ctc.style.position="-webkit-sticky";
+            ctc.style.top = "120px";
+            ctc.style.marginLeft = "800px";
+            ctc.style.minWidth= "260px";
+        }
+        if(scrollY < tch + ahh -10){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="";
+            ctc.style.top = "";
+            ctc.style.marginLeft = "";
+            console.log("zszszs")
+        }
+    }
+    })
+</script>
+</body>
+</html>

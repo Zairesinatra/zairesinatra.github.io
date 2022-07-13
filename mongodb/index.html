@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>MongoDB</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=ab47967965.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=ab47967965.css" />
+    <meta name="description" content="关系型数据库全是表；No SQL 中都键值对。——文档数据库 MongoDB" />
+    <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="MongoDB" />
+    <meta property="og:description" content="关系型数据库全是表；No SQL 中都键值对。——文档数据库 MongoDB" />
+    <meta property="og:url" content="yourdomain.com/mongodb/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/08/mongodb.jpg" />
+    <meta property="article:published_time" content="2021-05-20T14:52:00.000Z" />
+    <meta property="article:modified_time" content="2022-07-13T02:14:17.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MongoDB" />
+    <meta name="twitter:description" content="关系型数据库全是表；No SQL 中都键值对。——文档数据库 MongoDB" />
+    <meta name="twitter:url" content="yourdomain.com/mongodb/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/08/mongodb.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "MongoDB",
+    "url": "yourdomain.com/mongodb/",
+    "datePublished": "2021-05-20T14:52:00.000Z",
+    "dateModified": "2022-07-13T02:14:17.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/08/mongodb.jpg",
+        "width": 1920,
+        "height": 1080
+    },
+    "keywords": "Technology growth",
+    "description": "关系型数据库全是表；No SQL 中都键值对。——文档数据库 MongoDB",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~2.2.0/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="../public/cards.min.js%3Fv=ab47967965"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=ab47967965.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Q4HQV7NBSG');
+</script>
+
+<!-- 2022 prismjs update -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {      
+    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+        node.classList.add('line-numbers');
+	});
+    Prism.highlightAll();
+});
+</script>
+
+<!-- prism -->
+<style>
+pre[class*="language-"] {
+    margin: 0 0 1.5em !important;
+}
+pre[class*="line-numbers"]>code {
+    padding: 0 ;
+}
+code {
+    text-shadow: none !important;
+}
+.token.operator {
+    background: none !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #202124 !important;
+}
+</style>
+
+<!-- customer theme by zs -->
+<style>
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #d98e73;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+}
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #1e1e1f;
+}
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #f9f2f4;
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1;
+}
+.token.punctuation {
+  color: #f3f3f3;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #88deff;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #ddb974;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #f3f3f3;
+  background: #1e1e1f;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #06b4fe;
+}
+.token.function {
+  color: #80caf1;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ee9900;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #1e1e1f;
+  box-shadow: inset 5px 0 0 #1e1e1f;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+</style>
+
+<!-- 音乐播放器 -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
+</head>
+<body class="post-template tag-technology-growth has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <nav class="gh-head-inner inner">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <a class="gh-burger" role="button">
+                    <div class="gh-burger-box">
+                        <div class="gh-burger-inner"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
+    <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <div class="gh-social">
+                        <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
+                </div>
+                        <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-technology-growth ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="../tag/technology-growth/index.html">Technology growth</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">MongoDB</h1>
+
+            <p class="article-excerpt">关系型数据库全是表；No SQL 中都键值对。——文档数据库 MongoDB</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2021-05-20">May 20, 2021</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 11 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w2000/2021/08/mongodb.jpg 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2021/08/mongodb.jpg"
+                    alt="MongoDB"
+                />
+                    <figcaption>MongoDB</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <aside class="toc-container">
+            <div class="toc"></div>
+        </aside>
+        <p></p><!--kg-card-begin: markdown--><h2 id="%E5%88%9D%E8%AF%86">初识</h2>
+<p>MongoDB@3.2 后存在较大改动，使用时推荐<a href="https://docs.mongoing.com/">官方中文文档</a>。</p>
+<p>安装 MongoDB 5.0 社区版（先决条件：Xcode 命令行工具、Homebrew）：</p>
+<ul>
+<li>下载 MongoDB 和数据库工具并安装</li>
+</ul>
+<pre><code class="language-shell"># tap 命令允许 Homebrew 进入另一个公式存储库. 完成此操作则扩展可安装软件的选项
+brew tap mongodb/brew
+# 安装
+brew install mongodb-community@5.0
+</code></pre>
+<p>安装会在以下指定位置创建文件和目录，具体取决于 Apple 硬件：</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: html--><table border="1">
+    <tr>
+        <th>  </th>
+        <th> 英特尔处理器 </th>
+        <th> M1处理器 </th>
+    </tr>
+    <tbody style="text-align:center">
+    <tr>
+        <td> 配置文件 </td>
+        <td> /usr/local/etc/mongod.conf </td>
+        <td> /opt/homebrew/etc/mongod.conf </td>
+    </tr>
+    <tr>
+        <td> log directory </td>
+        <td> /usr/local/var/log/mongodb </td>
+        <td> /opt/homebrew/var/log/mongodb </td>
+    </tr>
+    <tr>
+        <td> data directory </td>
+        <td> /usr/local/var/mongodb </td>
+        <td> /opt/homebrew/var/mongodb </td>
+    </tr>
+    </tbody>
+</table><!--kg-card-end: html--><!--kg-card-begin: markdown--><ul>
+<li>基本操作</li>
+</ul>
+<pre><code class="language-sql"># 将 MongoDB(即mongod进程)作为 macOS 服务运行|停止
+brew services start|stop mongodb-community@5.0
+# 验证是否正在运行
+brew services list
+# 连接和使用 MongoDB
+mongosh
+# 展示数据库
+show databases; # 或者 show dbs;
+# 显示当前数据库
+db
+# 查看版本信息
+db.version();
+# 选中数据库
+use $yourdatabase; # 如果没有会隐式创建
+# 查看表(集合)
+show tables; # 因为并非多行多列,叫表不合适
+show collections; ✔️
+# 创建集合
+db.createCollection(&quot;necessities&quot;); # { ok: 1 }
+# 删除集合
+db.collectionName.drop(); # true
+# 删除数据库
+db.dropDatabase(); # 删除当前选用的数据库
+# 插入 JSON 数据
+db.necessities.insert({&quot;name&quot;:&quot;Dryer&quot;,&quot;origin&quot;:&quot;San Antonio&quot;}); # ❌ DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite. 
+# 3.2 版本之后新增了 db.collection.insertOne() 和 db.collection.insertMany()
+db.necessities.insertOne({&quot;name&quot;:&quot;Dryer&quot;,&quot;origin&quot;:&quot;San Antonio&quot;}); # ✔️
+db.necessities.insertMany([{&quot;_id&quot;:&quot;612e26f5d5f808a806f499e6&quot;,&quot;name&quot;:&quot;dryer&quot;,&quot;origin&quot;:&quot;San Antonio&quot;},{&quot;_id&quot;:&quot;612e27b6d5f808a806f499e8&quot;,&quot;name&quot;:&quot;charger&quot;,&quot;origin&quot;:&quot;San Diego&quot;},{&quot;_id&quot;:&quot;612e2e03d5f808a806f499e9&quot;,&quot;name&quot;:&quot;conditioner&quot;,&quot;origin&quot;:&quot;Seattle&quot;},{&quot;_id&quot;:&quot;612e3737d5f808a806f499ea&quot;,&quot;name&quot;:&quot;waitforremove&quot;,&quot;origin&quot;:&quot;zsxzy&quot;}]);
+</code></pre>
+<!--kg-card-end: markdown--><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/08/insertMany.png" class="kg-image" alt="insertMany" loading="lazy" width="1296" height="572" srcset="../content/images/size/w600/2021/08/insertMany.png 600w, ../content/images/size/w1000/2021/08/insertMany.png 1000w, ../content/images/2021/08/insertMany.png 1296w" sizes="(min-width: 720px) 720px"><figcaption>insertMany</figcaption></figure><!--kg-card-begin: markdown--><pre><code class="language-sql"># 查询集合数据 —— $currentDB.currentCollection.find(query, projection) 
+# query(可选):使用查询操作符指定查询条件;projection(可选):使用投影操作符指定返回的键
+db.necessities.findOne()|find()|find().count(); # 查看一个文档|最多20个匹配的文档|查看集合中的文档数量
+# 移除集合中的数据
+db.necessities.deleteOne({&quot;name&quot;:&quot;waitforremove&quot;});
+# 更新集合数据
+# 如果第二个参数未设置 $set 则会报错 TypeError: Update document requires atomic operators
+db.necessities.updateOne({&quot;_id&quot;:&quot;612e3737d5f808a806f499ea&quot;,&quot;name&quot;:&quot;waitforremove&quot;,&quot;origin&quot;:&quot;zsxzy&quot;},{$set:{&quot;name&quot;:&quot;toytoytoy&quot;}});
+</code></pre>
+<p>查询将会返回一个数据库游标，游标只会在需要时才将需要的文档批量返回；游标 (cursor) 不是查询结果，而是查询的返回资源或者接口。</p>
+<p>通常文档只会部分更新。可以使用原子性的更新修改器（update modifier），指定对文档中的某些字段进行更新。更新修改器是种特殊的键，用来指定复杂的更新操作，比如修改、增加或者删除键，还可能是操作数组或者内嵌文档。</p>
+<p>假设要在一个集合中放置网站的分析数据，只要有人访问页面，就增加计数器。可以使用更新修改器原子性地完成这个增加。每个 URL 及对应的访问次数都以如下方式存储在文档中：</p>
+<pre><code class="language-javascript">{
+    &quot;_id&quot; : ObjectId(&quot;4 字节的时间戳 5 字节的随机值 3 字节递增计数器&quot;),￼
+    &quot;url&quot; : &quot;www.zstheyi.com&quot;,
+    &quot;pageviews&quot; : 422
+}
+</code></pre>
+<p>每次有人访问页面，就通过URL找到该页面，并用 $inc 修改器增加 pageviews 的值。使用修改器时，_id 的值不能改变。</p>
+<p>$set 用来指定一个字段的值。如果这个字段不存在，则创建它。常用于更新或者增加文档。删除可以用 $unset 完全删除键。在数组修改器中，$push 会向已有的数组末尾加入元素，要是没有就创建一个新的数组，也可以与 $each 组合一次添加多个值。为了保证数组内元素不重复，$addToSet 与 $ne 可以实现集合数据。$pop 这个修改器根据传入的 key 从数组任何一端删除元素。$pull 会将所有匹配的文档删除，而不是只删除一个。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><pre><code class="language-sql"># 条件操作符 —— $gt (&gt;), $gte (&gt;=), $in (包含), $lt (&lt;), $lte (&lt;=), $ne (!=), $nin(不包含)、$and (&amp;&amp;), $nor(不符合), $not(不包含), $or (||)
+db.necessities.find({&quot;name&quot;:&quot;dryer&quot;,&quot;origin&quot;:&quot;San Diego&quot;}).pretty(); 
+db.necessities.find({$or:[{&quot;name&quot;:&quot;dryer&quot;},{&quot;origin&quot;:&quot;San Diego&quot;}]}).pretty(); # OR 条件
+db.necessities.find({&quot;price&quot;:{$gt:&quot;1&quot;}})|find({&quot;_id&quot;:{$gt:&quot;1&quot;}})
+
+# $type键类型操作符
+db.necessities.find({&quot;name&quot;:{$type:&quot;string&quot;}}) # 筛选出指定类型键的数据
+
+# Limit 与 Skip 方法
+db.necessities.find().limit(2) # 显示两条文档
+db.necessities.find().skip(4) # 跳过指定数量的数据
+
+# 排序操作 —— db.COLLECTION_NAME.find().sort({KEY:1})
+db.necessities.find().sort({&quot;price&quot;:&quot;1&quot;}) # 1为由小到大，-1为由大到小
+
+# 索引操作
+db.necessities.createIndex({&quot;price&quot;:1}) # 创建索引
+db.necessities.getIndexes() # 查看索引
+db.necessities.totalIndexSize() # 查看集合索引大小
+db.necessities.dropIndexes() # 删除集合所有索引
+db.necessities.dropIndex(&quot;price&quot;) # 删除集合指定索引
+
+# 聚合(aggregate) —— 主要用于处理数据(诸如统计平均值，求和等),并返回计算后的数据结果
+db.necessities.aggregate([{$group:{_id:&quot;$origin&quot;,total:{$sum:&quot;$price&quot;}}}]) # 通过字段 origin 字段对数据进行分组，并计算 price 字段相同值的总和
+</code></pre>
+<p>插入文档数据不能使用 db.$yourcollection.insert() 进行操作，而是需要采取 insertOne() 或者 insertMany()。更新文档数据时，使用 replaceOne()，只能替换整个文档；而 updateOne() 则允许更新字段，同时还可以访问 update operators 对文档进行可靠更新。移除集合中的数据不再使用 remove()，而改用 deleteOne, deleteMany, findOneAndDelete 或 bulkWrite。</p>
+<ul>
+<li>在 Navicat Premium 连接 MongoDB</li>
+</ul>
+<p>在 connection 选择对应数据库后，按照默认规则连接即可，连接的默认端口为 27017。在工具栏的 View 选择 Show Hidden Items 可展示隐藏初始的数据库：admin、config、local。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="mongoose">Mongoose</h2>
+<p>Mongoose 是一个 NodeJS 专门用于操作 mongodb 数据库的模块，也是一个在异步环境中工作，支持 promise 和异步回调的对象文档模型库。Mongoose 可以为文档创建一个模式结构 (Schema|约束)，并对模型中的对象/文档进行验证，数据可以通过类型转换为对象模型，以及可以使用中间件来应用业务逻辑挂钩，比较原生的 MongoDB 驱动更容易（进一步封装）。</p>
+<table>
+    <thead style="font-weight:bold">
+        <tr>
+            <th>mongoose对象</th>
+            <th>作用描述</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center">
+        <tr>
+            <td>Schema</td>
+            <td>模式对象定义约束了数据库文档结构</td>
+        </tr>
+        <tr>
+            <td>Model</td>
+            <td>Model 对象作为所有文档的表示，相当于数据库的集合 collection</td>
+        </tr>
+        <tr>
+            <td>Document</td>
+            <td>表示集合中的具体文档，相当于集合中的一个具体文档</td>
+        </tr>
+    </tbody>
+</table>
+<pre><code class="language-shell"># 下载 mongoose 连接数据库
+npm init -y
+npm i mongoose --save
+</code></pre>
+<pre><code class="language-javascript">// 基本连接
+// 项目引入mongoose
+var mongoose = require('mongoose');
+// 连接 mongodb —— 除非项目停止,服务器关闭,否则连接一般不会断开
+mongoose.connect('mongodb://localhost:27017/数据库名');
+// 监听连接状态 —— mongoose 有一个属性叫做 connection,该对象表示数据库连接
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() { // 数据库连接的事件
+  // you're connected!
+});
+db.once('close', function() { // 数据库断开的事件
+  // bye!
+});
+// 断开数据库连接(一般不需要)
+mongoose.disconnect()
+</code></pre>
+<pre><code class="language-javascript">// 使用 Schema
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/mongoose_sgg');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log(&quot;you're connected!&quot;);
+});
+db.once('close', function() {
+  console.log(&quot;bye!&quot;);
+});
+// Schema是构造函数
+var Schema = mongoose.Schema;
+var stuSchema = new Schema({ // 创建对数据库的约束
+    name: String,
+    age: Number,
+    gender:{
+        type: String, // Boolean限制太多,开发不常用
+        default: &quot;female&quot;
+    },
+    address: String
+})
+// 通过 Schema 创建 Model 数据库中的集合
+// mongoose.model(modelName, schema);
+// 和数据库的modelName的集合映射,通过stuSchema进行约束
+var StuModel = mongoose.model(&quot;student&quot;, stuSchema); // mongoose会自动将集合名变为复数
+// 数据库插入文档
+StuModel.create({
+    name: &quot;bjj&quot;,
+    age: 17,
+    address: &quot;whitebonehole&quot;
+}, function(err){
+    if(!err){
+        console.log(&quot;插入成功&quot;);
+    }
+})
+</code></pre>
+<pre><code class="language-javascript">var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/mongoose_sgg');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log(&quot;you're connected!&quot;);
+});
+db.once('close', function() {
+  console.log(&quot;bye!&quot;);
+});
+var Schema = mongoose.Schema;
+var stuSchema = new Schema({
+    name: String,
+    age: Number,
+    gender:{
+        type: String,
+        default: &quot;female&quot;
+    },
+    address: String
+})
+var StuModel = mongoose.model(&quot;student&quot;, stuSchema);
+// 有了文档对象就可以对文档进行增删改差
+// Model.create(docs,[callback])
+// StuModel.create([
+//     {
+//         name: &quot;zbj&quot;,
+//         age: 28,
+//         gender: &quot;male&quot;,
+//         address: &quot;gaolaozhuang&quot;
+//     },
+//     {
+//         name: &quot;ts&quot;,
+//         age: 15,
+//         gender: &quot;male&quot;,
+//         address: &quot;datang&quot;
+//     }
+// ], function(err, jellybean, snickers){ // 返回成功状态以及插入结果
+//     if(!err){
+//         console.log(&quot;插入成功&quot;);
+//     }
+// })
+// projection-投影(需要获取的字段)、options-查询选项(skip、limit)、callback-查询结果通过回调函数返回
+// Model.find(conditions, [projection], [options], [callback]); —— 查询符合条件文档,总会返回数组
+// Model.findById(conditions, [projection], [options], [callback]);
+// Model.findOne(conditions, [projection], [options], [callback]);
+StuModel.find({name:&quot;ts&quot;}, {name:1, _id:0, address:1}, function(err,docs){ // 显示name不显示_id =&gt; 可以直接写字符串,不需要的前面加上-
+    if(!err){
+        console.log(docs); // 返回的是数组 [ { name: 'ts', address: 'datang' } ]
+        console.log(docs[0].name); // ts
+    }
+})
+StuModel.find({}, &quot;name -_id&quot;, {skip:1}, function(err,docs){ // 显示name不显示_id =&gt; 可以直接写字符串,不需要的前面加上-
+    if(!err){
+        console.log(docs); // [ { name: 'bjj' }, { name: 'zbj' }, { name: 'ts' } ]
+    }
+})
+StuModel.findById(&quot;613397ae66319ccd3dbb0c05&quot;, function(err,doc){ // 显示name不显示_id =&gt; 可以直接写字符串,不需要的前面加上-
+    if(!err){
+        console.log(doc); // 指定_id的对象
+    }
+})
+StuModel.findOne({}, &quot;name -_id&quot;, {skip:1}, function(err,doc){ // 显示name不显示_id =&gt; 可以直接写字符串,不需要的前面加上-
+    if(!err){
+        console.log(doc); // { name: 'bjj' }
+        // Document对象是Model的实例
+        console.log(doc instanceof StuModel) // true
+    }
+})
+// doc为修改后的对象
+// Model.update(conditions, doc, [options], [callback]);
+// Model.updateMany(conditions, doc, [options], [callback]);
+// Model.updateOne(conditions, doc, [options], [callback]);
+// 修改ts年龄为20
+StuModel.updateOne({name: 'ts'}, {$set:{age:20}}, function(err){
+    if(!err) {
+        console.log(&quot;修改成功&quot;);
+    }
+})
+// Model.remove(conditions, [callback]); 一个已弃用的函数,已被 deleteOne() 删除单个文档和 deleteMany() 删除多个文档取代
+// Model.deleteOne(conditions, [callback]); 用于删除单个文档
+// Model.deleteMany(conditions, [callback]); 在删除后返回已删除的文档以防在删除操作后需要其内容
+StuModel.remove({name: 'zbj'},function(err){
+    if(!err) {
+        console.log(&quot;删除成功&quot;);
+    }
+})
+// Module.count(condition, [callback])
+StuModel.count({}, function(err, count){
+    if(!err){
+        console.log(count); // 效果比find得出数组后length好,不必查找每个文档
+    }
+})
+</code></pre>
+<pre><code class="language-javascript">var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/mongoose_sgg');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log(&quot;you're connected!&quot;);
+});
+db.once('close', function() {
+  console.log(&quot;bye!&quot;);
+});
+var Schema = mongoose.Schema;
+var stuSchema = new Schema({
+    name: String,
+    age: Number,
+    gender:{
+        type: String,
+        default: &quot;female&quot;
+    },
+    address: String
+})
+var StuModel = mongoose.model(&quot;student&quot;, stuSchema);
+// Document和集合中文档一一对应,Document是Model实例
+// 通过Model查询结果都是Document
+// 创建一个document
+// var stu = new StuModel({
+//     name:&quot;zxxz&quot;,
+//     age:19,
+//     gender: &quot;female&quot;,
+//     address: &quot;tiangong&quot;
+// });
+// stu.save(function(err){
+//     if(!err){
+//         console.log(&quot;保存成功&quot;); // Saves this document.
+//     }
+// })
+StuModel.findOne({},function(err, doc){
+    // 方式一
+    // if(!err){
+    //     // update(update,[option],[callback])
+    //     doc.updateOne({$set:{age:20}},function(err){
+    //         if(!err){
+    //             console.log(&quot;修改成功&quot;);
+    //         }
+    //     })
+    // }
+    // 方式二
+    // doc.age = 19;
+    // doc.save();
+    // doc.remove(function(err) {
+    //     if(!err){
+    //         console.log(&quot;大师兄再见&quot;);
+    //     }
+    // })
+    // get(name) 获取文档中指定属性值
+    // console.log(doc.get(&quot;name&quot;)); // 等价于 console.log(doc.name);
+    // set(name, value) 设置文档指定属性值
+    // doc.set(&quot;name&quot;,&quot;nicebjj&quot;) // 数据库不变,因为没有调用save 等价于 doc.name=&quot;hahaha&quot;
+    // console.log(doc);
+    // toJSON() 转换为一个JSON对象
+    // toObject() 文档对象转化为一个普通的js对象 —— 部分方法使用不了
+})
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="mongodb-nodejs-driver">MongoDB NodeJS Driver</h2>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处  <a href="https://blog.zairesinatra.com">zairesinatra's blog</a>！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+
+    
+    <section class="article-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "yourdomain.com/mongodb/";
+                this.page.identifier = "ghost-611e8b4a0de60f0cb667f229"
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    </section>
+   
+
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../g-toc-css/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/SLAMDUNK.png 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/SLAMDUNK.png"
+            alt="SLAM DUNK"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    G&amp;TOC&amp;CSS
+                </h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mybatis/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg"
+            alt="Green Trees Under Blue Sky"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mybatis/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MyBatis
+                </h2>
+            </header>
+                <div class="post-card-excerpt">半自动 ORM Object Relation Mapping 持久层框架 MyBatis</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-02-02">Feb 2, 2022</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">44 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mysqlnote/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/cloud.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/cloud.jpg"
+            alt="mysql"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MySQL 笔记
+                </h2>
+            </header>
+                <div class="post-card-excerpt">MYSQL 基础篇</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">82 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=ab47967965"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<!-- 2022 prismjs update -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-powershell.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+
+
+<!-- music -->
+<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script>
+	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+		$('.carousel').carousel({
+			interval: 3000
+		})
+</script>
+<!-- music -->
+<div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.gh-content',
+        hasInnerContainers: true
+    });
+    var tc = document.querySelector(".toc-container");
+    var tch = tc.clientHeight;
+    var ah = document.querySelector(".article-header");
+    var ahh = ah.clientHeight;
+    window.addEventListener("scroll", function () {
+    if(document.body.clientWidth > 1170){
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+        var ihh = window.innerHeight;
+        if(scrollY >= ihh + tch + ahh){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="sticky";
+            ctc.style.position="-webkit-sticky";
+            ctc.style.top = "120px";
+            ctc.style.marginLeft = "800px";
+            ctc.style.minWidth= "260px";
+        }
+        if(scrollY < tch + ahh -10){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="";
+            ctc.style.top = "";
+            ctc.style.marginLeft = "";
+            console.log("zszszs")
+        }
+    }
+    })
+</script>
+</body>
+</html>

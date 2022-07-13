@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Redis</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=ab47967965.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=ab47967965.css" />
+    <meta name="description" content="redis &#x3D;&gt; 6379" />
+    <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Redis" />
+    <meta property="og:description" content="redis &#x3D;&gt; 6379" />
+    <meta property="og:url" content="yourdomain.com/redis/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/06/redisbyzs.png" />
+    <meta property="article:published_time" content="2021-09-29T13:20:00.000Z" />
+    <meta property="article:modified_time" content="2022-06-30T03:45:22.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Redis" />
+    <meta name="twitter:description" content="redis &#x3D;&gt; 6379" />
+    <meta name="twitter:url" content="yourdomain.com/redis/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/06/redisbyzs.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "Redis",
+    "url": "yourdomain.com/redis/",
+    "datePublished": "2021-09-29T13:20:00.000Z",
+    "dateModified": "2022-06-30T03:45:22.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/06/redisbyzs.png",
+        "width": 1920,
+        "height": 1080
+    },
+    "keywords": "Technology growth",
+    "description": "redis &#x3D;&gt; 6379",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~2.2.0/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="../public/cards.min.js%3Fv=ab47967965"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=ab47967965.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Q4HQV7NBSG');
+</script>
+
+<!-- 2022 prismjs update -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {      
+    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+        node.classList.add('line-numbers');
+	});
+    Prism.highlightAll();
+});
+</script>
+
+<!-- prism -->
+<style>
+pre[class*="language-"] {
+    margin: 0 0 1.5em !important;
+}
+pre[class*="line-numbers"]>code {
+    padding: 0 ;
+}
+code {
+    text-shadow: none !important;
+}
+.token.operator {
+    background: none !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #202124 !important;
+}
+</style>
+
+<!-- customer theme by zs -->
+<style>
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #d98e73;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+}
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #1e1e1f;
+}
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #f9f2f4;
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1;
+}
+.token.punctuation {
+  color: #f3f3f3;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #88deff;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #ddb974;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #f3f3f3;
+  background: #1e1e1f;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #06b4fe;
+}
+.token.function {
+  color: #80caf1;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ee9900;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #1e1e1f;
+  box-shadow: inset 5px 0 0 #1e1e1f;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+</style>
+
+<!-- 音乐播放器 -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
+</head>
+<body class="post-template tag-technology-growth has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <nav class="gh-head-inner inner">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <a class="gh-burger" role="button">
+                    <div class="gh-burger-box">
+                        <div class="gh-burger-inner"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
+    <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <div class="gh-social">
+                        <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
+                </div>
+                        <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-technology-growth ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="../tag/technology-growth/index.html">Technology growth</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">Redis</h1>
+
+            <p class="article-excerpt">redis &#x3D;&gt; 6379</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2021-09-29">Sep 29, 2021</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 56 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w2000/2022/06/redisbyzs.png 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2022/06/redisbyzs.png"
+                    alt="redis"
+                />
+                    <figcaption>redis</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <aside class="toc-container">
+            <div class="toc"></div>
+        </aside>
+        <!--kg-card-begin: markdown--><h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<p>NoSQL Not Only SQL 泛指非关系型的数据库，以 Key-Value 存储。Redis 是一款开源的内存数据存储系统，可用作数据库、缓存和消息中间件。其默认具有 16 个数据库，可使用 select [index] 进行切换。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据库</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Memcache</td>
+<td style="text-align:center">NoSql 数据库；内存数据存储系统； 只支持单一类型，不支持持久化，且是多线程与锁的方式</td>
+</tr>
+<tr>
+<td style="text-align:center">Redis</td>
+<td style="text-align:center">NoSql 数据库；内存数据存储系统； 几乎覆盖了 Memcached 的绝大部分功能； 支持 key-value、持久化；支持多种数据结构； 一般作为缓存数据库辅助持久化的数据库</td>
+</tr>
+<tr>
+<td style="text-align:center">MongoDB</td>
+<td style="text-align:center">文档型数据库； 数据存在内存，若内存不足，将非热点数据保存于硬盘； key-value模式；查询功能丰富；支持二进制数据及大型对象； 可替代 RDBMS 成为独立的数据库，或配合 RDBMS 存储特定的数据</td>
+</tr>
+</tbody>
+</table>
+<p>Redis 使用单线程与多路 IO 复用技术。多路 IO 复用是指使用一个线程来检查多个文件描述符的就绪状态。就绪则返回，否则阻塞直到超时。得到就绪状态后进行的操作可在同一个线程里执行，也可以启动线程执行。</p>
+<h3 id="%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE">安装配置</h3>
+<ul>
+<li>Mac 环境</li>
+</ul>
+<pre><code class="language-shell"># brew安装
+$ brew install redis
+# 启动|关闭|重启 redis 服务
+$ brew services start|stop|restart redis
+# 打开图形化界面
+$ redis-cli
+# 查看版本信息
+127.0.0.1:6379&gt; info
+# 开机启动 redis
+$ ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+# 配置文件启动 redis-server
+redis-server /usr/local/etc/redis.conf
+# 停止redis服务
+redis-cli shutdown
+# redis配置文件位置
+/usr/local/etc/redis.conf
+# 允许远程访问
+# 注释 bind. 默认情况下 redis 不允许远程访问只允许本机
+$ vim /usr/local/etc/redis.conf
+# redis3.2 后增加 protected-mode, 需把 protected-mode yes 改为 protected-mode no
+</code></pre>
+<ul>
+<li>CentOS 环境</li>
+</ul>
+<pre><code class="language-shell"># 要求 C 语言编译环境
+$ gcc --version
+gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44)
+# 在 /opt 下载并解压安装包
+$ wget http://download.redis.io/releases/redis-7.0.2.tar.gz
+$ tar -xzf redis-7.0.2.tar.gz
+# Redis 目录下执行编译与安装
+$ make
+$ make install
+# 默认安装目录 /usr/local/bin
+$ cd /usr/local/bin &amp;&amp; ls
+redis-check-aof =&gt; 修复有问题的 AOF 文件
+redis-cli =&gt; 客户端
+redis-server =&gt; redis 服务器启动命令
+redis-benchmark =&gt; 性能测试工具
+redis-check-rdb =&gt; 检查转储数据库文件的完整性
+redis-sentinel =&gt; 集群使用提供对所有 Redis 节点的监控并在主节点不可用时自动进行故障转移
+# redis 启动 =&gt; 不推荐前台启动
+$ cd /opt/redis-7.0.2/
+# 复制配置文件更改配置
+$ cp redis.conf /etc/redis.conf
+$ cd /etc
+# 设置 daemonize no 改为 yes =&gt; 搜索模式 / =&gt; 309
+$ vim redis.conf
+# 后续操作只需执行以下即可
+$ cd /usr/local/bin
+$ redis-server /etc/redis.conf
+$ ps -ef | grep redis
+root     10261     1  0 13:55 ?        00:00:00 redis-server 127.0.0.1:6379
+root     10311  5616  0 13:55 pts/0    00:00:00 grep --color=auto redis
+$ redis-cli
+127.0.0.1:6379&gt; ping
+PONG
+# 关闭 redis
+127.0.0.1:6379&gt; exit
+kill -9 10261
+</code></pre>
+<ul>
+<li>Mac 设置 Redis 的密码</li>
+</ul>
+<pre><code class="language-shell"># 方式一
+$ redis-cli
+127.0.0.1:6379&gt; config get requirepass
+1) &quot;requirepass&quot;
+2) &quot;&quot;
+127.0.0.1:6379&gt; config set requirepass &quot;&lt;password&gt;&quot;
+OK
+127.0.0.1:6379&gt; config get requirepass
+(error) NOAUTH Authentication required.
+127.0.0.1:6379&gt; auth &lt;password&gt;
+OK
+127.0.0.1:6379&gt; config get requirepass
+1) &quot;requirepass&quot;
+2) &quot;&lt;password&gt;&quot;
+# 方式二
+$ vim /usr/local/etc/redis.conf
+# 898 # The requirepass is not compatable with aclfile option and the ACL LOAD
+# 899 # command, these will cause requirepass to be ignored.
+# 900 #
+# 901 # requirepass foobared =&gt; 修改掉 foobared 并解除注释
+$ brew services restart redis
+# 重启后不输入密码可进行 redis-cli 但不能进行操作
+$ redis-cli -h 127.0.0.1 -p 6379 -a &lt;password&gt;
+# 输入密码登录状态
+127.0.0.1:6379&gt; CONFIG get REQUIREPASS
+1) &quot;REQUIREPASS&quot;
+2) &quot;&lt;password&gt;&quot;
+# 不输入密码登录状态
+127.0.0.1:6379&gt; CONFIG GET REQUIREPASS
+(error) NOAUTH Authentication required.
+</code></pre>
+<h3 id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</h3>
+<p>redis 常用的五大数据类型为 String、List、Set、Hash、Zset。</p>
+<ul>
+<li>Key 键</li>
+</ul>
+<pre><code class="language-shell">$ /usr/local/bin/redis-cli
+# 设置 key 值与 value
+127.0.0.1:6379&gt; set k1 zs # set k2 gz set k3 jr
+# 查看当前库所有 key
+127.0.0.1:6379&gt; keys *
+1) &quot;k3&quot;
+2) &quot;k2&quot;
+3) &quot;k1&quot;
+# exists key =&gt; 判断 key 是否存在 -&gt; 1 存在; 0不存在
+127.0.0.1:6379&gt; exists k1
+(integer) 1
+# type key =&gt; 查看 key 是什么类型
+127.0.0.1:6379&gt; type k1
+string
+# del key =&gt; 删除指定的 key 数据
+127.0.0.1:6379&gt; del k3
+(integer) 1
+# expire key 10 =&gt; 为给定的 key 设置过期时间 -- 秒
+127.0.0.1:6379&gt; expire k2 10
+(integer) 1
+# ttl key =&gt; 查看还有多少秒过期 -&gt; -1 永不过期; -2 已过期
+127.0.0.1:6379&gt; ttl k2
+(integer) -2
+# unlink key =&gt; 根据 value 选择非阻塞删除, 即异步删除
+127.0.0.1:6379&gt; unlink k2
+(integer) 0
+# select =&gt; 切换数据库
+select 0
+# dbsize =&gt; 查看当前数据库的 key 数量
+127.0.0.1:6379&gt; dbsize
+(integer) 1
+# flushdb =&gt; 清空当前库
+127.0.0.1:6379&gt; flushdb
+OK
+# flushall =&gt; 通杀全部库 =&gt; 慎用
+</code></pre>
+<ul>
+<li>String 字符串</li>
+</ul>
+<p>String 是 Redis 最基本的类型，可以理解与 Memcached 一样的类型，一个 Key 对应一个 Value。String 是二进制安全的，即 Redis 的 String 可以包含任何数据，如图片或序列化的对象。Redis 中字符串 Value 最多可以是 512M。</p>
+<p>网站页面访问量 PageView PV 可使用 Redis 的 incr、incrby 实现。</p>
+<pre><code class="language-shell"># set &lt;Key&gt; &lt;Value&gt; =&gt; 设置 Key-Value
+127.0.0.1:6379&gt; set k1 v100
+OK
+127.0.0.1:6379&gt; set k2 v200
+OK
+# get &lt;Key&gt; =&gt; 查询 Key 值
+127.0.0.1:6379&gt; get k1
+&quot;v100&quot;
+127.0.0.1:6379&gt; get k2
+&quot;v200&quot;
+# append &lt;Key&gt; &lt;Value&gt; =&gt; 将给定的 Value 追加到原值末尾
+127.0.0.1:6379&gt; append k1 123
+(integer) 7
+127.0.0.1:6379&gt; get k1
+&quot;v100123&quot;
+# strlen &lt;Key&gt; =&gt; 获取值的长度
+127.0.0.1:6379&gt; strlen k1
+(integer) 7
+# setnx &lt;Key&gt; &lt;Value&gt; =&gt; 只有在 Key 不存在的时候设置 Key 值
+127.0.0.1:6379&gt; setnx k1 123
+(integer) 0
+127.0.0.1:6379&gt; setnx k3 v333
+(integer) 1
+# incr &lt;Key&gt; =&gt; 将 Key 值存储的数字增1 -&gt; 如果为空则新增值为1
+127.0.0.1:6379&gt; set k4 444
+OK
+127.0.0.1:6379&gt; incr k4
+(integer) 445
+# decr &lt;Key&gt; =&gt; 将 Key 值存储的数字减1 -&gt; 如果为空则新增值为1
+127.0.0.1:6379&gt; decr k4
+(integer) 444
+# incrby/decrby &lt;Key&gt; &lt;步长&gt; =&gt; 将 Key 值存储的数字增减步长
+127.0.0.1:6379&gt; incrby k4 10
+(integer) 454
+</code></pre>
+<blockquote>
+<p>原子操作指的是并不会被线程调度机制打断的操作。此操作一旦开始，就一直运行到结束，中间不会有任何 context switch 切换到另一个线程。在单线程中，能在单条指令中完成的操作都可看作为原子操作，因终端只能发生于指令之间。多线程中可能会存在有原子操作，即不被其他进程打断的操作。</p>
+</blockquote>
+<blockquote>
+<p>面试题：Java 中的 i++ 是否为原子操作？若 i=0，两个线程分别对 i 进行 ++100 操作，结果是？否；Java 是多线程，故 i++ 并非原子操作；最终范围是 2-200。</p>
+</blockquote>
+<pre><code class="language-shell">127.0.0.1:6379&gt; flushdb
+OK
+127.0.0.1:6379&gt; keys *
+(empty array)
+# mset &lt;Key&gt; &lt;Value&gt; &lt;Key&gt; &lt;Value&gt;... =&gt; 同时设置一个或者多个 Key-Value
+127.0.0.1:6379&gt; mset k1 v1 k2 v2 k3 v3
+OK
+127.0.0.1:6379&gt; keys *
+1) &quot;k3&quot;
+2) &quot;k2&quot;
+3) &quot;k1&quot;
+# mget &lt;Key&gt; &lt;Key&gt;... =&gt; 同时获取一个或多个 Value
+127.0.0.1:6379&gt; mget k1 k2 k3
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+3) &quot;v3&quot;
+# msetnx &lt;Key&gt; &lt;Value&gt; &lt;Key&gt; &lt;Value&gt;.. =&gt; 同时设置一个或者多个 Key-Value -&gt; 当且仅当所有给定 Key 都不存在
+127.0.0.1:6379&gt; msetnx k4 v4 k5 v5
+(integer) 1
+# getrange &lt;Key&gt; &lt;起始位置&gt; &lt;结束位置&gt; =&gt; 获取 Key 的起始位置和结束位置的值
+127.0.0.1:6379&gt; set user zairesinatra
+OK
+127.0.0.1:6379&gt; getrange user 0 4
+&quot;zaire&quot;
+# setrange &lt;Key&gt; &lt;起始位置&gt; &lt;Value&gt; =&gt; 将 Value 的值覆盖起始位置开始
+127.0.0.1:6379&gt; setrange user 12 -zszy
+(integer) 17
+127.0.0.1:6379&gt; get user
+&quot;zairesinatra-zszy&quot;
+# setex &lt;Key&gt; &lt;过期时间&gt; &lt;Value&gt; =&gt; 设置键值的同时设置过期时间
+127.0.0.1:6379&gt; setex age 10 22
+OK
+127.0.0.1:6379&gt; ttl age
+(integer) 6
+# getset &lt;Key&gt; &lt;Value&gt; =&gt; 设置新值同时获得旧值
+127.0.0.1:6379&gt; getset user zszy
+&quot;zairesinatra-zszy&quot;
+127.0.0.1:6379&gt; get user
+&quot;zszy&quot;
+</code></pre>
+<ul>
+<li>List 列表</li>
+</ul>
+<p>在版本 3.2 之前，Redis 列表 List 使用压缩列表 Ziplist 和双向链表 Linkedlist 作为底层实现。在版本 3.2 之后，Redis 采用快速列表 Quicklist，即以压缩列表 Ziplist 为节点的链表 Linkedlist。</p>
+<p>在列表元素较少的情况下使用一块连续的内存存储，这个结构是 ziplist，即压缩列表。当数据量比较多的时候会改成 quicklist。因普通链表的附加指针 prev 和 next 空间太大，较为浪费。</p>
+<pre><code class="language-shell">127.0.0.1:6379&gt; flushdb
+OK
+# lpush/rpush &lt;Key&gt; &lt;Value&gt; &lt;Value&gt;... =&gt; 从左或右插入一个或者多个值
+127.0.0.1:6379&gt; lpush k1 v1 v11 v111
+(integer) 3
+# lrange key 0 -1 =&gt; 获取所有值
+127.0.0.1:6379&gt; lrange k1 0 -1
+1) &quot;v111&quot;
+2) &quot;v11&quot;
+3) &quot;v1&quot;
+# lpop/rpop key =&gt; 从左或者右吐出一个或者多个值 -&gt; 值在键在
+127.0.0.1:6379&gt; lpop k1
+&quot;v111&quot;
+# rpoplpush &lt;Key1&gt; &lt;Key2&gt; =&gt; 从 Key1 列表右边吐出一个值插入到 Key2 的左边
+127.0.0.1:6379&gt; rpush k2 v2 v22
+(integer) 2
+127.0.0.1:6379&gt; rpoplpush k1 k2
+&quot;v1&quot;
+lrange key start stop =&gt; 按照索引下标获取元素 -&gt; 从左到右
+127.0.0.1:6379&gt; lrange k2 0 -1
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+3) &quot;v22&quot;
+# lindex &lt;Key&gt; &lt;Index&gt; =&gt; 按照索引下标获得元素
+127.0.0.1:6379&gt; lindex k2 0
+&quot;v1&quot;
+# llen &lt;Key&gt; =&gt; 获取列表长度
+127.0.0.1:6379&gt; llen k2
+(integer) 3
+# linsert key before/after value newvalue =&gt; 在value的前面插入一个新值
+127.0.0.1:6379&gt; linsert k2 before &quot;v22&quot; &quot;newv22&quot;
+(integer) 4
+127.0.0.1:6379&gt; lrange k2 0 -1
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+3) &quot;newv22&quot;
+4) &quot;v22&quot;
+# lrem key &lt;n&gt; &lt;Value&gt; =&gt; 从左边删除 n 个 Value 值
+127.0.0.1:6379&gt; lrem k2 1 newv22
+(integer) 1
+127.0.0.1:6379&gt; lrange k2 0 -1
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+3) &quot;v22&quot;
+# lset key index value =&gt; 在列表 Key 中的下标 Index 中修改值 Value
+127.0.0.1:6379&gt; lset k2 1 zsv11
+OK
+127.0.0.1:6379&gt; lrange k2 0 -1
+1) &quot;v1&quot;
+2) &quot;zsv11&quot;
+3) &quot;v22&quot;
+</code></pre>
+<ul>
+<li>Set 集合</li>
+</ul>
+<p>Redis 的 Set 对外提供的功能与列表 List 类似，但前者可以自动排重。且 Set 提供判断某个成员是否在一个 Set 集合内的重要接口，这个也是 List 所没有的。</p>
+<p>Redis 的 Set 是 String 类型的无序集合，其底层是 value 为 null 的 Hash 结构，所有的 value 都指向同一个内部值。故添加，删除，查找的复杂度都是 O (1)。</p>
+<pre><code class="language-shell"># sadd &lt;Key&gt; &lt;Value1&gt; &lt;Value2&gt;... =&gt; 将一或多个 member 元素添加到集合 Key 中并忽略已存在的 member
+127.0.0.1:6379&gt; sadd k1 v1 v2 v3
+(integer) 3
+# smembers &lt;Key&gt; =&gt; 取出该集合的所有值
+127.0.0.1:6379&gt; smembers k1
+1) &quot;v1&quot;
+2) &quot;v3&quot;
+3) &quot;v2&quot;
+# sismember &lt;Key&gt; &lt;Value&gt; =&gt; 判断该集合 Key 是否含有该值
+127.0.0.1:6379&gt; sismember k1 v1
+(integer) 1
+# scard &lt;Key&gt; =&gt; 返回该集合的元素个数
+127.0.0.1:6379&gt; scard k1
+(integer) 3
+# srem &lt;Key&gt; &lt;Value&gt; &lt;Value&gt; =&gt; 删除集合中的某个元素
+127.0.0.1:6379&gt; srem k1 v1 v2
+(integer) 2
+# spop &lt;Key&gt; =&gt; 随机从集合中取出一个元素
+127.0.0.1:6379&gt; spop k1
+&quot;v3&quot;
+# srandmember &lt;Key&gt; n =&gt; 随即从该集合中取出 n 个值, 但是不会从集合中删除
+srandmember k1 2
+1) &quot;v1&quot;
+2) &quot;v3&quot;
+# smove &lt;Key1&gt; &lt;Key2&gt; &lt;Value&gt; =&gt; 将一个集合的某个 Value 移动到另一个集合
+127.0.0.1:6379&gt; sadd k2 v3 v4 v5
+(integer) 3
+127.0.0.1:6379&gt; smove k1 k2 v3
+(integer) 1
+127.0.0.1:6379&gt; smembers k1
+1) &quot;v1&quot;
+2) &quot;v2&quot;
+127.0.0.1:6379&gt; smembers k2
+1) &quot;v5&quot;
+2) &quot;v3&quot;
+3) &quot;v4&quot;
+# sinter &lt;Key1&gt; &lt;Key2&gt; =&gt; 返回两个集合的交集元素
+127.0.0.1:6379&gt; sadd k3 v4 v6 v7
+(integer) 3
+127.0.0.1:6379&gt; sinter k2 k3
+1) &quot;v4&quot;
+# sunion &lt;Key1&gt; &lt;Key2&gt; =&gt; 返回两个集合的并集元素
+127.0.0.1:6379&gt; sunion k2 k3
+1) &quot;v3&quot;
+2) &quot;v4&quot;
+3) &quot;v5&quot;
+4) &quot;v7&quot;
+5) &quot;v6&quot;
+# sdiff &lt;Key1&gt; &lt;Key2&gt; =&gt; 返回两个集合的差集元素 -&gt; Key1 中的不在 Key2 中的
+127.0.0.1:6379&gt; sdiff k2 k3
+1) &quot;v5&quot;
+2) &quot;v3&quot;
+</code></pre>
+<ul>
+<li>Hash 哈希</li>
+</ul>
+<p>Redis Hash 是一个 String 类型的 field 和 value 的映射表，简单来说就是一个适合存储对象的键值对集合。</p>
+<pre><code class="language-shell"># hset &lt;Key&gt; &lt;Field&gt; &lt;Value&gt; =&gt; 给 Key 集合中的 Field 键赋值 Value
+127.0.0.1:6379&gt; hset user:1001 id 1
+(integer) 1
+127.0.0.1:6379&gt; hset user:1001 name zs
+(integer) 1
+# hget &lt;Key1&gt; &lt;Field&gt; =&gt; 集合 Field 取出 Value
+127.0.0.1:6379&gt; hget user:1001 id
+&quot;1&quot;
+127.0.0.1:6379&gt; hget user:1001 name
+&quot;zs&quot;
+# hmset &lt;Key1&gt; &lt;Field1&gt; &lt;Value1&gt; &lt;Field2&gt; &lt;Value2&gt; =&gt; 批量设置 Hash 的值
+127.0.0.1:6379&gt; hmset user:1002 id 2 name gz
+OK
+# hexists &lt;Key&gt; &lt;Field&gt; =&gt; 查看哈希表 Key 中给定域 Field 是否存在
+127.0.0.1:6379&gt; hexists user:1002 name
+(integer) 1
+# hkeys &lt;Key&gt; =&gt; 列出该 Hash 集合的所有 Field
+127.0.0.1:6379&gt; hkeys user:1002
+1) &quot;id&quot;
+2) &quot;name&quot;
+# hvals &lt;Key&gt; =&gt; 列出该 Hash 集合的所有 Value
+127.0.0.1:6379&gt; hvals user:1002
+1) &quot;2&quot;
+2) &quot;gz&quot;
+# hincrby &lt;Key&gt; &lt;Field&gt; increment =&gt; 为哈希表 Key 中的域 Field 的值加上增量
+127.0.0.1:6379&gt; hincrby user:1002 id 1
+(integer) 3
+# hsetnx &lt;Key&gt; &lt;Field&gt; &lt;Value&gt; =&gt; 将哈希表 Key 中不存在的域 Field 的值设置为 Value
+127.0.0.1:6379&gt; hsetnx user:1002 age 22
+(integer) 1
+127.0.0.1:6379&gt; hkeys user:1002
+1) &quot;id&quot;
+2) &quot;name&quot;
+3) &quot;age&quot;
+</code></pre>
+<p>Hash 类型对应的数据结构是 ziplist 压缩列表、hashtable 哈希表。当 field-value 长度较短且个数较少时，使用 ziplist，否则使用 hashtable。</p>
+<ul>
+<li>SortedSet Zset 有序集合</li>
+</ul>
+<p>Redis zset 有序集合是一个没有重复元素的字符串集合，其内每个成员都关联了一个评分 Score，这个评分 Score 被用来按照顺序排序集合中的成员。成员唯一，但评分可以重复。</p>
+<p>zset 底层使用 hash 和跳跃表。前者关联元素 value 和权重 score，保障 value 的唯一性，并能根据 value 找到相应的 score 值。后者目的给 value 排序，根据 score 的范围获取元素列表。</p>
+<pre><code class="language-shell"># zadd &lt;Key&gt; &lt;Score1&gt; &lt;Value1&gt; &lt;Score2&gt; &lt;Value2&gt; =&gt; 将一或多个 member 元素及其 score 值加入到有序 Key 中
+127.0.0.1:6379&gt; zadd topn 2 java 3 cpp 4 node 5 php
+(integer) 4
+# zrange &lt;Key&gt; start stop (withscores) =&gt; 返回有序集key，下标在start与stop之间的元素，带withscores，可以让分数一起和值返回到结果集。
+127.0.0.1:6379&gt; zrange topn 0 -1
+1) &quot;java&quot;
+2) &quot;cpp&quot;
+3) &quot;node&quot;
+4) &quot;php&quot;
+127.0.0.1:6379&gt; zrange topn 0 -1 withscores
+1) &quot;java&quot;
+2) &quot;2&quot;
+3) &quot;cpp&quot;
+4) &quot;3&quot;
+5) &quot;node&quot;
+6) &quot;4&quot;
+7) &quot;php&quot;
+8) &quot;5&quot;
+# zrangebyscore &lt;Key&gt; min max (withscores) =&gt; 返回有序集 Key -&gt; 所有 Score 值介于 Min 和 Max 之间的成员 -&gt; 从小到大
+127.0.0.1:6379&gt; zrangebyscore topn 3 5
+1) &quot;cpp&quot;
+2) &quot;node&quot;
+3) &quot;php&quot;
+# zrevrangebyscore &lt;Key&gt; max min (withscores) =&gt;  返回有序集 Key -&gt; 所有 Score 值介于 Min 和 Max 之间的成员 -&gt; 从大到小
+127.0.0.1:6379&gt; zrevrangebyscore topn 5 2
+1) &quot;php&quot;
+2) &quot;node&quot;
+3) &quot;cpp&quot;
+4) &quot;java&quot;
+# zincrby &lt;Key&gt; increment &lt;Value&gt; =&gt; 为元素的 Score 加上增量
+127.0.0.1:6379&gt; zincrby topn 5 java
+&quot;7&quot;
+# zrem &lt;Key&gt; &lt;Value&gt; =&gt; 删除该集合下指定值的元素
+127.0.0.1:6379&gt; zrem topn php
+(integer) 1
+# zcount &lt;Key&gt; min max =&gt; 统计该集合分数区间内的元素个数
+127.0.0.1:6379&gt; zcount topn 2 3
+(integer) 1
+# zrank &lt;Key&gt; &lt;Value&gt; =&gt; 返回该值在集合中的排名 -&gt; 从0开始
+127.0.0.1:6379&gt; zrank topn java
+(integer) 2
+127.0.0.1:6379&gt; zrank topn cpp
+(integer) 0
+</code></pre>
+<h3 id="redis-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">Redis 配置文件</h3>
+<ul>
+<li>
+<p>Units =&gt; 配置的大小单位，只支持 bytes，不支持 bit，大小写不敏感。</p>
+</li>
+<li>
+<p>INCLUDES =&gt; 配置文件可作为总闸包含其他文件。</p>
+</li>
+</ul>
+<p>常用于在保持同一主机上的多个实例之间使用相同配置文件，并让每个实例又拥有各自特点的配置。</p>
+<ul>
+<li>NETWORK</li>
+</ul>
+<p>bind=127.0.0.1 =&gt; 只接收本机的访问请求，不写的情况下无限制接收任何地址的访问。生产环境中常将其注释。</p>
+<p>protect-mode =&gt; 没有设定 bind ip 与密码时，只允许接收本机的响应。</p>
+<p>backlog =&gt; 连接队列。其队列总和 = 未完成三次握手队列 + 已完成三次握手队列。高并发环境应提高此值以避免客户端连接的速度问题。</p>
+<blockquote>
+<p>通常 /proc/sys/net/core/somaxconn 值是固定的 128，高并发情况下应增大 /proc/sys/net/core/somaxconn &amp; /proc/sys/net/ipv4/tcp_max_syn_backlog。</p>
+</blockquote>
+<p>timeout 300 =&gt; 当客户端闲置指定时间后关闭连接 -&gt; 0 表示关闭该功能。</p>
+<ul>
+<li>GENERAL</li>
+</ul>
+<p>daemonize =&gt; 后台守护进程；pidfile =&gt; 存放进程号文件的位置，每个实例的产生都不同。以守护进程方式运行时，默认会把 pid 写入 /var/run/redis.pid 文件，可指定 pidfile /var/run/redis.pid。</p>
+<ul>
+<li>LIMITS</li>
+</ul>
+<p>maxclients 设置 Redis 同时可与多少客户端进行连接，默认 10000 个客户端。若达到此限制，redis 则会拒绝新的连接请求，并且向连接请求方发出 max number of clients reached 以作回应。</p>
+<p>maxmemory 指定 Redis 最大内存限制，建议必须设置，否则内存占满会造成服务器宕机。若达到 Redis 可使用内存上限，则会试图移除内部数据，移除规则可通过 maxmemory-policy 指定。</p>
+<blockquote>
+<p>Maxmemory-policy<br>
+（1）volatile-lru =&gt; 使用 LRU 算法移除 Key（只针对设置了过期时间的键）<br>
+（2）allkeys-lru =&gt; 使用 LRU 算法移除 Key<br>
+（3）volatile-random =&gt; 随机移除过期集合中的 Key<br>
+（4）allkeys-random =&gt; 随机的移除 Key<br>
+（5）volatile-ttl =&gt; 移除 TTL 值最小的 Key，即那些最近要过期的 Key<br>
+（6）noeviction =&gt; 不进行移除。针对写操作，只返回错误信息</p>
+</blockquote>
+<p>Maxmemory-samples 设置样本数量。一般设置 3-7 的数字，虽然样本越小越不精确，但是性能消耗更小。</p>
+<ul>
+<li>REPLICATION</li>
+</ul>
+<p>slaveof &lt;masterip&gt; &lt;masterport&gt; 设置当本机为 slav 服务时，设置 master 服务的 IP 地址及端口，在 Redis 启动时自动从 master 进行数据同步。在 RedisV7 中改成 replicaof &lt;masterip&gt; &lt;masterport&gt;。</p>
+<p>masterauth &lt;master-password&gt; 是当 master 服务设置了密码保护时，slav 服务连接master 的密码。</p>
+<pre><code class="language-conf"># masterauth &lt;master-password&gt;
+</code></pre>
+<ul>
+<li>SECURITY</li>
+</ul>
+<p>requirepass foobared 设置 Redis 连接密码。如果配置了连接密码，客户端在连接时需要通过 AUTH &lt;password&gt; 命令提供密码，默认关闭。</p>
+<pre><code class="language-conf"># requirepass foobared
+</code></pre>
+<ul>
+<li>ADVANCED CONFIG</li>
+</ul>
+<p>activerehashing yes 指定是否激活重置哈希，默认开启。</p>
+<p>hash-max-listpack 指定在超过一定的数量或最大的元素超过某一临界值时，采用一种特殊的哈希算法。旧版本是 hash-max-zipmap。</p>
+<pre><code class="language-conf"># Hashes are encoded using a memory efficient data structure when they have a
+# small number of entries, and the biggest entry does not exceed a given
+# threshold. These thresholds can be configured using the following directives.
+hash-max-listpack-entries 512
+hash-max-listpack-value 64
+</code></pre>
+<h3 id="%E5%8F%91%E5%B8%83%E5%92%8C%E8%AE%A2%E9%98%85">发布和订阅</h3>
+<p>Redis 具备发布订阅功能，但是其主要任务还是分布式的缓存，因此这种订阅发布常由专门的 kafka、activemq 等消息中间件来完成。</p>
+<pre><code class="language-shell"># 视窗一
+$ /usr/local/bin/redis-cli
+# 订阅频道
+127.0.0.1:6379&gt; SUBSCRIBE channel1
+Reading messages... (press Ctrl-C to quit)
+1) &quot;subscribe&quot;
+2) &quot;channel1&quot;
+3) (integer) 1
+1) &quot;message&quot;
+2) &quot;channel1&quot;
+3) &quot;helloChannel1&quot;
+# 视窗二
+# 发布信息
+PUBLISH channel1 helloChannel1
+(integer) 1
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="redis6-%E6%96%B0%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">Redis6 新数据类型</h2>
+<h3 id="bitmaps">BitMaps</h3>
+<p>BitMaps 本身不是一种数据类型，而是字符串 Key-Value，可以实现对字符串的位进行操作。类似 &quot;abc&quot; 字符串是三个字节，每个字节 8 位，在计算机中通过 ASCII 码 97、98、99 转换为对应二进制 01100001、01100010、01100011。通过合理的操作位提高内存使用和开发效率。</p>
+<p>BitMaps 可视作一个以位为单位的数组，数组中每个单元只存储 0 和 1，数组下标为偏移量。<code>setbit &lt;Key&gt; &lt;Offset&gt; &lt;Value&gt;</code> 设置 bitmaps 中某个偏移量的值 0 或 1。<code>getbit &lt;Key&gt; &lt;Offset&gt;</code> 获取 bitmaps 中某个偏移量的值。<code>bitcount &lt;Key&gt; [start end]</code> 统计字符串从 start 到 end 被设置为 1 的 bit 数。多 bitmaps 集合运算 <code>bitop and|or|not|xor &lt;DestKey&gt; [Key...]</code> 结果保存 DestKey。</p>
+<p>常应用将每个独立用户是否访问过网站存放在 BitMaps，将访问的用户记作 1，没有访问的用户记作 0，偏移量作为用户 id。</p>
+<p>需注意在开发中用户 id 常以指定数字开头，若直接将用户 id 和 bitmaps 的偏移量对应会造成浪费，通常做法是每次做 setbit 操作时将用户 id 减去这个指定数字。</p>
+<pre><code class="language-shell"># 现有20个用户 =&gt; 其中 1 6 11 15 19 于 1 月访问网站 =&gt; 对 bitmap 进行初始化
+127.0.0.1:6379&gt; setbit users:202101 1 1
+(integer) 0
+127.0.0.1:6379&gt; setbit users:202101 6 1
+(integer) 0
+127.0.0.1:6379&gt; setbit users:202101 11 1
+(integer) 0
+127.0.0.1:6379&gt; setbit users:202101 15 1
+(integer) 0
+127.0.0.1:6379&gt; setbit users:202101 19 1
+(integer) 0
+127.0.0.1:6379&gt; getbit users:202101 1
+(integer) 1
+127.0.0.1:6379&gt; bitcount users:202101
+(integer) 5
+# 日期限定访问网站的相同人人数
+setbit unique:users:20201101 1 1
+setbit unique:users:20201101 2 1
+setbit unique:users:20201101 5 1
+setbit unique:users:20201101 9 1
+setbit unique:users:20201102 0 1
+setbit unique:users:20201102 1 1
+setbit unique:users:20201102 4 1
+setbit unique:users:20201102 9 1
+bitop and unique:users:and:20201101_02 unique:users:20201102 unique:users:20201101
+(integer) 2
+127.0.0.1:6379&gt; bitcount unique:users:and:20201101_02
+(integer) 2
+</code></pre>
+<p>若网站有一亿用户，每天独立访问的用户有五千万，那么每天用集合和 Bitmaps 分别存储活跃用户对比。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">每个用户 id 占用空间</th>
+<th style="text-align:center">需要存储的用户量</th>
+<th style="text-align:center">全部内存量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">集合类型</td>
+<td style="text-align:center">64位</td>
+<td style="text-align:center">50000000</td>
+<td style="text-align:center">64位*50000000=400MB</td>
+</tr>
+<tr>
+<td style="text-align:center">Bitmaps</td>
+<td style="text-align:center">1位</td>
+<td style="text-align:center">100000000</td>
+<td style="text-align:center">1位*100000000=12.5MB</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hyperloglog">HyperLogLog</h3>
+<p>独立访客 UniqueVisitor UV、独立 IP 数、搜索记录等需要去重和计数的问题称为基数问题。虽说 Mysql 能使用 distinct 和 count 处理；Redis 能提供 Hash、Set 和 BitMaps，但随着数据增加，占用空间增大，数据集显得有些捉襟见肘。</p>
+<p>HyperLogLog 是适用于做基数统计的算法。每个 HyperLogLog 键只需花费 12 KB 内存，就可计算 2^64 个不同元素的基数。在输入元素数量或体积巨大时，计算基数所需空间是固定有限的。因其只据输入元素计算基数而不会存储输入元素本身，故不能像集合般返回输入的各个元素。</p>
+<p>数据集 {1,3,5,7,5,7,8} 中的基数集为 {1,3,5,7,8}，基数，即不可重复元素为 5。基数估计就是在误差可接收范围内快速计算基数。</p>
+<p><code>pfadd &lt;Key&gt; &lt;Element&gt; [Element...]</code> 添加指定元素到 HyperLogLog。近似基数变化返回 1，否则返回 0。<code>pfcount &lt;Key&gt; [key...]</code> 计算 HLL 近似基数。<code>pfmerge &lt;DestKey&gt; &lt;SourceKey&gt; [SourceKey]</code> 将一个或多个 HLL 合并后的结果存储于另一个 HLL。</p>
+<pre><code class="language-shell">127.0.0.1:6379&gt; pfadd program &quot;java&quot;
+(integer) 1
+127.0.0.1:6379&gt; pfadd program &quot;node&quot;
+(integer) 1
+127.0.0.1:6379&gt; pfadd program &quot;javascript&quot;
+(integer) 1
+127.0.0.1:6379&gt; pfadd program &quot;java&quot;
+(integer) 0
+127.0.0.1:6379&gt; pfadd program &quot;java&quot; &quot;cpp&quot; &quot;c&quot;
+(integer) 1
+127.0.0.1:6379&gt; pfcount program
+(integer) 5
+127.0.0.1:6379&gt; pfadd language &quot;java&quot; &quot;node&quot; &quot;javascript&quot; &quot;cpp&quot;
+(integer) 1
+127.0.0.1:6379&gt; pfadd language &quot;java&quot; &quot;node&quot; &quot;javascript&quot; &quot;cpp&quot;
+(integer) 0
+127.0.0.1:6379&gt; pfmerge mergetable program language
+OK
+127.0.0.1:6379&gt; pfcount mergetable
+(integer) 5
+</code></pre>
+<h3 id="geospatial">Geospatial</h3>
+<p>Redis 提供对地理信息支持，Geospatial 提供与地理空间索引相关的命令。</p>
+<p><code>geoadd &lt;Key&gt; &lt;Longitude&gt; &lt;Latitude&gt; &lt;Member&gt; [...]</code> 添加地理位置。</p>
+<p><code>geopos &lt;Key&gt; &lt;Member&gt; [Member...]</code> 获得指定地区的坐标值。</p>
+<p><code>geodist &lt;Key&gt; &lt;Member1&gt; &lt;Member2&gt; [m|km|ft|mi]</code> 获取位置直线距离。</p>
+<p><code>georadius &lt;Key&gt; &lt;Longitude&gt; &lt;Latitude&gt; radius m|km|ft|mi</code> 以给定的经纬度为中心，找出某一半径内的元素。可作为微信附近的人实现方法。</p>
+<pre><code class="language-shell">127.0.0.1:6379&gt; geoadd china:city 112.93 28.23 changsha 114.05 22.52 shenzhen
+(integer) 2
+127.0.0.1:6379&gt; geopos china:city changsha
+1) 1) &quot;112.92999833822250366&quot;
+   2) &quot;28.2299993949683099&quot;
+127.0.0.1:6379&gt; geodist china:city changsha shenzhen
+&quot;644984.9761&quot;
+127.0.0.1:6379&gt; georadius china:city 111 20 1000 KM
+1) &quot;shenzhen&quot;
+2) &quot;changsha&quot;
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="jedis">Jedis</h2>
+<p>Jedis 是 redis 的客户端工具，即通过 Java 操作 redis。类似于 JDBC 通过 Java 操作数据库。</p>
+<h3 id="%E6%99%AE%E9%80%9A%E5%B7%A5%E7%A8%8B%E4%BD%BF%E7%94%A8">普通工程使用</h3>
+<ul>
+<li>Jedis 的依赖 jar 包</li>
+</ul>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;version&gt;4.13.2&lt;/version&gt;
+    &lt;scope&gt;compile&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>注意事项 =&gt; 关闭防火墙；bind 配置应注释；protected-mode no</li>
+</ul>
+<pre><code class="language-shell">### --- shell --- ###
+# 禁用 Linux 的防火墙
+systemctl status firewalld
+systemctl stop/disable firewalld.service
+### --- redis.conf --- ###
+# bind 配置应注释 =&gt; 不只接受本机的访问请求
+# bind=127.0.0.1
+# protected-mode 从默认的 yes 改为 no
+protected-mode no
+</code></pre>
+<ul>
+<li>Jedis 常用操作</li>
+</ul>
+<pre><code class="language-java">public class JedisDemo01 {
+    public static void main(String[] args) {
+        // 创建 jedis
+        Jedis jedis = new Jedis(&quot;&lt;yourIP&gt;&quot;,6379);
+        // 测试
+        String ping = jedis.ping();
+        System.out.println(ping);
+    }
+    // 操作 key
+    @Test
+    public void demo01(){
+        Jedis jedis = new Jedis(&quot;&lt;yourIP&gt;&quot;,6379);
+        jedis.set(&quot;user&quot;, &quot;zs&quot;);
+        Set&lt;String&gt; keys = jedis.keys(&quot;*&quot;);
+        for(String key : keys){
+            System.out.println(key);
+        }
+        System.out.println(jedis.exists(&quot;user&quot;));
+        System.out.println(jedis.ttl(&quot;user&quot;));
+        System.out.println(jedis.get(&quot;user&quot;));
+    }
+    // 设置多个 key-value 操作 String
+    @Test
+    public void demo02(){
+        Jedis jedis = new Jedis(&quot;&lt;yourIP&gt;&quot;,6379);
+        jedis.mset(&quot;str1&quot;,&quot;v1&quot;,&quot;str2&quot;,&quot;v2&quot;,&quot;str3&quot;,&quot;v3&quot;);
+        System.out.println(jedis.mget(&quot;str1&quot;,&quot;str2&quot;,&quot;str3&quot;));
+        jedis.flushDB();
+    }
+    // 操作 list
+    @Test
+    public void demo03(){
+        Jedis jedis = new Jedis(&quot;&lt;yourIP&gt;&quot;,6379);
+        jedis.lpush(&quot;key1&quot;,&quot;zs&quot;,&quot;gz&quot;,&quot;hz&quot;,&quot;jr&quot;,&quot;ss&quot;);
+        System.out.println(jedis.lrange(&quot;key1&quot;, 0, -1));
+        jedis.flushDB();
+    }
+    // 操作 set
+    @Test
+    public void demo04(){
+        Jedis jedis = new Jedis(&quot;&lt;yourIP&gt;&quot;,6379);
+        jedis.sadd(&quot;key1&quot;,&quot;zs&quot;,&quot;gz&quot;,&quot;hz&quot;,&quot;jr&quot;,&quot;ss&quot;);
+        System.out.println(jedis.smembers(&quot;key1&quot;));
+        jedis.flushDB();
+    }
+    // 操作 hash
+    @Test
+    public void demo05(){
+        Jedis jedis = new Jedis(&quot;&lt;yourIP&gt;&quot;,6379);
+        jedis.hset(&quot;users&quot;,&quot;name&quot;,&quot;zs&quot;);
+        System.out.println(jedis.hget(&quot;users&quot;,&quot;name&quot;));
+        jedis.flushDB();
+    }
+    // 操作 zset
+    @Test
+    public void demo06(){
+        Jedis jedis = new Jedis(&quot;&lt;yourIP&gt;&quot;,6379);
+        jedis.zadd(&quot;china&quot;,100,&quot;cs&quot;);
+        System.out.println(jedis.zrange(&quot;china&quot;,0,-1));
+        jedis.flushDB();
+    }
+}
+</code></pre>
+<ul>
+<li>手机验证码功能</li>
+</ul>
+<p>要求输入手机号，点击发送后随机生成 6 位数字码，2 分钟有效；输入验证码，点击验证，返回成功或失败；每个手机号每天只能输入 3 次。</p>
+<pre><code class="language-java">public class JedisDemo02 {
+    public static void main(String[] args) {
+        // 模拟验证码发送
+//        verifyCode(&quot;12345678987&quot;);
+
+        // 模拟验证码校验
+         getRedisCode(&quot;12345678987&quot;,&quot;809507&quot;);
+    }
+
+    // 3 验证码校验
+    public static void getRedisCode(String phone,String code) {
+        //从redis获取验证码
+        Jedis jedis = new Jedis(&quot;xxx.xx.xx.xxx&quot;,6379);
+//        jedis.auth();
+        // 验证码key
+        String codeKey = &quot;VerifyCode&quot;+phone+&quot;:code&quot;;
+        String redisCode = jedis.get(codeKey);
+        // 判断
+        if(redisCode.equals(code)) {
+            System.out.println(&quot;成功&quot;);
+        }else {
+            System.out.println(&quot;失败&quot;);
+        }
+        jedis.close();
+    }
+
+    // 2 每个手机每天只能发送三次，验证码放到redis中，设置过期时间120
+    public static void verifyCode(String phone) {
+        // 连接redis
+        Jedis jedis = new Jedis(&quot;xxx.xx.xx.xxx&quot;,6379);
+
+        // 拼接key
+        // 手机发送次数key
+        String countKey = &quot;VerifyCode&quot;+phone+&quot;:count&quot;;
+        // 验证码key
+        String codeKey = &quot;VerifyCode&quot;+phone+&quot;:code&quot;;
+
+        // 每个手机每天只能发送三次
+        String count = jedis.get(countKey);
+        if(count == null) {
+            // 没有发送次数，第一次发送
+            // 设置发送次数是1
+            jedis.setex(countKey,24*60*60,&quot;1&quot;);
+        } else if(Integer.parseInt(count)&lt;=2) {
+            // 发送次数+1
+            jedis.incr(countKey);
+        } else if(Integer.parseInt(count)&gt;2) {
+            // 发送三次，不能再发送
+            System.out.println(&quot;今天发送次数已经超过三次&quot;);
+            jedis.close();
+            return;//超过三次之后就会自动退出不会再发送了，不添加这一行，即使显示发送次数，但还会有验证码接收到
+        }
+
+        // 发送验证码放到 redis 里面
+        String vcode = getCode(); // 调用生成的验证码
+        jedis.setex(codeKey,120,vcode); // 设置生成的验证码只有120秒的时间
+        jedis.close();
+    }
+
+    // 1 生成6位数字验证码，code是验证码
+    public static String getCode() {
+        Random random = new Random();
+        String code = &quot;&quot;;
+        for(int i=0;i&lt;6;i++) {
+            int rand = random.nextInt(10);
+            code += rand;
+        }
+        return code;
+    }
+}
+</code></pre>
+<h3 id="springboot-%E6%95%B4%E5%90%88-redis">SpringBoot 整合 redis</h3>
+<ul>
+<li>在 pom.xml 文件中引入 redis 相关依赖</li>
+</ul>
+<pre><code class="language-xml">&lt;!-- redis --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!-- spring2.X 集成 redis 所需 common-pool2--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-pool2&lt;/artifactId&gt;
+    &lt;version&gt;2.11.1&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+    &lt;version&gt;2.13.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;
+    &lt;version&gt;2.13.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>application.properties 配置 redis</li>
+</ul>
+<pre><code class="language-properties"># Redis 服务器地址
+spring.redis.host=&lt;yourIP&gt;
+# Redis 密码
+spring.redis.password=&lt;yourPassword&gt;
+# Redis 服务器连接端口
+spring.redis.port=6379
+# Redis 数据库索引
+spring.redis.database= 0
+# 连接超时时间 =&gt; ms
+spring.redis.timeout=1800000
+# 连接池最大连接数 =&gt; 负值表示没有限制
+spring.redis.lettuce.pool.max-active=20
+# 最大阻塞等待时间 =&gt; 负数表示没限制
+spring.redis.lettuce.pool.max-wait=-1
+# 连接池中的最大空闲连接
+spring.redis.lettuce.pool.max-idle=5
+# 连接池中的最小空闲连接
+spring.redis.lettuce.pool.min-idle=0
+</code></pre>
+<ul>
+<li>添加 redis 配置类</li>
+</ul>
+<pre><code class="language-java">@EnableCaching
+@Configuration
+public class RedisConfig extends CachingConfigurerSupport {
+
+    @Bean
+    public RedisTemplate&lt;String, Object&gt; redisTemplate(RedisConnectionFactory factory) {
+        RedisTemplate&lt;String, Object&gt; template = new RedisTemplate&lt;&gt;();
+        RedisSerializer&lt;String&gt; redisSerializer = new StringRedisSerializer();
+        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+        ObjectMapper om = new ObjectMapper();
+        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        jackson2JsonRedisSerializer.setObjectMapper(om);
+        template.setConnectionFactory(factory);
+        // key 序列化方式
+        template.setKeySerializer(redisSerializer);
+        // value 序列化
+        template.setValueSerializer(jackson2JsonRedisSerializer);
+        // value hashmap 序列化
+        template.setHashValueSerializer(jackson2JsonRedisSerializer);
+        return template;
+    }
+
+    @Bean
+    public CacheManager cacheManager(RedisConnectionFactory factory) {
+        RedisSerializer&lt;String&gt; redisSerializer = new StringRedisSerializer();
+        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+        // 解决查询缓存转换异常
+        ObjectMapper om = new ObjectMapper();
+        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        jackson2JsonRedisSerializer.setObjectMapper(om);
+        // 配置序列化 =&gt; 解决乱码 =&gt; 过期时间 600 秒
+        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
+                .entryTtl(Duration.ofSeconds(600))
+                .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer))
+                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer))
+                .disableCachingNullValues();
+        RedisCacheManager cacheManager = RedisCacheManager.builder(factory)
+                .cacheDefaults(config)
+                .build();
+        return cacheManager;
+    }
+}
+</code></pre>
+<ul>
+<li>RedisTestController 中添加测试方法</li>
+</ul>
+<pre><code class="language-java">@RestController
+@RequestMapping(&quot;/redisTest&quot;)
+public class RedisTestController {
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @GetMapping
+    public String testRedis() {
+        // 设置值
+        redisTemplate.opsForValue().set(&quot;name&quot;,&quot;zs&quot;);
+        // 获取值
+        String name = (String)redisTemplate.opsForValue().get(&quot;name&quot;);
+        return name;
+    }
+}
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E4%BA%8B%E5%8A%A1%E5%92%8C%E9%94%81%E6%9C%BA%E5%88%B6">事务和锁机制</h2>
+<h3 id="redis-%E4%BA%8B%E5%8A%A1">Redis 事务</h3>
+<blockquote>
+<p>Redis 事务允许在一个步骤中执行一组命令。</p>
+<ul>
+<li>属性一 =&gt; 事务中的所有命令作为单个隔离操作按顺序执行。另一个客户端发出的请求不可能在 Redis 事务的执行过程中得到处理。</li>
+<li>属性二 =&gt; Redis6 之前的命令操作是原子性的，因为操作是单线程的。原子性意味着要么所有命令都被处理，要么不被处理。若有多条命令并发执行，那么就不一定是原子性的。</li>
+</ul>
+</blockquote>
+<p>Redis 事务由命令 <code>MULTI</code> 发起，然后需传递应在事务中执行的命令列表，之后整个事务由 <code>EXEC</code> 执行。在组队的过程中可以通过 <code>DISCARD</code> 来放弃组队。</p>
+<pre><code class="language-shell">127.0.0.1:6379&gt; multi
+OK
+127.0.0.1:6379(TX)&gt; set k1 v1
+QUEUED
+127.0.0.1:6379(TX)&gt; set k2 v2
+QUEUED
+127.0.0.1:6379(TX)&gt; exec
+1) OK
+2) OK
+127.0.0.1:6379&gt; multi
+OK
+127.0.0.1:6379(TX)&gt; set key1 value1
+QUEUED
+127.0.0.1:6379(TX)&gt; set key2 value2
+QUEUED
+127.0.0.1:6379(TX)&gt; discard
+OK
+</code></pre>
+<h3 id="%E4%BA%8B%E5%8A%A1%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86">事务错误处理</h3>
+<ul>
+<li>若组队中某命令出现错误，执行时整个队列都会被取消。</li>
+<li>若执行阶段某命令出现错误，则只有报错的命令不会被执行，其他命令继续执行，不会回滚。</li>
+</ul>
+<h3 id="%E4%BA%8B%E5%8A%A1%E5%86%B2%E7%AA%81">事务冲突</h3>
+<ul>
+<li>悲观锁 Pessimistic Lock</li>
+</ul>
+<p>悲观锁对数据是否被外界修改持保守态度，因此在整个数据处理过程中，将数据处于锁定状态。传统的关系型数据库里用到了很多这种锁机制，比如行锁、表锁、读锁，写锁等，都是在做操作之前先上锁。</p>
+<ul>
+<li>乐观锁 Optimistic Lock =&gt; 抢红包 淘宝抢购 秒杀</li>
+</ul>
+<p>乐观锁会假设数据一般情况下不会因修改而造成冲突，只在数据进行提交更新时才会正式对数据的冲突与否进行版本号检测。乐观锁利用 Check-and-Set 机制实现事务，适用于多读的应用类型以提高吞吐量。</p>
+<p><code>WATCH</code> 可监视指定键，在事务执行前指定键被其他命令改动，那么事务执行将被打断并通知事务失败。<code>UNWATCH</code> 可取消 <code>WATCH</code> 命令对指定键的监视。</p>
+<pre><code class="language-shell"># window1
+127.0.0.1:6379&gt; set balance 100
+OK
+127.0.0.1:6379&gt; watch balance
+OK
+127.0.0.1:6379&gt; multi
+OK
+127.0.0.1:6379(TX)&gt; incrby balance 20
+QUEUED
+127.0.0.1:6379(TX)&gt; exec
+(nil)
+127.0.0.1:6379&gt; get balance
+&quot;110&quot;
+# window2
+127.0.0.1:6379&gt; keys *
+1) &quot;balance&quot;
+127.0.0.1:6379&gt; watch balance
+OK
+127.0.0.1:6379&gt; multi
+OK
+127.0.0.1:6379(TX)&gt; incrby balance 10
+QUEUED
+127.0.0.1:6379(TX)&gt; exec
+1) (integer) 110
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="redis-%E6%8C%81%E4%B9%85%E5%8C%96">Redis 持久化</h2>
+<p>AOF 表示附加文件，是更改日志样式的持久化。RDB 用于 Redis 数据库文件，是快照风格的持久化。</p>
+<h3 id="rdb-redis-database">RDB Redis DataBase</h3>
+<p>以指定的时间间隔将内存中的数据集快照写入磁盘，即 SnapShot 快照，其恢复时是将快照文件直接读到内存里。内存持久化后在启动路径生成文件 dump.rdb。同步之前会先建立临时文件并放入数据，此后才替换主要内容。</p>
+<p>注意当未持久化的最新一次时间间隔内，若对数据进行操作的同时服务器宕机，那么会造成数据丢失。</p>
+<ul>
+<li>RDB 持久化流程 =&gt; 单独 fork 一个子进程进行持久化</li>
+</ul>
+<p>首先将数据写入一个临时文件，待持久化过程结束再用这个临时文件替换掉上次持久化的文件。在此过程中，主进程不进行任何的 IO 操作。</p>
+<p>如需大规模数据恢复，且对数据恢复的完整性不敏感，那么 rdb 会比 aof 方式更加高效。其缺点就是最后一次持久化的数据可能丢失。</p>
+<blockquote>
+<p>Fork<br>
+In an operating system, a fork is a Unix or Linux system call to create a new process from an existing running process. The new process is a child process of the calling parent process.</p>
+</blockquote>
+<ul>
+<li>SNAPSHOTTING</li>
+</ul>
+<p>stop-writes-on-bgsave-error =&gt; 无法写入磁盘的时候（磁盘空间满了），不再进行 redis 的写操作。</p>
+<blockquote>
+<p>BGSAVE =&gt;<br>
+Redis BGSAVE command saves the DB in the background. The OK code is immediately returned. Redis forks, the parent continues to serve the clients, the child saves the DB on the disk, then exits. A client may be able to check if the operation succeeded using the LASTSAVE command.</p>
+</blockquote>
+<p>rdbcompression =&gt; 是否对持久化的文件进行压缩。yes 则采用 LZF 算法压缩。</p>
+<p>rdbchecksum =&gt; 存储快照后以 CRC64 Cyclic redundancy check 进行数据校验。</p>
+<p>save =&gt; 设置某段时间内存在多少变化就会进行持久化操作。</p>
+<h3 id="aof-append-of-file">AOF Append Of File</h3>
+<p>以日志的形式记录写操作（增量保存），将执行过的所有写指令保存，只许追加但不可以改写文件，redis 启动时会读取该文件并执行以重构恢复数据。</p>
+<ul>
+<li>AOF 持久化流程</li>
+</ul>
+<p>AOF 默认不开启，需在配置文件设置 appendonly 为 yes。其文件保存路径与 RDB 一致。当 AOF 与 RDB 同时开启，系统会默认读取前者数据（完整性）。</p>
+<ul>
+<li>APPEND ONLY MODE</li>
+</ul>
+<p>appendonly no =&gt; 是否在每次更新操作后进行日志记录。</p>
+<p>appendfilename appendonly.aof =&gt; 指定更新日志文件名。</p>
+<p>appendfsync =&gt; 更新日志条件|同步频率设置 -&gt; no|fsync|everysec。</p>
+<ul>
+<li>异常恢复</li>
+</ul>
+<pre><code class="language-shell">/usr/local/bin/redis-check-aof--fix appendonly.aof
+</code></pre>
+<ul>
+<li><a href="https://redis.io/commands/bgrewriteaof/">BGREWRITEAOF</a></li>
+</ul>
+<p>启动重写将创建当前仅附加文件的小型优化版本。从 Redis 2.4 开始，AOF 重写由 Redis 自动触发，但是该 BGREWRITEAOF 命令可用于随时触发重写。</p>
+<p>no-appendfsync-on-rewrite=yes =&gt; 不写入 aof 文件只写入缓存。</p>
+<p>auto-aof-rewrite-percentage =&gt; 设置重写的基准值，文件达到 100% 时重写。</p>
+<p>auto-aof-rewrite-min-size =&gt; 设置重写的基准值，文件达到 64MB 开始重写。</p>
+<p>AOF 当前大小 &gt;= base_size + base_size*100% 且 &gt;= 64mb 的情况下开启重写。</p>
+<h3 id="%E5%B0%8F%E7%BB%93%E6%AF%94%E8%BE%83">小结比较</h3>
+<p>推荐两个都启用。若对数据不敏感，可单独用 RDB，但不建议单独用 AOF。如果只是做纯内存缓存，可以都不用。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6">主从复制</h2>
+<p>主从复制即主机数据更新后根据配置和策略，自动同步到从机的 Master/Slaver 机制。Master 以写为主，Slave 以读为主。通过读写分离提高性能的扩展以及容灾的快速恢复。</p>
+<h3 id="%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE">快速配置</h3>
+<p>为启动多个 redis 服务，将 redis.conf duplicator 在修改配置后放入新建 myredis 目录，用于带配置文件的启动。daemonize 应采用 yes 以保证 redis 在后台运行。</p>
+<ul>
+<li>通用配置</li>
+</ul>
+<pre><code class="language-shell">[centos ~]# /usr/local/bin/redis-server /etc/redis.conf
+[centos ~]# mkdir /myredis &amp;&amp; cd /myredis
+[centos myredis]# cp /etc/redis.conf /myredis/redis.conf
+[centos myredis]# ls
+redis.conf
+</code></pre>
+<pre><code class="language-shell"># /myredis/redis.conf
+...
+appendonly no # 是否在每次更新操作后进行日志记录 =&gt; 默认情况下是异步的把数据写入磁盘
+</code></pre>
+<ul>
+<li>redis63Xx.conf 独立配置</li>
+</ul>
+<pre><code class="language-shell"># redis63XX.conf
+include /myredis/redis.conf # 绝对路径
+pidfile /var/run/redis_6379.pid # redis 以守护进程方式运行时默认把 pid 写入 /var/run/redis[???].pid 文件
+port 6379
+dbfilename dump6379.rdb # 一段时间自动对数据库遍历并将内存快照写入 dump.rdb
+</code></pre>
+<ul>
+<li>运行情况查看</li>
+</ul>
+<pre><code class="language-shell">[centos myredis]# redis-server redis6379.conf
+[centos myredis]# redis-server redis6380.conf
+[centos myredis]# redis-server redis6381.conf
+[centos myredis]# ps -ef | grep redis
+root     15665     1  0 Jun16 ?        00:01:19 redis-server *:6379
+root     25595     1  0 21:24 ?        00:00:00 redis-server *:6380
+root     25606     1  0 21:24 ?        00:00:00 redis-server *:6381
+root     25706 21513  0 21:25 pts/0    00:00:00 grep --color=auto redis
+[centos myredis]# kill -9 15665 25595 25606
+</code></pre>
+<ul>
+<li>新终端连接</li>
+</ul>
+<pre><code class="language-shell">[centos myredis]# redis-cli -p 6379
+[centos myredis]# redis-cli -p 6380
+[centos myredis]# redis-cli -p 6381
+[centos myredis]# info replication # 查看复制实例信息
+# Replication
+role:master
+connected_slaves:0
+...
+</code></pre>
+<h3 id="%E4%B8%80%E4%B8%BB%E4%BA%8C%E4%BB%86">一主二仆</h3>
+<p>从服务器宕机后重启，那么这个服务器不再作为主从中的从服务器，而是独立于原主服务器的主服务器。主服务器宕机后从服务器仍等待主机，待主服务器恢复后还是主服务器，数据依旧。当从服务器连接主服务器，从服务器会向主服务器发送数据同步的消息。主服务器接到同步消息后，会将主服务器数据进行持久化操作，并将产生的 dump.rdb 文件发送给从服务器读取。每次主服务器进行写操作后，都会和从服务器进行数据同步。</p>
+<ul>
+<li>在从机上执行 slaveof 命令，设置其为指定主机的从机</li>
+</ul>
+<pre><code class="language-shell"># 设置为指定主机的从机 =&gt; slaveof &lt;ip&gt; &lt;port&gt;
+127.0.0.1:63xx&gt;# slaveof 127.0.0.1 6379
+OK
+</code></pre>
+<p>简而言之，从服务器宕机后重启再作为主服务器的从机，那么还是会拿到主机中的所有数据，哪怕在宕机期间主机进行了操作。主服务器宕机后不会被从服务器夺取主服务器的位置，且在主服务器恢复后数据依旧保留。</p>
+<blockquote>
+<ol>
+<li>主机不配置，从机使用 slaveof 或 replicaof 声明所属主机。</li>
+<li>主机如果宕机，重启后自动恢复到之前的转态，不需要再做其他任何修改，再新增加数据，从机可以读到数据。</li>
+<li>从机如果宕机，再次重启后，再次读数据，读不到。需要使用 slaveof 或 replicaof 再次声明所属主机，声明之后可以再次读取数据。</li>
+<li>主机可写可读，从机只可以读，不可以写。</li>
+<li>从机使用 slaveof 或 replicaof 声明所属主机时会发送 sync 到主机，获取主机的 rdb 文件并执行，以此实现数据同步。后续增加数据，使用<strong>增量复制</strong>完成同步。如果是宕机后再次声明所属主机，则使用<strong>全量复制</strong>完成同步。</li>
+</ol>
+</blockquote>
+<h3 id="%E8%96%AA%E7%81%AB%E7%9B%B8%E4%BC%A0">薪火相传</h3>
+<p>因为从机可以接收来自其他从机的连接和同步请求，那么前一个从机可以是后一个从机的主机。薪火相传这种模式可以有效减轻主机的写压力，通过去中心化降低风险。需要注意的是，若中途变更转向，那么会清除此前的数据，并重新建立最新的拷贝。风险在于一旦某个从机宕机，后边的从机都没法备份。主机宕机，从机还是从机，只是无法写数据。这种模式常见于项目体量的增加，需要树状分布的管理。</p>
+<h3 id="%E5%8F%8D%E5%AE%A2%E4%B8%BA%E4%B8%BB">反客为主</h3>
+<p>反客为主即在主服务器宕机后，从服务器升级为主服务器，其后的从服务器不用做任何修改。</p>
+<pre><code class="language-shell"># 从机恢复主机状态
+slaveof no one
+</code></pre>
+<h3 id="%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F-sentinel"><a href="https://redis.io/docs/manual/sentinel/">哨兵模式 sentinel</a></h3>
+<p>哨兵模式作为反客为主的自动版，能够在后台监视主机的故障与否，并根据投票自动的将从机转换为主机。在原主机从宕机状态恢复后，会默认变成新主机的从机。</p>
+<p>新主机会在一众从主机中产生，从机的挑选顺序是根据优先级靠前、偏移量最大或 runid 最小的指标来进行选择。</p>
+<blockquote>
+<p>优先级在 redis.conf 中默认为 slave|replica-priority 100，值越小优先级越高。<br>
+偏移量是指获得原主机数据最全的。<br>
+每个 redis 实例启动后都会随机生成一个 40 位的 runid。</p>
+</blockquote>
+<p>哨兵模式存在复制延时的缺点。因所有的写操作都是先在主机，然后同步更新到从机，同步过程会有一定的延迟。当系统繁忙时，或者从机数量较大时，延迟问题可能会更加严重。</p>
+<ul>
+<li>配置 sentinel.conf</li>
+</ul>
+<pre><code class="language-shell"># mymaster =&gt; 监控对象起的服务器名
+# 1 =&gt; 至少有一个哨兵同意迁移的数量
+sentinel monitor mymaster 127.0.0.1 6379 1
+</code></pre>
+<ul>
+<li>启动哨兵</li>
+</ul>
+<p>哨兵默认启动在 26379 端口，在主服务器宕机后一段时间会打印操作日志并切换丛机为主机。</p>
+<pre><code class="language-shell">[centos myredis]# redis-sentinel  /myredis/sentinel.conf
+</code></pre>
+<pre><code class="language-java">private static JedisSentinelPool jedisSentinelPool=null;
+public static  Jedis getJedisFromSentinel(){
+    if(jedisSentinelPool==null){
+        Set&lt;String&gt; sentinelSet=new HashSet&lt;&gt;();
+        sentinelSet.add(&quot;remoteIp:26379&quot;);
+        JedisPoolConfig jedisPoolConfig =new JedisPoolConfig();
+        jedisPoolConfig.setMaxTotal(10); // 最大可用连接数
+        jedisPoolConfig.setMaxIdle(5); // 最大闲置连接数
+        jedisPoolConfig.setMinIdle(5); // 最小闲置连接数
+        jedisPoolConfig.setBlockWhenExhausted(true); // 连接耗尽是否等待
+        jedisPoolConfig.setMaxWaitMillis(2000); // 等待时间
+        jedisPoolConfig.setTestOnBorrow(true); // 取连接的时候进行一下测试 ping pong
+        jedisSentinelPool=new JedisSentinelPool(&quot;mymaster&quot;,sentinelSet,jedisPoolConfig);
+        return jedisSentinelPool.getResource();
+        } else {
+        return jedisSentinelPool.getResource();
+    }
+}
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E9%9B%86%E7%BE%A4">集群</h2>
+<p>集群模式常用于扩容以及主机并发写操作压力的分摊。当主从模式和薪火相传模式中的主机宕机，可通过无中心化的集群配置解决地址变化导致的配置修改问题。集群实现水平扩容，即启动多个服务节点，并将整个数据库分布存储在这些节点，每个节点存储总数据的 1/N。</p>
+<p>删除持久化数据 =&gt; 将 rdb、aof 文件都删除掉。</p>
+<h3 id="%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE">集群配置</h3>
+<ul>
+<li>单服务器设置六项服务模拟集群，操作前应先将 dump.rdb 删除排除干扰</li>
+</ul>
+<pre><code class="language-shell"># 9 结尾表示主机 0 结尾表示从机
+rm -rf dump63*
+</code></pre>
+<ul>
+<li>redis cluster 配置修改 =&gt; redis63xx.conf</li>
+</ul>
+<pre><code class="language-shell">include /home/bigdata/redis.conf
+port 6379
+pidfile &quot;/var/run/redis_6379.pid&quot;
+dbfilename &quot;dump6379.rdb&quot;
+dir &quot;/home/bigdata/redis_cluster&quot;
+logfile &quot;/home/bigdata/redis_cluster/redis_err_6379.log&quot;
+cluster-enabled yes # 打开集群模式
+cluster-config-file nodes-6379.conf # 设定节点配置文件名
+cluster-node-timeout 15000 # 设定节点失联时间 =&gt; 超过该时间（毫秒）集群自动进行主从切换
+</code></pre>
+<ul>
+<li>复制多个配置文件并修改</li>
+</ul>
+<pre><code class="language-shell"># 复制配置文件
+cp redis6379.conf redis63xx.conf
+# 替换匹配字符
+:%s/6379/63xx
+</code></pre>
+<ul>
+<li>启动服务|合成集群 =&gt; redis 实例启动且 nodes-xxxx.conf 文件正常生成</li>
+</ul>
+<pre><code class="language-shell">redis-server redis63xx.conf * 6
+ps -ef | grep redis # 此时应该有 6 个启动的 redis 项目
+cd /opt/redis-7.0.2/src # 进入生成集群的环境
+# 此处不要用 127.0.0.1 应用真实 IP 地址
+# --replicas 1 =&gt; 简单的方式配置集群 -&gt; 一台主机和一台从机 -&gt; 正好三组
+redis-cli --cluster create --cluster-replicas 1 xxx.xx.xx.xxx:6379 xxx.xx.xx.xxx:6380 xxx.xx.xx.xxx:6381 xxx.xx.xx.xxx:6389 xxx.xx.xx.xxx:6390 xxx.xx.xx.xxx:6391
+</code></pre>
+<h3 id="%E9%9B%86%E7%BE%A4%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%95%85%E9%9A%9C%E6%81%A2%E5%A4%8D">集群操作与故障恢复</h3>
+<ul>
+<li>节点分配</li>
+</ul>
+<p>一个集群至少要有三个主节点。<code>--cluster-replicas 1</code> 表示希望为集群中的每个主节点创建一个从节点。分配原则尽量保证每个主数据库运行在不同的地址，每个从库和主库不在一个地址上。</p>
+<ul>
+<li>slots 插槽</li>
+</ul>
+<p>redis 集群包含 16384 个插槽，数据库中的每个键都属于这些插槽中的单元，公式 <code>CRC16(key) % 16384</code> 用于计算键 key 属于哪个插槽。</p>
+<p>redis 集群中的每个节点都负责处理一部分的插槽。若集群有主节点 A、B、C，那么可以分配 A 处理 0 至 5460 号插槽；B 处理 5461 至 10922 号插槽；C 处理余下至 16383 号的插槽。</p>
+<ul>
+<li>集群中录入值</li>
+</ul>
+<pre><code class="language-shell"># 集群方式连接
+[centos myredis]# redis-cli -c -p 6379
+127.0.0.1:6379&gt; set k1 v1
+-&gt; Redirected to slot [12706] located at xxx.xx.xx.xxx:6381
+OK
+xxx.xx.xx.xxx:6381&gt; set k2 v2
+-&gt; Redirected to slot [449] located at xxx.xx.xx.xxx:6389
+OK
+# 根据组名计算插槽做添加 =&gt; 使 key 中 {} 内相同内容的键值对放到一个 slot
+xxx.xx.xx.xxx:6389&gt; mset name zs age 22 address cs
+(error) CROSSSLOT Keys in request don't hash to the same slot
+xxx.xx.xx.xxx:6389&gt; mset name{user} zs age{user} 22 address{user} cs
+OK
+</code></pre>
+<ul>
+<li>查询集群中的值</li>
+</ul>
+<pre><code class="language-shell"># 计算某键在哪个插槽
+xxx.xx.xx.xxx:6389&gt; cluster keyslot k1
+(integer) 12706 # k1 插槽值
+# 计算插槽值中有几个键
+xxx.xx.xx.xxx:6389&gt; cluster countkeysinslot 449
+(integer) 1
+# 返回 count 个 slot 槽中的键
+xxx.xx.xx.xxx:6389&gt; cluster getkeysinslot 5474 10
+1) &quot;address{user}&quot;
+2) &quot;age{user}&quot;
+3) &quot;name{user}&quot;
+</code></pre>
+<ul>
+<li>故障恢复</li>
+</ul>
+<p>主节点下线后，从节点会自动升为主节点。主节点从宕机恢复后会变为从节点。当某一段插槽的主从节点都宕掉，服务会根据配置产生全部宕机或只有该插槽数据罢工的两种不同情况。</p>
+<pre><code class="language-shell"># redis.conf
+cluster-require-full-coverage yes|no
+</code></pre>
+<ul>
+<li>集群的 Jedis 开发</li>
+</ul>
+<pre><code class="language-java">public class JedisClusterTest {
+  public static void main(String[] args) {
+     // 创建对象 =&gt; 无中心化 -&gt; 放一个 HostAndPort 即可
+     HostAndPort hostAndPort = new HostAndPort(&quot;xxx.xx.xx.xx&quot;,6379);
+     JedisCluster jedisCluster=new JedisCluster(hostAndPort);
+     jedisCluster.set(&quot;k1&quot;, &quot;v1&quot;);
+     System.out.println(jedisCluster.get(&quot;k1&quot;));
+     jedisCluster.close();
+  }
+}
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%BA%94%E7%94%A8%E9%97%AE%E9%A2%98">应用问题</h2>
+<h3 id="%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F">缓存穿透</h3>
+<p>缓存穿透的现象是应用服务器压力增大，缓存服务器虽平稳运行但命中率下降，总是会进行数据库查询。通常情况下是由于缓存本就查询不到数据库中不存在的内容或者出现非正常的地址访问造成的。比如连续访问不存在的百度文库地址。</p>
+<p>对于这种问题可以考虑进行空值缓存，即查询返回的数据为空时，仍然把这个空结果进行缓存，并设置最长不超过五分钟的短过期时间。同时建议设置可访问的白名单，即名单 Id 作为 bitmaps 的偏移量，每次访问都和其中 Id 进行比较，若不在其中，那么就进行拦截，不允许访问。其他方案是采用布隆过滤器 Bloom Filter，其底层是一个二进制向量和一系列的随机映射函数，但是要考虑其命中率的问题。最后进行实时监控，当发现缓存的命中率急剧降低，需排查访问对象和数据，和运维设置黑名单限制服务（摇人帮忙）。</p>
+<h3 id="%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF">缓存击穿</h3>
+<p>缓存击穿的现象是应用服务器压力瞬时增大，缓存里也没有出现大量的键过期，且依旧处于正常的运行状态。通常情况下是由于缓存中的某个键过期，同时有大量并发请求过来，在这些请求发现缓存过期时会向后端数据库发送海量并发请求造成的。</p>
+<p>对于这种问题可以考虑进行预先设置热门数据，即在高峰访问前，将热门数据提前存入到缓存，并增加热门数据键的失效时长。其次可以使用锁，在缓存失效时先判断拿出来的值是否为空，空值就应该立刻设置排他锁，在成功设置排他锁后查询数据库，同步缓存，最后删除排他锁。但是用到锁，那么必定效率降低。</p>
+<h3 id="%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9">缓存雪崩</h3>
+<p>缓存雪崩的现象是数据库压力增大以至服务器崩溃。通常情况下是由于在短暂时间内有大量键的集中过期的情况造成的。</p>
+<p>解决方案是构建多级缓存的架构，nginx 缓存、redis 缓存搭配其他缓存（ehcache 等）。也可以使用锁或队列来保证不会有大量线程对数据库同时读写，从而避免失效时大量的并发请求落到底层存储系统上，但这种方式并不适用高并发的情况。其次可以设置过期标志更新缓存，如果键过期，那么触发通知另外的线程在后台去更新实际键的缓存。最佳做法是将缓存失效时间分散，在原有的失效时间基础上增加一个随机值，这样每一个缓存的过期时间的重复率就会降低。</p>
+<p>缓存雪崩与缓存击穿的区别在于前者是针对很多键的缓存集体失效，后者则是某一个键突然被海量请求。</p>
+<h3 id="%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81">分布式锁</h3>
+<p>单机部署的系统被演化成分布式集群架构后，由于分布式系统的多线程与多进程分布在不同机器，原单机部署情况下的并发控制锁策略失效，单纯的 Java API 并不能提供分布式锁的能力。这里需要分布式锁进行跨 JVM 的互斥机制控制共享资源的访问。</p>
+<p>数据库、redis 和 Zookeeper 都能实现分布式锁。可靠性 zookeeper 最高，性能上 redis 最佳。</p>
+<pre><code class="language-shell"># 设置锁 =&gt; setnx
+xxx.xx.xx.xxx:6389&gt; setnx users 10
+-&gt; Redirected to slot [14124] located at xxx.xx.xx.xxx:6381
+(integer) 1
+xxx.xx.xx.xxx:6381&gt; setnx users 11
+(integer) 0
+# 释放锁 =&gt; setnx
+xxx.xx.xx.xxx:6381&gt; del users
+(integer) 1
+# 指定时间锁
+xxx.xx.xx.xxx:6381&gt; setnx users 10
+(integer) 1
+xxx.xx.xx.xxx:6381&gt; expire users 10
+(integer) 1
+xxx.xx.xx.xxx:6381&gt; ttl users
+(integer) 5
+# 上锁时设置过期时间 =&gt; 避免上锁后异常无法设置过期时间
+xxx.xx.xx.xxx:6381&gt; set users nx ex 10
+OK
+</code></pre>
+<ul>
+<li>UUID 防误删以及删除原子性整合</li>
+</ul>
+<p>原子性场景是当👩🏻‍💻在上锁后进行操作，于释放锁阶段准备删除时，锁到了过期时间被自动释放，此时🧑🏻‍💻获取了锁并进行具体操作，那么👩🏻‍💻进行的删除操作会将🧑🏻‍💻的锁删除。</p>
+<blockquote>
+<p>=&gt; 为确保分布式锁可用，至少要确保锁的实现同时满足以下条件</p>
+<ul>
+<li>互斥性。在任意时刻，只有一个客户端能持有锁。</li>
+<li>去死锁。即使有客户端在持有锁的期间崩溃而未主动解锁，也要保证后续其他客户端能加锁。</li>
+<li>加锁和解锁必是同一客户端，客户端不能把其他客户端加的锁给解除。</li>
+<li>加锁和解锁必须具有原子性。</li>
+</ul>
+</blockquote>
+<pre><code class="language-java">@ResetController
+@RequestMapping(&quot;/redisTest&quot;)
+public class RedisTestController{
+    @Autowired
+    private RedisTemplate redisTemplate;
+    @GetMapping(&quot;testLock&quot;)
+    public void testLock(){
+        String uuid = UUID.randomUUID().toString();
+        // 上锁
+        Boolean lock = redisTemplate.opsForValue().setIfAbsent(&quot;lock&quot;, uuid, 3, TimeUnit.SECONDS);
+        // 获取锁、查询值
+        if(lock){
+            Object value = redisTemplate.opsForValue().get(&quot;num&quot;);
+            // 判断 num
+            if(StringUtils.isEmpty(value)){
+                return;
+            }
+            // 有值就转成 int
+            int num = Integer.parseInt(value+&quot;&quot;);
+            // 把 num 加 1
+            redisTemplate.opsForValue().set(&quot;num&quot;, ++num);
+            // 释放锁 =&gt; 比较 UUID
+            String lockTestUUID = (String)redisTemplate.opsForValue().get(&quot;lock&quot;);
+            if(lockTestUUID.equals(uuid)){
+                redisTemplate.delete(&quot;lock&quot;);
+            }
+        }else{
+            // 获取锁失败
+            try {
+                // 每隔 0.1 秒再获取
+                Thread.sleep(100);
+                testLock();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    @GetMapping(&quot;testLockLua&quot;)
+    public void testLockLua() {
+        // 声明 uuid 做为一个 value 放入 key 所对应的值中
+        String uuid = UUID.randomUUID().toString();
+        // 定义一个锁 =&gt; lua 脚本使用同一把锁来实现删除
+        String objId = &quot;10&quot;; // 访问 objId 为 10 号的物品 100008348542
+        String locKey = &quot;lock:&quot; + objId; // 锁住的是每个商品的数据
+        // 获取锁
+        Boolean lock = redisTemplate.opsForValue().setIfAbsent(locKey, uuid, 3, TimeUnit.SECONDS);
+        // 第一种 =&gt; lock 与过期时间中间不写任何的代码
+        // redisTemplate.expire(&quot;lock&quot;,10, TimeUnit.SECONDS); // 设置过期时间
+        if (lock) { // true
+            // 执行的业务逻辑开始
+            // 获取缓存中的 num 数据
+            Object value = redisTemplate.opsForValue().get(&quot;num&quot;);
+            // 是空直接返回
+            if (StringUtils.isEmpty(value)) {
+                return;
+            }
+            // 不是空 =&gt; 出现了异常那么 delete 失败 -&gt; 锁永存
+            int num = Integer.parseInt(value + &quot;&quot;);
+            // 使 num 每次 +1 放入缓存
+            redisTemplate.opsForValue().set(&quot;num&quot;, String.valueOf(++num));
+            /* 使用 lua 脚本来锁 */
+            // 定义lua 脚本
+            String script = &quot;if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end&quot;;
+            // 使用 redis 执行 lua 执行
+            DefaultRedisScript&lt;Long&gt; redisScript = new DefaultRedisScript&lt;&gt;();
+            redisScript.setScriptText(script);
+            // 设置一下返回值类型为 Long
+            // 删除判断的时返回的 0 =&gt; 给其封装为数据类型 -&gt; 不封装默认返回 String
+            // 返回字符串与 0 会有错误发生
+            redisScript.setResultType(Long.class);
+            // script 脚本、判断的key、key 所对应的值
+            redisTemplate.execute(redisScript, Arrays.asList(locKey), uuid);
+        } else { // 其他线程等待
+            try {
+                Thread.sleep(1000); // 睡眠
+                testLockLua(); // 睡醒调用方法
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E6%96%B0%E7%89%B9%E6%80%A7">新特性</h2>
+<h3 id="acl-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%88%97%E8%A1%A8"><a href="https://redis.io/docs/manual/security/acl/">ACL 访问控制列表</a></h3>
+<p>Access Control List 在可执行命令和可访问的键方面对某些连接进行限制。</p>
+<pre><code class="language-shell"># 展示当前用户与操作权限
+xxx.xx.xx.xxx:6381&gt; acl list
+# 具体的操作命令
+xxx.xx.xx.xxx:6381&gt; acl cat
+# 命令查看当前用户
+xxx.xx.xx.xxx:6381&gt; acl whoami
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动和禁用用户</td>
+<td>on|off</td>
+<td>激活|禁用某用户账号</td>
+</tr>
+<tr>
+<td>权限的添加删除</td>
+<td>+|-&lt;command&gt; +@|-@&lt;category&gt; allcommands|nocommands</td>
+<td>将指令添加到用户可执行指令列表；从用户可执行指令列表移除指令 添加该类别中用户要调用的所有指令；有效类别为 @admin、@set、@sortedset…，通过调用 ACL CAT 查看完整列表。特殊的 @all 表示所有命令，包括当前存在于服务器中的命令，以及将来将通过模块加载的命令|从用户可调用指令中移除类别 +@all的别名|-@all的别名</td>
+</tr>
+<tr>
+<td>可操作键的添加或删除</td>
+<td>~&lt;pattern&gt;</td>
+<td>添加可作为用户可操作的键的模式 =&gt; ~* 表示允许所有的键</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-shell"># 添加用户
+xxx.xx.xx.xxx:6381&gt; acl setuser test
+xxx.xx.xx.xxx:6381&gt; acl list
+2) &quot;user test off resetchannels -@all&quot;
+# 设置有用户名、密码、ACL权限、并启用的用户
+xxx.xx.xx.xxx:6381&gt; acl setuser ontest on &gt;password ~cached:* +get
+# 切换用户|验证权限
+xxx.xx.xx.xxx:6381&gt; auth ontest password
+OK
+xxx.xx.xx.xxx:6381&gt; acl whoami
+(error) NOPERM this user has no permissions to run the 'acl|whoami' command
+</code></pre>
+<h3 id="io-%E5%A4%9A%E7%BA%BF%E7%A8%8B">IO 多线程</h3>
+<p>Redis6 支持的多线程其实指处理网络数据的读写和协议解析为多线程，而非执行命令多线程。Redis6 对于执行命令依然是单线程。简而言之依旧是单线程与多路 IO 复用。</p>
+<h3 id="%E6%94%AF%E6%8C%81-cluster">支持 Cluster</h3>
+<p>老版 Redis 想要搭集群需单独安装 ruby 环境，redis5 将 redis-trib.rb 的功能集成到 redis-cli。此外官方 redis-benchmark 工具也支持 cluster 模式，通过多线程的方式对多个分片进行压测。</p>
+<h3 id="%E5%85%B6%E4%BB%96%E6%9B%B4%E6%96%B0">其他更新</h3>
+<ul>
+<li>新的 Redis 通信协议 RESP3 用于优化服务端与客户端之间通信</li>
+<li>Client side caching 客户端缓存（基于 RESP3 协议实现）进一步提升缓存的性能，将客户端经常访问的数据 cache 到客户端。减少 TCP 网络交互</li>
+<li>Proxy 集群代理模式让 Cluster 拥有像单实例一样的接入方式，降低使用 cluster 的门槛。不过需要注意的是代理不改变 Cluster 的功能限制，不支持的命令还是不会支持，比如跨 slot 的多键操作</li>
+<li>Modules API 使 Redis 可以变成一个框架，利用 Modules 来构建不同系统</li>
+</ul>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
+<ul>
+<li>NOAUTH Authentication required.</li>
+</ul>
+<pre><code class="language-java">redis.clients.jedis.exceptions.JedisDataException: NOAUTH Authentication required.
+</code></pre>
+<p>SSM 框架配置 redis 的 Jedis 相关 xml 配置后，进行写入测试，出现数据异常。原因在于未对 redis 进行授权。</p>
+<pre><code class="language-xml">&lt;!-- application.xml --&gt;
+&lt;bean id=&quot;jedisPool&quot; class=&quot;redis.clients.jedis.JedisPool&quot;&gt;
+    &lt;constructor-arg name=&quot;user&quot; value=&quot;xxx&quot;&gt;&lt;/constructor-arg&gt;
+    &lt;constructor-arg name=&quot;password&quot; value=&quot;xxx&quot;&gt;&lt;/constructor-arg&gt;
+    &lt;property name=&quot;...&quot; value=&quot;...&quot; /&gt;
+&lt;/bean&gt;
+</code></pre>
+<ul>
+<li>[ERR] Node REMOTEIP:PORT is not empty. Either the node already knows other nodes (check with CLUSTER NODES) or contains some key in database 0.</li>
+</ul>
+<p>异常的节点可能与其他节点组成过集群，或者在数据库中包含一些数据。</p>
+<p>首先应停止服务，若不停止服务直接删除文件可能无效；在删除生成的备份 aof、rdb、nodes.conf 文件后重启服务；在必要的情况下也可以执行 <code>flushdb</code>。</p>
+<ul>
+<li>[ERR] Not all 16384 slots are covered by nodes.</li>
+</ul>
+<p>这个往往是由于主 node 移除，但并没有移除 node 上面的 slot，从而导致 slot 总数没有达到 16384，导致 slots 分布不正确。在删除节点的时候一定要注意删除的是否是 Master 主节点。</p>
+<pre><code class="language-shell"># redis-cli --cluster fix host:port =&gt; 修复集群
+[centos myredis]# redis-cli --cluster fix 127.0.0.1:6379 
+# redis-cli --cluster check host:port =&gt; 检查
+[centos myredis]# redis-cli --cluster check 127.0.0.1:6379
+# redis-cli --cluster reshar host:port =&gt; 重新分配 slot
+[centos myredis]# redis-cli --cluster reshard 127.0.0.1:6379
+127.0.0.1:6379&gt; cluster nodes # 查看节点中集群信息
+</code></pre>
+<ul>
+<li>com.fasterxml.jackson.databind.ObjectMapper? ⌥⏎</li>
+</ul>
+<p>springboot 整合 redis 出现 ObjectMapper 找不到相关包的问题。<a href="https://stackoverflow.com/questions/34290913/objectmapper-cannot-be-resolved-to-a-type">SOF</a>。</p>
+<blockquote>
+<p>Data Binding API is used to convert JSON to and from POJO (Plain Old Java Object) using property accessor or using annotations. It is of two type. Simple Data Binding - Converts JSON to and from Java Maps, Lists, Strings, Numbers, Booleans and null objects.</p>
+</blockquote>
+<pre><code class="language-java">// 问题代码
+ObjectMapper om = new ObjectMapper();
+</code></pre>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+    &lt;version&gt;2.13.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;
+    &lt;version&gt;2.13.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>Cannot Resolve Symbol RestController</li>
+</ul>
+<p>在 pom.xml 中加入 spring-boot-starter-web 的依赖。常见于创建 springboot 项目时未选择 web 相关 starter，也会导致启动时不载入 web。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+
+    
+    <section class="article-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "yourdomain.com/redis/";
+                this.page.identifier = "ghost-6159ea764716ef1a9649e488"
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    </section>
+   
+
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../g-toc-css/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/SLAMDUNK.png 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/SLAMDUNK.png"
+            alt="SLAM DUNK"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    G&amp;TOC&amp;CSS
+                </h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mybatis/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg"
+            alt="Green Trees Under Blue Sky"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mybatis/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MyBatis
+                </h2>
+            </header>
+                <div class="post-card-excerpt">半自动 ORM Object Relation Mapping 持久层框架 MyBatis</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-02-02">Feb 2, 2022</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">44 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mysqlnote/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/cloud.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/cloud.jpg"
+            alt="mysql"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MySQL 笔记
+                </h2>
+            </header>
+                <div class="post-card-excerpt">MYSQL 基础篇</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">82 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=ab47967965"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<!-- 2022 prismjs update -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-powershell.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+
+
+<!-- music -->
+<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script>
+	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+		$('.carousel').carousel({
+			interval: 3000
+		})
+</script>
+<!-- music -->
+<div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.gh-content',
+        hasInnerContainers: true
+    });
+    var tc = document.querySelector(".toc-container");
+    var tch = tc.clientHeight;
+    var ah = document.querySelector(".article-header");
+    var ahh = ah.clientHeight;
+    window.addEventListener("scroll", function () {
+    if(document.body.clientWidth > 1170){
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+        var ihh = window.innerHeight;
+        if(scrollY >= ihh + tch + ahh){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="sticky";
+            ctc.style.position="-webkit-sticky";
+            ctc.style.top = "120px";
+            ctc.style.marginLeft = "800px";
+            ctc.style.minWidth= "260px";
+        }
+        if(scrollY < tch + ahh -10){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="";
+            ctc.style.top = "";
+            ctc.style.marginLeft = "";
+            console.log("zszszs")
+        }
+    }
+    })
+</script>
+</body>
+</html>

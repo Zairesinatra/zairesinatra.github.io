@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>MyBatis</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=ab47967965.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=ab47967965.css" />
+    <meta name="description" content="半自动 ORM Object Relation Mapping 持久层框架 MyBatis" />
+    <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="MyBatis" />
+    <meta property="og:description" content="半自动 ORM Object Relation Mapping 持久层框架 MyBatis" />
+    <meta property="og:url" content="yourdomain.com/mybatis/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/07/GreenTreesUnderBlueSky.jpg" />
+    <meta property="article:published_time" content="2022-02-02T13:44:00.000Z" />
+    <meta property="article:modified_time" content="2022-07-08T19:12:23.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MyBatis" />
+    <meta name="twitter:description" content="半自动 ORM Object Relation Mapping 持久层框架 MyBatis" />
+    <meta name="twitter:url" content="yourdomain.com/mybatis/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/07/GreenTreesUnderBlueSky.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1280" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "MyBatis",
+    "url": "yourdomain.com/mybatis/",
+    "datePublished": "2022-02-02T13:44:00.000Z",
+    "dateModified": "2022-07-08T19:12:23.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/07/GreenTreesUnderBlueSky.jpg",
+        "width": 1920,
+        "height": 1280
+    },
+    "keywords": "Technology growth",
+    "description": "半自动 ORM Object Relation Mapping 持久层框架 MyBatis",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~2.2.0/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="../public/cards.min.js%3Fv=ab47967965"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=ab47967965.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Q4HQV7NBSG');
+</script>
+
+<!-- 2022 prismjs update -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {      
+    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+        node.classList.add('line-numbers');
+	});
+    Prism.highlightAll();
+});
+</script>
+
+<!-- prism -->
+<style>
+pre[class*="language-"] {
+    margin: 0 0 1.5em !important;
+}
+pre[class*="line-numbers"]>code {
+    padding: 0 ;
+}
+code {
+    text-shadow: none !important;
+}
+.token.operator {
+    background: none !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #202124 !important;
+}
+</style>
+
+<!-- customer theme by zs -->
+<style>
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #d98e73;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+}
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #1e1e1f;
+}
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #f9f2f4;
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1;
+}
+.token.punctuation {
+  color: #f3f3f3;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #88deff;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #ddb974;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #f3f3f3;
+  background: #1e1e1f;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #06b4fe;
+}
+.token.function {
+  color: #80caf1;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ee9900;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #1e1e1f;
+  box-shadow: inset 5px 0 0 #1e1e1f;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+</style>
+
+<!-- 音乐播放器 -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
+</head>
+<body class="post-template tag-technology-growth has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <nav class="gh-head-inner inner">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <a class="gh-burger" role="button">
+                    <div class="gh-burger-box">
+                        <div class="gh-burger-inner"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
+    <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <div class="gh-social">
+                        <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
+                </div>
+                        <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-technology-growth ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="../tag/technology-growth/index.html">Technology growth</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">MyBatis</h1>
+
+            <p class="article-excerpt">半自动 ORM Object Relation Mapping 持久层框架 MyBatis</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2022-02-02">Feb 2, 2022</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 44 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w2000/2022/07/GreenTreesUnderBlueSky.jpg 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2022/07/GreenTreesUnderBlueSky.jpg"
+                    alt="Green Trees Under Blue Sky"
+                />
+                    <figcaption>Green Trees Under Blue Sky</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <aside class="toc-container">
+            <div class="toc"></div>
+        </aside>
+        <!--kg-card-begin: markdown--><h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<p>JDBC 存在硬编码和耦合度高的问题；全自动框架 Hibernate 不易作特殊优化，且反射操作过多。</p>
+<h3 id="maven-%E9%85%8D%E7%BD%AE">maven 配置</h3>
+<pre><code class="language-xml">&lt;!-- pom.xml --&gt;
+&lt;dependencies&gt;
+    &lt;!-- Mybatis核心 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+        &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+        &lt;version&gt;3.5.7&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- junit测试 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;4.12&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;!-- MySQL驱动 --&gt;
+    &lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;mysql&lt;/groupId&gt;
+        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+        &lt;version&gt;8.0.29&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- log4j日志 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;log4j&lt;/groupId&gt;
+        &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+        &lt;version&gt;1.2.17&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<h3 id="%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">核心配置文件</h3>
+<p><code>src/main/resources</code> 目录下的核心配置文件 <code>mybatis-config.xml</code> 用于连接数据库环境以及 MyBatis 全局配置信息。整合 Spring 之后，此配置文件可省略。</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;!-- 核心配置文件中的标签必须按固定的顺序书写 --&gt;
+    &lt;!-- The content of element type &quot;configuration&quot; must match &quot;(properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,reflectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?)&quot;. --&gt;
+    &lt;!-- 引入properties文件 --&gt;
+    &lt;properties resource=&quot;jdbc.properties&quot; /&gt;
+    &lt;!-- 设置类型别名 =&gt; 类型别名不区分大小写 --&gt;
+    &lt;typeAliases&gt;
+        &lt;!-- typeAlias 设置某个类型的别名,不设置 alias 则默认以不区分大小写的类名表示 --&gt;
+        &lt;!-- &lt;typeAlias type=&quot;com.zszy.mybatis.pojo.User&quot; alias=&quot;User&quot;&gt;&lt;/typeAlias&gt; --&gt;
+        &lt;!-- 以包为单位将包下所有的类型设置默认的类型别名,即类名且不区分大小写 --&gt;
+        &lt;package name=&quot;com.zszy.mybatis.pojo&quot;/&gt;
+    &lt;/typeAliases&gt;
+    &lt;!--设置连接数据库的环境--&gt;
+    &lt;!--
+    environments =&gt; 设置多个连接数据库的环境
+    属性 default =&gt; 设置默认使用的环境的id
+    --&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;!--
+        environment =&gt; 设置具体的连接数据库的环境信息
+        属性id =&gt; 设置环境的唯一标识;可通过environments标签中的default设置某一个环境的id,表示默认使用的环境
+        --&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;!--
+            transactionManager =&gt; 设置事务管理方式
+            属性 type  =&gt; 设置事务管理方式 =&gt; type=&quot;JDBC|MANAGED&quot;
+	            type=&quot;JDBC&quot; =&gt; 设置当前环境的事务管理都必须手动处理
+	            type=&quot;MANAGED&quot; =&gt; 设置事务被管理,例如spring中的AOP
+            --&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;!--
+            dataSource =&gt; 设置数据源
+            属性 type =&gt; 设置数据源的类型 =&gt; type=&quot;POOLED|UNPOOLED|JNDI&quot;
+	            type=&quot;POOLED&quot; =&gt; 使用数据库连接池,即会将创建的连接进行缓存,下次使用可以从缓存中直接获取,不需要重新创建
+	            type=&quot;UNPOOLED&quot; =&gt; 不使用数据库连接池;每次使用连接都需要重新创建
+	            type=&quot;JNDI&quot; =&gt; 调用上下文中的数据源
+            --&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;!-- alt + shift + 上下 --&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;${jdbc.driver}&quot;/&gt;
+                &lt;!-- &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/MyBatis?serverTimezone=UTC&amp;amp;useUnicode=true&amp;amp;characterEncoding=UTF-8&quot;/&gt; --&gt;
+                &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+    &lt;!-- 引入映射文件 --&gt;
+    &lt;mappers&gt;
+        &lt;!-- &lt;mapper resource=&quot;mappers/UserMapper.xml&quot;/&gt; --&gt;
+        &lt;!-- 以包为单位映射配置文件 =&gt; 注意在 resources 中创建包不能以.分割,而是应该用/ --&gt;
+        &lt;!-- 此包下所有映射文件都会引入核心配置文件中 =&gt; mapper即是空偶所在的包要与映射文件所在的包一致;mapper接口要与映射文件的名字一致 --&gt;
+        &lt;package name=&quot;com.zszy.mybatis.mapper&quot;/&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h3 id="mapper-%E6%8E%A5%E5%8F%A3">mapper 接口</h3>
+<p>MyBatis 中的 mapper 接口相当于 dao，区别在于 mapper 仅是接口，无需提供实现类。</p>
+<pre><code class="language-java">public interface &lt;functionOperater&gt; {
+    /**
+     * mybatis 面向接口编程的两个一致
+     * =&gt; 映射文件的命名空间 namespace 与接口的全类名一致;
+     * =&gt; 映射文件中 SQL 语句 id 与 mapper 接口中方法名一致
+     */
+    /**
+     * xxx操作
+     */
+    &lt;returnValue&gt; &lt;functionOperater&gt;();
+}
+</code></pre>
+<h3 id="%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6">映射文件</h3>
+<ul>
+<li>ORM Object Relationship Mapping 对象关系映射
+<ul>
+<li>对象即实体类对象，关系即为关系型数据库，映射是二者之间的对应关系</li>
+<li>类对应数据库中的表，属性对应数据库中的字段和列，对象对应数据库中的记录和行</li>
+</ul>
+</li>
+<li>映射文件的命名规则 =&gt; 表所对应实体类的类名 + Mapper.xml</li>
+<li>一个映射文件对应一个实体类，对应一张表的操作</li>
+<li>MyBatis映射文件用于编写SQL，访问以及操作表中的数据</li>
+<li>MyBatis映射文件存放的位置是src/main/resources/mappers目录下</li>
+<li>MyBatis中可以面向接口操作数据，要保证两个一致
+<ul>
+<li>mapper接口的全类名和映射文件的命名空间 namespace 保持一致</li>
+<li>mapper接口中方法的方法名和映射文件中编写 SQL 的标签的 id 属性保持一致</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-xml">&lt;!-- src/main/resources/com.../mappers/XxxMapper.xml --&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;&quot;&gt;
+    &lt;!-- returnValue operatorMethod(); --&gt;
+    &lt;!-- &lt;sql operater&gt;sql&lt;/sql operater&gt; --&gt;
+&lt;/mapper&gt;
+</code></pre>
+<p>查询的标签 select 必须设置属性 resultType 或 resultMap，用于设置实体类和数据库表的映射关系。前者表示自动映射，用于属性名和表中字段名一致的情况；后者为自定义映射，用于一对多或多对一或字段名和属性名不一致的情况。</p>
+<p>当查询的数据为多条时，不能使用实体类作返回值，只能使用集合，否则会抛出异常 <code>TooManyResultsException</code>；若查询的数据只有一条，则可使用实体类或集合作为返回值。</p>
+<pre><code class="language-java">&lt;!-- int insertUser(); --&gt;
+&lt;insert id=&quot;insertUser&quot;&gt; insert into t_user values(null,'admin','123456',23,'男','12345@qq.com') &lt;/insert&gt;
+&lt;!-- int deleteUser(); --&gt;
+&lt;delete id=&quot;deleteUser&quot;&gt; delete from t_user where id = 6 &lt;/delete&gt;
+&lt;!-- int updateUser(); --&gt;
+&lt;update id=&quot;updateUser&quot;&gt; update t_user set username = 'zs' where id = 5 &lt;/update&gt;
+&lt;!-- User getUserById(); --&gt;  
+&lt;select id=&quot;getUserById&quot; resultType=&quot;com.xxx.mybatis.bean.User&quot;&gt; select * from t_user where id = 2 &lt;/select&gt;
+&lt;!-- List&lt;User&gt; getUserList(); --&gt;
+&lt;select id=&quot;getUserList&quot; resultType=&quot;com.xxx.mybatis.bean.User&quot;&gt; select * from t_user &lt;/select&gt;
+</code></pre>
+<h3 id="junit-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95">junit 功能测试</h3>
+<ul>
+<li>SqlSession 是 Java 程序和数据库之间的会话；HttpSession 是 Java 程序和浏览器之间的会话。</li>
+</ul>
+<pre><code class="language-java">public interface SqlSession extends Closeable { ...增删改查事务 }
+</code></pre>
+<ul>
+<li>SqlSessionFactory 是生产 SqlSession 的工厂。</li>
+</ul>
+<pre><code class="language-java">public interface SqlSessionFactory {
+    SqlSession openSession(...); // SqlSessionFactory.openSession(true);
+    ...
+    Configuration getConfiguration();
+}
+</code></pre>
+<ul>
+<li>SqlSession 默认不自动提交事务，需手动提交。</li>
+</ul>
+<pre><code class="language-java">// 开启自动提交
+SqlSession sqlSession = sqlSessionFactory.openSession(true);
+</code></pre>
+<pre><code class="language-java">public class MyBatistest {
+    @Test
+    public void testMyBatis() throws IOException {
+        // 加载核心配置文件
+        InputStream is = Resources.getResourceAsStream(&quot;mybatis-config.xml&quot;);
+        // 获取 SqlSessionFactoryBuilder
+        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
+        // 获取sqlSessionFactoryBuilder
+        SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
+        // 获取 mybatis 操作数据库的会话对象 sqlSession
+        SqlSession sqlSession = sqlSessionFactory.openSession(true); // autoCommit
+        // 获取 mapper 接口对象
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        // 测试功能
+        &lt;returnValue&gt; rv = mapper.&lt;operatorMethod&gt;();
+        // 提交事务
+        // sqlSession.commit();
+        System.out.println(&quot;result =&gt; &quot; +rv);
+    }
+}
+</code></pre>
+<h3 id="log4j-%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD">log4j 日志功能</h3>
+<p>Slf4j 类似于 Commons Logging，是一个日志接口，而 Logback 类似于 Log4j，是一个日志的实现。</p>
+<ul>
+<li>Maven 依赖</li>
+</ul>
+<pre><code class="language-xml">&lt;!-- log4j 日志 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;log4j&lt;/groupId&gt;
+    &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+    &lt;version&gt;1.2.17&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>log4j 配置文件</li>
+</ul>
+<p>log4j 的配置文件名为 log4j.xml，存放的位置是 <code>src/main/resources</code> 目录；日志级别包括 FATAL、ERROR、WARN、INFO、DEBUG。</p>
+<pre><code class="language-xml">&lt;!-- log4j.xml --&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE log4j:configuration SYSTEM &quot;log4j.dtd&quot;&gt;
+&lt;log4j:configuration xmlns:log4j=&quot;http://jakarta.apache.org/log4j/&quot;&gt;
+    &lt;appender name=&quot;STDOUT&quot; class=&quot;org.apache.log4j.ConsoleAppender&quot;&gt;
+        &lt;param name=&quot;Encoding&quot; value=&quot;UTF-8&quot; /&gt;
+        &lt;layout class=&quot;org.apache.log4j.PatternLayout&quot;&gt;
+            &lt;param name=&quot;ConversionPattern&quot; value=&quot;%-5p %d{MM-dd HH:mm:ss,SSS} %m (%F:%L) \n&quot; /&gt;
+        &lt;/layout&gt;
+    &lt;/appender&gt;
+    &lt;logger name=&quot;java.sql&quot;&gt;
+        &lt;level value=&quot;debug&quot; /&gt;
+    &lt;/logger&gt;
+    &lt;logger name=&quot;org.apache.ibatis&quot;&gt;
+        &lt;level value=&quot;info&quot; /&gt;
+    &lt;/logger&gt;
+    &lt;root&gt;
+        &lt;level value=&quot;debug&quot; /&gt;
+        &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;
+    &lt;/root&gt;
+&lt;/log4j:configuration&gt;
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="mybatis-%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0%E5%80%BC%E7%9A%84%E6%96%B9%E5%BC%8F">MyBatis 获取参数值的方式</h2>
+<p>MyBatis 获取参数的两种方式为 <code>${}</code> 和 <code>#{}</code>。<code>${}</code> 本质是字符串拼接，<code>#{}</code> 本质是占位符赋值。</p>
+<p>使用 <code>${}</code> 对字符串类型或日期类型拼接时，需要手动加单引号；使用 <code>#{}</code> 拼接字符串类型或日期类型时，会自动添加单引号。</p>
+<p>建议分成两种情况进行处理，一种是实体类型、一种是 @Param。</p>
+<h3 id="%E5%8D%95%E5%AD%97%E9%9D%A2%E9%87%8F%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0">单字面量类型参数</h3>
+<p>若 mapper 接口中的方法参数为单个的字面量类型，可使用 <code>${}</code> 和 <code>#{}</code> 获取参数值，注意前者需手动加单引号。</p>
+<pre><code class="language-java">public interface ParameterMapper { ...
+    // 根据用户名查询用户信息
+    User getUserByUsername(String username);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;!-- User getUserByUsername(String username); --&gt;
+&lt;select id=&quot;getUserByUsername&quot; resultType=&quot;User&quot;&gt;
+    &lt;!-- select * from t_user where username = #{username} --&gt;
+    select * from t_user where username = '${username}'
+&lt;/select&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;!--User getUserByUsername(String username);--&gt;
+&lt;select id=&quot;getUserByUsername&quot; resultType=&quot;User&quot;&gt; select * from t_user where username = '${username}' &lt;/select&gt;
+&lt;!--User getUserByUsername(String username);--&gt;
+&lt;select id=&quot;getUserByUsername&quot; resultType=&quot;User&quot;&gt; select * from t_user where username = #{username} &lt;/select&gt;
+</code></pre>
+<h3 id="%E5%A4%9A%E5%AD%97%E9%9D%A2%E9%87%8F%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0">多字面量类型参数</h3>
+<p>若 mapper 接口中的方法参数为多个字面量类型，MyBatis 会自动将这些参数在兼容处理后放入 map 集合。以 <code>arg[0-n]</code> 和 <code>param[1-n]</code> 键，以参数为值。</p>
+<p>通过 <code>${}</code> 和 <code>#{}</code> 访问集合的键就可获取相应的值。注意 <code>${}</code> 仍需手动加单引号；且 arg 是从下标 0 开始，param 是从下标 1 开始。</p>
+<pre><code class="language-java">public interface ParameterMapper { ...
+    // 验证登录
+    User checkLogin(String username,String password);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;select id=&quot;checkLogin&quot; resultType=&quot;User&quot;&gt;
+    &lt;!-- mybatis底层检测多个参数使用 arg 或者 param --&gt;
+    &lt;!-- select * from t_user where username = #{arg0} and password = #{arg1} --&gt;
+    &lt;!-- select * from t_user where username = #{param1} and password = #{param2} --&gt;
+    select * from t_user where username = '${param1}' and password = '${arg1}'
+&lt;/select&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;!--User checkLogin(String username,String password);--&gt;
+&lt;select id=&quot;checkLogin&quot; resultType=&quot;User&quot;&gt; select * from t_user where username = #{arg0} and password = #{arg1} &lt;/select&gt;
+&lt;!--User checkLogin(String username,String password);--&gt;
+&lt;select id=&quot;checkLogin&quot; resultType=&quot;User&quot;&gt; select * from t_user where username = '${param1}' and password = '${param2}' &lt;/select&gt;
+</code></pre>
+<h3 id="map-%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0">map 集合类型参数</h3>
+<p>若 mapper 接口中的方法需要的参数为多个时，可手动创建 map 集合并将数据放入，通过 <code>${}</code> 和 <code>#{}</code> 访问 map 集合的键就可以获取相对应的值，注意 <code>${}</code> 需要手动加单引号。</p>
+<pre><code class="language-java">public interface ParameterMapper { ...
+    // 验证登录 =&gt; 参数为map
+    User checkLoginByMap(Map&lt;String,Object&gt; map);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;!--User checkLoginByMap(Map&lt;String,Object&gt; map);--&gt;
+&lt;select id=&quot;checkLoginByMap&quot; resultType=&quot;User&quot;&gt; select * from t_user where username = #{username} and password = #{password} &lt;/select&gt;
+</code></pre>
+<pre><code class="language-java">@Test
+public void checkLoginByMap() {
+	SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+	ParameterMapper mapper = sqlSession.getMapper(ParameterMapper.class);
+	Map&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+	map.put(&quot;usermane&quot;,&quot;admin&quot;);
+	map.put(&quot;password&quot;,&quot;123456&quot;);
+	User user = mapper.checkLoginByMap(map);
+	System.out.println(user);
+}
+</code></pre>
+<h3 id="%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0">实体类类型参数</h3>
+<p>若 mapper 接口中的方法参数为实体类对象时，可使用 <code>${}</code> 和 <code>#{}</code>，通过访问实体类对象中的属性名获取属性值，注意 <code>${}</code> 需要手动加单引号。</p>
+<pre><code class="language-java">public interface ParameterMapper { ...
+    // 添加用户信息
+    Integer insertUser(User user);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;!-- int insertUser(User user); --&gt;
+&lt;!-- 属性和成员变量关系不大，不过不否认是成员变量，主要看得是 set 和 get 方法！！！！！ --&gt;
+&lt;select id=&quot;insertUser&quot;&gt; insert into t_user values(null,#{username},#{password},#{age},#{sex},#{email}) &lt;/select&gt;
+</code></pre>
+<pre><code class="language-java">@Test
+public void insertUser() {
+	SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+	ParameterMapper mapper = sqlSession.getMapper(ParameterMapper.class);
+	User user = new User(null,&quot;gz&quot;,&quot;123456&quot;,20,&quot;男&quot;,&quot;gz@mail.com&quot;);
+	mapper.insertUser(user);
+}
+</code></pre>
+<h3 id="param-%E6%A0%87%E8%AF%86%E5%8F%82%E6%95%B0">@Param 标识参数</h3>
+<p>使用 <code>@Param</code> 注解标识的 mapper 接口中的方法参数会被加入 map 集合，可通过 <code>${}</code> 和 <code>#{}</code> 访问此集合的键以获取对应值，注意 <code>${}</code> 需要手动加单引号。</p>
+<pre><code class="language-java">public interface ParameterMapper { ...
+    // 验证登录 =&gt; @Param
+    User checkLoginByParam(@Param(&quot;username&quot;) String username, @Param(&quot;password&quot;) String password);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;!-- User checkLoginByParam(@Param(&quot;username&quot;) String username, @Param(&quot;password&quot;) String password); --&gt;
+&lt;select id=&quot;checkLoginByParam&quot; resultType=&quot;User&quot;&gt; select * from t_user where username = '${username}' and password = '${password}' &lt;/select&gt;
+</code></pre>
+<pre><code class="language-java">@Test
+public void testCheckLoginByParam(){
+    SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+    ParameterMapper mapper = sqlSession.getMapper(ParameterMapper.class);
+    User user = mapper.checkLoginByParam(&quot;hz&quot;, &quot;123321&quot;);
+    System.out.println(user);
+}
+</code></pre>
+<h3 id="param-%E6%B3%A8%E8%A7%A3%E6%BA%90%E7%A0%81">@Param 注解源码</h3>
+<p>convertArgsToSqlCommandParam =&gt; getNamedParams =&gt; this.names = Collections.unmodifiableSortedMap(map);</p>
+<p>param1 开始是因为 GENERIC_NAME_PREFIX + 1。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="crud">CRUD</h2>
+<h3 id="mybatis-%E7%9A%84%E6%9F%A5%E8%AF%A2">MyBatis 的查询</h3>
+<p>若查询出的数据只有一条，可通过实体类对象、List 集合以及 Map 集合接收。如果查询出的数据有多条，那么一定不能用实体类对象进行接收，否则会抛出异常 TooManyResultsException，应该通过实体类类型的 List 集合、Map 类型的 List 集合或在 mapper 接口的方法上添加 @MapKey 注解表示指定字段为键进行接收。</p>
+<pre><code class="language-java">public interface SelectMapper {
+    // 根据id查询用户信息
+    List&lt;User&gt; getUserById(@Param(&quot;id&quot;) Integer id);
+    // 查询所有用户信息
+    List&lt;User&gt; getAllUser();
+    // 查询用户表总记录数
+    Integer getCount();
+    // 根据id查询用户信息为一个map集合
+    Map&lt;String, Object&gt; getuserByIdToMap(@Param(&quot;id&quot;) Integer id);
+    // 查询所有用户信息为 map 集合
+    List&lt;Map&lt;String, Object&gt;&gt; getAllUserToMap();
+    // 查询所有用户信息为 map 集合 =&gt; 注解
+    @MapKey(&quot;id&quot;)
+    Map&lt;String, Object&gt; getAllUserToMapAnother();
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.SelectMapper&quot;&gt;
+    &lt;!-- User getUserById(@Param(&quot;id&quot;) Integer id); --&gt;
+    &lt;select id=&quot;getUserById&quot; resultType=&quot;User&quot;&gt;
+        select * from t_user where id = #{id}
+    &lt;/select&gt;
+    &lt;!-- List&lt;User&gt; getAllUser(); --&gt;
+    &lt;select id=&quot;getAllUser&quot; resultType=&quot;User&quot;&gt;
+        select * from t_user
+    &lt;/select&gt;
+    &lt;!-- Integer getCount(); --&gt;
+    &lt;select id=&quot;getCount&quot; resultType=&quot;java.lang.Integer&quot;&gt;
+        &lt;!-- 注意如果count(字段)对应null则不会放入查询结果;count(*) 和 count(1) 结果是一样的 --&gt;
+        select count(*) from t_user
+    &lt;/select&gt;
+    &lt;!-- Map&lt;String, Object&gt; getuserByIdToMap(@Param(&quot;id&quot;) Integer id); --&gt;
+    &lt;select id=&quot;getuserByIdToMap&quot; resultType=&quot;java.util.Map&quot;&gt;
+        select * from t_user where id = #{id}
+    &lt;/select&gt;
+    &lt;!-- List&lt;Map&lt;String, Object&gt;&gt; getAllUserToMap(); --&gt;
+    &lt;select id=&quot;getAllUserToMap&quot; resultType=&quot;map&quot;&gt;
+        select * from t_user
+    &lt;/select&gt;
+    &lt;!--
+    @MapKey(&quot;id&quot;)
+    Map&lt;String, Object&gt; getAllUserToMapAnother();
+    --&gt;
+    &lt;select id=&quot;getAllUserToMapAnother&quot; resultType=&quot;map&quot;&gt;
+        select * from t_user
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class SelectMapperTest {
+    /**
+     * MyBatis 各种查询功能
+     * 1.若查询出的数据只有一条,则可通过实体类对象或者 &quot;集合&quot; 或者 map 接收
+     * 2.若查询出数据多条,一定不能通过实体类对象接收,此时会抛出异常 TooManyResultsException,可通过实体类对象的list接收;可通过 map 类型的集合接收;可以在mapper接口的方法上添加@Mapkey注解,此时每条数据转换的map集合作为值,以某个字段作为键,放在同一个map集合中
+     */
+    @Test
+    public void testGetUserById(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        System.out.println(mapper.getUserById(3));
+    }
+    @Test
+    public void testGetAllUser(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        System.out.println(mapper.getAllUser());
+    }
+    @Test
+    public void testGetCount(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        System.out.println(mapper.getCount());
+    }
+    @Test
+    public void testUserByIdToMap(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        System.out.println(mapper.getuserByIdToMap(3));
+    }
+    @Test
+    public void testAllUserToMap(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        System.out.println(mapper.getAllUserToMap());
+    }
+    @Test
+    public void testAllUserToMapAnother(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        System.out.println(mapper.getAllUserToMapAnother());
+    }
+}
+</code></pre>
+<h3 id="%E7%89%B9%E6%AE%8A-sql-%E6%89%A7%E8%A1%8C">特殊 SQL 执行</h3>
+<ul>
+<li>模糊查询</li>
+</ul>
+<pre><code class="language-java">public interface SQLMapper {
+    // 根据用户名模糊查询用户信息
+    List&lt;User&gt; getUserByLike(@Param(&quot;username&quot;) String username);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.SQLMapper&quot;&gt;
+    &lt;!-- List&lt;User&gt; getUserByLike(@Param(&quot;username&quot;)String username); --&gt;
+    &lt;select id=&quot;getUserByLike&quot; resultType=&quot;User&quot;&gt;
+        &lt;!-- select * from t_user where username like '%#{username}%' =&gt; org.apache.ibatis.exceptions.PersistenceException --&gt;
+        &lt;!-- select * from t_user where username like '%${username}%' --&gt;
+        &lt;!-- select * from t_user where username like concat('%',#{username},'%') --&gt;
+        select * from t_user where username like &quot;%&quot;#{username}&quot;%&quot;
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class SQLMapperTest {
+    @Test
+    public void testSQLMapper(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SQLMapper mapper = sqlSession.getMapper(SQLMapper.class);
+        List&lt;User&gt; list = mapper.getUserByLike(&quot;g&quot;);
+        System.out.println(list);
+    }
+}
+</code></pre>
+<ul>
+<li>批量删除</li>
+</ul>
+<p>只能使用 <code>${}</code>。如果使用 <code>#{}</code>，则解析后的 sql 语句会将传入参数视作一个整体，这个整体不会被成功匹配。</p>
+<pre><code class="language-java">public interface SQLMapper {
+    // 批量删除
+    int deleteMore(@Param(&quot;ids&quot;) String ids);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.SQLMapper&quot;&gt;
+    &lt;!-- int deleteMore(@Param(&quot;ids&quot;) String ids); --&gt;
+    &lt;delete id=&quot;deleteMore&quot;&gt;
+        &lt;!-- 批量删除不能使用 #{} =&gt; #{} 会自动加上单引号 --&gt;
+        delete from t_user where id in (${ids})
+    &lt;/delete&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class SQLMapperTest {
+    @Test
+    public void testDeleteMore(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SQLMapper mapper = sqlSession.getMapper(SQLMapper.class);
+        int i = mapper.deleteMore(&quot;1,2,6&quot;);
+        System.out.println(i);
+    }
+}
+</code></pre>
+<ul>
+<li>动态设置表名</li>
+</ul>
+<p>只能使用 <code>${}</code>，因表名不能加单引号。</p>
+<pre><code class="language-java">public interface SQLMapper {
+    // 查询指定表中数据
+    List&lt;User&gt; getUserByTableName(@Param(&quot;tableName&quot;) String tableName);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.SQLMapper&quot;&gt;
+    &lt;!-- List&lt;User&gt; getUserByTableName(@Param(&quot;tableName&quot;) String tableName); --&gt;
+    &lt;select id=&quot;getUserByTableName&quot; resultType=&quot;User&quot;&gt;
+        &lt;!-- 这里要注意表名不能加单引号 =&gt; 只能使用 ${} --&gt;
+        select * from ${tableName}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class SQLMapperTest {
+    @Test
+    public void testGetUserByTableName(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SQLMapper mapper = sqlSession.getMapper(SQLMapper.class);
+        List&lt;User&gt; list = mapper.getUserByTableName(&quot;t_user&quot;);
+        System.out.println(list);
+    }
+}
+</code></pre>
+<ul>
+<li>添加功能获取自增的主键</li>
+</ul>
+<p>在 mapper.xml 中设置属性 <code>useGeneratedKeys</code> 和 <code>keyProperty</code>。因为增删改有统一受影响的行数的返回值，因此只能将获取的自增主键放在传输的参数对象中的某个属性。</p>
+<pre><code class="language-java">public interface SQLMapper {
+    // 添加用户信息
+    void insertUser(User user);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.SQLMapper&quot;&gt;
+    &lt;!-- void insertUser(User user); --&gt;
+    &lt;!-- useGeneratedKeys 设置当前标签中 sql 使用了自增的主键 --&gt;
+    &lt;!-- keyProperty 将自增的主键的值赋值给传输到映射文件中参数的某个属性 --&gt;
+    &lt;!-- 应用场景 =&gt; 一对多、多对多 设置中间表的主键 --&gt;
+    &lt;insert id=&quot;insertUser&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;&gt;
+        insert into t_user values (null,#{username},#{password},#{age},#{sex},#{email})
+    &lt;/insert&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class SQLMapperTest {
+    @Test
+    public void testInsertUser(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        SQLMapper mapper = sqlSession.getMapper(SQLMapper.class);
+        User user = new User(null,&quot;hz&quot;,&quot;123321&quot;,24,&quot;男&quot;,&quot;hz@mail.com&quot;);
+        mapper.insertUser(user);
+        System.out.println(user); // 执行添加操作后id有值
+    }
+}
+</code></pre>
+<h3 id="%E7%BB%93%E6%9E%9C%E9%9B%86%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%A0%E5%B0%84-resultmap">结果集|自定义映射 resultMap</h3>
+<p>简单映射语句中不一定需要显式指定 resultMap，只需使用 resultType 指定能够接收的存储类型即可。但这种语句只是简单地将所有的列映射到存储类型的键上，不能像 JavaBean 这般的领域模型对系统中的各个实体及其之间的关系进行描述。</p>
+<p>当领域模型通过 resultType 指定，其底层会在幕后自动创建一个 resultMap，再根据属性名来映射列到 JavaBean 的属性上。注意，若字段名和实体类中属性名不一致，可以设置自定义映射。</p>
+<pre><code class="language-java">public interface EmpMapper {
+    // 查询所有数据
+    List&lt;Emp&gt; getAllEmp();
+}
+</code></pre>
+<pre><code class="language-xml">&lt;!-- 下边两种指定效果一致 --&gt;
+&lt;!-- resultType 指定领域模型 --&gt;
+&lt;select id=&quot;getAllEmp&quot; resultType=&quot;Emp&quot;&gt;
+    select eid as &quot;eid&quot;, emp_name as &quot;empName&quot;, age as &quot;age&quot;, sex as &quot;sex&quot;, email as &quot;email&quot; FROM t_emp
+&lt;/select&gt;
+&lt;!-- resultMap 指定领域模型 --&gt;
+&lt;resultMap id=&quot;empResultMap&quot; type=&quot;Emp&quot;&gt;
+    &lt;!-- id 专门设置主键映射关系 --&gt;
+    &lt;id property=&quot;eid&quot; column=&quot;eid&quot;&gt;&lt;/id&gt;
+    &lt;!-- result 设置普通字段的映射关系 --&gt;
+    &lt;result property=&quot;empName&quot; column=&quot;emp_name&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;age&quot; column=&quot;age&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;sex&quot; column=&quot;sex&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;email&quot; column=&quot;email&quot;&gt;&lt;/result&gt;
+&lt;/resultMap&gt;
+&lt;select id=&quot;getAllEmp&quot;  resultMap=&quot;empResultMap&quot;&gt;
+    select * from t_emp
+&lt;/select&gt;
+</code></pre>
+<pre><code class="language-java">public class ResultMapTest {
+    @Test
+    public void testGetAllEmp(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+        List&lt;Emp&gt; allEmp = mapper.getAllEmp();
+        allEmp.forEach(emp -&gt; System.out.println(emp));
+    }
+}
+</code></pre>
+<p>核心配置文件中 <code>&lt;setting&gt;</code> 标签的 <code>mapUnderscoreToCamelCase</code> 用于设置查询表数据时，将 _ 类型的字段名自动转换为驼峰。</p>
+<p>在提供了结果映射后，自动映射也能工作。在这种情况下，对于每一个结果映射，在 ResultSet 出现的列，如果没有设置手动映射，将被自动映射。在自动映射处理完毕后，再处理手动映射。</p>
+<pre><code class="language-xml">&lt;settings&gt;
+    &lt;setting name=&quot;mapUnderscoreToCamelCase&quot; value=&quot;true&quot;/&gt;
+&lt;/settings&gt;
+</code></pre>
+<h3 id="%E5%A4%9A%E5%AF%B9%E4%B8%80%E6%98%A0%E5%B0%84%E5%A4%84%E7%90%86">多对一映射处理</h3>
+<ul>
+<li>级联属性赋值</li>
+</ul>
+<pre><code class="language-java">public interface EmpMapper {
+    // 查询员工以及员工所对应的部门信息
+    Emp getEmpAndDept(@Param(&quot;eid&quot;) Integer eid);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;resultMap id=&quot;getEmpAndDeptResultMapOne&quot; type=&quot;Emp&quot;&gt;
+    &lt;id property=&quot;eid&quot; column=&quot;eid&quot;&gt;&lt;/id&gt;
+    &lt;result property=&quot;empName&quot; column=&quot;emp_name&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;age&quot; column=&quot;age&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;sex&quot; column=&quot;sex&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;email&quot; column=&quot;email&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;dept.did&quot; column=&quot;did&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;dept.deptName&quot; column=&quot;dept_name&quot;&gt;&lt;/result&gt;
+&lt;/resultMap&gt;
+&lt;select id=&quot;getEmpAndDept&quot; resultMap=&quot;getEmpAndDeptResultMapOne&quot;&gt;
+    select * from t_emp left join t_dept on t_emp.did = t_dept.did where t_emp.eid = #{eid}
+&lt;/select&gt;
+</code></pre>
+<ul>
+<li>association 标签</li>
+</ul>
+<pre><code class="language-java">public interface EmpMapper {
+    // 查询员工以及员工所对应的部门信息
+    Emp getEmpAndDept(@Param(&quot;eid&quot;) Integer eid);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;resultMap id=&quot;getEmpAndDeptResultMapOne&quot; type=&quot;Emp&quot;&gt;
+    &lt;id property=&quot;eid&quot; column=&quot;eid&quot;&gt;&lt;/id&gt;
+    &lt;result property=&quot;empName&quot; column=&quot;emp_name&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;age&quot; column=&quot;age&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;sex&quot; column=&quot;sex&quot;&gt;&lt;/result&gt;
+    &lt;result property=&quot;email&quot; column=&quot;email&quot;&gt;&lt;/result&gt;
+    &lt;!-- association专门处理多对一关系 =&gt; property表示需要处理多对一关系的属性名;javaType表示该属性的类型 --&gt;
+    &lt;association property=&quot;dept&quot; javaType=&quot;Dept&quot;&gt;
+        &lt;id property=&quot;did&quot; column=&quot;did&quot;&gt;&lt;/id&gt;
+        &lt;result property=&quot;deptName&quot; column=&quot;dept_name&quot;&gt;&lt;/result&gt;
+    &lt;/association&gt;
+&lt;/resultMap&gt;
+&lt;select id=&quot;getEmpAndDept&quot; resultMap=&quot;getEmpAndDeptResultMapOne&quot;&gt;
+    select * from t_emp left join t_dept on t_emp.did = t_dept.did where t_emp.eid = #{eid}
+&lt;/select&gt;
+</code></pre>
+<pre><code class="language-java">public class ResultMapTest {
+    @Test
+    public void testGetEmpAndDept(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+        Emp empAndDept = mapper.getEmpAndDept(1);
+        System.out.println(empAndDept);
+    }
+}
+</code></pre>
+<ul>
+<li>分步查询</li>
+</ul>
+<pre><code class="language-java">public interface EmpMapper {
+    // &amp;分步查询员工以及员工所对应的部门 =&gt; 1.查询员工信息
+    Emp getEmpAndDeptByStepOne(@Param(&quot;eid&quot;) Integer eid);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.EmpMapper&quot;&gt;
+...
+    &lt;!-- select 设置分布查询sql的唯一标识 =&gt; namespace.sqlId or mapper接口的全类名.方法名 --&gt;
+    &lt;!-- column 设置分布查询的条件 --&gt;
+    &lt;!-- 延迟加载默认在 mybatis 不开启 --&gt;
+    &lt;!-- fetchType 全局开启了延迟加载后可手控延迟加载的效果 =&gt; lazy|eager --&gt;
+    &lt;resultMap id=&quot;empAndDeptByStepOne&quot; type=&quot;Emp&quot;&gt;
+        &lt;id property=&quot;eid&quot; column=&quot;eid&quot;&gt;&lt;/id&gt;
+        &lt;result property=&quot;empName&quot; column=&quot;emp_name&quot;&gt;&lt;/result&gt;
+        &lt;result property=&quot;age&quot; column=&quot;age&quot;&gt;&lt;/result&gt;
+        &lt;result property=&quot;sex&quot; column=&quot;sex&quot;&gt;&lt;/result&gt;
+        &lt;result property=&quot;email&quot; column=&quot;email&quot;&gt;&lt;/result&gt;
+        &lt;association property=&quot;dept&quot; select=&quot;com.zszy.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo&quot; column=&quot;did&quot; fetchType=&quot;lazy&quot;&gt;&lt;/association&gt;
+    &lt;/resultMap&gt;
+    &lt;!-- Emp getEmpAndDeptByStepOne(@Param(&quot;eid&quot;) Integer eid); --&gt;
+    &lt;select id=&quot;getEmpAndDeptByStepOne&quot; resultMap=&quot;empAndDeptByStepOne&quot;&gt;
+        select * from t_emp where eid = #{eid}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public interface DeptMapper {
+    // &amp;&amp;分步查询员工以及员工所对应的部门 =&gt; 2.通过did查询员工对应的部门信息
+    Dept getEmpAndDeptByStepTwo(@Param(&quot;did&quot;) Integer did);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.DeptMapper&quot;&gt;
+...
+    &lt;resultMap id=&quot;empAndDeptByStepTwo&quot; type=&quot;Dept&quot;&gt;
+    &lt;id property=&quot;did&quot; column=&quot;did&quot;&gt;&lt;/id&gt;
+        &lt;result property=&quot;deptName&quot; column=&quot;dept_name&quot;&gt;&lt;/result&gt;
+    &lt;/resultMap&gt;
+    &lt;!-- Dept getEmpAndDeptByStepTwo(@Param(&quot;did&quot;) Integer did); --&gt;
+    &lt;select id=&quot;getEmpAndDeptByStepTwo&quot; resultMap=&quot;empAndDeptByStepTwo&quot;&gt;
+        select * from t_dept where did = #{did}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class ResultMapTest {
+    @Test
+    public void testGetEmpAndDeptByStep(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+        Emp empAndDeptByStepOne = mapper.getEmpAndDeptByStepOne(1);
+        System.out.println(empAndDeptByStepOne);
+    }
+}
+</code></pre>
+<h3 id="%E4%B8%80%E5%AF%B9%E5%A4%9A%E6%98%A0%E5%B0%84%E5%A4%84%E7%90%86">一对多映射处理</h3>
+<pre><code class="language-java">public class Dept {
+    private Integer did;
+    private String deptName;
+    // 通过集合表示一对多的关系
+    private List&lt;Emp&gt; emps;
+    ...
+}
+</code></pre>
+<pre><code class="language-java">public interface DeptMapper {
+    // 查询部门以及部门中所有的员工信息
+    Dept getDeptAndEmp(@Param(&quot;did&quot;) Integer did);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.DeptMapper&quot;&gt;
+    &lt;!-- 处理一对多的映射关系 --&gt;
+    &lt;!-- 1.collection --&gt;
+    &lt;resultMap id=&quot;deptAndEmpResultMap&quot; type=&quot;Dept&quot;&gt;
+        &lt;id property=&quot;did&quot; column=&quot;did&quot;&gt;&lt;/id&gt;
+        &lt;result property=&quot;deptName&quot; column=&quot;dept_name&quot;&gt;&lt;/result&gt;
+        &lt;!-- collection 处理一对多的映射关系 --&gt;
+        &lt;!-- ofType 表示该属性所对应的集合中存储数据的类型 --&gt;
+        &lt;collection property=&quot;emps&quot; ofType=&quot;Emp&quot;&gt;
+            &lt;id property=&quot;eid&quot; column=&quot;edi&quot;&gt;&lt;/id&gt;
+            &lt;result property=&quot;empName&quot; column=&quot;emp_name&quot;&gt;&lt;/result&gt;
+            &lt;result property=&quot;age&quot; column=&quot;age&quot;&gt;&lt;/result&gt;
+            &lt;result property=&quot;sex&quot; column=&quot;sex&quot;&gt;&lt;/result&gt;
+            &lt;result property=&quot;email&quot; column=&quot;email&quot;&gt;&lt;/result&gt;
+        &lt;/collection&gt;
+    &lt;/resultMap&gt;
+    &lt;!-- Dept getDeptAndEmp(@Param(&quot;did&quot;) Integer did); --&gt;
+    &lt;select id=&quot;getDeptAndEmp&quot; resultMap=&quot;deptAndEmpResultMap&quot;&gt;
+        select * from t_dept left join t_emp on t_dept.did = t_emp.did where t_dept.did = #{did}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class ResultMapTest {
+    @Test
+    public void testGetDeptAndEmp(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+        Dept deptAndEmp = mapper.getDeptAndEmp(1);
+        System.out.println(deptAndEmp);
+    }
+}
+</code></pre>
+<ul>
+<li>分步查询</li>
+</ul>
+<pre><code class="language-java">public interface DeptMapper {
+    // &amp;分步查询查询所有部门以及员工信息 =&gt; 1.查询部门信息
+    Dept getDeptAndEmpByStepOne(@Param(&quot;did&quot;) Integer did);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.DeptMapper&quot;&gt;
+    &lt;!-- 2.分步查询 --&gt;
+    &lt;resultMap id=&quot;deptAndEmpByStepResultMap&quot; type=&quot;Dept&quot;&gt;
+        &lt;id property=&quot;did&quot; column=&quot;did&quot;&gt;&lt;/id&gt;
+        &lt;result property=&quot;deptName&quot; column=&quot;dept_name&quot;&gt;&lt;/result&gt;
+        &lt;collection property=&quot;emps&quot; select=&quot;com.zszy.mybatis.mapper.EmpMapper.getDeptAndEmpByStepTwo&quot; column=&quot;did&quot;&gt;&lt;/collection&gt;
+    &lt;/resultMap&gt;
+    &lt;!-- Dept getDeptAndEmpByStepOne(@Param(&quot;did&quot;) Integer did); --&gt;
+    &lt;select id=&quot;getDeptAndEmpByStepOne&quot; resultMap=&quot;deptAndEmpByStepResultMap&quot;&gt;
+        select * from t_dept where did = #{did}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public interface EmpMapper {
+    // &amp;&amp;分步查询部门以及部门员工 =&gt; 2.根据did查询员工信息
+    List&lt;Emp&gt; getDeptAndEmpByStepTwo(@Param(&quot;did&quot;) Integer did);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.EmpMapper&quot;&gt;
+    ...
+    &lt;!-- List&lt;Emp&gt; getDeptAndEmpByStepTwo(@Param(&quot;did&quot;) Integer did); --&gt;
+    &lt;select id=&quot;getDeptAndEmpByStepTwo&quot; resultType=&quot;Emp&quot;&gt;
+        select * from t_emp where did = #{did}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class ResultMapTest {
+    @Test
+    public void testGetDeptAndEmpByStep(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+        Dept deptAndEmpByStepOne = mapper.getDeptAndEmpByStepOne(1);
+        System.out.println(deptAndEmpByStepOne);
+    }
+}
+</code></pre>
+<h3 id="%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD">延迟加载</h3>
+<p>分步查询的优势在于可以实现延迟加载，但是必须在核心配置文件中设置全局配置信息。延迟加载又叫懒加载，也叫按需加载，也就是说先加载主表信息，需要的时候，再去加载从表信息。代码执行查询语句时，并非即时去数据库中查询，而是根据设置的延迟策略推迟查询。</p>
+<blockquote>
+<p>lazyLoadingEnabled =&gt; 延迟加载。开启时所有关联对象都会延迟加载。<br>
+aggressiveLazyLoading =&gt; 按需加载。开启时任何方法的调用都会加载该对象的所有属性。否则每个属性都会按需加载。</p>
+</blockquote>
+<p>此外可通过 association 和 collection 中的 fetchType 属性设置当前的分步查询是否使用延迟加载，fetchType=&quot;lazy 延迟加载|eager 立即加载&quot;。</p>
+<pre><code class="language-xml">&lt;!-- mybatis-config.xml --&gt;
+&lt;configuration&gt;
+    &lt;properties resource=&quot;jdbc.properties&quot;/&gt;
+    &lt;!-- 设置mybatis全局配置 --&gt;
+    &lt;settings&gt;
+        &lt;!-- 将下划线自动映射为驼峰 --&gt;
+        &lt;setting name=&quot;mapUnderscoreToCamelCase&quot; value=&quot;true&quot;/&gt;
+        &lt;!-- 开启延迟加载 --&gt;
+        &lt;setting name=&quot;lazyLoadingEnabled&quot; value=&quot;true&quot;/&gt;
+    &lt;/settings&gt;
+    &lt;typeAliases&gt;
+        &lt;package name=&quot;com.zszy.mybatis.pojo&quot;/&gt;
+    &lt;/typeAliases&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;${jdbc.driver}&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+    &lt;mappers&gt;
+        &lt;package name=&quot;com.zszy.mybatis.mapper&quot;/&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre>
+<pre><code class="language-java">public class ResultMapTest {
+    ...
+    @Test
+    public void testGetEmpAndDeptByStepLazyLoadingEnabled(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+        Emp empAndDeptByStepOne = mapper.getEmpAndDeptByStepOne(1);
+        System.out.println(empAndDeptByStepOne.getEmpName()); // 只会执行查询员工信息的 sql
+        System.out.println(&quot;---------&quot;);
+        System.out.println(empAndDeptByStepOne.getDept()); // 执行查询员工以及部门信息的 sql
+    }
+}
+</code></pre>
+<h3 id="%E5%8A%A8%E6%80%81-sql">动态 SQL</h3>
+<p>动态 sql 能根据特定条件动态拼装 sql 语句，常用于处理字符串拼接。</p>
+<ul>
+<li>if 标签</li>
+</ul>
+<p>if 标签通过 test 属性传递过来的数据进行表达式判断，若结果为真，则标签中的内容会执行；反之标签中的内容不会执行。</p>
+<p>为避免<code>where</code> 会与 <code>and</code> 连用的报错，可以在 <code>where</code> 后面添加一个恒成立条件<code>1=1</code> 来拼接 <code>and</code> 语句，这种方式不会影响查询的结果。</p>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.DynamicSQLMapper&quot;&gt;
+    &lt;select id=&quot;getEmpByCondition&quot; resultType=&quot;Emp&quot;&gt;
+        select * from t_emp where 1=1
+        &lt;if test=&quot;empName != null and empName != ''&quot;&gt;and emp_name=#{empName}&lt;/if&gt;
+        &lt;if test=&quot;age !=null and age != ''&quot;&gt;and age = #{age}&lt;/if&gt;
+        &lt;if test=&quot;sex !=null and sex != ''&quot;&gt;and sex = #{sex}&lt;/if&gt;
+        &lt;if test=&quot;email !=null and email != ''&quot;&gt;and email = #{email}&lt;/if&gt;
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<ul>
+<li>where 标签</li>
+</ul>
+<p>where 和 if 一般结合使用。若 where 标签中的 if 条件都不满足，则 where 标签没有任何功能，也不会添加 where 关键字。当 if 条件满足，才会自动添加 where 关键字，并将条件<strong>最前方</strong>多余的 and/or 去掉。</p>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.DynamicSQLMapper&quot;&gt;
+    &lt;select id=&quot;getEmpByCondition&quot; resultType=&quot;Emp&quot;&gt;
+    select * from t_emp
+    &lt;where&gt;
+        &lt;!-- emp_name = #{empName} and 不要这么写 =&gt; 去不掉 and --&gt;
+        &lt;if test=&quot;empName != null and empName != ''&quot;&gt;emp_name=#{empName}&lt;/if&gt;
+        &lt;if test=&quot;age !=null and age != ''&quot;&gt;and age = #{age}&lt;/if&gt;
+        &lt;if test=&quot;sex !=null and sex != ''&quot;&gt;and sex = #{sex}&lt;/if&gt;
+        &lt;if test=&quot;email !=null and email != ''&quot;&gt;and email = #{email}&lt;/if&gt;
+    &lt;/where&gt;
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<ul>
+<li>trim 标签</li>
+</ul>
+<p>prefix =&gt; 在 trim 标签中的内容前面添加某些内容。suffix =&gt; 在 trim 标签中的内容后面添加某些内容。prefixOverrides =&gt; 在 trim 标签中的内容前面去掉某些内容。suffixOverrides =&gt; 在 trim 标签中的内容后面去掉某些内容。若 trim 中的标签都不满足条件 =&gt; trim 标签没有任何效果。</p>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.DynamicSQLMapper&quot;&gt;
+    &lt;select id=&quot;getEmpByCondition&quot; resultType=&quot;Emp&quot;&gt;
+        select * from t_emp
+        &lt;trim prefix=&quot;where&quot; suffixOverrides=&quot;and|or&quot;&gt;
+            &lt;if test=&quot;empName != null and empName != ''&quot;&gt;emp_name=#{empName} and&lt;/if&gt;
+            &lt;if test=&quot;age !=null and age != ''&quot;&gt;age = #{age} and&lt;/if&gt;
+            &lt;if test=&quot;sex !=null and sex != ''&quot;&gt;sex = #{sex} and&lt;/if&gt;
+            &lt;if test=&quot;email !=null and email != ''&quot;&gt;email = #{email} and&lt;/if&gt;
+        &lt;/trim&gt;
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<ul>
+<li>choose(when、otherwise) 标签与 SQL 片段</li>
+</ul>
+<p>choose(when、otherwise) 相当于 if...else，when 至少要有一个，otherwise 至多只有一个。在确定一个 when 成立后，不再执行后续操作。</p>
+<p>sql 片段可以记录一段公共 sql 片段，在使用的地方通过 include 标签进行引入。</p>
+<pre><code class="language-java">public interface DynamicSQLMapper {
+    // 测试 choose、when、otherwise
+    List&lt;Emp&gt; getEmpByChoose(Emp emp);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.DynamicSQLMapper&quot;&gt;
+    &lt;sql id=&quot;empColumns&quot;&gt;eid,emp_name,age,sex,email&lt;/sql&gt;
+    &lt;select id=&quot;getEmpByChoose&quot; resultType=&quot;Emp&quot;&gt;
+        select &lt;include refid=&quot;empColumns&quot;&gt;&lt;/include&gt; from t_emp
+        &lt;where&gt;
+            &lt;choose&gt;
+                &lt;when test=&quot;empName != null and empName != ''&quot;&gt;emp_name=#{empName}&lt;/when&gt;
+                &lt;when test=&quot;age != null and age != ''&quot;&gt;age=#{age}&lt;/when&gt;
+                &lt;when test=&quot;sex != null and sex != ''&quot;&gt;sex=#{sex}&lt;/when&gt;
+                &lt;when test=&quot;email != null and email != ''&quot;&gt;email=#{email}&lt;/when&gt;
+                &lt;otherwise&gt; did = 1 &lt;/otherwise&gt;
+            &lt;/choose&gt;
+        &lt;/where&gt;
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class DynamicSQLMapperTest {
+    @Test
+    public void testGetEmpByChoose(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
+        List&lt;Emp&gt; list = mapper.getEmpByChoose(new Emp(null, null, null, null, null));
+        System.out.println(list);
+    }
+}
+</code></pre>
+<ul>
+<li>foreach 标签</li>
+</ul>
+<p>动态 SQL 的另一个常见使用场景是对集合进行遍历，尤其是在构建 IN 条件语句的时候。</p>
+<p>属性 collection =&gt; 设置要循环的数组或集合。item =&gt; 集合或数组中的每一项数据。separator =&gt; 设置循环体之间的分隔符，分隔符前后默认有一个空格。open =&gt; 设置 foreach 循环的外部开始符。close =&gt; 设置 foreach 循环的外部结束符。</p>
+<pre><code class="language-java">public interface DynamicSQLMapper {
+    // 数组实现批量删除
+    int deleteMoreByArray(@Param(&quot;eids&quot;) Integer[] eids);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.DynamicSQLMapper&quot;&gt;
+    &lt;!-- int deleteMoreByArray(@Param(&quot;eids&quot;) Integer[] eids); --&gt;
+    &lt;delete id=&quot;deleteMoreByArray&quot;&gt;
+        &lt;!-- 方式一 =&gt; 括号包裹循环内容 --&gt;
+        &lt;!-- delete from t_emp where eid in --&gt;
+        &lt;!-- ( --&gt;
+        &lt;!-- &lt;foreach collection=&quot;eids&quot; item=&quot;eid&quot; separator=&quot;,&quot;&gt; --&gt;
+        &lt;!-- #{eid} --&gt;
+        &lt;!-- &lt;/foreach&gt; --&gt;
+        &lt;!-- ) --&gt;
+        &lt;!-- 方式二 =&gt; open + close 代替括号 --&gt;
+        &lt;!-- delete from t_emp where eid in --&gt;
+        &lt;!-- &lt;foreach collection=&quot;eids&quot; item=&quot;eid&quot; separator=&quot;,&quot; open=&quot;(&quot; close=&quot;)&quot;&gt; --&gt;
+        &lt;!-- #{eid} --&gt;
+        &lt;!-- &lt;/foreach&gt; --&gt;
+        delete from t_emp where
+        &lt;foreach collection=&quot;eids&quot; item=&quot;eid&quot; separator=&quot;or&quot;&gt;
+            eid=#{eid}
+        &lt;/foreach&gt;
+    &lt;/delete&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class DynamicSQLMapperTest {
+    @Test
+    public void testDeleteMoreByArray(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
+        int i = mapper.deleteMoreByArray(new Integer[]{7, 8});
+        System.out.println(i);
+    }
+}
+</code></pre>
+<pre><code class="language-java">public interface DynamicSQLMapper {
+    // 集合实现批量添加
+    int insertMoreByList(@Param(&quot;emps&quot;) List&lt;Emp&gt; emps);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.DynamicSQLMapper&quot;&gt;
+    &lt;!-- int insertMoreByList(@Param(&quot;emps&quot;) List&lt;Emp&gt; emps); --&gt;
+    &lt;insert id=&quot;insertMoreByList&quot;&gt;
+        insert into t_emp values
+        &lt;foreach collection=&quot;emps&quot; item=&quot;emp&quot; separator=&quot;,&quot;&gt;
+            (null,#{emp.empName},#{emp.age},#{emp.sex},#{emp.email},null)
+        &lt;/foreach&gt;
+    &lt;/insert&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class DynamicSQLMapperTest {
+    @Test
+    public void testInsertMoreByList(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
+        Emp emp1 = new Emp(null,&quot;test1&quot;,18,&quot;男&quot;,&quot;test@mail.com&quot;);
+        Emp emp2 = new Emp(null,&quot;test2&quot;,18,&quot;女&quot;,&quot;test@mail.com&quot;);
+        List&lt;Emp&gt; emps = Arrays.asList(emp1, emp2);
+        System.out.println(mapper.insertMoreByList(emps));
+    }
+}
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="mybatis-%E7%BC%93%E5%AD%98">MyBatis 缓存</h2>
+<h3 id="%E4%B8%80%E7%BA%A7%E7%BC%93%E5%AD%98%EF%BC%88%E9%BB%98%E8%AE%A4%E5%BC%80%E5%90%AF%EF%BC%89">一级缓存（默认开启）</h3>
+<p>一级缓存属于 SqlSession 级别，通过同一个 SqlSession 查询的数据会被缓存，下次查询相同的数据，就会从缓存中直接获取，而不会从数据库重新访问。</p>
+<p>一级缓存失效情况 =&gt; 不同 SqlSession 对应不同一级缓存；同一 SqlSession 但查询条件不同；同一 SqlSession 两次查询期间执行了增删改操作；同一 SqlSession 两次查询期间手动清空缓存。</p>
+<pre><code class="language-java">public interface CacheMapper {
+    // 缓存只针对查询
+    Emp getEmpByEid(@Param(&quot;eid&quot;) Integer eid);
+    void insertEmp(Emp emp);
+}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.CacheMapper&quot;&gt;
+    &lt;!-- Emp getEmpByEid(@Param(&quot;eid&quot;) Integer eid); --&gt;
+    &lt;select id=&quot;getEmpByEid&quot; resultType=&quot;Emp&quot;&gt;
+        select * from t_emp where eid = #{eid}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class CacheMapperTest {
+    @Test
+    public void testFirstLevelCache(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        // 同一个 sqlSession 查询的数据会被缓存
+        CacheMapper mapper = sqlSession.getMapper(CacheMapper.class);
+        // 只会输出一个 sql 取决于是否手动清空缓存 sqlSession.clearCache(); or 增删改
+        Emp emp1 = mapper.getEmpByEid(1);
+        System.out.println(emp1);
+//        mapper.insertEmp(new Emp(null,&quot;abc&quot;,24,&quot;女&quot;,&quot;xc@mail.com&quot;));
+//        sqlSession.clearCache();
+        Emp emp2 = mapper.getEmpByEid(1);
+        System.out.println(emp2);
+    }
+}
+</code></pre>
+<h3 id="%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98">二级缓存</h3>
+<p>二级缓存属于 SqlSessionFactory 级别，同 SqlSessionFactory 创建的 SqlSession 查询的结果会被缓存；此后若再次执行相同的查询语句，结果会从缓存中获取。</p>
+<blockquote>
+<p>=&gt; <strong>二级缓存开启的条件</strong><br>
+配置文件中设置全局配置属性 cacheEnabled=&quot;true&quot;（默认为 true）；映射文件中设置标签 <code>&lt;cache /&gt;</code>；二级缓存必须在 SqlSession 关闭或提交之后有效；查询的数据所转换的实体类 pojo 必须实现序列化 Serializable 的接口。</p>
+</blockquote>
+<p>二级缓存失效 =&gt; 两次查询间执行了增删改，此时一级缓存一并失效。</p>
+<pre><code class="language-java">public class Emp implements Serializable {...}
+</code></pre>
+<pre><code class="language-xml">&lt;mapper namespace=&quot;com.zszy.mybatis.mapper.CacheMapper&quot;&gt;
+    &lt;!-- 开启二级缓存 --&gt;
+    &lt;cache /&gt;
+    ...
+&lt;/mapper&gt;
+</code></pre>
+<pre><code class="language-java">public class CacheMapperTest {
+    @Test
+    public void testSecondLevelCache(){
+        // 不能使用 SqlSessionUtils.getSqlSession() 的原因在于源码中每次调用此方法都会创建新的 sqlSessionFactory
+        try {
+            InputStream is = Resources.getResourceAsStream(&quot;mybatis-config.xml&quot;);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
+            SqlSession sqlSession1 = sqlSessionFactory.openSession(true);
+            CacheMapper mapper1 = sqlSession1.getMapper(CacheMapper.class);
+            System.out.println(mapper1.getEmpByEid(1));
+            sqlSession1.close();
+            SqlSession sqlSession2 = sqlSessionFactory.openSession(true);
+            CacheMapper mapper2 = sqlSession2.getMapper(CacheMapper.class);
+            System.out.println(mapper2.getEmpByEid(1));
+            sqlSession2.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>cache 标签属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eviction</td>
+<td>缓存回收策略 =&gt; LRU Least Recently Used 最近最少使用、FIFO First in First out 先进先出、SOFT 软引用、WEAK 弱引用</td>
+</tr>
+<tr>
+<td>flushInterval</td>
+<td>刷新间隔 =&gt; 单位毫秒 -&gt; 默认情况不设，没有刷新间隔，缓存仅仅调用语句（增删改）时刷新</td>
+</tr>
+<tr>
+<td>size</td>
+<td>引用数目 =&gt; 正整数代表缓存最多可以存储多少个对象，太大容易导致内存溢出</td>
+</tr>
+<tr>
+<td>readOnly</td>
+<td>只读 =&gt; true 给所有调用者返回缓存对象的相同实例 /false 会返回通过序列化缓存对象的拷贝（安全）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E7%BC%93%E5%AD%98%E6%9F%A5%E8%AF%A2%E9%A1%BA%E5%BA%8F">缓存查询顺序</h3>
+<p>首先进行二级缓存查询。在二级缓存中可能存有其他程序已查出的数据，方便直接使用。如果二级缓存没有命中，再查询一级缓存。如果一级缓存也没有命中，则查询数据库。SqlSession 关闭之后，一级缓存中的数据会写入二级缓存。由于一级缓存需要关闭后才会提交给二级缓存，那么二级缓存没有的可能一级缓存会有。</p>
+<h3 id="%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BC%93%E5%AD%98-ehcache">第三方缓存 EHCache</h3>
+<p>EhCache 是进程内缓存框架，也是 Hibernate 中的默认缓存框架，可作为 mybatis 的二级缓存补充。要注意的是，一级缓存没办法代替。</p>
+<ul>
+<li>Maven 依赖包</li>
+</ul>
+<pre><code class="language-xml">&lt;!-- Mybatis EHCache 整合包 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.mybatis.caches&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-ehcache&lt;/artifactId&gt;
+    &lt;version&gt;1.2.1&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- slf4j &quot;撒拉风街&quot;日志门面的一个具体实现 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+    &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
+    &lt;version&gt;1.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>ehcache.xml</li>
+</ul>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;ehcache xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:noNamespaceSchemaLocation=&quot;../config/ehcache.xsd&quot;&gt;
+    &lt;!-- 磁盘保存路径 =&gt; ehcache 缓存的数据保存于磁盘 --&gt;
+    &lt;diskStore path=&quot;/Users/xxx/Desktop/ehcache&quot;/&gt;
+    &lt;defaultCache
+            maxElementsInMemory=&quot;1000&quot;
+            maxElementsOnDisk=&quot;10000000&quot;
+            eternal=&quot;false&quot;
+            overflowToDisk=&quot;true&quot;
+            timeToIdleSeconds=&quot;120&quot;
+            timeToLiveSeconds=&quot;120&quot;
+            diskExpiryThreadIntervalSeconds=&quot;120&quot;
+            memoryStoreEvictionPolicy=&quot;LRU&quot;&gt;
+    &lt;/defaultCache&gt;
+&lt;/ehcache&gt;
+</code></pre>
+<ul>
+<li>设置二级缓存的类型</li>
+</ul>
+<pre><code class="language-xml">&lt;!-- xxxMapper.xml --&gt;
+&lt;cache type=&quot;org.mybatis.caches.ehcache.EhcacheCache&quot;/&gt;
+</code></pre>
+<ul>
+<li>logback 日志</li>
+</ul>
+<p>存在 SLF4J 时，作为简易日志的 Log4j 将失效，此时需要借助 SLF4J 的具体实现 logback 来打印日志。logback 的配置文件固定名为 logback.xml。</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;configuration debug=&quot;true&quot;&gt;
+    &lt;!-- 指定日志输出的位置 --&gt;
+    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+        &lt;encoder&gt;
+            &lt;!-- 日志输出的格式 --&gt;
+            &lt;!-- 按照顺序分别是：时间、日志级别、线程名称、打印日志的类、日志主体内容、换行 --&gt;
+            &lt;pattern&gt;[%d{HH:mm:ss.SSS}] [%-5level] [%thread] [%logger] [%msg]%n&lt;/pattern&gt;
+        &lt;/encoder&gt;
+    &lt;/appender&gt;
+    &lt;!-- 设置全局日志级别。日志级别按顺序分别是：DEBUG、INFO、WARN、ERROR --&gt;
+    &lt;!-- 指定任何一个日志级别都只打印当前级别和后面级别的日志。 --&gt;
+    &lt;root level=&quot;DEBUG&quot;&gt;
+        &lt;!-- 指定打印日志的appender，这里通过“STDOUT”引用了前面配置的appender --&gt;
+        &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;
+    &lt;/root&gt;
+    &lt;!-- 根据特殊需求指定局部日志级别 --&gt;
+    &lt;logger name=&quot;com.xxx.crowd.mapper&quot; level=&quot;DEBUG&quot;/&gt;
+&lt;/configuration&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>是否必须</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>maxElementsInMemory</td>
+<td>是</td>
+<td>在内存中缓存的 Element 的最大数目</td>
+</tr>
+<tr>
+<td>maxElementsOnDisk</td>
+<td>是</td>
+<td>在磁盘上缓存的 Element 的最大数目 =&gt; 0 表示无穷大</td>
+</tr>
+<tr>
+<td>eternal</td>
+<td>是</td>
+<td>缓存的 Elements 是否永远不过期；true =&gt; 缓存的数据始终有效；false =&gt; 根据 timeToIdleSeconds、timeToLiveSeconds 判断</td>
+</tr>
+<tr>
+<td>overflowToDisk</td>
+<td>是</td>
+<td>当内存缓存溢出的时候是否将过期的 Element 缓存到磁盘上</td>
+</tr>
+<tr>
+<td>timeToIdleSeconds</td>
+<td>否</td>
+<td>当缓存在 EhCache 中的数据前后两次访问的时间超过 timeToIdleSeconds 的属性取值时数据会删除 =&gt; 默认值是 0；也就是可闲置时间无穷大</td>
+</tr>
+<tr>
+<td>timeToLiveSeconds</td>
+<td>否</td>
+<td>缓存 Element 的有效生命期 =&gt; 默认是 0 -&gt; Element 存活时间无穷大</td>
+</tr>
+<tr>
+<td>diskSpoolBufferSizeMB</td>
+<td>否</td>
+<td>DiskStore 磁盘缓存的缓存区大小 =&gt; 默认是 30MB -&gt; 每个 Cache 都应该有自己的一个缓冲区</td>
+</tr>
+<tr>
+<td>diskPersistent</td>
+<td>否</td>
+<td>在 VM 重启的时候是否启用磁盘保存 EhCache 中的数据 =&gt; 默认是 false</td>
+</tr>
+<tr>
+<td>diskExpiryThreadIntervalSeconds</td>
+<td>否</td>
+<td>磁盘缓存的清理线程运行间隔；默认是 120s。每个 120s 相应的线程会进行一次 EhCache 中数据的清理工作</td>
+</tr>
+<tr>
+<td>memoryStoreEvictionPolicy</td>
+<td>否</td>
+<td>当内存缓存达到最大且又有新的 Element 加入时，移除缓存中 Element 的策略。默认 LRU（最近最少使用），可选 LFU（最不常使用）和 FIFO（先进先出）</td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E6%8F%92%E4%BB%B6%E5%B7%A5%E5%85%B7">插件工具</h2>
+<h3 id="mbg-mybatis-generator-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B">MBG MyBatis Generator 逆向工程</h3>
+<p>正向工程是先创建实体类，再由框架根据实体类生成数据库表。逆向工程是先创建数据库表，再由框架根据数据库表反向生成 Java 实体类、Mapper 接口、Mapper 映射文件。</p>
+<ul>
+<li>依赖和插件</li>
+</ul>
+<pre><code class="language-xml">...
+&lt;packaging&gt;jar&lt;/packaging&gt;
+...
+&lt;dependencies&gt;
+    &lt;!-- MyBatis核心依赖包 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+        &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+        &lt;version&gt;3.5.9&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- junit测试 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;4.13.2&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;!-- MySQL驱动 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;mysql&lt;/groupId&gt;
+        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+        &lt;version&gt;8.0.27&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- log4j日志 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;log4j&lt;/groupId&gt;
+        &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+        &lt;version&gt;1.2.17&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+&lt;!-- 控制Maven在构建过程中相关配置 --&gt;
+&lt;build&gt;
+    &lt;!-- 构建过程中用到的插件 --&gt;
+    &lt;plugins&gt;
+        &lt;!-- 具体插件，逆向工程的操作是以构建过程中插件形式出现的 --&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;1.3.0&lt;/version&gt;
+            &lt;!-- 插件的依赖 --&gt;
+            &lt;dependencies&gt;
+                &lt;!-- 逆向工程的核心依赖 --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;
+                    &lt;artifactId&gt;mybatis-generator-core&lt;/artifactId&gt;
+                    &lt;version&gt;1.3.2&lt;/version&gt;
+                &lt;/dependency&gt;
+                &lt;!-- 数据库连接池 --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;com.mchange&lt;/groupId&gt;
+                    &lt;artifactId&gt;c3p0&lt;/artifactId&gt;
+                    &lt;version&gt;0.9.2&lt;/version&gt;
+                &lt;/dependency&gt;
+                &lt;!-- MySQL驱动 --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;mysql&lt;/groupId&gt;
+                    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+                    &lt;version&gt;8.0.27&lt;/version&gt;
+                &lt;/dependency&gt;
+            &lt;/dependencies&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+<ul>
+<li>配置文件</li>
+</ul>
+<p>MBG 逆向工程其实与配置文件关系不大，主要是为搭建数据库环境。mybatis-config.xml 与 log4j.xml 配置同上。</p>
+<pre><code class="language-xml">&lt;!-- jdbc.properties --&gt;
+jdbc.driver=com.mysql.cj.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/MyBatis?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=UTF-8
+jdbc.username=&lt;username&gt;
+jdbc.password=&lt;password&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;!-- 逆向工程配置文件 =&gt; generatorConfig.xml --&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE generatorConfiguration
+        PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;
+&lt;generatorConfiguration&gt;
+    &lt;!--
+    targetRuntime =&gt; 执行生成的逆向工程的版本
+    MyBatis3Simple =&gt; 生成基本的 CRUD
+    MyBatis3 =&gt; 生成带条件的 CRUD
+    --&gt;
+    &lt;context id=&quot;DB2Tables&quot; targetRuntime=&quot;MyBatis3&quot;&gt;
+        &lt;!-- 数据库的连接信息 =&gt; 连接数据库进行解析表 --&gt;
+        &lt;jdbcConnection driverClass=&quot;com.mysql.cj.jdbc.Driver&quot;
+                        connectionURL=&quot;jdbc:mysql://localhost:3306/mybatis&quot;
+                        userId=&quot;&lt;username&gt;&quot;
+                        password=&quot;&lt;password&gt;&quot;&gt;
+        &lt;/jdbcConnection&gt;
+        &lt;!-- javaBean 的生成策略--&gt;
+        &lt;javaModelGenerator targetPackage=&quot;com.zszy.mybatis.pojo&quot; targetProject=&quot;./src/main/java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot; /&gt;
+            &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot; /&gt;
+        &lt;/javaModelGenerator&gt;
+        &lt;!-- SQL 映射文件的生成策略 --&gt;
+        &lt;sqlMapGenerator targetPackage=&quot;com.zszy.mybatis.mapper&quot; targetProject=&quot;./src/main/resources&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot; /&gt;
+        &lt;/sqlMapGenerator&gt;
+        &lt;!-- Mapper 接口的生成策略 --&gt;
+        &lt;javaClientGenerator type=&quot;XMLMAPPER&quot; targetPackage=&quot;com.zszy.mybatis.mapper&quot; targetProject=&quot;./src/main/java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot; /&gt;
+        &lt;/javaClientGenerator&gt;
+        &lt;!-- 逆向分析的表 --&gt;
+        &lt;!-- tableName设置为*号 =&gt; 对应所有表 =&gt; 此时不写 domainObjectName --&gt;
+        &lt;!-- domainObjectName 属性指定生成出来的实体类的类名 --&gt;
+        &lt;table tableName=&quot;t_emp&quot; domainObjectName=&quot;Emp&quot;/&gt;
+        &lt;table tableName=&quot;t_dept&quot; domainObjectName=&quot;Dept&quot;/&gt;
+    &lt;/context&gt;
+&lt;/generatorConfiguration&gt;
+</code></pre>
+<ul>
+<li>逆向操作</li>
+</ul>
+<p>执行 Maven 中 MBG 插件的 mybatis-generator:generate。</p>
+<pre><code class="language-java">public class MBGTest {
+    @Test
+    public void testMBG(){
+        try {
+            InputStream is = Resources.getResourceAsStream(&quot;mybatis-config.xml&quot;);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
+            SqlSession sqlSession = sqlSessionFactory.openSession(true);
+            EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+            // 查询所有数据
+//            List&lt;Emp&gt; list = mapper.selectByExample(null);
+//            list.forEach(emp -&gt; System.out.println(emp));
+            // 根据条件查询
+//            EmpExample example = new EmpExample();
+            // QBC 风格 =&gt; query by Criteria 
+//            example.createCriteria().andEmpNameEqualTo(&quot;zs&quot;).andAgeGreaterThan(20);
+//            example.or().andDidIsNotNull();
+//            List&lt;Emp&gt; list = mapper.selectByExample(example);
+//            list.forEach(emp -&gt; System.out.println(emp));
+            // 修改 =&gt; updateByPrimaryKeySelective =&gt; 某个属性为 null 则不会出现在修改列表中
+            mapper.updateByPrimaryKeySelective(new Emp(10,&quot;testMBG&quot;,22,&quot;女&quot;,&quot;testMBG@mail.com&quot;,3));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+</code></pre>
+<h3 id="%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6">分页插件</h3>
+<ul>
+<li>添加依赖</li>
+</ul>
+<pre><code class="language-xml">&lt;!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper --&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+	&lt;artifactId&gt;pagehelper&lt;/artifactId&gt;
+	&lt;version&gt;5.2.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>mybatis-config.xml 配置分页插件</li>
+</ul>
+<pre><code class="language-xml">...
+&lt;plugins&gt;
+    &lt;!-- 设置分页插件 --&gt;
+    &lt;plugin interceptor=&quot;com.github.pagehelper.PageInterceptor&quot;&gt;&lt;/plugin&gt;
+&lt;/plugins&gt;
+</code></pre>
+<ul>
+<li>开启分页功能</li>
+</ul>
+<p>在查询功能之前使用 <code>PageHelper.startPage(int pageNum, int pageSize)</code> 开启分页功能，pageNum 表示当前页的页码，pageSize 表示每页显示的条数。</p>
+<pre><code class="language-java">public class PageHelperTest {
+    @Test
+    public void testPageHelper(){
+        /*
+        index =&gt; 当前页的起始索引
+        pageSize =&gt; 每页显示条数
+        pageNum =&gt; 当前页的页码
+        index = (pageNum-1)*pageSize
+         */
+        // 查询功能前开启分页;查询功能之后获取分页相关信息
+        InputStream is = null;
+        try {
+            is = Resources.getResourceAsStream(&quot;mybatis-config.xml&quot;);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
+            SqlSession sqlSession = sqlSessionFactory.openSession(true);
+            EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+            // Page&lt;Object&gt; page = PageHelper.startPage(1, 4);
+            PageHelper.startPage(1, 4);
+            List&lt;Emp&gt; list = mapper.selectByExample(null);
+//            list.forEach(emp -&gt; System.out.println(emp));
+            // PageInfo 常应用于居中页面条
+            PageInfo&lt;Emp&gt; page = new PageInfo&lt;&gt;(list,3);
+            System.out.println(page);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
+<ul>
+<li>BeanCreationException =&gt; Error creating bean with name 'sqlSessionFactory'</li>
+</ul>
+<pre><code class="language-java">// .../logs/iamericanoLogs
+// 日志直接看时间首段
+00:00:00.000 [RMI TCP Connection(5)-127.0.0.1] ERROR o.s.w.c.ContextLoader - [initWebApplicationContext,313] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [application.xml]: Initialization of bean failed; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert property value of type 'java.lang.String' to required type 'org.springframework.core.io.Resource[]' for property 'mapperLocations'; nested exception is java.lang.IllegalArgumentException: Could not resolve resource location pattern [classpath:mapper/**/*.xml]: class path resource [mapper/] cannot be resolved to URL because it does not exist
+// 解决的报错 =&gt; 因映射文件不存在而导致的副作用
+// 23-Jun-2020 21:46:22.000 SEVERE [RMI TCP Connection(5)-127.0.0.1] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+// 23-Jun-2020 21:46:22.000 SEVERE [RMI TCP Connection(5)-127.0.0.1] org.apache.catalina.core.StandardContext.startInternal Context [/admin] startup failed due to previous errors
+</code></pre>
+<p>'sqlSessionFactory' Bean 创建失败指向映射文件的缺失，在搭建项目初期出现此问题时可先注释掉属性 mapperLocations 的相关代码进行启动。</p>
+<p>主要注意点是 mapper 目录下相关映射文件的存在，以及因此原因导致的外层报错 startInternal One or more listeners failed to start。</p>
+<pre><code class="language-xml">&lt;!-- application.xml --&gt;
+...
+&lt;!-- 整合围绕 sqlSessionFactory --&gt;
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+    ...
+    &lt;property name=&quot;mapperLocations&quot; value=&quot;classpath:mapper/**/*.xml&quot;/&gt;
+&lt;/bean&gt;
+</code></pre>
+<ul>
+<li>BindingException =&gt; Invalid bound statement (not found)</li>
+</ul>
+<pre><code class="language-java">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.zszy.dao.IamericanoUserDao.queryById
+</code></pre>
+<p>EasyCode 逆向工程生成 resources/mapper 下的 xxxMapper.xml 文件时失效。没有映射文件那么必然会绑定失败。</p>
+<!--kg-card-end: markdown--><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://mybatis.org/mybatis-3/zh/index.html"><div class="kg-bookmark-content"><div class="kg-bookmark-title">mybatis – MyBatis 3 | 简介</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><span class="kg-bookmark-author">简介</span><span class="kg-bookmark-publisher">Clinton Begin</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://mybatis.org/images/mybatis-logo.png" alt=""></div></a></figure><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+
+    
+    <section class="article-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "yourdomain.com/mybatis/";
+                this.page.identifier = "ghost-629a4c721d916b20167df5fa"
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    </section>
+   
+
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../g-toc-css/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/SLAMDUNK.png 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/SLAMDUNK.png"
+            alt="SLAM DUNK"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    G&amp;TOC&amp;CSS
+                </h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mysqlnote/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/cloud.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/cloud.jpg"
+            alt="mysql"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MySQL 笔记
+                </h2>
+            </header>
+                <div class="post-card-excerpt">MYSQL 基础篇</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">82 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../zu-jian-tong-xun/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/treecommunicate.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/treecommunicate.jpg"
+            alt="Component communication"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../zu-jian-tong-xun/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    组件通讯
+                </h2>
+            </header>
+                <div class="post-card-excerpt">vuex与redux</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-10-01">Oct 1, 2021</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">9 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=ab47967965"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<!-- 2022 prismjs update -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-powershell.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+
+
+<!-- music -->
+<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script>
+	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+		$('.carousel').carousel({
+			interval: 3000
+		})
+</script>
+<!-- music -->
+<div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.gh-content',
+        hasInnerContainers: true
+    });
+    var tc = document.querySelector(".toc-container");
+    var tch = tc.clientHeight;
+    var ah = document.querySelector(".article-header");
+    var ahh = ah.clientHeight;
+    window.addEventListener("scroll", function () {
+    if(document.body.clientWidth > 1170){
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+        var ihh = window.innerHeight;
+        if(scrollY >= ihh + tch + ahh){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="sticky";
+            ctc.style.position="-webkit-sticky";
+            ctc.style.top = "120px";
+            ctc.style.marginLeft = "800px";
+            ctc.style.minWidth= "260px";
+        }
+        if(scrollY < tch + ahh -10){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="";
+            ctc.style.top = "";
+            ctc.style.marginLeft = "";
+            console.log("zszszs")
+        }
+    }
+    })
+</script>
+</body>
+</html>

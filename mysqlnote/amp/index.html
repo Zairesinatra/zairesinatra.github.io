@@ -1,0 +1,2872 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>MySQL 笔记</title>
+
+    <meta name="description" content="MYSQL 基础篇" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="MySQL 笔记" />
+    <meta property="og:description" content="MYSQL 基础篇" />
+    <meta property="og:url" content="yourdomain.com/mysqlnote/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/04/cloud.jpg" />
+    <meta property="article:published_time" content="2021-12-22T13:11:00.000Z" />
+    <meta property="article:modified_time" content="2022-07-05T08:09:40.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MySQL 笔记" />
+    <meta name="twitter:description" content="MYSQL 基础篇" />
+    <meta name="twitter:url" content="yourdomain.com/mysqlnote/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/04/cloud.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1914" />
+    <meta property="og:image:height" content="1276" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "MySQL 笔记",
+    "url": "yourdomain.com/mysqlnote/",
+    "datePublished": "2021-12-22T13:11:00.000Z",
+    "dateModified": "2022-07-05T08:09:40.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/04/cloud.jpg",
+        "width": 1914,
+        "height": 1276
+    },
+    "keywords": "Technology growth",
+    "description": "MYSQL 基础篇",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">MySQL 笔记</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2021-12-22">22 Dec 2021</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2022/04/cloud.jpg" width="600" height="340" layout="responsive" 
+                alt="mysql"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<p>数据库是有组织的数据容器。表是存储特定类型数据的结构化文件。模式说明库与表的布局与特性信息。列是表中的一个字段，所有表都由一个或多个列组成。行作为表中的一个记录。唯一标识表中每行的这个列或这组列，称为主键。没有主键则无法安全更新或删除表中的特定行。任何列都可以作为主键，但是需满足任意两行都不具有相同的主键值且每行都必须具有一个非 NULL 的主键值的条件。</p>
+<h3 id="%E9%BB%98%E8%AE%A4%E6%95%B0%E6%8D%AE%E5%BA%93">默认数据库</h3>
+<table>
+    <thead>
+        <tr>
+            <th>数据库</th><th>
+            </th><th>描述</th><th>
+        </th>
+    </tr></thead>
+    <tbody>
+        <tr>
+            <td>infomation_schema</td><td>
+            </td><td>信息数据库，包括 MySQL 在维护的其他数据库、表、列访问权限</td><td>
+        </td></tr>
+        <tr>
+            <td>performance_schema</td><td>
+            </td><td>性能数据库，记录 MySQL Server 运行过程中的一些资源消耗相关信息</td><td>
+        </td></tr>
+        <tr>
+            <td>mysql</td><td>
+            </td><td>用于存储数据库管理者的用户信息、权限信息以及日志信息</td><td>
+        </td></tr>
+        <tr>
+            <td>sys</td><td>
+            </td><td>简易版的performance_schema，将性能数据库的数据汇总成易理解形式</td><td>
+        </td></tr>
+    </tbody>
+</table>
+<h3 id="select-%E8%AF%AD%E5%8F%A5%E5%AE%8C%E6%95%B4%E7%BB%93%E6%9E%84">SELECT 语句完整结构</h3>
+<table>
+<thead>
+<tr>
+<th>子句</th>
+<th>说明</th>
+<th>是否必须使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT</td>
+<td>要返回的列或者表达式</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>FROM</td>
+<td>检索数据的表</td>
+<td>仅在从表中选择数据时使用</td>
+</tr>
+<tr>
+<td>WHERE</td>
+<td>行级过滤</td>
+<td>N</td>
+</tr>
+<tr>
+<td>GROUP BY</td>
+<td>分组说明</td>
+<td>仅在按组计算聚集时使用</td>
+</tr>
+<tr>
+<td>HAVING</td>
+<td>组级过滤</td>
+<td>N</td>
+</tr>
+<tr>
+<td>ORDER BY</td>
+<td>输出排序顺序</td>
+<td>N</td>
+</tr>
+<tr>
+<td>LIMIT</td>
+<td>要检索的行数</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-javascript">// sql92
+SELECT ...(聚合函数) FROM ... WHERE 多表连接条件 AND 不包含聚合函数的过滤条件 GROUP BY ... HAVING 包含聚合函数的过滤条件 ORDER BY ...(ASC/DESC) LIMIT ...
+// sql99
+SELECT ...(聚合函数) FROM ... (LEFT/RIGHT) JOIN ... ON ... (多表的连接条件) (LEFT/RIGHT) JOIN ... ON ... (多表的连接条件) WHERE 不包含聚合函数的过滤条件 GROUP BY ... HAVING 包含聚合函数的过滤条件 ORDER BY ...(ASC/DESC) LIMIT ...
+</code></pre>
+<h3 id="sql-%E5%BA%95%E5%B1%82%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86-%E4%BA%A7%E7%94%9F%E4%B8%80%E7%B3%BB%E5%88%97%E8%99%9A%E6%8B%9F%E8%A1%A8">SQL 底层执行原理 =&gt; 产生一系列虚拟表</h3>
+<pre><code class="language-javascript">// FROM 首先加载、SELECT 视作索引首位处于第二加载、ORDER BY 与 LIMIT 看作索引末尾最后加载
+FROM ... 多表联查会先 CROSS JOIN 求笛卡尔积 =&gt; ON 连接条件过滤 =&gt; 关注左右连接 =&gt; WHERE 过滤数据 =&gt; GROUP BY 按要求分组 =&gt; HAVING 聚合条件筛选 =&gt; SELECT =&gt; DISTINCT =&gt; ORDER BY =&gt; LIMIT
+</code></pre>
+<p>先执行 FROM 关键字，多表联查会通过 CROSS JOIN 求笛卡尔积，将得到的虚拟表进行 ON 筛选，此过程在 VT1-1 的基础上得到 VT1-2。若使用到左、右连接或者全连接，那么会在 VT1-2 的基础上增加外部行产生 VT1-3。</p>
+<p>通过 VT1 获取原始数据后进行 WHERE 操作，根据结果筛选过滤得到 VT2。</p>
+<p>GROUP BY 和 HAVING 对 VT2 进行分组和过滤得到 VT3 和 VT4。</p>
+<p>SELECT 和 DISTINCT 提取所需字段并过滤掉重复的行得到 VT5-1 和 VT5-2。</p>
+<p>ORDER BY 和 LIMIT 对指定的字段排序并通过分页取出指定行，得到最终的 VT6 与 VT7。</p>
+<h3 id="%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE%E5%BA%93">创建和管理数据库</h3>
+<pre><code class="language-javascript">/* 创建数据库 */
+CREATE DATABASE 数据库名; // 字符集使用数据库默认
+CREATE DATABASE 数据库名 CHARACTER SET '字符集'; // 显示指明字符集
+CREATE DATABASE IF NOT EXISTS 数据库名 CHARACTER SET '字符集'; // 要创建数据库存在则不成功不报错
+/* 使用数据库 */
+// 查看当前所有的数据库
+SHOW DATABASES; // S代表多个数据库
+// 查看当前正在使用的数据库
+SELECT DATABASE();  #使用的一个 mysql 中的全局函数
+// 查看指定库下所有的表
+SHOW TABLES FROM 数据库名;
+// 查看数据库的创建信息
+SHOW CREATE DATABASE 数据库名;
+SHOW CREATE DATABASE 数据库名\G // 格式化输出信息
+// 使用/切换数据库
+USE 数据库名;
+/* 修改数据库 */
+// 更改数据库字符集
+ALTER DATABASE 数据库名 CHARACTER SET 字符集; // 比如gbk、utf8等
+/* 删除数据库 */
+DROP DATABASE 数据库名;
+DROP DATABASE IF EXISTS 数据库名; // 推荐
+/* 
+创建表
+必须指定表名、列名(或字段名)、数据类型、长度;可选指定约束条件、默认值
+数据类型描述
+INT =&gt; 从-231到231-1的整型数据;存储大小为4个字节
+CHAR(size) =&gt; 定长字符数据;若未指定默认为1个字符,最大长度255
+VARCHAR(size) =&gt; 可变长字符数据,根据字符串实际长度保存,必须指定长度
+FLOAT(M,D) =&gt; 单精度，占用4个字节，M=整数位+小数位，D=小数位。 D&lt;=M&lt;=255,0&lt;=D&lt;=30，默认M+D&lt;=6
+DOUBLE(M,D) =&gt; 双精度占用8个字节;D&lt;=M&lt;=255,0&lt;=D&lt;=30,默认M+D&lt;=15
+DECIMAL(M,D) =&gt; 高精度小数占用M+2个字节;D&lt;=M&lt;=65,0&lt;=D&lt;=30,最大取值范围与DOUBLE相同
+DATE =&gt; 日期型数据,格式 'YYYY-MM-DD'
+BLOB =&gt; 二进制形式的长文本数据,最大可达4G
+TEXT =&gt; 长文本数据,最大可达4G
+*/
+CREATE TABLE [IF NOT EXISTS] 表名(
+	字段1, 数据类型 [约束条件] [默认值],
+	字段2, 数据类型 [约束条件] [默认值],
+	……
+	[表约束条件]
+);
+// MySQL在执行建表语句时,将id字段的类型设置为int(11),这里的11实际上是int类型指定的显示宽度,默认的显示宽度为11.也可以在创建数据表的时候指定数据的显示宽度.
+CREATE TABLE IF NOT EXISTS myempl(id INT,emp_name VARCHAR(15),hire_date DATE);
+// 查看表结构 =&gt; 创建表未指明使用字符集,则默认使用表所在的数据库字符集
+DESC myempl;
+SHOW CREATE TABLE myempl;
+// 基于现有的表创建表 =&gt; 字段别名将作为新表字段名
+CREATE TABLE 新表名 AS SELECT 字段一 字段一别名,字段二,... FROM 其他表;
+// 创建新表employees_copy实现对employees表复制,包含表数据
+CREATE TABLE employees_copy AS SELECT * FROM employees;
+// 创建新表employees_copy实现对employees表复制,不包含表数据 =&gt; 给一个不可完成的条件
+CREATE TABLE employees_copy AS SELECT * FROM employees WHERE department_id &gt; 10000;
+CREATE TABLE employees_copy AS SELECT * FROM employees WHERE 1=2;
+/* 修改表 */
+// 添加字段
+ALTER TABLE 表名 ADD 字段名 字段类型 [FIRST|AFTER 字段名];
+ALTER TABLE myempl ADD salary DOUBLE(10,2); // 默认添加表中最后字段位置
+ALTER TABLE myempl ADD email VARCHAR(45) AFTER emp_name;
+// 修改字段 =&gt; 通常不改数据类型
+ALTER TABLE myempl MODIFY emp_name VARCHAR(25) DEFAULT '默认值';
+// 重命名字段 =&gt; 可以更改数据长度 =&gt; 存在MODIFY行为
+ALTER TABLE myempl CHANGE salary monthly_salary DOUBLE(10,2);
+// 删除字段
+ALTER TABLE myempl DROP COLUMN my_email;
+/* 重命名表 */
+RENAME TABLE myempl TO zssempl;
+ALTER TABLE zssempl RENAME TO myempl;
+/*
+删除表 =&gt; 表结构与数据都删除,释放空间
+DROP TABLE [IF EXISTS] 数据表1 [, 数据表2, …, 数据表n];
+*/
+DROP TABLE IF EXISTS myempl;
+/*
+清空表 =&gt; 清空所有数据,表结构保留
+*/
+TRUNCATE TABLE [表名]
+</code></pre>
+<p>执行 COMMIT 提交数据，数据就被永久的保存在数据库中，不可以回滚，增删改需要提交事务。执行 ROLLBACK 可以实现数据的回滚，回滚到最近一次 COMMIT 之后。TRUNCATE 语句不能回滚，而使用 DELETE 语句删除数据可以回滚。</p>
+<p>DDL 的操作一旦执行就不可回滚，指令 <code>SET autocommit = FALSE</code> 对其失效。因在执行完 DDL 操作后，会再次执行 COMMIT。此时 COMMIT 操作不受 <code>SET autocommit = FALSE</code> 的影响。DML 操作同样默认为执行后不可回滚。但如果在执行 DML 之前，执行 <code>SET autocommit = FALSE</code>，则执行的 DML 操作就可以实现回滚。</p>
+<p>据阿里开发规范，TRUNCATE 比 DELETE 速度快，且使用的系统和事务日志资源少，但 TRUNCATE 无事务且不触发 TRIGGER，有可能造成事故，故不建议在开发代码中使用此语句。值得注意，TRUNCATE TABLE 在功能上与不带 WHERE 子句的 DELETE 语句相同。</p>
+<h3 id="dml-%E5%A2%9E%E5%88%A0%E6%94%B9">DML 增删改</h3>
+<pre><code class="language-javascript">/* 添加数据 */
+// 前置操作
+CREATE TABLE IF NOT EXISTS empl(id INT,last_name VARCHAR(15),hire_date DATE,salary DOUBLE(10,2));
+// 一条添加
+INSERT INTO empl VALUES(1,'gz','2000-12-21',10000); // 严格按照声明字段先后添加
+INSERT INTO empl (id,hire_date,salary,last_name) VALUES (2,'2001-01-01',9000,'hz');
+INSERT INTO empl (id,salary,last_name) VALUES (3,8000,'jr');
+// 同时插入多条记录 =&gt; 具体组值用逗号分割
+INSERT INTO empl (id,salary,last_name,hire_date) VALUES (4,8000,'jt','2001-02-03'),(5,7000,'bz','2001-03-04');
+// 查询结果插入表
+INSERT INTO [TABLE_NAME] (字段1,字段2,...) SELECT 对应字段1,对应字段2,... FROM [TABLE_NAME_other] WHERE ...;
+/* 更新数据 */
+// UPDATE ... SET ... WHERE =&gt; 无 WHERE 即批量修改
+UPDATE empl SET hire_date = CURDATE() WHERE id = 5;
+// 修改一条数据的多个字段
+UPDATE empl SET hire_date = CURDATE(),salary = 8888 WHERE id = 5;
+/* 删除数据 */
+DELETE FROM empl WHERE id = 1;
+/* mysql8 新特性 =&gt; 计算列 */
+// c 为计算列
+CREATE TABLE test1(a INT,b INT,c INT GENERATED ALWAYS AS (a+b) VIRTUAL);
+INSERT INTO test1 (a,b) VALUES (10,20);
+</code></pre>
+<h2 id="%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2">多表查询</h2>
+<p>多表查询的意义在于，减少网络远程的交互次数。若需多次根据不同表返回内容才能确定数据，那么会存在较大性能损耗。通过单条语句完成需要多个简单 SQL 语句才能完成的目的。</p>
+<p></p>
+<p>进行多表查询时出现笛卡尔乘积的错误原因可能在于关联条件失效、省略多个表的连接条件以及所有表中的所有行互相连接。表中数据与其他表中数据进行了所有可能的组合。组合个数即为表中元素个数的乘积。</p>
+<pre><code class="language-javascript"># 笛卡尔乘积的错误 =&gt; 未限制表的连接条件 =&gt; 三种错误形式
+SELECT employee_id,department_name FROM employees,departments;
+SELECT * FROM employees,departments;
+SELECT employee_id,department_name FROM employees CROSS JOIN departments;
+</code></pre>
+<pre><code class="language-javascript"># 增加连接条件
+SELECT employee_id,department_name FROM employees,departments WHERE employees.department_id = departments.department_id;
+# 如果查询语句出现多个表都存在的字段则必须指明此字段所在的表
+# 否则出现ERROR 1052 (23000): Column 'department_id' in field list is ambiguous
+SELECT employee_id,department_name,employees.department_id FROM employees,departments WHERE employees.department_id = departments.department_id;
+# 从sql优化角度建议多表查询每个字段前指明其所在的位置
+# FROM 使用别名也可以在 SELECT 使用 =&gt; 注意起了别名就必须用别名,不能再用原名
+SELECT emp.employee_id,dept.department_name,emp.department_id FROM employees emp,departments dept WHERE emp.department_id = dept.department_id;
+# 若有n张表则需要有n-1个连接条件
+SELECT emp.employee_id,emp.last_name,dept.department_name,emp.department_id,loc.city,loc.location_id FROM employees emp,departments dept,locations loc WHERE emp.department_id = dept.department_id AND dept.location_id = loc.location_id;
+</code></pre>
+<h3 id="%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%9D%9E%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5">等值连接与非等值连接</h3>
+<p>查询请求涉及到多个表的时候，连接两个表的条件为相等时，就是等值连接查询；其他的运算符连接的就是非等值查询。</p>
+<pre><code class="language-javascript">SELECT * FROM job_grades;
+SELECT e.last_name,e.salary,j.grade_level FROM employees e, job_grades j WHERE e.salary &gt;= j.lowest_sal AND e.salary &lt;= j.highest_sal;
+</code></pre>
+<h3 id="%E8%87%AA%E8%BF%9E%E6%8E%A5%E4%B8%8E%E9%9D%9E%E8%87%AA%E8%BF%9E%E6%8E%A5">自连接与非自连接</h3>
+<p>非自连接即不同的表之间实现连接操作；若是表自行与自己连接，则称为自连接。</p>
+<pre><code class="language-javascript"># 查询员工id、姓名以及管理者的id、姓名
+SELECT emp.employee_id,emp.last_name,mgr.employee_id,mgr.last_name FROM employees emp, employees mgr WHERE emp.manager_id = mgr.employee_id;
+</code></pre>
+<h3 id="%E5%86%85%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%A4%96%E8%BF%9E%E6%8E%A5">内连接和外连接</h3>
+<p>合并具有同一列的两个表以上的行，结果集不包含一个表与另一个表不匹配的行，称为内连接。合并具有同一列的两个表以上的行，结果集除了包含一个表与另一个表匹配的行外，还查询到左或右表中不匹配的行，称为外连接。</p>
+<p>外连接的两个表在连接过程中除了返回满足连接条件的行以外还返回左|右表中不满足条件的行，这种连接也称为左|右外连接。没有匹配的行时，结果表中相应的列为空 NULL。</p>
+<p>如果是左外连接，则连接条件中左边的表也称为<strong>主表</strong>，右边的表称为<strong>从表</strong>。如果是右外连接，则连接条件中右边的表也称为<strong>主表</strong>，左边的表称为<strong>从表</strong>。</p>
+<p>MYSQL 不支持 SQL92 语法中的外连接写法，即使用 + 符号。对于 SQL99 语法 JOIN ON 却可以很好支持。JOIN ON 语法不仅可以实现多表查询，且能解决外连接问题。JOIN 连接其他表，ON 后接连接条件。</p>
+<p>此外，全外连接的 FULL OUTER JOIN 写法对于 MYSQL 同样不支持。因此需要利用 UNION 关键字给出多条 SELECT 语句，并将结果组成单个结果集。合并时，两个表对应的列数和数据类型必须相同且对应。各个查询语句之间使用 UNION 或 UNION ALL 关键字分隔。前者取并集，后者不去重。值得注意的是，UNION ALL 执行语句时所需资源较 UNION 更少。若明确知道合并后的结果不存在重复或者不需要去除重复数据，则尽量使用 UNION ALL 提高查询的效率。</p>
+<pre><code class="language-javascript">SELECT column,... FROM table1 UNION [ALL] SELECT column,... FROM table2;
+</code></pre>
+<pre><code class="language-javascript"># 查询所有员工的last_name&amp;department_name =&gt; 两张表各自有员工名单 =&gt; 正解左外连接
+SELECT employee_id,department_name FROM employees e JOIN departments d ON e.department_id = d.department_id;
+# 不写 INNER 默认内连接
+SELECT employee_id,department_name FROM employees e INNER JOIN departments d ON e.department_id = d.department_id;
+# 左外连接
+SELECT employee_id,department_name FROM employees e LEFT OUTER JOIN departments d ON e.department_id = d.department_id;
+# 左外连接简写
+SELECT employee_id,department_name FROM employees e LEFT JOIN departments d ON e.department_id = d.department_id;
+# 满外连接|全外连接
+SELECT employee_id,department_name FROM employees e FULL OUTER JOIN departments d ON e.department_id = d.department_id;
+</code></pre>
+<pre><code class="language-javascript"># ORACLE
+SELECT employee_id,department_name FROM employees e,departments d WHERE e.department_id(+) = d.department_id;
+SELECT last_name,department_name FROM employees e FULL JOIN departments d ON e.department_id = d.department_id;
+</code></pre>
+<p></p>
+<pre><code class="language-javascript"># 右上图 =&gt; 右外连接
+SELECT employee_id,department_name FROM employees e RIGHT JOIN departments d ON e.department_id = d.department_id;
+# 左中图
+SELECT employee_id,department_name FROM employees e LEFT JOIN departments d ON e.department_id = d.department_id WHERE d.department_id IS NULL;
+# 右中图
+SELECT employee_id,department_name FROM employees e RIGHT JOIN departments d ON e.department_id = d.department_id WHERE e.department_id IS NULL;
+# 左下图 =&gt; 满外连接 =&gt; 左上图 UNION ALL 右中图
+SELECT employee_id,department_name FROM employees e LEFT OUTER JOIN departments d ON e.department_id = d.department_id UNION ALL SELECT employee_id,department_name FROM employees e RIGHT JOIN departments d ON e.department_id = d.department_id WHERE e.department_id IS NULL;
+# 右下图 =&gt; 左中图 UNION ALL 右中图
+SELECT employee_id,department_name FROM employees e LEFT JOIN departments d ON e.department_id = d.department_id WHERE d.department_id IS NULL UNION ALL SELECT employee_id,department_name FROM employees e RIGHT JOIN departments d ON e.department_id = d.department_id WHERE e.department_id IS NULL; 
+</code></pre>
+<h2 id="%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0">内置函数</h2>
+<p>使用 SQL 语言时，并非直接与这门语言打交道，而是通过不同的数据库软件操作。DBMS 间的差异性很大，远大于同语言不同版本之间的差异。实际上只有很少的函数是被 DBMS 同时支持的。以拼接符来说，大多数 DBMS 使用 || 或者 +，而在 MySQL 中的字符串拼接函数为 <code>concat()</code>。在使用时候需要特别注意 SQL 函数的代码可移植性是很差的。</p>
+<p></p>
+<h2 id="%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0">单行函数</h2>
+<p>单行函数操作数据对象，接受参数返回一个结果，且只对一行进行变换，每行返回一个结果。可以嵌套，参数可以是一列或一个值。</p>
+<h3 id="%E6%95%B0%E5%80%BC%E5%87%BD%E6%95%B0">数值函数</h3>
+<ul>
+<li>基本函数</li>
+</ul>
+<pre><code class="language-javascript">/*
+ABS(x) =&gt; 返回x的绝对值
+SIGN(X) =&gt; 返回X的符号;正数返回1,负数返回-1,0返回0.
+PI() =&gt; 返回圆周率的值
+CEIL(x)，CEILING(x) =&gt; 返回大于或等于某个值的最小整数
+FLOOR(x) =&gt; 返回小于或等于某个值的最大整数
+LEAST(e1,e2,e3…) =&gt; 返回列表中的最小值
+GREATEST(e1,e2,e3…)	=&gt; 返回列表中的最大值
+MOD(x,y) =&gt; 返回X除以Y后的余数
+RAND() =&gt; 返回0~1的随机值
+RAND(x)	=&gt; 返回0~1的随机值,其中x的值用作种子值,相同的X值会产生相同的随机数
+ROUND(x) =&gt; 返回一个对x的值进行四舍五入后最接近于X的整数
+ROUND(x,y) =&gt; 返回一个对x的值进行四舍五入后最接近X的值,并保留到小数点后面Y位
+TRUNCATE(x,y) =&gt; 返回数字x截断为y位小数的结果
+SQRT(x)	=&gt; 返回x的平方根.当X的值为负数时返回NULL
+*/
+SELECT ABS(-123),ABS(32),SIGN(-23),SIGN(43),PI(),CEIL(32.32),CEILING(-43.23),FLOOR(32.32),FLOOR(-43.23),MOD(12,5) FROM DUAL;
++-----------+---------+-----------+----------+----------+-------------+-----------------+--------------+---------------+-----------+
+| ABS(-123) | ABS(32) | SIGN(-23) | SIGN(43) | PI()     | CEIL(32.32) | CEILING(-43.23) | FLOOR(32.32) | FLOOR(-43.23) | MOD(12,5) |
++-----------+---------+-----------+----------+----------+-------------+-----------------+--------------+---------------+-----------+
+|       123 |      32 |        -1 |        1 | 3.141593 |          33 |             -43 |           32 |           -44 |         2 |
++-----------+---------+-----------+----------+----------+-------------+-----------------+--------------+---------------+-----------+
+SELECT RAND(),RAND(),RAND(10),RAND(10),RAND(-1),RAND(-1) FROM DUAL;
++--------------------+---------------------+--------------------+--------------------+--------------------+--------------------+
+| RAND()             | RAND()              | RAND(10)           | RAND(10)           | RAND(-1)           | RAND(-1)           |
++--------------------+---------------------+--------------------+--------------------+--------------------+--------------------+
+| 0.8067864736605309 | 0.26417954663203985 | 0.6570515219653505 | 0.6570515219653505 | 0.9050373219931845 | 0.9050373219931845 |
++--------------------+---------------------+--------------------+--------------------+--------------------+--------------------+
+SELECT ROUND(12.34),ROUND(12.344,2),ROUND(12.345,-1),TRUNCATE(12.34,1),TRUNCATE(12.345,2),TRUNCATE(12.34,-1) FROM DUAL;
++--------------+-----------------+------------------+-------------------+--------------------+--------------------+
+| ROUND(12.34) | ROUND(12.344,2) | ROUND(12.345,-1) | TRUNCATE(12.34,1) | TRUNCATE(12.345,2) | TRUNCATE(12.34,-1) |
++--------------+-----------------+------------------+-------------------+--------------------+--------------------+
+|           12 |           12.34 |               10 |              12.3 |              12.34 |                 10 |
++--------------+-----------------+------------------+-------------------+--------------------+--------------------+
+</code></pre>
+<ul>
+<li>角度与弧度</li>
+</ul>
+<pre><code class="language-javascript">/*
+RADIANS(x) =&gt; 将角度转化为弧度,参数x为角度值
+DEGREES(x) =&gt; 将弧度转化为角度,参数x为弧度值
+*/
+SELECT RADIANS(30),RADIANS(60),RADIANS(90),DEGREES(2*PI()),DEGREES(RADIANS(90)) FROM DUAL;
++--------------------+--------------------+--------------------+-----------------+----------------------+
+| RADIANS(30)        | RADIANS(60)        | RADIANS(90)        | DEGREES(2*PI()) | DEGREES(RADIANS(90)) |
++--------------------+--------------------+--------------------+-----------------+----------------------+
+| 0.5235987755982988 | 1.0471975511965976 | 1.5707963267948966 |             360 |                   90 |
++--------------------+--------------------+--------------------+-----------------+----------------------+
+</code></pre>
+<ul>
+<li>三角函数</li>
+</ul>
+<pre><code class="language-javascript">/*
+SIN(x) =&gt; 返回x的正弦值,其中参数x为弧度值
+ASIN(x) =&gt; 返回x的反正弦值,即获取正弦为x的值.如果x的值不在-1到1之间则返回NULL
+COS(x) =&gt; 返回x的余弦值,其中参数x为弧度值
+ACOS(x) =&gt; 返回x的反余弦值,即获取余弦为x的值.如果x的值不在-1到1之间,则返回NULL
+TAN(x) =&gt; 返回x的正切值,其中参数x为弧度值
+ATAN(x) =&gt; 返回x的反正切值,即返回正切值为x的值
+ATAN2(m,n) =&gt; 返回两个参数的反正切值
+COT(x) =&gt; 返回x的余切值,其中X为弧度值
+*/
+SELECT SIN(RADIANS(30)),DEGREES(ASIN(1)),TAN(RADIANS(45)),DEGREES(ATAN(1)),DEGREES(ATAN2(1,1)) FROM DUAL;
++---------------------+------------------+--------------------+------------------+---------------------+
+| SIN(RADIANS(30))    | DEGREES(ASIN(1)) | TAN(RADIANS(45))   | DEGREES(ATAN(1)) | DEGREES(ATAN2(1,1)) |
++---------------------+------------------+--------------------+------------------+---------------------+
+| 0.49999999999999994 |               90 | 0.9999999999999999 |               45 |                  45 |
++---------------------+------------------+--------------------+------------------+---------------------+
+</code></pre>
+<ul>
+<li>指数与对数</li>
+</ul>
+<pre><code class="language-javascript">/*
+POW(x,y) POWER(X,Y) =&gt; 返回x的y次方
+EXP(X) =&gt; 返回e的X次方，其中e是一个常数，2.718281828459045
+LN(X) LOG(X) =&gt; 返回以e为底的X的对数，当X &lt;= 0 时，返回的结果为NULL
+LOG10(X) =&gt; 返回以10为底的X的对数，当X &lt;= 0 时，返回的结果为NULL
+LOG2(X) =&gt; 返回以2为底的X的对数，当X &lt;= 0 时，返回NULL
+*/
+SELECT POW(2,5),POWER(2,4),EXP(2),LN(EXP(2)),LOG10(10),LOG2(4) FROM DUAL;
++----------+------------+------------------+------------+-----------+---------+
+| POW(2,5) | POWER(2,4) | EXP(2)           | LN(EXP(2)) | LOG10(10) | LOG2(4) |
++----------+------------+------------------+------------+-----------+---------+
+|       32 |         16 | 7.38905609893065 |          2 |         1 |       2 |
++----------+------------+------------------+------------+-----------+---------+
+</code></pre>
+<ul>
+<li>进制转换</li>
+</ul>
+<pre><code class="language-javascript">/*
+BIN(x) =&gt; 返回x的二进制编码
+HEX(x) =&gt; 返回x的十六进制编码
+OCT(x) =&gt; 返回x的八进制编码
+CONV(x,f1,f2) =&gt; 返回f1进制数变成f2进制数
+*/
++---------+---------+---------+--------------+
+| BIN(10) | HEX(10) | OCT(10) | CONV(10,2,8) |
++---------+---------+---------+--------------+
+| 1010    | A       | 12      | 2            |
++---------+---------+---------+--------------+
+</code></pre>
+<h3 id="%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0">字符串函数</h3>
+<pre><code class="language-javascript">/*
+MySQL 中字符串的位置是从1开始的!
+ASCII(S) =&gt; 返回字符串S中的第一个字符的ASCII码值
+CHAR_LENGTH(s) =&gt; 返回字符串s的字符数,作用与CHARACTER_LENGTH(s)相同
+LENGTH(s) =&gt; 返回字符串s和字符集有关的字节数
+CONCAT(s1,s2,......,sn) =&gt; 连接s1,s2,…,sn为一个字符串
+CONCAT_WS(x, s1,s2,......,sn) =&gt; 同CONCAT(s1,s2,…)函数,但是每个字符串之间要加上x
+INSERT(str, idx, len, replacestr) =&gt; 将字符串str从第idx位置开始,len个字符长的子串替换为字符串replacestr
+REPLACE(str, a, b) =&gt; 用字符串b替换字符串str中所有出现的字符串a
+UPPER(s) 或 UCASE(s) =&gt; 将字符串s的所有字母转成大写字母
+LOWER(s) 或LCASE(s) =&gt; 将字符串s的所有字母转成小写字母
+LEFT(str,n) =&gt; 返回字符串str最左边的n个字符
+RIGHT(str,n) =&gt; 返回字符串str最右边的n个字符
+LPAD(str, len, pad) =&gt; 用字符串pad对str最左边进行填充,直到str的长度为len个字符
+RPAD(str ,len, pad) =&gt; 用字符串pad对str最右边进行填充,直到str的长度为len个字符
+LTRIM(s) =&gt; 去掉字符串s左侧的空格
+RTRIM(s) =&gt; 去掉字符串s右侧的空格
+TRIM(s) =&gt; 去掉字符串s开始与结尾的空格
+TRIM(s1 FROM s) =&gt; 去掉字符串s开始与结尾的s1
+TRIM(LEADING s1 FROM s) =&gt; 去掉字符串s开始处的s1
+TRIM(TRAILING s1 FROM s) =&gt; 去掉字符串s结尾处的s1
+REPEAT(str, n) =&gt; 返回str重复n次的结果
+SPACE(n) =&gt; 返回n个空格
+STRCMP(s1,s2) =&gt; 比较字符串s1,s2的ASCII码值的大小
+SUBSTR(s,index,len) =&gt; 返回从字符串s的index位置其len个字符,作用与SUBSTRING(s,n,len)、MID(s,n,len)相同
+LOCATE(substr,str) =&gt; 返回字符串substr在字符串str中首次出现的位置,作用于POSITION(substr IN str)、INSTR(str,substr)相同.未找到返回0
+ELT(m,s1,s2,…,sn) =&gt; 返回指定位置的字符串,如果m=1则返回s1,如果m=2则返回s2,如果m=n则返回sn
+FIELD(s,s1,s2,…,sn) =&gt; 返回字符串s在字符串列表中第一次出现的位置
+FIND_IN_SET(s1,s2) =&gt; 返回字符串s1在字符串s2中出现的位置.其中字符串s2是一个以逗号分隔的字符串
+REVERSE(s) =&gt; 返回s反转后的字符串
+NULLIF(value1,value2) =&gt; 比较两个字符串,如果value1与value2相等则返回NULL,否则返回value1
+*/
+SELECT ASCII('Abc'),CHAR_LENGTH('hello'),CHAR_LENGTH('开发'),LENGTH('hello'),LENGTH('开发') FROM DUAL;
++--------------+----------------------+-----------------------+-----------------+------------------+
+| ASCII('Abc') | CHAR_LENGTH('hello') | CHAR_LENGTH('开发')   | LENGTH('hello') | LENGTH('开发')   |
++--------------+----------------------+-----------------------+-----------------+------------------+
+|           65 |                    5 |                     2 |               5 |                6 |
++--------------+----------------------+-----------------------+-----------------+------------------+
+SELECT CONCAT(emp.last_name,' worked for ',mgr.last_name) "details" FROM employees emp JOIN employees mgr WHERE emp.manager_id = mgr.employee_id;
+SELECT CONCAT_WS('-','hello','mysql','zs') FROM DUAL;
++-------------------------------------+
+| CONCAT_WS('-','hello','mysql','zs') |
++-------------------------------------+
+| hello-mysql-zs                      |
++-------------------------------------+
+SELECT INSERT('helloworld',2,4,'zszs'), REPLACE('hellomysql','mysql','world'),UPPER('Hello'),LOWER('HELLO'),LEFT('hello',2),RIGHT('hello',2) FROM DUAL;
++---------------------------------+---------------------------------------+----------------+----------------+-----------------+------------------+
+| INSERT('helloworld',2,4,'zszs') | REPLACE('hellomysql','mysql','world') | UPPER('Hello') | LOWER('HELLO') | LEFT('hello',2) | RIGHT('hello',2) |
++---------------------------------+---------------------------------------+----------------+----------------+-----------------+------------------+
+| hzszsworld                      | helloworld                            | HELLO          | hello          | he              | lo               |
++---------------------------------+---------------------------------------+----------------+----------------+-----------------+------------------+
+SELECT employee_id,last_name,LPAD(salary,10,'*') FROM employees;
+SELECT ELT(2,'a','b','c'),FIELD('a','a','b','c','a'),FIND_IN_SET('a','a,b,c,d,a,b,a'),NULLIF('zs','zy') FROM DUAL;
++--------------------+----------------------------+----------------------------------+-------------------+
+| ELT(2,'a','b','c') | FIELD('a','a','b','c','a') | FIND_IN_SET('a','a,b,c,d,a,b,a') | NULLIF('zs','zy') |
++--------------------+----------------------------+----------------------------------+-------------------+
+| b                  |                          1 |                                1 | zs                |
++--------------------+----------------------------+----------------------------------+-------------------+
+</code></pre>
+<h3 id="%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0">日期和时间函数</h3>
+<ul>
+<li>获取日期、时间</li>
+</ul>
+<pre><code class="language-javascript">/*
+CURDATE(),CURRENT_DATE() =&gt; 返回当前日期，只包含年、月、日
+CURTIME(),CURRENT_TIME() =&gt; 返回当前时间，只包含时、分、秒
+NOW() / SYSDATE() / CURRENT_TIMESTAMP() / LOCALTIME() / LOCALTIMESTAMP() =&gt; 返回当前系统日期和时间
+UTC_DATE() =&gt; 返回 UTC 世界标准时间 日期;较北京时间少8小时
+UTC_TIME() =&gt; 返回 UTC 世界标准时间 时间;较北京时间少8小时
+*/
+SELECT CURDATE(),CURDATE() + 0,CURTIME(),NOW(),SYSDATE()+ 0,UTC_DATE (),UTC_DATE ()+ 0,UTC_TIME (),UTC_TIME ()+ 0 FROM DUAL;
+</code></pre>
+<ul>
+<li>日期与时间戳的转换</li>
+</ul>
+<pre><code class="language-javascript">/*
+UNIX_TIMESTAMP() =&gt; 以UNIX时间戳的形式返回当前时间
+UNIX_TIMESTAMP(date) =&gt; 将时间date以UNIX时间戳的形式返回
+FROM_UNIXTIME(timestamp) =&gt; 将UNIX时间戳的时间转换为普通格式的时间
+*/
+SELECT UNIX_TIMESTAMP(),UNIX_TIMESTAMP('2019-08-09 21:22:23'),FROM_UNIXTIME(1565356943) FROM DUAL;
++------------------+---------------------------------------+---------------------------+
+| UNIX_TIMESTAMP() | UNIX_TIMESTAMP('2019-08-09 21:22:23') | FROM_UNIXTIME(1565356943) |
++------------------+---------------------------------------+---------------------------+
+|       1565356943 |                            1565356943 | 2019-08-09 21:22:23       |
++------------------+---------------------------------------+---------------------------+
+</code></pre>
+<ul>
+<li>获取月份、星期、星期数、天数等函数</li>
+</ul>
+<pre><code class="language-javascript">/*
+YEAR(date) / MONTH(date) / DAY(date) =&gt; 返回具体的日期值
+HOUR(time) / MINUTE(time) / SECOND(time) =&gt; 返回具体的时间值
+MONTHNAME(date) =&gt; 返回月份 January...
+DAYNAME(date) =&gt; 返回星期几 MONDAY...SUNDAY
+WEEKDAY(date) =&gt; 返回周几;注意周1是0...周日是6
+QUARTER(date) =&gt; 返回日期对应的季度范围1～4
+WEEK(date) WEEKOFYEAR(date) =&gt; 返回一年中的第几周
+DAYOFYEAR(date) =&gt; 返回日期是一年中的第几天
+DAYOFMONTH(date) =&gt; 返回日期位于所在月份的第几天
+DAYOFWEEK(date) =&gt; 返回周几;注意周日是1...周六是7
+*/
+SELECT YEAR(now()),MONTH(CURDATE()),DAY(CURDATE()),HOUR(CURTIME()),MINUTE(NOW()),SECOND(SYSDATE()) FROM DUAL;
+SELECT MONTHNAME('2019-08-09'),DAYNAME('2019-08-09'),WEEKDAY('2019-08-09'),QUARTER(CURDATE()),WEEK(CURDATE()),DAYOFYEAR(NOW()),DAYOFMONTH(NOW()),DAYOFWEEK(NOW()) FROM DUAL;
+</code></pre>
+<ul>
+<li>日期的操作函数</li>
+</ul>
+<pre><code class="language-javascript">/*
+EXTRACT(type FROM date) =&gt; 返回指定日期中特定的部分,type指定返回的值;FROM是固定值,date是提供的日期
+---
+MICROSECOND =&gt; 返回亳秒数
+SECOND =&gt; 返回秒数
+MINUTE =&gt; 返回分钟数
+HOUR =&gt; 返回小时数
+DAY =&gt; 返回天数
+WEEK =&gt; 返回日期在一年中的第几个星期
+MONTH =&gt; 返回日期在一年中的第几个月
+OUARTER =&gt; 返回日期在一年中的第几个季度
+YEAR =&gt; 返回日期的年份
+SECOND_MICROSECOND =&gt; 返回秒和亳秒值
+MINUTE_MICROSECOND =&gt; 返回分钟和亳秒值
+MINUTE_SECOND =&gt; 返回分钟和秒值
+HOUR_MICROSECOND =&gt; 返回小时和亳秒值
+HOUR_SECOND =&gt; 返回小时和秒值
+HOUR_MINUTE =&gt; 返回小时和分钟值
+DAY_MICROSECOND =&gt; 返回天和亳秒值
+DAY_SECOND =&gt; 返回天和秒值
+DAY_MINUTE =&gt; 返回天和分钟值
+DAY_HOUR =&gt; 返回天和小时
+YEAR_MONTH =&gt; 返回年和月
+*/
+SELECT EXTRACT(SECOND FROM NOW()), EXTRACT(DAY FROM NOW()), EXTRACT(QUARTER FROM '2019-08-09') FROM DUAL;
+</code></pre>
+<ul>
+<li>时间和秒钟转换的函数</li>
+</ul>
+<pre><code class="language-javascript">/*
+TIME_TO_SEC(time) =&gt; 将 time 转化为秒并返回结果值。转化的公式为：小时*3600+分钟*60+秒
+SEC_TO_TIME(seconds) =&gt; 将 seconds 描述转化为包含小时、分钟和秒的时间
+*/
+SELECT TIME_TO_SEC(CURTIME()),SEC_TO_TIME(83355) FROM DUAL;
+</code></pre>
+<ul>
+<li>计算日期和时间的函数</li>
+</ul>
+<pre><code class="language-javascript">/*
+DATE_ADD(datetime, INTERVAL expr type)，ADDDATE(date,INTERVAL expr type) =&gt; 返回与给定日期时间datetime相差INTERVAL时间段的日期时间
+DATE_SUB(date,INTERVAL expr type)，SUBDATE(date,INTERVAL expr type) =&gt; 返回给定date日期相差INTERVAL时间间隔的日期
+ADDTIME(time1,time2) =&gt; 返回time1加上time2的时间。当time2为一个数字时，代表的是秒，可以为负数
+SUBTIME(time1,time2) =&gt; 返回time1减去time2后的时间。当time2为一个数字时，代表的是秒，可以为负数
+DATEDIFF(date1,date2) =&gt; 返回date1 - date2的日期间隔天数
+TIMEDIFF(time1, time2) =&gt; 返回time1 - time2的时间间隔
+FROM_DAYS(N) =&gt; 返回从0000年1月1日起，N天以后的日期
+TO_DAYS(date) =&gt; 返回日期date距离0000年1月1日的天数
+LAST_DAY(date) =&gt; 返回date所在月份的最后一天的日期
+MAKEDATE(year,n) =&gt; 针对给定年份与所在年份中的天数返回一个日期
+MAKETIME(hour,minute,second) =&gt; 将给定的小时、分钟和秒组合成时间并返回
+PERIOD_ADD(time,n) =&gt; 返回time加上n后的时间
+*/
+SELECT DATE_ADD(NOW(), INTERVAL 1 DAY) AS col1,DATE_ADD('2019-08-09 21:22:23',INTERVAL 1 SECOND) AS col2,ADDDATE('2019-08-09 21:22:23',INTERVAL 1 MINUTE) AS col3,DATE_ADD('2019-08-09 21:22:23',INTERVAL '1_1' MINUTE_SECOND) AS col4,DATE_ADD(NOW(), INTERVAL -1 YEAR) AS col5,DATE_ADD(NOW(), INTERVAL '1_1' YEAR_MONTH) AS col6 FROM DUAL;
+SELECT ADDTIME(NOW(),20),SUBTIME(NOW(),30),SUBTIME(NOW(),'1:1:3'),DATEDIFF(NOW(),'2020-08-09'),TIMEDIFF(NOW(),'2019-04-22 22:23:24'),FROM_DAYS(366),TO_DAYS('0000-04-22'),LAST_DAY(NOW()),MAKEDATE(YEAR(NOW()),12),MAKETIME(21,22,23),PERIOD_ADD(20190809010101,10) FROM DUAL;
+</code></pre>
+<ul>
+<li>日期的格式化与解析</li>
+</ul>
+<pre><code class="language-javascript">/*
+格式化 日期 =&gt; 字符串
+解析   字符串 =&gt; 日期
+DATE_FORMAT(date,fmt) =&gt; 按照字符串fmt格式化日期date值
+TIME_FORMAT(time,fmt) =&gt; 按照字符串fmt格式化时间time值
+GET_FORMAT(date_type,format_type) =&gt; 返回日期字符串的显示格式
+STR_TO_DATE(str, fmt) =&gt; 按照字符串fmt对str进行解析，解析为一个日期
+---
+fmt 参数常用的格式符
+%Y =&gt; 4位数字表示年份
+%y =&gt; 表示两位数字表示年份
+%M =&gt; 月名表示月份 January,...
+%m =&gt; 两位数字表示月份(01,02,03...)
+%b =&gt; 缩写的月名 Jan.，Feb.,...
+%c =&gt; 数字表示月份(1,2,3,...)
+%D =&gt; 英文后缀表示月中的天数 1st,2nd,3rd...
+%d =&gt; 两位数字表示月中的天数(01,02...)
+%e =&gt; 数字形式表示月中的天数 1,2,3,4,5...
+%H =&gt; 两位数字表示小时;24小时制(01,02,03)
+%h和%I =&gt; 两位数字表示小时;12小时制(01,02...)
+%k =&gt; 数字形式的小时;24小时制(1,2,3)
+%l =&gt; 数字形式表示小时;12小时制(1,2,3,4...)
+%i =&gt; 两位数字表示分钟(00,01,02)
+%S和%s =&gt; 两位数字表示秒(00,01,02...)
+%W =&gt; 一周中的星期名称 Sunday...
+%a =&gt; 一周中的星期缩写(Sun.，Mon...)
+%w =&gt; 以数字表示周中的天数(0=Sunday,1=Monday...)
+%j =&gt; 以3位数字表示年中的天数(001,002...)
+%U =&gt; 以数字表示年中的第几周(1,2,3...);Sunday 为周中第一天
+%u =&gt; 以数字表示年中的第几周(1,2,3...);Monday 为周中第一天
+%T =&gt; 24小时制
+%r =&gt; 12小时制
+%p =&gt; AM 或 PM
+%% =&gt; 表示%
+---
+GET_FORMAT函数中date_type和format_type参数取值
+DATE =&gt; USA =&gt; %m.%d.%Y
+TIME =&gt; USA =&gt; %h:%i:%s%p
+DATETIME =&gt; USA =&gt; %Y-%m-%d %H.%i.%s
+*/
+SELECT DATE_FORMAT(CURDATE(),'%Y-%m-%d'),TIME_FORMAT(CURTIME(),'%H:%i:%s'),DATE_FORMAT(NOW(),'%Y-%m-%d %H:%i:%s %W %w %T %r') FROM DUAL;
+SELECT STR_TO_DATE('2019-08-09 21:22:23','%Y-%m-%d %H:%i:%s') FROM DUAL;
+SELECT GET_FORMAT(DATE,'USA') FROM DUAL;
+SELECT DATE_FORMAT(CURDATE(),GET_FORMAT(DATE,'USA')) FROM DUAL;
+</code></pre>
+<h3 id="%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%87%BD%E6%95%B0">流程控制函数</h3>
+<p>流程处理函数可以根据不同的条件，执行不同的处理流程，即循环判断分支。</p>
+<pre><code class="language-javascript">/*
+IF(value,value1,value2) =&gt; value的值为TRUE返回value1,否则返回value2 =&gt; 和三元运算类似
+IFNULL(value1, value2) =&gt; value1不为NULL返回value1,否则返回value2
+CASE WHEN 条件1 THEN 结果1 WHEN 条件2 THEN 结果2 … [ELSE resultn] END =&gt; 相当于Java的if…else if…else…
+CASE expr WHEN 常量值1 THEN 值1 WHEN 常量值1 THEN 值1 … [ELSE 值n] END =&gt; 相当于Java的switch…case…
+*/
+SELECT last_name,salary,IF(salary &gt;= 8000,'还ok','加油吧') FROM employees;
+SELECT last_name,commission_pct,IF(commission_pct IS NOT NULL,commission_pct,0) 'details' FROM employees;
+// IFNULL 看作 IF 的特殊情况 =&gt; 仅看是否为 NULL
+SELECT last_name,commission_pct,IFNULL(commission_pct,0) 'details' FROM employees;
+SELECT last_name,salary,CASE WHEN salary &gt;= 15000 THEN 'A' WHEN salary &gt;= 10000 THEN 'B' ELSE 'C' END 'details' FROM employees;
+</code></pre>
+<h3 id="%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E5%87%BD%E6%95%B0">加密与解密函数</h3>
+<pre><code class="language-javascript">/*
+PASSWORD(str) =&gt; 返回字符串str的加密版本,41位长的字符串.加密结果不可逆,常用于用户的密码加密
+MD5(str) =&gt; 返回字符串str的md5加密后的值,也是一种加密方式.若参数为NULL则会返回NULL
+SHA(str) =&gt; 从原明文密码str计算并返回加密后的密码字符串,当参数为NULL时返回NULL.SHA加密算法比MD5更加安全
+ENCODE(value,password_seed) =&gt; 返回使用password_seed作为加密密码加密value
+DECODE(value,password_seed) =&gt; 返回使用password_seed作为加密密码解密value
+*/
+// PASSWORD、ENCODE、DECODE =&gt; 5.7可以;8版本弃用
+// 不可逆的MD5和SHA
+SELECT MD5('mysql'),SHA('mysql') FROM DUAL;
+</code></pre>
+<h3 id="mysql%E4%BF%A1%E6%81%AF%E5%87%BD%E6%95%B0">MySQL信息函数</h3>
+<pre><code class="language-javascript">/*
+VERSION() =&gt; 返回当前 MySQL 的版本号
+CONNECTION_ID() =&gt; 返回当前 MySQL 服务器的连接数
+DATABASE()，SCHEMA() =&gt; 返回 MySQL 命令行当前所在的数据库
+USER()|CURRENT_USER()|SYSTEM_USER()|SESSION_USER() =&gt; 返回当前连接 MySQL 的用户名;返回结果格式为"主机名@用户名"
+CHARSET(value) =&gt; 返回字符串 value 自变量的字符集
+COLLATION(value) =&gt; 返回字符串 value 的比较规则
+*/
+SELECT VERSION(),CONNECTION_ID(),DATABASE(),SCHEMA(),USER(),CHARSET('zs'),COLLATION('zs') FROM DUAL;
+</code></pre>
+<h3 id="%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0">其他函数</h3>
+<pre><code class="language-javascript">/*
+FORMAT(value,n) =&gt; 返回对数字value进行格式化后的结果数据;n表示四舍五入后保留到小数点后n位
+CONV(value,from,to) =&gt; 将value的值进行不同进制之间的转换
+INET_ATON(ipvalue) =&gt; 将以点分隔的IP地址转化为一个数字
+INET_NTOA(value) =&gt; 将数字形式的IP地址转化为以点分隔的IP地址
+BENCHMARK(n,expr) =&gt; 将表达式expr重复执行n次.用于测试MySQL处理expr表达式所耗费的时间
+CONVERT(value USING char_code) =&gt; 将value所使用的字符编码修改为char_code
+*/
+// n值小于或等于0则只保留整数位
+SELECT FORMAT(123.456,2),FORMAT(123.456,-2) FROM DUAL;
+SELECT CONV(16, 10, 2), CONV(8888,10,16), CONV(NULL, 10, 2);
+SELECT INET_ATON('192.168.4.22'),INET_NTOA(3232236566) FROM DUAL;
+// 检查耗时
+SELECT BENCHMARK(1, MD5('mysql')) FROM DUAL;
+SELECT BENCHMARK(1000000, MD5('mysql')) FROM DUAL;
+SELECT CHARSET('zs'), CHARSET(CONVERT('zs' USING 'utf8mb4')) FROM DUAL;
+</code></pre>
+<h2 id="%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0">聚合函数</h2>
+<p>聚合或聚集、分组函数，是对一组数据进行汇总的函数，输入是一组数据的集合，输出的是单个值。聚合函数不能嵌套调用。</p>
+<h3 id="%E5%B8%B8%E8%A7%81%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0">常见聚合函数</h3>
+<pre><code class="language-javascript">/*
+AVG =&gt; 返回数值列的平均值 =&gt; 仅适用于数值类型
+SUM =&gt; 返回数值列的总和 =&gt; 仅适用于数值类型
+MAX/MIN =&gt; 可以对任意数据类型的数据使用 MIN 和 MAX 函数
+COUNT =&gt; 计算指定字段在查询结果中出现的个数 =&gt; 适用于任意数据类型
+! AVG = SUM / COUNT
+*/
+SELECT AVG(salary),MAX(salary),MIN(salary),SUM(salary) FROM employees WHERE job_id LIKE '%REP%';
+SELECT MIN(hire_date),MAX(hire_date) FROM employees;
+SELECT COUNT(employee_id),COUNT(salar) FROM employees;
+// COUNT(*)返回表中记录总数
+SELECT COUNT(*) FROM employees WHERE department_id = 50;
+// COUNT(expr) =&gt; 返回expr不为空的记录总数 =&gt; COUNT 不计算空值
+SELECT COUNT(commission_pct) FROM employees WHERE department_id = 50;
+</code></pre>
+<p>使用 count(*)、count(1) 和 count(列名) 时需要注意，若要求是指定字段出现个数时，前两者都可实现，后者因列名可能存在 NULL 值，结果不一定准确。</p>
+<h3 id="group-by">GROUP BY</h3>
+<pre><code class="language-javascript">/*
+GROUP BY =&gt; 将具有相同值的行分组到汇总行中
+GROUP BY语句通常与聚合函数 ( COUNT(), MAX(), MIN(), SUM(), AVG() ) 一起使用,以按一列或多列对结果集进行分组
+SELECT 中出现的非聚合函数的字段必须声明在 GROUP BY 函数中;反之 GROUP BY 中声明的字段不一定出现在 SELECT 中
+GROUP BY 出现位置于 FROM 后、WHERE 后、ORDER BY 前、LIMIT 前
+使用 WITH ROLLUP 关键字之后在所有查询出的分组记录之后增加一条记录;该记录计算查询出的所有记录的平均值
+使用 WITH ROLLUP 关键字时要慎用 ORDER BY
+*/
+// 查询每个部门的平均工资
+SELECT department_id,AVG(salary) FROM employees GROUP BY department_id;
+// 查看每个工种的平均工资
+SELECT job_id,AVG(salary) FROM employees GROUP BY job_id;
+// 查询各个department_id,job_id的平均工资
+SELECT department_id,job_id,AVG(salary) FROM employees GROUP BY department_id,job_id;
+SELECT job_id,department_id,AVG(salary) FROM employees GROUP BY job_id,department_id;
+// 错误形式 job_id 未出现在 GROUP BY 中 =&gt; 一个部门不一定只有一个工种
+SELECT department_id,job_id,AVG(salary) FROM employees GROUP BY department_id;
+// 查询各个部门平均工资并升序排列 =&gt; 正确
+SELECT department_id,AVG(salary) avg_sal FROM employees GROUP BY department_id ORDER BY avg_sal ASC;
+// 查询各个部门平均工资并升序排列 =&gt; 错误
+SELECT department_id,AVG(salary) avg_sal FROM employees GROUP BY department_id WITH ROLLUP ORDER BY avg_sal ASC;
+</code></pre>
+<h3 id="having">HAVING</h3>
+<pre><code class="language-javascript">/*
+HAVING =&gt; 过滤分组
+使用前提是 SQL 中使用了 GROUP BY
+当过滤条件中有聚合函数,则此过滤条件必须声明在 HAVING 内;当过滤条件没有聚合函数,则此过滤条件可以在 WHERE 或 HAVING 中声明.建议声明在前者,效率更高
+*/
+// 查询各部门最高工资较10000高的部门
+// 错误写法 =&gt; ERROR 1111 (HY000): Invalid use of group function
+SELECT department_id,MAX(salary) FROM employees WHERE MAX(salary) &gt; 10000 GROUP BY department_id;
+// 正确写法 =&gt; 过滤条件出现聚合函数,要求过滤条件使用 HAVING 替换 WHERE,且必须声明在 GROUP BY 后面
+// WHERE 内不能使用聚合函数 =&gt; 局限性
+SELECT department_id,MAX(salary) FROM employees GROUP BY department_id HAVING MAX(salary) &gt; 10000;
+// 查询部门 id 为10-40四个部门中最高工资高于10000的部门信息
+// 方式一 =&gt; 推荐 =&gt; 执行效率高
+SELECT department_id, MAX(salary) FROM employees WHERE department_id IN (10,20,30,40) GROUP BY department_id HAVING MAX(salary) &gt; 10000;
+// 方式二
+SELECT department_id, MAX(salary) FROM employees GROUP BY department_id HAVING MAX(salary) &gt; 10000 AND department_id IN (10,20,30,40);
+</code></pre>
+<p>WHERE 和 HAVING 相比，前者可以直接使用表中的字段作为筛选条件，但不能使用分组中的计算函数作为筛选条件；后者必须要与 GROUP BY 配合使用，可以把分组计算的函数和分组字段作为筛选条件。所以在需要对数据进行分组统计的时候，后者可以完成前者不能完成的任务。这是因为查询语法结构中，WHERE 在 GROUP BY 之前，所以无法对分组结果进行筛选。HAVING 在 GROUP BY 之后，可以使用分组字段和分组中的计算函数，对分组的结果集进行筛选，这个功能是 WHERE 无法完成的。另外，WHERE 排除的记录不再包括在分组中。</p>
+<p>如果需要通过连接从关联表中获取需要的数据，WHERE 是先筛选后连接，而 HAVING 是先连接后筛选。 这一点就决定了在关联查询中，前者比后者更高效。因为前者可以先筛选，用一个筛选后的较小数据集和关联表进行连接，这样占用的资源比较少，执行效率也比较高。后者则需要先把结果集准备好，也就是用未被筛选的数据集进行关联，然后对这个大的数据集进行筛选，这样占用的资源就比较多，执行效率也较低。</p>
+<h2 id="%E5%AD%90%E6%9F%A5%E8%AF%A2">子查询</h2>
+<p>子查询 subquery 是可嵌套在查询中的内部查询，从内向外进行处理，若将查询视为遍历，子查询可看作嵌套 For 循环。能嵌套的子查询数目不限，但实际应考虑性能的限制。</p>
+<pre><code class="language-javascript">/*
+子查询在主查询前执行完成,且其结果被主查询使用
+子查询使用括号包裹,放在比较条件的右侧可读性高
+*/
+// 查找出较 Abel 更高工资的同事,列出薪资
+// 方式一
+SELECT salary FROM employees WHERE last_name = 'Abel';
+SELECT last_name,salary FROM employees WHERE salary &gt; 11000;
+// 方式二 =&gt; 自连接
+SELECT e2.last_name,e2.salary FROM employees e1,employees e2 WHERE e1.last_name = 'Abel' AND e1.`salary` &lt; e2.`salary`;
+// 方式三 =&gt; 子查询
+SELECT last_name,salary FROM employees WHERE salary &gt; ( SELECT salary FROM employees WHERE last_name = 'Abel' );
+</code></pre>
+<p>按内查询的结果返回一条还是多条记录，可将子查询分为单行子查询、多行子查询。按子查询是否被执行多次，可将子查询分为相关|关联子查询和不相关|非关联子查询。</p>
+<h3 id="%E5%8D%95%E8%A1%8C%E5%AD%90%E6%9F%A5%E8%AF%A2">单行子查询</h3>
+<pre><code class="language-javascript">/*
+单行比较操作符
+= =&gt; equal to
+&gt; =&gt; greater than
+&gt;= =&gt; greater than or equal to
+&lt; =&gt; less than
+&lt;= =&gt; less than or equal to
+&lt;&gt; =&gt; not equal to
+*/
+// 返回job_id与141号员工相同,salary比143号员工多的员工姓名,job_id和工资
+SELECT last_name,job_id,salary FROM employees WHERE job_id = ( SELECT job_id FROM employees WHERE employee_id = 141 ) AND salary &gt; ( SELECT salary FROM employees WHERE employee_id = 143 );
+// 返回公司工资最少的员工的last_name,job_id和salary
+SELECT last_name,job_id,salary FROM employees WHERE salary = ( SELECT MIN(salary) FROM employees );
+// 查询与141号员工的manager_id和department_id相同的其他员工的employee_id,manager_id,department_id
+SELECT employee_id, manager_id, department_id FROM employees WHERE manager_id = ( SELECT manager_id FROM employees WHERE employee_id = 141 ) AND department_id = ( SELECT department_id FROM employees WHERE employee_id = 141 ) AND employee_id &lt;&gt; 141;
+// 查询与141号或174号员工的manager_id和department_id相同的其他员工的employee_id,manager_id,department_id
+SELECT employee_id, manager_id, department_id FROM employees WHERE manager_id IN (SELECT  manager_id FROM employees WHERE employee_id IN (174,141)) AND department_id IN (SELECT  department_id FROM employees WHERE employee_id IN (174,141)) AND employee_id NOT IN(174,141);
+// HAVING 中的子查询
+// 查询最低工资大于50号部门最低工资的部门id和其最低工资
+SELECT department_id, MIN(salary) AS dept_lowest_salary FROM employees WHERE department_id IS NOT NULL GROUP BY department_id HAVING dept_lowest_salary &gt; ( SELECT MIN(salary) FROM employees WHERE department_id = 50);
+// CASE中的子查询
+// 显示员工的employee_id,last_name和location.其中,若员工department_id与location_id为1800的department_id相同,则location为'Canada',其余则为'USA'
+SELECT employee_id, last_name, ( CASE department_id WHEN ( SELECT department_id FROM departments WHERE location_id = 1800 ) THEN 'Canada' ELSE 'USA' END ) "location" FROM employees;
+// 子查询中的空值问题 =&gt; 内查询空值不报错,仅无结果
+SELECT last_name, job_id FROM employees WHERE job_id = ( SELECT job_id FROM employees WHERE last_name = 'Haas' );
+// 非法使用子查询 =&gt; ERROR 1242 (21000): Subquery returns more than 1 row
+SELECT employee_id, last_name FROM employees WHERE salary = ( SELECT MIN( salary ) FROM employees GROUP BY department_id );
+// 非法使用子查询 =&gt; 正解
+// 查出哪些员工是等于下面各部门最低工资的人
+SELECT employee_id, last_name FROM employees WHERE salary IN ( SELECT MIN( salary ) FROM employees GROUP BY department_id );
+</code></pre>
+<h3 id="%E5%A4%9A%E8%A1%8C%E5%AD%90%E6%9F%A5%E8%AF%A2">多行子查询</h3>
+<pre><code class="language-javascript">/*
+多行子查询也称为集合比较子查询
+子查询返回多行数据
+使用多行比较操作符
+IN =&gt; 等于列表中的 任意一个
+ANY =&gt; 需要和单行比较操作符一起使用，和子查询返回的 某一个 值比较
+ALL =&gt; 需要和单行比较操作符一起使用，和子查询返回的 所有 值比较
+SOME =&gt; 实际上是ANY的别名，作用相同，一般常使用ANY
+*/
+// 返回其它job_id中比job_id为'IT_PROG'部门任一工资低的员工的员工号、姓名、job_id 以及salary
+SELECT employee_id,last_name,job_id,salary FROM employees WHERE job_id &lt;&gt; 'IT_PROG' AND salary &lt; ANY (SELECT salary FROM employees WHERE job_id = 'IT_PROG') AND job_id &lt;&gt; 'IT_PROG';
+// 返回其它job_id中比job_id为‘IT_PROG’部门所有工资都低的员工的员工号、姓名、job_id以及salary
+SELECT employee_id,last_name,job_id,salary FROM employees WHERE job_id &lt;&gt; 'IT_PROG' AND salary &lt; ALL (SELECT salary FROM employees WHERE job_id = 'IT_PROG') AND job_id &lt;&gt; 'IT_PROG';
+// 查询平均工资最低的部门id
+// 方式1
+SELECT department_id, AVG(salary) FROM employees GROUP BY department_id HAVING AVG(salary) = ( SELECT MIN(avg_salary) FROM ( SELECT AVG(salary) avg_salary FROM employees GROUP BY department_id ) AS avg_salary_table);
+// 方式2
+SELECT department_id FROM employees GROUP BY department_id HAVING AVG(salary) &lt;= ALL ( SELECT AVG(salary) FROM employees GROUP BY department_id );
+</code></pre>
+<h3 id="%E7%9B%B8%E5%85%B3%E5%AD%90%E6%9F%A5%E8%AF%A2">相关子查询</h3>
+<p>如果子查询的执行依赖于外部查询，通常情况下都是因为子查询中的表用到了外部的表，并进行了条件关联，因此每执行一次外部查询，子查询都要重新计算一次，这样的子查询就称之为关联子查询。</p>
+<pre><code class="language-javascript">/*
+相关子查询 =&gt; 子查询中使用主查询中的列
+在SELECT中除了GROUP BY 和 LIMIT之外,其他位置都可以声明子查询
+*/
+// 查询员工中工资大于公司平均工资的员工的 last_name,salary 和其 department_id
+SELECT last_name,salary,department_id FROM employees WHERE salary &gt; ( SELECT AVG(salary) FROM employees);
+// 查询员工中工资大于本部门平均工资的员工的 last_name,salary 和其 department_id
+// 方式一 =&gt; 相关查询
+SELECT last_name,salary,department_id FROM employees e1 WHERE salary &gt; ( SELECT AVG(salary) FROM employees e2 WHERE department_id = e1.department_id);
+// 方式二 =&gt; FROM子查询
+SELECT e.last_name,e.salary,e.department_id FROM employees e,(SELECT department_id,AVG(salary) avg_sal FROM employees GROUP BY department_id) t_debt_avg_sal WHERE e.department_id = t_debt_avg_sal.department_id AND e.salary &gt; t_debt_avg_sal.avg_sal;
+// 查询员工的id,salary,按照department_name 排序
+// 方式一 =&gt; 相关子查询
+SELECT employee_id, salary FROM employees emp ORDER BY ( SELECT department_name FROM departments dept WHERE emp.department_id = dept.department_id ) ASC;
+// 方式二 =&gt; 表连接
+SELECT employee_id, salary, department_name FROM employees emp LEFT JOIN departments dept ON emp.department_id = dept.department_id ORDER BY department_name ASC;
+// 若employees表中employee_id与job_history表中employee_id相同的数目不小于2则输出这些相同id的员工的employee_id,last_name和其job_id
+SELECT e.employee_id,last_name,e.job_id FROM employees e WHERE 2 &lt;= (SELECT COUNT(*) FROM job_history j WHERE e.employee_id = j.employee_id);
+</code></pre>
+<p>关联子查询常会和 EXISTS 操作符一起使用，以便检查在子查询中是否存在满足条件的行。若子查询中存在满足条件的行，条件返回 TRUE，停止在子查询中继续查找并返回符合的记录；相反则返回 FALSE 并继续查找。NOTEXISTS 关键字表示如果不存在某种条件，则返回 TRUE，否则返回 FALSE。</p>
+<pre><code class="language-javascript">// 查询公司管理者的employee_id,last_name,job_id,department_id信息
+// 方式一 =&gt; 自连接 =&gt; 将同一张表看做两张表进行等值连接
+SELECT DISTINCT mgr.employee_id, mgr.last_name, mgr.job_id, mgr.department_id FROM employees emp JOIN employees mgr ON emp.manager_id = mgr.employee_id;
+// 方式二 =&gt; 子查询的方式 =&gt; 先将所有的manager_id查出
+SELECT employee_id, last_name, job_id, department_id FROM employees WHERE employee_id IN ( SELECT DISTINCT manager_id FROM employees );
+// 方式三 =&gt; EXISTS
+SELECT employee_id, last_name, job_id, department_id FROM employees e1 WHERE  EXISTS ( SELECT 1 FROM employees e2 WHERE e1.employee_id = e2.manager_id);
+// 查询departments表中不存在于employees表中的部门的department_id和department_name (employees表中部门id为NULL的情况)
+// 方式一 =&gt; 右外连接
+SELECT dept.department_id, dept.department_name, emp.department_id FROM departments dept LEFT JOIN employees emp USING (department_id) WHERE emp.department_id IS NULL;
+// 方式二 =&gt; NOT EXISTS
+SELECT department_id, department_name FROM departments d WHERE NOT EXISTS (SELECT * FROM employees emp WHERE emp.department_id = d.department_id);
+</code></pre>
+<p>在许多数据库处理过程中，对于自连接的处理速度要比子查询快得多。可以这样理解，子查询实际上是通过未知表进行查询后的条件判断，而自连接是通过已知的自身数据表进行条件判断，因此在大部分数据库中都对自连接处理进行了优化。</p>
+<h2 id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</h2>
+<h3 id="%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B">整数类型</h3>
+<p>整数类型包括 TINYINT、SMALLINT、MEDIUMINT、INT|INTEGER 和 BIGINT。如果超出设置类型的范围，就会报错 <code>Out of range value for column '&lt;fieldName&gt;' at row 1</code>。</p>
+<table>
+<thead>
+<tr>
+<th>整数类型</th>
+<th>字节</th>
+<th>有符号数取值范围</th>
+<th>无符号数取值范围 (UNSIGNED)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYINT</td>
+<td>1</td>
+<td>-128~127</td>
+<td>0~255</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2</td>
+<td>-32768~32767</td>
+<td>0~65535</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>3</td>
+<td>-8388608~8388607</td>
+<td>0~16777215</td>
+</tr>
+<tr>
+<td>INT、INTEGER</td>
+<td>4</td>
+<td>-2147483648~2147483647</td>
+<td>0~4294967295</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8</td>
+<td>-9223372036854775808~9223372036854775807</td>
+<td>0~18446744073709551615</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>可选属性</li>
+</ul>
+<p>M 表示显示宽度，取值范围是 0~255。例如 <code>int(5)</code> 表示当数据宽度小于 5 位的时候在数字前面需要用字符填满。该项功能需要配合 "ZEROFILL" 使用，表示用 "0" 填满宽度，否则指定显示宽度无效。值得注意的是，若设置了显示宽度的情况下插入的数据宽度超过显示宽度限制并不会对插入的数据有任何影响，还是按照类型的实际宽度进行保存，即显示宽度与类型可以存储的值范围无关。从 MySQL 8.0.17 开始，整数数据类型不推荐使用显示宽度属性。整型数据类型可以在定义表结构时指定所需要的显示宽度，如果不指定，则系统为每一种类型指定默认的宽度值。</p>
+<pre><code class="language-sql"># MySQL5.7
+mysql&gt; CREATE TABLE test_int1 ( x TINYINT,　y SMALLINT,　z MEDIUMINT,　m INT,　n BIGINT );
+mysql&gt; desc test_int1;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+|   x   | tinyint(4)   | YES  |     | NULL    |       |
+| 　y   | smallint(6)  | YES  |     | NULL    |       |
+| 　z   | mediumint(9) | YES  |     | NULL    |       |
+| 　m   | int(11)      | YES  |     | NULL    |       |
+| 　n   | bigint(20)   | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+</code></pre>
+<pre><code class="language-sql"># 显示宽度5位,不足时0填充
+# 使用ZEROFILL自动添加UNSIGNED
+mysql&gt; CREATE TABLE test_int2(f1 INT,f2 INT(5),f3 INT(5) ZEROFILL);
+mysql&gt; DESC test_ini2;
+mysql&gt; INSERT INTO test_int2(f1,f2) VALUES (123,123),(123456,123456);
+mysql&gt; INSERT INTO test_int2(f3) VALUES (123),(123456);
+mysql&gt; SELECT * FROM test_int2;
++--------+--------+--------+
+| f1     | f2     | f3     |
++--------+--------+--------+
+|    123 |    123 |   NULL |
+| 123456 | 123456 |   NULL |
+|   NULL |   NULL |  00123 |
+|   NULL |   NULL | 123456 |
++--------+--------+--------+
+4 rows in set (0.00 sec)
+</code></pre>
+<p>所有的整数类型都有一个可选的 UNSIGNED 无符号属性。无符号整数类型的最小取值为 0，即非负。若需在数据库中保存非负整数值时，可以将整数类型设置为无符号类型。int 类型默认显示宽度为 <code>int(11)</code>，无符号 int 类型默认显示宽度为 <code>int(10)</code>。</p>
+<pre><code class="language-sql">mysql&gt; CREATE TABLE test_int3(f1 INT UNSIGNED);
+mysql&gt; desc test_int3;
+mysql&gt; INSERT INTO test_int3 VALUES(4294967295);
+mysql&gt; INSERT INTO test_int3 VALUES(4294967296);
+mysql&gt; SELECT * FROm test_int3;
++------------+
+| f1         |
++------------+
+| 4294967295 |
++------------+
+</code></pre>
+<ul>
+<li>适用场景</li>
+</ul>
+<p>TINYINT =&gt; 一般用于枚举数据，比如系统设定取值范围很小且固定的场景。<br />
+SMALLINT =&gt; 可以用于较小范围的统计数据，比如统计工厂的固定资产库存数量等。<br />
+MEDIUMINT =&gt; 用于较大整数的计算，比如车站每日的客流量等。<br />
+INT、INTEGER =&gt; 取值范围足够大，一般情况下不用考虑超限问题，用得最多。比如商品编号。<br />
+BIGINT =&gt; 只有当处理特别巨大的整数时才会用到。比如大型门户网站点击量、双十一的交易量、证券公司衍生产品持仓等。</p>
+<h3 id="%E6%B5%AE%E7%82%B9%E7%B1%BB%E5%9E%8B">浮点类型</h3>
+<p>支持的浮点数类型分别是单精度浮点数 FLOAT、双精度浮点数 DOUBLE、默认 DOUBLE 的 REAL。若把模式设定为启用 "REAL_AS_FLOAT"，那么就认为 REAL 是 FLOAT。</p>
+<pre><code class="language-sql"># mysql启用REAL_AS_FLOAT
+SET sql_mode = “REAL_AS_FLOAT”;
+</code></pre>
+<p>浮点数类型的无符号数取值范围，只相当于有符号数取值范围的一半，也就是只相当于有符号数取值范围大于等于零的部分。这是因为存储浮点数的格式为符号 S、尾数 M和阶码 E。因此无论有没有符号，浮点数都会存储表示符号的部分。因此所谓的无符号数取值范围，其实就是有符号数取值范围大于等于零的部分。</p>
+<p>浮点类型单精度值使用 4 个字节，双精度值使用 8 个字节。部分数据库允许以 M 表示精度，D 表示标度的非标准语法。若在不指定 (M,D) 时，默认会按照由实际的硬件和操作系统决定的实际精度来显示。</p>
+<pre><code class="language-sql">/*
+!MySQL 8.0.17开始,FLOAT(M,D) 和 DOUBLE(M,D) 用法在官方文档中已经明确不推荐使用!
+FLOAT(M,D)、DOUBLE(M,D) 中 M=整数位+小数位,D=小数位.D&lt;=M&lt;=255,0&lt;=D&lt;=30.
+FLOAT(5,2) =&gt; 可以显示 -999.99-999.99 =&gt; 超过范围会报错.
+浮点类型也可以加 UNSIGNED,但是不会改变数据范围 =&gt; FLOAT(3,2) UNSIGNED 仍然只能表示 0-9.99 的范围.
+存储时整数部分超出了范围 =&gt; 报错,不允许存这样的值.
+存储时小数点部分若超出范围 =&gt; 四舍五入后整数部分没有超出范围则只警告;若四舍五入后整数部分超出范围则报错并拒绝处理.
+*/
+mysql&gt; CREATE TABLE test_double1(f1 FLOAT,f2 FLOAT(5,2),f3 DOUBLE,f4 DOUBLE(5,2));
+mysql&gt; DESC test_double1;
+mysql&gt; INSERT INTO test_double1 VALUES(123.456,123.456,123.4567,123.45);
+mysql&gt; INSERT INTO test_double1 VALUES(123.456,1234.456,123.4567,123.45); #Out of range value for column 'f2' at row 1
+mysql&gt; SELECT * FROM test_double1;
+# 精度误差 =&gt; 浮点数类型不够精确,无法用一个二进制数来精确表达 =&gt; 更精确的定点数类型 DECIMAL
+mysql&gt; CREATE TABLE test_double2(f1 DOUBLE);
+mysql&gt; INSERT INTO test_double2 VALUES(0.47),(0.44),(0.19);
+mysql&gt; SELECT SUM(f1) FROM test_double2;
+mysql&gt; SELECT SUM(f1) FROM test_double2;
++--------------------+
+| SUM(f1)            |
++--------------------+
+| 1.0999999999999999 |
++--------------------+
+mysql&gt; SELECT SUM(f1) = 1.1,1.1 = 1.1 FROM test_double2;
++---------------+-----------+
+| SUM(f1) = 1.1 | 1.1 = 1.1 |
++---------------+-----------+
+|             0 |         1 |
++---------------+-----------+
+</code></pre>
+<h3 id="%E5%AE%9A%E7%82%B9%E6%95%B0%E7%B1%BB%E5%9E%8B">定点数类型</h3>
+<p>定点数在数据库内部以字符串的形式进行存储，此特点决定其精准性。常使用以精度 M，标度 D 的定点数 DECIMAL(M,D) 表示高精度小数。定点数最大取值范围与 DOUBLE 类型一样，但有效数据范围由 M 和 D 决定。DECIMAL 的存储空间不固定，由精度值 M 决定，总共占用的存储空间为 M+2 个字节。在一些对精度要求不高的场景下，比起占用同样字节长度的定点数，浮点数表达的数值范围更大。</p>
+<p>从使用的选择角度出发，浮点数相对定点数的优势是，长度一定的情况下，浮点类型取值范围大，但不精准，适用于需取值范围大，又可以容忍微小误差的科学计算场景（计算化学、分子建模、流体动力学等）。定点数类型取值范围相对小，但是精准，没有误差，适合于对精度要求极高的场景（金额计算）。</p>
+<pre><code class="language-sql">/*
+0&lt;=M&lt;=65、0&lt;=D&lt;=30、D&lt;M.
+DECIMAL(5,2) =&gt; 该列取值范围是 -999.99~999.99.
+当 DECIMAL 类型不指定精度和标度 =&gt; 其默认为 DECIMAL(10,0) =&gt; 精度超出会进行四舍五入处理.
+*/
+mysql&gt; create table test_decimal1(f1 DECIMAL, f2 DECIMAL(5,2));
+mysql&gt; DESC test_decimal1;
++-------+---------------+------+-----+---------+-------+
+| Field | Type          | Null | Key | Default | Extra |
++-------+---------------+------+-----+---------+-------+
+| f1    | decimal(10,0) | YES  |     | NULL    |       |
+| f2    | decimal(5,2)  | YES  |     | NULL    |       |
++-------+---------------+------+-----+---------+-------+
+mysql&gt; INSERT INTO test_decimal1(f1) VALUES(123),(123.45);
+mysql&gt; SELECT * FROM test_decimal1;
+
++------+------+
+| f1   | f2   |
++------+------+
+|  123 | NULL |
+|  123 | NULL |
++------+------+
+mysql&gt; INSERT INTO test_decimal1(f2) VALUES(999.99),(67.567);
+mysql&gt; SELECT * FROM test_decimal1;
++------+--------+
+| f1   | f2     |
++------+--------+
+|  123 |   NULL |
+|  123 |   NULL |
+| NULL | 999.99 |
+| NULL |  67.57 |
++------+--------+
+mysql&gt; INSERT INTO test_decimal1(f2) VALUES(1234.567);
+ERROR 1264 (22003): Out of range value for column 'f2' at row 1
+# 把test_double2表中字段f1的数据类型修改为 DECIMAL(5,2)
+mysql&gt; ALTER TABLE test_double2 MODIFY f1 DECIMAL(5,2);
+SELECT SUM(f1) FROM test_double2;
++---------+
+| SUM(f1) |
++---------+
+|    1.10 |
++---------+
+</code></pre>
+<h3 id="%E4%BD%8D%E7%B1%BB%E5%9E%8B">位类型</h3>
+<p>BIT 类型中存储的是二进制值，如果没有指定二进制的位数 M，默认是 1 位。表示只能存 1 位的二进制值。位数最小值为 1，最大值为 64。</p>
+<pre><code class="language-sql">mysql&gt; CREATE TABLE test_bit1(f1 BIT, f2 BIT(5), f3 BIT(64));
+mysql&gt; INSERT INTO test_bit1(f1,f2) VALUES (1,23);
+mysql&gt; SELECT * FROM test_bit1;
++------------+------------+------------+
+| f1         | f2         | f3         |
++------------+------------+------------+
+| 0x01       | 0x17       | NULL       |
++------------+------------+------------+
+mysql&gt; INSERT INTO test_bit1 (f1) VALUES (2);
+ERROR 1406 (22001): Data too long for column 'f1' at row 1
+</code></pre>
+<h3 id="%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%B1%BB%E5%9E%8B">日期时间类型</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>字节</th>
+<th>日期格式</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YEAR</td>
+<td>年</td>
+<td>1</td>
+<td>YYYY或YY</td>
+<td>1901</td>
+<td>2155</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>时间</td>
+<td>3</td>
+<td>HH:MM:SS</td>
+<td>-838:59:59</td>
+<td>838:59:59</td>
+</tr>
+<tr>
+<td>DATE</td>
+<td>日期</td>
+<td>3</td>
+<td>YYYY-MM-DD</td>
+<td>1000-01-01</td>
+<td>9999-12-03</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>日期时间</td>
+<td>8</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>1000-01-01 00:00:00</td>
+<td>9999-12-31 23:59:59</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>日期时间</td>
+<td>4</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>1970-01-01 00:00:00 UTC</td>
+<td>2038-01-19 03:14:07UTC</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>YEAR 类型</li>
+</ul>
+<p>YEAR 类型用来表示年份，存储空间占 1 字节，是所有日期时间类型中占用存储空间最小的。</p>
+<pre><code class="language-sql">/*
+4 位字符串或数字格式表示 YEAR 类型 =&gt; 格式为 YYYY,最小值为 1901,最大值为 2155.
+2 位字符串格式表示 YEAR 类型 =&gt; 最小值为 00,最大值为 99. =&gt; 当取值为 01 到 69 时,表示 2001 到 2069; 当取值为 70 到 99 时,表示 1970 到 1999;当取值整数的 0 或 00,表示 0000 年;当取值是日期/字符串的 '0' 则表示 2000 年.
+*/
+mysql&gt; CREATE TABLE test_year(f1 YEAR,f2 YEAR(4));
+mysql&gt; DESC test_year;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| f1    | year | YES  |     | NULL    |       |
+| f2    | year | YES  |     | NULL    |       |
++-------+------+------+-----+---------+-------+
+mysql&gt; INSERT INTO test_year VALUES('2020','2021');
+mysql&gt; SELECT * FROM test_year;
++------+------+
+| f1   | f2   |
++------+------+
+| 2020 | 2021 |
++------+------+
+mysql&gt; INSERT INTO test_year VALUES('69','97');
+mysql&gt; INSERT INTO test_year VALUES(0,'0');
+mysql&gt; SELECT * FROM test_year;
++------+------+
+| f1   | f2   |
++------+------+
+| 2020 | 2021 |
+| 2069 | 1997 |
+| 0000 | 2000 |
++------+------+
+</code></pre>
+<ul>
+<li>DATE 类型</li>
+</ul>
+<p>格式 YYYY-MM-DD 的 DATE 类型表示日期，无时间部分。其中 YYYY 表示年份，MM 表示月份，DD 表示日期，故需要 3 个字节的存储空间。在向 DATE 类型的字段插入数据时，需要满足一定的格式条件。</p>
+<p>以 YYYY-MM-DD 或者 YYYYMMDD 格式表示的字符串日期，其最小取值为 1000-01-01，最大取值为 9999-12-03。YYYYMMDD 格式会被转化为 YYYY-MM-DD 格式。以 YY-MM-DD 或者 YYMMDD 格式表示的字符串日期，当年份取值为 00 到 69，会被转化为 2000 到 2069；当年份取值为 70 到 99，会被转化为 1970 到 1999。使用 <code>CURRENT_DATE()</code> 或者 <code>NOW()</code> 函数，会插入当前系统的日期。</p>
+<pre><code class="language-sql">CREATE TABLE test_date1(f1 DATE);
+INSERT INTO test_date1 VALUES ('2020-10-01'), ('20201001'), (20201001); 
+INSERT INTO test_date1 VALUES (000401), (690426), (700401), (970422);
+INSERT INTO test_date1 VALUES (CURRENT_DATE()), (NOW());
+SELECT * FROM test_date1;
++------------+
+| f1         |
++------------+
+| 2020-10-01 |
+| 2020-10-01 |
+| 2020-10-01 |
+| 2000-04-01 |
+| 2069-04-26 |
+| 1970-04-01 |
+| 1997-04-22 |
+| 2021-10-12 |
+| 2021-10-12 |
++------------+
+</code></pre>
+<ul>
+<li>TIME 类型</li>
+</ul>
+<p>需要 3 个字节存储空间的 TIME 类型用来表示时间，不包含日期部分。可以使用 HH:MM:SS 格式来表示，其中 HH 表示小时，MM 表示分钟，SS 表示秒。</p>
+<pre><code class="language-sql">/*
+向 TIME 类型的字段插入数据
+1.带有冒号的字符串 =&gt; 'D HH:MM:SS'、'HH:MM:SS'、'HH:MM'、'D HH:MM'、'D HH' 或 'SS' =&gt; D 表示天,最小值为 0,最大值为 34 =&gt; 带有 D 格式的字符串插入 TIME 类型的字段时,D 会被转化为小时,计算格式为 D * 24 + HH. =&gt; 带有冒号并且不带 D 的字符串,表示当天的时间,比如 12:10 表示 12:10:00,而不是 00:12:10.
+2.不带有冒号的字符串或者数字 =&gt; "HHMMSS"、HHMMSS =&gt; 插入不合法的字符串或者数字,会将其自动转化为 00:00:00 进行存储.
+3.使用 CURRENT_TIME() 或者 NOW() 会插入当前系统的时间
+*/
+mysql&gt; CREATE TABLE test_time1(f1 TIME);
+mysql&gt; INSERT INTO test_time1 VALUES('2 12:30:29'),('12:35:29'),('12:40'),('2 12:40'),('1 05'),('45');
+mysql&gt; INSERT INTO test_time1 VALUES ('123520'),(124011),(1210);
+mysql&gt; INSERT INTO test_time1 VALUES (NOW()), (CURRENT_TIME()),(CURTIME());
+mysql&gt; SELECT * FROM test_time1;
+</code></pre>
+<ul>
+<li>DATETIME 类型</li>
+</ul>
+<p>8 个字节存储空间的 DATETIME 类型在所有日期时间类型中占用的存储空间最大。格式为 DATE 和 TIME 类型的组合，即 YYYY-MM-DD HH:MM:SS。</p>
+<pre><code class="language-sql">/*
+YYYY-MM-DD HH:MM:SS 或者 YYYYMMDDHHMMSS 格式的字符串插入 =&gt; 最小值为 1000-01-01 00:00:00,最大值为 9999-12-03 23:59:59.
+YYYYMMDDHHMMSS 格式的数字插入 =&gt; 转化为 YYYY-MM-DD HH:MM:SS 格式
+YY-MM-DD HH:MM:SS 或者 YYMMDDHHMMSS 格式的字符串插入 =&gt; 两位数的年份规则符合 YEAR 类型的规则,00 到 69 表示 2000 到 2069;70 到 99 表示 1970 到 1999.
+CURRENT_TIMESTAMP() 和 NOW() 可以向 DATETIME 类型的字段插入系统的当前日期和时间.
+*/
+mysql&gt; CREATE TABLE test_datetime1(dt DATETIME);
+mysql&gt; INSERT INTO test_datetime1 VALUES ('2021-01-01 06:50:30'), ('20210101065030');
+mysql&gt; INSERT INTO test_datetime1 VALUES ('99-01-01 00:00:00'), ('990101000000'), ('20-01-01 00:00:00'), ('200101000000');
+mysql&gt; INSERT INTO test_datetime1 VALUES (20200101000000), (200101000000), (19990101000000), (990101000000);
+mysql&gt; INSERT INTO test_datetime1 VALUES (CURRENT_TIMESTAMP()), (NOW()),(SYSDATE());
+mysql&gt; SELECT * FROM test_datetime1;
+</code></pre>
+<ul>
+<li>TIMESTAMP 类型</li>
+</ul>
+<p>TIMESTAMP 显示格式与 DATETIME 类型相同，但只需要 4 个字节的存储空间。TIMESTAMP 存储的时间范围比 DATETIME 要小很多，只能存储 "1970-01-01 00:00:01 UTC" 到 "2038-01-19 03:14:07 UTC" 里的时间。Coordinated Universal Time 即世界协调时间，也叫作世界标准时间。</p>
+<p>存储数据时需对当前时间所在的时区进行转换，查询数据的时候再将时间转换回当前的时区。因此使用其存储的同一个时间值，在不同的时区查询时会显示不同的时间。</p>
+<pre><code class="language-sql">/*
+1.向 TIMESTAMP 类型的字段插入数据时,当数据格式满足 YY-MM-DD HH:MM:SS 和 YYMMDDHHMMSS,两位数值的年份同样符合 YEAR 类型的规则条件,只不过表示的时间范围要小很多.
+2.向 TIMESTAMP 类型的字段插入时间超出类型的范围则会抛出错误信息.
+*/
+mysql&gt; CREATE TABLE test_timestamp1( ts TIMESTAMP );
+mysql&gt; INSERT INTO test_timestamp1 VALUES ('1999-01-01 03:04:50'),('19990101030405'),('99-01-01 03:04:05'),('990101030405');
+mysql&gt; INSERT INTO test_timestamp1 VALUES ('2020@01@01@00@00@00'),('20@01@01@00@00@00');
+mysql&gt; INSERT INTO test_timestamp1 VALUES (CURRENT_TIMESTAMP()),(NOW());
+#Incorrect datetime value
+mysql&gt; INSERT INTO test_timestamp1 VALUES ('2038-01-20 03:14:07');
+mysql&gt; SELECT * FROM test_timestamp1;
+</code></pre>
+<ul>
+<li>TIMESTAMP 和 DATETIME 的区别</li>
+</ul>
+<p>前者存储空间比较小，表示的日期时间范围也比较小；在底层存储方式上，前者底层存储的是毫秒值，距离 1970-1-1 0:0:0 毫秒的毫秒值；在两个日期比较大小或日期计算时，前者更方便、更快；前者和时区有关，会根据用户的时区不同，显示不同的结果。而后者则只能反映出插入时当地的时区，其他时区的人查看数据必然会有误差。</p>
+<pre><code class="language-sql">mysql&gt; CREATE TABLE temp_time(d1 DATETIME,d2 TIMESTAMP);
+mysql&gt; INSERT INTO temp_time VALUES('2021-4-22 16:18:52','2021-4-22 16:18:52');
+mysql&gt; INSERT INTO temp_time VALUES(NOW(),NOW());
+mysql&gt; SELECT * FROM temp_time;
+# 修改当前的时区
+SET time_zone = '+9:00';
+mysql&gt; SELECT * FROM temp_time;
+</code></pre>
+<p>开发中用得最多的日期时间类型，就是 DATETIME。虽然数据库也支持其他类型，但是在实际项目中，尽量用 DATETIME 类型。因为这个数据类型包括了完整的日期和时间信息，取值范围也最大，使用起来比较方便。若日期时间信息分散在好几个字段，在不易记忆的同时，查询的时候 SQL 语句也会更加复杂。此外，一般存注册时间、商品发布时间等，不建议使用 DATETIME 存储，而是使用时间戳，因为 DATETIME 虽然直观，但不便于计算。</p>
+<pre><code class="language-sql">mysql&gt; SELECT UNIX_TIMESTAMP();
+</code></pre>
+<h3 id="%E6%96%87%E6%9C%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B">文本字符串类型</h3>
+<ul>
+<li>CHAR 与 VARCHAR</li>
+</ul>
+<p>CHAR(M) 类型通常需预先定义字符串长度。若不指定 M，则默认长度是 1 个字符。若保存数据实际长度较声明时小，则会在右侧填充空格以达到指定的长度。数据库检索 CHAR 类型数据时，其字段会去除尾部空格。CHAR 类型字段在定义时，声明的字段长度即为 CHAR 类型字段所占存储空间的字节数。</p>
+<pre><code class="language-sql">mysql&gt; CREATE TABLE test_char1(c1 CHAR,c2 CHAR(5));
+mysql&gt; DESC test_char1;
+mysql&gt; INSERT INTO test_char1 VALUES('a','zs');
+mysql&gt; SELECT c1,CONCAT(c2,'***') FROM test_char1;
+mysql&gt; INSERT INTO test_char1(c2) VALUES('a  ');
+mysql&gt; SELECT CHAR_LENGTH(c2) FROM test_char1;
+</code></pre>
+<p>VARCHAR(M) 在定义时必须指定长度 M，否则报错。MySQL 数据库版本低于 4.0 时，varchar(20) 指的是 20 字节，只能存 6 个 UTF8 汉字，即每个汉字 3 字节；MySQL5.0 版本以上，varchar(20) 指的是 20 字符。检索 VARCHAR 类型的字段数据时，会保留数据尾部的空格。VARCHAR 类型的字段所占用的存储空间为字符串实际长度加 1 个字节。</p>
+<pre><code class="language-sql">/* 错误 */
+# ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql&gt; CREATE TABLE test_varchar1(NAME VARCHAR);
+# Column length too big for column 'NAME' (max = 21845);
+mysql&gt; CREATE TABLE test_varchar2 (NAME VARCHAR(65535));
+mysql&gt; CREATE TABLE test_varchar3 (NAME VARCHAR(5));
+mysql&gt; INSERT INTO test_varchar3 VALUES('zs'),('zszy');
+#Data too long for column 'NAME' at row 1
+mysql&gt; INSERT INTO test_varchar3 VALUES('zszszs');
+</code></pre>
+<ul>
+<li>CHAR 和 VARCHAR 的选择</li>
+</ul>
+<p>在存储较短（门牌号码），固定长度（主键 uuid），频繁改动的信息时，选择前者类型更好。因 varchar 还需要额外占用一个 byte 用于存储信息的长度。其次后者动态长度的这个特性，在频繁改变存储信息的情况下，每次过程都会因计算造成一定的性能消耗。</p>
+<p>从存储引擎分析，MyISAM 数据存储引擎最好使用固定长度的数据列代替可变长度的数据列。整个表的静态化使数据检索更快，用空间换时间。MEMORY 存储引擎目前都使用固定长度的数据行存储，故不论哪一种都是作为 char 类型处理的。InnoDB 存储引擎建议使用 varchar 类型。因为对于 InnoDB 数据表，内部的行存储格式并没有区分固定长度和可变长度列，即所有数据行都使用指向数据列值的头指针，而且主要影响性能的因素是数据行使用的存储总量，由于 char 平均占用的空间多于 varchar，除了简短并且固定长度的，其他考虑 varchar。这样节省空间，对磁盘 I/O 和数据存储总量比较好。</p>
+<ul>
+<li>TEXT 类型</li>
+</ul>
+<p>TEXT 保存文本类型的字符串，在向 TEXT 类型的字段保存和查询数据时，系统自动按照实际长度存储，不需要预先定义长度。由于实际存储长度不确定，MySQL 不允许 TEXT 类型的字段做主键。</p>
+<table>
+<thead>
+<tr>
+<th>文本字符串类型</th>
+<th>特点</th>
+<th>长度</th>
+<th>长度范围</th>
+<th>占用的存储空间</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYTEXT</td>
+<td>小文本、可变长度</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 255</td>
+<td>L + 2 个字节</td>
+<td>2155</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>文本、可变长度</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 65535</td>
+<td>L + 2 个字节</td>
+<td>838:59:59</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td>中等文本、可变长度</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 16777215</td>
+<td>L + 3 个字节</td>
+<td>9999-12-03</td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td>大文本、可变长度</td>
+<td>L</td>
+<td>0 &lt;= L&lt;= 4294967295（相当于4GB）</td>
+<td>L + 4 个字节</td>
+<td>9999-12-31 23:59:59</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>日期时间</td>
+<td>4</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>1970-01-01 00:00:00 UTC</td>
+<td>2038-01-19 03:14:07UTC</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">mysql&gt; CREATE TABLE test_text(tx TEXT);
+mysql&gt; INSERT INTO test_text VALUES('zszszy   ');
+# 保存和查询数据时并没有删除TEXT类型的数据尾部的空格
+mysql&gt; SELECT CHAR_LENGTH(tx) FROM test_text; # 9
+</code></pre>
+<p>开发中 TEXT 文本类型，可以存比较大的文本段，搜索速度稍慢，因此如果不是特别大的内容，建议使用 CHAR，VARCHAR 来代替。还有 TEXT 类型不用加默认值，加了也没用。而且 text 和 blob 类型的数据删除后容易导致“空洞”，使得文件碎片比较多，所以频繁使用的表不建议包含 TEXT 类型字段，建议单独分出去，单独用一个表。</p>
+<ul>
+<li>ENUM 类型</li>
+</ul>
+<p>ENUM 类型也叫作枚举类型，ENUM 类型的取值范围需要在定义字段时进行指定。设置字段值时，ENUM类型只允许从成员中选取单个值，不能一次选取多个值。其所需要的存储空间由定义ENUM类型时指定的成员个数决定。</p>
+<table>
+<thead>
+<tr>
+<th>文本字符串类型</th>
+<th>长度</th>
+<th>长度范围</th>
+<th>占用的存储空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ENUM</td>
+<td>L</td>
+<td>1 &lt;= L &lt;= 65535</td>
+<td>1或2个字节</td>
+</tr>
+</tbody>
+</table>
+<p>当ENUM类型包含1～255个成员时，需要1个字节的存储空间；</p>
+<p>当ENUM类型包含256～65535个成员时，需要2个字节的存储空间。</p>
+<p>ENUM类型的成员个数的上限为65535个。</p>
+<pre><code class="language-sql">mysql&gt; CREATE TABLE test_enum(season ENUM('春','夏','秋','冬','unknow'));
+mysql&gt; INSERT INTO test_enum VALUES ('春'), ('秋');
+# 忽略大小写
+mysql&gt; INSERT INTO test_enum VALUES('UNKNOW');
+# 允许按照角标的方式获取指定索引位置的枚举值 =&gt; 1 开始
+mysql&gt; INSERT INTO test_enum VALUES('1'),(3);
+# Data truncated for column 'season' at row 1
+mysql&gt; INSERT INTO test_enum VALUES('ab');
+# 当 ENUM 类型的字段没有声明为 NOT NULL 时,插入 NULL 也是有效的
+mysql&gt; INSERT INTO test_enum VALUES(NULL);
+</code></pre>
+<ul>
+<li>SET类型</li>
+</ul>
+<p>SET 表示一个字符串对象，可以包含 0 个或多个成员，但成员个数的上限为 64。设置字段值时，可以取取值范围内的 0 个或多个值。当SET类型包含的成员个数不同时，其所占用的存储空间也是不同的。SET类型在存储数据时成员个数越多，其占用的存储空间越大。注意：SET类型在选取成员时，可以一次选择多个成员，这一点与ENUM类型不同。</p>
+<pre><code class="language-sql">mysql&gt; CREATE TABLE test_set(s SET ('A', 'B', 'C'));
+mysql&gt; INSERT INTO test_set (s) VALUES ('A'), ('A,B');
+# 插入重复的 SET 类型成员时,MySQL 会自动删除重复的成员
+mysql&gt; INSERT INTO test_set (s) VALUES ('A,B,C,A');
+# 向 SET 类型的字段插入 SET 成员中不存在的值时,MySQL 会抛出错误.
+mysql&gt; INSERT INTO test_set (s) VALUES ('A,B,C,D');
+mysql&gt; SELECT * FROM test_set;
+</code></pre>
+<h3 id="%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B">二进制字符串类型</h3>
+<ul>
+<li>BINARY 与 VARBINARY 类型</li>
+</ul>
+<p>BINARY 和 VARBINARY 类似于 CHAR 和 VARCHAR，用于存储二进制字符串。BINARY(M) 为固定长度的二进制字符串，M 表示最多能存储的字节数，取值范围是 0~255 个字符。若未指定 M，表示只能存储 1 个字节。若实际字段值不足设置的 M 字节，会在数据右侧填充 '\0' 补齐长度。VARBINARY(M) 为可变长度的二进制字符串，M 表示最多能存储的字节数，总字节数不能超过行的字节长度限制 65535，另外还要考虑额外字节开销，VARBINARY 类型的数据除了存储数据本身外，还需要 1 或 2 个字节来存储数据的字节数。VARBINARY 类型必须指定 M，否则报错。</p>
+<table>
+<thead>
+<tr>
+<th>二进制字符串类型</th>
+<th>特点</th>
+<th>值的长度</th>
+<th>占用空间(字节)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BINARY(M)</td>
+<td>固定长度</td>
+<td>M （0 &lt;= M &lt;= 255）</td>
+<td>M个字节</td>
+</tr>
+<tr>
+<td>VARBINARY(M)</td>
+<td>可变长度</td>
+<td>M（0 &lt;= M &lt;= 65535）</td>
+<td>M+1个字节</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql"># VARBINARY 必须指定长度
+mysql&gt; CREATE TABLE test_binary1(f1 BINARY,f2 BINARY(3),f3 VARBINARY(10));
+mysql&gt; INSERT INTO test_binary1(f1,f2) VALUES('a','a');
+# 失败 =&gt; ERROR 1406 (22001): Data too long for column 'f1' at row 1
+mysql&gt; INSERT INTO test_binary1(f1,f2) VALUES('开','发');
+mysql&gt; INSERT INTO test_binary1(f2,f3) VALUES('zs','zs');
+# 一个固定长度、一个没有固定长度
+mysql&gt; SELECT LENGTH(f2),LENGTH(f3) FROM test_binary1;
+</code></pre>
+<ul>
+<li>BLOB 类型</li>
+</ul>
+<p>BLOB 可以存储一个二进制的大对象，常见图片、音频和视频等。需要注意的是，在实际工作中往往不会在数据库使用 BLOB 类型存储大对象数据，通常会将图片、音频和视频文件存储到服务器的磁盘上，并将图片、音频和视频的访问路径存储到数据库中。</p>
+<table>
+<thead>
+<tr>
+<th>二进制字符串类型</th>
+<th>值的长度</th>
+<th>长度范围</th>
+<th>占用空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYBLOB</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 255</td>
+<td>L + 1 个字节</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 65535（相当于64KB）</td>
+<td>L + 2 个字节</td>
+</tr>
+<tr>
+<td>MEDIUMBLOB</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 16777215 （相当于16MB）</td>
+<td>L + 3 个字节</td>
+</tr>
+<tr>
+<td>LONGBLOB</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 4294967295（相当于4GB）</td>
+<td>L + 4 个字节</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">mysql&gt; CREATE TABLE test_blob1(id INT,img MEDIUMBLOB);
+# 流的方式引入...
+</code></pre>
+<ul>
+<li>TEXT 和 BLOB 的使用注意事项</li>
+</ul>
+<p>在执行了大量删除或更新操作后。这类值会在数据表中留下很大的"空洞"，以后填入这些"空洞"的记录可能长度不同。建议定期使用 OPTIMIZE TABLE 对这类表进行碎片整理。</p>
+<p>若需对大文本字段进行模糊查询，虽然数据库提供了前缀索引，但是仍然要避免检索大型的 BLOB 或 TEXT。除非能使用确定约束条件的 WHERE 子句，否则 SELECT * 查询可能会在网络上传输大量的 BLOB 或 TEXT 值。</p>
+<p>若把这些数据列移动分离到单独的表中，那么可以减少主表中的碎片，得到固定长度数据行的性能优势，再进行查询，就不会出现大量的值传输。</p>
+<h3 id="json-%E7%B1%BB%E5%9E%8B">JSON 类型</h3>
+<p>JSON JavaScript Object Notation 是一种轻量级的数据交换格式，也是理想的数据交换语言。其可将 JavaScript 对象中表示的一组数据转换为字符串，然后在网络或者程序之间传递，并在需要的时候将其还原为各编程语言所支持的数据格式。较 XML 更为轻量。</p>
+<p>在 MySQL5.7 就已经支持 JSON 数据类型。MySQL8.x 版本中，JSON 类型提供了可以进行自动验证的 JSON 文档和优化的存储结构。</p>
+<pre><code class="language-sql"># 创建数据表,表中包含一个 JSON 类型的字段 js 
+mysql&gt; CREATE TABLE test_json(js json);
+mysql&gt; INSERT INTO test_json (js) VALUES ('{"name":"zs", "age":20, "address":{"province":"hn","city":"cs"}}');
+mysql&gt; SELECT * FROM test_json;
+# 当需要检索JSON类型的字段中数据的某个具体值时，可以使用“-&gt;”和“-&gt;&gt;”符号
+mysql&gt; SELECT js -&gt; '$.name' AS NAME,js -&gt; '$.age' AS age ,js -&gt; '$.address.province' AS province, js -&gt; '$.address.city' AS city FROM test_json;
+</code></pre>
+<h3 id="%E5%B0%8F%E7%BB%93">小结</h3>
+<p>为确保系统不会因数据类型定义出错，定义数据类型时，整数用 INT；小数用定点数类型 DECIMAL(M,D)；日期与时间用 DATETIME。值得注意的是，可靠性好并不意味着高效。即 TEXT 虽然使用方便，但是效率不如 CHAR(M) 和 VARCHAR(M)。</p>
+<p>关于字符串的选择，建议参考如下阿里巴巴的《Java开发手册》规范。</p>
+<blockquote>
+<p>阿里巴巴《Java开发手册》之 MySQL 数据库</p>
+<ul>
+<li>任何字段如果为非负数，必须是 UNSIGNED
+<ul>
+<li>【强制】小数类型为 DECIMAL，禁止使用 FLOAT 和 DOUBLE。
+<ul>
+<li>说明：在存储的时候，FLOAT 和 DOUBLE 都存在精度损失的问题，很可能在比较值的时候，得到不正确的结果。如果存储的数据范围超过 DECIMAL 的范围，建议将数据拆成整数和小数并分开存储。</li>
+</ul>
+</li>
+<li>【强制】如果存储的字符串长度几乎相等，使用 CHAR 定长字符串类型。</li>
+<li>【强制】VARCHAR 是可变长字符串，不预先分配存储空间，长度不要超过 5000。如果存储长度大于此值，定义字段类型为 TEXT，独立出来一张表，用主键来对应，避免影响其它字段索引效率。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="%E7%BA%A6%E6%9D%9F">约束</h2>
+<p>约束即对表中字段的限制，目的是保证数据的完整性。完整性又可以分为实体完整性、域完整性、引用完整性以及自定义完整性。</p>
+<pre><code class="language-sql"># 查看某个表已有的约束
+# information_schema =&gt; 系统库
+# table_constraints =&gt; 专门存储各个表的约束的表
+SELECT * FROM information_schema.table_constraints WHERE table_name = '表名称';
+</code></pre>
+<h3 id="%E9%9D%9E%E7%A9%BA%E7%BA%A6%E6%9D%9F">非空约束</h3>
+<p>默认所有类型的值都可以是 NULL，非空约束只能出现在表对象的列上，只能某个列单独限定非空，不能组合限定非空。空字符串 ' ' 不等于 NULL，0 也不等于 NULL。</p>
+<pre><code class="language-sql">/* 建表时添加非空约束 */
+# CREATE TABLE 表名称(...,字段名 数据类型 NOT NULL,...);
+mysql&gt; CREATE DATABASE dbtest13;
+mysql&gt; USE dbtest13;
+mysql&gt; CREATE TABLE test1(id INT NOT NULL,last_name VARCHAR(15) NOT NULL,email VARCHAR(25),salary DECIMAL(10,2));
+mysql&gt; DESC test1;
++-----------+---------------+------+-----+---------+-------+
+| Field     | Type          | Null | Key | Default | Extra |
++-----------+---------------+------+-----+---------+-------+
+| id        | int           | NO   |     | NULL    |       |
+| last_name | varchar(15)   | NO   |     | NULL    |       |
+| email     | varchar(25)   | YES  |     | NULL    |       |
+| salary    | decimal(10,2) | YES  |     | NULL    |       |
++-----------+---------------+------+-----+---------+-------+
+mysql&gt; INSERT INTO test1(id,last_name,email,salary) VALUES (1,'zs','zs@mail.com',99999);
+# ERROR 1048 (23000): Column 'last_name' cannot be null
+mysql&gt; INSERT INTO test1(id,last_name,email,salary) VALUES (2,NULL,'someone@mail.com',0000);
+# ERROR 1048 (23000): Column 'id' cannot be null
+mysql&gt; INSERT INTO test1(id,last_name,email,salary) VALUES (NULL,'gz','gz@mail.com',99998);
+# 未给字段赋值先找默认值,无默认值再考虑NULL.
+# ERROR 1364 (HY000): Field 'last_name' doesn't have a default value
+mysql&gt; INSERT INTO test1(id,email) VALUES (4,'hz@mail.com');
+# 更新时限制
+mysql&gt; UPDATE test1 SET last_name = NULL WHERE id = 1;
+/* 建表后添加非空约束 */
+mysql&gt; ALTER TABLE test1 MODIFY email VARCHAR(25) NOT NULL;
+mysql&gt; DESC test1;
+/*
+删除非空约束
+ALTER TABLE 表名 MODIFY 字段名 数据类型 NULL;
+ALTER TABLE 表名 MODIFY 字段名 数据类型;
+*/
+mysql&gt; ALTER table test1 modify email VARCHAR(25) NULL;
+</code></pre>
+<h3 id="%E5%94%AF%E4%B8%80%E6%80%A7%E7%BA%A6%E6%9D%9F">唯一性约束</h3>
+<p>唯一性约束用来限制某个字段的值不能重复。唯一性约束允许列值为空。同一个表可以有多个唯一约束。唯一约束可以是某个列的值唯一，也可以多个列组合值唯一。在创建唯一约束时，若不给唯一约束命名，就默认和列名相同。数据库会在唯一约束的列上默认创建一个唯一索引。</p>
+<pre><code class="language-sql">/* 建表时添加唯一性约束 */
+# 列级约束 + 表级约束
+mysql&gt; CREATE TABLE test2(id INT UNIQUE,last_name VARCHAR(15),email VARCHAR(25),salary DECIMAL(10,2),CONSTRAINT uni_test2_email UNIQUE(email));
+mysql&gt; DESC test2;
++-----------+---------------+------+-----+---------+-------+
+| Field     | Type          | Null | Key | Default | Extra |
++-----------+---------------+------+-----+---------+-------+
+| id        | int           | YES  | UNI | NULL    |       |
+| last_name | varchar(15)   | YES  |     | NULL    |       |
+| email     | varchar(25)   | YES  | UNI | NULL    |       |
+| salary    | decimal(10,2) | YES  |     | NULL    |       |
++-----------+---------------+------+-----+---------+-------+
+mysql&gt; SELECT * FROM information_schema.table_constraints WHERE table_name = 'test2';
++--------------------+-------------------+-----------------+--------------+------------+-----------------+----------+
+| CONSTRAINT_CATALOG | CONSTRAINT_SCHEMA | CONSTRAINT_NAME | TABLE_SCHEMA | TABLE_NAME | CONSTRAINT_TYPE | ENFORCED |
++--------------------+-------------------+-----------------+--------------+------------+-----------------+----------+
+| def                | dbtest13          | id              | dbtest13     | test2      | UNIQUE          | YES      |
+| def                | dbtest13          | uni_test2_email | dbtest13     | test2      | UNIQUE          | YES      |
++--------------------+-------------------+-----------------+--------------+------------+-----------------+----------+
+# 创建唯一约束,若不给唯一约束名,默认和列名相同.
+mysql&gt; INSERT INTO test2 (id,last_name,email,salary) VALUES (1,'zs','zs@mail.com',99999);
+mysql&gt; SELECT * FROM test2;
++------+-----------+-------------+----------+
+| id   | last_name | email       | salary   |
++------+-----------+-------------+----------+
+|    1 | zs        | zs@mail.com | 99999.00 |
++------+-----------+-------------+----------+
+mysql&gt; INSERT INTO test2 (id,last_name,email,salary) VALUES (1,'zscopy','zscpoy@mail.com',99999);
+ERROR 1062 (23000): Duplicate entry '1' for key 'test2.id'
+# 可以向unique的字段添加null值,且可以多次添加null
+INSERT INTO test2 (id,last_name,email,salary) VALUES (2,'gz',NULL,99998);
+INSERT INTO test2 (id,last_name,email,salary) VALUES (3,'hz',NULL,99997);
+/*
+创建表后添加约束
+ALTER TABLE 表名 ADD UNIQUE key(字段列表);
+ALTER TABLE 表名 MODIFY 字段名 字段类型 UNIQUE;
+*/
+# 若已存在 salary 相等的情况,需要修改后才可设置
+mysql&gt; ALTER TABLE test2 ADD CONSTRAINT uni_test2_sal UNIQUE (salary);
+mysql&gt; ALTER TABLE test2 MODIFY last_name VARCHAR(15) UNIQUE;
+# 复合的唯一性约束 + 表级约束
+mysql&gt; CREATE TABLE USER(id INT,`name` VARCHAR(15), `password` VARCHAR(25), CONSTRAINT uni_user_name_pwd UNIQUE (`name`,`password`));
+mysql&gt; INSERT INTO USER VALUES (1, 'zs', 'abc');
+# 复合约束存在一个字段有区别即可
+mysql&gt; INSERT INTO USER VALUES (1, 'zscopy', 'abc');
+</code></pre>
+<p>添加唯一性约束的列上也会自动创建唯一索引。删除唯一约束只能通过删除唯一索引的方式删除。删除时需要指定唯一索引名，唯一索引名就和唯一约束名一样。如果创建唯一约束时未指定名称，如果是单列，就默认和列名相同；如果是组合列，那么默认和括号中排在第一个的列名相同。也可以自定义唯一性约束名。</p>
+<pre><code class="language-sql">mysql&gt; ALTER TABLE test2 DROP INDEX last_name;
+mysql&gt; ALTER TABLE test2 DROP INDEX uni_test2_sal;
+mysql&gt; SELECT * FROM information_schema.table_constraints WHERE table_name = 'test2';
+mysql&gt; DESC test2;
+</code></pre>
+<h3 id="%E4%B8%BB%E9%94%AE%E7%BA%A6%E6%9D%9F">主键约束</h3>
+<p>实体完整性即一张表中不能存在两个完全相同无法区分的记录。主键约束用来唯一标识表中的一行记录。主键约束相当于唯一约束与非空约束的组合，主键约束列不允许重复，也不允许出现空值。</p>
+<p>一个表最多只能有一个主键约束，建立主键约束可以在列级别创建，也可以在表级别上创建。主键约束对应着表中的一列或者多列（复合主键）。如果是多列组合的复合主键约束，那么这些列都不允许为空值，并且组合的值不允许重复。自行命名的主键约束名无效。当创建主键约束时，系统默认会在所在的列或列组合上建立对应的主键索引（能够根据主键查询的，就根据主键查询，效率更高）。如果删除主键约束了，主键约束对应的索引就自动删除了。需要注意的一点是，不要修改主键字段的值。因为主键是数据记录的唯一标识，如果修改了主键的值，就有可能会破坏数据的完整性。</p>
+<pre><code class="language-sql">/* 创建表时添加约束 */
+# 一个表中最多有一个主键约束
+# 列级约束
+mysql&gt; CREATE TABLE test3 (id INT PRIMARY KEY,last_name VARCHAR(15),salary DECIMAL(10,2),email VARCHAR(25));
+# 表级约束 =&gt; 没有必要起名
+mysql&gt; CREATE TABLE test4 (id INT,last_name VARCHAR(15),salary DECIMAL(10,2),email VARCHAR(25),CONSTRAINT pk_test4_id PRIMARY KEY(id));
+mysql&gt; SELECT * FROM information_schema.table_constraints WHERE table_name = 'test4';
+mysql&gt; INSERT INTO test4 VALUES(1,'zs',99999,'zs@mail.com');
+mysql&gt; INSERT INTO test4 VALUES(1,'zscopy',99999,'zscopy@mail.com');
+ERROR 1062 (23000): Duplicate entry '1' for key 'test4.PRIMARY'
+mysql&gt; INSERT INTO test4 VALUES(NULL,'zscopy',99999,'zscopy@mail.com');
+ERROR 1048 (23000): Column 'id' cannot be null
+# 复合主键约束
+mysql&gt; CREATE TABLE test5(id INT,`name` VARCHAR(15),`password` VARCHAR(25),PRIMARY KEY (`name`,`password`));
+mysql&gt; INSERT INTO test5 VALUES (1,'zs','abc');
+mysql&gt; INSERT INTO test5 VALUES (1,'zscopy','abc');
+# 多列组合的复合主键约束都不可以为NULL
+mysql&gt; INSERT INTO test5 VALUES (1,NULL,'abc');
+ERROR 1048 (23000): Column 'name' cannot be null
+/* 创建表后添加约束 */
+mysql&gt; CREATE TABLE test6(id INT,`name` VARCHAR(15),`password` VARCHAR(25));
+mysql&gt; ALTER table test6 ADD PRIMARY KEY (id);
+mysql&gt; DESC test6;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int         | NO   | PRI | NULL    |       |
+| name     | varchar(15) | YES  |     | NULL    |       |
+| password | varchar(25) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+/*
+删除主键约束 =&gt; 实际开发根本不会去做
+ALTER TABLE 表名称 DROP PRIMARY KEY;
+*/
+mysql&gt; ALTER TABLE test6 DROP PRIMARY KEY;
+</code></pre>
+<h3 id="%E8%87%AA%E5%A2%9E%E5%88%97-autoincrement">自增列 AUTO_INCREMENT</h3>
+<p>自增列可以使某个字段的值自增，在开发中如果主键设置了自增，后续写 sql 就不用再写主键列了。</p>
+<p>一个表最多只能有一个自增长列。当需要产生唯一标识符或顺序值时，可设置自增长。自增长列约束的列必须是键列，主键列或者唯一键列。自增约束的列的数据类型必须是整数类型。若自增列指定了 0 和 null，会在当前最大值的基础上自增；如果自增列手动指定了具体值，直接赋值为具体值。</p>
+<pre><code class="language-sql">/* 创建表时自增 */
+mysql&gt; CREATE TABLE test7 (id INT PRIMARY KEY AUTO_INCREMENT, last_name VARCHAR(15));
+mysql&gt; INSERT INTO test7(last_name) VALUES ('zs');
+mysql&gt; SELECT * FROM test7;
++----+-----------+
+| id | last_name |
++----+-----------+
+|  1 | zs        |
++----+-----------+
+# 在包含了 AUTO_INCREMENT 主键字段上填写 0 或者 NULL =&gt; 实际上往上自动的添加字段的数值. =&gt; 正值可能会跳跃、负值会按自增往前堆.
+/*
+创建表后自增
+alter table 表名称 modify 字段名 数据类型 auto_increment;
+*/
+mysql&gt; CREATE TABLE test8 (id INT PRIMARY KEY, last_name VARCHAR(15));
+mysql&gt; ALTER TABLE TEST8 MODIFY ID INT AUTO_INCREMENT;
+/*
+删除自增
+alter table 表名称 modify 字段名 数据类型;
+*/
+mysql&gt; ALTER TABLE test8 MODIFY id INT;
+</code></pre>
+<ul>
+<li>MySQL 8.0 新特性自增变量的持久化</li>
+</ul>
+<pre><code class="language-sql">/*
+在 MySQL 8.0 之前,自增主键 AUTO_INCREMENT 的值如果大于 max(primary key)+1,在 MySQL 重启后会重置 AUTO_INCREMENT=max(primary key)+1.这种现象在某些情况下会导致业务主键冲突或者其他问题.
+*/
+# MySQL 5.7
+mysql&gt; CREATE TABLE test9(id INT PRIMARY KEY AUTO_INCREMENT);
+mysql&gt; INSERT INTO test9 VALUES (0),(0),(0),(0);
+mysql&gt; SELECT * FROM test9;
+mysql&gt; DELETE FROM test9 WHERE id = 4;
+mysql&gt; INSERT INTO test9 VALUES(0);
+mysql&gt; SELECT * FROM test9;
+mysql&gt; DELETE FROM test9 where id=5;
+# 重启数据库重新插入一个空值
+mysql&gt; INSERT INTO test1 values(0);
+# 从结果可以看出,新插入的0值分配的是4.按照重启前的操作逻辑,此处应该分配6. =&gt; 自增主键没有持久化.
+/*
+在 MySQL 5.7 中对于自增主键的分配规则,是由InnoDB数据字典内部一个计数器来决定的.而该计数器只在内存中维护,并不会持久化到磁盘中.当数据库重启时,该计数器会被初始化.
+*/
+mysql&gt; SELECT * FROM test1;
++----+
+| id |
++----+
+|  1 |
+|  2 |
+|  3 |
+|  4 |
++----+
+# MySQL 8.0
+/*
+MySQL 8.0 将自增主键的计数器持久化到重做日志中.每次计数器发生改变,都会将其写入重做日志.如果数据库重启,InnoDB 会根据重做日志中的信息来初始化计数器的内存值.
+*/
+mysql&gt; SELECT * FROM test1;
++----+
+| id |
++----+
+|  1 |
+|  2 |
+|  3 |
+|  6 |
++----+
+</code></pre>
+<h3 id="foreign-key-%E7%BA%A6%E6%9D%9F">FOREIGN KEY 约束</h3>
+<p>外键约束限定某个表中某个字段的引用完整性。简而言之，外键约束即是从表添加数据时的值，必须是主表字段中已存在的值。主表即父表，是被引用参考的表；从表即子表，是引用别人参考别人的表。举个例子，员工表需要参考部门表给员工在数据库分配部门，这个部门必须是在被引用的主表，即部门表中存在的。</p>
+<p>从表的外键列，必须引用主表的主键或唯一约束的列，因为被依赖的值必须是唯一的。<strong>在创建外键约束时，若不给外键约束命名，默认名不是列名，而是自动产生的一个外键名</strong>。创建表时就指定外键约束的话，应先创建主表，再创建从表；删表时，先删从表或先删除外键约束，再删除主表。因为从表引用着主表的主键，如果先删主表就会报错，因为从表还引用着主表的主键。当主表的记录被从表参照时，主表的记录将不允许删除，如果要删除数据，需要先删除从表中依赖该记录的数据，然后才可以删除主表的数据。应在从表中指定外键约束，但是一个表可以建立多个外键约束。从表的外键列与主表被参照的列名字可以不相同，但是数据类型必须一样，逻辑意义一致。如果类型不一样，创建子表时，就会出现错误 "ERROR 1005 (HY000)"。当创建外键约束时，系统默认会在所在的列上建立对应的普通索引。但是索引名是外键的约束名（根据外键查询效率很高）。删除外键约束后，必须手动删除对应的索引。</p>
+<pre><code class="language-sql">/* 在创建表时添加 */
+# 创建主表与从表 -- 表级约束
+mysql&gt; CREATE TABLE dept1(dept_id INT,dept_name VARCHAR(15));
+mysql&gt; CREATE TABLE emp1(emp_id INT PRIMARY KEY AUTO_INCREMENT,emp_name VARCHAR(15),department_id INT,CONSTRAINT fk_emp1_dept_id FOREIGN KEY (department_id) REFERENCES dept1(dept_id)); # ERROR 1822 (HY000): Failed to add the foreign key constraint. Missing index for constraint 'fk_emp1_dept_id' in the referenced table 'dept1'
+# 报错原因是主表没有主键约束 =&gt; 完成主键添加后再进行从表创建
+mysql&gt; ALTER TABLE dept1 ADD PRIMARY KEY (dept_id);
+mysql&gt; DESC dept1;
+mysql&gt; DESC emp1;
+# 外键约束导致不能添加主表中没有的字段值
+mysql&gt; INSERT INTO emp1 VALUES (1001,'zs',10); # ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`dbtest13`.`emp1`, CONSTRAINT `fk_emp1_dept_id` FOREIGN KEY (`department_id`) REFERENCES `dept1` (`dept_id`))
+# 在主表中添加后再向从表添加
+mysql&gt; INSERT INTO dept1 VALUES (10, 'IT');
+# 删除、更新失败 =&gt; 外键约束起作用
+mysql&gt; DELETE FROM dept1 WHERE dept_id = 10; # ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`dbtest13`.`emp1`, CONSTRAINT `fk_emp1_dept_id` FOREIGN KEY (`department_id`) REFERENCES `dept1` (`dept_id`))
+mysql&gt; UPDATE dept1 SET dept_id = 20 WHERE dept_id = 10; # ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`dbtest13`.`emp1`, CONSTRAINT `fk_emp1_dept_id` FOREIGN KEY (`department_id`) REFERENCES `dept1` (`dept_id`))
+/* 在创建表后添加外键约束 */
+mysql&gt; CREATE TABLE dept2(dept_id INT PRIMARY KEY,dept_name VARCHAR(15));
+mysql&gt; CREATE TABLE emp2(emp_id INT PRIMARY KEY AUTO_INCREMENT,emp_name VARCHAR(15),department_id INT);
+mysql&gt; SELECT * FROM information_schema.table_constraints WHERE table_name = 'emp2';
+mysql&gt; ALTER TABLE emp2 ADD CONSTRAINT fk_emp2_dept2_id FOREIGN KEY (department_id) REFERENCES dept2(dept_id);
+mysql&gt; SELECT * FROM information_schema.table_constraints WHERE table_name = 'emp2';
+/*
+删除外键约束
+1.第一步先查看约束名和删除外键约束
+SELECT * FROM information_schema.table_constraints WHERE table_name = '表名称'; # 查看某个表的约束名
+ALTER TABLE 从表名 DROP FOREIGN KEY 外键约束名;
+2.第二步查看索引名和删除索引.注意只能手动删除
+SHOW INDEX FROM 表名称; # 查看某个表的索引名
+ALTER TABLE 从表名 DROP INDEX 索引名;
+*/
+mysql&gt; SELECT * FROM information_schema.table_constraints WHERE table_name = 'emp1';
+mysql&gt; ALTER TABLE emp1 DROP FOREIGN KEY fk_emp1_dept_id; # 删除外键约束
+mysql&gt; ALTER TABLE emp1 DROP INDEX fk_emp1_dept_id; # 删除外键约束对应普通索引
+</code></pre>
+<ul>
+<li>约束等级</li>
+</ul>
+<ol>
+<li>Cascade =&gt; 父表上更新、删除记录时，子表同步操作匹配记录。</li>
+<li>Set null =&gt; 父表上更新、删除记录时，将子表上匹配记录的列设为 null。注意子表的外键列不能为 not null。</li>
+<li>No action =&gt; 如果子表中有匹配的记录，则不允许对父表对应候选键进行更新、删除操作。</li>
+<li>Restrict =&gt; 同 no action，都是立即检查外键约束。</li>
+<li>Set default =&gt; 在父表有变更时，子表将外键列设置成一个默认的值，但 Innodb 不能识别。</li>
+<li>如果没有指定等级，就相当于 Restrict 方式。</li>
+<li>对于外键约束，最好是采用 ON UPDATE CASCADE ON DELETE RESTRICT 的方式。</li>
+</ol>
+<blockquote>
+<p>在 MySQL 里，外键约束是有成本的，需要消耗系统资源。对于大并发的 SQL 操作，有可能会不适合。比如大型网站的中央数据库，可能会因为外键约束的系统开销而变得非常慢。所以， MySQL 允许不使用系统自带的外键约束，在应用层面完成检查数据一致性的逻辑。也就是说，即使不用外键约束，也要想办法通过应用层面的附加逻辑，来实现外键约束的功能，确保数据的一致性。</p>
+<p>《阿里开发规范》<br />
+【强制】不得使用外键与级联，一切外键概念必须在应用层解决。</p>
+<p>说明：（概念解释）学生表中的 student_id 是主键，那么成绩表中的 student_id 则为外键。如果更新学生表中的 student_id，同时触发成绩表中的 student_id 更新，即为级联更新。外键与级联更新适用于单机低并发，不适合分布式、高并发集群；级联更新是强阻塞，存在数据库更新风暴的风险；外键影响数据库的插入速度。</p>
+</blockquote>
+<h3 id="check-%E7%BA%A6%E6%9D%9F">CHECK 约束</h3>
+<p>CHECK 约束用于检查某个字段的值是否符合要求，一般指的是值的范围。在 MySQL 5.7 中并无作用，即添加数据时，没有任何错误或警告。</p>
+<pre><code class="language-sql">mysql&gt; CREATE TABLE test10(id INT,last_name VARCHAR(15), salary DECIMAL(10,2) CHECK(salary &gt; 3000));
+mysql&gt; INSERT INTO test10 VALUES(1,'hz',3500);
+# 添加失败
+mysql&gt; INSERT INTO test10 VALUES(2,'hzcopy',1500); # ERROR 3819 (HY000): Check constraint 'test10_chk_1' is violated.
+</code></pre>
+<h3 id="default-%E7%BA%A6%E6%9D%9F">DEFAULT 约束</h3>
+<p>DEFAULT 约束给某个字段，或者说某列指定默认值。一旦设置默认值，在插入数据时，如果此字段没有显式赋值，则赋值为默认值。</p>
+<pre><code class="language-sql">/* 在创建表时添加默认值 */
+mysql&gt; CREATE TABLE test11(id INT, last_name VARCHAR(15), salary DECIMAL(10,2) DEFAULT 2000);
+mysql&gt; DESC test11;
+mysql&gt; INSERT INTO test11 (id,last_name,salary) VALUES (1,'hz',3000);
+mysql&gt; INSERT INTO test11 (id,last_name) VALUES (2,'hzcopy');
+mysql&gt; SELECT * FROM test11;
+/* 在创建表后添加默认值 */
+mysql&gt; CREATE TABLE test12(id INT, last_name VARCHAR(15), salary DECIMAL(10,2));
+mysql&gt; DESC test12;
+# ALTER TABLE 表名 MODIFY 字段名 字段类型 DEFAULT 默认值;
+mysql&gt; ALTER TABLE test12 MODIFY salary DECIMAL (10,2) DEFAULT 2500;
+mysql&gt; DESC test12;
+/* 删除默认值 */
+mysql&gt; ALTER TABLE test12 MODIFY salary DECIMAL (10,2);
+</code></pre>
+<h2 id="%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E8%B1%A1">其他数据库对象</h2>
+<table>
+<thead>
+<tr>
+<th>常见的数据库对象</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表 TABLE</td>
+<td>存储数据的逻辑单元，以行和列的形式存在，列就是字段，行就是记录</td>
+</tr>
+<tr>
+<td>数据字典</td>
+<td>存放数据库相关信息的系统表 =&gt; 系统表的数据通常由数据库系统维护，程序员通常不应该修改，只可查看</td>
+</tr>
+<tr>
+<td>约束 CONSTRAINT</td>
+<td>执行数据校验的规则，用于保证数据完整性的规则</td>
+</tr>
+<tr>
+<td>视图 VIEW</td>
+<td>一个或者多个数据表里数据的逻辑显示；视图并不存储数据</td>
+</tr>
+<tr>
+<td>索引 INDEX</td>
+<td>用于提高查询性能，相当于书的目录</td>
+</tr>
+<tr>
+<td>存储过程 PROCEDURE</td>
+<td>用于完成一次完整的业务处理，没有返回值，但可通过传出参数将多个值传给调用环境</td>
+</tr>
+<tr>
+<td>存储函数 FUNCTION</td>
+<td>用于完成一次特定的计算，具有一个返回值</td>
+</tr>
+<tr>
+<td>触发器 TRIGGER</td>
+<td>相当于一个事件监听器，当数据库发生特定事件后，触发器被触发，完成相应的处理</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A7%86%E5%9B%BE">视图</h3>
+<p>视图可以使用表的一部分，也可以针对不同需求制定不同的查询视图，即针对指定的人员只展示部分的数据。本质是一段存储起来的 SELECT。</p>
+<p>视图建立在已有表（基表）的基础上，可以看作是虚拟表，本身不具有数据，占用很少的内存空间。视图的创建和删除只影响视图本身，不影响对应的基表。但是当对视图中的数据进行增删改操作时，数据表中的数据会发生相应变化，反之亦然。</p>
+<ul>
+<li>创建视图</li>
+</ul>
+<pre><code class="language-sql"># 在 CREATE VIEW 语句中嵌入子查询
+CREATE [OR REPLACE] [ALGORITHM = {UNDEFINED | MERGE | TEMPTABLE}] VIEW 视图名称 [(字段列表)] AS 查询语句 [WITH [CASCADED|LOCAL] CHECK OPTION]
+</code></pre>
+<h3 id="%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%87%BD%E6%95%B0">存储过程与函数</h3>
+<h3 id="%E5%8F%98%E9%87%8F%E3%80%81%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E4%B8%8E%E6%B8%B8%E6%A0%87">变量、流程控制与游标</h3>
+<h2 id="mysql8-%E6%96%B0%E7%89%B9%E6%80%A7">MySQL8 新特性</h2>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>CSS 回顾</title>
+
+    <meta name="description" content="I KNOW CSS" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="CSS 回顾" />
+    <meta property="og:description" content="I KNOW CSS" />
+    <meta property="og:url" content="yourdomain.com/ikcss/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/09/csscss.png" />
+    <meta property="article:published_time" content="2019-05-19T21:23:00.000Z" />
+    <meta property="article:modified_time" content="2022-05-04T17:28:02.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CSS 回顾" />
+    <meta name="twitter:description" content="I KNOW CSS" />
+    <meta name="twitter:url" content="yourdomain.com/ikcss/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/09/csscss.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "CSS 回顾",
+    "url": "yourdomain.com/ikcss/",
+    "datePublished": "2019-05-19T21:23:00.000Z",
+    "dateModified": "2022-05-04T17:28:02.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/09/csscss.png",
+        "width": 1280,
+        "height": 720
+    },
+    "keywords": "Technology growth",
+    "description": "I KNOW CSS",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">CSS 回顾</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2019-05-20">20 May 2019</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2021/09/csscss.png" width="600" height="340" layout="responsive" 
+                alt="csscss"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <h2 id="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8">清除浮动</h2>
+<p><strong>文字环绕</strong></p>
+<pre><code class="language-css">p { line-height: 2; word-spacing: 0.1rem; text-indent: 3%; }
+img { float: left; margin-right: 30px; }
+</code></pre>
+<pre><code class="language-html">&lt;h3&gt;最初引入 float 属性是为了实现文字环绕效果&lt;/h3&gt;
+&lt;img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622656923/blog/nonocat_feqccv.webp" alt="cat"&gt;
+&lt;p&gt; I’m pretty sure none of this would have happened if I hadn’t been fired from Apple. It was awful tasting medicine, but I guess the patient needed it. Sometimes life hits you in the head with a brick. Don’t lose faith. I’m convinced that the only thing that kept me going was that I loved what I did. You’ve got to find what you love. And that is as true for your work as it is for your lovers. Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it. And, like any great relationship, it just gets better and better as the years roll on. So keep looking until you find it. Don’t settle.&lt;/p&gt;
+</code></pre>
+<p><strong>清除方法</strong></p>
+<pre><code class="language-css">/* 样式模块 */
+.parent{ width: 400px;border: 1px solid #424242; }
+.left{ width: 200px;height: 200px;background: #00B26A;float: left; }
+.leftt{ width: 120px;height: 120px;background: #06B4FE;float: right; }
+.footer{ width: 900px;height: 100px;background: darkslateblue; }
+</code></pre>
+<pre><code class="language-html">&lt;!-- 模板模块 --&gt;
+&lt;div class="parent"&gt;
+    &lt;div class="left"&gt;left&lt;/div&gt;
+    &lt;div class="leftt"&gt;leftt&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>额外标签</li>
+</ul>
+<p>给需要清除浮动的元素后额外添加一个空标签设置<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear"> clear 属性</a>。该属性指定一个元素是否必须移动（清除浮动后）到之前的浮动元素下方，适用于浮动和非浮动元素。在通俗的同时，却额外加入无意义的标签。</p>
+<pre><code class="language-css">.clear{ clear:both; }
+</code></pre>
+<pre><code class="language-html">&lt;div class="parent"&gt;
+    ...
+    &lt;div class="clear"&gt;额外标签&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>父级 overflow</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow">overflow 属性</a>定义了当一个元素的内容太大而无法适应块级格式化上下文的处理方式。即通过触发 BFC 实现清除浮动。虽然代码简洁，但是无法解决显示要溢出元素的问题。</p>
+<pre><code class="language-css">/* 修改parent样式;此处overflow必须为hidden */
+.parent{ width: 400px;border: 1px solid #424242;overflow: hidden; }
+</code></pre>
+<p>额外提一点，overflow 设置为 hidden 主要作用于溢出隐藏、清除浮动、外边距塌陷等问题。外边距塌陷也称为外边距合并，是指两个在正常流中相邻（兄弟或父子关系）的块级元素外边距，组合在一起变成单个外边距，不过只有上下外边距才会有塌陷，左右外边距不会出现这种问题。</p>
+<pre><code class="language-css">.big{ width: 200px;height: 200px;background: #00B26A;overflow: hidden; }
+.small{ width: 120px;height: 120px;background: #35393b;margin-top: 30px; }
+</code></pre>
+<pre><code class="language-html">&lt;div class="big"&gt;
+    &lt;div class="small"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>after 伪元素</li>
+</ul>
+<p>给容器增加伪元素清除浮动样式的语义化较好，符合闭合浮动思想。但是存在兼容性问题，使用 zoom:1 触发 hasLayout。</p>
+<pre><code class="language-css">/* 伪元素是行内元素 */
+.clearfix:after{ display: block;clear:both;visibility: hidden;content: ""; }
+.clearfix{ *zoom: 1; }
+</code></pre>
+<ul>
+<li>双伪元素</li>
+</ul>
+<pre><code class="language-css">/* display符合BFC即可:block、flex、table */
+.clearfix:after,.clearfix:before{ content: ""; display: flex; }
+.clearfix:after{ clear: both; }
+.clearfix{ *zoom: 1; }
+</code></pre>
+<h2 id="bfc">BFC</h2>
+<p>块格式化上下文 (Block Formatting Context，BFC) 是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域（自主规则，无关外部）。</p>
+<p><strong>布局规则</strong></p>
+<p>内部 Box 在垂直方向逐个排列；Box 垂直方向的距离由 margin 决定；同属一个 BFC 的两个相邻 Box 的 margin 会发生重叠；即使存在浮动，每个元素的 margin box 的左边，与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)；BFC 区域不会与 float box 重叠；BFC 是页面上的隔离独立容器；浮动元素的高度参与 BFC 的高度计算。</p>
+<p><strong>触发条件</strong></p>
+<p>根元素 &lt;html&gt;；float 值非 none；overflow 值非 visible；display 取值 table、grid、flex，inline-flex、table-cell、table-caption、inline-block；position 取值 absolute、fixed。</p>
+<p><strong>作用场景</strong></p>
+<ul>
+<li>清除浮动</li>
+<li>自适应两栏布局</li>
+<li>阻止外边距塌陷</li>
+</ul>
+<h2 id="%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD">水平垂直居中</h2>
+<pre><code class="language-html">&lt;div class="box"&gt;
+    &lt;img src="https://images.unsplash.com/photo-1610663711502-35f870cfaea2?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=687&amp;q=80" alt=""&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>水平居中</strong></p>
+<ul>
+<li>margin: 0 auto;</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; }
+img{ display: block; width: 100px; height: 100px; margin: 0 auto; }
+</code></pre>
+<ul>
+<li>text-align: center；</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+/* 仅适用于块级元素设置文本对齐方式 text-align: center; */
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; text-align: center; }
+img{ width: 100px; height: 100px; }
+</code></pre>
+<p><strong>垂直居中</strong></p>
+<ul>
+<li>计算 margin</li>
+</ul>
+<pre><code class="language-css">/* 需知父子元素宽高 */
+*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; }
+img{ width: 100px; height: 100px; margin-top: 100px; margin-left: 100px; }
+</code></pre>
+<ul>
+<li>定位和 margin:auto;</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; position: relative; }
+img{ width: 100px; height: 100px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; }
+</code></pre>
+<ul>
+<li>定位和 transfrom</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; position: relative; }
+img{ width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+</code></pre>
+<ul>
+<li>diplay：table-cell;</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: table-cell; vertical-align: middle; text-align: center; }
+img{ width: 100px; height: 100px; }
+/* 若是块元素应修改为行内块 */
+*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: table-cell; vertical-align: middle; text-align: center; }
+.box div{ width: 100px; height: 100px; background-color: red; display: inline-block; }
+</code></pre>
+<ul>
+<li>flex 布局</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: flex; justify-content: center; align-items: center; }
+img{ width: 100px; height: 100px; }
+</code></pre>
+<ul>
+<li>calc 计算</li>
+</ul>
+<pre><code class="language-css">*{ padding: 0;margin: 0; }
+.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e;}
+.box div { height: 100px; width: 100px; background-color: red; margin: calc(50% - 50px) auto }
+</code></pre>
+<h2 id="animation">Animation</h2>
+<ul>
+<li>animation</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations">animation</a> 是一个简写属性形式，由 animation-name，animation-duration，animation-timing-function，animation-delay，animation-iteration-count，animation-direction，animation-fill-mode 和 animation-play-state 组成。</p>
+<p>animation-name 指定应用的系列动画，每个名称代表一个由 @keyframes 定义的动画序列。</p>
+<p>animation-duration 属性指定元素上的动画从开始到结束耗费时长。</p>
+<p>animation-iteration-count 用以指定动画重复的<strong>次数</strong>，仅仅使用该属性就能使动画重复播放。在该例中，设该属性为 infinite 以使动画无限重复。</p>
+<p>animation-timing-function 属性是动画的速度函数。这个属性使用<a href="https://cubic-bezier.com/#.17,.67,.83,.67">贝塞尔曲线</a>(Cubic Bezier)函数来生成或直接使用 ease、ease-in、ease-out 或 linear。</p>
+<p>animation-direction 属性为 alternate 设置来回滑动。</p>
+<amp-iframe src="https://codesandbox.io/embed/animation-uic6h?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="animation" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe>
+<ul>
+<li>通过 animation 实现一个圆弧运动的球体</li>
+</ul>
+<p>CSS3 的 transfrom 过渡效果可以实现元素位移、旋转、缩放。结合 animation 属性，就可以实现元素的动画效果。</p>
+<p>球体运动可拆分成 X 和 Y 轴两个运动，X 轴将以慢 —&gt; 快这样的速度运动；而 Y 轴的方向是以快 —&gt; 慢这样的速度运动（从斜率方面思考）；结合两个轴的运动，实现弧线效果。</p>
+<pre><code class="language-css">.box {
+  width: 400px;
+  height: 400px;
+  border: 5px solid #262626;
+}
+aside {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #222;
+  animation: arc1 5s ease-in forwards;
+}
+/* 这个虚拟元素默认是行内元素 */
+aside::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #424242;
+  animation: arc2 5s ease-out forwards;
+}
+@keyframes arc1 {
+  to {
+    transform: translateX(380px);
+  }
+}
+@keyframes arc2 {
+  to {
+    transform: translateY(380px);
+  }
+}
+</code></pre>
+<pre><code class="language-html">&lt;div class="box"&gt;
+  &lt;aside&gt;&lt;/aside&gt;
+&lt;/div&gt;
+</code></pre>
+<amp-iframe src="https://codesandbox.io/embed/animationarc-6sfkc?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="animationarc" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe><h2 id="%E5%B8%B8%E8%A7%81%E7%BB%98%E5%88%B6">常见绘制</h2>
+<ul>
+<li>绘制半圆弧</li>
+</ul>
+<p>border-radius 是一个允许设置元素的外边框圆角的简写属性：border-top-left-radius、border-top-right-radius、border-bottom-right-radius 和 border-bottom-left-radius。</p>
+<pre><code class="language-css">div {
+  /*半圆弧*/
+  width: 160px;
+  height: 80px;
+  background-color: transparent;
+  border-bottom-right-radius: 90px;
+  border-bottom-left-radius: 90px; /*增加了边框，圆角半径也要变化*/
+  border-left: 10px solid black; /*边框左边线*/
+  border-right: 10px solid black; /*边框右边线*/
+  border-bottom: 10px solid black; /*边框底边线*/
+}
+</code></pre>
+<ul>
+<li>三角形原理</li>
+</ul>
+<pre><code class="language-css">div{
+  width: 0;
+  height: 0;
+  border-left:100px solid transparent;  
+  border-top:80px solid transparent;  
+  border-right:40px solid transparent;  
+  border-bottom:70px solid #424242;
+}
+</code></pre>
+<ul>
+<li>圣杯布局</li>
+</ul>
+<p>圣杯布局为左右宽度固定，中间自适应且优先加载。</p>
+<pre><code class="language-css">* { margin: 0; padding: 0; }
+html, body { height: 100%; width: 100%; }
+header { width: 100%; background-color: #06b4fe; }
+/* 清除浮动塌陷 */
+footer { width: 100%; background-color: #ff6c37; clear: both; }
+.center, .left, .right { float: left; }
+.wrapper { padding: 0 100px; }
+.center { width: 100%; height: 100px; background-color: lightblue; }
+.left { width: 100px; height: 100px; background-color: lightgreen; margin-left: -100%; position: relative; left: -100px; }
+.right { width: 100px; height: 100px; background-color: yellow; margin-left: -100px; position: relative; right: -100px; }
+</code></pre>
+<pre><code class="language-html">&lt;header&gt;header&lt;/header&gt;
+&lt;!-- 优先加载 --&gt;
+&lt;div class="wrapper"&gt;
+  &lt;div class="center"&gt;center&lt;/div&gt;
+  &lt;div class="left"&gt;left&lt;/div&gt;
+  &lt;div class="right"&gt;right&lt;/div&gt;
+&lt;/div&gt;
+&lt;footer&gt;footer&lt;/footer&gt;
+</code></pre>
+<ul>
+<li>双飞翼布局</li>
+</ul>
+<p>和圣杯布局所要实现的布局是一样的，只不过方法不同。</p>
+<pre><code class="language-css">.main { width: 100%; float: left; }
+.middle { background-color: lightblue; margin: 0 100px; }
+.leftt { width: 100px; background-color: lightgreen; float: left; margin-left: -100%; }
+.rightt { width: 100px; background-color: yellow; float: left; margin-left: -100px; }
+.footer { clear: both; }
+</code></pre>
+<pre><code class="language-html">&lt;div class="header"&gt;header&lt;/div&gt;
+  &lt;div class="main"&gt;
+    &lt;div class="middle"&gt;middle&lt;/div&gt;
+  &lt;/div&gt;
+&lt;div class="leftt"&gt;leftt&lt;/div&gt;
+&lt;div class="rightt"&gt;rightt&lt;/div&gt;
+&lt;div class="footer"&gt;footer&lt;/div&gt;
+</code></pre>
+<amp-iframe src="https://codesandbox.io/embed/hgdw-tlf61?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="hgdw" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe><h2 id="auto">auto</h2>
+<p>auto 的效果可区分为两种，自动占用可用空间或直接设置 0 px。</p>
+<p>对于前者，通常用于实现<strong>水平居中</strong>的效果，但若使用不当则会出现与预期存在差异的情况。</p>
+<pre><code class="language-css">/* 水平居中 */
+margin: auto;
+/* 左或右边距单独设置 auto 会导致该边距占据所有可用空间 =&gt; 使元素视觉向反方向偏移 */
+margin-right: auto;
+</code></pre>
+<p>auto 在浮动，内联和绝对元素中不起作用，因为这些元素已经确定了布局。对应浮动和绝对定位，由于脱离标准文档流，而 auto 是针对文档流的元素，那么自然会失效；内联会导致元素因无法设置宽高，而 auto 无法自动占用空间而失效。</p>
+<p>对于后者的情况，块元素的宽度通常占据其整个容器，那么 <code>margin:auto</code> 将被设置为 0px。此外，auto 在顶部和底部边距中总是计算为 0px，这也是 w3c 规范导致 auto 仅常见于实现水平居中而不用于垂直居中的原因。</p>
+<p>当然，也会存在一定程度上受制于垂直页面流。页面大小总在高度方面增加，相对于页面本身而言，元素垂直居中于其容器并不一定会使其显示恒为居中。</p>
+<amp-iframe src="https://codesandbox.io/embed/youthful-shannon-mt8hf1?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="auto" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe><h2 id="%E5%9B%9E%E6%B5%81-reflow-%E4%B8%8E%E9%87%8D%E7%BB%98-repaint">回流 Reflow 与重绘 Repaint</h2>
+<blockquote>
+<p>回流必引起重绘，重绘不一定回流。<a href="https://developers.google.com/web?hl=zh-cn">点此</a>。</p>
+</blockquote>
+<p>浏览器采用 Flow Based Layout 流式布局模型，也就是常说的文档流。</p>
+<p>浏览器渲染页面产生 RenderTree 前需要先构建 DOM 和 CSSOM 树。HTML 标记转换成文档对象模型 (DOM)；CSS 样式转换成 CSS 对象模型 (CSSOM)。</p>
+<p>通过 RenderTree 可以将所有节点的样式计算成在页面上的大小和位置，并通过遍历节点绘成页面。</p>
+<h3 id="%E5%9B%9E%E6%B5%81-reflow">回流 Reflow</h3>
+<p>因渲染树中元素的<u>尺寸、结构、属性</u>发生改变，使浏览器重新渲染部分或全部文档。</p>
+<ul>
+<li>浏览器视窗改变与页面首次渲染</li>
+<li>元素内容（文字数量或图片大小等等）、尺寸、字体或位置发生改变</li>
+<li>添加或者删除可见的DOM元素</li>
+<li>激活 CSS 伪类（例如：<code>:hover</code>）</li>
+<li>查询属性或调用计算方法（引擎会重新渲染来确保获取的值是实时的）</li>
+</ul>
+<h3 id="%E9%87%8D%E7%BB%98-repaint">重绘 Repaint</h3>
+<p>页面中元素样式改变而不影响在文档流中的位置时，浏览器会将新样式赋予给元素并重新绘制它。</p>
+<ul>
+<li><code>visibility:hidden;</code> (仅隐藏内容，并未脱离文档流，继续占据页面的空间)</li>
+<li><code>color、background-color:...;</code> (仅颜色改变)</li>
+</ul>
+<h3 id="%E4%BC%98%E5%8C%96%E4%B8%8E%E9%81%BF%E5%85%8D">优化与避免</h3>
+<p>现代浏览器将可能引起回流和重绘的操作放入特定队列，进行批量处理。当任务数量或者时间间隔达到一个阈值的，浏览器就会将队列清空，进行一次批处理，这样可以把多次回流和重绘变成一次。例外是需要确定精确值的操作：<code>clientWidth|Height|Top|Left(获取元素的高、宽度，包括填充)</code>、<code>offsetWidth|Height|Top|Left(距离父盒子偏移，不算入border)</code>、<code>scrollWidth|Height|Top|Left(以像素为单位返回元素的整个宽度，包括填充，但不包括边框、滚动条或边距)</code>、<code>getComputedStyle()(获取指定元素的所有实际（计算）CSS 属性和值)</code>、<code>getBoundingClientRect()(返回元素的大小及其相对于视口的位置)</code>...</p>
+<p><strong>CSS</strong></p>
+<ul>
+<li>避免网站整体使用的老旧的 table 布局（表格数据无伤大雅）。</li>
+<li>避免设置多层内联样式。（根据 css 权重级的特性，内联样式只能被 <code>!important</code> 所覆盖）</li>
+<li>避免使用CSS计算表达式（如：<a href="yourdomain.com/calc/">calc()</a>）。</li>
+</ul>
+<p><strong>JavaScript</strong></p>
+<ul>
+<li>避免频繁操作样式，最好一次性重写 style 属性，或者将样式列表定义为 class 并一次性更改class属性。</li>
+<li>避免频繁操作DOM，尽可能的 DOM 操作通过开辟 <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment">DocumentFragment</a> 解决，最后再添加到文档中。</li>
+</ul>
+<pre><code class="language-HTML">&lt;ul id="list"&gt;&lt;/ul&gt;
+</code></pre>
+<pre><code class="language-JavaScript">var list = document.querySelector('#list')
+var fruits = ['Apple', 'Orange', 'Banana', 'Melon']
+
+var fragment = new DocumentFragment()
+
+fruits.forEach(function (fruit) {
+  var li = document.createElement('li')
+  li.innerHTML = fruit
+  fragment.appendChild(li)
+})
+
+list.appendChild(fragment)
+// Apple
+// Orange
+// Banana
+// Melon
+</code></pre>
+<ol>
+<li>会引起元素或周围的元素位置变化则 reflow，如窗口、字体大小、元素位置改变...；不会引起位置变化，仅存在变色效果则 repaint。</li>
+<li>回流性能消耗较重绘要高，因回流的影响也会冒泡作用于周边及父元素。</li>
+<li><code>display:none;</code>因不占据物理空间，因此涉及了dom树的操作，所以会引起重绘和回流；<code>visibility:hiden;</code> 元素虽然不可见但是却占据物理空间，因此不影响dom树的改变，所以只会引起回流。</li>
+</ol>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

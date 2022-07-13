@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>正则表达式</title>
+
+    <meta name="description" content="It takes a strong man to save himself, and a great man to save another.
+-- &quot;The Shawshank Redemption&quot;" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="正则表达式" />
+    <meta property="og:description" content="It takes a strong man to save himself, and a great man to save another.
+-- &quot;The Shawshank Redemption&quot;" />
+    <meta property="og:url" content="yourdomain.com/regexp/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
+    <meta property="article:published_time" content="2019-12-29T06:45:00.000Z" />
+    <meta property="article:modified_time" content="2021-08-22T05:08:35.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="正则表达式" />
+    <meta name="twitter:description" content="It takes a strong man to save himself, and a great man to save another.
+-- &quot;The Shawshank Redemption&quot;" />
+    <meta name="twitter:url" content="yourdomain.com/regexp/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/forestPath.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1333" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "正则表达式",
+    "url": "yourdomain.com/regexp/",
+    "datePublished": "2019-12-29T06:45:00.000Z",
+    "dateModified": "2021-08-22T05:08:35.000Z",
+    "keywords": "Technology growth",
+    "description": "It takes a strong man to save himself, and a great man to save another.\n-- &quot;The Shawshank Redemption&quot;",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">正则表达式</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2019-12-29">29 Dec 2019</time>
+                </section>
+            </header>
+            <section class="post-content">
+
+                <p>正则表达式是一种文本模式的匹配工具。通常由普通字符（例如字符 a 到 z ）以及特殊字符（"元字符"）组成的文字模式。</p>
+<pre><code class="language-javascript">// 新建正则表达式
+var regexp = /xzy/g; // 字面量新建正则表达式对象——在代码编译时就会生成
+var regexp = new Regexp("zairesinatra","g"); // 构造函数生成的正则对象在代码运行时生成
+</code></pre>
+<h2 id>修饰符与元字符:</h2>
+<pre><code class="language-javascript">/pattern(元字符)/flags(修饰符)
+</code></pre>
+<ul>
+<li>正则<a href="https://www.runoob.com/regexp/regexp-flags.html">修饰符</a>标记于表达式之外，用于指定额外的匹配策略，同时为正则对象增加对应的的属性</li>
+</ul>
+<table align="center">
+    <thead>
+        <tr>
+            <th> 修饰符 </th>
+            <th> 含义 </th>
+            <th> 描述 </th>
+        </tr><tr>
+    </tr></thead>
+    <tbody>
+        <tr>
+            <td> i </td>
+            <td> ignore - 不区分大小写 </td>
+            <td> 将匹配设置为搜索时不区分大小写: A 和 a 无异 </td>
+        </tr><tr>
+        </tr><tr>
+            <td> g </td>
+            <td> global - 全局匹配 </td>
+            <td> 查找所有的匹配项 </td>
+        </tr><tr>
+        </tr><tr>
+            <td> m </td>
+            <td> multi line - 多行匹配 </td>
+            <td> 使边界字符 ^ 和 $ 匹配每一行的开头和结尾 </td>
+        </tr><tr>
+        </tr><tr>
+            <td> s </td>
+            <td> 特殊字符圆点 . 中包含换行符 \n </td>
+            <td> 默认情况下的圆点 . 是 匹配除换行符 \n 之外的任何字符，加上 s 修饰符之后, . 中包含换行符 \n </td>
+        </tr><tr>
+    </tr></tbody>
+</table>
+<ul>
+<li>元字符即描述正则表达式上下文中的行为的字符</li>
+</ul>
+<pre><code class="language-javascript">var str = "abcd test@zairesinatra.com 1234";
+// \b 匹配一个单词边界，也就是指单词和空格间的位置
+// 字符集[\w.%+-]匹配字母数字下划线、特殊符号
+// \. 匹配 .
+var pattern = /\b[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}\b/g;
+document.write(str.match(pattern)); // test@zairesinatra.com
+</code></pre>
+<h2 id>使用方法</h2>
+<p>正则表达式实例对象的方法: <code>RegExp实例对象.方法(string)</code><br />
+字符串实例对象的方法: <code>String实例对象.方法(RegExp对象)</code></p>
+<ul>
+<li>RegExp 的 <code>exec</code> 和 <code>test</code> 方法</li>
+</ul>
+<pre><code class="language-javascript">// 空字符串正则匹配
+let kong = new RegExp('')
+
+// 字面量新建正则表达式
+let reg1 = /xzy/g;
+let test1 = 'xzyxxxzzzyyy';
+console.log(reg1.test(test1)); // true
+console.log(kong.test(test1)); // true
+
+// 正则构造函数创建
+let reg2 = new RegExp('zs','m');
+let test2 = 'xzyxxxzzzyyy';
+let test22 = 'zsxzyxxxzzzyyyzs';
+console.log(reg2.exec(test2)); // null
+// 对于调用exec方法后返回的数组具有以下两个属性: input - 整个原待匹配的字符串、index - 整个模式匹配成功的开始位置
+console.log(reg2.exec(test22)); // [ 'zs', index: 0, input: 'zsxzyxxxzzzyyyzs', groups: undefined ]
+
+// 如果正则表达式包含圆括号,则返回的数组会包括多个元素.首先是整个匹配成功的结果,后面是圆括号里匹配成功的结果,如果有多个圆括号,他们的匹配成功的结果都会成为数组元素
+let reg3 = /^_(x)_(y)$/;
+let test3 = '_x_y';
+console.log(reg3.exec(test3)); // [ '_x_y', 'x', 'y', index: 0, input: '_x_y', groups: undefined ]
+console.log(reg3.exec('')); // 空字符串返回 null
+console.log(kong.exec(test3)); // 空字符串正则匹配exec返回 [ '', index: 0, input: '_x_y', groups: undefined ]
+</code></pre>
+<ul>
+<li>字符串对象的 <code>match、search、replace、split</code> 方法</li>
+</ul>
+<pre><code class="language-javascript">// 字符串对象方法就是字符串写前边
+
+// 空字符串正则匹配
+let kong = new RegExp('');
+
+//  match() 方法检索返回一个字符串匹配正则表达式的结果[]
+let zsstr = 'zairesinatra';
+let reg = /z/;
+let greg = /z/g;
+let regno = /x/;
+console.log(zsstr.match(reg)); // [ 'z', index: 0, input: 'zairesinatra', groups: undefined ]
+console.log(zsstr.match(greg)); // 使用g标志,则将返回与完整正则表达式匹配的所有结果,但不会返回捕获组 - [ 'z' ]
+console.log(zsstr.match(regno)); // null
+
+// search方法返回匹配成功的位置在整个字符串中的索引,如果没有匹配成功任何字符则返回-1,search方法会自己忽略g修饰符
+console.log(zsstr.search(reg)); // 0
+
+// str.replace(‘搜索模式’,'替换的内容’);
+// 正则表达式不带g修饰符,那么replace方法会替换第一个匹配成功的结果,如果加上了g修饰符,那么会替换所有匹配成功的值
+let strr = 'abcdea'
+let zy = new RegExp('a')
+let zyy = new RegExp('a','g')
+console.log(strr.replace('a','o')); // 返回新字符串 - obcdea
+console.log(strr); // abcdea
+console.log(strr.replace(zy,'o')); // obcdea
+console.log(strr.replace(zyy,'o')); // obcdeo
+
+// replace方法的第二个参数可以使用$符号,用来指代所要替换的内容
+let params = "[$`-$&amp;-$']"
+console.log('abc'.replace('b',params)); // a[a-b-c]c
+// \s匹配任何空白字符串 \S匹配任何非空白字符
+// \w匹配字母数字下划线(不包括符号)
+console.log('hi zairesinatra'.replace(/(\w+)\s(\w+)/,"$2 $1")); // zairesinatra hi
+
+// replace方法的第二个参数也可以是函数,用于将第一个参数匹配到的值替换为函数返回值
+let repparams = '2 and 4 square'.replace(/[0-9]+/g, function(num) {return num * num})
+console.log(repparams); // 4 and 16 square
+
+// 函数也可以由多个参数.它的第一个参数是整个匹配的内容,第二个参数是组匹配(这时有多少个组匹配就有多少个参数)
+let field = {
+    "pos_1": "dc",
+    "pos_2": "fullstack",
+    "pos_3": "hardware"
+}
+let template = '&lt;span id="pos_1"&gt;&lt;/span&gt;&lt;span id="pos_2"&gt;&lt;/span&gt;&lt;span id="pos_3"&gt;&lt;/span&gt;'
+let zsfunc = template.replace(/(span id=")(\w+)("&gt;)(&lt;\/span&gt;)/g, function(match, $1, $2, $3,$4) { return $1+$2+$3+field[$2]+$4 })
+console.log(zsfunc); // &lt;span id="pos_1"&gt;dc&lt;/span&gt;&lt;span id="pos_2"&gt;fullstack&lt;/span&gt;&lt;span id="pos_3"&gt;hardware&lt;/span&gt;
+
+// split(‘字符串的分割正则’,‘返回数组的最大成员数’)；返回分割后各部分组成的数组
+let str = 'a,b,c,d';
+let strrr = 'a, b,c,d ';
+console.log(str.split('')); // ['a', ',', 'b', ',', 'c', ',', 'd']
+console.log(str.split(',')); // [ 'a', 'b', 'c', 'd' ]
+console.log(strrr.split(/,*/)); // [ 'a', ' ', 'b', 'c', 'd', ' ' ]
+console.log(strrr.split(/, */)); // [ 'a', 'b', 'c', 'd ' ]
+console.log(strrr.split(/, */, 3)); // [ 'a', 'b', 'c' ]
+</code></pre>
+<h2 id>正则表达式应用:</h2>
+<pre><code class="language-javascript">// 1.连字符转驼峰
+let str = "life-goes-on";
+let reg = /-\w/g; // 匹配横杆以及之后的一个字符, 全局匹配
+// 注意这里 /^-\w$/g 则会输出 life-goes-on , 因为 ^ 和 $ 分别匹配字符串的开始和输出位置——匹配不到全局
+// $1不是一个变量——它是一个在调用中使用的占位符.$n表示nth正则表达式的捕获组.
+console.log(str.replace(reg,function($1){
+    return $1.slice(1).toUpperCase()
+})) // lifeGoesOn
+
+// 2.匹配二进制
+var strr = "100110011";
+// [xyz]字符集合-匹配所包含的任意一个字符.例如 [abc] 可以匹配 "plain" 中的"a"
+var regg = /^[01]+$/g;
+var regg1 = /[01]+/g
+console.log(strr.match(regg)); // [ '100110011' ]
+console.log(strr.match(regg1)); // [ '100110011' ]
+
+// 3.非负十进制正整
+var num = 66;
+var numm = '+666';
+// ? 非贪婪匹配--尽可能少的匹配所搜索的字符串
+var zsreg = /^\+?[1-9][0-9]*$/;
+var zsregg = /\+?[1-9][0-9]*/g;
+console.log(zsreg.test(num)); // true
+console.log(zsreg.test(numm)); // true
+console.log(zsregg.test(8888)); // true
+
+// 4.匹配十二月
+let yue = '10';
+let noexistyue = '20';
+let yuereg = /^(0?[1-9]|1[012])$/g;
+console.log(yue.match(yuereg)); // [ '10' ]
+console.log(yue.match(noexistyue)); // null
+
+// 5.匹配QQ账号-最短5最长11
+let qq = '11111111';
+let qqreg = /^[1-9][0-9]{4,10}$/g;
+console.log(qqreg.test(qq)); // true
+
+// 6.匹配常见的固定电话号码
+let hnum = '0731-11111111';
+let hreg = /^\(?0\d{2,3}[) -]?\d{8}$/g;
+console.log(hnum.match(hreg)); // [ '0731-11111111' ]
+
+// 7.ip地址
+let ipp = '127.0.0.1';
+var ipreg = /((([01]?\d{1,2})|(2([0-4]\d|5[0-5])))\.){3}(([01]?\d{1,2})|(2([0-4]\d|5[0-5])))/g
+console.log(ipp.match(ipreg)); // [ '127.0.0.1' ]
+
+// 8.匹配尖括号&lt;&gt;及里面所有的字符
+var str66 = "&lt;a herf='www.zairesinatra.com'&gt;";
+// ^ 在方括号表达式中使用表示不接受该字符集合
+var reg66 = /&lt;a[^&gt;]+&gt;/g; // ^&gt; 非 &gt;
+console.log(str66.match(reg66)); // [ "&lt;a herf='www.zairesinatra.com'&gt;" ]
+
+// 9.分割数字每三个以一个逗号划分(千位分隔符)
+var numstr = '12345678901'
+// ?=正向肯定预查,在任何匹配pattern的字符串开始处匹配查找字符串
+// 找到所有的单个字符,这些字符的后面跟随的字符的个数必须是3的倍数,并在符合条件的单个字符后面添加
+console.log(numstr.replace(/(\d)(?=(\d{3})+$)/g,'$&amp;,'));
+
+// 10.判断电话
+function tel (num) {
+    let reg = /^1[345678]\d{9}$/
+    return console.log(reg.test(num));
+}
+tel(13999999999) // true
+
+// 11.URL正则
+function urlreg (url) {
+    let reg = /^(https?|ftp|file):\/\/[\S]+\.[\S]+\.[\S]+$/;
+    let result = reg.test(url+'')
+    return console.log(result);
+}
+urlreg('https://www.zairesinatra.com') // true
+
+// 12.十六进制颜色正则
+function col (color) {
+    let reg = /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/;
+    let result = reg.test(color+'')
+    return console.log(result);
+}
+col('fff') // true
+
+// 13.邮箱验证
+function email (youxiang) {
+    let reg = /^[a-zA-Z0-9_\-]+@[a-zA-Z0-9_\-]+\.[a-zA-Z0-9_\-]+$/;
+    let result = reg.test(youxiang+'')
+    return console.log(result);
+}
+email('xxxxx@qq.com') // true
+</code></pre>
+<h2 id>结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议 </a>，转载请注明出处！</p>
+<p></p><p></p>
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

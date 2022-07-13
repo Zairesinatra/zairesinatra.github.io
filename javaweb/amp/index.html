@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>JavaWeb</title>
+
+    <meta name="description" content="JavaWeb 开发相关，不包含 JSP、Thymeleaf。" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="JavaWeb" />
+    <meta property="og:description" content="JavaWeb 开发相关，不包含 JSP、Thymeleaf。" />
+    <meta property="og:url" content="yourdomain.com/javaweb/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/05/dragonBall.jpg" />
+    <meta property="article:published_time" content="2019-06-04T13:22:00.000Z" />
+    <meta property="article:modified_time" content="2022-06-06T18:03:12.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JavaWeb" />
+    <meta name="twitter:description" content="JavaWeb 开发相关，不包含 JSP、Thymeleaf。" />
+    <meta name="twitter:url" content="yourdomain.com/javaweb/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/05/dragonBall.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "JavaWeb",
+    "url": "yourdomain.com/javaweb/",
+    "datePublished": "2019-06-04T13:22:00.000Z",
+    "dateModified": "2022-06-06T18:03:12.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/05/dragonBall.jpg",
+        "width": 2000,
+        "height": 1125
+    },
+    "keywords": "Technology growth",
+    "description": "JavaWeb 开发相关，不包含 JSP、Thymeleaf。",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">JavaWeb</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2019-06-04">04 Jun 2019</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2022/05/dragonBall.jpg" width="600" height="340" layout="responsive" 
+                alt="dragon ball"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <h2 id="xml-extensible-markup-language">XML Extensible Markup Language</h2>
+<h3 id="%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95">基本语法</h3>
+<p>声明是固定格式；根标签有且只能有一个；允许单双标签，且可以嵌套，但是不能交叉嵌套；标签名、属性名建议使用小写字母；属性值必须加引号，单双皆可。</p>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</code></pre>
+<h3 id="schema-%E7%BA%A6%E6%9D%9F">Schema 约束</h3>
+<p>此约束要求在一个 XML 文档中，所有标签和属性都必须在约束中有明确的定义。</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xmlns</td>
+<td>指出当前 XML 文档约束规则的名称空间位置 根据此属性来引用一个具体的名称空间</td>
+</tr>
+<tr>
+<td>xmlns:xsi</td>
+<td>指出 xmlns 中定义此属性的约束文档</td>
+</tr>
+<tr>
+<td>xsi:schemaLocation</td>
+<td>在 xsi 名称空间下引用 schemaLocation 属性 指定当前 XML 文档中所用到的约束文档本身的文件的地址</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2 id="tomcat">Tomcat</h2>
+<p>Tomcat 是一个开源应用服务器，同时也用作于 servlet 容器，为 Java 应用程序提供服务。其中 Javaweb 项目并不是将源代码进行部署，而是部署包 Artifact。</p>
+<p>在 IntelliJ IDE 中 Run -&gt; Edit Configurations -&gt; Edit Configuration Templates -&gt; Tomcat Server -&gt; Local 进行配置，完成后出现 Application Servers 选项。</p>
+<p></p>
+<h3 id="centos-%E7%A9%BA%E9%97%B4">CentOS 空间</h3>
+<ul>
+<li>安装 Java</li>
+</ul>
+<p>Tomcat 要求在服务器上安装 Java 来执行任何 Java Web 的应用程序代码。</p>
+<pre><code class="language-shell">yum install java-1.8.0-openjdk-devel.x86_64
+</code></pre>
+<ul>
+<li>Tomcat 安装配置</li>
+</ul>
+<p>出于安全考虑，Tomcat 应该作为非 root 用户运行。故创建一个运行此服务的新用户和组。</p>
+<pre><code class="language-shell"># 创建新 Tomcat 组
+sudo groupadd tomcat
+# 然后创建一个新 Tomcat 用户使之成为该组的成员
+# 其主目录为安装 Tomcat 的 /opt/tomcat,以及一个没有人可以登录该帐账户的 shell /bin/false
+sudo useradd -M -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
+</code></pre>
+<p>安装 Tomcat8 需先下载最新的<a href="https://downloads.apache.org/tomcat/">二进制版本</a>，然后手动配置。</p>
+<pre><code class="language-shell">wget https://downloads.apache.org/tomcat/tomcat-8/v8.5.71/bin/apache-tomcat-8.5.71.tar.gz
+sudo mkdir /opt/tomcat &amp;&amp; sudo tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
+</code></pre>
+<p>设置对 Tomcat 安装正确访问的权限。</p>
+<pre><code class="language-shell">cd /opt/tomcat
+# 授予 Tomcat 组对整个安装目录的所有权
+sudo chgrp -R tomcat /opt/tomcat
+# 授予 Tomcat 组对 conf 目录及其所有内容的读取、执行对目录本身的访问权限
+sudo chmod -R g+r conf &amp;&amp; sudo chmod g+x conf
+# 设置 Tomcat 用户为 webapps、work、temp、logs 目录的拥有者
+sudo chown -R tomcat webapps/ work/ temp/ logs/
+</code></pre>
+<p>欲将 Tomcat 作为服务运行，所以设置一个 Tomcat Systemd 的单元文件。并通过此脚本告诉服务器以 Tomcat 用户身份运行 Tomcat 服务。</p>
+<pre><code class="language-shell">sudo vi /etc/systemd/system/tomcat.service
+</code></pre>
+<pre><code class="language-shell"># Systemd unit file for tomcat
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.el7_9.x86_64/jre
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+# Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+# Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+User=tomcat
+Group=tomcat
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<pre><code class="language-shell"># 重新加载 Systemd 以加载 Tomcat 单元文件
+sudo systemctl daemon-reload
+# 启动 Tomcat 服务
+sudo systemctl start tomcat
+# 检查服务状态
+sudo systemctl status tomcat
+# 开启在服务器启动时启动
+sudo systemctl enable tomcat
+</code></pre>
+<h3 id="mac-%E7%A9%BA%E9%97%B4">mac 空间</h3>
+<pre><code class="language-shell"># 指定版本9
+$ brew install tomcat@9
+# 查看安装地址
+$ brew ls tomcat@9
+# 启动、停止Tomcat =&gt; http://localhost:8080/
+$ brew services start|stop tomcat@9
+# tomcat 目录结构
+$ tree -x /usr/local/Cellar/tomcat@9/9.0.62/libexec
+/usr/local/Cellar/tomcat@9/9.0.62/libexec
+├── BUILDING.txt
+├── CONTRIBUTING.md
+├── bin =&gt; 可执行文件目录
+├── conf -&gt; ../../../../etc/tomcat@9 =&gt; 配置文件目录
+├── lib =&gt; 存放 lib 的目录
+├── logs =&gt; 存放日志文件目录
+├── temp =&gt; 临时目录
+├── webapps =&gt; 项目部署的目录
+└── work =&gt; 工作目录
+</code></pre>
+<h3 id="%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">配置文件</h3>
+<p>conf 目录下的 server.xml 文件中可看出，Tomcat 启动后，会占用个三个端口号。</p>
+<pre><code class="language-xml">...
+&lt;!-- 第22行 --&gt;
+&lt;Server port="8005" shutdown="SHUTDOWN"&gt;
+...
+&lt;!-- 第69行 --&gt;
+&lt;Connector port="8080" protocol="HTTP/1.1"
+		   connectionTimeout="20000"
+		   redirectPort="8443" /&gt;
+...
+&lt;!-- 第115行 =&gt; 默认被注释 --&gt;
+&lt;Connector port="8009" protocol="AJP/1.3" redirectPort="8443" /&gt;
+</code></pre>
+<h2 id="servlet">Servlet</h2>
+<h3 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h3>
+<p>Servlet 可使用 javax.servlet 和 javax.servlet.http 包创建。前者包下一系列的接口用于定义开发标准。遵循这一套标准，不同的 Servlet 容器提供了不同的实现。后者接口及其实现类就是实际开发时使用的具体的 Servlet。</p>
+<p>HttpServlet 类 - 继承自 -&gt; GenericServlet 类 - 实现 -&gt; Servlet接口。</p>
+<p>Servlet 接口负责访问规范，GenericServlet 类在持有 ServletConfig 类引用的同时完成空实现，HttpServlet 类实现上层定义的抽象 service 方法，实现请求分发。</p>
+<p>web.xml 文件用来初始化配置页面、servlet、servlet-mapping、filter、listener、启动加载级别等信息。同时注意约定大于配置。</p>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0"&gt;
+    &lt;!-- context-param 是上下文参数 =&gt; 属于整个 web 工程 =&gt; Filter 过滤器、Listener 监听器、Servlet 程序皆可访问 --&gt;
+    &lt;context-param&gt;
+        &lt;param-name&gt;username&lt;/param-name&gt;
+        &lt;param-value&gt;zs&lt;/param-value&gt;
+    &lt;/context-param&gt;
+    &lt;!-- servlet 标签给 tomcat 配置 servlet 程序 --&gt;
+    &lt;servlet&gt;
+        &lt;!-- servlet-name 标签给 servlet 程序起别名 =&gt; 通常是类名 --&gt;
+        &lt;servlet-name&gt;HelloServlet&lt;/servlet-name&gt;
+        &lt;!-- servlet-class 是 servlet 程序全类名 --&gt;
+        &lt;servlet-class&gt;com.???.servlets.HelloServlet&lt;/servlet-class&gt;
+        &lt;!-- init-param是初始化参数 --&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;username&lt;/param-name&gt;
+            &lt;param-value&gt;zs&lt;/param-value&gt;
+        &lt;/init-param&gt;
+        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+    &lt;!-- servlet-mapping 给 servlet 程序配置访问地址 --&gt;
+    &lt;servlet-mapping&gt;
+        &lt;!-- 通知服务器当前配置的地址是指定的 servlet 程序 --&gt;
+        &lt;servlet-name&gt;HelloServlet&lt;/servlet-name&gt;
+        &lt;!-- url-pattern 标签配置访问地址 --&gt;
+        &lt;!-- / 解析为 http://ip:port/工程路径 --&gt;
+        &lt;!-- 工程路径即是部署 war 包的 Application context --&gt;
+        &lt;url-pattern&gt;/hello&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+</code></pre>
+<p>当 Servlet 首次接收请求，会通过构造方法的调用完成实例化，通过 <code>init()</code> 的调用进行初始化，随后执行 <code>service()</code> 开展服务。此后的每一次请求也都是服务，即创建对象后，所有的URL地址匹配的请求都由这同一个对象来处理。当容器关闭时 web 工程停止，所有的 Servlet 实例会通过 <code>destroy()</code> 进行销毁。</p>
+<pre><code class="language-java">/* 开发中很少通过实现 Servlet 接口的方式去实现 servlet 程序 */
+public class HelloServlet implements Servlet {
+    public HelloServlet() {
+        System.out.println("构造器方法执行");
+    }
+
+    @Override
+    public void init(ServletConfig servletConfig) throws ServletException {
+        System.out.println("初始化方法执行");
+        /* 测试 ServletConfig 类 */
+        // 获取 servlet 程序别名
+        System.out.println(servletConfig.getServletName()); // HelloServlet
+        // 获取初始化参数 init-param
+        System.out.println(servletConfig.getInitParameter("username")); // zs
+        // 获取 ServletContext 对象
+        System.out.println(servletConfig.getServletContext()); // org.apache.catalina.core.ApplicationContextFacade@47d46fad
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return null;
+    }
+
+    @Override
+    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+        System.out.println("I got you =&gt; service");
+        // servletRequest 不能直接调用 getMethod，其子接口 HttpServletRequest 才可调用 =&gt; 用于区分请求方法
+        // 这里强制类型转换向下转型说明 =&gt; 传递进 service 方法的 servlet 是 HttpServlet,故可以理解为已经过一次向上转型,向上转型不需要强转,向下转型才需强转
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        // 获取请求方式并根据请求方式判断
+        String method = httpServletRequest.getMethod();
+        if("GET".equals(method)) {
+            System.out.println("GET请求");
+            doGet();
+        } else if ("POST".equals(method)) {
+            System.out.println("POST请求");
+            doPost();
+        } else {
+            System.out.println("else");
+        }
+    }
+
+    private void doPost() {
+        System.out.println("POST请求操作反馈");
+    }
+
+    public void doGet() {
+        System.out.println("GET请求操作反馈");
+    }
+
+    @Override
+    public String getServletInfo() {
+        return null;
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("销毁方法执行");
+    }
+}
+</code></pre>
+<p>当请求出现，<code>service()</code> 会自动响应，根据请求种类决定调用具体的 doXxx 方法。开发中通常直接找 Servlet 子类去继承即可。在 HttpServlet 中的这些方法都是 405 实现风格，需要子类去实现对应方法，否则默认报 405 错误。注意客户端访问不到 WEB-INF 下的内容，但是与其同级资源是可访问的。</p>
+<p>Tomcat 默认于首次请求时进行实例化、初始化，以此提高系统的启动速度。若需提高响应速度，可通过 &lt;servlet&gt; 里的 &lt;load-on-startup&gt; 设置启动顺序，数值越小，启动越靠前。</p>
+<p>Servlet 在容器中是线程不安全的。若一个线程需要根据实例的成员变量做逻辑判断，那么可能存在某个中间时机，另一个线程改变了被依赖的成员变量值，导致此线程的执行路径发生变化。最好不要在 Servlet 中定义成员变量，若不得不定义成员变量，应尽可能的不去修改成员变量的值，不要根据成员变量的值做逻辑判断。</p>
+<h3 id="servletconfig-%E7%B1%BB">ServletConfig 类</h3>
+<p>ServletConfig 类是 Servlet 程序的配置信息类，常用于获取 Servlet 程序别名，即 servlet-name 的值；获取初始化参数 init-param；获取 ServletContext 对象。</p>
+<p>Tomcat 初始化一个 Servlet 时，会将该 Servlet 的配置信息封装到 ServletConfig 对象中，此时在初始化调用的 <code>init(ServletConfig servletConfig)</code> 方法将 ServletConfig 对象传递给 Servlet。每个 Servlet 维护各自的 ServletConfig。</p>
+<p>这里注意一个空指针问题。在继承于 HttpServlet 的类中重写初始化方法后，可能会导致后续 doXxx 方法内的 ServletConfig 对象丢失。这是由于 getServletConfig 方法是在 GenericServlet 中获取的。而 GenericServlet 类也有初始化方法，且在此方法中将 config 进行保存。当子类有初始化且父类也有时，直接调用子类的初始化，导致父类保存操作丢失。</p>
+<pre><code class="language-java">public class Demo01Servlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ServletConfig servletConfig = getServletConfig();
+        System.out.println("I got you.");
+        System.out.println(servletConfig.getServletName());
+        // 获取 web.xml 配置的上下文参数 context-param
+        ServletContext servletContext = getServletConfig().getServletContext();
+        System.out.println(servletContext.getInitParameter("username")); // zs
+        // 获取当前的工程路径
+        System.out.println(servletContext.getContextPath()); // /servlet
+        // 获取工程部署后在服务器磁盘上的绝对路径 =&gt; IDEA 整合 tomcat 后, tomcat 被拷贝的副本内容
+        System.out.println(servletContext.getRealPath("/")); // /Users/???/IdeaProjects/zsJavaWeb/out/artifacts/pro_javaweb_servlet_war_exploded/
+        // 存储数据
+        // 获取 servletContext 对象
+        ServletContext servletContext1 = getServletContext();
+        servletContext1.setAttribute("key1","value1");
+        System.out.println(servletContext1.getAttribute("key1")); // value1
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return super.getServletConfig();
+    }
+
+    @Override
+    public ServletContext getServletContext() {
+        return super.getServletContext();
+    }
+
+    @Override
+    public String getServletInfo() {
+        return super.getServletInfo();
+    }
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+    }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>servlet 接口方法名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getServletName()</td>
+<td>获取 servlet-name</td>
+</tr>
+<tr>
+<td>getServletContext()</td>
+<td>获取 ServletContext 对象</td>
+</tr>
+<tr>
+<td>getInitParameter()</td>
+<td>获取配置 Servlet 时设置的初始化参数 =&gt; 根据名字获取值</td>
+</tr>
+<tr>
+<td>getInitParameterNames()</td>
+<td>获取所有初始化参数名组成的 Enumeration 对象</td>
+</tr>
+</tbody>
+</table>
+<h3 id="servletcontext-%E7%B1%BB">ServletContext 类</h3>
+<p>和 ServletConfig 一样，ServletContext 也是一个接口，其表示 Servlet 上下文对象。一个 web 工程只有一个 ServletContext 对象实例。ServletContext 是一个域对象，即可以像 Map 一样存储数据的对象，其中的域为操作范围。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>存储</th>
+<th>取出</th>
+<th>删除</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Map</td>
+<td>put</td>
+<td>get</td>
+<td>remove</td>
+</tr>
+<tr>
+<td>域对象</td>
+<td>setAttribute</td>
+<td>getAttribute</td>
+<td>removeAttribute</td>
+</tr>
+</tbody>
+</table>
+<p>ServletContext 常用于获取 web.xml 配置的上下文参数 context-param；获取当前的工程路径；获取工程部署后在服务器磁盘上的绝对路径；存储数据。在工程部署时创建，在工程停止时销毁。</p>
+<h3 id="httpservletrequest-%E7%B1%BB">HttpServletRequest 类</h3>
+<p>Tomcat 服务器将请求过来的 Http 协议信息解析好封装到 Request 对象中，再传递给 service 方法。HttpServletRequest 对象可获取所有请求的信息。</p>
+<table>
+<thead>
+<tr>
+<th>HttpServletRequest 类常用方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getRequestURI()</td>
+<td>获取请求的资源路径（不包含服务器和端口号）</td>
+</tr>
+<tr>
+<td>getRequestURL()</td>
+<td>获取请求的统一资源定位符（绝对路径）</td>
+</tr>
+<tr>
+<td>getRemoteHost()</td>
+<td>获取客户端的ip地址</td>
+</tr>
+<tr>
+<td>getHeader()</td>
+<td>获取请求头</td>
+</tr>
+<tr>
+<td>getParameter("key")</td>
+<td>获取请求参数</td>
+</tr>
+<tr>
+<td>getParameterValues("key")</td>
+<td>获取请求参数（多值使用）</td>
+</tr>
+<tr>
+<td>getMethod()</td>
+<td>获取请求方式GET|POST</td>
+</tr>
+<tr>
+<td>setAttribute(key,value)</td>
+<td>设置域数据</td>
+</tr>
+<tr>
+<td>getAttribute(key)</td>
+<td>读取域数据</td>
+</tr>
+<tr>
+<td>getRequestDispatcher()</td>
+<td>获取请求转发对象</td>
+</tr>
+</tbody>
+</table>
+<h3 id="httpservletresponse-%E7%B1%BB">HttpServletResponse 类</h3>
+<p>每当请求传入 Tomcat，Tomcat 就会创建一个 Response 对象并传递给 Servlet 程序。HttpServletResponse 表示所有相应的信息。字节流 <code>getOutputStram()</code> 传递二进制数据，常用于下载；字符流 <code>getWriter()</code> 常用于回传字符串。注意二者不能同时使用，只能选其一。</p>
+<pre><code class="language-java">PrintWriter writer = resp.getWriter();
+writer.write("response content by zs"); // 中文会乱码 =&gt; System.out.println(resp.getCharacterEncoding()); =&gt; ISO-8859-1
+</code></pre>
+<h3 id="%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91">请求转发与重定向</h3>
+<ul>
+<li>请求转发</li>
+</ul>
+<p>转发即在请求的处理过程中，Servlet 完成了该阶段的任务，需要把请求转交给下一个 Servlet 程序继续处理，以此协作完成完整功能。</p>
+<pre><code class="language-java">// 请求转发必须以斜杠开头 =&gt; 映射到 web 目录
+req.getRequestDispatcher("/servletN").forward(req,res);
+// 注意请求转发能访问 WEB-INF 目录下内容
+req.getRequestDispatcher("/WEB-INF/xxx.html");
+</code></pre>
+<ul>
+<li>base 标签</li>
+</ul>
+<p>Html 中位于 &lt;head&gt; 标签内的 &lt;base&gt; 标签用于设置页面相对路径工作时参照的地址。其 href 属性就是参数的地址值。可用做于因转发的地址不变这一特性导致跳转产生相对路径问题的解决方式。</p>
+<ul>
+<li>重定向</li>
+</ul>
+<p>重定向即在请求的处理过程中，Servlet 在完成了该处理任务后，以一个响应的方式通知浏览器应另外再访问下一个资源。因之前地址可能被废弃。</p>
+<pre><code class="language-java">// 方式一
+resp.setStatus(302);
+resp.setHeader("Location","http://localhost:8080/xxx");
+// 方式二
+resp.sendRedirect("http://localhost:8080/xxx");
+</code></pre>
+<ul>
+<li>总结对比</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>转发</th>
+<th>重定向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一次请求</td>
+<td>两次请求</td>
+</tr>
+<tr>
+<td>浏览器地址栏显示的是第一个资源的地址</td>
+<td>浏览器地址栏显示的是第二个资源的地址</td>
+</tr>
+<tr>
+<td>全程使用的是同一个request对象</td>
+<td>全程使用的是不同的request对象</td>
+</tr>
+<tr>
+<td>在服务器端完成</td>
+<td>在浏览器端完成</td>
+</tr>
+<tr>
+<td>目标资源地址由服务器解析</td>
+<td>目标资源地址由浏览器解析</td>
+</tr>
+<tr>
+<td>目标资源可以在WEB-INF目录下</td>
+<td>目标资源不能在WEB-INF目录下</td>
+</tr>
+<tr>
+<td>目标资源仅限于本应用内部</td>
+<td>目标资源可以是外部资源</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cookie-%E4%B8%8E-session">Cookie 与 Session</h2>
+<h3 id="cookie">Cookie</h3>
+<p>Cookie 是服务端通知客户端保存键值对的一种技术，客户端存在的 cookie 会随着每次请求发送给服务器，每个 Cookie 的大小不能超过 4kb。</p>
+<ul>
+<li>Cookie 的创建</li>
+</ul>
+<p>浏览器没有 Cookie 时向服务端发送请求，服务端会创建 Cookie 并通知客户端保存返回的 Cookie，在客户端收到响应后，查阅到 set-cookie 响应头，有此 Cookie 则修改，无则创建。</p>
+<pre><code class="language-java">// 创建 cookie 对象
+Cookie cookie = new Cookie("cookieKey","cookieValue");
+// 通知客户端保存
+resp.addCookie(cookie);
+</code></pre>
+<ul>
+<li>Cookie 的获取</li>
+</ul>
+<pre><code class="language-java">// 获取客户端传递的所有 Cookie
+Cookie[] cookies = req.getCookies();
+for(Cookie cookie:cookies){
+    System.out.println(cookie.getName()); // 获取cookie的键
+    System.out.println(cookie.getValue()); // 获取cookie的值
+}
+</code></pre>
+<ul>
+<li>Cookie 的修改</li>
+</ul>
+<pre><code class="language-java">// 方案一 =&gt; 创建同名 cookie 并回传
+Cookie cookie = new Cookie("cookieKey","cookieValue");
+resp.addCookie(cookie);
+// 方案二 =&gt; 查找所需修改的 cookie 对象并调用 setValue 赋新值并返回
+Cookie cookie = CookieUtils.findCookie("cookieKey",req.getCookies());
+if(cookie != null){cookie.setValue("newValue");resp.addCookie(cookie);}
+</code></pre>
+<ul>
+<li>Cookie 的生命控制</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>会话级Cookie</th>
+<th>持久化Cookie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>服务器端并没有明确指定Cookie的存在时间</td>
+<td>服务器端明确设置了Cookie的存在时间</td>
+</tr>
+<tr>
+<td>在浏览器端，Cookie数据存在于内存中</td>
+<td>在浏览器端，Cookie数据会被保存到硬盘上</td>
+</tr>
+<tr>
+<td>只要浏览器还开着，Cookie数据就一直都在</td>
+<td>Cookie在硬盘上存在的时间根据服务器端限定的时间来管控，不受浏览器关闭的影响</td>
+</tr>
+<tr>
+<td>浏览器关闭，内存中的Cookie数据就会被释放</td>
+<td>持久化Cookie到达了预设的时间会被释放</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-java">// setMaxAge() =&gt; 设置 cookie 最大生存时间,单位为秒 =&gt; 正数表示在指定的秒数后过期;负值表示浏览器关闭就删除;0表示立刻删除
+cookie.setMaxAge(-1); // 默认是-1
+</code></pre>
+<ul>
+<li>Cookie 的路径设置</li>
+</ul>
+<pre><code class="language-java">cookie.setPath(req.getContextPath() + "/xxx"); // 满足路径才会发送此cookie
+</code></pre>
+<h3 id="session">Session</h3>
+<p>Session 用于存放客户端与服务器之间的会话，以解决 http 无状态的衍生问题。每个客户端都会有一个各自的 Session 会话，常用来保存登录后的信息。</p>
+<ul>
+<li>创建与获取 Session</li>
+</ul>
+<pre><code class="language-java">// 第一次调用 =&gt; 创建;后续调用 =&gt; 获取
+HttpSession session = req.getSession();
+// 判断是否为新 Session =&gt; isNew() =&gt; true =&gt; 新创建
+boolean isNew = session.isNew();
+// 得到 Session 的会话 id 值 =&gt; 每个会话都有一个唯一 id
+String id = session.getId();
+</code></pre>
+<ul>
+<li>Session 域数据存取</li>
+</ul>
+<pre><code class="language-java">req.getSession().setAttribute("keyName","valueContent");
+Object obj = req.getSession().getAttribute("keyName"); // valueContent
+</code></pre>
+<ul>
+<li>Session 生命周期控制</li>
+</ul>
+<p>Session 的超时是指客户端两次请求的最大间隔时长。</p>
+<pre><code class="language-java">// setMaxInactiveInterval =&gt; 设置 Session 超时时间 =&gt; 超过即销毁 =&gt; 秒为单位
+// 常用于修改个别 Session 超时时长
+req.getSession().setMaxInactiveInterval(3); // 当前 session 3 秒超时
+// getMaxInactiveInterval =&gt; 获取 Session 超时时间 =&gt; 秒为单位
+int maxInactiveInterval = req.getSession().getMaxInactiveInterval(); // 默认 1800s =&gt; 30mins
+// 当前 Session 会话马上超时
+req.getSession().invalidate();
+</code></pre>
+<pre><code class="language-xml">&lt;!-- tomcat 服务器配置 --&gt;
+&lt;session-config&gt;
+    &lt;session-timeout&gt;30&lt;/session-timeout&gt;
+&lt;/session-config&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;!-- 当前 web 工程创建出来的所有 session 默认 20 分钟 --&gt;
+&lt;!-- web.xml --&gt;
+&lt;session-config&gt;
+    &lt;session-timeout&gt;20&lt;/session-timeout&gt;
+&lt;/session-config&gt;
+</code></pre>
+<h3 id="%E5%B0%8F%E7%BB%93">小结</h3>
+<p>Session 底层是基于 Cookie 实现的。无任何 Cookie 的浏览器在访问服务器时，服务器会通过 <code>req.getSession()</code> 创建 Session 会话对象，与此同时也会创建出一个 Cookie 的对象。</p>
+<p>此 Cookie 对象的键是 JSESSIONID，值是新建 Session 的 id。后续通过响应将新建 Session 的 id 值返回给客户端，<code>Set-Cookie:JSESSIONID=xxxxx;</code>。</p>
+<p>当浏览器接受到数据后会立即创建 Cookie 对象，后续的每次请求会根据 path 路径的设置携带具有 Session id 的 Cookie 给服务器。服务器据 <code>req.getSession()</code> 方法以 Cookie 中的 id 值查询此前创建好的 Session 对象，并返回。</p>
+<p>若在 Session 超时时长内，删除客户端 Session 的 Cookie。那么由于没有 Cookie 中携带的 Session id 的值，故服务器会新建一个 Session 会话并继续上述的操作。</p>
+<h2 id="filter-%E8%BF%87%E6%BB%A4%E5%99%A8">Filter 过滤器</h2>
+<p>Filter 过滤器是 JavaEE 规范，即接口，作用是拦截请求，过滤响应。常见的应用场景有权限检查、日志操作、事务管理等。</p>
+<h3 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h3>
+<pre><code class="language-xml">&lt;!-- web.xml --&gt;
+...
+&lt;!-- filter 标签用于配置一个过滤器 --&gt;
+    &lt;filter&gt;
+        &lt;!-- 用于给 filter 起一个别名 --&gt;
+        &lt;filter-name&gt;AdminFilter&lt;/filter-name&gt;
+        &lt;!-- 配置 filter 全类名 --&gt;
+        &lt;filter-class&gt;com.xxx.servlets.AdminFilter&lt;/filter-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;username&lt;/param-name&gt;
+            &lt;param-value&gt;zs&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/filter&gt;
+    &lt;!-- filter-mapping 配置拦截路径 --&gt;
+    &lt;filter-mapping&gt;
+        &lt;!-- 表示当前的拦截路径交与的 filter --&gt;
+        &lt;filter-name&gt;AdminFilter&lt;/filter-name&gt;
+        &lt;!-- 配置拦截路径 --&gt;
+        &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+    &lt;/filter-mapping&gt;
+...
+</code></pre>
+<pre><code class="language-java">public class AdminFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        // 获取 filter 类名称 filter-name
+        System.out.println(filterConfig.getFilterName());
+        // 获取 filter 中配置的初始化参数 init-param
+        System.out.println(filterConfig.getInitParameter("initParam"));
+        // 获取 ServletContext 对象
+        System.out.println(filterConfig.getServletContext());
+    }
+
+    // doFilter 用于拦截请求 =&gt; 权限检查
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        HttpSession session = httpServletRequest.getSession();
+        Object user = session.getAttribute("user");
+        if(user == null){
+            servletRequest.getRequestDispatcher("/login.jsp").forward(servletRequest,servletResponse);
+            return;
+        } else {
+            // 链式调用后输出为 =&gt; Filter1 前置操作 =&gt; Filter2 前置操作 ... =&gt; Filter2 后置操作 =&gt; Filter1 后置操作
+            System.out.println("Filter1 前置操作");
+            System.out.println(Thread.currentThread().getName());
+            // 程序继续向下访问用户目标资源
+            filterChain.doFilter(servletRequest,servletResponse);
+            System.out.println(Thread.currentThread().getName());
+            System.out.println("Filter1 后置操作");
+        }
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+}
+</code></pre>
+<h3 id="filter-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">Filter 生命周期</h3>
+<p>和 Servlet 生命周期类比，Filter 生命周期的关键区别是在 Web 应用启动时创建对象。</p>
+<table>
+<thead>
+<tr>
+<th>生命周期阶段</th>
+<th>执行时机</th>
+<th>执行次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建对象</td>
+<td>Web应用启动时</td>
+<td>一次</td>
+</tr>
+<tr>
+<td>初始化</td>
+<td>创建对象后</td>
+<td>一次</td>
+</tr>
+<tr>
+<td>拦截请求</td>
+<td>接收到匹配的请求</td>
+<td>多次</td>
+</tr>
+<tr>
+<td>销毁</td>
+<td>Web应用卸载前</td>
+<td>一次</td>
+</tr>
+</tbody>
+</table>
+<h3 id="filterconfig-%E7%B1%BB">FilterConfig 类</h3>
+<p>Tomcat 每次创建 Filter 时，也会创建一个 FilterConfig 类，包含 Filter 配置文件的配置信息。该类的作用是获取 Filter 过滤器的配置内容。</p>
+<h3 id="filterchain-%E7%B1%BB">FilterChain 类</h3>
+<p>多个 Filter 的拦截范围若存在重合部分，那么这些 Filter 会形成 FilterChain。浏览器请求重合部分对应的目标资源时，会依次经过 FilterChain 中的每个 Filter。</p>
+<p>FilterChain 中每一个 Filter 执行的顺序是由 web.xml 中 filter-mapping 配置的顺序决定的。</p>
+<p>多个 Filter 过滤器执行时，所有 Filter 和目标资源都默认执行在同一个线程中；多个 Filter 共同执行的时候，其都使用同一个 Request 对象。</p>
+<h3 id="filter-%E6%8B%A6%E6%88%AA%E8%B7%AF%E5%BE%84">Filter 拦截路径</h3>
+<ul>
+<li>
+<p>精确匹配 =&gt; 指定被拦截资源的完整路径</p>
+</li>
+<li>
+<p>目录匹配 =&gt; &lt;url-pattern&gt;/xxx/*&lt;/url-pattern&gt;</p>
+</li>
+<li>
+<p>后缀名匹配 =&gt; &lt;url-pattern&gt;*.html&lt;/url-pattern&gt;</p>
+</li>
+</ul>
+<h2 id="listener-%E7%9B%91%E5%90%AC%E5%99%A8">Listener 监听器</h2>
+<p>Listener 是 JavaEE 规范，即是接口，作用是监听某种事务的变化，通过回调函数返回给程序去做一些相应处理。</p>
+<p>ServletContextListener 监听器可监听 ServletContext 对象的创建和销毁。</p>
+<p>ServletContext 对象在 web 工程启动的时候创建，在停止时销毁。该两个阶段分别调用 contextInitialized 和 contextDestroyed。</p>
+<pre><code class="language-xml">&lt;!-- web.xml --&gt;
+...
+&lt;listener&gt;
+        &lt;listener-class&gt;com.zairesinatra.servlets.MyServletContextListener&lt;/listener-class&gt;
+    &lt;/listener&gt;
+...
+</code></pre>
+<pre><code class="language-java">public class MyServletContextListener implements ServletContextListener {
+    @Override
+    public void contextInitialized(ServletContextEvent servletContextEvent) {
+        System.out.println("ServletContext 对象创建");
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent servletContextEvent) {
+        System.out.println("ServletContext 对象销毁");
+    }
+}
+</code></pre>
+<h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
+<ul>
+<li>Web Application 创建问题</li>
+</ul>
+<p>在 IntelliJ 中 Java 项目下，期望创建一个 JavaWeb 项目，但无法直接在 new modules 中选择 Web Application。可以先通过创建普通 Java 项目，再右键点击 Add Framewoks Support，选中 Web Application 进行补充。其次，也可在 Project Structure settings 选项中 project settings 里的 facets 栏补充一个 Web Application 的项目给指定模块。</p>
+<p>后者在保证路径正确的同时，考虑到部署 tomcat 中的并非项目源码，而是部署包 Artifact。故对于 "'web' facet resources are not included in an artifact" 警告，应点击 Create Artifact。</p>
+<ul>
+<li><a href="https://www.jetbrains.com/help/idea/working-with-module-dependencies.html">Jar 包问题</a></li>
+</ul>
+<p>不考虑 Maven 的情况下，期望添加包含 Jar 包的 lib 文件夹作为开发依赖。应该先对 lib 指定 Add as library 作为库，然后就可以在 file 中 Project Structure settings 选项对指定的 Modules 添加 Library。</p>
+<p>注意检查 Modules 下方的 Library 选项里，lib 包的右侧框内是否添加了所需 Jar 包。若没有添加，则导入的是一个空 dependencies 的 lib 文件夹，仍然会出现 Jar 包搜索不到的异常。这种添加不会出现在 External Libraries 中，不同于 Tomcat 中 Jar 包的导入。</p>
+<p>在包含 Jar 包的 lib 文件夹位置方面，除了在项目文件目录下，对于某些模块指定的 Jar 包，也可以放置在 web 文件夹的 WEB—INF 文件夹创建的 lib 内。这种方法的好处是不需要其他的后续操作。</p>
+<pre><code class="language-java">// 报错 =&gt; 加载JDBC的驱动出现问题,检查导包情况.
+java.lang.ClassNotFoundException: "com.mysql.cj.jdbc.Driver"
+</code></pre>
+<ul>
+<li><a href="https://dev.mysql.com/downloads/connector/j/">MySQL</a> 版本的配置区别</li>
+</ul>
+<pre><code class="language-java">// JDBC连接Mysql5 =&gt; com.mysql.jdbc.Driver
+url:jdbc:mysql://localhost:3306/mysql?useUnicode=true&amp;characterEncoding=UTF-8
+// JDBC连接Mysql6+ =&gt; com.mysql.cj.jdbc.Driver =&gt; 需指定时区serverTimezone
+url:jdbc:mysql://localhost:3306/mysql?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=GMT%2B8&amp;useSSL=false
+</code></pre>
+<ul>
+<li>Artifacts 中的 Web Application</li>
+</ul>
+<p>Web Application Exploded 是解压后的 war 包，Web Application Archive 是 web 应用程序的压缩包，也就是 war 包。war 包放入 tomcat 的 webapps 文件夹会被自动解压。在补充 artifact 时建议选择前者。</p>
+<ul>
+<li>Application context 和 context root</li>
+</ul>
+<p>Application context 即是 context root，在配置 tomcat 的 deployment 选项中是 &lt;module_name_war_exploded&gt;。</p>
+<ul>
+<li>重新部署问题</li>
+</ul>
+<p>对于已经运行过的 Web 项目，若增加目录和文件，那么部署目录有可能不会自动同步过来，从而造成实际运行的效果和期望的不同。在 build artifacts 中选择项目模块的 war 包进行清理 clean，再进行构建 build。</p>
+<ul>
+<li>404 报错</li>
+</ul>
+<p>1.访问地址错误，或确实无此资源；2.错误访问 WEB-INF 目录下的资源；3.Web 应用启动的时候，控制台已经抛出异常，导致整个Web应用不可用，此时访问任何资源都是404；4.服务器端缓存。</p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>服务器成功处理了当前请求，成功返回响应</td>
+</tr>
+<tr>
+<td>302</td>
+<td>重定向</td>
+</tr>
+<tr>
+<td>400</td>
+<td>[SpringMVC特定环境]请求参数问题</td>
+</tr>
+<tr>
+<td>403</td>
+<td>没有权限</td>
+</tr>
+<tr>
+<td>404</td>
+<td>找不到目标资源</td>
+</tr>
+<tr>
+<td>405</td>
+<td>请求方式和服务器端对应的处理方式不一致</td>
+</tr>
+<tr>
+<td>406</td>
+<td>[SpringMVC特定环境]请求扩展名和实际返回的响应体类型不一致</td>
+</tr>
+<tr>
+<td>50X</td>
+<td>服务器端内部错误，通常都是服务器端抛异常了</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>post 请求出现中文乱码</li>
+</ul>
+<p>处理函数中设置 <code>req.setCharacterEncoding("utf-8");</code>。需要注意，在设置字符集前不能进行处理请求参数的操作，否则设置失效。</p>
+<ul>
+<li>回传字符串出现中文乱码</li>
+</ul>
+<p>处理函数中设置 <code>resp.setCharacterEncoding("utf-8");</code>。需要注意，在设置字符集前不能进行处理返回参数的操作，否则设置失效。同时此举设置的是设置服务器回传的字符集，若浏览器与服务器字符集不统一则也会存在乱码问题。可通过响应头设置浏览器也使用相同字符集。</p>
+<pre><code class="language-java">// 设置浏览器字符集
+resp.setHeader("Content-Type","text/html;charset=utf-8");
+// 同时设置服务器与客户端使用utf-8
+resp.setContentType("text/html;charset=utf-8");
+</code></pre>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

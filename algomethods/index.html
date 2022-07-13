@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>🌀Algorithm Summary</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=ab47967965.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=ab47967965.css" />
+    <meta name="description" content="算法汇总" />
+    <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="🌀Algorithm Summary" />
+    <meta property="og:description" content="算法汇总" />
+    <meta property="og:url" content="yourdomain.com/algomethods/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/07/abstractArt.jpg" />
+    <meta property="article:published_time" content="2020-04-01T13:21:00.000Z" />
+    <meta property="article:modified_time" content="2022-05-22T16:17:46.000Z" />
+    <meta property="article:tag" content="DataStructuresAndAlgorithms" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="🌀Algorithm Summary" />
+    <meta name="twitter:description" content="算法汇总" />
+    <meta name="twitter:url" content="yourdomain.com/algomethods/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/abstractArt.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="DataStructuresAndAlgorithms" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1333" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "🌀Algorithm Summary",
+    "url": "yourdomain.com/algomethods/",
+    "datePublished": "2020-04-01T13:21:00.000Z",
+    "dateModified": "2022-05-22T16:17:46.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/07/abstractArt.jpg",
+        "width": 2000,
+        "height": 1333
+    },
+    "keywords": "DataStructuresAndAlgorithms",
+    "description": "算法汇总",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~2.2.0/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="../public/cards.min.js%3Fv=ab47967965"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=ab47967965.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Q4HQV7NBSG');
+</script>
+
+<!-- 2022 prismjs update -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {      
+    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+        node.classList.add('line-numbers');
+	});
+    Prism.highlightAll();
+});
+</script>
+
+<!-- prism -->
+<style>
+pre[class*="language-"] {
+    margin: 0 0 1.5em !important;
+}
+pre[class*="line-numbers"]>code {
+    padding: 0 ;
+}
+code {
+    text-shadow: none !important;
+}
+.token.operator {
+    background: none !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #202124 !important;
+}
+</style>
+
+<!-- customer theme by zs -->
+<style>
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #d98e73;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+}
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #1e1e1f;
+}
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #f9f2f4;
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1;
+}
+.token.punctuation {
+  color: #f3f3f3;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #88deff;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #ddb974;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #f3f3f3;
+  background: #1e1e1f;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #06b4fe;
+}
+.token.function {
+  color: #80caf1;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ee9900;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #1e1e1f;
+  box-shadow: inset 5px 0 0 #1e1e1f;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+</style>
+
+<!-- 音乐播放器 -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
+</head>
+<body class="post-template tag-datastructuresandalgorithms has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <nav class="gh-head-inner inner">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <a class="gh-burger" role="button">
+                    <div class="gh-burger-box">
+                        <div class="gh-burger-inner"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
+    <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <div class="gh-social">
+                        <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
+                </div>
+                        <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-datastructuresandalgorithms ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="../tag/datastructuresandalgorithms/index.html">DataStructuresAndAlgorithms</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">🌀Algorithm Summary</h1>
+
+            <p class="article-excerpt">算法汇总</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2020-04-01">Apr 1, 2020</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 27 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w2000/2021/07/abstractArt.jpg 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2021/07/abstractArt.jpg"
+                    alt="Blue And Orange Abstract Painting"
+                />
+                    <figcaption>Blue And Orange Abstract Painting</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <aside class="toc-container">
+            <div class="toc"></div>
+        </aside>
+        <!--kg-card-begin: html--><iframe src="https://open.spotify.com/embed/playlist/3ntu3ma2CyfXymme1Vub4t" width="100%" height="180" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe><!--kg-card-end: html--><!--kg-card-begin: markdown--><h2 id="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</h2>
+<h3 id="%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F">冒泡排序</h3>
+<pre><code class="language-javascript">// zs在数据结构中封装的函数
+function swap (array, a, b) {
+    [array[a], array[b]] = [array[b],array[a]];
+}
+
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+
+// 避免复杂对象数组的属性排序 =&gt; people 的 age 属性
+function defaultCompare(a, b) {
+    if (a === b) {
+      return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+
+function bubbleSort (array) {
+    // 解构赋值
+    const { length } = array
+    // 外循环从数组第一位迭代最后一位
+    for (let i = 0; i &lt; length; i++) {
+        // 内循环从数组第一位迭代最后一位并减少内循环不必要比较
+        for (let j = 0; j &lt; length - 1 - i; j++) {
+            if (defaultCompare(array[j],array[j+1]) === Compare.BIGGER_THAN) {
+                swap(array, j, j+1)
+                // let tmp = array[j];
+                // array[j] = array[j+1];
+                // array[j+1] = tmp
+            }
+        }
+    }
+    return array;
+}
+
+function createNonSortedArray(size) {
+    const array = [];
+    for (let i = size; i &gt; 0; i--) {
+        array.push(i)
+    }
+    return array;
+}
+
+let array = createNonSortedArray(5);
+console.log(array); // [ 5, 4, 3, 2, 1 ]
+array = bubbleSort(array);
+console.log(array.join()); // 1,2,3,4,5
+</code></pre>
+<h3 id="%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F">选择排序</h3>
+<pre><code class="language-javascript">function swap (array, a, b) {
+    [array[a], array[b]] = [array[b], array[a]]
+}
+
+// 选择排序是原址比较排序算法-数据结构中最小值放置第一位、第二小值放在第二位,以此类推
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+function defaultCompare(a, b) {
+    if(a === b) {
+        return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+
+function selectionSort(array, compareFn = defaultCompare) {
+    const { length } = array;
+    // 声明当前索引最小值
+    let indexMin;
+    // 外循环迭代数组,控制循环轮次
+    for (let i = 0; i &lt; length-1; i++) {
+        indexMin = i;
+        // 从当前i值至数组结束比较是否有位置j比当前值小
+        for (let j = i+1; j &lt; length; j++) {
+            if (compareFn(array[indexMin], array[j]) === Compare.BIGGER_THAN) {
+                indexMin = j;
+            }
+        }
+        if (i !== indexMin) {
+            swap(array, i, indexMin);
+        }
+    }
+    return array;
+}
+let arr = [2,4,1,5,3]
+let zsarr = selectionSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr>
+<h3 id="%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F">插入排序</h3>
+<pre><code class="language-javascript">// 选择排序是原址比较排序算法-数据结构中最小值放置第一位、第二小值放在第二位,以此类推
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+function defaultCompare(a, b) {
+    if(a === b) {
+        return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+
+function insertionSort(array, compareFn = defaultCompare) {
+    const { length } = array;
+    let tmp;
+    // 迭代数组给第i项找正确的位置
+    // 从数组[1]开始找,默认数组第一项已经排序
+    for (let i = 1; i &lt; length; i++) {
+        let j = i;
+        // tmp赋值可能插入其他位置的当前数组项
+        tmp = array[i];
+        while(j &gt; 0 &amp;&amp; compareFn(array[j-1],tmp) === Compare.BIGGER_THAN) {
+            array[j] = array[j-1];
+            j--;
+        }
+        array[j] = tmp;
+    }
+    return array;
+}
+let arr = [2,4,5,1,3]
+let zsarr = insertionSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr>
+<h3 id="%E5%BD%92%E5%B9%B6%E7%AE%97%E6%B3%95">归并算法</h3>
+<pre><code class="language-javascript">// 归并排序复杂度为O(nlog(n))
+const Compare = {
+    LESS_THAN: -1,
+    BIGGER_THAN: 1,
+    EQUALS: 0
+};
+function defaultCompare(a, b) {
+    if(a === b) {
+        return Compare.EQUALS;
+    }
+    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
+function mergeSort(array, compareFn = defaultCompare) {
+    // 递归满足的停止条件
+    if (array.length &gt; 1) {
+        const { length } = array;
+        const middle = Math.floor(length/2);
+        // 大数组转换为小数组直到其中只有一个项
+        // slice() 方法返回一个新的数组对象,这一对象是一个由 begin 和 end 决定的原数组的浅拷贝(包括 begin 不包括 end )原始数组不会被改变
+        const left = mergeSort(array.slice(0,middle), compareFn);
+        const right = mergeSort(array.slice(middle, length), compareFn)
+        array = merge(left, right, compareFn);
+    }
+    return array
+}
+function merge(left, right, compareFn) {
+    let i = 0;
+    let j = 0;
+    const result = [];
+    while(i &lt; left.length &amp;&amp; j &lt; right.length) {
+        result.push(
+            compareFn(left[i],right[j]) === Compare.LESS_THAN ? left[i++] : right[j++]
+        );
+    }
+    return result.concat(i &lt; left.length ? left.slice(i) : right.slice(j));
+}
+let arr = [2,4,3,5,1]
+let zsarr = mergeSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr>
+<h3 id="%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F">快速排序</h3>
+<p>深感图灵的JavaScript数据结构与算法部分内容存在错误与冗杂，这里记录更加易于理解的快速排序。</p>
+<pre><code class="language-javascript">var quickSort = function(arr) {
+    if (arr.length &lt;= 1) { return arr; }
+    var pivotIndex = Math.floor(arr.length / 2);
+    var pivot = arr.splice(pivotIndex, 1)[0];
+    var left = [];
+    var right = [];
+    for (var i = 0; i &lt; arr.length; i++){
+    　　if (arr[i] &lt; pivot) {
+    　　　　left.push(arr[i]);
+    　　} else {
+    　　　　right.push(arr[i]);
+    　　}
+    }
+    return quickSort(left).concat([pivot], quickSort(right));
+};
+let arr = [2,4,1,5,3]
+let zsarr = quickSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr>
+<h3 id="%E6%A1%B6%E6%8E%92%E5%BA%8F">桶排序</h3>
+<pre><code class="language-javascript">// 默认情况使用5个桶
+// 元素密集使用较少筒;元素稀少用使用较多桶
+// 使用的映射函数能够将输入的 N 个数据均匀的分配到 M 个桶中
+function bucketSort (array, bucketSize = 5) {
+    if (array.length &lt; 2) {
+        return array;
+    }
+    const buckets = createBuckets(array, bucketSize);
+    return sortBuckets(buckets)
+}
+
+function createBuckets(array, bucketSize) {
+    let minValue = array[0];
+    let maxValue = array[0];
+    for (let i = 1; i &lt; array.length; i++) {
+        if (array[i] &lt; minValue) {
+            minValue = array[i];
+        } else if (array[i] &gt; maxValue) {
+            maxValue = array[i];
+        }
+    }
+    const bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
+    const buckets = [];
+    for (let i = 0; i &lt; array.length; i++) {
+        // buckets是数组、buckets包含的内容也是数组
+        buckets[i] = [];
+    }
+    for (let i = 0; i &lt; array.length; i++) {
+        const bucketIndex = Math.floor((array[i] - minValue) / bucketSize);
+        buckets[bucketIndex].push(array[i]);
+    }
+    return buckets;
+}
+
+function insertionSort (array) {
+    const { length } = array;
+    for(let i = 1; i &lt; length; i++) {
+        let temp = array[i];
+        let j = i;
+        while(j&gt;0 &amp;&amp; (array[j-1]&gt;temp)) {
+            array[j] = array[j-1];
+            j--;
+        }
+        array[j] = temp;
+    }
+    return array;
+}
+
+function sortBuckets(buckets) {
+    const sortedArray = [];
+    for (let i = 0; i &lt; buckets.length; i++){
+        if(buckets[i] != null)
+        insertionSort(buckets[i]);
+        sortedArray.push(...buckets[i]);
+    }
+    return sortedArray;
+}
+
+let arr = [2,4,5,1,3]
+let zsarr = bucketSort(arr)
+console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<hr>
+<h3 id="%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F">基数排序</h3>
+<pre><code class="language-javascript">// 基数排序是一种非比较型整数排序算法,其原理是将整数按位数切割成不同的数字,然后按每个位数分别比较.由于整数也可以表达字符串(比如名字或日期)和特定格式的浮点数,所以基数排序也不是只能使用于整数
+// 对桶的使用方法上的差异: 基数排序:根据键值的每位数字来分配桶、计数排序:每个桶只存储单一键值、桶排序:每个桶存储一定范围的数值
+function radixSort(arr) {
+    // 取最大值 最大值的位数就是要循环遍历的次数
+    const max = Math.max(...arr);
+    // Array.from() 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例
+    // 定义桶数据结构 digit从0-9的桶 每个桶都是数组
+    const buckets = Array.from({ length: 10 }, () =&gt; []);
+    // m定义当前要遍历的位数 个位 十位 百位...
+    let m = 1;
+    // m &lt; 最大值 =&gt; 保证遍历完所有可能的位数而不超过max
+    while (m &lt; max) {
+      // 放入桶
+      arr.forEach(number =&gt; {
+        // digit表示某位数的值、取余 % 取整 /
+        const digit = ~~((number % (m * 10)) / m);
+  
+        // 把该位数的值放到桶buckets中
+        // 通过索引确定顺序 类比计数排序
+        buckets[digit].push(number);
+      });
+  
+      // 从桶buckets中取值完成位数排序
+      let zs = 0;
+      buckets.forEach(bucket =&gt; {
+        while (bucket.length &gt; 0) {
+          // shift从头部取值、保证按照队列先入先出
+          arr[zs++] = bucket.shift();
+        }
+      });
+      // 每次遍历增加一位
+      // 每次最外层while循环后m要乘等10、也就是要判断下一位 比如当前是个位 下次就要判断十位
+      m *= 10;
+    }
+}
+const arr = [1, 10, 9680, 577, 5622, 4793, 2030, 3138, 82, 2599, 743, 4127];
+radixSort(arr);
+console.log(arr.join()); // 1,10,82,577,743,2030,2599,3138,4127,4793,5622,9680
+
+console.log(Math.trunc(1.234));
+console.log(Math.trunc(1.834));
+console.log(~~(1.234));
+console.log(~~(1.834));
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E4%B8%8E%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95">搜索算法与随机算法</h2>
+<h3 id="%E9%A1%BA%E5%BA%8F%E6%90%9C%E7%B4%A2">顺序搜索</h3>
+<pre><code class="language-javascript">// 最基本的搜索算法 —— 顺序搜索
+function sequentialSearch (array, value) {
+    for (let i = 0; i &lt; array.length; i++) {
+        if (value === array[i]) {
+            return i;
+        }
+    }
+    return &quot;noExist&quot;
+}
+let arr = [1,2,3,4,5], value = 0, val = 1;
+console.log(sequentialSearch(arr,value)); // noExist
+console.log(sequentialSearch(arr,val)); // 0
+</code></pre>
+<h3 id="%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2">二分搜索</h3>
+<p>如果待查找的数是整数，且知道范围，可以考虑二分查找。</p>
+<ul>
+<li>先设定左下标 left 与右下标 right，再计算中间下标 mid。通常考虑数组头尾。</li>
+<li>根据 <code>arr[mid]</code> 和 target 之间的大小进行判断，相等则直接返回下标，<code>nums[mid]</code> &lt; target 则 left 右移，<code>nums[mid]</code> &gt; target 则 right 左移。</li>
+</ul>
+<pre><code class="language-javascript">function BinarySearch (array, value) {
+    let left = 0, right = array.length - 1;
+    while( left &lt;= right ) {
+        var mid = parseInt((left + right) / 2);
+        if (value == array[mid]) {
+            return mid;
+        } else if (value &gt; array[mid]) {
+            left = mid + 1;
+        } else if (value &lt; array[mid]) {
+            right = mid - 1;
+        }
+    }
+    return &quot;nonono&quot;;
+}
+let arr = [1,2,3,4,5], value = 1, val = 0, val1 = 3;
+BinarySearch(arr,value); // 0
+BinarySearch(arr,val); // nonono
+BinarySearch(arr,val1); // 2
+</code></pre>
+<p>LeetCode: <a href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a></p>
+<p>这里在使用二分法查找结束后若没有相等值则返回 left 为插入位置。</p>
+<pre><code class="language-javascript">var searchInsert = function(nums, target) {
+    let left = 0, right = nums.length - 1;
+    while(left&lt;=right){ // 当越过临界条件时 (left&gt;right) 则表示找不到对应值,跳出
+        let mid = parseInt((left+right)/2); // 每一次 left、right 改变会使 mid 赋新值,故必须放while中
+        if(target === nums[mid]){
+            return mid;
+        } else if (target &gt; nums[mid]) {
+            left = mid + 1;
+        } else if (target &lt; nums[mid]){
+            right = mid -1;
+        }
+    }
+    return left
+};
+</code></pre>
+<h3 id="%E5%86%85%E6%8F%92%E6%90%9C%E7%B4%A2">内插搜索</h3>
+<p>插值搜索之算法与二分搜索算法几乎完全相同，差别在：</p>
+<ul>
+<li>二分搜索法：猜测键值在中间位置(middle)</li>
+<li>插值搜索法：用插值公式计算键值位置</li>
+</ul>
+<pre><code class="language-javascript">function interpolationSearch(arr, value) {
+    let low = 0, high = arr.length - 1, position = -1, delta = -1;
+    while (low &lt;= high &amp;&amp; value &gt;= arr[low] &amp;&amp; value &lt;= arr[high]) {
+      delta = (value - arr[low]) / (arr[high] - arr[low]);
+      position = low + Math.floor((high - low) * delta);
+      if (arr[position] === value) {
+        return position
+      }
+      if (arr[position] &lt; value) {
+        low = position + 1
+      } else {
+        high = position - 1
+      }
+    }
+    return &quot;nonono&quot;
+}
+let arr = [1,2,3,4,5], value = 1, val = 0;
+console.log(interpolationSearch(arr,value)); // 0
+console.log(interpolationSearch(arr,val)); // nonono
+</code></pre>
+<h3 id="fisher-yates%E7%AE%97%E6%B3%95">Fisher-Yates算法</h3>
+<pre><code class="language-javascript">function shuffle (array) {
+    for (let i = array.length - 1; i &gt; 0; i--) {
+        // ~~ 视为 Math.truc() 或者 Math.floor()
+        const randomIndex = ~~(Math.random() * (i+1));
+        [array[i], array[randomIndex]] = [array[randomIndex], array[i]]
+    }
+    return array;
+}
+
+let arr = [1,2,3,4,5], zsarr = shuffle(arr)
+console.log(shuffle(zsarr)) // 每次产生打乱的随机数组
+</code></pre>
+<h3 id="%E5%8F%8D%E6%8E%92%E5%BA%8F">反排序</h3>
+<pre><code class="language-javascript">function createNonSortedArray(size) {
+    const array = [];
+    for (let i = size; i &gt; 0; i--) {
+        array.push(i)
+    }
+    return array;
+}
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3">算法思想</h2>
+<h3 id="%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B">分而治之</h3>
+<p>分解问题为多个可递归的、有类似点的子问题</p>
+<pre><code class="language-javascript">// 分而治之思想手撕二分法
+const no = &quot;nonono&quot;
+function binarySearchRecursive(array,value,low,high) {
+    if (low &lt; high) {
+        const mid = Math.floor((low + high) / 2);
+        if (array[mid] &lt; value) {
+            return binarySearchRecursive(array,value,mid+1,high)
+        } else if (array[mid] &gt; value) {
+            return binarySearchRecursive(array,value,low,mid-1)
+        } else {
+            return mid;
+        }
+    }
+    return no
+}
+function binarySearch (array, value) {
+    const low = 0;
+    const high = array.length - 1;
+    return binarySearchRecursive(array, value, low, high)
+}
+let arr = [1,2,3,4,5]
+let array = [1,2,3,4,5]
+let val = 1
+let value = 0
+console.log(binarySearch(arr,val)); // 0
+console.log(binarySearch(array,value)); // nonono
+</code></pre>
+<hr>
+<h3 id="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</h3>
+<p>复杂问题分解小的子问题</p>
+<pre><code class="language-javascript">// 对于一种物品要么装入背包,要么不装.所以对于一种物品的装入状态只是1或0,此问题称为01背包问题
+function knapsack(weights, values, W){
+    var n = weights.length -1
+    var f = [[]]
+    for(var j = 0; j &lt;= W; j++){
+        if(j &lt; weights[0]){ //如果容量不能放下物品0的重量，那么价值为0
+           f[0][j] = 0
+        }else{ //否则等于物体0的价值
+           f[0][j] = values[0]
+        }
+    }
+    for(var j = 0; j &lt;= W; j++){
+        for(var i = 1; i &lt;= n; i++ ){
+            if(!f[i]){ //创建新一行
+                f[i] = []
+            }
+            if(j &lt; weights[i]){ //等于之前的最优值
+                f[i][j] = f[i-1][j]
+            }else{
+                f[i][j] = Math.max(f[i-1][j], f[i-1][j-weights[i]] + values[i]) 
+            }
+        }
+    }
+    return f[n][W]
+}
+var a = knapsack([2,2,6,5,4],[6,3,5,4,6],10)
+console.log(a) // 15
+var b = knapsack([2,3,4],[3,4,5],5)
+console.log(b) // 7
+</code></pre>
+<hr>
+<h3 id="%E8%B4%AA%E5%A9%AA%E7%AE%97%E6%B3%95">贪婪算法</h3>
+<p>通过局部最优选择达到全局最优解——遵循近似解决问题<br>
+对于贪婪算法不一定产生最优解，对于执行时间来说是一个可以接受的解</p>
+<pre><code class="language-javascript">// 最少硬币找零问题
+function minCoinChange(coins, amount) {
+    const change = [];
+    let total = 0;
+    for (let i = coins.length-1; i &gt;= 0; i--) {
+        const coin = coins[i];
+        while (total+coin&lt;=amount) {
+            change.push(coin);
+            total += coin;
+        }
+    }
+    return change;
+}
+let c = [0.5,1,5,10],
+am = 34;
+console.log(minCoinChange(c,am)); // [10, 10, 10, 1,  1,  1,  1]
+
+</code></pre>
+<h3 id="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95">回溯算法</h3>
+<p>回溯是一种渐进式寻找并构建问题解决方式的策略。从一个可能的动作尝试解决问题，如果不能解决则回溯到另一个动作直到问题解决。</p>
+<p>这里引用一道 LeetCode 上 <strong>困难</strong> 级别的 N皇后 问题描述回溯</p>
+<pre><code class="language-javascript">// 解决一个回溯问题,实际上就是一个决策树的遍历过程
+// 路径:已经做出的选择、选择列表:当前可以做的选择、结束条件:到达决策树底层,无法再做选择的条件
+// 穷举整棵决策树是无法避免的
+// 这也是回溯算法的一个特点,不像动态规划存在重叠子问题可以优化,回溯算法就是纯暴力穷举,复杂度一般都很高
+
+// 回溯算法——N皇后问题
+// N*N棋盘放N个皇后,彼此不攻击(棋盘任一行、任一列、任一对角线上不能放置两个皇后)
+const NQueens = (n) =&gt; {
+    // 棋盘的初始化
+    const board = new Array(n);
+    for (let i = 0; i &lt; n; i++) {
+      board[i] = new Array(n).fill('.');
+    }
+    const res = [];
+    const isValid = (row, col) =&gt; {  
+      for (let i = 0; i &lt; row; i++) { // 之前的行
+        for (let j = 0; j &lt; n; j++) { // 所有的列
+          if (board[i][j] == 'Q' &amp;&amp;   // 发现了皇后，并且和自己同列/对角线
+            (j == col || i + j === row + col || i - j === row - col)) {
+            return false;             // 不是合法的选择
+          }
+        }
+      }
+      return true;
+    };
+    const putqueen = (row) =&gt; {   // 放置当前行的皇后
+      if (row == n) {           // 递归的出口，超出了最后一行
+        const copyBoard = board.slice(); // 拷贝一份放完成功的board
+        for (let i = 0; i &lt; n; i++) {
+          copyBoard[i] = copyBoard[i].join(''); // 将每一行拼成字符串
+        }
+        res.push(copyBoard); // 推入res数组
+        return;
+      }
+      for (let col = 0; col &lt; n; col++) { // 枚举出所有选择
+        if (isValid(row, col)) {          // 剪掉无效的选择
+          board[row][col] = &quot;Q&quot;;          // 作出选择，放置皇后
+          putqueen(row + 1);              // 继续选择，往下递归
+          board[row][col] = '.';          // 撤销当前选择
+        }
+      }
+    };
+    putqueen(0);  // 从第0行开始放置
+    return res;
+  };
+
+console.log(NQueens(4)); // [[ '.Q..', '...Q', 'Q...', '..Q.' ], [ '..Q.', 'Q...', '...Q', '.Q..' ]]
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</h2>
+<h3 id="stack">Stack</h3>
+<p>栈是一种后进先出 LIFO 的有序集合，在回溯问题中应用广泛，可以存储访问过的任务路径、撤销操作等。</p>
+<pre><code class="language-javascript">// 基于数组的类表示栈
+class Stack {
+    constructor(){
+        this.items=[]; // 需要一种数据结构保存栈中元素,这里选择数组,大部分方法时间复杂度为O(n)
+    }
+    push(element){
+        this.items.push(element) // 栈添加元素
+    }
+    pop(element){
+        return this.items.pop(element) // 栈顶移除元素
+    }
+    peek(){
+        return this.items[this.items.length-1] // 查看栈顶元素
+    }
+    isEmpty(){
+        return this.items.length === 0 // 检查栈是否为空
+    }
+    size(){
+        return this.items.length // 返回栈长度
+    }
+    clear(){
+        this.items = [] // 清空栈元素
+    }
+}
+const zsstack = new Stack() // 初始化
+console.log(zsstack.isEmpty()) // 判断栈内是否为空 此处返回 true
+zsstack.push(0)
+zsstack.push(4)
+zsstack.push(2)
+zsstack.push(2)
+console.log(zsstack.peek()) // 查看栈顶元素 此处返回 2
+console.log(zsstack.size()) // 返回栈长度 此处返回 4
+console.log(zsstack.isEmpty()) // 判断栈内是否为空 此处返回 false
+zsstack.push(&quot;what&quot;)
+zsstack.pop() // 栈顶移除元素
+console.log(zsstack.size()) // 返回栈长度 此处返回 4
+</code></pre>
+<pre><code class="language-javascript">// 基于对象的 Stack 类
+class Stack {
+    constructor(){
+        // 属性
+        this.count = 0; // 帮助记录栈的大小
+        this.items = {}; // javascript中对象是一系列键值对
+    }
+    // 方法
+    push(element){
+        this.items[this.count] = element; // 插入元素是items对象的值
+        this.count++; // count对象是items对象键名
+    }
+    size(){ return this.count }
+    isEmpty(){ return this.count === 0 }
+    pop(){ // 删除栈顶元素并返回它
+        if(this.isEmpty()){ return undefined;} // 检验栈是否为空
+        this.count--;
+        const result = this.items[this.count];
+        delete this.items[this.count]; // JS运算符从对象删除一特定的值
+        return result
+    }
+    peek(){
+        if(this.isEmpty()){return undefined}{return this.items[this.count-1]}
+    }
+    clear(){this.items = {} ; this.count = 0}
+    toString(){ // 数组版本有直接提供的 toString方法
+        if(this.isEmpty()){
+            return ''
+        }
+        let objString = `${this.items[0]}`;
+        for(let i=1;i&lt;this.count;i++){
+            objString = `${objString},${this.items[i]}`;
+        }
+        return objString;
+    }
+}
+const zsstack = new Stack()
+zsstack.push(0)
+zsstack.push(4)
+zsstack.push(2)
+zsstack.push(2)
+zsstack.push(&quot;needpop&quot;)
+zsstack.pop()
+console.log(zsstack.count); // 返回 4
+console.dir(zsstack.toString()) // '0,4,2,2'
+</code></pre>
+<h3 id="queue">Queue</h3>
+<p>队列遵循先进先出(FiFO)原则的一组有序的项。尾部添加元素，顶部移除元素。</p>
+<ul>
+<li>队列 JS 实现</li>
+</ul>
+<pre><code class="language-javascript">class Queue {
+    constructor() {
+        this.count = 0; // count作为items对象中的键
+        this.lowestCount = 0;
+        this.items = {}; // 获取元素更高效的数据结构选择{}
+    }
+    enqueue(element){ // 向队列添加元素
+        this.items[this.count] = element; // 新项仅能添加队列末尾
+        this.count++;
+    }
+    isEmpty(){
+        return this.count - this.lowestCount === 0; // 假设count=2,lowestCount=0,则表示队列中仍有两个元素
+        // return this.size() === 0;
+    }
+    dequeue(){ // 队列移除元素也是遵循先进先出的,最先添加的项被最先移除
+        if(this.isEmpty()){return undefined}
+        const result = this.items[this.lowestCount] // 暂存以便返回
+        delete this.items[this.lowestCount]
+        this.lowestCount++;
+        return result;
+    }
+    peek(){ // 查看列头元素-就是首项
+        if(this.isEmpty()){return undefined}
+        return this.items[this.lowestCount]
+    }
+    size(){ // 返回队列的长度
+        return this.count - this.lowestCount
+    }
+    clear(){
+        this.items = {};
+        this.count = 0;
+        this.lowestCount = 0;
+    }
+    toString(){
+        if(this.isEmpty()){
+            return ''; // 空队列返回空字符串
+        }
+        let objString = `${this.items[this.lowestCount]}`;
+        for(let i = this.lowestCount + 1; i&lt;this.count; i++){
+            objString = `${objString},${this.items[i]}`;
+        }
+        return objString
+    }
+}
+const zsqueue = new Queue()
+zsqueue.enqueue(&quot;needdequeue&quot;)
+zsqueue.enqueue(0)
+zsqueue.enqueue(4)
+zsqueue.enqueue(2)
+zsqueue.enqueue(2)
+zsqueue.dequeue()
+console.log(zsqueue.peek()) // 0
+console.log(zsqueue.toString()); // 0,4,2,2
+</code></pre>
+<ul>
+<li>双端队列 JS 实现</li>
+</ul>
+<p>双端队列是一种允许同时从前端和后端添加和移除元素的特殊队列。</p>
+<pre><code class="language-javascript">// 双端队列前端添加元素
+// 三种可能出现的情况
+addFront(element){
+        if(this.isEmpty()){
+            this.addBack(element)
+        } else if (this.lowestCount&gt;0){
+            this.lowestCount--;
+            this.items[this.lowestCount] = element;
+        } else {
+            for(let i = this.count; i&gt;0; i--){
+                this.items[i] = this.items[i-1];
+            }
+            this.count++; // 插入element导致count++
+            this.lowestCount = 0;
+            this.items[0] = element; // 完成迭代移动,第一项为空闲,则新element覆盖
+        }
+    }
+</code></pre>
+<h3 id="array">Array</h3>
+<p>数组存储一系列同一数据类型的值。</p>
+<pre><code class="language-javascript">let arr = new Array(); // new关键字声明初始化数组
+arr = new Array(6); // 创建指定长度数组
+arr = new Array(&quot;zaire&quot;,&quot;sinatra&quot;,&quot;xie&quot;,&quot;zy&quot;); // 直接数组元素做参数传递给他的构造器
+</code></pre>
+<ul>
+<li>
+<h3 id="%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%AE%9E%E7%8E%B0">斐波那契实现</h3>
+</li>
+</ul>
+<pre><code class="language-javascript">// 创建斐波那契数组
+const fibonacci = [] ;
+// 定义前两项为1
+fibonacci[1] = 1 ;
+fibonacci[2] = 2 ;
+// 斐波那契额数组的第三项到二十项位置的数字
+for(let i = 3 ; i &lt; 20 ; i++){
+    fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
+}
+// 输出斐波那契数组每一项
+for(let i = 1 ; i &lt; fibonacci.length; i++){
+    console.log(fibonacci[i]);  // 1-6765
+}
+
+// 递归版本
+function zsfibonacci(n){
+    if(n==0)return 0
+    else if(n==1)return 1
+    else return zsfibonacci(n-1) + zsfibonacci(n-2)
+ }
+ console.log(zsfibonacci(20))  // 6765
+</code></pre>
+<ul>
+<li>数组末尾插入元素</li>
+</ul>
+<pre><code class="language-javascript">zsarr[zsarr.length]=待插入元素;
+zsarr.push(待插入元素)
+</code></pre>
+<ul>
+<li>数组开头插入元素</li>
+</ul>
+<pre><code class="language-javascript">// 1.不使用API
+arr = new Array(&quot;zaire&quot;,&quot;sinatra&quot;,&quot;xie&quot;,&quot;zy&quot;)
+Array.prototype.insertFirstPosition = function(value){
+    for(let i = arr.length; i &gt; 0; i--) {
+        arr[i]=arr[i-1]
+    }
+    arr[0]=value;
+};
+arr.insertFirstPosition(1)
+console.log(arr) // [ 1, 'zaire', 'sinatra', 'xie', 'zy' ]
+// 2.使用unshift()
+arr.unshift(1) // [ 1, 1, 'zaire', 'sinatra', 'xie', 'zy' ]
+</code></pre>
+<ul>
+<li>数组末尾删除元素</li>
+</ul>
+<pre><code class="language-javascript">arr = new Array(&quot;zaire&quot;,&quot;sinatra&quot;,&quot;xie&quot;,&quot;zy&quot;)
+arr.pop() // [ 'zaire', 'sinatra', 'xie' ]
+</code></pre>
+<ul>
+<li>数组开头删除元素</li>
+</ul>
+<pre><code class="language-javascript">// 方法一
+// 删除数组第一个元素
+arr.shift()
+// 方法二
+// 定义一个数组
+arr = new Array(&quot;zaire&quot;,&quot;sinatra&quot;,&quot;xie&quot;,&quot;zy&quot;)
+// 3.除去 undefined
+Array.prototype.deleteUn = function(arr){
+    const newArr = [];
+    for(i=0;i&lt;arr.length;i++){
+        if(arr[i]!==undefined){
+            newArr.push(arr[i])
+        }
+    }
+    return newArr
+}
+// 手动删除第一个元素重新排序
+Array.prototype.removeFirstPosition = function(){
+    for(let i = 0 ; i &lt; arr.length ; i++){
+        arr[i] = arr[i+1]
+    }
+    // 1.先从这里入手理解,此处若不使用deleteUn方法,则输出[ 'sinatra', 'xie', 'zy', 'undefined' ]
+    // 2.那么需要去除 undefined =&gt; 使用deleteUn除去 undefined返回新数组
+    return arr.deleteUn(arr)
+}
+arr = arr.removeFirstPosition()
+console.log(arr)
+// 实际项目中还是使用 shift() 删除第一项
+</code></pre>
+<ul>
+<li>任意位置添加或删除元素</li>
+</ul>
+<pre><code class="language-javascript">arr.splice(a,b,c,d)
+</code></pre>
+<ul>
+<li>js实现二维数组</li>
+</ul>
+<pre><code class="language-javascript">// 二维数组
+let zairesinatra = [];
+
+zairesinatra[0] = [1, 2, 3, 4, 5 ];
+zairesinatra[1] = [1, 2, 3, 4, 5 ];
+zairesinatra[0] = [];
+zairesinatra[1] = [];
+zairesinatra[0][0] = 1;
+zairesinatra[0][1] = 2;
+zairesinatra[0][2] = 3;
+zairesinatra[0][3] = 4;
+zairesinatra[0][4] = 5;
+zairesinatra[1][0] = 1;
+zairesinatra[1][1] = 2;
+zairesinatra[1][2] = 3;
+zairesinatra[1][3] = 4;
+zairesinatra[1][4] = 5;  
+
+function printMatrix(zs){
+    for(i=0;i&lt;zs.length;i++){
+        for(j=0;j&lt;zs[i].length;j++){
+            console.log(zs[i][j])
+        }
+    }
+}
+console.table(zairesinatra)
+</code></pre>
+<ul>
+<li>数组去重（语法自身键、两层循环比较）</li>
+</ul>
+<pre><code class="language-javascript">// 利用 set 集合 =&gt; 无重复、无顺序数组
+// ES5 解构赋值
+let zsset = (arr)=&gt;{ return [...new Set(arr)] }
+console.log(zsset([1,1,2,3,true,true])); // [ 1, 2, 3, true ]
+
+// ES6 中 Array.from
+function zsunique (arr) {
+    return Array.from(new Set(arr))
+}
+var arr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsunique(arr)) // [ 0, 6, 'xzy', true, undefined, null, NaN, {}, {} ]
+
+// 嵌套
+function zsNested(arr){            
+    for(var i=0; i&lt;arr.length; i++){
+        for(var j=i+1; j&lt;arr.length; j++){
+            // 第一个等同于第二个则splice方法删除第二个
+            if(arr[i]==arr[j]){
+                arr.splice(j,1);
+                j--;
+            }
+        }
+    }
+return arr;
+}
+var tarr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsNested(tarr)) // [ 0, 6, 'xzy', true, undefined, NaN, NaN, {}, {} ]
+
+// indexOf
+// 判断结果数组是否存在当前元素,如果有相同的值则跳过,不相同则push进数组
+function zsindex(arr) {
+    if (!Array.isArray(arr)) {
+        console.log('type error!')
+        return
+    }
+    var array = [];
+    for (var i = 0; i &lt; arr.length; i++) {
+        // indexOf()方法返回在数组中可以找到一个给定元素的第一个索引,如果不存在,则返回-1
+        if (array.indexOf(arr[i]) === -1) {
+            array.push(arr[i])
+        }
+    }
+    return array;
+}
+var ttarr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsindex(ttarr)) // [ 0, 6, 'xzy', true, undefined, null, NaN, NaN, {}, {} ]
+
+// includes 去重 =&gt; 与 indexOf 类似
+function zsin(arr) {
+    if (!Array.isArray(arr)) {
+        console.log('type error!')
+        return
+    }
+    var array =[];
+    for(var i = 0; i &lt; arr.length; i++) {
+        if(!array.includes(arr[i])) {
+            array.push(arr[i]);
+        }
+    }
+    return array
+}
+var arrr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsin(arrr)) // [ 0, 6, 'xzy', true, undefined, null, NaN, {}, {} ]
+
+// sort()去重
+function zssort(arr) {
+    if (!Array.isArray(arr)) {
+        console.log('type error!')
+        return;
+    }
+    arr = arr.sort()
+    var array= [arr[0]];
+    for (var i = 1; i &lt; arr.length; i++) {
+        if (arr[i] !== arr[i-1]) {
+            array.push(arr[i]);
+        }
+    }
+    return array;
+}
+var xarr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zssort(xarr)) // [ 0, 6, NaN, NaN, {}, {}, null, true, 'xzy', undefined ]
+
+// filter() 方法创建一个新数组,其包含通过所提供函数实现的测试的所有元素
+function zsfilter(arr) {
+    return arr.filter((item, index, arr) =&gt; {
+        // 当前元素在原始数组中的第一个索引 === 当前索引值，否则返回当前元素
+        return arr.indexOf(item) === index;
+        // 或者 hasOwnProperty 去重
+        // hasOwnProperty()方法会返回一个布尔值,指示对象自身属性中是否具有指定的属性
+    });
+}
+let ffarr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsfilter(ffarr)); // [ 0, 6, 'xzy', true, undefined, null, {}, {} ]
+
+// Map 数据结构去重
+// Map 对象保存键值对,并且能够记住键的原始插入顺序
+function zsMap(aarr) {
+    let map = new Map();
+    let array = new Array();  // 数组用于返回结果
+    for (let i = 0; i &lt; arr.length; i++) {
+        if (map.has(arr[i])) {  // 如果有该key值
+            map.set(arr[i], true); 
+        } else { 
+            map.set(arr[i], false); // 如果没有该key值
+            array.push(arr[i]);
+        }
+    } 
+    return array ;
+}
+var aarr = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zsMap(aarr)) // [ 0, 6, 'xzy', true, undefined, null, NaN, {}, {} ]
+
+// reduce()
+// reduce() 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行),将其结果汇总为单个返回值
+// Accumulator (acc) (累计器)、Current Value (cur) (当前值)、Current Index (idx) (当前索引)、Source Array (src) (源数组)
+function zszs(arr){
+    return arr.reduce((prev,cur) =&gt; prev.includes(cur) ? prev : [...prev,cur], []);
+}
+var arro = [0,0,6,6,'xzy','xzy',true,true,undefined,undefined,null,null,NaN,NaN,{},{}];
+console.log(zszs(arro)); // [ 0, 6, 'xzy', true, undefined, null, NaN, {}, {} ]
+</code></pre>
+<h3 id="linkedlist">LinkedList</h3>
+<p>数组作为最常用的数据结构，几乎每一种语言都有默认实现数组的结构(python中称为链表)。但是数组也有很多缺点：</p>
+<ul>
+<li>数组的创建通常需要申请一段连续的内存空间。若当前数组不能满足容量需求时，需要扩容(一般情况是申请一个更大的数组，再将原数组中元素赋值过去)。</li>
+<li>从数组的起点或中间插入的成本较高，需要移动大量元素。</li>
+</ul>
+<p>那么要储存多个元素，另外一个选择就是 <strong>链表</strong> 。链表相对有更高的内存动态管理。且不必在创建时确定大小、可无限延伸。在 <strong>插入和删除</strong> 数据时， <strong>时间复杂度</strong> 可以达到 <font color="red">O(1)</font> 。</p>
+<p>链表是有序的元素集合，但 <strong>不同于数组在内存中连续空间</strong> 。而是每个元素由一个 <strong>存储元素本身的节点</strong> 和 <strong>指向下一个元素的引用（指针）</strong> 组成。</p>
+<p>数组中可以直接通过下标值直接访问任何位置的任何元素，但在链表想访问中间一个元素需要 <strong>从起点迭代链表</strong> ，这是链表的缺点——访问元素时性能低很多。</p>
+<p>在现实中，链表就像是解谜游戏，根据一条线索去寻找下一项的线索，那么线索就是指针。想要得到链表中的线索唯一办法就是从起点顺着链表去寻找。</p>
+<pre><code class="language-javascript">// util.mjs
+export function defaultEquals(a,b){
+    return a === b;
+}
+</code></pre>
+<pre><code class="language-javascript">// node.mjs
+export class Node {
+    constructor(element) {
+        this.element = element;
+        this.next = null;
+    }
+}
+</code></pre>
+<pre><code class="language-javascript">import { Node } from './node.mjs'
+import { defaultEquals } from './util.mjs'
+
+export default class LinkedList { // 对于封装的东西,我们首先考虑有什么共有的属性和方法
+    conductor(equalsFn = defaultEquals){
+        // 1.head指向所有节点的第一个节点 2.node(element、next)
+        this.count = 0; // 存储链表元素的数量
+        this.head = null;
+        this.equalsFn = equalsFn;
+    }
+    append(element){
+        const node = new Node(element); // element作为值传入创建node项
+        let current; // 设一个
+        if (this.head == null) { this.head = node }
+        else { 
+            current = this.head;
+            while(current.next != null){
+                current = current.next;
+            }
+            current.next = node;
+         }
+         this.count++
+    }
+    removeAt(index){ // 这里要验证index是否为有效的index
+        let current = this.head // 通过current创建对列表第一个元素的引用
+        if(index&gt;=0 &amp;&amp; index&lt;this.count){
+            if(index == 0){this.head = current.next}
+            else{
+                let previous;
+                for(i=0;i&lt;index;i++){ // 迭代链表的node
+                    let previous = current;
+                    current = current.next;
+                }
+                previous.next = current.next; // 跳过选择到的current这一项
+            }
+            this.count--; // 少了一个node
+            return current.element; // 返回删除的这个节点元素
+        }
+        return undefined;
+    }
+    getElementAt(index){
+        if(index&gt;=0 &amp;&amp; index&lt;=this.count){
+            let node = this.head;
+            for(i=0; i&lt;index &amp;&amp; node!=null; i++){
+                node = node.next;
+            }
+            return node;
+        }
+        return undefined;
+    }
+    insert(element,index){
+        if(index&gt;=0&amp;&amp;index&lt;=this.count){ // 检查越界值
+            let node = new Node(element);
+            if(index === 0){ // 链表起点添加元素
+                const current = this.head; // current是第一个元素的引用
+                node.next = current; // 插入在current元素之前
+                this.head = node; //head引用改为node
+            }
+            else{
+                const previous = this.getElementAt(index-1); // 迭代找到目标元素
+                const current = previous.next;
+                node.next = current; // 改变previous和current之间的链接
+                previous.next = node;
+            }
+            this.count++;
+            return true;
+        }
+        return false; // 错误的index
+    }
+    indexOf(element){
+        let current = this.head; // 拿到指向的第一节点
+        for(let i=0; i&lt;this.count&amp;&amp;current!=null; i++){
+            if(this.equalsFn(element,current.element)){
+                return i;
+            }
+            current = current.next; // 这里current一直在变为下一项
+        }
+        return -1;
+    }
+    remove(element){ // 复用代码
+        const index = this.indexOf(element)
+        return this.removeAt(index)
+    }
+    size(){
+        return this.count;
+    }
+    isEmpty(){
+        return this.size() === 0;
+    }
+    getHead(){
+        return this.head;
+    }
+    toString(){
+        if(this.head == null){ // 链表为空则返回空字符串
+            return ''
+        }
+        else{
+            let objString = `${this.head.element}`; // 链表第一项初始化最后返回的字符串
+            let current = this.head.next;
+            for(let i=0; i&lt;this.size() &amp;&amp; current != null; i++){
+                objString = `${objString},${current.element}`;
+                current = current.next;
+            }
+            return objString;
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-javascript">// 测试代码
+var ll = new LinkedList()
+ll.append('xzy')
+ll.append('zs')
+ll.append('zairesinatra')
+ll.append(10)
+console.log(ll);
+console.log(ll.isEmpty());
+</code></pre>
+<h3 id="set">Set</h3>
+<p>集合是没有重复元素与顺序概念的数组。常作为数组去重方法。</p>
+<pre><code class="language-javascript">// Set 无序且唯一 =&gt; JavaScript 中对象不允许一个键指向两个不同的属性,保证集合元素唯一
+class Set {
+    constructor() {
+        this.items = {};
+    }
+    has(element) {
+        // return element in this.items;
+        return Object.prototype.hasOwnProperty.call(this.items, element)
+        // Object原型有hasOwnProperty的方法,返回一个对象是否具有特定属性的布尔值; 使用call避免ESLint出现问题
+    }
+    add(element) {
+        if(!this.has(element)){
+            this.items[element] = element; // 同时作为键值保存有利于查找
+            return true
+        }
+        return false
+    }
+    delete(element) {
+        if(!this.has(element)){
+            delete this.items[element];
+            return true
+        }
+        false
+    }
+    clear() {
+        this.items = {}
+    }
+
+    // size()方法有三种实现方式
+    // 方法一,设置一个length,每一次进行add、delete、clear执行加一减以与清除
+    // 方法二,Javascript中内置的key方法. =&gt; Object.prototype.keys(this.items).length返回给定对象所有属性的数组
+    size() {
+        return Object.keys(this.items).length
+    }
+    // 方法三,手动提取items对象每一个属性,记录属性个数并返回-迭代
+    sizeLegacy() {
+        let count = 0;
+        for(let key in this.items) {
+            if(this.items.hasOwnProperty((key))){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // Object类内置的 Object.values() 方法返回包含给定对象的所有属性值的数组
+    values() {
+        return Object.values(this.items);
+    }
+    valuesLegacy() {
+        return Object.values(this.items);
+    }
+
+    // 并集
+    union(otherset) {
+        const unionSet = new Set(); // 代表两个集合的并集
+        // 迭代添加并集集合中
+        this.values().forEach((value) =&gt; {unionSet.add(value)});
+        otherset.values().forEach((value) =&gt; {unionSet.add(value)});
+        return unionSet;
+    }
+    
+    // 交集
+    interSection(otherset) {
+        let interSectionSet = new Set(); // 定义要返回的交集集合
+        let otherValues = otherset.values();
+        let biggerSet = this.values();
+        let smallerSet = otherValues;
+        if(otherValues.length-this.values().length&gt;0){
+            biggerSet = otherValues;
+            smallerSet = values;
+        }
+        smallerSet.forEach(value=&gt;{
+            if(biggerSet.includes(value)){
+                interSectionSet.add(value);
+            }
+        });
+        return interSectionSet;
+    }
+
+    // 差集
+    difference(otherset){
+        let differenceset = new Set();
+        this.values().forEach(value=&gt;{
+            if(!otherset.has(value)){
+                differenceset.add(value);
+            }
+        });
+        return differenceset
+    }
+
+    // 子集
+    isSubsetOf(otherset){
+        if(this.sizeLegacy()&gt;otherset.sizeLegacy()){
+            return false;
+        }
+        let isSubset = true;
+        this.values().every(value=&gt;{
+            if(!otherset.has(value)){ // 这里的意思是其他的集合没有则要考虑改变isSubset的布尔值
+                isSubset = false;
+                return false
+            }
+            return true;
+        });
+        return isSubset
+    }
+}
+
+let zsset = new Set()
+zsset.add(&quot;z&quot;);
+zsset.add(&quot;s&quot;);
+console.log(zsset); // Set { items: { z: 'z', s: 's' } }
+console.log(zsset.size()); // 2
+console.log(zsset.sizeLegacy()); // 2
+console.log(zsset.valuesLegacy()); // [ 'z', 's' ]
+const zy = new Set()
+zy.add(1)
+zy.add(2)
+zy.add(&quot;z&quot;)
+console.log(zy); // Set { items: { '1': 1, '2': 2, z: 'z' } }
+const un = zsset.union(zy)
+console.log(un); // 注意这里最后z不存在于un --- Set { items: { '1': 1, '2': 2, z: 'z', s: 's' } }
+let zairesinatra = new Set()
+zairesinatra.add(1)
+zairesinatra.add(2)
+zairesinatra.add(3)
+let xxx = new Set()
+xxx.add(1)
+xxx.add(2)
+console.log(zairesinatra); // Set { items: { '1': 1, '2': 2, '3': 3 } }
+console.log(xxx); // Set { items: { '1': 1, '2': 2 } }
+const interr = zairesinatra.interSection(xxx)
+const dd = zairesinatra.difference(xxx)
+const child = xxx.isSubsetOf(zairesinatra)
+console.log(interr); // Set { items: { '1': 1, '2': 2 } }
+console.log(dd); // Set { items: { '3': 3 } }
+console.log(child); // true
+// 到这里实现了 JavaScript 中 Set 类的效果
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+
+    
+    <section class="article-comments gh-canvas">
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "yourdomain.com/algomethods/";
+                this.page.identifier = "ghost-60e14527bed9e30a7c1cfe7b"
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    </section>
+   
+
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../g-toc-css/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/SLAMDUNK.png 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/SLAMDUNK.png"
+            alt="SLAM DUNK"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    G&amp;TOC&amp;CSS
+                </h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mybatis/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg"
+            alt="Green Trees Under Blue Sky"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mybatis/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MyBatis
+                </h2>
+            </header>
+                <div class="post-card-excerpt">半自动 ORM Object Relation Mapping 持久层框架 MyBatis</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-02-02">Feb 2, 2022</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">44 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mysqlnote/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/cloud.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/cloud.jpg"
+            alt="mysql"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MySQL 笔记
+                </h2>
+            </header>
+                <div class="post-card-excerpt">MYSQL 基础篇</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
+                <span class="sep">—</span>
+                <span class="post-card-meta-length">82 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=ab47967965"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<!-- 2022 prismjs update -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-powershell.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+
+
+<!-- music -->
+<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script>
+	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+		$('.carousel').carousel({
+			interval: 3000
+		})
+</script>
+<!-- music -->
+<div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.gh-content',
+        hasInnerContainers: true
+    });
+    var tc = document.querySelector(".toc-container");
+    var tch = tc.clientHeight;
+    var ah = document.querySelector(".article-header");
+    var ahh = ah.clientHeight;
+    window.addEventListener("scroll", function () {
+    if(document.body.clientWidth > 1170){
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+        var ihh = window.innerHeight;
+        if(scrollY >= ihh + tch + ahh){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="sticky";
+            ctc.style.position="-webkit-sticky";
+            ctc.style.top = "120px";
+            ctc.style.marginLeft = "800px";
+            ctc.style.minWidth= "260px";
+        }
+        if(scrollY < tch + ahh -10){
+            var ctc = document.querySelector(".toc-container");
+            ctc.style.position="";
+            ctc.style.top = "";
+            ctc.style.marginLeft = "";
+            console.log("zszszs")
+        }
+    }
+    })
+</script>
+</body>
+</html>

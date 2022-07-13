@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>TypeScript</title>
+
+    <meta name="description" content="关于 TypeScript 那些事" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="TypeScript" />
+    <meta property="og:description" content="关于 TypeScript 那些事" />
+    <meta property="og:url" content="yourdomain.com/typescript/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/09/typescript.png" />
+    <meta property="article:published_time" content="2020-05-01T14:56:00.000Z" />
+    <meta property="article:modified_time" content="2021-09-16T17:13:44.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TypeScript" />
+    <meta name="twitter:description" content="关于 TypeScript 那些事" />
+    <meta name="twitter:url" content="yourdomain.com/typescript/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/09/typescript.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "TypeScript",
+    "url": "yourdomain.com/typescript/",
+    "datePublished": "2020-05-01T14:56:00.000Z",
+    "dateModified": "2021-09-16T17:13:44.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/09/typescript.png",
+        "width": 1200,
+        "height": 630
+    },
+    "keywords": "Technology growth",
+    "description": "关于 TypeScript 那些事",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">TypeScript</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2020-05-01">01 May 2020</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2021/09/typescript.png" width="600" height="340" layout="responsive" 
+                alt="typescript"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <p>JavaScript 是动态弱类型类型的语言，在快速上手同时也存在很多令开发者诟病的缺点。使用变量可以赋值任意类型，但在不需要考虑类型的同时，若在其他地方大意改变了值的类型会导致产生让人费解的 BUGS（运算中对参数的数值变量重新赋值产生 NaN 的结果）。这种原因不会在写代码的时候报错，排查起来比较麻烦。进一步来说，在函数传参时没有类型的限制会导致在后续代码埋下安全隐患。</p>
+<h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<p>TypeScript 可以在任何支持 JavaScript 的平台执行，但是 TS 不能被 JS 解析器直接执行，需要进行编译成最终的 JS 代码。</p>
+<pre><code class="language-shell"># 安装 TypeScript
+npm install -g typescript
+# 查看 TypeScript 版本
+tsc -v
+# 运行 TypeScript 编译器
+tsc xxx.ts
+# 防止出现编辑器提示 [函数重复实现]和[无法重新声明块范围变量]
+tsc --init # 生成一个tsconfig文件即可
+</code></pre>
+<pre><code class="language-ts">// 变量类型声明
+let a: number; a = 10;
+// 变量声明赋值同时进行则可以省略类型声明 let b: boolean = true;
+let b = true;
+console.log(a, b);
+
+function greeter(person: string, age: number): string { // 定义参数类型与返回值类型
+    return "Hello, " + person + '--' +age;
+}
+let person = "zairesinatra", age = 23;
+console.log(greeter(person, 23)); // Hello, zairesinatra--23
+</code></pre>
+<h3 id="ts-%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B">TS 中的类型</h3>
+<pre><code class="language-ts">// 可以直接使用字面量进行类型声明
+let a: 10;
+a = 10;
+a = 11;❌
+// 使用管道符连接多个类型 —— 联合类型
+let b = "male" | "female";
+let list: number[] | Array&lt;number&gt;; // 在元素类型后面接上[],表示由此类型元素组成的一个数组 | 使用数组泛型
+list = [1, 2, 3];
+// any表示任意类型,一个变量设置任意类型表示关闭了 TS 的类型检测
+let d: any // 声明变量不指定类型也会隐式解析为 any 类型
+d = '*'
+// unknown 表示未知类型
+let e: unknown; // any 可以赋值给任意变量; unknown 实际上是类型安全的 any
+a = e;❌ // unknown 类型的变量不能直接赋值给其他变量,除非赋值前进行类型检查或者类型断言
+a = e as number; // if( typeof e === 'number'){a = e} or a = &lt;number&gt;e
+// void 表示函数无返回值,或者说返回空值
+function voidfunc () {
+    return 
+}
+// never 表示永远不会返回结果
+function neverFunc (): never {
+    throw new Error('your func has no return value')
+}
+// object 表示一个js对象,由于不能指定具体对象类型使用较少
+let obj: object;
+obj = {}; obj = () =&gt; {}
+// {} 常做指定对象中可以包含的属性 {属性名: 属性类型, ...}
+let objj: {name: string, age?: number} // 属性名后加上 ? 表示属性可选
+objj = {name: 'zszs', age: 23}
+// 中括号表示任意属性
+let objjj: {name: string, [propName: string]: any} // 可选任意属性名的任意属性
+objjj = {name: 'zszs', age: 23, gender: 'male'}
+// 设置函数结构的类型声明 (形参: 类型, ...) =&gt; 返回值类型
+let func: (arg1: number, arg2: number) =&gt; number;
+func = function(arg1, arg2) {return arg1 + arg2}
+console.log(func(1, 2)); // 3
+// TS 数组通常存储相同类型的值(类型后加[];Array&lt;类型&gt;)
+let arr: string[] // 等价于 let arr: Array&lt;string&gt;
+arr = ['z', 'y']
+// 元组: 固定长度的数组(存储效率较好) —— Tuple
+let tuple: [boolean, string]
+tuple = [true, 'zyyy']
+// enum 枚举
+enum Gender {
+    Male = 0,
+    Female = 1
+}
+let enumtest: {name: string, gender: Gender};
+enumtest = {
+    name: 'Kakashi',
+    gender: Gender.Male // 0
+}
+console.log(enumtest.gender === Gender.Male) // true
+// &amp; 表示同时满足连接的条件
+let j: {name: string} &amp; {age: number};
+j = {name: 'kakashi', age: 24}
+// 类型别名 —— 简化类型书写与使用
+type myType = 1 | 2 | 3 | 4 | 5;
+let k: myType;
+k = 1
+</code></pre>
+<h3 id="%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9">编译选项</h3>
+<pre><code class="language-shell"># 监视 TS 文件改变自动编译
+tsc file.ts -w # 等同于 --watch
+# 全局监视(根目录存在 tsconfig.json )
+tsc -w
+</code></pre>
+<pre><code class="language-json">// tsconfig.json
+// include 指定哪些 ts 文件需要进行编译
+"include": [
+    "./src/**/*" // **任意目录 *任意文件
+],
+// exclude 指定哪些文件不需要进行编译
+"exclude": [
+    "./src/exc/**/*" // 默认排除 ["node_modules", "bower_component", "jspm_packages"]
+],
+// extends 定义被继承的配置文件
+"extend": "./config/base", // 当前配置文件会自动包含 config 目录下 base.json 中的所有配置信息
+// 在指定的编译文件较少时,可以使用 files 指定需要编译的内容
+"files": [
+    "core.ts",
+    "sys.ts",
+    ...
+],
+// 在初始化tsc时会自动建立 compilerOptions 配置项
+// compilerOptions 决定了编译器如何对 ts 文件进行编译
+"compilerOptions": {
+    "target": "es5", // 指定 ts 文件被编译为的 ES 版本
+    "module": "commonjs", // 编译后的 js 需要使用的模块化规范
+    // "lib": [], // 指定项目中需要用到的库,一般情况不动
+    // outDir用来指定编译后文件所在目录
+    "outDir": "./dist",
+    // outFile 可以将代码合并为一个文件(模块化必须是 AMD 或者 system)
+    // "outFile": "./" // 初始化默认注释
+    // allowJs 是否对 JS 文件进行编译, 默认为 true ,但是在初始化时被注释
+    "allowJs": true,
+    // 检查 JS 代码是否符合规范
+    "checkJs": true, // 通常与 allowJs 一套
+    // removeComments 是否移除注释 —— 编译时是否携带注释
+    "removeComments": true,
+    // noEmit 不生成编译后的文件
+    "noEmit": false, // 不想用编译功能,只需要检查语法
+    // noEmitOnError 当有错误时不生成编译后的文件
+    "noEmitOnError": false,
+    // 所有严格检查的总开关 -- 设置为 true 则所有严格模式全部打开
+    "strict": true,
+    // alwaysStrict 编译后文件是否使用严格模式
+    "alwaysStrict": false, // js 使用导入导出就会默认开启严格模式所以不会显示 "use strict"
+    // 不允许隐式的 any 类型
+    "noImplicitAny": true,
+    // 不允许不明确类型的 this
+    "noImplicitThis": true,
+    // 严格检查空值
+    "strictNullChecks": false
+    }
+}
+</code></pre>
+<h3 id="webpack-%E6%89%93%E5%8C%85-ts">webpack 打包 TS</h3>
+<pre><code class="language-shell">npm i -D webpack webpack-cli typescript ts-loader
+npm i -D webpack-dev-server html-webpack-plugin clean-webpack-plugin
+npm i -D @babel/core @babel/preset-env babel-loader core-js
+</code></pre>
+<pre><code class="language-js">const path = require('path');
+// 引入 html 插件 —— 自动生成 html 文件
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+// 引入clean插件
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+
+// webpack中的所有的配置信息都应该写在module.exports中
+module.exports = {
+    // 指定入口文件
+    entry: "./src/index.ts",
+    // 指定打包文件所在目录
+    output: {
+        // 指定打包文件的目录
+        path: path.resolve(__dirname, 'dist'),
+        // 打包后文件的文件
+        filename: "bundle.js",
+        // 让 webpack 不使用箭头 —— 默认打包后是一个立即执行的箭头函数(在 IE11 中无法执行
+        environment: {
+            arrowFunction: false // 在webpack打包时,最外层不再是箭头函数
+        }
+    },
+    // 指定webpack打包时要使用模块
+    module: {
+        // 指定要加载的规则
+        rules: [
+            { // Webpack在加载时是从后向前加载
+                test: /\.ts$/, // test指定的是规则生效的文件
+                use: [
+                    {
+                        loader: "babel-loader", // 指定加载器loader —— 与 webpack 结合的工具
+                        options: {
+                            presets: [ // 设置预定义的环境
+                                [
+                                    "@babel/preset-env", // 指定环境的插件
+                                    {
+                                        targets: { // 目标兼容的目标浏览器
+                                            "chrome": "93",
+                                            "ie": "11"
+                                        },
+                                        "corejs": "3", // 指定 corejs 的版本去兼容老版本浏览器
+                                        "useBuiltIns": "usage" // 使用 corejs 按需加载
+                                    }
+                                ]
+                            ]
+                        }
+                    },
+                    'ts-loader', // ts 转换为 js
+                ],
+                exclude: /node-modules/ // 要排除的文件
+            }
+        ]
+    },
+    plugins: [
+        new CleanWebpackPlugin(),
+        new HTMLWebpackPlugin({ // html 文件的自定义配置
+            // title: "这是一个自定义的title"
+            template: "./src/index.html" // 根据此 html 模板生成页面
+        }),
+    ],
+    resolve: { // 设置引用模块 —— 默认识别不出 .ts 结尾的模块
+        extensions: ['.ts', '.js'] // 尝试按顺序解析这些后缀名
+    }
+}
+</code></pre>
+<h3 id="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-ts">面向对象 TS</h3>
+<pre><code class="language-ts">/**
+ * 直接定义的属性是实例属性,需要对象实例去访问
+ * 使用 static 开头的属性是静态属性,可以直接通过类访问
+ * readonly 开头属性为只读属性,无法修改
+ */
+class Person {
+    readonly name: string = 'kakashi'; // 不可被修该 —— 只读属性
+    static age: number = 24;
+}
+const per = new Person();
+console.log(Person.age); // 24
+console.log(per.name); // kakashi
+</code></pre>
+<pre><code class="language-ts">class Personn{
+    name: string;
+    age: number;
+    
+    constructor(name: string, age: number){
+        this.name = name;
+        this.age = age;
+    }
+    
+    sayHello(){
+        console.log(`大家好，我是${this.name},今年${this.age}岁`);
+    }
+}
+const p1 = new Personn("zy", 22);
+console.log(p1.sayHello()); // 大家好，我是zy,今年22岁
+</code></pre>
+<pre><code class="language-ts">// ts 会使不同文件中的相同变量出现冲突,使用立即执行函数规避
+(function(){
+    class Fruit {
+        name: string;
+        constructor(name: string) {
+            this.name = name;
+        }
+        sayHello() {
+            console.log('水果好吃')
+        }
+    }
+    class Coconut extends Fruit {
+        age: number;
+        constructor(name: string, age: number) { // 创建属性初始化必须调用构造函数去创建
+            super(name)
+            // 由于名字相同的函数会发生重写,在子类写构造函数相当于把父类构造函数覆盖掉了,那么父类构造函数不会执行,会导致 name 赋值失效,也就是继承失效
+            this.age = age
+        }
+        sayHello(){
+            super.sayHello(); // super 表示当前类的父类
+            console.log(`other methods: 我是一个${this.age}岁的${this.name}水果`); // other methods: 我是一个0.2岁的coco水果
+        }
+    }
+    const coco = new Coconut('coco', 0.2)
+    coco.sayHello(); // 水果好吃 —— 实际在调用父类的 sayHello
+})()
+</code></pre>
+<pre><code class="language-ts">(function(){
+    /**
+     * 以 abstract 开头的类是抽象类
+     * 抽象类与其他类差别不大,仅不能创建对象
+     * 抽象类是专门被其他类继承的类
+     * 抽象类可以添加抽象方法
+     */
+    abstract class Animal {
+        name: string;
+        constructor(name: string) {
+            this.name = name;
+        }
+        /**
+         * 具体实现由子类实现
+         * 抽象方法由 abstract 开头,没有方法体
+         * 抽象方法只能定义在抽象类中,子类必须对抽象方法进行重写
+         */
+        abstract sayHello(): void; // 通用方法不能满足每个类的需求
+    }
+    class Cat extends Animal{
+        sayHello() { // 必须重写抽象方法
+            console.log(" cat class rewrite this method");
+        }
+    }
+    // const cat = new Animal() // 无法创建抽象类的实例
+})()
+</code></pre>
+<pre><code class="language-ts">(function(){
+    /**
+     * 接口用来定义限制一个类的结构
+     * 定义一个类中应该包含哪些属性与方法,同时接口可以作为类型声明去使用 =&gt; type myType = {name:string, age: number} !但是接口可以重复声明
+     */
+    interface myInterface{ // 类似于类型的方式
+        /**
+         * 接口中所有的属性都不能有实际的值,即接口只定义结构不考虑实际值
+         */
+        name: string;
+        age: number;
+        sayHi(): void;
+    }
+    const obj: myInterface = {
+        name: 'zszy',
+        age: 23,
+        sayHi(){
+            console.log('implements interface');
+        }
+    }
+    /**
+     * 定义类时,可以使类去实现一个接口
+     * 实现接口即使类满足接口的要求
+     */
+    class MyClass implements myInterface{
+        constructor(name: string, age:number) {
+            this.name = name;
+            this.age = age
+        }
+        sayHi(): void {
+            throw new Error("Guess method is not implemented.");
+        }
+        name: string
+        age: number
+    }
+})()
+</code></pre>
+<pre><code class="language-ts">"use strict";
+/**
+ * 属性在对象中设置,属性可以任意的修改
+ * 属性被任意的修改会导致数据安全性下降
+ */
+(function () {
+    /**
+     * ts 可以在属性前添加属性的修饰符
+     * public 的属性可以在任意位置修改与访问(是默认的修饰)
+     * private 为私有属性,只能在类内部进行修改
+     *  -- 通过在类中添加私有属性可以被外部进行访问 —— 通过暴露方法间接得到属性
+     *  -- 属性访问权回收,保证数据安全
+     */
+    var Person = /** @class */ (function () {
+        function Person(name, age) {
+            this._name = name;
+            this._age = age;
+        }
+        /**
+         * getter 与 setter 方法称为属性存取器
+         * TS 中可以简化设置
+         */
+        Person.prototype.getName = function () {
+            return this._name;
+        };
+        Person.prototype.setName = function (value) {
+            this._name = value;
+        };
+        Person.prototype.getAge = function () {
+            return this._age;
+        };
+        Person.prototype.setAge = function (value) {
+            if (value &gt;= 0) {
+                this._age = value;
+            }
+        };
+        return Person;
+    }());
+    var p = new Person('Sasuke', 18);
+    /**
+     * private 修饰属性被外部禁止修改
+     * ts 独有,若不进行配置 "noEmitOnError": true 会导致还是会在解析的JS文件被修改
+     */
+    // p.age = -1; // Person { name: 'Sasuke', age: -1 }
+    p.setName('kakashi');
+    p.setAge(24);
+    console.log(p); // Person { _name: 'kakashi', _age: 24 }
+})();
+</code></pre>
+<p>由 TS 存取器简化后</p>
+<pre><code class="language-ts">(function(){
+    /**
+     * 属性容易修改错则在开发中使用
+     */
+    class Person {
+        private _name: string;
+        private _age: number;
+        constructor(name: string, age: number) {
+            this._name = name;
+            this._age = age;
+        }
+        // TS 中设置的 getter setter 方法
+        get name() {
+            return this._name
+        }
+        set name(value: string) {
+            this._name = value
+        }
+        get age() {
+            return this._age
+        }
+        set age(value: number) {
+            if(value &gt;= 0){
+                this._age = value;
+            }
+        }
+    }
+    const p = new Person('Sasuke', 18)
+    console.log(p.name, p.age); // Sasuke 18
+    p.name = 'Naruto'; p.age = 17;
+    console.log(p.name, p.age); // Naruto 17
+})()
+</code></pre>
+<pre><code class="language-ts">/**
+ * protect表示收保护的属性,只能在当前类与当前类的子类中访问(修改)
+ */
+(function(){
+    class A {
+        protected num: number;
+        constructor(num: number){
+            this.num = num;
+        }
+    }
+    class B extends A {
+        test() {
+            console.log(this.num);
+        }
+    }
+    const b = new B(1)
+    // b.num 不可更改
+    b.test() // 1
+
+    // 简化写法
+    class C{
+        // 可以直接将属性定义在构造函数中
+        constructor(public name: string, public age: number){
+
+        }
+    }
+    const c = new C('ccc', 17)
+    console.log(c); // C { name: 'ccc', age: 17 }
+})()
+</code></pre>
+<pre><code class="language-ts">/**
+ * 需要少使用 any,又难以避免定义函数或者类遇见类型不明确的情况,故使用泛型 —— 根据实际调用情况决定类型
+ */
+function fn&lt;T&gt;(a: T): T{ // T只有在函数执行时候才确定
+    return a
+}
+// 直接调用具有泛型的函数 —— 不指定泛型可以让 ts 自动对类型推断
+fn(10); // 返回值类型也是 number
+// 指定泛型
+fn&lt;string&gt;('hello'); // 返回值类型也是 string
+
+// 泛型可以指定多个
+function func&lt;T, K&gt;(a: T, b: K){
+    console.log(b);
+    return a
+}
+func&lt;number, string&gt;(123, 'hello')
+
+// T extends Inter 表示泛型必须是 Inter 实现类(子类)
+interface Inter{
+    length: number;
+}
+function fun&lt;T extends Inter&gt;(a: T): number{
+    return a.length;
+}
+fun('123')
+
+class MyGeneric&lt;G&gt; {
+    name: G;
+    constructor(name: G) {
+        this.name = name;
+    }
+}
+const mg = new MyGeneric&lt;string&gt;('MyGeneric')
+</code></pre>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>
