@@ -16,23 +16,23 @@
     <meta property="og:title" content="Sass | Less" />
     <meta property="og:description" content="预处理器 Less 和 Sass | Scss" />
     <meta property="og:url" content="yourdomain.com/lesssass/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/08/sass-less.png" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/08/sass-less.png" />
     <meta property="article:published_time" content="2020-08-22T12:56:00.000Z" />
-    <meta property="article:modified_time" content="2021-10-27T09:40:31.000Z" />
+    <meta property="article:modified_time" content="2022-09-02T16:32:01.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Sass | Less" />
     <meta name="twitter:description" content="预处理器 Less 和 Sass | Scss" />
     <meta name="twitter:url" content="yourdomain.com/lesssass/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/08/sass-less.png" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/08/sass-less.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="Technology growth" />
     <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="1000" />
-    <meta property="og:image:height" content="360" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
     
     <script type="application/ld+json">
 {
@@ -64,12 +64,12 @@
     "headline": "Sass | Less",
     "url": "yourdomain.com/lesssass/",
     "datePublished": "2020-08-22T12:56:00.000Z",
-    "dateModified": "2021-10-27T09:40:31.000Z",
+    "dateModified": "2022-09-02T16:32:01.000Z",
     "image": {
         "@type": "ImageObject",
-        "url": "yourdomain.com/content/images/2021/08/sass-less.png",
-        "width": 1000,
-        "height": 360
+        "url": "yourdomain.com/content/images/2022/08/sass-less.png",
+        "width": 1920,
+        "height": 1080
     },
     "keywords": "Technology growth",
     "description": "预处理器 Less 和 Sass | Scss",
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1074,8 +1074,8 @@
                 </section>
             </header>
             <figure class="post-image">
-                <amp-img src="yourdomain.com/content/images/2021/08/sass-less.png" width="600" height="340" layout="responsive" 
-                alt="sass-less"
+                <amp-img src="yourdomain.com/content/images/2022/08/sass-less.png" width="600" height="340" layout="responsive" 
+                alt="Sass&amp;LESS"
                 ></amp-img>
             </figure>
             <section class="post-content">
@@ -1455,7 +1455,21 @@ button {
             <td> 简单|较广 </td>
         </tr>
     </tbody>
-</table><h2 id="bugs-%E5%A4%84%E7%90%86">Bugs 处理</h2>
+</table><h2 id="%E6%95%88%E6%9E%9C%E5%A2%9E%E5%BC%BA">效果增强</h2>
+<h3 id="%E9%98%B4%E5%BD%B1%E5%8A%A8%E7%94%BB">阴影动画</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition">transition</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/translate">translate</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow">box-shadow</a></li>
+</ul>
+<pre><code class="language-less">// 鼠标经过上移阴影动画
+.hoverShadow () {
+  transition: all .5s;
+  &amp;:hover {
+    transform: translate3d(0,-3px,0);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  }
+}
+</code></pre>
+<h2 id="bugs-%E5%A4%84%E7%90%86">Bugs 处理</h2>
 <ul>
 <li>sass 版本兼容问题</li>
 </ul>

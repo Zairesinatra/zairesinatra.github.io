@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>JavaScript</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=977d3f47b0.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=977d3f47b0.css" />
+    <meta name="description" content="JavaScript 修真指南" />
+    <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="JavaScript" />
+    <meta property="og:description" content="JavaScript 修真指南" />
+    <meta property="og:url" content="yourdomain.com/javascript/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/07/javascript.png" />
+    <meta property="article:published_time" content="2019-04-26T11:38:00.000Z" />
+    <meta property="article:modified_time" content="2022-08-28T19:40:13.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JavaScript" />
+    <meta name="twitter:description" content="JavaScript 修真指南" />
+    <meta name="twitter:url" content="yourdomain.com/javascript/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/07/javascript.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "JavaScript",
+    "url": "yourdomain.com/javascript/",
+    "datePublished": "2019-04-26T11:38:00.000Z",
+    "dateModified": "2022-08-28T19:40:13.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/07/javascript.png",
+        "width": 1920,
+        "height": 1080
+    },
+    "keywords": "Technology growth",
+    "description": "JavaScript 修真指南",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.10" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/portal@~2.9/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f5d74add11f1d16d3e59c12945" data-styles="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/main.css" data-sodo-search="yourdomain.com/" crossorigin="anonymous"></script>
+    <script defer src="../public/cards.min.js%3Fv=977d3f47b0"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=977d3f47b0.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Q4HQV7NBSG');
+</script>
+
+<!-- 2022 prismjs update -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {      
+    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+        node.classList.add('line-numbers');
+	});
+    Prism.highlightAll();
+});
+</script>
+
+<!-- prism -->
+<style>
+pre[class*="language-"] {
+    margin: 0 0 1.5em !important;
+}
+pre[class*="line-numbers"]>code {
+    padding: 0 ;
+}
+code {
+    text-shadow: none !important;
+}
+.token.operator {
+    background: none !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #202124 !important;
+}
+</style>
+
+<!-- customer theme by zs -->
+<style>
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #b0bec5;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+}
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #202124;
+}
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #f9f2f4;
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1;
+}
+.token.punctuation {
+  color: #f3f3f3;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #88deff;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #e3f2fd;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #f3f3f3;
+  background: #202124;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #06b4fe;
+}
+.token.function {
+  color: #ff7043;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ff7043;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #202124;
+  box-shadow: inset 5px 0 0 #202124;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+</style>
+
+<!-- 音乐播放器 -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
+
+</head>
+<body class="post-template tag-technology-growth has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <nav class="gh-head-inner inner">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <div class="gh-head-brand-wrapper">
+                    <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <a class="gh-burger" role="button">
+                        <div class="gh-burger-box">
+                            <div class="gh-burger-inner"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tags"><a href="../tags/index.html">Tags</a></li>
+    <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <div class="gh-social">
+                        <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
+                </div>
+                        <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-technology-growth ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="../tag/technology-growth/index.html">Technology growth</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">JavaScript</h1>
+
+            <p class="article-excerpt">JavaScript 修真指南</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2019-04-26">Apr 26, 2019</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 14 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w2000/2022/07/javascript.png 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2022/07/javascript.png"
+                    alt="JavaScript"
+                />
+                    <figcaption>JavaScript</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <aside class="toc-container">
+            <div class="toc"></div>
+        </aside>
+        <!--kg-card-begin: markdown--><h2 id="javascriptbasis">Javascript Basis</h2>
+<h3 id="basicdatatype">basic data type</h3>
+<ul>
+<li>ES5 =&gt; Null ES2020 =&gt; ??</li>
+</ul>
+<p>typeof null == &quot;object&quot; 是因为堆中的变量地址是以 64 位的二进制进行存储，其中二进制开头数字为 000 的变量存储的变量类型是对象。null 被看作全是零的空。</p>
+<p>ES2020 新增 <a href="https://es6.ruanyifeng.com/?search=%E5%88%A4%E6%96%AD%E8%BF%90%E7%AE%97%E7%AC%A6&amp;x=0&amp;y=0#docs/operator#Null-%E5%88%A4%E6%96%AD%E8%BF%90%E7%AE%97%E7%AC%A6">Null 判断运算符</a>，当变量的值是 null 或 undefined 时，不再需要 || 指定默认值，而是可以通过判断运算符 ??。当 Null 判断运算符左侧的值为 null 或 undefined 成立时，才会返回右侧的值。</p>
+<ul>
+<li>ES6 =&gt; Symbol</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol</a> 是 ES6 新增基本数据类型，Symbol() 函数会返回 symbol 类型的值，可用作<a href="https://es6.ruanyifeng.com/#docs/symbol#%E5%AE%9E%E4%BE%8B%EF%BC%9A%E6%B6%88%E9%99%A4%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2">消除魔法字符</a>与充当对象属性或私有方法。</p>
+<blockquote>
+<p>魔法字符 =&gt; 与业务逻辑代码无关却形成强耦合的字符串字面量或数值</p>
+</blockquote>
+<ul>
+<li>ES10 =&gt; BigInt</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt">BigInt</a> 是 JS 中新加入的基本数据类型，支持比 Number 更大范围的整数值，以解决大整数运算时的溢出与精度问题，常见应用于时间戳和 ID，以及 <a href="https://github.com/MikeMcl/bignumber.js/">bignumber</a> 库的替代。</p>
+<p>可以用在一个整数字面量后面加 n 的方式定义 BigInt，或者调用函数 BigInt()，并传递一个整数值或字符串值。</p>
+<blockquote>
+<p>Number 精度安全范围<br>
+=&gt; -9007199254740991(-(2^53-1)) - 9007199254740991(2^53-1)<br>
+最大安全整数常量 =&gt; Number.MAX_SAFE_INTEGER<br>
+最小安全整数常量 =&gt; Number.MIN_SAFE_INTEGER</p>
+</blockquote>
+<h3 id="webapi">Web API</h3>
+<ul>
+<li>Event 事件</li>
+</ul>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event">Event</a> 接口表示在 DOM 中出现的事件。<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/target">Event.target</a> 表示触发事件对象的引用，可实现事件委托。</p>
+</blockquote>
+<blockquote>
+<p>事件委托即不必为每个元素分配各自的处理程序，而是将单个处理程序放在其共同的祖先上。</p>
+</blockquote>
+<blockquote>
+<p>冒泡和捕获 =&gt; 当事件发生在元素上时，会首先运行该元素上的处理程序，然后会运行其父元素上的处理程序，并一直向上到其他祖先的处理程序；事件发生前会首先通过祖先链向下到达元素。</p>
+</blockquote>
+<blockquote>
+<p>DOM 事件传播阶段 =&gt; 捕获、目标、冒泡阶段</p>
+</blockquote>
+<p>event.target =&gt; 引发事件的元素；event.currentTarget 同 this 指向 =&gt; 处理事件的当前元素；event.eventPhase =&gt; 当前阶段。</p>
+<pre><code class="language-javascript">// event.eventPhase
+capturing=1; target=2; bubbling=3
+</code></pre>
+<p>capture 选项若为默认 false，表示在冒泡阶段设置处理程序；若为 true，则表示在捕获阶段设置处理程序。</p>
+<pre><code class="language-javascript">EventTarget.addEventListener(type, listener, useCapture)
+</code></pre>
+<script async src="http://jsfiddle.net/icedamericano/51qrm04w/3/embed/"></script><!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="traversalmethods">Traversal methods</h2>
+<h3 id="iterabletraversal">Iterable &amp; Traversal</h3>
+<ul>
+<li>迭代通常指按照顺序反复执行一段程序多次，且会有明确的中止条件 7</li>
+</ul>
+<p>Iterable object 可迭代对象是数组的泛化，简单来说是指任何可在 for..of 循环中使用的对象。ES5 新增的 Array.prototype.foreach() 虽然是通用迭代的尝试，但是存在数据结构的制约和中止迭代的标志。ES6 新增迭代器模式，实现 iterable 接口。</p>
+<ul>
+<li>遍历通常指是访问数据结构的所有元素</li>
+</ul>
+<h3 id="looptraversalmethod">loop traversal method</h3>
+<ul>
+<li>
+<p>for (statement 1; statement 2; statement 3){} =&gt; 循环代码块一定的次数</p>
+</li>
+<li>
+<p>For ... in</p>
+</li>
+</ul>
+<p>For ... in 遍历对象以及其原型链上的可枚举属性；若用于遍历数组，除遍历其元素外，还会遍历数组对象自定义的可枚举属性以及其原型链上的可枚举属性；遍历对象返回的属性名和遍历数组返回的索引都是字符串类型；遍历枚举属性的顺序取决于 JS 引擎，先以升序枚举数值键，然后以插入顺序枚举字符串和符号键。8.2.4</p>
+<pre><code class="language-javascript">let areas = {
+  &quot;24&quot;: &quot;CS&quot;,
+  &quot;30&quot;: &quot;CA&quot;,
+  &quot;23&quot;: &quot;SZ&quot;,
+  &quot;22&quot;: &quot;TX&quot;,
+  &quot;ok&quot;: &quot;yes, ok&quot;,
+  &quot;okk&quot;: &quot;yes, okk&quot;
+};
+for(let area in areas) {
+  alert(area); // 22, 23, 24, 30, ok, okk
+}
+</code></pre>
+<ul>
+<li>Object.keys</li>
+</ul>
+<p>Object.keys(obj) 方法会返回一个由给定对象自身可枚举属性组成的数组；与 For ... in 相比，不会遍历对象原型链上的属性；在遍历数组时，数组中属性名的排列顺序与 For...in 循环遍历时返回的顺序一致。</p>
+<pre><code class="language-javascript">function Person() { this.name = 'okk'; }
+Person.prototype.getName = function() { return this.name; }
+var person = new Person();
+Object.defineProperty(person, 'age', {
+  writable: true, configurable: true,enumerable: true, value: 22
+});
+console.log(Object.keys(person)); // ['name', 'age']
+for(item in person){console.log(item)}; // name age getName
+</code></pre>
+<ul>
+<li>For ... of =&gt; ES6</li>
+</ul>
+<p>For ... of 通常是在可迭代对象上创建迭代循环，调用自定义迭代钩子，为每个不同属性的值执行语句。直接支持 Array、Map、Set、String、arguments 对象等。</p>
+<p>可迭代对象的原型链上已实现 Symbol.iterator 方法，普通对象 Object 由于没有默认的迭代行为，所有不支持迭代。</p>
+<pre><code class="language-javascript">// 1. 不会遍历到对象属性及其原型属性
+Array.prototype.getLength = function() { return this.length; };
+let arr = ['a', 'b', 'c'];
+arr.name = 'Ok';
+Object.defineProperty(arr, 'prop', {
+  enumerable: true, value: 22, writable: true, configurable: true
+});
+for(let i of arr) { console.log(i); } // a,b,c
+
+// 2. 与 Object.keys 配合遍历对象
+let person = { name: 'Ok', age: 22, area: 'tx' }
+for(var key of Object.keys(person)) { console.log(person[key]); } // ok 22 tx
+
+// 3. 配合 entries 输出数组索引和值/对象的键值
+let arr = ['a', 'b', 'c'];
+for(let [index, value] of Object.entries(arr)) { console.log(index, ':', value); } // 0:a, 1:b, 2:c
+
+let obj = {name: 'Ok', age: 22, city: 'tx'};
+for(let [key, value] of Object.entries(obj)) { console.log(key, ':', value); } // name:Ok, age:22, city:tx
+</code></pre>
+<ul>
+<li>迭代器与生成器 =&gt; ES6</li>
+</ul>
+<p>迭代器模式描述的方案是实现 iterable 接口（可迭代协议）的可迭代对象，能通过迭代器 iterator 进行消费。可迭代协议的要求在 ES 中具体通过以 Symbol.iterator 作为键的属性来实现。这个默认迭代器属性必须引用一个迭代器工厂函数，且调用这个工厂函数必须返回一个新的迭代器。也就是说迭代器提供一种方法，使得在无需暴露数据结构内部表示的情况下，能够按照一定顺序访问数据结构的元素。7.2</p>
+<p>迭代器协议要求迭代器是一个对象。next() 方法在可迭代对象中遍历数据，且每次成功调用会返回一个 IteratorResult 对象。IteratorResult 迭代器对象包含 done 和 value 属性，分别表示是否还可以调用 next() 函数以及迭代器返回的下一个值。</p>
+<pre><code class="language-javascript">class ExplicitIterator { // 显式迭代器实现 =&gt; 实现可迭代接口 iterable
+  [Symbol.iterator](){ return { next(){ // 调用默认迭代器工厂函数返回实现迭代器接口的迭代器对象
+    return { done: false, value: 'ExplicitIterator' }
+  } } }
+}
+let e = new ExplicitIterator();
+console.log(e[Symbol.iterator]()); // {next: ƒ}
+</code></pre>
+<p>生成器具有在代码块内暂停和恢复代码执行的能力，形式上是函数，在函数名前加星号 * 表示，星号不受到两侧空格影响。调用生成器函数会产生一个实现 Iterator 接口的生成器对象。生成器对象开始时处于暂停执行状态，next() 方法的调用可以让生成器开始或恢复执行。next() 方法的返回值类似迭代器，具有标志位和返回值属性。生成器函数只会在初次调用 next() 方法时执行，直接调用不生效。</p>
+<pre><code class="language-javascript">function * generatorFn() {}
+let g = generatorFn();
+console.log(g, g.next()); // generatorFn{&lt;closed&gt;} {value: undefined, done: true}
+</code></pre>
+<ol>
+<li>
+<p>函数体为空的生成器函数中间不会停留，调用一次 next() 方法就会让生成器到达 done: true 的状态。</p>
+</li>
+<li>
+<p>value 属性是生成器状态的返回值，默认为 undefined，可以通过生成器函数的返回值决定。</p>
+</li>
+</ol>
+<pre><code class="language-javascript">function * generatorFn01() {}
+function * generatorFn02() { return 'generatorFn02' }
+let g01 = generatorFn01(), g02 = generatorFn02();
+console.log(g01.next(), g02.next()); // {value: undefined, done: true} {value: 'generatorFn02', done: true}
+</code></pre>
+<p>生成器函数在遇到 yield 关键字前会正常执行，当遇见这个关键字后执行停止，停止执行的生成器函数只能通过在生成器对象上调用 next() 方法恢复执行。经 yield 关键字退出的生成器函数会处于 done: false 状态，通过 return 关键字退出的生成器函数处于 done: true 状态。next() 方法返回的对象里会具有 yield 生成的值。</p>
+<pre><code class="language-javascript">// ES6 斐波那契数列 =&gt; F0=0, F1=1, Fn=Fn-1+Fn-2
+let fibonacci = {
+  [Symbol.iterator]() {
+    let pre = 0, cur = 1
+    return {
+      next () {
+        [ pre, cur ] = [ cur, pre + cur ]
+        return { done: false, value: cur }
+      }
+    }
+  }
+}
+
+for (let n of fibonacci) {
+  if (n &gt; 1000) break
+  console.log(n);
+}
+</code></pre>
+<blockquote>
+<p><strong>for...of 与 for...in 的比较</strong> =&gt; <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of#for...of%E4%B8%8Efor...in%E7%9A%84%E5%8C%BA%E5%88%AB">MDN</a></p>
+<ol>
+<li>两者都是进行迭代的方式。</li>
+<li>for...in 语句以任意顺序迭代对象的可枚举属性。for...of 语句遍历可迭代对象定义要迭代的数据。</li>
+</ol>
+</blockquote>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bombrowserobjectmodel">BOM Browser Object Model</h2>
+<p>相较于 JavaScript、DOM 有 ECMA、W3C 标准，不同浏览器之间的 BOM 存在较大差异，且具有兼容性问题。</p>
+<h3 id="thewindowobject">The Window Object</h3>
+<p>window 是浏览器窗口的实例，所有全局 JavaScript 对象、函数和变量都自动成为窗口对象的成员。</p>
+<ul>
+<li>
+<p>window.onload &amp; window.DOMContentLoaded</p>
+<ul>
+<li>onload 事件触发时，页面上所有的 DOM、CSS、JS... 都加载完毕</li>
+<li>DOMContentLoaded 事件触发时，仅当 DOM 加载完成</li>
+</ul>
+</li>
+<li>
+<p>window 对象属性和方法</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性 or 方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>window.screen</td>
+<td>Returns a reference to the screen object associated with the window</td>
+</tr>
+<tr>
+<td>window.screenX、window.screenY</td>
+<td>返回浏览器左边界到操作系统桌面左边界的水平距离、返回浏览器顶部距离系统桌面顶部的垂直距离</td>
+</tr>
+<tr>
+<td>window.innerWidth、window.innerHeight</td>
+<td>返回浏览器窗口的内容区域的宽度、高度（包含水平、横向滚动条）</td>
+</tr>
+<tr>
+<td>window.outerWidth、window.outerHeight</td>
+<td>返回浏览器窗口的外部宽度、高度（包含工具栏、水平、横向滚动条、开发者面板）</td>
+</tr>
+<tr>
+<td>window.pageXOffset、window.pageYOffset =&gt; 别名 window.scrollX、window.scrollY</td>
+<td>返回文档/页面水平、垂直方向滚动的像素值</td>
+</tr>
+<tr>
+<td>window.scrollTo(x-coord, y-coord )</td>
+<td>滚动到文档中的某个坐标</td>
+</tr>
+<tr>
+<td>window.open(URL, name, specs, replace)</td>
+<td>打开新的浏览器 =&gt; window.open(&quot;<a href="https://www.google.com">https://www.google.com</a>&quot;, &quot;_self&quot;, &quot;width=200,height=100&quot;, true)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>系统对话框 =&gt; alert() 警告框、confirm() 确认框、prompt() 提示框</li>
+</ul>
+<h3 id="thelocationobject">The Location Object</h3>
+<p>location 提供其链接到的对象的位置 URL。</p>
+<ul>
+<li>既是 window 的属性，也是 document 的属性</li>
+</ul>
+<pre><code class="language-javascript">// 不需要大写成 Window 和 Location =&gt; 构造函数
+console.log(window.location === document.location) // true
+</code></pre>
+<ul>
+<li>https://???.com:123/ok/?usr=zs#frontend =&gt; location 对象内容</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">location.hash</td>
+<td style="text-align:center">#frontend</td>
+<td style="text-align:center">URL 散列值、没有则为空字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">location.host</td>
+<td style="text-align:center">???.com:123</td>
+<td style="text-align:center">主机名和端口</td>
+</tr>
+<tr>
+<td style="text-align:center">location.hostname</td>
+<td style="text-align:center">???.com</td>
+<td style="text-align:center">主机名</td>
+</tr>
+<tr>
+<td style="text-align:center">location.href</td>
+<td style="text-align:center">https://???.com:2366/ok/?usr=zs#frontend</td>
+<td style="text-align:center">完整的 URL</td>
+</tr>
+<tr>
+<td style="text-align:center">location.pathname</td>
+<td style="text-align:center">/ok/</td>
+<td style="text-align:center">路径或文件名</td>
+</tr>
+<tr>
+<td style="text-align:center">location.port</td>
+<td style="text-align:center">123</td>
+<td style="text-align:center">端口号</td>
+</tr>
+<tr>
+<td style="text-align:center">location.protocal</td>
+<td style="text-align:center">https:</td>
+<td style="text-align:center">协议</td>
+</tr>
+<tr>
+<td style="text-align:center">location.search</td>
+<td style="text-align:center">?usr=zs</td>
+<td style="text-align:center">查询字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">location.origin</td>
+<td style="text-align:center">https://???:123</td>
+<td style="text-align:center">URL 源地址、只读</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>函数封装 =&gt; 获取 URL 参数</li>
+</ul>
+<pre><code class="language-javascript">// default =&gt; window.location.search = &quot;?usr=zs&amp;age=23&quot;;
+const getQueryVariable = function (variable) {
+  let params = window.location.search.length &gt; 0 ? window.location.search.substring(1) : &quot;&quot;, args = {};
+  for (let item of params.split(&quot;&amp;&quot;).map(item =&gt; item.split(&quot;=&quot;))) {
+    let key = decodeURIComponent(item[0]), value = decodeURIComponent(item[1]);
+    if (key == variable) return value
+  }
+  return false
+};
+getQueryVariable(&quot;usr&quot;);
+getQueryVariable(&quot;age&quot;);
+</code></pre>
+<ul>
+<li>URLSearchParams 实例对象提供检查、修改查询字符串的 API</li>
+</ul>
+<pre><code class="language-javascript">// default =&gt; window.location.search = &quot;?usr=zs&amp;age=23&quot;;
+let searchParams = new URLSearchParams(window.location.search);
+console.log(searchParams.toString(), searchParams.has(&quot;usr&quot;), searchParams.get(&quot;age&quot;)); // usr=zs&amp;age=23 true 23
+</code></pre>
+<ul>
+<li>location 方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法 =&gt; Location 没有继承任何方法，但实现了来自 URLUtils 的方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>location.assign()</td>
+<td>加载给定 URL 的内容资源到这个 Location 对象所关联的对象上 =&gt; 新页面会被保存在会话的历史 History 中</td>
+</tr>
+<tr>
+<td>location.replace()</td>
+<td>用给定的 URL 替换掉当前的资源 =&gt; 新页面不会被保存在会话的历史 History 中</td>
+</tr>
+<tr>
+<td>location.toString()</td>
+<td>返回一个 DOMString，包含整个 URL =&gt; 和读取 URLUtils.href 的效果相同</td>
+</tr>
+<tr>
+<td>location.reload()</td>
+<td>重新加载来自当前 URL 的资源</td>
+</tr>
+</tbody>
+</table>
+<h3 id="navigatorscreenhistory">Navigator &amp; screen &amp; History</h3>
+<p>Navigator 接口表示用户代理的状态和标识；Screen 接口表示一个屏幕窗口，往往指的是当前正在被渲染的 window 对象；History 接口表示会话历史记录。</p>
+<ul>
+<li>navigator.geolocation</li>
+</ul>
+<pre><code class="language-javascript">navigator.geolocation.getCurrentPosition(position =&gt; console.log(position.coords.latitude, position.coords.longitude));
+</code></pre>
+<ul>
+<li>history.go() 和 history.forward()&amp;history.back()</li>
+</ul>
+<p>history.go() 沿任意方向导航，整数参数表示前进或后退多少步；history.back() 与 history.forward() 中参数无效。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="regexp">REGEXP</h2>
+<p>JavaScript 中的正则表达式是对象，是用于匹配字符串中字符组合的模式。这些模式被用于 RegExp 的 exec 和 test 方法，及 String 的 match、matchAll、replace、search 和 split 方法。</p>
+<p>使用字面量创建的正则表达式对象会在代码编译时生成，使用构造函数生成的正则对象会在代码运行时生成。当正则表达式保持不变时，前者能取得更好的性能。</p>
+<pre><code class="language-javascript">var regexp = /IcedAmericano/g, new Regexp(&quot;IcedAmericano&quot;,&quot;g&quot;);
+</code></pre>
+<p><a href="https://www.runoob.com/regexp/regexp-flags.html">修饰符</a>（标记）位于表达式外，用于额外的匹配策略。<a href="https://www.runoob.com/regexp/regexp-metachar.html">元字符</a>用于匹配正则表达式上下文中的任意匹配字符。</p>
+<pre><code class="language-javascript">/simple characters 简单字符 + metacharacter 元字符/flags 修饰符
+</code></pre>
+<p>调用 exec 方法返回的数组具有两个属性 =&gt; input - 整个原待匹配的字符串、index - 整个模式匹配成功的开始位置。</p>
+<pre><code class="language-javascript">let reg2 = new RegExp('zs','m'), test2 = 'okokokokokokok', test22 = 'zsokokokokokzs';
+console.log(reg2.exec(test2), reg2.exec(test22)); // null, [ 'zs', index: 0, input: 'zsxzyxxxzzzyyyzs', groups: undefined ]
+</code></pre>
+<p>若正则表达式包含圆括号，则返回的数组中会包含多个元素。首先是整个匹配成功的结果，随后是圆括号匹配的内容，当有多个圆括号时，匹配成功的结果都会成为数组元素。</p>
+<pre><code class="language-javascript">let reg3 = /^_(x)_(y)$/, test3 = '_x_y';
+console.log(reg3.exec(test3), reg3.exec(''), kong.exec(test3)); // [ '_x_y', 'x', 'y', index: 0, input: '_x_y', groups: undefined ] 空字符串返回 null 空字符串正则匹配exec返回 [ '', index: 0, input: '_x_y', groups: undefined ]
+</code></pre>
+<p>$` =&gt; 正则表达式匹配范围之前的字符串内容，$&amp; =&gt; 正则表达式匹配的内容，$' =&gt; 正则表达式匹配范围之后的字符串内容。$n =&gt; RegExp 对象的索引 -&gt; 通常使用括号包裹。<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace">更多点此</a>。</p>
+<pre><code class="language-javascript">console.log('abc'.replace('b',&quot;[$`-$&amp;-$']&quot;)); // a[a-b-c]c
+console.log('hello world'.replace(/(\w+)\s(\w+)/,&quot;$2 $1&quot;)); // world hello
+</code></pre>
+<p>当 replace 的首个参数是整个匹配的内容时，第二个参数是组匹配。</p>
+<pre><code class="language-javascript">let field = { &quot;pos_1&quot;: &quot;dc&quot;, &quot;pos_2&quot;: &quot;fullstack&quot;, &quot;pos_3&quot;: &quot;hardware&quot; }, replaceInfo = '&lt;span id=&quot;pos_1&quot;&gt;&lt;/span&gt;&lt;span id=&quot;pos_2&quot;&gt;&lt;/span&gt;&lt;span id=&quot;pos_3&quot;&gt;&lt;/span&gt;'.replace(/(&lt;span id=&quot;)(\w+)(&quot;&gt;)(&lt;\/span&gt;)/g, function(match, $1, $2, $3,$4) { return $1+$2+$3+field[$2]+$4 });
+console.log(replaceInfo); // &lt;span id=&quot;pos_1&quot;&gt;dc&lt;/span&gt;&lt;span id=&quot;pos_2&quot;&gt;fullstack&lt;/span&gt;&lt;span id=&quot;pos_3&quot;&gt;hardware&lt;/span&gt;
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+
+<section class="article-comments gh-canvas">
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "yourdomain.com/javascript/";
+            this.page.identifier = "ghost-6050c16f6056d45889a2efb3"
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zsxzy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+</section>
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../g-toc-css/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/SLAMDUNK.png 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/SLAMDUNK.png"
+            alt="SLAM DUNK"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    G&amp;TOC&amp;CSS
+                </h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mysqlnote/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/cloud.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/cloud.jpg"
+            alt="mysql"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MySQL 笔记
+                </h2>
+            </header>
+                <div class="post-card-excerpt">MYSQL 基础篇</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
+                <span class="post-card-meta-length">82 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../zu-jian-tong-xun/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/treecommunicate.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/treecommunicate.jpg"
+            alt="Component communication"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../zu-jian-tong-xun/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    组件通讯
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Vuex|Redux|Pinia</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-10-01">Oct 1, 2021</time>
+                <span class="post-card-meta-length">25 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=977d3f47b0"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<!-- 2022 prismjs update -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-powershell.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-less.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sass.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-scss.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+
+
+<!-- music -->
+<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script>
+	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+		$('.carousel').carousel({
+			interval: 3000
+		})
+</script>
+<!-- music -->
+<!-- <div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div> -->
+<!-- <a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021003061号-1</a> -->
+
+<!-- searchinghost-easy -->
+<script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
+<script>
+    new SearchinGhostEasy({
+        contentApiKey: 'e93d8b3520ae46be52c9a4b140'
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+  tocbot.init({
+    tocSelector: '.toc',
+    contentSelector: '.gh-content',
+    hasInnerContainers: true
+  });
+  var tc = document.querySelector(".toc-container");
+var tch = tc.clientHeight;
+var ah = document.querySelector(".article-header");
+var ahh = ah.clientHeight;
+window.addEventListener("scroll", function () {
+if(document.body.clientWidth > 1170){
+  var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+  var ihh = window.innerHeight;
+  if(scrollY >= ihh + tch + ahh){
+    var ctc = document.querySelector(".toc-container");
+    ctc.style.position="sticky";
+    ctc.style.position="-webkit-sticky";
+    ctc.style.top = "120px";
+    ctc.style.marginLeft = "800px";
+    ctc.style.minWidth= "260px";
+  }
+  if(scrollY < tch + ahh -10){
+    var ctc = document.querySelector(".toc-container");
+    ctc.style.position="";
+    ctc.style.top = "";
+    ctc.style.marginLeft = "";
+    console.log("zszszs")
+  }
+}})
+
+</script>
+
+</body>
+</html>

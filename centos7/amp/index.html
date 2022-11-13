@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/centos7/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/10/penguinCentOS.jpg" />
     <meta property="article:published_time" content="2019-07-16T12:23:00.000Z" />
-    <meta property="article:modified_time" content="2022-06-16T13:04:41.000Z" />
+    <meta property="article:modified_time" content="2022-10-08T07:25:01.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "CentOS7",
     "url": "yourdomain.com/centos7/",
     "datePublished": "2019-07-16T12:23:00.000Z",
-    "dateModified": "2022-06-16T13:04:41.000Z",
+    "dateModified": "2022-10-08T07:25:01.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/10/penguinCentOS.jpg",
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1153,14 +1153,28 @@ systemctl [OPTIONS...] {COMMAND} ...
 Query or send control commands to the systemd manager.
 </code></pre>
 <h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
-<p>可在<a href="https://github.com/Zairesinatra/Advanced-Frontend/blob/main/lib/Linux/01.md">仓库</a>查看具体指令。</p>
-<pre><code class="language-shell"># 切换成 root 用户
-[lighthouse@VM-4-17-centos ~]$ sudo su -
-# 退出 root 用户并切换回普通用户
-[root@VM-4-17-centos ~]# exit
-# ~ 表示在 home 目录,切换为 / 根目录
+<h3 id="%E8%B5%B7%E6%89%8B%E5%BC%8F">起手式</h3>
+<ul>
+<li><a href="https://github.com/Zairesinatra/Advanced-Frontend/blob/main/lib/Linux/01.md">仓库</a>指令 &amp; Shell 命令行快速操作</li>
+</ul>
+<pre><code class="language-shell">Ctrl + a =&gt; 移到命令行首 &amp; Ctrl + e =&gt; 移到命令行尾
+Ctrl + f =&gt; 按字符右移 &amp; Ctrl + b =&gt; 按字符左移
+Alt + f =&gt; 按单词右移 &amp; Alt + b =&gt; 按单词左移
+Ctrl + k =&gt; 从光标处删除至命令行尾 &amp; Ctrl + w =&gt; 从光标处删除至字首
+Ctrl + p =&gt; 历史中的上一条命令 &amp; Ctrl + n =&gt; 历史中的下一条命令
+</code></pre>
+<ul>
+<li>切换成 root 用户 &amp; 退出 root 用户并切换回普通用户</li>
+</ul>
+<pre><code class="language-shell">$ sudo su -
+$ exit
+</code></pre>
+<ul>
+<li>~ 表示在 home 目录；切换为 / 根目录</li>
+</ul>
+<pre><code class="language-shell"># home 目录切换为 / 根目录
 [root@VM-4-17-centos ~]# cd /
-# 切换为 / 根目录
+# / 根目录
 [root@VM-4-17-centos /]# ls -l
 total 72
 lrwxrwxrwx.   1 root root     7 Mar  7  2019 bin -&gt; usr/bin # 系统预设执行文件目录(ls)
@@ -1171,6 +1185,98 @@ lrwxrwxrwx.   1 root root     8 Mar  7  2019 sbin -&gt; usr/sbin # 系统预设�
 drwxr-xr-x.  14 root root  4096 Jan  8  2021 usr # 系统预设执行文件目录
 drwxr-xr-x.  20 root root  4096 Jan  8  2021 var # /var/log程序运行日志的存放目录
 </code></pre>
+<h3 id="su%E3%80%81su-%E3%80%81sudo">su、su-、sudo</h3>
+<ul>
+<li>su、sudo</li>
+</ul>
+<p><code>su</code> 和 <code>su -</code> 都是需要输入目标用户的密码以切换到另外的 shell 实例。那么很明显的，由于登录 root 用户就需要 root 身份密码，在多用户服务器中通过 <code>su</code>、<code>su -</code> 进行 root 访问权限意味着 root 用户密码隐私性欠佳。</p>
+<p><code>sudo</code> (superuser-do助记符) 的使用原理与上述是南辕北辙的。即通过一个配置文件(/etc/sudoers) 列出每个用户的特定操作权限。当调用时，要求验证配置文件中的用户身份密码来允许提升权限运行单个命令且不会启动一个新的 shell。</p>
+<p>通常在 Linux 系统中非 root 用户运行sudo命令，会提示以下信息</p>
+<pre><code class="language-shell"># xxx 当前用户无法执行 sudo 命令
+$ xxx is not in the sudoers file.  This incident will be reported. 
+</code></pre>
+<p>那么就需要 <code>su -</code> 进入超级用户后给配置文件 <code>/etc/sudoers</code> 添加添加 xxx 权限。这里注意编辑配置文件可能操作会因权限问题被阻止，可以使用 <code>chmod u+w /etc/sudoers</code> 加写权利。在 <code>nvim /etc/sudoers</code> 完成添加 <code>xxx ALL=(ALL)ALL</code> 后撤销文件的写权利 <code>chmod u-w /etc/sudoers</code>。</p>
+<ul>
+<li>su 与 su -</li>
+</ul>
+<p>这里有个问题，上文中使用 <code>su -i</code> 是什么意思，和直接 <code>su</code> 有什么区别？</p>
+<p>首先能确定的是 <code>su</code> 和 <code>su -</code> 都会切换到 root 用户。但是就环境来说，<code>su</code> 切换到 root 的同时，当前目录保持普通用户的不变。而 <code>su -</code> 可以看成用户和环境一起切为 root 身份。</p>
+<pre><code class="language-shell">newghostzs@VM-4-10-ubuntu:~$ pwd
+/home/newghostzs
+newghostzs@VM-4-10-ubuntu:~$ su
+Password:....
+root@VM-4-10-ubuntu:/home/newghostzs# pwd
+/home/newghostzs
+# ----
+newghostzs@VM-4-10-ubuntu:~$ su -
+Password: 
+root@VM-4-10-ubuntu:~# pwd
+/root
+</code></pre>
+<ul>
+<li>sudo -s 与 sudo -i</li>
+</ul>
+<p>和 <code>sudo</code> 允许以自己的用戶账户以 root 权限运行命令又不同。<code>sudo -s</code> 以 root 权限运行一个 shell 。而 <code>sudo -i</code> 不但以 root 权限运行一个 shell，还会获取 root 用户的环境。更直观来说前者在用户环境中保留 <code>~/.bashrc</code> 后者在根环境忽略 <code>~/.bashrc</code>。</p>
+<h3 id="scp">scp</h3>
+<p>scp 即 secure copy，是一个用于在 Linux(MAC) 环境下进行远程加密传输文件（目录）的命令。类似的有仅在本机进行拷贝的 cp。</p>
+<pre><code class="language-shell"># 大写 P 为端口参数，2368 表示更改后的 SSH 端口，如果未更改 SSH 端口则不必添加。
+# -r 参数表示递归复制（即复制该目录下面的文件和目录）；
+scp -P 2368 -r /Users/zszs/.../images root@x.xx.xx.xxx:/var/www/.../content
+</code></pre>
+<p>若传输目录未使用 -r 修饰则会出现 'Error using SCP: "not a regular file"' 的报错。</p>
+<h3 id="find">find</h3>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code class="language-shell">find [where to start searching from] [expression determines what to find] [-options] [what to find]
+</code></pre>
+<ul>
+<li>完全语法操作 =&gt; <a href="https://explainshell.com/explain?cmd=find+.%2F+-iname+%22--2021-08-06*%22+-ok+rm+%7B%7D+%5C%3B">解释</a></li>
+</ul>
+<pre><code class="language-shell">root@VM-8-3-ubuntu:/var/www/zsghost/.../w600# find ./ -iname "--2019-08-06*" -ok rm {} \;
+&lt; rm ... ./2019/08/--2019-08-06---4.50.33-1.png &gt; ? yes
+</code></pre>
+<h3 id="rmrf">rm -rf</h3>
+<ul>
+<li>处理包含空格和特殊字符的文件名</li>
+</ul>
+<pre><code class="language-shell"># 异常复现
+root@VM-8-3-ubuntu:/...# rm -rf --2019-08-06---4.50.33-1.png
+rm: unrecognized option '--2019-08-06---4.50.33-1.png'
+Try 'rm ./--2019-08-06---4.50.33-1.png' to remove the file '--2019-08-06---4.50.33-1.png'.
+Try 'rm --help' for more information.
+</code></pre>
+<p>错误原因 =&gt; shell 将破折号 <code>-</code> 之后的内容解释为参数，但是明显没有这样的参数存在，所以出现报错。</p>
+<p>解决方式 =&gt; 在以 <code>-</code> 开头的文件或目录前追加 <code>./</code>；在操作命令与带操作文件之间加上 <code>--</code>。</p>
+<pre><code class="language-shell"># 测试特殊字符文件操作
+$ touch -- -abc.txt
+$ vim -abc.txt # 报错 =&gt; Unknown option argument: "-abc.txt"
+$ vim -- -abc.txt # 成功
+</code></pre>
+<h3 id="curl-wget">cURL &amp; Wget</h3>
+<blockquote>
+<p>cURL 是一个开源项目，主要的产品是 curl（命令行工具）和 libcurl（C 语言的 API 库），两者功能均是：基于网络协议，对指定 URL 进行数据传输。</p>
+</blockquote>
+<blockquote>
+<p>GNU Wget，通常称为 Wget，是一个免费的命令行实用程序，用于使用 HTTP、HTTPS、FTP 传输文件。</p>
+</blockquote>
+<ul>
+<li>安装 curl 和 wget</li>
+</ul>
+<p>APT Advanced Package Tool 充当 Debian 的默认包管理器，可扩展为基于 Debian 的 Linux 发行版。典型的 Ubuntu 中 APT 尤其适用于 DEB 包格式。</p>
+<p>DNF Dandified Yum 是 Fedora 和基于 Fedora 发行版的默认包管理器。DNF 使用 RPM 包格式。</p>
+<p>Yum Yellow dog Updater, Modified 本身是对 Yellow Dog Linux 开发的 Yellowdog UPdater 或 YUP 的重写。</p>
+<pre><code class="language-shell"># Debian/Ubuntu
+$ sudo apt-get install curl # 安装 curl
+$ sudo apt-get install wget # 安装 wget
+</code></pre>
+<pre><code class="language-shell"># REHL/CentOS/Fedora
+sudo yum install curl # 安装 curl
+sudo dnf install curl
+sudo yum install wget # 安装 wget
+sudo dnf install wget
+</code></pre>
+<p>从用途方面，wget 倾向于网络文件下载，而 curl 倾向于网络接口调试。</p>
 <h2 id="nodejs">NodeJS</h2>
 <ul>
 <li><a href="https://nodejs.org/download/release/">官方编译的安装包</a></li>

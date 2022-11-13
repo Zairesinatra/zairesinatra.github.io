@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>XHR|Ajax|Promise|Axios|Fetch</title>
+    <title>XHR|Ajax|Axios|Fetch</title>
 
-    <meta name="description" content="汇总：XMLHttpRequest、Ajax、Promise、Axios、fetch" />
+    <meta name="description" content="请求" />
     <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="XHR|Ajax|Promise|Axios|Fetch" />
-    <meta property="og:description" content="汇总：XMLHttpRequest、Ajax、Promise、Axios、fetch" />
+    <meta property="og:title" content="XHR|Ajax|Axios|Fetch" />
+    <meta property="og:description" content="请求" />
     <meta property="og:url" content="yourdomain.com/webrequest/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/08/legoflash.jpg" />
     <meta property="article:published_time" content="2020-02-20T12:34:00.000Z" />
-    <meta property="article:modified_time" content="2022-05-04T16:47:39.000Z" />
+    <meta property="article:modified_time" content="2022-08-22T14:05:14.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="XHR|Ajax|Promise|Axios|Fetch" />
-    <meta name="twitter:description" content="汇总：XMLHttpRequest、Ajax、Promise、Axios、fetch" />
+    <meta name="twitter:title" content="XHR|Ajax|Axios|Fetch" />
+    <meta name="twitter:description" content="请求" />
     <meta name="twitter:url" content="yourdomain.com/webrequest/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2021/08/legoflash.jpg" />
     <meta name="twitter:label1" content="Written by" />
@@ -61,10 +61,10 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "XHR|Ajax|Promise|Axios|Fetch",
+    "headline": "XHR|Ajax|Axios|Fetch",
     "url": "yourdomain.com/webrequest/",
     "datePublished": "2020-02-20T12:34:00.000Z",
-    "dateModified": "2022-05-04T16:47:39.000Z",
+    "dateModified": "2022-08-22T14:05:14.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/08/legoflash.jpg",
@@ -72,7 +72,7 @@
         "height": 1080
     },
     "keywords": "Technology growth",
-    "description": "汇总：XMLHttpRequest、Ajax、Promise、Axios、fetch",
+    "description": "请求",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1067,7 +1067,7 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">XHR|Ajax|Promise|Axios|Fetch</h1>
+                <h1 class="post-title">XHR|Ajax|Axios|Fetch</h1>
                 <section class="post-meta">
                     Ziyi Xie -
                     <time class="post-date" datetime="2020-02-20">20 Feb 2020</time>
@@ -1081,24 +1081,27 @@
             <section class="post-content">
 
                 <h2 id="xmlhttprequest">XMLHttpRequest</h2>
-<p>Ajax Asynchronous Javascript And XML 通过客户端与服务器端的异步通信实现页面局部刷新。发送请求主要通过标准浏览器的 XMLHttpRequest 和 IE 浏览器的 ActiveXObject 对象实现异步通信效果。</p>
-<pre><code class="language-javascript">// window 必须有一个 html 载体
-const xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP")
-// open 方法接受三个参数: 请求类型、请求 URL、是否异步布尔值; 不会实际发送数据, 仅做准备,定义请求
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a> XHR 对象用于与服务器交互。通过 XMLHttpRequest 可以在不刷新页面的情况下请求特定 URL 并获取数据。这允许网页在不影响用户操作的情况下，更新页面的局部内容。XMLHttpRequest 在 AJAX 编程中被大量使用。</p>
+</blockquote>
+<blockquote>
+<p>XMLHttpRequest 可以用于获取任何类型的数据，而不仅仅是 XML。支持 HTTP 以外的协议 file:// 和 FTP，尽管可能受到更多出于安全等原因的限制。</p>
+</blockquote>
+<p>当下的标准浏览器支持 XMLHttpRequest（IE 浏览器使用 ActiveXObject）与服务器交换数据。常规的步骤是先进行新建实例，再初始化请求，最后进行发送，在发送期间可以通过监听就绪状态的函数指定相关回调。</p>
+<pre><code class="language-javascript">const xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP")
+// open 方法接受三个参数: 请求类型、请求 URL、是否异步的布尔值 =&gt; 不会实际发送数据而仅做准备、定义请求
 xhr.open("get", "http://localhost:3001/xhr", true); // 初始化请求
 xhr.setRequestHeader('Content-Type', 'application/json'); //设置 http 头信息
 xhr.onreadystatechange = function (res) { // 指定回调函数
-    // this 为 XMLHttpRequest{} === xhr实例对象
-    if (this.readyState === 4 &amp;&amp; xhr.status === 200 &amp;&amp; xhr.statusText === 'OK') {
-        let headers = xhr.getAllResponseHeaders();
-        console.log(headers); // content-length: 31 \ncontent-type: text/html; charset=utf-8
-        console.log(res); // {... , currentTarget{}, ...}
-        console.log(res.currentTarget.response); // zsxzy finished the xhr request!
-    }
+  if (this.readyState === 4 &amp;&amp; xhr.status === 200 &amp;&amp; xhr.statusText === 'OK') { // this 为 XMLHttpRequest 实例对象 xhr
+    let headers = xhr.getAllResponseHeaders();
+    console.log(headers); // content-length: 31 \ncontent-type: text/html; charset=utf-8
+    console.log(res); // {... , currentTarget{}, ...}
+    console.log(res.currentTarget.response); // zsxzy finished the xhr request!
+  }
 }
-// send 接受一个参数作为请求体发送的数据, 通常在 POST 请求中含参
-// 例如: xhr.send("name=xzy&amp;age=23");
-xhr.send(); //发送请求
+// send 接受一个参数作为请求体发送的数据 -&gt; 通常在 POST 请求中含参
+xhr.send(); // 发送请求 - xhr.send("name=xzy&amp;age=23");
 </code></pre>
 <pre><code class="language-javascript">/* xhr 实例属性与方法 */
 // timeout =&gt; 返回一个整数表示多少毫秒后,如果请求仍然没有得到结果就会自动终止.该属性等于0就表示没有时间限制.
@@ -1108,213 +1111,395 @@ xhr.send(); //发送请求
 // 代码在发出5秒之后，终止一个 AJAX 请求
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://blog.zairesinatra.com/xhraborttest', true);
-setTimeout(function () {
-  if (xhr) {
-    xhr.abort();
-    xhr = null;
-  }
-}, 5000);
+setTimeout(function () { if (xhr) { xhr.abort(); xhr = null; } }, 5000);
 // setRequestHeader() =&gt; 通过接收接受两个参数 (头信息的字段名,字段值) =&gt; 设置浏览器发送请求的头部信息.该方法必须在open()之后、send()之前调用.
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
 </code></pre>
-<table border="1">
-    <tr>
-        <th> 状态(readyState) </th>
-        <th> 描述 </th>
-    </tr>
-    <tbody>
-    <tr>
-        <td> 0 - UNSENT </td>
-        <td> 未调用 open() 方法 </td>
-    </tr>
-    <tr>
-        <td> 1 - open </td>
-        <td> open() 方法已经被调用 </td>
-    </tr>
-    <tr>
-        <td> 2 - HEADERS_RECEIVED </td>
-        <td> send() 方法已经被调用，并且头部和状态已经可获得 </td>
-    </tr>
-    <tr>
-        <td> 3 - LOADING </td>
-        <td> 下载中； responseText 属性已经包含部分数据 </td>
-    </tr>
-    <tr>
-        <td> 4 - DONE </td>
-        <td> 下载操作已完成 </td>
-    </tr>
-    </tbody>
-</table><table border="1">
-    <thead>
-        <tr>
-            <th> 状态码(status) </th>
-            <th> 描述 </th>
-    	</tr>
-     <thead>
-     </thead></thead><tbody>
-        <tr>
-            <td> 200 </td>
-            <td> OK</td>
-        </tr>
-        <tr>
-            <td> 301 | 302 | 304 | 307 </td>
-            <td> Moved Permanently | Moved temporarily | Not Modified |  Temporary Redirect </td>
-        </tr>
-        <tr>
-            <td> 401 | 403 | 404 </td>
-            <td> Unauthorized | Forbidden | Not Found </td>
-        </tr>
-		<tr>
-            <td> 500 </td>
-            <td> Internal Server Error </td>
-        </tr>
-     </tbody>
-</table><h2 id="ajax">Ajax</h2>
-<pre><code class="language-javascript">// 原生封装get
+<table>
+<thead>
+<tr>
+<th>READYSTATE</th>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>UNSENT</td>
+<td>代理被创建，但尚未调用 open() 方法</td>
+</tr>
+<tr>
+<td>1</td>
+<td>OPENED</td>
+<td>open() 方法已被调用 =&gt; 可通过 setRequestHeader() 方法设置请求头 or 调用 send() 方法来发起请求</td>
+</tr>
+<tr>
+<td>2</td>
+<td>HEADERS_RECEIVED</td>
+<td>send() 方法已被调用且头部和状态已经可获得 =&gt; 响应头已被接收</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LOADING</td>
+<td>下载中；responseText 属性已经包含部分数据 =&gt; 响应体部分正在被接收</td>
+</tr>
+<tr>
+<td>4</td>
+<td>DONE</td>
+<td>请求操作已经完成 =&gt; 数据传输已经彻底完成或失败</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>STATUS</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>301 | 302 | 304 | 307</td>
+<td>Moved Permanently | Moved temporarily | Not Modified | Temporary Redirect</td>
+</tr>
+<tr>
+<td>401 | 403 | 404</td>
+<td>Unauthorized | Forbidden | Not Found</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ajaxasynchronousjavascriptandxml">Ajax Asynchronous JavaScript and XML</h2>
+<p>少量数据更新时没有必要让服务端返回全页结构，因页面的重新载入会消耗更多的时间。现今通常会采用局部刷新的方式，让服务端返回必要的数据通过 JavaScript 来控制渲染。更完全一点就是单页面应用，至始至终停滞于特定页面，不会有跳转页面的情况。客户端与服务端的具体异步通信实现依赖于 Ajax。</p>
+<p>Ajax 的核心对象是 XMLHttpRequest，通过 XMLHttpRequest 可以在不刷新页面的情况下请求特定 URL 获取数据。</p>
+<pre><code class="language-javascript">// 原生封装 Ajax - get
 function ajaxGet(url, callback) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', url, true);
+  xhr.open("GET", url, true);
   xhr.send();
-
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {
-      callback(xhr.responseText);
+      callback(xhr.response);
     }
-  }
+  };
 }
-
 // 调用
-ajaxGet('zairesinatra/xzy', function (data) {
+ajaxGet("http://localhost:3000/ajaxget", function (data) {
   console.log(data);
 });
-
-// 封装post
+</code></pre>
+<pre><code class="language-javascript">// 原生封装 Ajax - post
 function ajaxPost(url, data, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', url, true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.send(data);
-
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {
       callback(xhr.responseText);
     }
   }
 }
-
 // 调用
-ajaxPost('zairesinatra/xzy', 'sex=male&amp;age=23', function (data) {
-  // 后台返回的数据是字符串类型, 需手动转换成 json
-  var user = JSON.parse(data);
-  console.log(user.sex);
-  console.log(user.age);
+ajaxPost('http://localhost:3000/ajaxpost', 'name=zs&amp;age=23', function (data) {
+  console.log(data);
 });
 </code></pre>
-<h2 id="promise">Promise</h2>
-<p>Promise 是 JS 中进行异步编程的新解决方案。从语法上 Promise 是一个构造函数；从功能上 Promise 对象用来封装一个异步操作并可以获取其结果。</p>
-<p>Promise 接收一个 excutor ，此 excutor 中又接收两个函数类型的参数 resolve 与 reject 。异步代码写在执行器内，状态仅可能从 pending 变为 resolved 或 rejected ，此后不会再改变。</p>
-<pre><code class="language-javascript">// 创建一个新的p对象promise
-const p = new Promise((resolve, reject) =&gt; { // 执行器函数 -- 同步任务
-  // 执行异步操作任务
-  setTimeout(() =&gt; {
-    const time = Date.now() 
-    // 如果当前时间是偶数代表成功，否则失败
-    if (time % 2 == 0) {
-      // 如果成功，调用resolve(value)
-      resolve('成功的数据，time=' + time)
-    } else {
-      // 如果失败，调用reject(reason)
-      reject('失败的数据，time=' + time)
-    }
-  }, 1000);
-})
+<pre><code class="language-javascript">// server =&gt; index.js
+const Koa = require('koa');
+const Router = require('@koa/router');
+const cors = require('koa-cors');
+var bodyParser = require('koa-bodyparser'); // 获取post请求的参数
 
-p.then(
-  value =&gt; { // 接收得到成功的value数据 onResolved
-    console.log('成功的回调', value)
-  },
-  reason =&gt; { // 接收得到失败的reason数据 onRejected (当失败时执行)
-    console.log('失败的回调', reason)
-  }
-)
-</code></pre>
-<pre><code class="language-javascript">// 使用catch、finally
-// resolve 和 reject 都是函数，其中调用 resolve 代表一切正常，reject 是出现异常时所调用的：
-new Promise(function (resolve, reject) {
-    var a = 0;
-    var b = 1;
-    if (b == 0) reject("Diveide zero");
-    else resolve(a / b);
-}).then(function (value) {
-    console.log("a / b = " + value);
-}).catch(function (err) {
-    console.log(err);
-}).finally(function () {
-    console.log("End");
+const app = new Koa();
+const router = new Router();
+app.use(bodyParser());
+
+router.get('/', async (ctx, next) =&gt; {
+  console.log("@koa/router get request =&gt; ",`${ctx.method} ${ctx.url}`)
+  ctx.body = 'Hello World';
+  await next();
+});
+router.get('/ajaxget', async (ctx, next) =&gt; {
+  const data = "ajaxget request success";
+  ctx.body = data;
+  await next();
+});
+router.post('/ajaxpost', async (ctx, next) =&gt; {
+  const {name,age} =  ctx.request.body;
+  const data = `ajaxpost request success =&gt; ${name} - ${age} `;
+  ctx.body = data;
+  await next();
 });
 
-// a / b = 0
-// End
+app.use(cors()).use(router.routes()).use(router.allowedMethods());
+app.listen(3000);
 </code></pre>
-<h2 id="axios">axios</h2>
-<p>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中使用。</p>
-<p><strong>作用：</strong></p>
+<h2 id="axios">Axios</h2>
+<blockquote>
+<p>Features =&gt;<br />
+Make XMLHttpRequests from the browser; Make http requests from node.js; Supports the Promise API; Intercept request and response; Transform request and response data; Cancel requests; Automatic transforms for JSON data; Automatic data object serialization to multipart/form-data and x-www-form-urlencoded body encodings; Client side support for protecting against XSRF</p>
+</blockquote>
+<h3 id="o">o快速上手</h3>
 <ul>
-<li>从浏览器中创建 XMLHttpRequests</li>
-<li>从 node.js 创建 http 请求</li>
-<li>支持 Promise API</li>
-<li>拦截请求和响应 =&gt; <code>axios.interceptors.request.use(config=&gt;{return config})</code>或<code>axios.interceptors.response.use(config=&gt;{return config})</code></li>
-<li>转换请求数据和响应数据、自动转换 JSON 数据(不需要像 fetch 在 node.js 写后端时得中间件转换)</li>
-<li>取消请求</li>
-<li>客户端支持防御 CSRF(跨站请求伪造)</li>
+<li>
+<p><a href="https://github.com/typicode/json-server">json-server</a> =&gt; 快速搭建 Http 服务 =&gt; 借助其模拟数据以及延迟返回</p>
+</li>
+<li>
+<p>基于 xhr 和 Promise 的异步请求库 <a href="https://github.com/axios/axios">axios</a></p>
+</li>
+<li>
+<p>axios 请求的响应对象结构</p>
+</li>
 </ul>
-<p>使用Promise管理异步，告别传统callback方式的<code>axios包</code>安装方式：</p>
-<pre><code>npm install axios
+<pre><code class="language-javascript">// 配置对象 =&gt; 请求类型、url、请求体...
+config: {transitional: {…}, transformRequest: Array(1), transformResponse: Array(1), timeout: 0, adapter: ƒ, …}
+// 响应体的结果 =&gt; axios 会对响应结果进行 json 解析 -&gt; 所以这里拿到的是对象，方便处理
+data: {id: 2, title: 'okk', author: 'okkAuthor'}
+// 响应头对象
+headers: {cache-control: 'no-cache', content-length: '56', content-type: 'application/json; charset=utf-8', expires: '-1', pragma: 'no-cache'}
+// 原生的 ajax 请求对象
+request: XMLHttpRequest {onreadystatechange: null, readyState: 4, timeout: 0, withCredentials: false, upload: XMLHttpRequestUpload, …}
+// 响应状态码
+status: 200
+// 响应状态字符串
+statusText: "OK"
 </code></pre>
-<blockquote>
-<h4 id>实例：</h4>
-</blockquote>
-<p><strong>执行 GET 请求：</strong></p>
-<pre><code>// 为给定 ID 的 user 创建请求
-axios.get('/user?ID=12345')
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+<p>测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下</p>
+<p>baseURL =&gt; 基地址或默认地址 -&gt; 在发出请求的时候添加在请求前面的字段 -&gt; 通常指向请求地址<br />
+maxContentLength http响应体最大尺寸；maxBodyLength请求体最大内容 =&gt; 单位是字节</p>
+<p>socketPath 设置 socket 文件位置，如果设置 socket 又设置 proxy，则会优先 socket</p>
+<p>decompress: true // default 对响应结果做解压</p>
+<p>axios <a href="https://github.com/axios/axios#config-defaults">默认配置</a> =&gt; 重复的配置放入默认配置中简化代码 =&gt; 不用新建文件，在组件中的js区域写就行。整个请求对象中的配置都可以设置。</p>
+<p>请求拦截器对内容、参数处理或者检验，没有问题再发出，有问题就停止取消；响应拦截器在开发者处理结果前进行预处理，失败了对结果做提醒记录，数据结果进行格式化处理，没有问题再交由开发者自定义的回调处理。</p>
+<p>源码知道为啥拦截器顺序是请求拦截器后进先执行，响应拦截器是先进后执行</p>
+<p>abortController 判断用户上一次请求是否完成，多次请求就直接给他上一次请求取消掉</p>
+<ul>
+<li>axios 取消请求</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;取消请求&lt;/title&gt;
+    &lt;link
+      crossorigin="anonymous"
+      href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+    /&gt;
+    &lt;script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;h2 class="page-header"&gt;axios取消请求&lt;/h2&gt;
+      &lt;button class="btn btn-primary"&gt;发送请求&lt;/button&gt;
+      &lt;button class="btn btn-warning"&gt;取消请求&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      const btns = document.querySelectorAll("button");
+      let cancel = null;
+      // 发送请求
+      btns[0].onclick = function () {
+        // 检测上一次的请求是否已经完成
+        if (cancel !== null) {
+          // 取消上一次的请求
+          cancel();
+        }
+        axios({
+          method: "GET",
+          url: "http://localhost:3000/posts",
+          cancelToken: new axios.CancelToken(function (ok) {
+            cancel = ok;
+          }),
+        }).then((response) =&gt; {
+          console.log(response);
+          //将 cancel 的值初始化
+          cancel = null;
+        });
+      };
 
-// 上面的请求也可以这样做
-axios.get('/user', {
-    params: {
-      ID: 12345
-    }
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+      //绑定第二个事件取消请求
+      btns[1].onclick = function () {
+        cancel();
+      };
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<p><strong>执行 POST 请求：</strong></p>
-<pre><code>axios.post('/user', {
-    firstName: 'ziyi',
-    lastName: 'xie'
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;取消请求&lt;/title&gt;
+    &lt;link
+      crossorigin="anonymous"
+      href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+    /&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;h2 class="page-header"&gt;axios 取消请求&lt;/h2&gt;
+      &lt;button class="btn btn-primary"&gt;发送请求&lt;/button&gt;
+      &lt;button class="btn btn-warning"&gt;取消请求&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      const btns = document.querySelectorAll("button");
+      let controller;
+      let signal;
+      let flag = null;
+      // 发送请求
+      btns[0].onclick = function () {
+        // 检测上一次的请求是否已经完成
+        if (typeof flag === "symbol") {
+          // 取消上一次的请求
+          controller.abort();
+        } else {
+          flag = Symbol();
+        }
+        controller = new AbortController();
+        signal = controller.signal;
+        axios({
+          method: "GET",
+          url: "http://localhost:3000/posts",
+          signal,
+        })
+          .then((response) =&gt; {
+            console.log(response);
+          })
+          .catch((err) =&gt; {
+            console.log(err);
+            // 切记这里不能加下一行代码
+            // flag = null
+          });
+      };
+      btns[1].onclick = function () {
+        controller.abort();
+      };
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<blockquote>
-<h3 id="axiosapi"><code>axios</code> API：</h3>
-</blockquote>
+<h3 id="sca">SCA</h3>
+<ul>
+<li>文件结构</li>
+</ul>
+<pre><code class="language-shell">tree ./node_modules/axios
+./node_modules/axios
+├── dist # 存放打包后的文件
+│   ├── axios.js # 未压缩
+│   ├── axios.map # Source Map 文件 =&gt; 代码出错时定位其在源码中的位置
+│   └── axios.min.js # 压缩后
+├── index.d.ts # ts 的描述文件 =&gt; ts 写完后用 js 发布就需要文件标记对象类型
+├── index.js # axios 入口文件 =&gt; 引入的 /lib/axios.js
+├── lib # 核心目录
+│   ├── adapters # 定义请求的适配器 xhr、http
+│   │   ├── http.js # nodeJS 端发送 http 请求
+│   │   └── xhr.js # 前端发送 ajax 请求
+│   ├── axios.js # axios 入口文件 =&gt; 请求从此处开始
+│   ├── cancel # 定义取消功能
+│   │   ├── Cancel.js # 创建取消时的错误对象
+│   │   ├── CancelToken.js # 创建取消请求的构造函数
+│   │   └── isCancel.js # 检测参数是否为取消对象
+│   ├── core
+│   │   ├── Axios.js # 存放 axios 构造函数
+│   │   ├── InterceptorManager.js # 拦截器管理器构造函数
+│   │   ├── buildFullPath.js # 构建完整 URL 的函数
+│   │   ├── createError.js # 创建指定信息的错误对象
+│   │   ├── dispatchRequest.js # 发送请求的函数 =&gt; 去调用对应适配器
+│   │   ├── enhanceError.js # 更新错误对象函数
+│   │   ├── mergeConfig.js # 合并配置文件
+│   │   ├── settle.js # settle 结束 =&gt; 根据状态码改变 Promise 状态
+│   │   └── transformData.js # 数据格式化转换函数
+│   ├── defaults.js # axios 默认配置文件
+│   ├── helpers # 存放功能函数
+│   │   ├── buildURL.js # 创建 url 并在其后方放入参数
+│   │   ├── combineURLs.js # 合并 url =&gt; baseURL +  relativeURL
+│   │   ├── cookies.js # cookie 的处理 =&gt; 读取、写入...
+│   │   ├── deprecatedMethod.js # 控制台提示不赞成使用的方法
+│   │   ├── isAbsoluteURL.js # 判断 url 是否为绝对路径
+│   │   ├── isURLSameOrigin.js # 检查是否是同源的 url =&gt; 来自于同一个服务
+│   │   ├── normalizeHeaderName.js # 统一化头信息、统一变大写
+│   │   ├── parseHeaders.js # 对头信息解析的函数
+│   │   └── spread.js # 一个以数组调用函数的语法糖拓展
+│   └── utils.js # 工具函数
+└── package.json
+</code></pre>
+<ul>
+<li>axios 创建过程</li>
+</ul>
+<p>node_modules/axios 中的 index.js 导入同路径下的 lib/axios.js。作为实际的入口文件，axios.js 中又会引入多种相关的模块。</p>
+<pre><code class="language-javascript">/* axios.js */
+var utils = require('./utils'); // 引入工具
+var bind = require('./helpers/bind'); // 引入绑定函数 =&gt; 创建函数
+var Axios = require('./core/Axios'); // 引入 Axios 主文件
+var mergeConfig = require('./core/mergeConfig'); // 引入合并配置的函数
+var defaults = require('./defaults'); // 导入默认配置
+</code></pre>
+<p>axios.js 中会通过导入的默认配置 defaults 作为参数传入 createInstance 函数的调用生成 axios，并向这个对象上添加属性。</p>
+<pre><code class="language-javascript">/**
+ * Create an instance of Axios
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  // 创建一个实例对象 context 可以调用 get、post、put、delete、request
+  var context = new Axios(defaultConfig); // context 不能当函数使用
+  // 将 request 方法的 this 指向 context 并返回新函数 instance 可以用作函数使用, 且返回的是一个 promise 对象
+  var instance = bind(Axios.prototype.request, context); // instance 与 Axios.prototype.request 代码一致
+  // instance({method:'get'});  instance.get() .post()
+  // Copy axios.prototype to instance
+  // 将 Axios.prototype 和实例对象的方法都添加到 instance 函数身上
+  utils.extend(instance, Axios.prototype, context); // instance.get instance.post ...
+  // instance()  instance.get()
+  // 将实例对象的方法和属性扩展到 instance 函数身上
+  utils.extend(instance, context);
+  return instance;
+}
+// axios.interceptors
+
+// Create the default instance to be exported
+// 通过配置创建 axios 函数
+var axios = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+// axios 添加 Axios 属性, 属性值为构造函数对象  axios.CancelToken = CancelToken    new axios.Axios();
+axios.Axios = Axios;
+
+// Factory for creating new instances
+// 工厂函数  用来返回创建实例对象的函数
+axios.create = function create(instanceConfig) {
+  return createInstance(mergeConfig(axios.defaults, instanceConfig));
+};
+
+// Expose Cancel &amp; CancelToken
+axios.Cancel = require("./cancel/Cancel");
+axios.CancelToken = require("./cancel/CancelToken");
+axios.isCancel = require("./cancel/isCancel");
+
+// Expose all/spread
+axios.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios.spread = require("./helpers/spread");
+</code></pre>
+<p>cancelToken 实例身上维护了属性Promise，并将改变其状态的变量暴露全局</p>
+<p>从功能上 axios 拥有 Axios 上的方法，所以可以看作是实例。拓展的方式将 Axios.prototype 的方法加入函数对象身上。</p>
+<h3 id="okkkkk">okkkkk</h3>
 <p>即可以通过向 axios 传递相关配置来创建请求。</p>
-<pre><code>// 获取远端图片
+<pre><code class="language-javascript">// 获取远端图片
 axios({
   method:'get',
   url:'http:/zaire-xie/zairesinatrasource',
@@ -1326,8 +1511,9 @@ axios({
   // fs 是 Node.js 的 file-system 模块
 });
 </code></pre>
-<h2 id="fetch">fetch</h2>
-<p>fetch 方法暴露在全局作用域，包括主页面执行线程、模块和工作线程。调用这个方法，浏览器会向给定的 url 发送请求。</p>
+<h2 id="fetch">Fetch</h2>
+<p>测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下</p>
+<p>Fetch API 是用于请求资源的全域方法，相比 XMLHttpRequest 在处理上只能使用回调函数，以及单一却接口</p>
 <p>fetch 号称 AJAX 的替代品在 ES6 出现，基于 ES6 的 promise 对象。Fetch 的代码结构较 ajax 更简单。但 fetch 不是 ajax 的进一步封装，而是原生 js，且没有使用 XMLHttpRequest 对象。XMLHttpRequest 可以选择异步，但是 Fetch 必须是异步。</p>
 <h3 id>分派请求</h3>
 <p>fetch 函数只有一个资源 url 作为必须参数。该方法返回一个期约。</p>
@@ -1346,6 +1532,379 @@ console.log(zs) // Promise&lt;pending&gt;
 </code></pre>
 <h3 id>处理状态码和请求失败</h3>
 <p>Fetch API通过 Response 的 status(状态码) 和 statusText(状态文本) 属性检查响应状态。获取响应成功请求通常产生 200 的状态码与 "OK" 的状态文书。</p>
+<h2 id="freeandopenpublicapis">Free and Open Public APIs</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>API NAME</th>
+<th>DESCRIPTION</th>
+<th>SAMPLE URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>7Timer!</td>
+<td>Weather forecasts</td>
+<td><a href="http://www.7timer.info/bin/api.pl?lon=113.17&amp;lat=23.09&amp;product=astro&amp;output=json">http://www.7timer.info/bin/api.pl?lon=113.17&amp;lat=23.09&amp;product=astro&amp;output=json</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Agify.io</td>
+<td>Predict age based on a name</td>
+<td><a href="https://api.agify.io?name=bella">https://api.agify.io?name=bella</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Archive.org</td>
+<td>Large public digital archive</td>
+<td><a href="https://archive.org/metadata/TheAdventuresOfTomSawyer_201303">https://archive.org/metadata/TheAdventuresOfTomSawyer_201303</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Binance</td>
+<td>24 hr crypto data</td>
+<td><a href="https://api2.binance.com/api/v3/ticker/24hr">https://api2.binance.com/api/v3/ticker/24hr</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Bored</td>
+<td>Activity suggestions</td>
+<td><a href="https://www.boredapi.com/api/activity">https://www.boredapi.com/api/activity</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Cocktail Database</td>
+<td>Cocktail recipes</td>
+<td><a href="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita">https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>CoinBase</td>
+<td>Currency codes and names</td>
+<td><a href="https://api.coinbase.com/v2/currencies">https://api.coinbase.com/v2/currencies</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>CoinDesk</td>
+<td>Bitcoin price index</td>
+<td><a href="https://api.coindesk.com/v1/bpi/currentprice.json">https://api.coindesk.com/v1/bpi/currentprice.json</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>CoinGecko</td>
+<td>Exchange rates</td>
+<td><a href="https://api.coingecko.com/api/v3/exchange_rates">https://api.coingecko.com/api/v3/exchange_rates</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>CoinMap</td>
+<td>Crypto ATMs</td>
+<td><a href="https://coinmap.org/api/v1/venues/">https://coinmap.org/api/v1/venues/</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Coinpaprika</td>
+<td>Cryptocurrency data</td>
+<td><a href="https://api.coinpaprika.com/v1/coins/btc-bitcoin">https://api.coinpaprika.com/v1/coins/btc-bitcoin</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td>CryptingUp</td>
+<td>Cryptocurrency data</td>
+<td><a href="https://www.cryptingup.com/api/markets">https://www.cryptingup.com/api/markets</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Data USA</td>
+<td>US public data</td>
+<td><a href="https://datausa.io/api/data?drilldowns=Nation&amp;measures=Population">https://datausa.io/api/data?drilldowns=Nation&amp;measures=Population</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Dogs</td>
+<td>Random dog images</td>
+<td><a href="https://dog.ceo/api/breeds/image/random">https://dog.ceo/api/breeds/image/random</a></td>
+</tr>
+<tr>
+<td>15</td>
+<td>ExchangeRate-API</td>
+<td>Exchange rates</td>
+<td><a href="https://open.er-api.com/v6/latest/USD">https://open.er-api.com/v6/latest/USD</a></td>
+</tr>
+<tr>
+<td>16</td>
+<td>FreeGeoIP</td>
+<td>GeoIP info</td>
+<td><a href="https://freegeoip.app/json/">https://freegeoip.app/json/</a></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Genderize.io</td>
+<td>Predict gender based on a name</td>
+<td><a href="https://api.genderize.io?name=scott">https://api.genderize.io?name=scott</a></td>
+</tr>
+<tr>
+<td>18</td>
+<td>House Stock Watcher</td>
+<td>Congress members’ stock transactions</td>
+<td><a href="https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json">https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json</a></td>
+</tr>
+<tr>
+<td>19</td>
+<td>HTTP Cats</td>
+<td>Cat images for HTTP status codes</td>
+<td><a href="https://http.cat/401">https://http.cat/401</a></td>
+</tr>
+<tr>
+<td>20</td>
+<td>HTTPBin</td>
+<td>Inspect your user agent and headers</td>
+<td><a href="http://httpbin.org/get">http://httpbin.org/get</a></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Image-Charts</td>
+<td>Chart images</td>
+<td><a href="https://image-charts.com/chart?cht=p3&amp;chs=700%C3%97100&amp;chd=t:60,40&amp;chl=Hello%7CWorld&amp;chan&amp;chf=ps0-0,lg,45,ffeb3b,0.2,f44336,1%7Cps0-1,lg,45,8bc34a,0.2,009688,1">https://image-charts.com/chart?cht=p3&amp;chs=700×100&amp;chd=t:60,40&amp;chl=Hello|World&amp;chan&amp;chf=ps0-0,lg,45,ffeb3b,0.2,f44336,1|ps0-1,lg,45,8bc34a,0.2,009688,1</a></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Imgflip</td>
+<td>Popular memes</td>
+<td><a href="https://api.imgflip.com/get_memes">https://api.imgflip.com/get_memes</a></td>
+</tr>
+<tr>
+<td>23</td>
+<td>IP Fast</td>
+<td>Get your public IP address</td>
+<td><a href="https://ip-fast.com/api/ip/">https://ip-fast.com/api/ip/</a></td>
+</tr>
+<tr>
+<td>24</td>
+<td>IPify</td>
+<td>Get your public IP address</td>
+<td><a href="https://api.ipify.org?format=json">https://api.ipify.org?format=json</a></td>
+</tr>
+<tr>
+<td>25</td>
+<td>iTunes Search</td>
+<td>iTunes and Apple Book Store content</td>
+<td><a href="https://itunes.apple.com/search?term=radiohead">https://itunes.apple.com/search?term=radiohead</a></td>
+</tr>
+<tr>
+<td>26</td>
+<td>Jikan</td>
+<td>Unofficial MyAnimeList API</td>
+<td><a href="https://api.jikan.moe/v3/search/anime?q=naruto">https://api.jikan.moe/v3/search/anime?q=naruto</a></td>
+</tr>
+<tr>
+<td>27</td>
+<td>JokeAPI</td>
+<td>Jokes</td>
+<td><a href="https://v2.jokeapi.dev/joke/Any?safe-mode">https://v2.jokeapi.dev/joke/Any?safe-mode</a></td>
+</tr>
+<tr>
+<td>28</td>
+<td>JSONPlaceholder</td>
+<td>Fake REST API for testing</td>
+<td><a href="https://jsonplaceholder.typicode.com/posts/1">https://jsonplaceholder.typicode.com/posts/1</a></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Kraken</td>
+<td>Crypto data</td>
+<td><a href="https://api.kraken.com/0/public/Trades?pair=ltcusd">https://api.kraken.com/0/public/Trades?pair=ltcusd</a></td>
+</tr>
+<tr>
+<td>30</td>
+<td>KuCoin</td>
+<td>Crypto data</td>
+<td><a href="https://api.kucoin.com/api/v1/market/stats?symbol=BTC-USDT">https://api.kucoin.com/api/v1/market/stats?symbol=BTC-USDT</a></td>
+</tr>
+<tr>
+<td>31</td>
+<td>Listly</td>
+<td>Top 10 lists</td>
+<td><a href="https://list.ly/api/v4/meta?url=http://google.com">https://list.ly/api/v4/meta?url=http://google.com</a></td>
+</tr>
+<tr>
+<td>32</td>
+<td>Makeup</td>
+<td>Makeup brands and product info</td>
+<td><a href="http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline">http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline</a></td>
+</tr>
+<tr>
+<td>33</td>
+<td>MusicBrainz</td>
+<td>Music data</td>
+<td><a href="http://musicbrainz.org/ws/2/artist/5b11f4ce-a62d-471e-81fc-a69a8278c7da?fmt=json">http://musicbrainz.org/ws/2/artist/5b11f4ce-a62d-471e-81fc-a69a8278c7da?fmt=json</a></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Nager.Date</td>
+<td>Public holidays</td>
+<td><a href="https://date.nager.at/api/v2/publicholidays/2020/US">https://date.nager.at/api/v2/publicholidays/2020/US</a></td>
+</tr>
+<tr>
+<td>35</td>
+<td>Nationalize.io</td>
+<td>Predict nationality based on a name</td>
+<td><a href="https://api.nationalize.io?name=michael">https://api.nationalize.io?name=michael</a></td>
+</tr>
+<tr>
+<td>36</td>
+<td>Nominatum</td>
+<td>Locations and addresses</td>
+<td><a href="https://nominatim.openstreetmap.org/search.php?city=taipei&amp;format=jsonv2">https://nominatim.openstreetmap.org/search.php?city=taipei&amp;format=jsonv2</a></td>
+</tr>
+<tr>
+<td>37</td>
+<td>Numbers API</td>
+<td>Facts about numbers</td>
+<td><a href="http://numbersapi.com/random/math">http://numbersapi.com/random/math</a></td>
+</tr>
+<tr>
+<td>38</td>
+<td>Oddsmagnet</td>
+<td>Get odds history from bookmakers</td>
+<td><a href="https://data.oddsmagnet.com/history/2021/football/england-premier-league/leeds-united-v-brentford/win-market.json">https://data.oddsmagnet.com/history/2021/football/england-premier-league/leeds-united-v-brentford/win-market.json</a></td>
+</tr>
+<tr>
+<td>39</td>
+<td>Open Brewery DB</td>
+<td>Breweries</td>
+<td><a href="https://api.openbrewerydb.org/breweries">https://api.openbrewerydb.org/breweries</a></td>
+</tr>
+<tr>
+<td>40</td>
+<td>Open Food Facts</td>
+<td>Data on food products</td>
+<td><a href="https://world.openfoodfacts.org/api/v0/product/737628064502.json">https://world.openfoodfacts.org/api/v0/product/737628064502.json</a></td>
+</tr>
+<tr>
+<td>41</td>
+<td>Open Library</td>
+<td>Information about books</td>
+<td><a href="http://openlibrary.org/api/volumes/brief/isbn/9780525440987.json">http://openlibrary.org/api/volumes/brief/isbn/9780525440987.json</a></td>
+</tr>
+<tr>
+<td>42</td>
+<td>openFDA</td>
+<td>Product recalls from the FDA</td>
+<td><a href="https://api.fda.gov/food/enforcement.json?limit=10">https://api.fda.gov/food/enforcement.json?limit=10</a></td>
+</tr>
+<tr>
+<td>43</td>
+<td>OpenSea</td>
+<td>NFTs</td>
+<td><a href="https://api.opensea.io/api/v1/assets?format=json">https://api.opensea.io/api/v1/assets?format=json</a></td>
+</tr>
+<tr>
+<td>44</td>
+<td>Pixel Encounter</td>
+<td>SVG Monsters</td>
+<td><a href="https://app.pixelencounter.com/api/basic/monsters/random">https://app.pixelencounter.com/api/basic/monsters/random</a></td>
+</tr>
+<tr>
+<td>45</td>
+<td>Placekitten</td>
+<td>Placeholder kitten images</td>
+<td><a href="http://placekitten.com/200/300">http://placekitten.com/200/300</a></td>
+</tr>
+<tr>
+<td>46</td>
+<td>Public APIs</td>
+<td>List public APIs</td>
+<td><a href="https://api.publicapis.org/entries">https://api.publicapis.org/entries</a></td>
+</tr>
+<tr>
+<td>47</td>
+<td>PunkAPI</td>
+<td>Beer recipes</td>
+<td><a href="https://api.punkapi.com/v2/beers">https://api.punkapi.com/v2/beers</a></td>
+</tr>
+<tr>
+<td>48</td>
+<td>Random Dogs</td>
+<td>Random dog images</td>
+<td><a href="https://random.dog/woof.json">https://random.dog/woof.json</a></td>
+</tr>
+<tr>
+<td>49</td>
+<td>RandomUser</td>
+<td>Fake user data generator</td>
+<td><a href="https://randomuser.me/api/">https://randomuser.me/api/</a></td>
+</tr>
+<tr>
+<td>50</td>
+<td>Reddit</td>
+<td>Public content from Reddit</td>
+<td><a href="https://www.reddit.com/r/Wallstreetbets/top.json?limit=10&amp;t=year">https://www.reddit.com/r/Wallstreetbets/top.json?limit=10&amp;t=year</a></td>
+</tr>
+<tr>
+<td>51</td>
+<td>Teleport</td>
+<td>Location and quality of life data</td>
+<td><a href="https://api.teleport.org/api/urban_areas/teleport%3A9q8yy/scores/">https://api.teleport.org/api/urban_areas/teleport%3A9q8yy/scores/</a></td>
+</tr>
+<tr>
+<td>52</td>
+<td>TVMaze</td>
+<td>TV show information</td>
+<td><a href="http://api.tvmaze.com/search/shows?q=golden">http://api.tvmaze.com/search/shows?q=golden</a> girls</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Universities List</td>
+<td>Universities</td>
+<td><a href="http://universities.hipolabs.com/search?country=United+Kingdom">http://universities.hipolabs.com/search?country=United+Kingdom</a></td>
+</tr>
+<tr>
+<td>54</td>
+<td>Unix Timestamp Converter</td>
+<td>Convert timestamps</td>
+<td><a href="https://showcase.api.linx.twenty57.net/UnixTime/fromunix?timestamp=1549892280">https://showcase.api.linx.twenty57.net/UnixTime/fromunix?timestamp=1549892280</a></td>
+</tr>
+<tr>
+<td>55</td>
+<td>Wayback Machine</td>
+<td>Internet archive availability</td>
+<td><a href="https://archive.org/wayback/available?url=google.com">https://archive.org/wayback/available?url=google.com</a></td>
+</tr>
+<tr>
+<td>56</td>
+<td>WazirX</td>
+<td>Crypto data</td>
+<td><a href="https://api.wazirx.com/sapi/v1/tickers/24hr">https://api.wazirx.com/sapi/v1/tickers/24hr</a></td>
+</tr>
+<tr>
+<td>57</td>
+<td>Wikipedia</td>
+<td>Daily pageviews for a page</td>
+<td><a href="https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/all-agents/Tiger_King/daily/20210901/20210930">https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/all-agents/Tiger_King/daily/20210901/20210930</a></td>
+</tr>
+<tr>
+<td>58</td>
+<td>WordPress</td>
+<td>Public posts from any WordPress site</td>
+<td><a href="https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&amp;context=embed">https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&amp;context=embed</a></td>
+</tr>
+<tr>
+<td>59</td>
+<td>xkcd</td>
+<td>xkcd comics</td>
+<td><a href="http://xkcd.com/info.0.json">http://xkcd.com/info.0.json</a></td>
+</tr>
+<tr>
+<td>60</td>
+<td>Zippopotamus</td>
+<td>Zip code information</td>
+<td><a href="https://api.zippopotam.us/us/90210">https://api.zippopotam.us/us/90210</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id>结束</h2>
 <p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a>，转载请注明出处！</p>
 

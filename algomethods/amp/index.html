@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/algomethods/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/abstractArt.jpg" />
     <meta property="article:published_time" content="2020-04-01T13:21:00.000Z" />
-    <meta property="article:modified_time" content="2022-05-22T16:17:46.000Z" />
+    <meta property="article:modified_time" content="2022-09-03T20:18:57.000Z" />
     <meta property="article:tag" content="DataStructuresAndAlgorithms" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "🌀Algorithm Summary",
     "url": "yourdomain.com/algomethods/",
     "datePublished": "2020-04-01T13:21:00.000Z",
-    "dateModified": "2022-05-22T16:17:46.000Z",
+    "dateModified": "2022-09-03T20:18:57.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/abstractArt.jpg",
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1081,307 +1081,298 @@
             <section class="post-content">
 
                 <amp-iframe src="https://open.spotify.com/embed/playlist/3ntu3ma2CyfXymme1Vub4t" width="100%" height="180" frameborder="0" allowtransparency sandbox="allow-scripts allow-same-origin" layout="responsive"></amp-iframe><h2 id="%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</h2>
-<h3 id="%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F">冒泡排序</h3>
-<pre><code class="language-javascript">// zs在数据结构中封装的函数
-function swap (array, a, b) {
-    [array[a], array[b]] = [array[b],array[a]];
-}
-
-const Compare = {
-    LESS_THAN: -1,
-    BIGGER_THAN: 1,
-    EQUALS: 0
-};
-
-// 避免复杂对象数组的属性排序 =&gt; people 的 age 属性
-function defaultCompare(a, b) {
-    if (a === b) {
-      return Compare.EQUALS;
+<h3 id="%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95-in-place">原地算法 in-place</h3>
+<blockquote>
+<p>原地算法是基本上不需要借助额外的数据结构（存储空间）就能对输入的数据进行变换的算法。不过，分配少量空间给部分辅助变量是被允许的。<a href="https://zh.wikipedia.org/zh-cn/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">wikipedia</a></p>
+</blockquote>
+<blockquote>
+<p>算法执行过程中，输入的数据往往会被输出结果覆盖。原地算法只能通过替换或交换元素的方式来修改原始的输入。</p>
+</blockquote>
+<blockquote>
+<p>不满足原地原则的算法被称为非原地 not-in-place 算法或异地 out-of-place 算法。</p>
+</blockquote>
+<h3 id="%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F-bubble-sort">冒泡排序 Bubble Sort</h3>
+<blockquote>
+<p>冒泡排序需要重复地访问待排序的数列，一次比较两个元素，如果元素顺序错误就进行交换。<a href="https://zh.wikipedia.org/wiki/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F">wikipedia</a></p>
+</blockquote>
+<blockquote>
+<p>平均时间复杂度 O(n^2)；最坏时间复杂度	O(n^2)；最优时间复杂度 O(n)。</p>
+</blockquote>
+<p>比较相邻的元素，如果前者比后者大，就交换两者位置，每对相邻的元素都作同样的比较，从开始的一对直到结尾的最后一对。首次全部比较完成时，最末位的元素会是最大的数。重复上述步骤，直到没有任何一对元素需要比较。</p>
+<pre><code class="language-javascript">/* JavaScript */
+function bubbleSort (arr) {
+  const { length } = arr;
+  for(let i = 0; i &lt; length; i++){
+    for(let j = 0; j &lt; length - 1 - i; j++){
+      if(arr[j] &gt; arr[j+1]){
+        let swapTemp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = swapTemp;
+      }
     }
-    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+  }
+  return arr;
 }
-
-function bubbleSort (array) {
-    // 解构赋值
-    const { length } = array
-    // 外循环从数组第一位迭代最后一位
-    for (let i = 0; i &lt; length; i++) {
-        // 内循环从数组第一位迭代最后一位并减少内循环不必要比较
-        for (let j = 0; j &lt; length - 1 - i; j++) {
-            if (defaultCompare(array[j],array[j+1]) === Compare.BIGGER_THAN) {
-                swap(array, j, j+1)
-                // let tmp = array[j];
-                // array[j] = array[j+1];
-                // array[j+1] = tmp
+</code></pre>
+<pre><code class="language-java">/* Java */
+public class BubbleSort{
+    public static void main (String[] args) {
+        int[] arrTest = {5, 4, 3, 2, 1};
+        bubbleSort(arrTest);
+        for(int item : arrTest){
+            System.out.println(item);
+        }
+    }
+    private static int[] bubbleSort(int[] array) {
+        int temp;
+        for (int i = 0; i &lt; array.length - 1; i++) {
+            boolean Flag = false; // 是否发生交换。没有交换，提前跳出外层循环
+            for (int j = 0; j &lt; array.length - 1 - i; j++) {
+                if (array[j] &gt; array[j + 1]) {
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    Flag = true;
+                }
+            }
+            if (!Flag){
+                break;
             }
         }
-    }
-    return array;
-}
-
-function createNonSortedArray(size) {
-    const array = [];
-    for (let i = size; i &gt; 0; i--) {
-        array.push(i)
-    }
-    return array;
-}
-
-let array = createNonSortedArray(5);
-console.log(array); // [ 5, 4, 3, 2, 1 ]
-array = bubbleSort(array);
-console.log(array.join()); // 1,2,3,4,5
-</code></pre>
-<h3 id="%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F">选择排序</h3>
-<pre><code class="language-javascript">function swap (array, a, b) {
-    [array[a], array[b]] = [array[b], array[a]]
-}
-
-// 选择排序是原址比较排序算法-数据结构中最小值放置第一位、第二小值放在第二位,以此类推
-const Compare = {
-    LESS_THAN: -1,
-    BIGGER_THAN: 1,
-    EQUALS: 0
-};
-function defaultCompare(a, b) {
-    if(a === b) {
-        return Compare.EQUALS;
-    }
-    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
-}
-
-function selectionSort(array, compareFn = defaultCompare) {
-    const { length } = array;
-    // 声明当前索引最小值
-    let indexMin;
-    // 外循环迭代数组,控制循环轮次
-    for (let i = 0; i &lt; length-1; i++) {
-        indexMin = i;
-        // 从当前i值至数组结束比较是否有位置j比当前值小
-        for (let j = i+1; j &lt; length; j++) {
-            if (compareFn(array[indexMin], array[j]) === Compare.BIGGER_THAN) {
-                indexMin = j;
-            }
-        }
-        if (i !== indexMin) {
-            swap(array, i, indexMin);
-        }
-    }
-    return array;
-}
-let arr = [2,4,1,5,3]
-let zsarr = selectionSort(arr)
-console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
-</code></pre>
-<hr></hr>
-<h3 id="%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F">插入排序</h3>
-<pre><code class="language-javascript">// 选择排序是原址比较排序算法-数据结构中最小值放置第一位、第二小值放在第二位,以此类推
-const Compare = {
-    LESS_THAN: -1,
-    BIGGER_THAN: 1,
-    EQUALS: 0
-};
-function defaultCompare(a, b) {
-    if(a === b) {
-        return Compare.EQUALS;
-    }
-    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
-}
-
-function insertionSort(array, compareFn = defaultCompare) {
-    const { length } = array;
-    let tmp;
-    // 迭代数组给第i项找正确的位置
-    // 从数组[1]开始找,默认数组第一项已经排序
-    for (let i = 1; i &lt; length; i++) {
-        let j = i;
-        // tmp赋值可能插入其他位置的当前数组项
-        tmp = array[i];
-        while(j &gt; 0 &amp;&amp; compareFn(array[j-1],tmp) === Compare.BIGGER_THAN) {
-            array[j] = array[j-1];
-            j--;
-        }
-        array[j] = tmp;
-    }
-    return array;
-}
-let arr = [2,4,5,1,3]
-let zsarr = insertionSort(arr)
-console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
-</code></pre>
-<hr></hr>
-<h3 id="%E5%BD%92%E5%B9%B6%E7%AE%97%E6%B3%95">归并算法</h3>
-<pre><code class="language-javascript">// 归并排序复杂度为O(nlog(n))
-const Compare = {
-    LESS_THAN: -1,
-    BIGGER_THAN: 1,
-    EQUALS: 0
-};
-function defaultCompare(a, b) {
-    if(a === b) {
-        return Compare.EQUALS;
-    }
-    return a &lt; b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
-}
-function mergeSort(array, compareFn = defaultCompare) {
-    // 递归满足的停止条件
-    if (array.length &gt; 1) {
-        const { length } = array;
-        const middle = Math.floor(length/2);
-        // 大数组转换为小数组直到其中只有一个项
-        // slice() 方法返回一个新的数组对象,这一对象是一个由 begin 和 end 决定的原数组的浅拷贝(包括 begin 不包括 end )原始数组不会被改变
-        const left = mergeSort(array.slice(0,middle), compareFn);
-        const right = mergeSort(array.slice(middle, length), compareFn)
-        array = merge(left, right, compareFn);
-    }
-    return array
-}
-function merge(left, right, compareFn) {
-    let i = 0;
-    let j = 0;
-    const result = [];
-    while(i &lt; left.length &amp;&amp; j &lt; right.length) {
-        result.push(
-            compareFn(left[i],right[j]) === Compare.LESS_THAN ? left[i++] : right[j++]
-        );
-    }
-    return result.concat(i &lt; left.length ? left.slice(i) : right.slice(j));
-}
-let arr = [2,4,3,5,1]
-let zsarr = mergeSort(arr)
-console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
-</code></pre>
-<hr></hr>
-<h3 id="%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F">快速排序</h3>
-<p>深感图灵的JavaScript数据结构与算法部分内容存在错误与冗杂，这里记录更加易于理解的快速排序。</p>
-<pre><code class="language-javascript">var quickSort = function(arr) {
-    if (arr.length &lt;= 1) { return arr; }
-    var pivotIndex = Math.floor(arr.length / 2);
-    var pivot = arr.splice(pivotIndex, 1)[0];
-    var left = [];
-    var right = [];
-    for (var i = 0; i &lt; arr.length; i++){
-    　　if (arr[i] &lt; pivot) {
-    　　　　left.push(arr[i]);
-    　　} else {
-    　　　　right.push(arr[i]);
-    　　}
-    }
-    return quickSort(left).concat([pivot], quickSort(right));
-};
-let arr = [2,4,1,5,3]
-let zsarr = quickSort(arr)
-console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
-</code></pre>
-<hr></hr>
-<h3 id="%E6%A1%B6%E6%8E%92%E5%BA%8F">桶排序</h3>
-<pre><code class="language-javascript">// 默认情况使用5个桶
-// 元素密集使用较少筒;元素稀少用使用较多桶
-// 使用的映射函数能够将输入的 N 个数据均匀的分配到 M 个桶中
-function bucketSort (array, bucketSize = 5) {
-    if (array.length &lt; 2) {
         return array;
     }
-    const buckets = createBuckets(array, bucketSize);
-    return sortBuckets(buckets)
 }
-
-function createBuckets(array, bucketSize) {
-    let minValue = array[0];
-    let maxValue = array[0];
-    for (let i = 1; i &lt; array.length; i++) {
-        if (array[i] &lt; minValue) {
-            minValue = array[i];
-        } else if (array[i] &gt; maxValue) {
-            maxValue = array[i];
-        }
+</code></pre>
+<h3 id="%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F-selection-sort">选择排序 Selection sort</h3>
+<blockquote>
+<p>选择排序的主要优点与数据移动有关。如果某个元素位于正确的最终位置上，则不会被移动。选择排序每次交换一对元素，至少有一个将被移到其最终位置上，因此对 n 个元素的表进行排序总共进行至多 (n-1) 次交换。在所有的完全依靠交换去移动元素的排序方法中，选择排序属于非常好的一种。<a href="https://zh.wikipedia.org/wiki/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F">wikipedia</a></p>
+</blockquote>
+<blockquote>
+<p>平均时间复杂度 О(n²)；最坏时间复杂度	О(n²)；最优时间复杂度 О(n²)；空间复杂度总共 О(n)，需要辅助空间O(1)。</p>
+</blockquote>
+<p>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<pre><code class="language-javascript">function selectionSort(arr){
+  const { length } = arr;
+  let minIndex;
+  for(let i = 0; i &lt; length-1; i++){
+    minIndex = i;
+    for(let j = i+1; j &lt; length; j++){
+      if(arr[j] &lt; arr[minIndex]){
+        minIndex = j;
+      }
+      if (i !== minIndex) {
+        let swapTemp = arr[i];
+	    arr[i] = arr[minIndex];
+        arr[minIndex] = swapTemp;
+      }
     }
-    const bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
-    const buckets = [];
-    for (let i = 0; i &lt; array.length; i++) {
-        // buckets是数组、buckets包含的内容也是数组
-        buckets[i] = [];
-    }
-    for (let i = 0; i &lt; array.length; i++) {
-        const bucketIndex = Math.floor((array[i] - minValue) / bucketSize);
-        buckets[bucketIndex].push(array[i]);
-    }
-    return buckets;
+  }
+  return arr;
 }
-
-function insertionSort (array) {
-    const { length } = array;
-    for(let i = 1; i &lt; length; i++) {
-        let temp = array[i];
-        let j = i;
-        while(j&gt;0 &amp;&amp; (array[j-1]&gt;temp)) {
-            array[j] = array[j-1];
-            j--;
-        }
-        array[j] = temp;
-    }
-    return array;
+</code></pre>
+<pre><code class="language-java">/* Java */
+public class SelectionSort  {
+	public void sort(int[] arr) {
+		int minIndex;
+		for(int i = 0;i &lt; arr.length;i++) {
+			minIndex = i;
+			for(int j = i;j &lt; arr.length;j++) {
+				if(arr[j] &lt; arr[minIndex]) {
+					minIndex = j;
+				}
+			}
+			if(minIndex != i) {
+				int temp = arr[i];
+				arr[i] = arr[minIndex];
+				arr[minIndex] = temp;
+			}
+		}
+	}
 }
-
-function sortBuckets(buckets) {
-    const sortedArray = [];
-    for (let i = 0; i &lt; buckets.length; i++){
-        if(buckets[i] != null)
-        insertionSort(buckets[i]);
-        sortedArray.push(...buckets[i]);
-    }
-    return sortedArray;
-}
-
-let arr = [2,4,5,1,3]
-let zsarr = bucketSort(arr)
-console.log(zsarr); // [ 1, 2, 3, 4, 5 ]
 </code></pre>
 <hr></hr>
-<h3 id="%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F">基数排序</h3>
-<pre><code class="language-javascript">// 基数排序是一种非比较型整数排序算法,其原理是将整数按位数切割成不同的数字,然后按每个位数分别比较.由于整数也可以表达字符串(比如名字或日期)和特定格式的浮点数,所以基数排序也不是只能使用于整数
-// 对桶的使用方法上的差异: 基数排序:根据键值的每位数字来分配桶、计数排序:每个桶只存储单一键值、桶排序:每个桶存储一定范围的数值
-function radixSort(arr) {
-    // 取最大值 最大值的位数就是要循环遍历的次数
-    const max = Math.max(...arr);
-    // Array.from() 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例
-    // 定义桶数据结构 digit从0-9的桶 每个桶都是数组
-    const buckets = Array.from({ length: 10 }, () =&gt; []);
-    // m定义当前要遍历的位数 个位 十位 百位...
-    let m = 1;
-    // m &lt; 最大值 =&gt; 保证遍历完所有可能的位数而不超过max
-    while (m &lt; max) {
-      // 放入桶
-      arr.forEach(number =&gt; {
-        // digit表示某位数的值、取余 % 取整 /
-        const digit = ~~((number % (m * 10)) / m);
-  
-        // 把该位数的值放到桶buckets中
-        // 通过索引确定顺序 类比计数排序
-        buckets[digit].push(number);
-      });
-  
-      // 从桶buckets中取值完成位数排序
-      let zs = 0;
-      buckets.forEach(bucket =&gt; {
-        while (bucket.length &gt; 0) {
-          // shift从头部取值、保证按照队列先入先出
-          arr[zs++] = bucket.shift();
+<h3 id="%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F-insertion-sort">插入排序 Insertion Sort</h3>
+<blockquote>
+<p>插入排序的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。因在从后向前扫描过程中，需反复把已排序元素逐步向后挪位，为新元素提供插入空间，故在实现上通常采用 in-place 排序。<a href="https://zh.wikipedia.org/wiki/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F">wikipedia</a></p>
+</blockquote>
+<blockquote>
+<p>平均时间复杂度	O(n^2)；最坏时间复杂度 O(n^2)；最优时间复杂度 O(n)。</p>
+</blockquote>
+<p>从第一个元素开始，该元素可以认为已经被排序；取出下一个元素，在已经排序的元素序列中从后向前扫描；如果该元素（已排序）大于新元素，将该元素移到下一位置；重复步骤直到找到已排序的元素小于或者等于新元素的位置；将新元素插入到该位置后；重复取出元素放入的步骤。</p>
+<pre><code class="language-javascript">function insertionSort(arr){
+  for(let i = 1; i &lt;= arr.length; i++){
+    if(arr[i] &lt; arr[i-1]){
+      let elementToBeManipulated = arr[i], j = i - 1;
+      arr[i] = arr[j];
+      while(j &gt;= 0 &amp;&amp; elementToBeManipulated &lt; arr[j]){
+        arr[j+1] = arr[j];
+        j--;
+      }
+      arr[j+1] = elementToBeManipulated;
+    }
+  }
+  return arr;
+}
+</code></pre>
+<hr></hr>
+<h3 id="%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F-merge-sort">归并排序 Merge Sort</h3>
+<blockquote>
+<p>归并排序是创建在归并操作上的排序算法，是采用分治法 Divide and Conquer 的典型应用，且各层分治递归可以同时进行。效率为 O(n log n)。<a href="https://en.wikipedia.org/wiki/Merge_sort">wikipedia</a></p>
+</blockquote>
+<blockquote>
+<p>分治法 =&gt; 分割：递归地把当前序列平均分割成两半；集成：在保持元素顺序的同时将上一步得到的子序列集成到一起（归并）。</p>
+</blockquote>
+<blockquote>
+<p>递归法 Top-down =&gt; 申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；设定两个指针，最初位置分别为两个已经排序序列的起始位置；比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置；重复步骤直到某一指针到达序列尾；将另一序列剩下的所有元素直接复制到合并序列尾。</p>
+</blockquote>
+<pre><code class="language-javascript">/* JavaScript */
+function merge(left, right){
+  var result = [];
+  while(left.length &gt; 0 &amp;&amp; right.length &gt; 0){
+    if(left[0] &lt; right[0]){
+      result.push(left.shift());
+    }else{
+      result.push(right.shift());
+    }
+  }
+  return result.concat(left, right);
+}
+
+function mergeSort(arr){
+  if(arr.length &lt;=1) return arr;
+  var middle = Math.floor(arr.length / 2);
+  var left = arr.slice(0, middle);
+  var right = arr.slice(middle);
+  return merge(mergeSort(left), mergeSort(right));
+}
+</code></pre>
+<pre><code class="language-java">/* Java */
+static void merge_sort_recursive(int[] arr, int[] result, int start, int end) {
+	if (start &gt;= end)
+		return;
+	int len = end - start, mid = (len &gt;&gt; 1) + start;
+	int start1 = start, end1 = mid;
+	int start2 = mid + 1, end2 = end;
+	merge_sort_recursive(arr, result, start1, end1);
+	merge_sort_recursive(arr, result, start2, end2);
+	int k = start;
+	while (start1 &lt;= end1 &amp;&amp; start2 &lt;= end2)
+		result[k++] = arr[start1] &lt; arr[start2] ? arr[start1++] : arr[start2++];
+	while (start1 &lt;= end1)
+		result[k++] = arr[start1++];
+	while (start2 &lt;= end2)
+		result[k++] = arr[start2++];
+	for (k = start; k &lt;= end; k++)
+		arr[k] = result[k];
+}
+public static void merge_sort(int[] arr) {
+	int len = arr.length;
+	int[] result = new int[len];
+	merge_sort_recursive(arr, result, 0, len - 1);
+}
+</code></pre>
+<hr></hr>
+<h3 id="%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F-quicksort">快速排序 Quicksort</h3>
+<blockquote>
+<p>快速排序使用分治法 Divide and conquer 策略将序列 list 分为较小和较大的 2 个子序列，然后递归地排序两个子序列。<a href="https://zh.m.wikipedia.org/zh-cn/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F">wikipedia</a></p>
+</blockquote>
+<blockquote>
+<p>排序 n 个项目的平均复杂度为 O(nlogn)。在最坏状况下则需要 O(n^2) 次比较。</p>
+</blockquote>
+<p>步骤 =&gt; 挑选基准值 pivot /ˈpivət/；分割并重新排序数列；递归排序子序列</p>
+<pre><code class="language-javascript">/* JavaScript */
+function quickSort(arr){
+  if(arr.length &lt;= 1) return arr;
+  let pivotIndex = Math.floor(arr.length / 2);
+  let pivot = arr.splice(pivotIndex, 1)[0];
+  let leftArr = [], rightArr = [];
+  for(let i = 0; i &lt; arr.length; i++){
+    if(arr[i] &lt; pivot){
+      leftArr.push(arr[i]);
+    } else {
+      rightArr.push(arr[i]);
+    }
+  }
+  return quickSort(leftArr).concat([pivot], quickSort(rightArr));
+}
+</code></pre>
+<pre><code class="language-java">/* Java */
+public class QuickSort{
+    public static void main (String[] args) {
+        int[] arr = { 10, 7, 8, 9, 1, 5 };
+        int n = arr.length;
+        quickSort(arr, 0, n - 1);
+        for(int item : arr){
+            System.out.println(item + " ");
         }
-      });
-      // 每次遍历增加一位
-      // 每次最外层while循环后m要乘等10、也就是要判断下一位 比如当前是个位 下次就要判断十位
-      m *= 10;
+    }
+    private static void quickSort(int arr[], int begin, int end) {
+        if (begin &lt; end) {
+            int partitionIndex = partition(arr, begin, end);
+            quickSort(arr, begin, partitionIndex-1);
+            quickSort(arr, partitionIndex+1, end);
+        }
+    }
+    private static int partition(int arr[], int begin, int end) {
+        int pivot = arr[end];
+        int i = (begin-1);
+        for (int j = begin; j &lt; end; j++) {
+            if (arr[j] &lt;= pivot) {
+                i++;
+                int swapTemp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = swapTemp;
+            }
+        }
+        int swapTemp = arr[i+1];
+        arr[i+1] = arr[end];
+        arr[end] = swapTemp;
+        return i+1;
     }
 }
-const arr = [1, 10, 9680, 577, 5622, 4793, 2030, 3138, 82, 2599, 743, 4127];
-radixSort(arr);
-console.log(arr.join()); // 1,10,82,577,743,2030,2599,3138,4127,4793,5622,9680
-
-console.log(Math.trunc(1.234));
-console.log(Math.trunc(1.834));
-console.log(~~(1.234));
-console.log(~~(1.834));
+</code></pre>
+<hr></hr>
+<h3 id="%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F-radix-sort">基数排序 Radix Sort</h3>
+<blockquote>
+<p>基数排序是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。由于整数也可以表达字符串（比如名字或日期）和特定格式的浮点数，所以基数排序也不是只能使用于整数。<a href="https://en.wikipedia.org/wiki/Radix_sort">wikipedia</a></p>
+</blockquote>
+<blockquote>
+<p>基数排序的方式可以采用 LSD Least significant digital 或 MSD Most significant digital，LSD 的排序方式由键值的最右边开始，而 MSD 则相反，由键值的最左边开始。</p>
+</blockquote>
+<blockquote>
+<p>最坏时间复杂度 O(kN)；空间复杂度 O(k+N)。</p>
+</blockquote>
+<p>将所有待比较数值（正整数）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后，数列就变成一个有序序列。</p>
+<p>基数排序、计数排序和桶排序在桶的使用上存在差异。前者根据键值的每位数字来分配桶；中者的每个桶只存储单一键值；后者每个桶存储一定范围的数值。</p>
+<pre><code class="language-javascript">function radixSort(arr) {
+  const max = Math.max(...arr);
+  const buckets = Array.from({ length: 10 }, () =&gt; []);
+  let m = 1; // 个位
+  while (m &lt; max) {
+    arr.forEach(number =&gt; {
+      let digit = ~~((number % (m * 10)) / m);
+      buckets[digit].push(number);
+    });
+    let sortedIndex = 0;
+    buckets.forEach(bucket =&gt; {
+      while (bucket.length &gt; 0) {
+        arr[sortedIndex++] = bucket.shift();
+      }
+    });
+    m *= 10;
+  }
+  return arr
+}
+</code></pre>
+<ul>
+<li>double tilde ~~</li>
+</ul>
+<p>按位非运算符 Bitwise NOT ~ 接受任何数字并将其二进制数字进行反转。那么将一个数字反转两次后，其结果会和以前一样。运算符 ~~ 可以理解为先通过 ~ 运算符转换成不保留小数值的 32 位有符号整数，再反转为原始数字的下限或上限。</p>
+<p>当给定数字是正数时，同 Math.floor()；当给定数字是负数时，同 Math.trunc() 和 Math.ceil()。</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from">Array.from</a> 对类数组或可迭代对象创建一个新的，浅拷贝的数组实例</li>
+</ul>
+<pre><code class="language-javascript">Array.from(arrayLike[, mapFn[, thisArg]])
 </code></pre>
 <h2 id="%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E4%B8%8E%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95">搜索算法与随机算法</h2>
 <h3 id="%E9%A1%BA%E5%BA%8F%E6%90%9C%E7%B4%A2">顺序搜索</h3>

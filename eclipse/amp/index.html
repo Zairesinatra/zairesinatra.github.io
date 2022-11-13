@@ -4,35 +4,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>🌒Eclipse配置</title>
+    <title>VSCode &amp; Eclipse &amp; IntelliJ</title>
 
-    <meta name="description" content="Java 开发环境 Eclipse 配置" />
+    <meta name="description" content="VSCode &amp; Eclipse &amp; IntelliJ Config Backup" />
     <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="🌒Eclipse配置" />
-    <meta property="og:description" content="Java 开发环境 Eclipse 配置" />
+    <meta property="og:title" content="VSCode &amp; Eclipse &amp; IntelliJ" />
+    <meta property="og:description" content="VSCode &amp; Eclipse &amp; IntelliJ Config Backup" />
     <meta property="og:url" content="yourdomain.com/eclipse/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/07/eeclipse.jpg" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/08/vscode.png" />
     <meta property="article:published_time" content="2021-04-22T13:36:00.000Z" />
-    <meta property="article:modified_time" content="2022-05-18T14:20:24.000Z" />
+    <meta property="article:modified_time" content="2022-08-31T09:00:44.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="🌒Eclipse配置" />
-    <meta name="twitter:description" content="Java 开发环境 Eclipse 配置" />
+    <meta name="twitter:title" content="VSCode &amp; Eclipse &amp; IntelliJ" />
+    <meta name="twitter:description" content="VSCode &amp; Eclipse &amp; IntelliJ Config Backup" />
     <meta name="twitter:url" content="yourdomain.com/eclipse/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/07/eeclipse.jpg" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/08/vscode.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="Technology growth" />
     <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1334" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
     
     <script type="application/ld+json">
 {
@@ -61,18 +61,18 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "🌒Eclipse配置",
+    "headline": "VSCode &amp; Eclipse &amp; IntelliJ",
     "url": "yourdomain.com/eclipse/",
     "datePublished": "2021-04-22T13:36:00.000Z",
-    "dateModified": "2022-05-18T14:20:24.000Z",
+    "dateModified": "2022-08-31T09:00:44.000Z",
     "image": {
         "@type": "ImageObject",
-        "url": "yourdomain.com/content/images/2021/07/eeclipse.jpg",
-        "width": 2000,
-        "height": 1334
+        "url": "yourdomain.com/content/images/2022/08/vscode.png",
+        "width": 1920,
+        "height": 1080
     },
     "keywords": "Technology growth",
-    "description": "Java 开发环境 Eclipse 配置",
+    "description": "VSCode &amp; Eclipse &amp; IntelliJ Config Backup",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1067,20 +1067,98 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">🌒Eclipse配置</h1>
+                <h1 class="post-title">VSCode &amp; Eclipse &amp; IntelliJ</h1>
                 <section class="post-meta">
                     Ziyi Xie -
                     <time class="post-date" datetime="2021-04-22">22 Apr 2021</time>
                 </section>
             </header>
             <figure class="post-image">
-                <amp-img src="yourdomain.com/content/images/2021/07/eeclipse.jpg" width="600" height="340" layout="responsive" 
-                alt="eclipse"
+                <amp-img src="yourdomain.com/content/images/2022/08/vscode.png" width="600" height="340" layout="responsive" 
+                alt="Visual Studio Code"
                 ></amp-img>
             </figure>
             <section class="post-content">
 
-                <h2 id="%E5%AE%89%E8%A3%85-eclipse">安装 Eclipse</h2>
+                <h2 id="vscode">VSCode</h2>
+<h3 id="eslint-%E9%85%8D%E7%BD%AE">ESLint 配置</h3>
+<p>通常 Webpack 开发服务器会配合 ESLint 检查代码，可通过 Visual Studio Code 的 ESLint 插件配置完成代码的自动检查与修改。因 ESLint 需使用 .eslintrc.js 配置文件，所以要将脚手架工程作为 Visual Studio Code 的根目录。</p>
+<p>Visual Studio Code 拓展中选择 ESLint 插件右下角的齿轮 =&gt; 点击拓展设置后选择工作区 =&gt; 点击右上角的打开设置 =&gt; 在 settings.json 中追加代码。</p>
+<pre><code class="language-json">"eslint.run": "onType",
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+}
+</code></pre>
+<h3 id="vue3-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF">Vue3 代码模板</h3>
+<ul>
+<li>
+<p>Code =&gt; 首选项 =&gt; 配置用户代码片段 =&gt; 新建全局代片段文件 =&gt; 命名</p>
+</li>
+<li>
+<p>在新建的 .vue 结尾文件输入 vue3 后，按键盘的 TAB 即可自动生成模板</p>
+</li>
+</ul>
+<pre><code class="language-json">{
+  "Print to console": {
+    "prefix": "vue3",
+    "body": [
+      "&lt;template&gt;",
+      "  &lt;div&gt;&lt;/div&gt;",
+      "&lt;/template&gt;",
+      "",
+      "&lt;script&gt;",
+      "import { reactive, toRefs, onBeforeMount, onMounted } from 'vue'",
+      "export default {",
+      "  name: '',",
+      "  setup() {",
+      "    console.log('创建组件 =&gt; setup')",
+      "    const data = reactive({})",
+      "    onBeforeMount(() =&gt; {",
+      "      console.log('组件挂载页面之前执行 =&gt; onBeforeMount')",
+      "    })",
+      "    onMounted(() =&gt; {",
+      "      console.log('组件挂载页面之后执行 =&gt; onMounted')",
+      "    })",
+      "    return {",
+      "      ...toRefs(data),",
+      "    }",
+      "  },",
+      "}",
+      "",
+      "&lt;/script&gt;",
+      "&lt;style scoped lang='less'&gt;",
+      "&lt;/style&gt;"
+    ],
+    "description": "Log output to console"
+  }
+}
+</code></pre>
+<h3 id="%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4">快捷指令</h3>
+<ul>
+<li>整段代码移动 =&gt; alt + ⬆️ or ⬇️</li>
+<li>自动换行 =&gt; cmd + shift + p 输入 settings，在 defaultSettings.json 中将 editor:wordWrap 的 off 改成 on。</li>
+</ul>
+<h3 id="enhanced-development">Enhanced development</h3>
+<ul>
+<li>路径别名 @ 替代 src 相对路径 =&gt; jsconfig.json 项目生效</li>
+</ul>
+<pre><code class="language-json">{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+    }
+  }
+}
+</code></pre>
+<ul>
+<li>.eslintignore =&gt; 忽略被仓库管理的目录 -&gt; 忽略风格校验</li>
+</ul>
+<pre><code class="language-javascript">/dist
+/src/vendor
+</code></pre>
+<h2 id="eclipse">Eclipse</h2>
+<h3 id="%E5%AE%89%E8%A3%85-eclipse">安装 Eclipse</h3>
 <ul>
 <li>确认 Mac 上是否已安装 java 运行环境</li>
 </ul>
@@ -1101,7 +1179,7 @@
 <pre><code class="language-shell"># 默认路径
 /Users/${zsxzy}/eclipse
 </code></pre>
-<h2 id="%E9%85%8D%E7%BD%AE-eclipse">配置 Eclipse</h2>
+<h3 id="%E9%85%8D%E7%BD%AE-eclipse">配置 Eclipse</h3>
 <ul>
 <li>Preferences =&gt; Java =&gt; installed JREs 配置 JDK ：add 增加 Standard VM 的 JRE Types，并指定 JDK 安装的 Home 文件夹路径。这里选择 Standard VM 是因为 Oracle（以前是 Sun）实现的 JRE Type 向后兼容性较好。参考本人 add JRE 填写后 Finish。</li>
 </ul>
@@ -1111,7 +1189,7 @@ JRE NAME: HOME
 <ul>
 <li>为防止工作区文件乱码，在 Preference =&gt; General =&gt; workspace 勾选 Defalt(UTF-8)选项并 Apply 。</li>
 </ul>
-<h2 id="eclipse-%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80">Eclipse 设置语言</h2>
+<h3 id="eclipse-%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80">Eclipse 设置语言</h3>
 <ul>
 <li>中文</li>
 </ul>
@@ -1124,7 +1202,7 @@ JRE NAME: HOME
 <pre><code class="language-javascript">&lt;string&gt;-nl&lt;/string&gt;&lt;string&gt;en&lt;/string&gt;
 </code></pre>
 <p></p>
-<h2 id="git-version-control">Git Version Control</h2>
+<h3 id="git-version-control">Git Version Control</h3>
 <ul>
 <li>
 <p>Help =&gt; Install New SoftWare 中点击 add 添加从<a href="http://download.eclipse.org/egit/updates/">此链接</a>适配版本的 EGit 插件包，载入后全选组件并进行安装。</p>
@@ -1142,15 +1220,15 @@ JRE NAME: HOME
 <ul>
 <li>commit =&gt; Remote =&gt; Push 链接至 Github 并选择 Source ref 别称项为 <code>refs/head/master</code> 完成 Add Spec。</li>
 </ul>
-<h2 id="java-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8">Java 自动补全</h2>
+<h3 id="java-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8">Java 自动补全</h3>
 <p>Preference =&gt; Java =&gt; Editor =&gt; Content Assist =&gt; java automatic activation trigger 中补全单词触发。</p>
 <pre><code class="language-java">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.
 </code></pre>
-<h2 id="javaee-perspective">JavaEE perspective</h2>
+<h3 id="javaee-perspective">JavaEE perspective</h3>
 <p>Help -&gt; install new software 搜索符合当前 eclipse 版本号的 item work with。找到 Web, XML, Java EE and OSGI Enterprise Development（可以具体到  Eclipse IDE for Java EE Developers）。</p>
 <pre><code class="language-shell">2021-06 - http://download.eclipse.org/releases/2021-06/202106161001
 </code></pre>
-<h2 id="%E5%B7%A5%E4%BD%9C%E5%8C%BA%E9%85%8D%E7%BD%AE">工作区配置</h2>
+<h3 id="%E5%B7%A5%E4%BD%9C%E5%8C%BA%E9%85%8D%E7%BD%AE">工作区配置</h3>
 <ul>
 <li>Access Commands and other items</li>
 </ul>
@@ -1160,10 +1238,12 @@ JRE NAME: HOME
 </ul>
 <p>window -&gt; perspective -&gt; customize perspective -&gt; menu visibility -&gt; file 配置 new 相关。</p>
 <p>Java Project、Package、Class、Interface、Enum、Annotation、JUnit Test Case、Folder、File、HTML File、Static Web Project、JSP File、Dynamic Web Project、Servlet、Filter、Listener、XML File</p>
-<h2 id="eclipse-jee-vs-eclipse-java">eclipse-jee vs eclipse-java</h2>
+<h3 id="eclipse-jee-vs-eclipse-java">eclipse-jee vs eclipse-java</h3>
 <p>在 Homebrew 上存在三种类型的 eclipse 版本，cpp、jee、java。其中 Eclipse for Java 是带有 GUI 和 Swings 库的基本 IDE。但缺少用于处理数据库和 Web 开发的部分插件。适用于 Java EE 的 Eclipse IDE（EE 代表企业版）预装了所有这些插件，便于制作完整的软件，也是最理想的选择。理论上可以将所有组件从 Eclipse Java EE 安装到 Eclipse for Java。但是必须下载并解压缩 Eclipse for Java Developers 并安装名为 web tools platform 的插件。而 cpp 版本则是安装了 C/C++ 在此版本的 eclipse 上。</p>
-<h2 id="bugs-fixed">Bugs fixed</h2>
-<p>"You do not have permission to open the application Eclipse JEE.app.Contact your computer or network administrator for assistance."</p>
+<h3 id="bugs-fixed">Bugs fixed</h3>
+<ul>
+<li>"You do not have permission to open the application Eclipse JEE.app.Contact your computer or network administrator for assistance."</li>
+</ul>
 <pre><code class="language-shell"># Problem Report for eclipse
 Crashed Thread:        Unknown
 
@@ -1176,10 +1256,22 @@ Exception Note:        EXC_CORPSE_NOTIFY
 Password:
 /Applications/Eclipse JEE.app: replacing existing signature
 </code></pre>
-<p>"The word 'localhost' is not correctly spelled." 提示处理。</p>
+<ul>
+<li>"The word 'localhost' is not correctly spelled." 提示处理</li>
+</ul>
 <p>Preference 输入 spell，将复选框 "Enable spell checking" 去掉即可。</p>
 <p>junit 报错 =&gt; java.lang.Exception: No tests found matching [{ExactMatcher:fDisplayName=testQuery1]</p>
 <p>考虑三个方面，是不是没写 @Test；是否是 public、参数、返回值、修饰符的错误；是不是 spring 包与 junit 的包的兼容问题；是否日志已添加。</p>
+<ul>
+<li>Mac m1 电脑 idea 卡顿的问题解决</li>
+</ul>
+<p>macm1 IntelliJ 应注意兼容的版本，如不是 aarch64，而是 x86，那就是版本错了。</p>
+<pre><code class="language-java">IntelliJ IDEA 2022.1.1 (Ultimate Edition)
+Build #...
+Licensed to ...
+Runtime version: 11.0.14.1+1-b2043.45 aarch64
+...
+</code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
 

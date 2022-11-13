@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>Promise</title>
+
+    <meta name="description" content="ES6 Promise &#x3D;&gt; 新版异步编程解决方案；回调函数 &#x3D;&gt; 旧版异步编程解决方案" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Promise" />
+    <meta property="og:description" content="ES6 Promise &#x3D;&gt; 新版异步编程解决方案；回调函数 &#x3D;&gt; 旧版异步编程解决方案" />
+    <meta property="og:url" content="yourdomain.com/promise/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/09/kongmingLantern.jpg" />
+    <meta property="article:published_time" content="2019-08-09T14:31:00.000Z" />
+    <meta property="article:modified_time" content="2022-09-21T14:32:53.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Promise" />
+    <meta name="twitter:description" content="ES6 Promise &#x3D;&gt; 新版异步编程解决方案；回调函数 &#x3D;&gt; 旧版异步编程解决方案" />
+    <meta name="twitter:url" content="yourdomain.com/promise/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/09/kongmingLantern.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "Promise",
+    "url": "yourdomain.com/promise/",
+    "datePublished": "2019-08-09T14:31:00.000Z",
+    "dateModified": "2022-09-21T14:32:53.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/09/kongmingLantern.jpg",
+        "width": 1920,
+        "height": 1080
+    },
+    "keywords": "Technology growth",
+    "description": "ES6 Promise &#x3D;&gt; 新版异步编程解决方案；回调函数 &#x3D;&gt; 旧版异步编程解决方案",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.10" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">Promise</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2019-08-09">09 Aug 2019</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2022/09/kongmingLantern.jpg" width="600" height="340" layout="responsive" 
+                alt="kongmingLantern"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<blockquote>
+<p>实例对象是 new 函数产生的对象；函数对象是将函数作为对象使用。</p>
+</blockquote>
+<blockquote>
+<p>回调地狱 =&gt; 回调函数嵌套调用，外部回调函数异步执行的结果是嵌套的回调函数执行的条件。</p>
+</blockquote>
+<p>构造函数 Promise 主要用作包装返回值不是 Promise 的函数。可包装异步操作。</p>
+<p>实例化 Promise 需传入函数类型的 executor。</p>
+<p>executor 接受两个函数 resolutionFunc and rejectionFunc 作为参数。</p>
+<p>executor 的返回值会被忽略。</p>
+<p>在 executor 中抛出错误会返回 rejected 状态的 promise object。</p>
+<pre><code class="language-javascript">function resolutionFunc(value) { console.log(value); }
+function rejectionFunc(reason) { console.log(reason); }
+let excutor = function (resolutionFunc, rejectionFunc) {
+  setTimeout(resolutionFunc("yes"), 1000);
+  // setTimeout(rejectionFunc("err"), 1000);
+  // throw new Error('nono');
+  return "ok";
+};
+let p = new Promise(excutor);
+console.log(p);
+p.then(
+  (value) =&gt; { // 接收得到成功的 value 数据 =&gt; onResolved
+    console.log("成功的回调", value);
+  },
+  (reason) =&gt; { // 接收得到失败的 reason 数据 =&gt; onRejected
+    console.log("失败的回调", reason);
+  }
+);
+</code></pre>
+<p>resolutionFunc 和 rejectionFunc 通常会直接以 resolve 和 reject 表示。</p>
+<p>resolve 或 reject 函数的调用，会将期约对象的状态设置为成功或失败。</p>
+<pre><code class="language-javascript">const p = new Promise((resolve, reject) =&gt; { // 执行器函数 =&gt; 同步任务
+  // 执行异步操作任务
+  setTimeout(() =&gt; {
+    const time = Date.now() 
+    if (time % 2 == 0) { // 当前时间是偶数代表成功
+      resolve('成功的数据，time=' + time)
+    } else {
+      reject('失败的数据，time=' + time)
+    }
+  }, 1000);
+})
+
+p.then(
+  value =&gt; { // 接收得到成功的 value 数据 =&gt; onResolved
+    console.log('成功的回调', value)
+  },
+  reason =&gt; { // 接收得到失败的 reason 数据 =&gt; onRejected
+    console.log('失败的回调', reason)
+  }
+)
+</code></pre>
+<h3 id="promise-%E5%AE%9E%E4%BE%8B%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7">Promise 实例对象属性</h3>
+<pre><code class="language-javascript">[[Prototype]]: Promise
+  catch: ƒ catch()
+  constructor: ƒ Promise()
+  finally: ƒ finally()
+  then: ƒ then()
+  Symbol(Symbol.toStringTag): "Promise"
+  [[Prototype]]: Object
+    all: ƒ all()
+    allSettled: ƒ allSettled()
+    any: ƒ any()
+    length: 1
+    name: "Promise"
+    prototype: Promise {Symbol(Symbol.toStringTag): 'Promise', constructor: ƒ, then: ƒ, catch: ƒ, finally: ƒ}
+    race: ƒ race()
+    reject: ƒ reject()
+    resolve: ƒ resolve()
+    Symbol(Symbol.species): ƒ Promise()
+    Symbol(Symbol.species): ƒ Promise()
+    arguments: (...)
+    caller: (...)
+    [[Prototype]]: ƒ ()
+    [[Scopes]]: Scopes[0]
+[[PromiseState]]: "fulfilled(resolved)"|"pending"|"rejected"
+[[PromiseResult]]: "{}"
+</code></pre>
+<ul>
+<li>期约状态 PromiseState =&gt; 期约实例的属性</li>
+</ul>
+<blockquote>
+<p>期约执行过程中的几种状态<br />
+pending =&gt; 异步任务进行中且未有结果<br />
+resolved =&gt; 异步任务执行完毕并回传 resolve 的结果<br />
+rejected =&gt; 异步任务执行失败并回传 reject 的结果</p>
+</blockquote>
+<p>PromiseState 的改变只有两种可能，pending 变为 fulfilled|resolved 或 rejected。</p>
+<p>期约状态的改变只有一次，不论成功与否都会返回结果数据 value or reason。</p>
+<ul>
+<li>期约结果值 PromiseResult =&gt; 期约实例的属性</li>
+</ul>
+<p>PromiseResult 存储异步任务成功或失败的结果。</p>
+<p>PromiseResult 可通过 resolve() 或 reject() 对其进行修改。</p>
+<p>PromiseResult 中的值可在后续的 then() 方法回调中获取。</p>
+<pre><code class="language-javascript">var p = new Promise((resolve,reject) =&gt; {resolve("async ok"),reject("async failed")})
+console.log(p)
+p.then((value)=&gt;{console.log("resolved + "+value)},(reason)=&gt;{console.log("rejected + "+reason)})
+</code></pre>
+<pre><code class="language-javascript">Promise{&lt;fulfilled&gt;: undefined}
+  [[Prototype]]: Promise
+  [[PromiseState]]: "fulfilled"
+  [[PromiseResult]]: "async ok"
+resolved + async ok
+</code></pre>
+<ul>
+<li>Promise 基本流程</li>
+</ul>
+<p>通过 new 关键字和 Promise 构造器创建期约对象。</p>
+<p>构造函数接受名为 executor 的函数参数，在其内部封装异步操作。</p>
+<p>函数 executor 接受两个函数作为参数。异步任务成功时，函数 resolve 被调用，返回一个值代表成功；异步任务失败时，函数 reject 被调用，返回失败的原因，通常是一个 error 对象。</p>
+<p>后续异步执行的 then 方法根据期约的状态选择调用成功或是失败的回调函数。</p>
+<p>定义在原型对象 Promise.prototype 上的 then 方法返回一个 Promise Instance。</p>
+<ul>
+<li>Promise 构造函数 =&gt; Promise (excutor) {}</li>
+</ul>
+<p>Promise 实例化时接受函数类型的参数，可用箭头函数或匿名函数声明，这个函数有两个形参 resolve 和 reject。</p>
+<p>executor 执行器函数会在 Promise 内部立即同步调用，异步操作在执行器执行。</p>
+<ul>
+<li>Promise.prototype.then(onResolved, onRejected) =&gt; 指定得到 value 的成功回调或得到 reason 的失败回调，返回一个新 Promise Instance</li>
+</ul>
+<p>onResolved、onRejected =&gt; then、catch 方法接受的两个参数，都是函数。</p>
+<p>返回的新 Promise Instance 由 then 方法指定的回调函数决定。</p>
+<p>then 中回调函数抛出异常 =&gt; Promise Instance 状态为 rejected，reason 为抛出的异常；</p>
+<p>then 中回调函数返回的是非期约的任意值 =&gt; Promise Instance 状态为 resolved &amp; fulfilled，value 为返回的值；</p>
+<p>then 中回调函数返回的是期约实例 =&gt; 此期约实例的结果为 Promise Instance 的结果。</p>
+<ul>
+<li>Promise.prototype.catch(onRejected) =&gt; 只用来指定失败的回调</li>
+</ul>
+<pre><code class="language-javascript">// 内部也是由 then 实现 =&gt; Promise.prototype.then(undefined, onRejected)
+// catch 函数的参数 =&gt; (onRejected) =&gt; {}
+var p = new Promise((resolve,reject) =&gt; { reject("error"); })
+p.catch((reason) =&gt; {console.log("catch func test =&gt; " + reason)})
+</code></pre>
+<h3 id="promise-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95">Promise 函数对象方法</h3>
+<ul>
+<li>Promise.resolve() =&gt; 返回一个给定值解析的成功/失败的 promise 对象</li>
+</ul>
+<p>若传入参数是非 Promise 的对象，则返回的结果都为一个成功的 Promise 对象。</p>
+<pre><code class="language-javascript">let p = Promise.resolve("ok"),pp = Promise.resolve(false),ppp = Promise.resolve(22);
+console.log(p,pp,ppp); // Promise {&lt;fulfilled&gt;: 'ok'} Promise {&lt;fulfilled&gt;: false} Promise {&lt;fulfilled&gt;: 22}
+</code></pre>
+<p>如果传入参数为 Promise 对象，则将返回这个 Promise 对象。</p>
+<pre><code class="language-javascript">let p = Promise.resolve(new Promise((resolve,reject) =&gt; {resolve("ok")})),pp = Promise.resolve(new Promise((resolve,reject) =&gt; {reject("failed")}));
+console.log(p,pp); // Promise {&lt;fulfilled&gt;: 'ok'} Promise {&lt;rejected&gt;: 'failed'}
+pp.catch(err =&gt; console.log(err)); // failed
+</code></pre>
+<p>若参数是 thenable 对象，返回的 Promise 对象会跟随这个 thenable 的最终状态。</p>
+<ul>
+<li>Promise.reject() =&gt; 返回一个失败的 Promise 对象</li>
+</ul>
+<p>不论传入什么类型的参数，都会作为失败的结果返回一个失败的 Promise 对象。</p>
+<pre><code class="language-javascript">let p = Promise.reject("no"),pp = Promise.reject(true),ppp = Promise.reject(22),pppp = Promise.reject(new Promise((resolve,reject) =&gt; {resolve("ok")}));
+p.catch((err)=&gt;{console.log(err)}); // no
+pp.catch((err)=&gt;{console.log(err)}); // true
+ppp.catch((err)=&gt;{console.log(err)}); // 22
+pppp.catch((err)=&gt;{console.log(err)}); // Promise {&lt;fulfilled&gt;: 'ok'}
+</code></pre>
+<ul>
+<li>Promise.all() =&gt; 返回一个新 Promise，只有所有传参期约都成功才成功</li>
+</ul>
+<p>接受的参数通常为多个期约组成的数组，数组状态决定返回状态。新返回期约成功的结果是数组中每一个期约成功结果组成的数组，失败的结果是在传参期约数组中<strong>首个</strong>失败期约的失败结果。</p>
+<pre><code class="language-javascript">// 测试成功情况
+let p = new Promise((resolve,reject) =&gt; {resolve("OK")}),pp = Promise.resolve("Success"),ppp = Promise.resolve("zs");
+console.log(Promise.all([p,pp,ppp])); // Promise {&lt;pending&gt;} [[Prototype]]: Promise [[PromiseState]]: "fulfilled" [[PromiseResult]]: Array(3)
+// 测试失败情况
+let p = new Promise((resolve,reject) =&gt; {reject("No")}),pp = Promise.reject("NoNo"),ppp = Promise.resolve("zs");
+let res = Promise.all([p,pp,ppp]);
+console.log(res); // Promise {&lt;pending&gt;} [[Prototype]]: Promise [[PromiseState]]: "rejected" [[PromiseResult]]: "No"
+res.catch(err =&gt; console.log(err)) // No
+</code></pre>
+<ul>
+<li>Promise.race() =&gt; 返回一个新的 Promise，取决于期约完成速度</li>
+</ul>
+<p>接受的参数通常为多个期约组成的数组，数组第一个完成的期约结果状态就是最终的结果状态。</p>
+<pre><code class="language-javascript">let p = new Promise((resolve,reject) =&gt; {resolve("OK")}),pp = Promise.resolve("Success"),ppp = Promise.resolve("zs");
+console.log(Promise.race([p,pp,ppp])); // Promise {&lt;pending&gt;} [[Prototype]]: Promise [[PromiseState]]: "fulfilled" [[PromiseResult]]: "OK"
+</code></pre>
+<h3 id="%E6%9C%9F%E7%BA%A6%E7%9B%B8%E5%85%B3%E7%90%86%E8%A7%A3">期约相关理解</h3>
+<ul>
+<li>改变期约状态和执行回调函数的先后顺序（resolve 和 then 谁先执行）?</li>
+</ul>
+<p>改变 Promise 对象状态的方式有 resolve、reject 或 throw "xxx"；执行回调函数是通过 then 或 catch。</p>
+<p>都有可能。当执行器函数是一个同步任务时，先进行状态改变，即先完成 resolve 或 reject，再进行回调函数的调用。当执行器函数包裹异步任务时，改变状态需要等待一段时间，回调函数会先执行。在多数的开发场景中，后者情况居多。</p>
+<p>在后者条件下若是硬性需要先状态改变再执行回调，那么可以通过定时器推迟时间去调用回调函数。</p>
+<ul>
+<li>获取到数据的时机 =&gt; 回调函数调用的时机</li>
+</ul>
+<p>先指定回调，再改变状态，会在回调函数得到调用时取到数据；先改变状态，那么指定回调时，回调函数就会调用得到数据。</p>
+<pre><code class="language-javascript">let p = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
+    resolve("Ok");
+  },1000)
+})
+console.log(p)
+setTimeout(()=&gt;{
+  p.then(value =&gt; {
+    console.log(value);
+  },reason =&gt; {console.log(reason)})
+},1000)
+</code></pre>
+<ul>
+<li>Promise 串连多个操作任务 =&gt; then 的链式调用串连多个同步/异步任务</li>
+</ul>
+<p>then 返回的期约结果由其回调函数的返回值决定，若回调函数无返回值，那么默认为 undefined。</p>
+<pre><code class="language-javascript">let p = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
+    resolve("ok");
+  }, 1000);
+});
+p.then((value) =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    resolve("Success");
+  });
+}) // 整体返回看作期约
+  .then((value) =&gt; {
+    console.log(value); // Success
+  }) // 整体返回看作期约
+  .then((value) =&gt; {
+    console.log(value); // undefined
+  });
+</code></pre>
+<ul>
+<li>Promise 异常传透 =&gt; 使用 then 链式调用时，可在最后指定失败的回调</li>
+</ul>
+<p>Promise 进行链式调用时，在中间环节不需要指定失败的回调，仅需在链的最后进行指定失败的回调即可。前面的任何操作出了异常，都会传到最后失败的回调中处理。</p>
+<pre><code class="language-javascript">let p = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; { resolve("ok"); }, 1000);
+});
+p.then((value) =&gt; { throw "Oops, Error1" })
+ .then((value) =&gt; { throw "Oops, Error2" })
+ .then((value) =&gt; { console.log("Done_") })
+ .catch(err =&gt; console.log(err)); // Oops, Error1
+</code></pre>
+<ul>
+<li>中断 Promise 链 =&gt; 回调函数中返回一个 pendding 状态的 Promise 对象</li>
+</ul>
+<p>Promise 链中断导致不再调用后面的回调函数，通过待办状态的期约对象实现。</p>
+<pre><code class="language-javascript">let p = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; { resolve("ok"); }, 1000);
+});
+p.then((value) =&gt; { console.log("pendding"); return new Promise(() =&gt; {}) }) // pendding
+ .then((value) =&gt; { throw "Oops, Error2" })
+ .then((value) =&gt; { console.log("Un Done_") })
+ .catch(err =&gt; console.log(err));
+</code></pre>
+<ul>
+<li>Promise Chain</li>
+</ul>
+<p>期约对象的 then 方法可以返回一个新的期约对象；下一个 then 方法的参数是上一个 promise 对象的 resolve 参数；catch 方法的参数是其之前某个期约对象的 reject 参数。</p>
+<p>当期约实例的状态改为 rejected 时，promise 会直接跳过 then 而直接执行 catch。</p>
+<p>catch 方法里面依旧可以返回一个新的 promise 对象。</p>
+<h2 id="%E8%87%AA%E5%AE%9A%E4%B9%89-promise">自定义 Promise</h2>
+<h3 id="es5-function-version">ES5 Function Version</h3>
+<ul>
+<li>定义整体结构</li>
+</ul>
+<p>构造函数传入 excutor 函数；原型方法的 then 接收两个函数参数；原型方法 catch 是 then(null, onRejected) 的语法糖；原型方法与函数对象方法；暴露构造函数。</p>
+<pre><code class="language-js">(function (window) {
+  function Promise(excutor) {}
+  Promise.prototype.then = function (onResolved, onRejected) {};
+  Promise.prototype.catch = function (onRejected) { }
+  Promise.resolve = function (value) { }
+  /*返回一个指定了失败 reason 的 promise 对象 */
+  Promise.reject = function (reason) { }
+  /*返回一个 promise, 只有 promises 中所有 promise 都成功时, 才最终成功, 只要有一个失败就直接 失败*/
+  Promise.all = function (promises) { }
+  /*返回一个 promise， 一旦某个 promise 解决或拒绝， 返回的 promise 就会解决或拒绝。 */
+  Promise.race = function (promises) { }
+  // 暴露构造函数
+  window.Promise = Promise
+})(window);
+</code></pre>
+<ul>
+<li>Promise 构造函数的实现</li>
+</ul>
+<p>executor 是外部定义，内部同步执行的函数，通常其内部执行一些异步操作；</p>
+<p>promiseState 初始状态为 pending；</p>
+<p>promiseResult 是用来保存成功 value 或失败 reason 的属性；</p>
+<p>用来保存所有待调用的包含 onResolved 和 onRejected 回调函数的对象的数组</p>
+<pre><code class="language-js">function ZPromise(excutor) {
+  const promiseInstance = this;
+  promiseInstance.promiseState = "pending";
+  promiseInstance.promiseResult = undefined;
+  promiseInstance.callbacks = [];
+  function resolve(value) {
+    if (promiseInstance.status !== "pending") return;
+    promiseInstance.promiseState = "resolved";
+    promiseInstance.promiseResult = value;
+    if (promiseInstance.callbacks.length &gt; 0) {
+      setTimeout(() =&gt; {
+        promiseInstance.callbacks.forEach((obj) =&gt; {
+          obj.onResolved(value);
+        });
+      });
+    }
+  }
+  function reject(reason) {
+    if (promiseInstance.promiseState !== "pending") return;
+    promiseInstance.promiseState = "rejected";
+    promiseInstance.promiseResult = reason;
+    setTimeout(() =&gt; {
+      promiseInstance.callbacks.forEach((obj) =&gt; {
+        obj.onRejected(reason);
+      });
+    });
+  }
+  try {
+    excutor(resolve, reject);
+  } catch (error) {
+    reject(error);
+  }
+}
+</code></pre>
+<ul>
+<li>promise.then()/catch()的实现</li>
+</ul>
+<p>若 onResolved or onRejected 不是函数，可指定一个默认的函数，返回的结果据成功或失败状态而定。</p>
+<pre><code class="language-js">ZPromise.prototype.then = function (onResolved, onRejected) {
+  const promiseInstance = this;
+  onResolved =
+    typeof onResolved === "function" ? onResolved : (value) =&gt; value;
+  onRejected =
+    typeof onRejected === "function"
+      ? onRejected
+      : (reason) =&gt; {
+          throw reason;
+        };
+  return new Promise((resolve, reject) =&gt; {
+    function handle(callback) {
+      try {
+        const x = callback(promiseInstance.promiseResult);
+        if (x instanceof Promise) {
+          x.then(resolve, reject);
+        } else {
+          resolve(x);
+        }
+      } catch (error) {
+        reject(error);
+      }
+    }
+    if (promiseInstance.promiseState === "resolved") {
+      setTimeout(() =&gt; {
+        handle(onResolved);
+      });
+    } else if (promiseInstance.promiseState === "rejected") {
+      setTimeout(() =&gt; {
+        handle(onRejected);
+      });
+    } else {
+      promiseInstance.callbacks.push({
+        onResolved(value) {
+          handle(onResolved);
+        },
+        onRejected(reason) {
+          handle(onRejected);
+        },
+      });
+    }
+  });
+};
+Promise.prototype.catch = function (onRejected) {
+  return this.then(null, onRejected);
+};
+</code></pre>
+<ul>
+<li>Promise.resolve() &amp; reject() 的实现</li>
+</ul>
+<p>resolve 返回指定成功 value 的 promise 对象，value 通常为一般数据或 promise；</p>
+<p>reject 返回指定失败 reason 的 promise 对象，reason 通常为一般数据或 error。</p>
+<pre><code class="language-js">ZPromise.resolve = function (value) {
+  return new ZPromise((resolve, reject) =&gt; {
+    if (value instanceof ZPromise) {
+      value.then(resolve, reject);
+    } else {
+      resolve(value);
+    }
+  });
+};
+ZPromise.reject = function (reason) {
+  return new ZPromise((resolve, reject) =&gt; {
+    reject(reason);
+  });
+};
+</code></pre>
+<ul>
+<li>Promise.all() &amp; race() 的实现</li>
+</ul>
+<p>Promise.all() 返回一个新的 promise 对象，只有 promises 中所有 promise 都产生成功 value 时, 才是最终成功，但凡有一个失败就直接失败。</p>
+<pre><code class="language-js">ZPromise.all = function (promises) {
+  return new Promise((resolve, reject) =&gt; {
+    let resolvedCount = 0;
+    const promisesLength = promises.length;
+    const values = new Array(promisesLength);
+    for (let i = 0; i &lt; promisesLength; i++) {
+      Promise.resolve(promises[i]).then(
+        (value) =&gt; {
+          values[i] = value;
+          resolvedCount++;
+          if (resolvedCount === promisesLength) {
+            resolve(values);
+          }
+        },
+        (reason) =&gt; {
+          reject(reason);
+        }
+      );
+    }
+  });
+};
+ZPromise.race = function (promises) {
+  return new Promise((resolve, reject) =&gt; {
+    for (var i = 0; i &lt; promises.length; i++) {
+      Promise.resolve(promises[i]).then(
+        (value) =&gt; {
+          resolve(value);
+        },
+        (reason) =&gt; {
+          reject(reason);
+        }
+      );
+    }
+  });
+};
+</code></pre>
+<h3 id="es6-class-version">ES6 Class Version</h3>
+<pre><code class="language-javascript">class ZPromise {
+  constructor(executor) {
+    // 添加属性 =&gt; [[]] 双括号是内置属性
+    this.promiseState = "pending";
+    this.promiseResult = null;
+    this.callbacks = [];
+    let that = this;
+    function resolve(arg) {
+      // 状态只能修改一次 =&gt; 判断
+      if (that.promiseState !== "pending") return;
+      // 修改对象状态、设置对象结果值 =&gt; promiseState、promiseResult
+      that.promiseState = "fulfilled"; // or resolved
+      that.promiseResult = arg;
+      // 调用成功的回调
+      // if(that.callback.onResolved){ that.callback.onResolved(arg); } // 旧版本 =&gt; 不支持多个回调的实现
+      setTimeout(() =&gt; {
+        that.callbacks.forEach((item) =&gt; {
+          item.onResolved(arg);
+        });
+      });
+    }
+  }
+  then(onResolved, onRejected) {
+    const that = this; // this 指向实例对象
+    // 判断回调函数参数
+    if (typeof onRejected !== "function") {
+      // 通过默认值解决异常穿透
+      onRejected = (reason) =&gt; {
+        throw reason;
+      };
+    }
+    if (typeof onResolved !== "function") {
+      onResolved = (value) =&gt; value;
+    }
+    return new Promise((resolve, reject) =&gt; {
+      // 封装复用代码
+      function callbackF(type) {
+        try {
+          // 获取回调函数的执行结果
+          let thenRes = type(that.promiseResult);
+          if (thenRes instanceof Promise) {
+            // 回调函数返回值若是 Promise 类型对象
+            thenRes.then(
+              (v) =&gt; {
+                resolve(v);
+              },
+              (r) =&gt; {
+                reject(r);
+              }
+            );
+          } else {
+            // then 方法返回结果的对象状态为成功 =&gt; then 方法成功回调的返回值不是一个 Promise 而是字符串、数字等...
+            resolve(thenRes);
+          }
+        } catch (error) {
+          reject(error);
+        }
+      }
+      // 判断调用具体的回调
+      if (this.promiseState === "fulfilled") {
+        setTimeout(() =&gt; {
+          callbackF(onResolved);
+        });
+      }
+      if (this.promiseState === "rejected") {
+        setTimeout(() =&gt; {
+          callbackF(onRejected);
+        });
+      }
+      // 处理异步任务的回调执行 =&gt; 回调执行不再 then 方法, 需要保存出去在 resolve 和 reject 中使用
+      if (this.promiseState === "pending") {
+        // 保存回调函数
+        this.callbacks.push({
+          // onResolved: onResolved,
+          onResolved: function () {
+            callbackF(onResolved);
+          },
+          // onRejected // ES6
+          onRejected: function () {
+            callbackF(onRejected);
+          },
+        });
+      }
+    });
+  }
+  catch(onRejected) {
+    return this.then(undefined, onRejected);
+  }
+  static resolve(value) {
+    return new Promise((resolve, reject) =&gt; {
+      if (value instanceof Promise) {
+        value.then(
+          (v) =&gt; {
+            resolve(v);
+          },
+          (r) =&gt; {
+            reject(r);
+          }
+        );
+      } else {
+        resolve(value);
+      }
+    });
+  }
+  static reject(reason) {
+    return new Promise((resolve, reject) =&gt; {
+      reject(reason);
+    });
+  }
+  static all(promises) {
+    return new Promise((resolve, reject) =&gt; {
+      let count = 0,
+        arr = [];
+      promises.forEach((item, index) =&gt;
+        item.then(
+          (v) =&gt; {
+            count++;
+            arr[index] = v;
+            if (count === promises.length) {
+              resolve(arr);
+            }
+          },
+          (r) =&gt; {
+            reject(r);
+          }
+        )
+      );
+    });
+  }
+  static race(promises) {
+    return new Promise((resolve, reject) =&gt; {
+      promises.forEach((item, index) =&gt; {
+        item.then(
+          (v) =&gt; {
+            resolve(v);
+          },
+          (r) =&gt; {
+            reject(r);
+          }
+        );
+      });
+    });
+  }
+}
+</code></pre>
+<h2 id="async-%E4%B8%8E-await">async 与 await</h2>
+<h3 id="async-%E5%87%BD%E6%95%B0">async 函数</h3>
+<p>async 函数的返回值为 Promise 对象，期约对象的结果由被声明函数执行的返回值决定。若返回值是非期约类型的数据，那么这个数据会作为期约的结果值；若返回的是一个期约对象，那么返回结果决定了 async 函数返回结果的状态。同 then。</p>
+<pre><code class="language-javascript">async function main() {}
+console.log(main()); // [[Prototype]]: Promise [[PromiseState]]: "fulfilled" [[PromiseResult]]: undefined
+async function main() { return "ok" }
+console.log(main()); // Promise {&lt;fulfilled&gt;: 'ok'}
+async function main() { return new Promise((resolve,reject) =&gt; {reject("Failed")}) }
+console.log(main()); // Promise {&lt;rejected&gt;: 'Failed'}
+async function main() { return new Promise((resolve,reject) =&gt; {throw "Oops, No"}) }
+console.log(main()); // Promise {&lt;rejected&gt;: "Oops, No"}
+</code></pre>
+<h3 id="await-%E8%A1%A8%E8%BE%BE%E5%BC%8F">await 表达式</h3>
+<p>await 右侧的表达式一般为 Promise 对象，也可以是其它值。若表达式是 Promise 对象，await 返回的是 Promise 成功的值；若表达式是其它值，则直接将此值作为 await 的返回值。</p>
+<pre><code class="language-javascript">// await 右侧 不为 Promise
+async function main() { let res1 = await "ok", res2 = await 1, res3 = await false; console.log(res1, res2, res3); }
+main(); // ok 1 false
+// await 右侧为成功的 Promise
+async function main() {
+  let p = new Promise((resolve, reject) =&gt; {
+    resolve("Okk");
+  });
+  let res = await p;
+  console.log(res); // Okk
+}
+main();
+// await 右侧为失败的 Promise
+async function main() {
+  let p = new Promise((resolve, reject) =&gt; {
+    reject("Failed") // throw "Oops, No";
+  });
+  try {
+    let res = await p;
+  } catch (error) {
+    console.log(error); // 在此拿到失败结果
+  }
+}
+main(); // Failed
+</code></pre>
+<h3 id="%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83">使用规范</h3>
+<p>await 必在 async 函数中，但 async 函数中可以没有 await。如果 await 的 Promise 失败，那么会抛出异常，需要通过 try...catch 捕获处理。</p>
+<pre><code class="language-javascript">// await 单独使用的异常
+Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules
+</code></pre>
+<pre><code class="language-javascript">const fs = require("fs");
+const path = require('path')
+// 回调函数方式
+fs.readFile(path.join(__dirname,"/resource/01.txt"),(err,data01)=&gt;{
+    if(err) throw err;
+    fs.readFile(path.join(__dirname,"/resource/02.txt"),(err,data02)=&gt;{
+        if(err) throw err;
+        fs.readFile(path.join(__dirname,"/resource/03.txt"),(err,data03)=&gt;{
+            if(err) throw err;
+            console.log((data01+data02+data03).toString());
+        })
+    })
+})
+// async &amp; await 方式
+const util = require('util');
+const mineReadFile = util.promisify(fs.readFile);
+async function main(){
+  try {
+    let data01 = await mineReadFile(path.join(__dirname,"/resource/01.txt"));
+    let data02 = await mineReadFile(path.join(__dirname,"/resource/02.txt"));
+    let data03 = await mineReadFile(path.join(__dirname,"/resource/03.txt"));
+    console.log((data01+data02+data03).toString());
+  } catch (error) {
+    console.log(error);
+  }
+}
+main();
+</code></pre>
+<pre><code class="language-javascript">function promiseAjax(url) {
+  return new Promise((resolve, reject) =&gt; {
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () =&gt; {
+      if (xhr.readyState !== 4) return;
+      const { status, response } = xhr;
+      // 请求成功 =&gt; 调用 resolve(value)
+      if (status &gt;= 200 &amp;&amp; status &lt; 300) {
+        resolve(JSON.parse(response));
+      } else {
+        // 请求失败 =&gt; 调用 reject(reason)
+        reject(new Error("请求失败: status: " + status));
+      }
+    };
+    xhr.open("GET", url);
+    xhr.send();
+  });
+}
+// 回调函数方式
+promiseAjax("https://v2.jokeapi.dev/joke/Any?safe-mode").then(
+  (data) =&gt; {
+    console.log("显示成功数据", data);
+  },
+  (error) =&gt; {
+    alert(error.message);
+  }
+);
+// async &amp; await 方式
+async function getRes() {
+  try {
+    let res = await promiseAjax("https://v2.jokeapi.dev/joke/Any?safe-mode");
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}
+getRes();
+</code></pre>
+<p>async 和 await 本质上是生成器。* =&gt; async；yield =&gt; await。</p>
+<h2 id="eventloop">EventLoop</h2>
+<p>事件循环机制用于浏览器和 Node 处理 JavaScript。单线程的 JavaScript 可有效避免因引入锁而带来的复杂化。</p>
+<blockquote>
+<p>Сall Stack and Execution Stack are different names for the same thing, which is a LIFO stack used to store execution contexts created during code execution.</p>
+</blockquote>
+<p>解释器会将调用的函数推入调用栈并开始执行。若调用栈中执行的函数调用其他的函数，新函数将被添加到调用栈，并立即执行。当前函数执行完毕后，解释器会将其执行上下文推出调用栈，继续执行余下代码。</p>
+<h3 id="async-sync">Async &amp; Sync</h3>
+<blockquote>
+<p>异步使程序可以在执行可能长期运行的任务时，继续对其他事件做出反应而不必等待任务完成。</p>
+</blockquote>
+<blockquote>
+<p>同步回调立即执行，不放入回调队列 =&gt; 数组遍历相关的回调函数 &amp; Promise 构造函数接收的 excutor。</p>
+</blockquote>
+<blockquote>
+<p>异步回调不会立即执行，放入回调队列 =&gt; 定时器 &amp; ajax &amp; Promise 的成功 or 失败的回调。</p>
+</blockquote>
+<p>异步任务的执行首先是进入调用栈发起调用，然后解释器将其响应回调任务放入任务队列，紧接着调用栈会将这个任务移除。当主线程清空后，即所有同步任务结束后，解释器会读取任务队列，并依次将已完成的异步任务加入调用栈中并执行。</p>
+<p>异步任务的回调不是直接进入到任务队列，而是应等待执行到异步任务的回调函数时，才将其推入到任务队列中。</p>
+<pre><code class="language-js">console.log('script start：sync code');
+setTimeout(function(){console.log('setTimeout：100')},100); 
+setTimeout(function(){console.log('setTimeout：0-1')},0); 
+setTimeout(function(){console.log('setTimeout：0-2')},0);
+console.log('script middle：sync code');
+new Promise(function(resolve){
+  console.log('promise 1：sync code')
+  setTimeout(()=&gt;{
+    resolve()
+  }, 10)   
+}).then(function(){
+    console.log('promise：setTimeou10') 
+}); 
+new Promise(function(resolve){
+  console.log('promise 2：sync code')
+  setTimeout(()=&gt;{
+    resolve()
+  }, 0)    
+}).then(function(){
+  console.log('promise：setTimeou0') 
+}); 
+console.log('script end：sync code');
+</code></pre>
+<p>代码分析：解释器会将整体代码放入宏任务队列，同步代码运行输出后，即调用栈清空，该宏任务被推出宏任务队列。此时微任务队列里为空，宏任务队列里存在零秒定时的定时器回调。</p>
+<pre><code class="language-js">// 同步代码运行输出
+script start：sync code
+script middle：sync code
+promise 1：sync code
+promise 2：sync code
+script end：sync code
+// 宏任务队列
+console.log('setTimeout：0-1')
+console.log('setTimeout：0-2')
+()=&gt;{resolve()}
+</code></pre>
+<p>代码分析：微任务队列已清空，执行下一个宏任务。在执行第三个零秒定时的定时器回调时，往微任务队列添加期约回调。在清空微任务队列里的函数后，再进行下一个宏任务，也就是依次十毫秒定时器回调和一百毫秒定时器回调。</p>
+<h3 id="%E5%AE%8F%E9%98%9F%E5%88%97%E4%B8%8E%E5%BE%AE%E9%98%9F%E5%88%97">宏队列与微队列</h3>
+<blockquote>
+<p>任务队列 =&gt; 存储待执行回调函数的队列</p>
+</blockquote>
+<blockquote>
+<p>宏队列 =&gt; 保存待执行的宏任务回调 -&gt; 定时器、DOM 事件、ajax 回调、整体代码块 script<br />
+微队列 =&gt; 保存待执行的微任务回调 -&gt; Promise 回调、MutationObserver 回调</p>
+</blockquote>
+<p>从宏任务队列中按入队顺序，将首个执行的宏任务放入调用栈开始执行；在执行完该宏任务下的所有同步任务后，调用栈清空，该宏任务被推出宏任务队列，然后微任务队列开始按照入队顺序逐个执行，直至微任务队列清空。也就是微任务优先级比宏任务高，且与微任务所处的代码位置无关。至此一个事件循环结束。如此循环的重复过程称为 Event Loop，每次的循环操作被称为 tick。</p>
+<p>首次执行时，解释器会将整体代码放入宏任务队列中，因此事件循环是从第一个宏任务开始的。</p>
+<p>在执行微任务过程中所产生的微任务要添加到微任务队列，也需要一起清空；微任务队列未清空前，不会执行下一个宏任务。</p>
+<pre><code class="language-javascript">/* Test01 =&gt; 成功了1 成功了2 timeout1 timeout2 */
+setTimeout(() =&gt; { console.log("timeout1"); });
+setTimeout(() =&gt; { console.log("timeout2"); });
+Promise.resolve("z").then((value) =&gt; { console.log("成功了1"); });
+Promise.resolve("s").then((value) =&gt; { console.log("成功了2"); });
+</code></pre>
+<pre><code class="language-javascript">/* Test02 =&gt; 成功了3 成功了4 timeout2 timeout1 成功了5 timeout3 */
+setTimeout(() =&gt; {
+  console.log("timeout1");
+  setTimeout(() =&gt; {
+    console.log("timeout3");
+  });
+  Promise.resolve(5).then((value) =&gt; {
+    console.log("成功了5");
+  });
+}, 5000);
+setTimeout(() =&gt; {
+  console.log("timeout2");
+}, 3000);
+Promise.resolve(3).then((value) =&gt; {
+  console.log("成功了3");
+});
+Promise.resolve(4).then((value) =&gt; {
+  console.log("成功了4");
+});
+</code></pre>
+<pre><code class="language-javascript">/* Test03 =&gt; 1 7 2 3 8 4 6 5 0 */
+setTimeout(() =&gt; {
+  console.log("0");
+});
+new Promise((resolve, reject) =&gt; {
+  console.log("1");
+  resolve();
+})
+  .then(() =&gt; {
+    console.log("2");
+    new Promise((resolve, reject) =&gt; {
+      console.log("3");
+      resolve();
+    })
+      .then(() =&gt; {
+        console.log("4");
+      })
+      .then(() =&gt; {
+        console.log("5");
+      });
+  })
+  .then(() =&gt; {
+    console.log("6");
+  });
+new Promise((resolve, reject) =&gt; {
+  console.log("7");
+  resolve();
+}).then(() =&gt; {
+  console.log("8");
+});
+</code></pre>
+<pre><code class="language-javascript">async function async1() {
+  console.log('async1 start');
+  await async2();
+  console.log('async1 end');
+}
+async function async2() {
+  console.log('async2');
+}
+ 
+console.log('script start');
+setTimeout(function() {
+  console.log('setTimeout');
+}, 0)
+async1();
+new Promise(function(resolve) {
+  console.log('promise1');
+  resolve();
+}).then(function() {
+  console.log('promise2');
+});
+console.log('script end');
+// script start - async1 start - async2 - promise1 - script end - async1 end - promise2 - setTimeout
+</code></pre>
+<p>async await 配合时 await 后代码的执行时机 =&gt; 因 async 函数总是返回一个期约实例，那么 await 可看作 excutor 在执行 resolve 后 then 执行 onResolved 的结果。</p>
+<pre><code class="language-js">async function async1(){
+  await async2()
+  console.log('async1 end')
+}
+// 等价于
+async function async1() {
+  return new Promise(resolve =&gt; {
+    resolve(async2())
+  }).then(() =&gt; {
+    console.log('async1 end')
+  })
+}
+</code></pre>
+<p>Promise 构造器里的 resolve(async2()) 并不等于 Promise.resolve(async2())，因为 async2() 返回期约实例，是一个 thenable 对象。</p>
+<blockquote>
+<p>thenable 对象即带有 then 方法</p>
+</blockquote>
+<blockquote>
+<p>Promise 构造函数中的 resolve(thenable) 不等价于 Promise.resolve(thenable)；Promise 构造函数中的 resolve(non-thenable) 等价于 Promise.resolve(non-thenable)。<a href="https://stackoverflow.com/questions/53894038/whats-the-difference-between-resolvethenable-and-resolvenon-thenable-object">SOF</a></p>
+</blockquote>
+<pre><code class="language-js">new Promise(resolve=&gt;{
+  resolve(thenable)
+})
+// 等价于
+new Promise(resolve =&gt; {
+  Promise.resolve().then(() =&gt; {
+    thenable.then(resolve)
+  })
+})
+</code></pre>
+<pre><code class="language-js">// 最终转换结果
+async function async1() {
+  return new Promise(resolve =&gt; {
+    Promise.resolve().then(() =&gt; {
+      async2().then(resolve)
+    })
+  }).then(() =&gt; {
+    console.log('async1 end')
+  })
+}
+</code></pre>
+<p>setImmediate is actually a special timer that runs in a separate phase of the event loop; setTimeout is executed by calculating a delay time;</p>
+<p>process.nextTick is not technically part of the event loop. The nextTickQueue will be processed after the current operation is completed, regardless of the current phase of the event loop.</p>
+<pre><code class="language-js">class Lib extends require('events').EventEmitter {
+  constructor () {
+    super()
+    this.emit('init')
+  }
+}
+const lib = new Lib();
+lib.on('init', _ =&gt; { console.log('init!'); });  // 不执行
+</code></pre>
+<pre><code class="language-js">class Lib extends require('events').EventEmitter {
+  constructor () {
+    super()
+    process.nextTick(_ =&gt; {
+      this.emit('init')
+    })
+  }
+}
+const lib = new Lib();
+lib.on('init', _ =&gt; { console.log('init!'); });  // 执行
+</code></pre>
+<h3 id="%E4%B8%AD%E6%AD%A2-promise">中止 Promise</h3>
+<p>Promise 的缺点在于创建后无法取消，所以本质上 Promise 是无法被终止的。</p>
+<ul>
+<li>返回 pending 的 promise，使后续 then、catch、finally 不会继续执行</li>
+<li>抛出特殊的错误对象，然后在调用链后面的 catch 回调里进行后续操作</li>
+<li>封装传入待中止的 promise 的函数，与封装函数内部定时的 promise 竞速</li>
+</ul>
+<h2 id="bugs-%E5%A4%84%E7%90%86">BUGS 处理</h2>
+<ul>
+<li>promise.html:112 Uncaught (in promise) failed</li>
+</ul>
+<p>当前存在失败的 Promise，且没有对应回调对结果进行处理。处理方式是在报错位置的 Promise 后以 catch 去处理。</p>
+<ul>
+<li>new Promise("ok") =&gt; Uncaught TypeError: Promise resolver ok is not a function</li>
+</ul>
+<p>传入必须是一个 excutor，传入非 excutor 返回 Promise 考虑 Promise.resolve(??)</p>
+<pre><code class="language-javascript">let okp = Promise.resolve("ok")
+console.log(okp)
+/*
+Promise («fulfilled&gt;: 'ok'}
+  [[Prototype]]: Promise
+  [[PromiseState]]: "fulfilled"
+  [[PromiseResult]]: "ok"
+*/
+</code></pre>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

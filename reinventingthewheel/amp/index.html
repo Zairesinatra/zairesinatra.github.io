@@ -6,7 +6,7 @@
 
     <title>Reinventing the wheel</title>
 
-    <meta name="description" content="Adversity and loss make a man wise." />
+    <meta name="description" content="由造轮子引发的思考" />
     <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -14,16 +14,16 @@
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Reinventing the wheel" />
-    <meta property="og:description" content="Adversity and loss make a man wise." />
+    <meta property="og:description" content="由造轮子引发的思考" />
     <meta property="og:url" content="yourdomain.com/reinventingthewheel/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/05/longmao.png" />
     <meta property="article:published_time" content="2020-01-01T08:36:00.000Z" />
-    <meta property="article:modified_time" content="2022-07-12T07:17:39.000Z" />
+    <meta property="article:modified_time" content="2022-09-07T15:51:49.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Reinventing the wheel" />
-    <meta name="twitter:description" content="Adversity and loss make a man wise." />
+    <meta name="twitter:description" content="由造轮子引发的思考" />
     <meta name="twitter:url" content="yourdomain.com/reinventingthewheel/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2022/05/longmao.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -64,7 +64,7 @@
     "headline": "Reinventing the wheel",
     "url": "yourdomain.com/reinventingthewheel/",
     "datePublished": "2020-01-01T08:36:00.000Z",
-    "dateModified": "2022-07-12T07:17:39.000Z",
+    "dateModified": "2022-09-07T15:51:49.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/05/longmao.png",
@@ -72,7 +72,7 @@
         "height": 1080
     },
     "keywords": "Technology growth",
-    "description": "Adversity and loss make a man wise.",
+    "description": "由造轮子引发的思考",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1157,7 +1157,15 @@ function create(obj) {
 &lt;/html&gt;
 </code></pre>
 <h3 id="new">手写 new</h3>
-<p>在调用 new 的过程里，首先会在内存中创建一个新对象，再将新对象的原型设置为函数的 prototype 对象，以继承父类原型上的方法，然后让 this 指向这个新对象，执行构造函数里的代码，给这个新对象添加属性和方法，最后判断函数的返回值类型，如果是值类型就返回创建的对象；如果是引用类型，就返回这个引用类型对象。</p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new">new</a> 运算符创建用户定义的对象类型的实例或具有构造函数的内置对象的实例。</p>
+</blockquote>
+<ul>
+<li>内存中创建新对象；</li>
+<li>新对象的隐式原型指向构造函数的显式原型 =&gt; 继承父类原型上的方法；</li>
+<li>构造函数中的 this 指向这个新对象 =&gt; 新对象初始化属性和方法；</li>
+<li>如果是返回的是值类型或者没有返回值 =&gt; 返回创建的对象；如果返回的是引用类型 =&gt; 返回这个引用类型对象。</li>
+</ul>
 <pre><code class="language-javascript">function objectFactory() {
   let newObject = null;
   let constructor = Array.prototype.shift.call(arguments);
@@ -1176,8 +1184,30 @@ function create(obj) {
   // 判断返回结果
   return flag ? result : newObject;
 }
-// 使用方法
-objectFactory(构造函数, 初始化参数);
+function Person(name) {
+  this.name = name;
+}
+Person.prototype.sayName = function(){
+  console.log(`!! =&gt; ${this.name}`)
+}
+const me = objectFactory(Person,'zs');
+me.sayName()
+</code></pre>
+<pre><code class="language-javascript">function myNew(func, ... args){
+  const instance = {};
+  if(func.prototype) Object.setPrototypeOf(instance, func.prototype);
+  const res = func.apply(instance, args);
+  if(typeof res == "function" || (typeof res === "object" &amp;&amp; res !== null)) return res
+  return instance;
+}
+function Person(name) {
+  this.name = name;
+}
+Person.prototype.sayName = function(){
+  console.log(`!! =&gt; ${this.name}`)
+}
+const me = myNew(Person,'zs');
+me.sayName()
 </code></pre>
 <h3 id="instanceof">手写 instanceof</h3>
 <p>instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。</p>
@@ -1203,152 +1233,52 @@ function Car(make, model, year) {
 const auto = new Car('Honda', 'Accord', 1998);
 console.log(myInstanceof(auto,Car)); // true
 </code></pre>
-<h3 id="debounce">防抖 debounce</h3>
-<p>当事件被触发后，延迟n秒再执行回调，若在这n秒内事件又被触发则重新计时。——类似游戏英雄联盟的回城操作。保证频繁触发事件时，事件回调仅被触发一次。减少请求次数、节约请求资源。常应用于输入框防抖，连续输入字符，保证仅在输入完成后才进行查询的请求。</p>
-<pre><code class="language-javascript">// 如果不加防抖函数,chrome控制台每当你按下键盘则输出
-&lt;input type="text" class="ipt"&gt;
-...
-const ipt = document.querySelector('.ipt')
-ipt.onkeyup = function(){
-    console.log(ipt.value)
+<h3 id="debouncethrottle">debounce &amp; throttle</h3>
+<ul>
+<li>防抖 debounce =&gt; 一段时间只触发最后一次</li>
+</ul>
+<p>事件触发时创建定时器延迟；事件再次触发则清除并重置定时器。常应用于输入框防抖，以节约性能。</p>
+<pre><code class="language-javascript">function debounce (func, ms = 1000) {
+  let timer; // 产生独立的作用域
+  return function (...args) { // 返回函数到调用位置 =&gt; 事件触发就会执行返回的函数
+    if (timer) { clearTimeout(timer) } // 内部函数使用外部函数的 timer 形成闭包
+    timer = setTimeout(() =&gt;{ func.apply(this, args) }, ms) // this 指向函数调用者 =&gt; 箭头函数的 this 指向外层函数作用域中 this 的值
+  }
 }
+const test = () =&gt; { console.log('test', this) } // test Window{}
+const debouncetest = debounce(test, 1000)
+window.addEventListener ('mouseover', debouncetest)
 </code></pre>
-<pre><code class="language-javascript">// 采用防抖解决
-let timer = null
-ipt.onkeyup = function(){
-    if(timer){
-        clearTimeout(timer)
-    }
-    timer = setTimeout(()=&gt;{
-        console.log(ipt.value)
-    },2000)
+<ul>
+<li>节流 throttle =&gt; 一段时间只触发一次</li>
+</ul>
+<p>事件触发时判断有无定时器，有则返回；定时器执行完后重置。常应用于按钮连续点击所造成的事件频繁触发，以避免卡顿。</p>
+<pre><code class="language-javascript">function throttle(func, ms = 1000) {
+  let timer
+  return function (...args) {
+    if (timer) return
+    timer = true
+    setTimeout(() =&gt; { func.apply(this, args); timer = null}, ms)
+  }
 }
+const test = () =&gt; { console.log('test', this) } // test Window{}
+const throttletest = throttle(test, 1000)
+window. addEventListener('mouseover', throttletest)
 </code></pre>
-<pre><code class="language-javascript">// 抽离封装业务逻辑
-function debounce(fn,delay=2000) { // 传入自定义函数与延迟;延迟不传入设默认值
-    let timer; // const必须初始化,这里用let
-    return ()=&gt;{ // 用外函数的timer形成闭包
-        if(timer){clearTimeout(timer)} // 有timer
-        timer = setTimeout(() =&gt; { // 没timer
-            fn();
-        }, delay);
-    }
-}
-ipt.onkeyup = debounce(()=&gt;{console.log(ipt.value)},1500)
-</code></pre>
-<h3 id="throttle">节流 throttle</h3>
-<p>节流即连续发生的事情在n秒内只执行一次回调函数。类似射击游戏进行连续点击，但枪械存在固定射速。解决因频繁触发可能造成的卡顿现象。常应用于拖拽效果的节流、云服务器更新内存使用比率、移动端后台刷新定位频率。</p>
-<pre><code class="language-css">.zs{
-    width: 50px;
-    height: 50px;
-    background-color: #424242;
-    border-radius: 50%;
-    color:red;
-    font-size: 5px;
-    text-align: center;
-}
-</code></pre>
-<pre><code class="language-javascript">// 不采用节流
-&lt;div class="zs" draggable="true"&gt;zy&lt;/div&gt;
-...
-const zs = document.querySelector('.zs')
-zs.ondrag = function(e){
-    console.log(e.offsetX,e.offsetY)
-}
-</code></pre>
-<pre><code class="language-javascript">// 采用节流
-const zs = document.querySelector('.zs')
-let timer = null;
-zs.ondrag = function(e){
-    if(timer){return;}
-    timer = setTimeout(()=&gt;{
-        console.log(e.offsetX,e.offsetY)
-        timer = null
-    },2000)
-}
-</code></pre>
-<pre><code class="language-javascript">// 为复用封装为throttle函数
-const zs = document.querySelector('.zs')
-function throttle(fn,delay=2000){
-    let timer
-    return function(){
-        if(timer) {return;}
-        // console.log(arguments)
-        fn.apply(this,arguments)
-        timer = setTimeout(()=&gt;{fn;timer=null},delay)
-    }
-}
-zs.ondrag = throttle((zy)=&gt;{console.log(zy.offsetX,zy.offsetY)},1500)
-</code></pre>
-<h3 id>防抖与节流指向</h3>
-<pre><code class="language-html">&lt;div id="content" style="height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;"&gt;&lt;/div&gt;
-</code></pre>
-<pre><code class="language-javascript">// 防抖
-let num = 1;
-let content = document.getElementById('content');
-function count(e) {
-    console.log(this); // &lt;div id="content" style="height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;"&gt;2&lt;/div&gt;
-    console.log(e); // MouseEvent {isTrusted: true, screenX: 691, screenY: 217, clientX: 691, clientY: 81, …}
-    content.innerHTML = num++;
-};
-function debounce (func, delay) {
-    let timer = null;
-    return function() {
-        // this也是指向的DOM元素,事件参数也是绑定的onmousemove
-        if(timer) {
-            clearTimeout(timer)
-        }
-        timer = setTimeout(() =&gt; {
-            func.apply(this, arguments)
-            // func() // Window {window: Window, self: Window, document: document, name: '', location: Location, …} undefined
-            timer = null
-        }, delay)
-    }
-}
-// content.onmousemove = count;
-content.onmousemove = debounce(count, 1500);
-</code></pre>
-<pre><code class="language-javascript">// 节流
-let num = 1;
-let content = document.getElementById('content');
-function count(e) {
-    console.log(this); // &lt;div id="content" style="height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;"&gt;2&lt;/div&gt;
-    console.log(e); // MouseEvent {isTrusted: true, screenX: 691, screenY: 217, clientX: 691, clientY: 81, …}
-    content.innerHTML = num++;
-};
-function throttle (func, delay) {
-    let timer = null;
-    return function() {
-        // this也是指向的DOM元素,事件参数也是绑定的onmousemove
-        if(timer) {
-            return
-        }
-        timer = setTimeout(() =&gt; {
-            func.apply(this, arguments)
-            // func() // Window {window: Window, self: Window, document: document, name: '', location: Location, …} undefined
-            timer = null
-        }, delay)
-    }
-}
-// content.onmousemove = count;
-content.onmousemove = throttle(count, 1500);
-</code></pre>
-<h3 id>栈与堆</h3>
-<p>栈是内存中一片连续用于存储<strong>局部变量</strong>和<strong>函数参数</strong>的线性结构。严格先进后出，且入栈和出栈的操作仅是栈指针在内存地址中的上下移动。栈在函数调用时创建，调用结束则消失。</p>
-<p>堆是内存中一大块独立存储空间，在栈中存储不了的数据（对象），就会被存储在堆中，而栈中仅存对该数据的引用（也就是该块数据的首地址）。为避免内存溢出，在 C 中堆内存是需要手动清理的，而在 JAVA 之流存在 Garbage Collection 机制协助清理堆中已不被使用的数据。</p>
+<h3 id="stackheapclosure">stack &amp; heap &amp; <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures">closure</a></h3>
+<p>栈在内存中是用于连续存储局部变量和函数参数的线性结构。严格先进后出，且入栈和出栈的操作仅是栈指针在内存地址中的上下移动。栈在函数调用时创建，调用结束则消失。栈中仅存对数据的引用，也就是该块数据的首地址。</p>
 <pre><code class="language-javascript">function Closure () {
-    let num = 0;
-    return function () {
-        num++;
-        return num;
-    }
+  let num = 0;
+  return function () {
+    num++;
+    return num;
+  }
 }
 let Closuree = Closure();
 Closuree(); // 1
 Closuree(); // 2
 </code></pre>
-<p>观察这段闭包代码是否让你顿时怀疑人生，因为上述栈的描述里，在调用完函数后，栈会销毁，那么就不应该存在后续的 num 仍然会发生改变。实际上在本例中的 num 变量并没有存储在栈中，而是在堆内存里，用一个特殊的对象 [[Scopes]] 保存。</p>
-<p>在 JavaScript 中，变量分为三种类型：局部变量、被捕获变量、全局变量。其中 被捕获变量 较为少见——在函数中声明，却在函数返回后仍有未执行作用域（函数或是类）使用到该变量，那么该变量就是被捕获变量（可以简单理解为闭包中返回带有的参数变量）。</p>
+<p>通常调用完函数会销毁栈，不应该存在后续变量值的改变。实际上闭包所访问的变量并没有存储在栈中，而是在堆内存里，用一个特殊的对象 [[Scopes]] 保存。</p>
 <pre><code class="language-javascript">// console.dir() 可以显示一个对象所有的属性和方法
 // console.dir(Closuree)
 ƒ anonymous()
@@ -1364,242 +1294,194 @@ prototype: {constructor: ƒ}
 1: Script {Closuree: ƒ}
 2: Global {0: Window, 1: Window,...}
 </code></pre>
-<p>[[Scopes]] 是 Chrome 开发人员工具在内部添加和使用的私有属性，在源代码中。它显示函数范围内的变量，即可以从该函数访问哪些变量。</p>
-<p>总结：<u>只有局部变量的基本数据类型的值是存放在栈中的，其他（即其他的基本数据类型和所有的引用类型）都是地址存放在栈中，值存放在堆中。</u></p>
-<h3 id>深、浅拷贝</h3>
-<p>从上述可以得知，深、浅拷贝是对于引用类型来说的，引用类型的值实际存储在堆 Heap 内存中，在栈 Stack 中只存储堆内地址的引用，而这个地址的引用指向堆内存中的值。</p>
-<p>浅拷贝仅拷贝一层，对更深层次对象级别只拷贝引用，那么在操作数据时难免出现对象互相影响的情况。深拷贝需要拷贝每一层的所有的属性，且地址也与原来的不同，那么改变属性时也就不会影响原来的数据。</p>
+<p>[[Scopes]] 是 Chrome 开发者工具在内部添加和使用的私有属性，表示函数范围内的变量，或者说可以从该函数访问哪些变量。</p>
+<p>局部作用域对应局部变量，全局作用域对应全局变量，而被捕获变量是在函数中声明，却在函数返回后仍被未执行作用域（函数或是类）持有的变量（闭包返回的变量）。</p>
+<h3 id="deepandshallowcopy">deep and shallow copy</h3>
+<p>引用类型的值实际存储在堆内存中，栈只存储堆内地址的引用，而这个地址的引用指向堆内存中的值。</p>
+<p>浅拷贝仅拷贝一层，对更深层次对象级别只拷贝引用，在操作数据时难免出现对象互相影响的情况；深拷贝会逐层拷贝所有属性，地址也与原来的不同，改变属性时也就不会影响原来的数据。</p>
+<ul>
+<li>深拷贝 deep copy =&gt; lodash、JSON.parse、make wheels</li>
+</ul>
 <pre><code class="language-javascript">// lodash
-// 加载完整的构建
-var _ = require('lodash');
-let obj = [
-    {
-        a: 1,
-        b: 2
-    },
-    {
-        a: 1,
-        b: 2
-    }
-]
-let objj = _.cloneDeep(obj)
-console.log('相等比较 ==&gt;', obj === objj) // 相等比较 ==&gt; false
-objj.c = 3
-console.log('obj ==&gt;', obj); // obj ==&gt; [ { a: 1, b: 2 }, { a: 1, b: 2 } ]
-console.log('objj ==&gt;', objj); // objj ==&gt; [ { a: 1, b: 2 }, { a: 1, b: 2 }, c: 3 ]
-obj[0].c = 3;
-console.log('obj ==&gt;', obj); // obj ==&gt; [ { a: 1, b: 2, c: 3 }, { a: 1, b: 2 } ]
-console.log('objj ==&gt;', objj); // objj ==&gt; [ { a: 1, b: 2 }, { a: 1, b: 2 }, c: 3 ]
-// ---------
-// SON.parse() 和 JSON.stringify() 组合
-// 只限于处理可被 JSON.stringify() 编码的值: Boolean, Number, String, Object, Array
-let obj = [
-    {
-        a: 1,
-        b: 2
-    },
-    {
-        a: 1,
-        b: 2
-    }
-]
-let objj = JSON.parse(JSON.stringify(obj));
-console.log('相等比较==&gt;', obj === objj) // 相等比较==&gt; false
-objj.c = 3
-console.log('obj ==&gt;', obj); // obj ==&gt; [ { a: 1, b: 2 }, { a: 1, b: 2 } ]
-console.log('objj ==&gt;', objj); // objj ==&gt; [ { a: 1, b: 2 }, { a: 1, b: 2 }, c: 3 ]
-obj[0].c = 3;
-console.log('obj ==&gt;', obj); // obj ==&gt; [ { a: 1, b: 2, c: 3 }, { a: 1, b: 2 } ]
-console.log('objj ==&gt;', objj); // objj ==&gt; [ { a: 1, b: 2 }, { a: 1, b: 2 }, c: 3 ]
-
-// 自行造轮子
-// 深拷贝代码
-// 思路: 简单数据直接赋值、复杂数据进入遍历 + 递归
-var obj = {
-    age:23,
-    name:'zs',
-    // 对象在内存中新开辟空间存放
-    hobby:{ code:'js' },
-    skills:['calligraphy','guitar']
-}
-var g = {};
-function foo (){}
-
-// 传递两个参数:要拷贝谁，拷贝给谁
-function deepCopy(newobj,oldobj){
-    for(var i in oldobj){
-        // 获取属性值
-        var hhh = oldobj[i];
-        // 判断数据属于那种数据类型
-        // 属于数组
-        if(hhh instanceof Array){
-            // 新对象属性是数组
-            newobj[i]=[];
-            // deepCopy(newobj[i],oldobj[i])
-            deepCopy(newobj[i],hhh)
-        }
-        // 属于对象
-        else if(hhh instanceof Object){
-            newobj[i]={};
-            // 把值给属性
-            deepCopy(newobj[i],oldobj[i])
-        }
-        // 属于简单数据类型
-        else {
-            newobj[i] = oldobj[i]
-        }
-    }
-}
-deepCopy(g,obj);
-g.hobby.code = "C++";
-console.log(g); // { age: 23, name: 'zs', hobby: { code: 'js' }, skills: [ 'calligraphy', 'guitar' ] }
-console.log(obj); // { age: 23, name: 'zs', hobby: { code: 'C++' }, skills: [ 'calligraphy', 'guitar' ] }
+const _ = require('lodash');
+const objTest = [ { a: 1, b: 2 }, { a: 1, b: 2 } ]
+const resObject = _.cloneDeep(objTest)
+console.log('相等比较 ==&gt;', objTest === resObject); // 相等比较 ==&gt; false
 </code></pre>
-<p>浅拷贝仅是复制了引用地址，在复制之后，原来的变量和新的变量指向同一个内存地址，彼此之间的操作会互相影响。</p>
-<pre><code class="language-javascript">/* 实现深拷贝的两种方式 */
-// ES6语法糖-&gt; Object.assign(target,source)
-var obj = {
-    age:23,
-    name:'zs',
-    // 对象在内存中新开辟空间存放
-    hobby:{
-        code:'js'
-    }
-}
-
-// 浅拷贝
-var objj = Object.assign({},obj)
-// 这里拷贝的复杂对象仅仅是拷贝的地址
-console.log(objj); // { age: 23, name: 'zs', hobby: { code: 'js' } }
-// 此时如果修改了g内数据也会影响obj内数据
-objj.hobby.code = 'C++';
-console.log(obj); // { age: 23, name: 'zs', hobby: { code: 'C++' } }
-
-// 自行造轮子
-var obj = {
-    age:23,
-    name:'zs',
-    // 对象在内存中新开辟空间存放
-    hobby:{
-        code:'js'
-    }
-}
-var g = {};
-
-// 浅拷贝
-for(var i in obj){
-    // i是属性名而obj[i]是属性值
-    g[i]=obj[i];
-}
-// 这里拷贝的复杂对象仅仅是拷贝的地址
-console.log(g); // { age: 23, name: 'zs', hobby: { code: 'js' } }
-// 此时如果修改了g内数据也会影响obj内数据
-g.hobby.code = 'C++';
-console.log(obj); // { age: 23, name: 'zs', hobby: { code: 'C++' } }
+<pre><code class="language-javascript">// JSON.parse() 和 JSON.stringify() 组合 =&gt; 只限于可被 JSON.stringify() 编码的值 -&gt; Boolean, Number, String, Object, Array
+const objTest = [ { a: 1, b: 2 }, { a: 1, b: 2 } ]
+const resObject = JSON.parse(JSON.stringify(objTest));
+console.log('相等比较 ==&gt;', objTest === resObject); // 相等比较 ==&gt; false
 </code></pre>
-<h3 id>斐波那契数列</h3>
-<pre><code class="language-javascript">// 斐波那契数列: 0 1 1 2 3 5 8 13 ...(0不是第一项,而是第0项)
-function fibonacci(n) {
-    if(n==0 || n == 1)
-        return n;
-    return fibonacci(n-1) + fibonacci(n-2);
+<pre><code class="language-javascript">// make wheels
+function deepCopyFunc(inputObject, cache = new WeakMap()){
+  if (typeof inputObject !== 'object' || inputObject === null) return inputObject;
+  if(inputObject instanceof Date) return new Date(inputObject)
+  if(inputObject instanceof RegExp) return new RegExp(inputObject)
+  if(cache.get(inputObject)) return cache.get(inputObject) // 循环引用则返回缓存的对象防止递归死循环
+  let outputObject = new inputObject.constructor();
+  cache.set(inputObject, outputObject);
+  for(const [key, value] of Object.entries(inputObject)){
+    outputObject[key] = deepCopyFunc(value);
+  }
+  return outputObject;
 }
-console.log(fibonacci(3)); // 2
-console.log(fibonacci(5)); // 5
-console.log(fibonacci(7)); // 13
+// Test
+const objTest = { a:1, b:'ok', c:{ code:'js' }, d:['java','cpp'], e: new Date(), f: /^ok$/ }
+const resObject = deepCopyFunc(objTest);
+resObject.c.code = "ts";
+console.log(resObject == objTest);
+console.log(resObject);
 </code></pre>
-<h3 id>实现数组扁平化</h3>
-<p>数组扁平化就是将多维数组转化为一维数组。</p>
-<pre><code class="language-javascript">// 方法一 =&gt; toString + split =&gt; 数组-字符串-数组
-let arr = [1, [2, 3, [4, 5]], 6]
+<ul>
+<li>浅拷贝 shallow copy =&gt; <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a>、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax">Spread syntax</a>、Array Methods</li>
+</ul>
+<pre><code class="language-javascript">Array Methods =&gt; Array.from()、Array.prototype.slice()
+</code></pre>
+<pre><code class="language-javascript">// make wheels
+function shallowCopyFunc(inputObject) {
+  let resObject = {};
+  for (const key in inputObject) {
+    resObject[key] = inputObject[key];
+  }
+  return resObject;
+}
+</code></pre>
+<h3 id="flattencurrying">Flatten &amp; Currying</h3>
+<ul>
+<li>数组扁平化 Flatten an Array =&gt; 将多维数组转化为一维数组</li>
+</ul>
+<p>toString &amp; split 和 join &amp; split =&gt; 数组-字符串-数组；需要注意 split 形成的数组中每个元素仍然是字符串，需要将其转化为数字。</p>
+<pre><code class="language-javascript">const arr = [1, [2, 3, [4, 5]], 6]
 function flatten(arr) {
-    // 用split形成的数组的每个元素仍然是字符串,需要将其转化为数字.
-    return arr.toString().split(',').map( item =&gt; Number(item))
+  return arr.toString().split(',').map(item =&gt; Number(item))
 }
 console.log(flatten(arr)) // [1, 2, 3, 4, 5]
-// 方法二 =&gt; join + split =&gt; 数组-字符串-数组
+</code></pre>
+<pre><code class="language-javascript">const arr = [1, [2, 3, [4, 5]], 6]
 function flatten(arr) {
-    return arr.join(',').split(',').map( item =&gt; parseInt(item) )
+  return arr.join(',').split(',').map( item =&gt; parseInt(item) )
 }
-// 方法三 =&gt; reduce 方法根据回调函数对数组的每个元素进行操作
-let arr = [1, [2, 3, [4, 5]], 6]
+console.log(flatten(arr)) // [1, 2, 3, 4, 5]
+</code></pre>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce">reduce</a> &amp; 递归 &amp; 扩展运算符 =&gt; 对数组的每个元素进行操作</p>
+<pre><code class="language-javascript">let arr = [1, [2, 3, [4, 5]], 6]
 const newArr = function(arr){
-    return arr.reduce((pre,cur)=&gt;pre.concat(Array.isArray(cur)?newArr(cur):cur),[])
+  return arr.reduce((pre,cur)=&gt;pre.concat(Array.isArray(cur)?newArr(cur):cur),[])
 }
 console.log(newArr(arr)); //[1, 2, 3, 4, 5, 6]
-// 方法四 =&gt; 递归与循环
-function flatten(arr) {
-    var res = [];
-    arr.map(item =&gt; {
-        if(Array.isArray(item)) {
-            res = res.concat(flatten(item));
-        } else {
-            res.push(item);
-        }
-    });
-    return res;
-}
-// 方法五 =&gt; 扩展运算符
-let arr = [1, [2, 3, [4, 5]]] 
-   function flatten(arr) {
-     while (arr.some(item =&gt; Array.isArray(item))) {
-       arr = [].concat(...arr);
-     }
-     return arr;
-   }
-   console.log(flatten(arr)); // [1, 2, 3, 4, 5]
-// 方法六 =&gt; Array.prototype.flat([depth])
-// Array.prototype.flat([depth]) =&gt; 按照指定的深度递归遍历数组,并将所有元素与遍历到的子数组中的元素合并为一个新数组返回.该方法不会改变原数组.
- let arr1 = [1, 2, [3, 4]];
- arr1.flat(); // [1, 2, 3, 4]
-
- // 指定要提取嵌套数组的结构深度为1层
- let arr2 = [1, 2, [3, 4, [5, 6]]];
- arr2.flat(1); // [1, 2, 3, 4, [5, 6]]
-
- // 指定要提取嵌套数组的结构深度为2层
- let arr3 = [1, 2, [3, 4, [5, 6]]];
- arr3.flat(2); // [1, 2, 3, 4, 5, 6]
-
- // 使用 Infinity 作为深度，展开任意深度的嵌套数组
- let arr4 = [1, 2, [3, 4, [5, 6]]]
- arr4.flat(Infinity); // [1, 2, 3, 4, 5, 6]
-
- // 移除数组中的空项
- let arr5 = [1, 2, , 4, 5];
- arr5.flat(); // [1, 2, 4, 5]
 </code></pre>
-<h3 id>对象扁平化</h3>
-<p>对象扁平化就是将复杂的多层的对象转化为一维对象。</p>
-<pre><code class="language-javascript">let obj = { a: { d: 1 }, 
-            d:  2, 
-            e: [1, 2] 
-          }
-function flatten(data) {
-    var result = {};
-    function recurse(cur, prop) {
-        // 如果输入进来的是不是对象，就将其放在数组中，返回
-        if (Object(cur) !== cur) {
-            result[prop] = cur;
-        // 如果输入进来的是数组，长度不为0就递归数组，得出结果
-        } else if (Array.isArray(cur)) {
-            for (var i = 0, len = cur.length; i &lt; len; i++)
-                recurse(cur[i], prop + "[" + i + "]");
-            if (len == 0)  result[prop] = [];
-        } else {
-            var isEmpty = true;
-            for (var p in cur) {
-                isEmpty = false;
-                recurse(cur[p], prop ? prop + "." + p : p);
-            }
-            if (isEmpty &amp;&amp; prop)
-                result[prop] = {};
-        }
+<pre><code class="language-javascript">function flatten(arr) {
+  var res = [];
+  arr.map(item =&gt; {
+    if(Array.isArray(item)) {
+      res = res.concat(flatten(item));
+    } else { res.push(item); }
+  });
+  return res;
+}
+</code></pre>
+<pre><code class="language-javascript">function flatten(arr) {
+  while (arr.some(item =&gt; Array.isArray(item))) {
+    arr = [].concat(...arr);
+  }
+  return arr;
+}
+let arr = [1, [2, 3, [4, 5]]] 
+console.log(flatten(arr)); // [1, 2, 3, 4, 5]
+</code></pre>
+<ul>
+<li>Array.prototype.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flat">flat</a>([depth]) =&gt; 按照指定的深度递归遍历数组；深拷贝</li>
+</ul>
+<pre><code class="language-javascript">// 使用 Infinity 作为深度，展开任意深度的嵌套数组
+let arrTest01 = [1, 2, [3, 4, [5, 6]]]
+arrTest01.flat(Infinity); // [1, 2, 3, 4, 5, 6]
+// 移除数组中的空项
+let arrTest02 = [1, 2, , 4, 5];
+arrTest02.flat(); // [1, 2, 4, 5]
+</code></pre>
+<ul>
+<li>对象扁平化 Flatten Object =&gt; 将复杂的多层的对象转化为一维对象</li>
+</ul>
+<pre><code class="language-javascript">function toFlatPropertyMap(obj, keySeparator = '.') {
+  const flattenRecursive = (obj, parentProperty, propertyMap = {}) =&gt; {
+    for(const [key, value] of Object.entries(obj)){
+      const property = parentProperty ? `${parentProperty}${keySeparator}${key}` : key;
+      if(value &amp;&amp; typeof value === 'object'){
+        flattenRecursive(value, property, propertyMap);
+      } else {
+        propertyMap[property] = value;
+      }
     }
-    recurse(data, "");
-    return result;
-};
-console.log(flatten(obj))  // {a.d: 1, d: 2, e[0]: 1, e[1]: 2}
+    return propertyMap;
+  };
+  return flattenRecursive(obj);
+}
+let testObj = { a: { b: { c: 1, d: 2 }, e: 3 }, f: { g: 2 }, h: [1, 2] }
+console.log(toFlatPropertyMap(testObj))
+</code></pre>
+<p>Typescript Version =&gt; <a href="https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type">Record&lt;Keys, Type&gt;</a> =&gt; <a href="https://stackoverflow.com/questions/44134212/best-way-to-flatten-js-object-keys-and-values-to-a-single-depth-array">SOF</a></p>
+<pre><code class="language-javascript">function toFlatPropertyMap(obj: object, keySeparator = '.') {
+  const flattenRecursive = (obj: object, parentProperty?: string, propertyMap: Record&lt;string, unknown&gt; = {}) =&gt; {
+    for(const [key, value] of Object.entries(obj)){
+      const property = parentProperty ? `${parentProperty}${keySeparator}${key}` : key;
+      if(value &amp;&amp; typeof value === 'object'){
+        flattenRecursive(value, property, propertyMap);
+      } else {
+        propertyMap[property] = value;
+      }
+    }
+    return propertyMap;
+  };
+  return flattenRecursive(obj);
+}
+</code></pre>
+<ul>
+<li>柯里化 Currying</li>
+</ul>
+<p>函数的柯里化是将使用多个参数的函数转换成一系列使用一个参数的函数。已被柯里化的函数在执行后不能返回一个值，只能返回一个函数；调用完毕时要能在脚本引擎中解析得到结果；因为在连续调用时要保留前置传入的参数，所以要考虑通过闭包不让参数销毁；不限制的调用次数涉及到递归。</p>
+<pre><code class="language-javascript">function curry(){
+  var args = Array.prototype.slice.call(arguments); // 不做阈值条件增加复用性
+  const appendFunc = function(){ // 声明追加函数
+    args.push(...arguments); // 追加函数调用传参放入前置传参的数组 =&gt; 实现闭包
+    return appendFunc; // 连续调用也保持返回函数
+  }
+  appendFunc.toString = function(){
+    return args.reduce((prev, next) =&gt; prev + next, 0);
+  }
+  return appendFunc;
+}
+console.log(curry(1)(2) + '')
+</code></pre>
+<pre><code class="language-javascript">function curry(fn) {
+  const presetArgs = [].slice.call(arguments, 1);
+  function appendFunc() {
+    const restArgs = [].slice.call(arguments);
+    const allArgs = [...presetArgs, ...restArgs];
+    return curry.call(null, fn, ...allArgs);
+  }
+  appendFunc.toString = function () {
+    return fn.apply(null, presetArgs);
+  };
+  return appendFunc;
+}
+function sumFunc() {return Array.from(arguments).reduce((prev, curr) =&gt; { return prev + curr; }, 0)};
+var res = curry(sumFunc);
+console.log(res(1)(2)(3)(4) + ""); // 10
+console.log(res(1, 2)(3, 4)(5, 6) + ""); // 21
+</code></pre>
+<ul>
+<li>斐波那契数列 Fibonacci =&gt; 递归</li>
+</ul>
+<blockquote>
+<p>在数学上，<a href="https://zh.wikipedia.org/wiki/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0">斐波那契数</a>是以递归的方法来定义：F0=0 F1=1 ... Fn=Fn-1 + Fn-2，用文字来说，就是斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。</p>
+</blockquote>
+<pre><code class="language-javascript">// 斐波那契数列: 0 1 1 2 3 5 8 13 ...(0不是第一项,而是第0项)
+function fibonacci(n) {
+  if(n==0 || n == 1)
+    return n;
+  return fibonacci(n-1) + fibonacci(n-2);
+}
 </code></pre>
 <h2 id="comprehension">Comprehension</h2>
 <h3 id="nullundefined">Null 与 Undefined</h3>
@@ -1630,6 +1512,69 @@ function hrb(){
     a="xc"
 }
 hrb() // undefined
+</code></pre>
+<h2 id="utils">Utils</h2>
+<h3 id>异步控制并发数</h3>
+<pre><code class="language-javascript">function limitOfAsyncConcurrentRequests(){
+
+}
+</code></pre>
+<h3 id="url">获取 URL 参数</h3>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams">URLSearchParams</a> 接口定义了一些实用的方法来处理 URL 的查询字符串。一个实现了 URLSearchParams 的对象可以直接用在 for...of 结构中。</p>
+</blockquote>
+<blockquote>
+<p>URLSearchParams 构造函数<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams#gotchas">不会解析完整 URL</a>，但是如果字符串起始位置有 ? 的话会被去除。</p>
+</blockquote>
+<pre><code class="language-javascript">const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+function getUrlParams(url){
+  const res = {};
+  if(url.includes('?')){
+    const str = url.split('?')[1], arr = str.split('&amp;');
+    arr.forEach(item =&gt; {
+      const key = item.split('=')[0], val = item.split('=')[1];
+      res[key] = decodeURIComponent(val);
+    })
+  }
+  return res
+}
+</code></pre>
+<pre><code class="language-javascript">/* Test Code */
+const user = getUrlParams("http://www.ok.com?user='admin'&amp;id=12345");
+console.log(user);
+</code></pre>
+<h3 id="imagelazyloading">Image Lazy Loading</h3>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect">Element.getBoundingClientRect()</a> 方法返回一个 DOMRect 对象，其提供了元素的大小及其相对于视口的位置。</p>
+</blockquote>
+<blockquote>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset">dataset</a> read-only property of the HTMLElement interface provides read/write access to custom data attributes (data-*) on elements. It exposes a map of strings (DOMStringMap) with an entry for each data-* attribute.</p>
+</blockquote>
+<pre><code class="language-html">&lt;img src="imgs/default.png" data-src="https://.../real-image.png" /&gt;
+</code></pre>
+<pre><code class="language-javascript">function isVisible(el){
+  const position = el.getBoundingClientRect();
+  const windowHeight = document.documentElement.clientHeight; // clientHeight 为元素内部的高度 =&gt; 在根元素或怪异模式下的元素上使用 clientHeight 时返回视口高度
+  const topVisible = position.top &gt; 0 &amp;&amp; position.top &lt; windowHeight;
+  const bottomVisible = position.top &lt; windowHeight &amp;&amp; position.bottom &gt; 0;
+  return topVisible || bottomVisible;
+}
+function imageLazyLoad(){
+  const images = document.querySelectorAll("img");
+  for(let img of images){
+    const realSrc = img.dataset.src;
+    if(!realSrc) continue
+    if(isVisible(img)){
+      img.src = realSrc;
+      img.dataset.src = '';
+    }
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">/* Test Code */
+window.addEventListener("load", imageLazyLoad);
+window.addEventListener("scroll", imageLazyLoad);
 </code></pre>
 <h2 id>结束</h2>
 <p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>

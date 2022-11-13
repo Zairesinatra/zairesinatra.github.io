@@ -8,10 +8,10 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=ab47967965.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=977d3f47b0.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=ab47967965.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=977d3f47b0.css" />
     <meta name="description" content="Ubuntu 最近 Ghost 以及 Node 版本更新过程小结。" />
     <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -25,7 +25,7 @@
     <meta property="og:url" content="yourdomain.com/newghostzs/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/ghostbg.png" />
     <meta property="article:published_time" content="2021-07-23T13:38:41.000Z" />
-    <meta property="article:modified_time" content="2022-07-02T18:49:46.000Z" />
+    <meta property="article:modified_time" content="2022-08-22T17:37:23.000Z" />
     <meta property="article:tag" content="GHOSTblog" />
     <meta property="article:tag" content="Technology growth" />
     
@@ -72,7 +72,7 @@
     "headline": "Ghost 更新与迁移",
     "url": "yourdomain.com/newghostzs/",
     "datePublished": "2021-07-23T13:38:41.000Z",
-    "dateModified": "2022-07-02T18:49:46.000Z",
+    "dateModified": "2022-08-22T17:37:23.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/ghostbg.png",
@@ -88,9 +88,9 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
-    <script defer src="https://unpkg.com/@tryghost/portal@~2.2.0/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/portal@~2.9/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
 .gh-post-upgrade-cta {
     display: flex;
     flex-direction: column;
@@ -154,8 +154,9 @@
 .gh-post-upgrade-cta a.gh-btn:hover {
     opacity: 0.92;
 }</style>
-    <script defer src="../public/cards.min.js%3Fv=ab47967965"></script>
-    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=ab47967965.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f5d74add11f1d16d3e59c12945" data-styles="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/main.css" data-sodo-search="yourdomain.com/" crossorigin="anonymous"></script>
+    <script defer src="../public/cards.min.js%3Fv=977d3f47b0"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=977d3f47b0.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
 <script>
@@ -215,9 +216,21 @@ pre[class*="language-"] {
 /*********************************************************
 * General
 */
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
 pre[class*="language-"],
 code[class*="language-"] {
-  color: #d98e73;
+  color: #b0bec5;
   font-size: 13px;
   text-shadow: none;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -252,7 +265,7 @@ pre[class*="language-"] {
   padding: 1em;
   margin: .5em 0;
   overflow: auto;
-  background: #1e1e1f;
+  background: #202124;
 }
 :not(pre) > code[class*="language-"] {
   padding: .1em .3em;
@@ -290,7 +303,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #ddb974;
+  color: #e3f2fd;
 }
 .token.operator,
 .token.entity,
@@ -298,7 +311,7 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string {
   color: #f3f3f3;
-  background: #1e1e1f;
+  background: #202124;
 }
 .token.atrule,
 .token.attr-value,
@@ -306,12 +319,12 @@ pre[class*="language-"] {
   color: #06b4fe;
 }
 .token.function {
-  color: #80caf1;
+  color: #ff7043;
 }
 .token.regex,
 .token.important,
 .token.variable {
-  color: #ee9900;
+  color: #ff7043;
 }
 .token.important,
 .token.bold {
@@ -339,8 +352,8 @@ pre[class*="language-"] > code[class*="language-"] {
   right: 0;
   padding: inherit 0;
   margin-top: 1em;
-  background: #1e1e1f;
-  box-shadow: inset 5px 0 0 #1e1e1f;
+  background: #202124;
+  box-shadow: inset 5px 0 0 #202124;
   z-index: 0;
   pointer-events: none;
   line-height: inherit;
@@ -351,6 +364,7 @@ pre[class*="language-"] > code[class*="language-"] {
 <!-- 音乐播放器 -->
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
 
 </head>
 <body class="post-template tag-ghostblog tag-technology-growth has-cover">
@@ -363,23 +377,27 @@ pre[class*="language-"] > code[class*="language-"] {
                 <a class="gh-head-logo" href="../index.html">
                         <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
                 </a>
-                <a class="gh-burger" role="button">
-                    <div class="gh-burger-box">
-                        <div class="gh-burger-inner"></div>
-                    </div>
-                </a>
+                <div class="gh-head-brand-wrapper">
+                    <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <a class="gh-burger" role="button">
+                        <div class="gh-burger-box">
+                            <div class="gh-burger-inner"></div>
+                        </div>
+                    </a>
+                </div>
             </div>
             <div class="gh-head-menu">
                 <ul class="nav">
     <li class="nav-home"><a href="../index.html">Home</a></li>
     <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
     <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
-    <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
-    <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+    <li class="nav-tags"><a href="../tags/index.html">Tags</a></li>
+    <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
 </ul>
 
             </div>
             <div class="gh-head-actions">
+                <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
                 <div class="gh-social">
                         <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
                 </div>
@@ -423,7 +441,7 @@ pre[class*="language-"] > code[class*="language-"] {
                 <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                 <div class="byline-meta-content">
                     <time class="byline-meta-date" datetime="2021-07-23">Jul 23, 2021</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 9 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 12 min read</span>
                 </div>
             </div>
 
@@ -446,9 +464,12 @@ pre[class*="language-"] > code[class*="language-"] {
         <aside class="toc-container">
             <div class="toc"></div>
         </aside>
-        <!--kg-card-begin: markdown--><p>由于 Githubpage 静态编译的 Ghost 在部分功能与效果上稍逊于云服务器的反向代理，为同步需求，记录本次云服务器 Ubuntu 中 Ghost 与 Node 版本更新过程以及 Nginx 配置。</p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="node">Node</h2>
-<p>最新的 Ghost 版本需要 Node.js 14.x ，故安装适用 Ubuntu 的 <a href="https://github.com/nodesource/distributions">二进制发行版</a>。</p>
+        <!--kg-card-begin: html--><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1282481617&color=%23546854&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/hvmqw3ekc2fe" title="zairesinatra" target="_blank" style="color: #cccccc; text-decoration: none;">zairesinatra</a> · <a href="https://soundcloud.com/hvmqw3ekc2fe/sets/zsxzy" title="zsxzy" target="_blank" style="color: #cccccc; text-decoration: none;">zsxzy</a></div><!--kg-card-end: html--><!--kg-card-begin: markdown--><p>由于 Githubpage 静态编译的 Ghost 在部分功能与效果上稍逊于云服务器的反向代理，为同步需求，记录本次云服务器 Ubuntu 中 Ghost 与 Node 版本更新过程以及 Nginx 配置。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<h3 id="node">Node</h3>
+<ul>
+<li>最新 Ghost 版本需要 Node@14.x -&gt; 安装适用 Ubuntu 的 <a href="https://github.com/nodesource/distributions">二进制发行版</a></li>
+</ul>
 <pre><code class="language-shell"># Using Ubuntu 添加 Node.js ppa(Person Package achives) 安装 Node.js
 # cURL is an abbreviation for Client URL Request Library which is used to transfer data from one place to another place. 
 # -f (--fail) 表示在服务器错误时, 阻止一个返回表示错误原因的 html 页面
@@ -459,19 +480,16 @@ sudo apt-get install -y nodejs
 node -v
 # v14.17.2
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="ghost">Ghost</h2>
-<p>此前 Ghost 为 v3，运行 <code>ghost update v3</code> 获取最新的 v3.x版本，然后运行 <code>ghost update</code> 获取v4。</p>
-<p>在更新 ghost 期间出现 ghost 目录所属权限问题。</p>
+<h3 id="ghost">Ghost</h3>
+<p>Ghost@v3 需先运行 <code>ghost update v3</code> 获取最新的 v3.x 版本，再通过 <code>ghost update</code> 获取 v4。</p>
+<ul>
+<li>更新 Ghost 期间出现目录所属权限问题 =&gt; 给 Ghost 文件夹当前用户权限</li>
+</ul>
 <pre><code class="language-shell">sudo systemctl is-active ghost_zairesinatra-com
-✔ Checking system Node.js version - found v10.24.0
-✔ Ensuring user is not logged in as ghost user
+✔ Checking system Node.js version - found v10.24.0、Ensuring user is not logged in as ghost user
 ✖ Checking if logged in user is directory owner
 ✖ Checking current folder permissions
-✔ Checking folder permissions
-✔ Checking file permissions
-✔ Checking content folder ownership
-✔ Checking memory availability
-✔ Checking free space
+✔ Checking folder permissions、Checking file permissions、Checking content folder ownership、Checking memory availability、Checking free space
 One or more errors occurred.
 
 1) Checking if logged in user is directory owner
@@ -480,49 +498,48 @@ Message: Your user does not own the directory /var/www/ghost and is also not a m
 You must either log in with the user that owns the directory or add your user to the owning group.
 Help: https://ghost.org/docs/install/ubuntu/#create-a-new-user
 
-
 2) Checking current folder permissions
 
 Message: The directory /var/www/ghost is not writable by your user. You must grant write access and try again.
 Help: https://ghost.org/docs/install/ubuntu/#create-a-directory
 
 Debug Information:
-    OS: Ubuntu, v18.04.4 LTS
-    Node Version: v10.24.0
-    Ghost Version: 3.41.9
-    Ghost-CLI Version: 1.17.3
-    Environment: production
-    Command: 'ghost update'
+OS: Ubuntu, v18.04.4 LTS、Node Version: v10.24.0、Ghost Version: 3.41.9、Ghost-CLI Version: 1.17.3、Environment: production、Command: 'ghost update'
 
 Try running ghost doctor to check your system for known issues.
 </code></pre>
-<p>解决方法是给 ghost 文件夹当前用户权限。</p>
-<pre><code class="language-shell">sudo chown /var/www/ghost
+<pre><code class="language-shell"># 解决方法
+sudo chown /var/www/ghost
 </code></pre>
-<p>这是更新准备时出现的报错，从 Ghost-CLI 1.5.0 开始，root不允许运行 Ghost 命令。因此，需要将当前安装迁移到新的 Linux 用户。</p>
+<ul>
+<li>更新前出现报错 =&gt; ghost-cli@1.5.0 后 root 不允许运行 Ghost 命令，需要将当前安装迁移到新的 Linux 用户</li>
+</ul>
 <pre><code class="language-shell">We discovered that you are using the DigitalOcean One-Click install. You need to create a user with regular account privileges and migrate your installation to this user.
 </code></pre>
-<p>添加一个新用户，并将用户添加到 sudo 组。</p>
+<ul>
+<li>增加一个新用户，并添加到 sudo 组</li>
+</ul>
 <pre><code class="language-shell">$ adduser &lt;user&gt;
 $ usermod -aG sudo &lt;user&gt;
 </code></pre>
-<p>创建一个新的实例文件移动到指定位置，最后文件从属关系给予新用户。</p>
-<pre><code class="language-shell">mkdir -p /home/&lt;user&gt;/.ghost/
-
-chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost
-
-mv /root/.ghost/config /home/&lt;user&gt;/.ghost/config
-
-chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost/config
+<ul>
+<li>创建新实例文件并移动到指定的位置 =&gt; 文件从属关系给予新用户</li>
+</ul>
+<pre><code class="language-shell">$ mkdir -p /home/&lt;user&gt;/.ghost/
+$ chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost
+$ mv /root/.ghost/config /home/&lt;user&gt;/.ghost/config
+$ chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost/config
 </code></pre>
-<p>接下来切换到 Ghost 安装目录（/var/www/ghost/在 DigitOcean One-Click 安装中是默认的）以更改安装文件的所有权。</p>
+<ul>
+<li>切换到 ghost 安装目录 /var/www/ghost 以更改所有权，并以新身份登录</li>
+</ul>
 <pre><code class="language-shell">$ cd /var/www/ghost
 $ find . -group root -user root -exec chown &lt;user&gt;:&lt;user&gt; {} \;
+$ su - &lt;user&gt;
 </code></pre>
-<p>以新用户身份登录。</p>
-<pre><code class="language-shell">$ su - &lt;user&gt;
-</code></pre>
-<p>完成后则可继续进行 ghost 更新。</p>
+<ul>
+<li>继续 ghost 更新；启动后为非 https 状态，需配置 config.production.json 文件后重启</li>
+</ul>
 <pre><code class="language-shell">$ ghost update v3
 + sudo systemctl is-active ghost_zairesinatra-com
 ✔ Checking system Node.js version - found v14.17.2
@@ -595,8 +612,7 @@ Please review the full list of breaking changes at https://ghost.org/docs/change
 ✔ Linking latest Ghost and recording versions
 ✔ Removing old Ghost versions
 </code></pre>
-<p>完成启动后非 https 状态，配置 config.production.json 文件后重启即可。</p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="nginx">Nginx</h2>
+<h3 id="nginx">Nginx</h3>
 <p>考虑到直接输入根域名重定向到 www 的页面，在 ghost 自带生成的 nginx ssl 配置外，额外自行写一个 nginx 重定向的 conf 配置。</p>
 <pre><code class="language-shell"># sites-available 中的 zs.com-ssl.conf
 server {
@@ -633,7 +649,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 # 重启服务
 $ sudo nginx -s reload
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="lets-encrypt">Let's Encrypt</h2>
+<h3 id="lets-encrypt">Let's Encrypt</h3>
 <p>收到官方邮件的提醒，表示在一定时间后 LetsEncrypt 的证书将要到期，这里值得注意的是，通过 Ghost 集成的 LetsEncrypt 证书只有 90 天的有效期，意味着需要一个季度手动更新一次。</p>
 <blockquote>
 <p>Your certificate (or certificates) for the names listed below will expire in 17 days (on 20 Jul 19 07:56 +0000). Please make sure to renew your certificate before then, or visitors to your web site will encounter errors.<br>
@@ -659,6 +675,84 @@ sudo su
 <li>check expiry date of SSL cert for ghost blog =&gt; <a href="https://www.thesslstore.com/knowledgebase/ssl-support/how-to-check-a-certificates-expiration-date-chrome/">clickme</a></li>
 </ul>
 <p>Chrome 中点开 view site information 并选择 connection is secure，在 certificate is valid 中查看。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%89%88%E6%9C%AC%E8%BF%AD%E4%BB%A3">版本迭代</h2>
+<p>由于 Ghost 或 Node 版本的更新会导致部分内容存在不兼容的情况，此章节记录对于这种改动处理时需要注意的方面。</p>
+<h3 id="node-%E5%8D%87%E7%BA%A7">Node 升级</h3>
+<pre><code class="language-shell">$ npm install -g ghost-cli@latest
+added 491 packages, and audited 492 packages in 24s
+41 packages are looking for funding
+  run `npm fund` for details
+6 vulnerabilities (5 moderate, 1 high)
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+Run `npm audit` for details.
+</code></pre>
+<p><a href="https://docs.npmjs.com/cli/v8/commands/npm-audit">npm audit</a> 命令将项目中配置的依赖项的描述提交到默认注册表，并要求报告已知漏洞。如果发现任何漏洞，将计算影响和适当的补救措施。如果没有发现漏洞，该命令将以 0 退出代码退出；若某些漏洞无法自动修复，则需要人工干预或审查。</p>
+<pre><code class="language-shell">$ npm audit fix --force
+npm WARN using --force Recommended protections disabled.
+npm ERR! code ENOLOCK
+npm ERR! audit This command requires an existing lockfile.
+npm ERR! audit Try creating one first with: npm i --package-lock-only
+npm ERR! audit Original error: loadVirtual requires existing shrinkwrap file
+npm ERR! A complete log of this run can be found in: /Users/xieziyi/.npm/_logs/2022-07-27T05_03_02_392-debug-0.log
+</code></pre>
+<p>执行指导修复的代码 <code>npm i --package-lock-only</code>，没有 package.json 文件。</p>
+<pre><code class="language-shell">$ npm i --package-lock-only
+npm ERR! code ENOENT
+npm ERR! syscall open
+npm ERR! path /Users/xieziyi/package.json
+npm ERR! errno -2
+npm ERR! enoent ENOENT: no such file or directory, open '/Users/xieziyi/package.json'
+npm ERR! enoent This is related to npm not being able to find a file.
+npm ERR! enoent
+npm ERR! A complete log of this run can be found in:
+npm ERR! /Users/xieziyi/.npm/_logs/2022-07-27T05_03_19_779Z-debug-0.log
+</code></pre>
+<p>在当前目录进行 npm 初始化创建 package.json 文件。</p>
+<pre><code class="language-shell">$ cd /Users/xieziyi
+$ npm init -y
+Wrote to /Users/xieziyi/package-json:{...}
+$ npm install -g ghost-cli@latest
+changed 491 packages, and audited 492 packages in 3s
+41 packages are looking for funding
+  run `npm fund` for details
+6 vulnerabilities (5 moderate, 1 high)
+To address all issues (including breaking changes), run: npm audit fix --force
+Run `npm audit` for details.
+$ npm fund
+xieziyi@1.0.0
+$ npm audit fix --force
+npm WARN using --force Recommended protections disabled.
+up to date, audited 1 package in 89ms
+found 0 vulnerabilities
+</code></pre>
+<h3 id="ghost-%E5%8D%87%E7%BA%A7">Ghost 升级</h3>
+<p>ghost update 会取代旧版本服务，对于旧版文件的更改将失效，需要在新 version 中再次进行配置。</p>
+<ul>
+<li>2022-08-21 更新 =&gt; v5.10.1</li>
+</ul>
+<p><a href="https://ghost.org/integrations/disqus/">Disqus</a> 在 Ghost v5.10.1 中不再有 65-69 行的评论代码块提示。可在 Ghost 新增特性 comments 代码块下追加 Disqus 代码。</p>
+<pre><code class="language-hbs">{{#if comments}}
+    &lt;section class=&quot;article-comments gh-canvas&quot;&gt;
+        {{comments}}
+    &lt;/section&gt;
+{{/if}}
+&lt;section class=&quot;article-comments gh-canvas&quot;&gt;
+    &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var disqus_config = function () {
+            this.page.url = &quot;{{url absolute=&quot;true&quot;}}&quot;;
+            this.page.identifier = &quot;ghost-{{comment_id}}&quot;
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zsxzy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    &lt;/script&gt;
+&lt;/section&gt;
+</code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
 <p>迁移一开始很顺利，Ghost 支持导出所有文章内容。然而内置 Labs 以 json 文件导入文章的功能并不适用于导入图像。使用 FTP 连接服务器并将所有的图像直接复制到 content/images/ 文件夹后，看起来一切正常。但是次日写了一篇新帖，在准备上传文章图片时，却提示上传失败，原因是内部服务器错误。</p>
 <p>Ghost 无法将图像保存在 content 文件夹中通常应该从权限方面考虑。众所周知，应该使用 ghost 用户访问和修改博客的内容。就我而言，可能因为是复制粘贴的 images-backup 文件夹，所以会具有不同用户权限，这就阻止了 Ghost 保存图像。</p>
@@ -716,30 +810,40 @@ Sharp wasn't installed
 $ stat /var/www/&lt;ghost-blog&gt;
 $ ghost setup # or ghost setup systemd
 </code></pre>
+<p>由于没有针对 Apple 新 M1 芯片（arm64 架构）的 15.x 之前版本的预编译 NodeJS 二进制文件。在使用 nvm 时遇到了一些问题：使用 <code>nvm install v14.15.4</code> 安装 Node 时，存在 C 代码编译成功，但是因内存不足错误而崩溃的情况。</p>
+<pre><code class="language-shell"># 为下载预编译的 x64 二进制文件 =&gt; 将 shell 的体系结构从 arm64 更改为 x86
+$ arch -x86_64 zsh
+# 输出机器的体系结构 =&gt; 结果有 i386、i486、mips、alpha
+$ arch
+i386
+# 使用 nvm 安装节点
+$ nvm install v14.17.1
+# 检查架构是否正确
+node -p process.arch
+x86
+</code></pre>
+<p>多提一句，体系结构的粘性是从 Rosetta 在 PowerPC 到 Intel 过渡中的工作方式的一种变化，在 macOS Big Sur 中，如果可以最大程度地提高兼容性，子进程将更喜欢父进程的架构。因此，例如启动 x86_64 sh 将导致来自该 shell 的 python 调用也是 x86_64。</p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 <!--kg-card-end: markdown-->
     </section>
 
 
-    
-    <section class="article-comments gh-canvas">
-        <div id="disqus_thread"></div>
-        <script>
-            var disqus_config = function () {
-                this.page.url = "yourdomain.com/newghostzs/";
-                this.page.identifier = "ghost-60fac2bca763a10c85416efc"
-            };
-            (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://zsxzy.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-        </script>
-    </section>
-   
-
+<section class="article-comments gh-canvas">
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "yourdomain.com/newghostzs/";
+            this.page.identifier = "ghost-60fac2bca763a10c85416efc"
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zsxzy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+</section>
 </article>
 </main>
 
@@ -788,46 +892,7 @@ $ ghost setup # or ghost setup systemd
 
         <footer class="post-card-meta">
             <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
-                <span class="sep">—</span>
                 <span class="post-card-meta-length">6 min read</span>
-        </footer>
-
-    </div>
-
-</article>
-                        
-<article class="post-card post">
-
-    <a class="post-card-image-link" href="../mybatis/index.html">
-
-        <img class="post-card-image"
-            srcset="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg 600w"
-            sizes="(max-width: 1000px) 400px, 800px"
-            src="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg"
-            alt="Green Trees Under Blue Sky"
-            loading="lazy"
-        />
-
-
-    </a>
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="../mybatis/index.html">
-            <header class="post-card-header">
-                <div class="post-card-tags">
-                </div>
-                <h2 class="post-card-title">
-                    MyBatis
-                </h2>
-            </header>
-                <div class="post-card-excerpt">半自动 ORM Object Relation Mapping 持久层框架 MyBatis</div>
-        </a>
-
-        <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="2022-02-02">Feb 2, 2022</time>
-                <span class="sep">—</span>
-                <span class="post-card-meta-length">44 min read</span>
         </footer>
 
     </div>
@@ -864,8 +929,44 @@ $ ghost setup # or ghost setup systemd
 
         <footer class="post-card-meta">
             <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
-                <span class="sep">—</span>
                 <span class="post-card-meta-length">82 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../zu-jian-tong-xun/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/treecommunicate.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/treecommunicate.jpg"
+            alt="Component communication"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../zu-jian-tong-xun/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    组件通讯
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Vuex|Redux|Pinia</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-10-01">Oct 1, 2021</time>
+                <span class="post-card-meta-length">25 min read</span>
         </footer>
 
     </div>
@@ -896,7 +997,7 @@ $ ghost setup # or ghost setup systemd
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=ab47967965"></script>
+<script src="../assets/built/casper.js%3Fv=977d3f47b0"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
@@ -918,6 +1019,9 @@ $(document).ready(function () {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-less.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sass.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-scss.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 <script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
@@ -934,39 +1038,49 @@ $(document).ready(function () {
 		})
 </script>
 <!-- music -->
-<div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div>
+<!-- <div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div> -->
+<!-- <a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021003061号-1</a> -->
+
+<!-- searchinghost-easy -->
+<script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
+<script>
+    new SearchinGhostEasy({
+        contentApiKey: 'e93d8b3520ae46be52c9a4b140'
+    });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
 <script>
-    tocbot.init({
-        tocSelector: '.toc',
-        contentSelector: '.gh-content',
-        hasInnerContainers: true
-    });
-    var tc = document.querySelector(".toc-container");
-    var tch = tc.clientHeight;
-    var ah = document.querySelector(".article-header");
-    var ahh = ah.clientHeight;
-    window.addEventListener("scroll", function () {
-    if(document.body.clientWidth > 1170){
-        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-        var ihh = window.innerHeight;
-        if(scrollY >= ihh + tch + ahh){
-            var ctc = document.querySelector(".toc-container");
-            ctc.style.position="sticky";
-            ctc.style.position="-webkit-sticky";
-            ctc.style.top = "120px";
-            ctc.style.marginLeft = "800px";
-            ctc.style.minWidth= "260px";
-        }
-        if(scrollY < tch + ahh -10){
-            var ctc = document.querySelector(".toc-container");
-            ctc.style.position="";
-            ctc.style.top = "";
-            ctc.style.marginLeft = "";
-            console.log("zszszs")
-        }
-    }
-    })
+  tocbot.init({
+    tocSelector: '.toc',
+    contentSelector: '.gh-content',
+    hasInnerContainers: true
+  });
+  var tc = document.querySelector(".toc-container");
+var tch = tc.clientHeight;
+var ah = document.querySelector(".article-header");
+var ahh = ah.clientHeight;
+window.addEventListener("scroll", function () {
+if(document.body.clientWidth > 1170){
+  var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+  var ihh = window.innerHeight;
+  if(scrollY >= ihh + tch + ahh){
+    var ctc = document.querySelector(".toc-container");
+    ctc.style.position="sticky";
+    ctc.style.position="-webkit-sticky";
+    ctc.style.top = "120px";
+    ctc.style.marginLeft = "800px";
+    ctc.style.minWidth= "260px";
+  }
+  if(scrollY < tch + ahh -10){
+    var ctc = document.querySelector(".toc-container");
+    ctc.style.position="";
+    ctc.style.top = "";
+    ctc.style.marginLeft = "";
+    console.log("zszszs")
+  }
+}})
+
 </script>
+
 </body>
 </html>

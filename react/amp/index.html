@@ -4,31 +4,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
-    <title>React Hooks</title>
+    <title>React</title>
 
-    <meta name="description" content="常用 React hooks 总结" />
+    <meta name="description" content="React (also known as React.js or ReactJS) &amp; Meta" />
     <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="React Hooks" />
-    <meta property="og:description" content="常用 React hooks 总结" />
+    <meta property="og:title" content="React" />
+    <meta property="og:description" content="React (also known as React.js or ReactJS) &amp; Meta" />
     <meta property="og:url" content="yourdomain.com/react/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/09/react-hooks.jpg" />
-    <meta property="article:published_time" content="2021-05-16T14:57:00.000Z" />
-    <meta property="article:modified_time" content="2021-09-16T15:58:14.000Z" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/08/React.png" />
+    <meta property="article:published_time" content="2021-03-04T11:42:00.000Z" />
+    <meta property="article:modified_time" content="2022-11-13T14:34:35.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="React Hooks" />
-    <meta name="twitter:description" content="常用 React hooks 总结" />
+    <meta name="twitter:title" content="React" />
+    <meta name="twitter:description" content="React (also known as React.js or ReactJS) &amp; Meta" />
     <meta name="twitter:url" content="yourdomain.com/react/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/09/react-hooks.jpg" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/08/React.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
     <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="1621" />
-    <meta property="og:image:height" content="1081" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
     
     <script type="application/ld+json">
 {
@@ -57,17 +61,18 @@
         "url": "yourdomain.com/author/ziyi/",
         "sameAs": []
     },
-    "headline": "React Hooks",
+    "headline": "React",
     "url": "yourdomain.com/react/",
-    "datePublished": "2021-05-16T14:57:00.000Z",
-    "dateModified": "2021-09-16T15:58:14.000Z",
+    "datePublished": "2021-03-04T11:42:00.000Z",
+    "dateModified": "2022-11-13T14:34:35.000Z",
     "image": {
         "@type": "ImageObject",
-        "url": "yourdomain.com/content/images/2021/09/react-hooks.jpg",
-        "width": 1621,
-        "height": 1081
+        "url": "yourdomain.com/content/images/2022/08/React.png",
+        "width": 1920,
+        "height": 1080
     },
-    "description": "常用 React hooks 总结",
+    "keywords": "Technology growth",
+    "description": "React (also known as React.js or ReactJS) &amp; Meta",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -75,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1062,26 +1067,280 @@
         <article class="post">
 
             <header class="post-header">
-                <h1 class="post-title">React Hooks</h1>
+                <h1 class="post-title">React</h1>
                 <section class="post-meta">
                     Ziyi Xie -
-                    <time class="post-date" datetime="2021-05-16">16 May 2021</time>
+                    <time class="post-date" datetime="2021-03-04">04 Mar 2021</time>
                 </section>
             </header>
             <figure class="post-image">
-                <amp-img src="yourdomain.com/content/images/2021/09/react-hooks.jpg" width="600" height="340" layout="responsive" 
-                alt="ReactHooks"
+                <amp-img src="yourdomain.com/content/images/2022/08/React.png" width="600" height="340" layout="responsive" 
+                alt="React"
                 ></amp-img>
             </figure>
             <section class="post-content">
 
-                <p>Hook 是 React 16.8 的新特性。可以在不编写 class 的情况下使用 state 以及其他的 React 特性。Hook 不能出现在条件判断语句中，因为必须保持完全一样的渲染顺序。将组件作为纯粹的传递数据的管道就是 Hooks 存在的意义。</p><h2 id="usestate-%E7%8A%B6%E6%80%81%E9%92%A9%E5%AD%90">useState 状态钩子</h2>
-<p>纯函数组件没有状态，故可以通过 useState 为函数组件引入状态。useState 接受状态的初始值作为参数，并返回一个数组，其中数组第一项为一个变量，指向状态的当前值，类似 this.state。第二项是一个函数，用来更新状态，类似 this.setState。该函数的命名约定 set 前缀加状态变量名。</p>
+                <h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<p>React 主要负责 MVC 中视图层 View 的渲染。库 react 和 react-dom 分别用于创建和渲染元素。</p>
+<ul>
+<li>React.createElement 的参数分别是元素名、元素属性和子节点|文本节点</li>
+<li>render 的参数是待渲染元素和页面元素挂载点；返回值描述页面的内容</li>
+</ul>
+<pre><code class="language-jsx">import React from 'react'; // 提供 React.StrictMode
+import ReactDOM from 'react-dom/client';
+...
+const title = React.createElement('h1', null, 'Hello React') // 创建 react 元素
+ReactDOM.render(title, document.getElementById('root')) // 渲染 react 元素到页面
+</code></pre>
+<h3 id="jsx-javascript-xml"><a href="https://reactjs.org/docs/introducing-jsx.html">JSX</a> =&gt; JavaScript XML</h3>
+<blockquote>
+<p>React embraces the fact that rendering logic is inherently coupled with other UI logic =&gt; 事件处理、状态改变、数据渲染 -&gt; 互相影响</p>
+</blockquote>
+<blockquote>
+<p>Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.<br />
+class  =&gt;  className in JSX, tabindex  =&gt;  tabIndex, and for =&gt; htmlFor</p>
+</blockquote>
+<pre><code class="language-jsx">/* input 标签点 label 获取焦点 */
+&lt;label for="username"&gt;username：&lt;/label&gt; // Native
+&lt;label htmlFor="username"&gt;username：&lt;/label&gt; // React
+&lt;input type="text" id="username"&gt;&lt;/input&gt;
+</code></pre>
+<p>作为 React.createElement 的语法糖，JSX 是经 @babel/preset-react 包下的 Babel 配置完成转义。React.createElement 调用后会产生称作 React 元素的对象。</p>
+<pre><code class="language-jsx">const element = ( &lt;h1 className="greeting"&gt; Hello, world! &lt;/h1&gt; ); // 转义前
+const element = React.createElement( 'h1', {className: 'greeting'}, 'Hello, world!' );
+</code></pre>
+<pre><code class="language-jsx">// React 通过读取这些对象来构建 DOM 以及保持随时的更新
+const element = { type: 'h1', props: { className: 'greeting', children: 'Hello, world!' } };
+</code></pre>
+<ul>
+<li>JSX 是 React 声明式的体现，React.createElement 是命名式的体现</li>
+<li>JSX 中可以使用花括号嵌入 JavaScript 表达式，不可以嵌入语句</li>
+</ul>
+<p>语句会产生能用变量接收结果值，可以放在任何需要值的位置。不同于依靠框架提供的语法增强 HTML 结构，React 利用语言自身能力编写结构的需要。</p>
+<p>由于没有指令的概念，条件渲染需要通过标识变量，列表渲染需要在花括号中使用数组原型的 map 方法。</p>
+<ul>
+<li>React 在样式处理中推荐行内样式而非类名，开发中推荐使用 className</li>
+</ul>
+<pre><code class="language-jsx">// 行内样式可以具有多个 =&gt; 对象形式
+var styleObj = {color: 'black', backgroundColor: 'white'}
+&lt;h1 style={styleObj}&gt; JSX 样式 &lt;/h1&gt;
+&lt;h1 style={{color: 'black', backgroundColor: 'white'}}&gt; JSX 样式 &lt;/h1&gt; // 双花括号不是语法 =&gt; 只有单花括号是
+</code></pre>
+<h3 id="components">Components</h3>
+<ul>
+<li><a href="https://reactjs.org/docs/components-and-props.html">函数组件和类组件</a> Function and Class Components</li>
+</ul>
+<blockquote>
+<p>函数组件没有状态，接收唯一带有数据的 props 属性对象，并返回一个 React 元素。函数名必须用大写字母开头，以区分组件与普通 React 元素</p>
+</blockquote>
+<pre><code class="language-jsx">function Hello(props) { return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;; }
+const Hello = (props) =&gt; &lt;div&gt;Hello, {props.name}&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>类组件使用 ES6 的 class 定义，普通类继承 React.Component 才能成为组件类</p>
+</blockquote>
+<pre><code class="language-jsx">class Hello extends React.Component { render() { return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;; } }
+</code></pre>
+<p>类组件的具体渲染效果依靠渲染函数，所以渲染函数必须有表示该组件结构的返回值。解析类组件标签时，会先 new 出该类的实例，并调用原型上的 render 方法。</p>
+<pre><code class="language-jsx">ReactDom.render(&lt;App&gt;, document.getElementById("#root")) // 自动转换以下写法
+ReactDom.render(new App({name: react}).render(), document.getElementById("#root")) 
+</code></pre>
+<p>函数组件和类组件在不需要渲染内容时可直接返回 null。</p>
+<p>除非要对实例初始化指定属性，类组件的构造器不是必须的。当子类继承父类，且子类指定构造器时，子类构造器中的 super 函数必须调用。因为子类继承父类时没有 this，需通过 super 绑定父类的 this，同 sup.prototype.constructor.call(sub)。</p>
+<ul>
+<li>组件实例属性 state &amp; props</li>
+</ul>
+<blockquote>
+<p>自定义组件会将 JSX 所接收的属性 attributes 以及子组件 children 转换为单个对象传递给组件，这个对象被称之为 props。<br />
+组件无论是使用函数声明还是通过 class 声明，都绝不能修改自身的 props。</p>
+</blockquote>
+<pre><code class="language-jsx">function Hello(props) { return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;; }
+// class Hello extends React.Component { render() { return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;; } }
+const root = ReactDOM.createRoot(document.getElementById('root'));
+const element = &lt;Hello name="IcedAmericano" /&gt;;
+root.render(element);
+</code></pre>
+<blockquote>
+<p>state 与 props 类似，但是 state 是私有的，并且完全受控于当前组件，是组件的内部状态。</p>
+</blockquote>
+<p>直接修改 state 并不会重新渲染组件，state 修改应该使用 setState()。setState() 的作用是修改 state 并更新页面。构造函数是唯一能给 this.state 赋值的位置。</p>
+<pre><code class="language-jsx">this.state.comment = 'Hello'; // Wrong
+this.setState({comment: 'Hello'}); // Correct
+</code></pre>
+<blockquote>
+<p>state 的更新可能是异步的。出于性能考虑，React 可能会把多个 setState() 调用合并成一个调用。因为 this.props 和 this.state 可能会异步更新，所以不要依赖这些值来更新下一个状态。要解决此问题，可以让 <a href="https://zh-hans.reactjs.org/docs/react-component.html#setstate">setState()</a> 接收函数而不是对象。</p>
+</blockquote>
+<p>传入对象参数是传入函数参数的语法糖。若新状态不依赖于原状态，可以使用对象参数；若新状态依赖于原状态，需要使用函数参数。</p>
+<pre><code class="language-jsx">this.setState({ counter: this.state.counter + this.props.increment }); // Wrong
+this.setState((state, props) =&gt; ({ counter: state.counter + props.increment })); // Correct
+this.setState(function(state, props) { return { counter: state.counter + props.increment }; }); // Correct
+</code></pre>
+<p>setState() =&gt; 是主线程调用的同步方法，但其更新数据状态的动作是异步的。</p>
+<p>函数 render 中不能调用 setState()。渲染函数作为纯函数，其返回结果完全取决于 this.state 和 this.props，期间不应该造成任何副作用（副作用即状态改变）。</p>
+<blockquote>
+<p>React <a href="https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down">单向数据流</a> =&gt; 任何的 state 总是所属于特定的组件，且从该 state 派生的任何数据或 UI 只能影响树中"更低"的组件。</p>
+</blockquote>
+<amp-iframe src="https://codesandbox.io/embed/comment-react-uh0yil?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="Comment-React" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe>
+<ul>
+<li>
+<p>列表渲染 <a href="https://reactjs.org/docs/lists-and-keys.html#keys">key</a> 应就近数组上下文；在 map() 方法中元素需要设置 key 属性</p>
+</li>
+<li>
+<p><a href="https://reactjs.org/docs/forms.html#controlled-components">受控组件</a> =&gt; React 的表单元素自行维护 state，并根据用户输入进行更新</p>
+</li>
+</ul>
+<h3 id="handling-events">Handling Events</h3>
+<p>React <a href="https://reactjs.org/docs/handling-events.html">事件</a>的命名采用 camelCase，而不是纯小写；在 JSX 语法中需要传入函数作为事件处理函数，而不是字符串。</p>
+<pre><code class="language-jsx">&lt;button onclick="btnFunc()"&gt;Click me&lt;/button&gt; // 原生标签内调用函数
+</code></pre>
+<p>类组件绑定事件函数时需要用到 this，代表指向当前的类的引用；函数组件中不需要调用 this。</p>
+<pre><code class="language-jsx">&lt;button onClick={btnFunc}&gt;Click me&lt;/button&gt; // React
+</code></pre>
+<p>元素在 JSX 中所绑定的事件先会经 Babel 转换成 React.createElement 的形式，再转成 fiber 对象。对象属性 memoizedProps 和 pendingProps 保存具体事件。</p>
+<pre><code class="language-jsx">&lt;button onClick={ this.handerClick }&gt;Click Me&lt;/button&gt;
+React.createElement ("button", { onClick: this.handerClick }, "\u{43}\u{6c}\u{69}\u{63}\u{6b}\u{20}\u{4d}\u{65}")
+child: FiberNode { memoizedProps: {children: "Click Me", onClick: f}, pendingProps: {children: "Click Me", onClick: f} }
+</code></pre>
+<p>React 17 不再将事件添加于 document，而是绑定根节点容器。方便局部升级。</p>
+<pre><code class="language-jsx">const rootNodeContainer = document.getElementById('root');
+ReactDOM.render(&lt;App /&gt;, rootNodeContainer);
+</code></pre>
+<p>事件不会注册在具体元素节点，而是采取事件代理模式，利用冒泡指定事件处理程序，等冒泡到根节点再通过 event.target 找到真实触发的事件源。</p>
+<pre><code class="language-jsx">// 真实节点上的处理函数被替换为空函数 noop
+elementName
+  useCapture: false
+  passive: false
+  once: false
+  handler: f noop()
+</code></pre>
+<p>并非在初始时将所有事件绑定在根节点容器上，而是采取按需绑定，在发现具体合成事件后，再去绑定根节点容器的原生事件。事件触发时，通过调度离散事件函数 dispatchDiscreteEvent 将指定的函数执行。</p>
+<blockquote>
+<p>React <a href="https://reactjs.org/docs/events.html">合成事件</a> SyntheticEvent 是模拟原生 DOM 事件所有能力的事件对象，即浏览器原生事件的跨浏览器包装器。</p>
+</blockquote>
+<blockquote>
+<p>此外不能通过返回 false 的方式阻止默认行为。必须显式地使用 preventDefault。</p>
+</blockquote>
+<pre><code class="language-jsx">// 传统的 HTML 中阻止表单的默认提交行为
+&lt;form onsubmit="console.log('You clicked submit.'); return false"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="language-jsx">// React
+function Form() {
+  function handleSubmit(e) { e.preventDefault(); console.log('You clicked submit.'); }
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}
+</code></pre>
+<ul>
+<li>this for the methods in JSX</li>
+</ul>
+<p>render 中 this 指向类组件实例，与 render 平级的方法中 this 为 undefined。</p>
+<p>处理事件回调函数中 this 的指向时，通常用箭头函数与 bind 绑定。</p>
+<pre><code class="language-jsx">/* 方式一 =&gt; 在 render 中使用行内箭头函数 */
+class ArrowFunctionBindTest extends React.Component {
+  // handleFunc() { console.log('this is:', this); };
+  handleFunc = () =&gt; { console.log('this is:', this); };
+  render() {
+    return (
+      // 事件处理函数用箭头函数表示 =&gt; 回调函数可使用箭头函数表示或函数声明表示
+      // 箭头函数 this 指向外部函数的 this =&gt; 回调函数因自主调用 this 指向类组件实例
+      &lt;button onClick={() =&gt; this.handleFunc()}&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre>
+<pre><code class="language-jsx">/* 方式二 =&gt; 组件内使用箭头函数定义方法 */
+class ArrowFunctionBindTest extends React.Component {
+  handleFunc = () =&gt; { console.log('this is:', this); }; // 回调函数用箭头函数表示
+  render() {
+    return (
+      &lt;button onClick={ this.handleFunc }&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre>
+<pre><code class="language-jsx">/* 方式三 =&gt; 在 render 中对事件处理函数绑定 this */
+class ArrowFunctionBindTest extends React.Component {
+  handleFunc() { console.log('this is:', this); }
+  // handleFunc = () =&gt; { console.log('this is:', this); };
+  render() {
+    return (
+      // 事件处理函数用 bind 绑定 =&gt; 回调函数可使用箭头函数表示或函数声明表示
+      &lt;button onClick={ this.handleFunc.bind(this) }&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre>
+<pre><code class="language-jsx">/* 方式四 =&gt; 在构造器中绑定 this */
+class ArrowFunctionBindTest extends React.Component {
+  constructor(props) {
+    super(props)
+    // 原型 handleFunc 中 this 指向实例 =&gt; bind 的函数挂载到实例自身并命名为 handleFunc
+    this.handleFunc = this.handleFunc.bind(this)
+  }
+  handleFunc() { console.log('this is:', this); }
+  // handleFunc = () =&gt; { console.log('this is:', this); };
+  render() {
+    return (
+      // 事件处理函数用 bind 绑定 =&gt; 回调函数可使用箭头函数表示或函数声明表示
+      &lt;button onClick={ this.handleFunc }&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre>
+<pre><code class="language-jsx">/* 方式五 =&gt; 事件处理函数用箭头函数表示且直接写回调函数 */
+class ArrowFunctionBindTest extends React.Component {
+  render() {
+    return (
+      &lt;button onClick={ () =&gt; { console.log('this is:', this); } }&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre>
+<p>自行封装的组件进行 <a href="https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html">props 校验</a>：</p>
+<ol>
+<li>安装：<code>yarn add prop-types</code></li>
+<li>导入 PropTypes：<code>import PropTypes from 'prop-types'</code></li>
+<li>给组件属性添加 props 校验：</li>
+</ol>
+<pre><code class="language-jsx">组件.propTypes = {
+    属性1: PropTypes.string.isrequired,
+    属性2: PropTypes.func
+}
+</code></pre>
+<h2 id="react-hooks-react168">React Hooks =&gt; React16.8</h2>
+<blockquote>
+<p>Hook 可以在不编写类组件的情况下使用状态以及其他的 React 特性。</p>
+</blockquote>
+<blockquote>
+<p>React 复用组件的逻辑通常会采用 render prop 或 HOC，但这会存在嵌套地狱的问题。Hook 从组件中提取状态逻辑，即可在无需修改组件结构的情况下复用状态逻辑。</p>
+</blockquote>
+<p>Hook 本质是 JavaScript 函数。Hook 只在最顶层使用、只在 React 函数中调用。</p>
+<h3 id="%E8%87%AA%E5%8F%98%E9%87%8F-hook">自变量 Hook</h3>
+<ul>
+<li>纯函数组件没有状态 =&gt; 通过 useState 为函数组件引入状态</li>
+</ul>
+<pre><code class="language-jsx">setXxx(newValue) or setXxx(value =&gt; newValue)
+</code></pre>
+<p>useState 接受状态的初始值作为参数，并返回一个数组。useState 的返回值通过数组解构创建状态变量和更新状态变量的函数。</p>
 <pre><code class="language-js">import React, { useState } from "react";
 
-function UseStatehook() {
-  // ES6语法中的数组解构
-  const [name, setName] = useState("zstheyi");
+function UseStateHook() {
+  const [name, setName] = useState("hello useState");
   const [age, setAge] = useState(22);
   const [work, setWork] = useState("frontendenv");
   return (
@@ -1089,19 +1348,20 @@ function UseStatehook() {
       &lt;span&gt;{name}&lt;/span&gt;&amp;nbsp;&amp;nbsp;
       &lt;span&gt;{age}&lt;/span&gt;&amp;nbsp;&amp;nbsp;
       &lt;span&gt;{work}&lt;/span&gt;&amp;nbsp;
+      &lt;br /&gt;
+      &lt;button
+        onClick={() =&gt; {
+          setName((name) =&gt; name.split("").reverse().join(""));
+        }}
+      &gt;
+        change my name
+      &lt;/button&gt;
       &lt;button
         onClick={() =&gt; {
           setAge(age + 1);
         }}
       &gt;
         click me add age
-      &lt;/button&gt;
-      &lt;button
-        onClick={() =&gt; {
-          setName("zsxzy");
-        }}
-      &gt;
-        change my name
       &lt;/button&gt;
       &lt;button
         onClick={() =&gt; {
@@ -1113,12 +1373,47 @@ function UseStatehook() {
     &lt;/div&gt;
   );
 }
-export default UseStatehook;
+export default UseStateHook;
 </code></pre>
-<h2 id="usecontext-%E5%85%B1%E4%BA%AB%E7%8A%B6%E6%80%81%E9%92%A9%E5%AD%90">useContext 共享状态钩子</h2>
-<p>useContext hook 的作用是在组件之间共享状态。众所周知，Context 作用是状态的分发，避免 react 逐层通过 props 传递数据。</p>
-<pre><code class="language-js">import React, { useState, createContext, useContext } from "react";
-// CountContext就是一个组件
+<p>若使用单个状态变量，每次更新状态时需要合并之前的状态。类组件 setState 会把更新的字段自动合并到状态对象，而 useState 返回的 setXxx 会替换原来的值。</p>
+<pre><code class="language-js">const [state, setState] = useState({ key01: val01, key02: val02, key03: val03, key04: val04 });
+setState(state =&gt; ({ ...state, key01: val001, key02: val002 }));
+</code></pre>
+<p>不相关的状态推荐拆分为多组状态变量；相互关联或互相依赖的的状态建议合并为单组状态变量。把独立的状态变量拆分开还有另外的好处。在后期将一些相关的逻辑抽取到一个自定义 Hook 变得更容易。</p>
+<pre><code class="language-js">function Box() {
+  const position = useWindowPosition();
+  const [size, setSize] = useState({ width: 100, height: 100 });
+  // ...
+}
+
+function useWindowPosition() {
+  const [position, setPosition] = useState({ left: 0, top: 0 });
+  useEffect(() =&gt; {
+    // ...
+  }, []);
+  return position;
+}
+</code></pre>
+<ul>
+<li>组件之间共享状态 Hook =&gt; useContext</li>
+</ul>
+<p>Context 上下文状态分发用于替代 React 逐层以 props 传递的全局数据。</p>
+<pre><code class="language-jsx">Context 常用 API =&gt; React.createContext、Context.Provider、Context.Consumer、Class.contextType、Context.displayName
+</code></pre>
+<p>当组件上层最近的 &lt;XxxContext.Provider&gt; 更新时，该 Hook 会触发重渲染，并使用最新传递的数据。不受限于 React.memo 或 shouldComponentUpdate。</p>
+<p>上下文对象创建时即可初始化传递默认值作参数。实际以 &lt;XxxContext.Provider&gt; 标签中 value prop 决定当前值。</p>
+<pre><code class="language-jsx">const XxxContext = React.createContext(_defaultValue);
+...
+&lt;XxxContext.Provider value=_finalValue&gt;
+  &lt;Isolation /&gt;
+&lt;/XxxContext.Provider&gt;
+</code></pre>
+<p>useContext Hook 的参数必须是上下文对象本身 =&gt; useContext(XxxContext)。</p>
+<pre><code class="language-jsx">const _xxx = useContext(XxxContext);
+...
+_variable01: _xxx.attr01
+</code></pre>
+<pre><code class="language-jsx">import React, { useState, createContext, useContext } from "react";
 const CountContext = createContext();
 function UseContexthook() {
   const [count, setCount] = useState(6);
@@ -1138,109 +1433,39 @@ function UseContexthook() {
     &lt;/div&gt;
   );
 }
-// 穿透隔离组件
-function Isolation() {
+function Isolation() { // 隔离组件
   return (
     &lt;Counter /&gt;
   )
 }
-// 提供接收组件
 function Counter() {
   const count = useContext(CountContext); //一句话就可以得到count
   return &lt;h3&gt;{count}&lt;/h3&gt;;
 }
 export default UseContexthook;
 </code></pre>
-<h2 id="useeffect-%E4%BB%A3%E6%9B%BF%E5%B8%B8%E7%94%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0">useEffect 代替常用生命周期函数</h2>
-<p>类组件通过生命周期函数处理额外的操作（Ajax 请求数据，登录监听和取消登录，手动修改 DOM 等）。useEffect Hook 可以看做 componentDidMount，componentDidUpdate 和 componentWillUnmount 这三个函数的组合，在函数组件中执行副作用操作。值得一提的是 useEffect 中定义的函数执行不会阻碍浏览器更新视图，也就是说这些函数是异步执行的，而类组件生命周期的代码都是同步执行的。useEffect 的第一个参数是一个函数，函数中的执行代码表示期待的副作用操作，返回值为解绑时的操作。useEffect hook 的第二个参数是一个数组，数组中可以写入很多状态对应的变量，意思是当状态值发生变化时才进行解绑。但是当传空数组 [] 时，则为当组件将被销毁才进行解绑，实现精确的 componentWillUnmount 的生命周期函数。</p>
-<pre><code class="language-js">import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-function Index() {
-  useEffect(() =&gt; {
-    console.log("useEffect=&gt;Indexpage");
-    return () =&gt; {
-      console.log("告辞 Index page");
-    };
-    // 当传空数组[]时就是当组件将被销毁时才进行解绑
-  }, []);
-  return &lt;h2&gt;indexxx&lt;/h2&gt;;
-}
-
-function OtherPage() {
-  useEffect(() =&gt; {
-    console.log("useEffect=&gt;otherPage");
-    return () =&gt; {
-      console.log("告辞 Other page");
-    };
-  }, []);
-  return &lt;h2&gt;otherPage&lt;/h2&gt;;
-}
-function useEffectHook() {
-  const [count, setCount] = useState(0);
-  useEffect(() =&gt; {
-    console.log(`useEffect=&gt;You clicked ${count} times`);
-    return () =&gt; {
-      console.log("我销毁了笨蛋");
-    };
-    // 当count变化时接绑
-  }, [count]);
-  return (
-    &lt;div&gt;
-      &lt;p&gt;You clicked {count} times&lt;/p&gt;
-      &lt;button
-        onClick={() =&gt; {
-          setCount(count + 1);
-        }}
-      &gt;
-        click me
-      &lt;/button&gt;
-      &lt;Router&gt;
-        &lt;ul&gt;
-          &lt;li&gt;
-            &lt;Link to="/"&gt;indexPage&lt;/Link&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;Link to="/otherPage"&gt;otherPage&lt;/Link&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;Route path="/" exact component={Index} /&gt;
-        &lt;Route path="/otherPage" component={OtherPage} /&gt;
-      &lt;/Router&gt;
-    &lt;/div&gt;
-  );
-}
-export default useEffectHook;
+<ul>
+<li>状态关联复杂的 useState 替代方案 =&gt; useReducer</li>
+</ul>
+<p>useReducer 适用于多方式更新 state，或依赖于 oldState 的情况。dispatch 可以向深层级的子组件传递。</p>
+<pre><code class="language-jsx">const [state, dispatch] = useReducer(reducer, initialArg, init);
 </code></pre>
-<h2 id="usereducer">useReducer</h2>
-<p>useReducer 是 useState 的替代方案。接收一个 reducer（reducer 是一个函数，接收两个参数，一个是状态，一个用来控制业务逻辑的判断参数。(state, action) =&gt; newState），并返回当前的 state 以及与其配套的 dispatch 方法。在某些场景下，useReducer 会比 useState 更适用，例如 state 逻辑较复杂且包含多个子值，或者下一个 state 依赖于之前的 state 等。并且使用 useReducer 还能给那些会触发深更新的组件做性能优化，因为可以向子组件传递 dispatch 而不是回调函数。useReducer 接收两个参数，第一项是 reducer 函数，第二项是指定初始  state。</p>
-<pre><code class="language-js">import React, { useReducer } from "react";
-const reducerrr = (state, action) =&gt; {
-  switch (action) {
-    case "add":
-      return state + 1;
-    case "sub":
-      return state - 1;
-    case "reset":
-      return state - state;
+<p>reducer =&gt; 接收状态 state 和动作 action，返回与 dispatch 配套的状态更新逻辑。</p>
+<pre><code class="language-jsx">function reducer(state, action) {
+  switch (action.type) {
+    case 'type01':
+      return {xxx: state.xxx + operation01};
+    case 'type02':
+      return {xxx: state.xxx + operation02};
     default:
-      return state;
+      throw new Error();
   }
-};
-function UseReducee() {
-  const [count, dispatch] = useReducer(reducerrr, 0);
-  return (
-    &lt;div&gt;
-      &lt;h2&gt;reduce control {count}&lt;/h2&gt;
-      &lt;button onClick={() =&gt; dispatch("add")}&gt;Increment&lt;/button&gt;
-      &lt;button onClick={() =&gt; dispatch("sub")}&gt;Decrement&lt;/button&gt;
-      &lt;button onClick={() =&gt; dispatch("reset")}&gt;Reset&lt;/button&gt;
-    &lt;/div&gt;
-  );
 }
-
-export default UseReducee;
+...
+&lt;button onClick={() =&gt; dispatch({type: 'type01'})}&gt;operation01&lt;/button&gt;
 </code></pre>
-<p>惰性初始化 state</p>
+<p>惰性初始化创建初始 state =&gt; 将 init 函数作为 useReducer 的第三个参数传入，初始 state 将被设置为 init(initialArg)。</p>
+<p>这么做可以将用于计算 state 的逻辑提取到 reducer 外部，这也为将来对重置 state 的 action 做处理提供便利。</p>
 <pre><code class="language-js">import React, { useReducer } from "react";
 
 const initCount = 0;
@@ -1261,7 +1486,7 @@ const reducer = (state, action) =&gt; {
       throw new Error();
   }
 };
-const UseReduceHook = () =&gt; {
+const UseReducerHook = () =&gt; {
   const [state, dispatch] = useReducer(reducer, initCount, init);
 
   return (
@@ -1286,16 +1511,1303 @@ const UseReduceHook = () =&gt; {
           dispatch({ type: "reset", payload: 999 });
         }}
       &gt;
-        resetTo
+        resetTo 999
       &lt;/button&gt;
     &lt;/div&gt;
   );
 };
-export default UseReduceHook;
+export default UseReducerHook;
 </code></pre>
-<h2>全局代码实现</h2>
-<amp-iframe src="https://codesandbox.io/embed/adoring-chatelet-u0pc9?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="adoring-chatelet-u0pc9" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<blockquote>
+<p>如果 Reducer Hook 的返回值与当前 state 相同，React 将跳过子组件的渲染及副作用的执行。（React 使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#description">Object.is 比较算法</a> 来比较 state。）</p>
+</blockquote>
+<blockquote>
+<p>需要注意的是，React 可能仍需要在跳过渲染前再次渲染该组件。不过由于 React 不会对组件树的“深层”节点进行不必要的渲染，所以大可不必担心。如果你在渲染期间执行了高开销的计算，则可以使用 useMemo 来进行优化。</p>
+</blockquote>
+<h3 id="%E5%9B%A0%E5%8F%98%E9%87%8F-hook">因变量 Hook</h3>
+<ul>
+<li>生命周期替代 =&gt; useEffect Hook</li>
+</ul>
+<p>类组件通过生命周期函数处理副作用操作，但是存在编写重复代码的弊端。此时可以在组件内部调用 useEffect 直接访问 state 变量或其他 props。</p>
+<p>默认 useEffect 在渲染（第一次渲染之后和每次更新）之后都会执行。</p>
+<p>渲染后执行的副作用函数称为 effect，在 DOM 更新之后执行。</p>
+<blockquote>
+<p>useEffect 可看做生命周期函数 componentDidMount、componentDidUpdate 和 componentWillUnmount 的组合。</p>
+</blockquote>
+<blockquote>
+<p>无需清除的 effect =&gt; 发送网络请求，手动变更 DOM，记录日志。<br />
+需要清除的 effect =&gt; 订阅外部数据源，监听。</p>
+</blockquote>
+<p>useEffect Hook 的第一个参数是函数，内部注册副作用操作和监听器，返回函数用于清除监听的逻辑。useEffect Hook 的第二个参数是依赖数组，只有当所依赖的状态或 prop 改变时才会调用 useEffect Hook。</p>
+<p>传入空数组和不传入数组的效果不同。前者是只在首次更新时执行，后续更新不执行；后者是渲染即执行。</p>
+<pre><code class="language-jsx">[] =&gt; componentDidMount、componentWillUnMount
+不传入 [] =&gt; componentDidMount、componentDidUpdate 和 componentWillUnmount
+</code></pre>
+<p><a href="https://stackoverflow.com/questions/56800694/what-is-the-expected-return-of-useeffect-used-for">SOF</a> =&gt; state 或 props 变更时，函数组件的 useEffect 会先执行 effect 的 return 所返回的函数，再执行 effect 函数体中的副作用内容。</p>
+<pre><code class="language-js">import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+function Index() {
+  useEffect(() =&gt; {
+    console.log("useEffect=&gt;Indexpage");
+    return () =&gt; {
+      console.log("Bye, Index page");
+    };
+  }, []);
+  return &lt;p&gt;indexPage&lt;/p&gt;;
+}
+
+function OtherPage() {
+  useEffect(() =&gt; {
+    console.log("useEffect=&gt;otherPage");
+    return () =&gt; {
+      console.log("Bye, Other page");
+    };
+  }, []);
+  return &lt;p&gt;otherPage&lt;/p&gt;;
+}
+function useEffectHook() {
+  const [count, setCount] = useState(0);
+  useEffect(() =&gt; {
+    console.log(`useEffect=&gt;You clicked ${count} times`);
+    return () =&gt; {
+      console.log("DONE");
+    };
+  }, [count]);
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button
+        onClick={() =&gt; {
+          setCount(count + 1);
+        }}
+      &gt;
+        click me
+      &lt;/button&gt;
+      &lt;br /&gt;
+      &lt;Router&gt;
+        &lt;Link to="/"&gt;indexPage&lt;/Link&gt; &amp; &lt;Link to="/otherPage"&gt;otherPage&lt;/Link&gt;
+        &lt;Routes&gt;
+          &lt;Route path="/" exact element={&lt;Index /&gt;} /&gt;
+          &lt;Route path="/otherPage" element={&lt;OtherPage /&gt;} /&gt;
+        &lt;/Routes&gt;
+      &lt;/Router&gt;
+    &lt;/div&gt;
+  );
+}
+export default useEffectHook;
+</code></pre>
+<ul>
+<li>减少组件的更新频率 =&gt; useCallback</li>
+</ul>
+<p>在函数组件中，定义在组件内部的函数会随着状态的更新而重新渲染，即函数中定义的函数会被频繁定义。在父子组件通讯的情况中，是特别消耗性能的。</p>
+<p>useCallback 接收一个回调函数和依赖数组，返回一个 memoized 回调函数。</p>
+<pre><code class="language-jsx">const memoizedCallback = useCallback(
+  () =&gt; {
+    doSomething(a, b);
+  },
+  [a, b],
+);
+</code></pre>
+<p>函数组件通讯时，父组件的状态变化会导致内部的函数被重新定义，那么在将此被重新定义的函数作为传入子组件的 props 的值时，会导致子组件重新渲染。</p>
+<blockquote>
+<p>React.memo 只能保证在相同 props 的情况下跳过渲染组件的操作并直接复用最近一次渲染的结果。</p>
+</blockquote>
+<pre><code class="language-jsx">import React, { useState, useCallback } from "react";
+function UseCallbackHook() {
+  const [count, setCount] = useState(0);
+  const handleClick = () =&gt; {
+    setCount(count + 1);
+  };
+  const subClick01 = () =&gt; {};
+  const subClick02 = useCallback(() =&gt; {}, []);
+  return (
+    &lt;div&gt;
+      &lt;span&gt;{count}&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+      &lt;button onClick={handleClick}&gt;Sup Increment&lt;/button&gt;
+      &lt;Sub01 click={subClick01} /&gt;
+      &lt;Sub02 click={subClick02} /&gt;
+    &lt;/div&gt;
+  );
+}
+// React.memo 包裹子组件避免触发 =&gt; 不传入变化的 props 时可行
+const Sub01 = React.memo(function Sub01() {
+  console.log("Sub01 Component is triggered");
+  return (
+    &lt;&gt;
+      &lt;p&gt;Hello Sub01&lt;/p&gt;
+    &lt;/&gt;
+  );
+});
+const Sub02 = React.memo(function Sub02() {
+  console.log("Sub02 Component is triggered");
+  return (
+    &lt;&gt;
+      &lt;p&gt;Hello Sub02&lt;/p&gt;
+    &lt;/&gt;
+  );
+});
+export default UseCallbackHook;
+</code></pre>
+<ul>
+<li>类似计算属性的监听 =&gt; useMemo</li>
+</ul>
+<p>useMemo 传入的函数内部必须有返回值；useMemo 只能声明在函数组件内部。</p>
+<p>useMemo 接收一个具有返回值的回调函数和依赖数组，返回一个 memoized 值。</p>
+<p>React.memo 的使用位置处于函数式组件的外围，不能直接用 useMemo 替代。</p>
+<pre><code class="language-jsx">import React, { useState, useMemo } from "react";
+function UseMemoHook() {
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+  const [d, setD] = useState(0);
+  const handleClick = (action) =&gt; {
+    switch (action.type) {
+      case "a":
+        setA(a + 1);
+        break;
+      case "b":
+        setB(b + 1);
+        break;
+      case "d":
+        setD(d + 1);
+        break;
+      default:
+        return false;
+    }
+  };
+  const c = useMemo(() =&gt; {
+    console.log("useMemo");
+    return (
+      &lt;&gt;
+        &lt;span&gt;{a + b}&lt;/span&gt;
+        &lt;span&gt; - DOM 输出&lt;/span&gt;
+      &lt;/&gt;
+    );
+  }, [a, b]);
+  return (
+    &lt;&gt;
+      &lt;p&gt;a: {a}&lt;/p&gt;
+      &lt;p&gt;b: {b}&lt;/p&gt;
+      &lt;p&gt;c: {c}&lt;/p&gt;
+      &lt;p&gt;d: {d}&lt;/p&gt;
+      &lt;button
+        onClick={() =&gt; {
+          handleClick({ type: "a" });
+        }}
+      &gt;
+        +a
+      &lt;/button&gt;
+      &lt;button
+        onClick={() =&gt; {
+          handleClick({ type: "b" });
+        }}
+      &gt;
+        +b
+      &lt;/button&gt;
+      &lt;button
+        onClick={() =&gt; {
+          handleClick({ type: "d" });
+        }}
+      &gt;
+        +d
+      &lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+export default UseMemoHook;
+</code></pre>
+<h3 id="%E9%A2%9D%E5%A4%96%E7%9A%84-hook">额外的 Hook</h3>
+<ul>
+<li>useRef =&gt; 返回 ref 对象</li>
+</ul>
+<blockquote>
+<p>useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue). The returned object will persist for the full lifetime of the component.</p>
+</blockquote>
+<p>createRef 返回的 ref 对象会随着函数组件的渲染而重新初始化，useRef 返回的 ref 对象在组件的整个生命周期内都会持续存在。</p>
+<p>useRef() 可以方便地保存任何可变值，类似于在 class 中使用实例字段的方式。</p>
+<pre><code class="language-jsx">import React, { useRef, useState, useEffect } from "react";
+function UseRefHook() {
+  const [renderTimes, setRenderTimes] = useState(0);
+  const refByUseRef = useRef();
+  let thisVal = "hello useRef";
+  const refLikeThis = useRef(thisVal);
+  const refByCreateRef = React.createRef();
+  if (!refByUseRef.current) {
+    refByUseRef.current = renderTimes;
+  }
+  if (!refByCreateRef.current) {
+    refByCreateRef.current = renderTimes;
+  }
+  useEffect(() =&gt; {
+    console.log(refLikeThis);
+  });
+  return (
+    &lt;&gt;
+      &lt;span&gt;renderTimes: {renderTimes}&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+      &lt;span&gt;refByUseRef: {refByUseRef.current}&lt;/span&gt;&amp;nbsp;
+      &lt;span&gt;refByCreateRef: {refByCreateRef.current}&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+      &lt;br /&gt;
+      &lt;button
+        onClick={() =&gt; {
+          setRenderTimes((time) =&gt; time + 1);
+        }}
+      &gt;
+        render now
+      &lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+export default UseRefHook;
+</code></pre>
+<ul>
+<li>useLayoutEffect =&gt;  DOM 变更之后同步调用 effect</li>
+</ul>
+<p>useEffect 可以满足绝大多数的开发场景，而 useLayoutEffect 可能会阻塞渲染，需要谨慎使用。</p>
+<p>useEffect 默认在每轮渲染结束后执行，而 useLayoutEffect 在浏览器执行绘制之前执行，常用作解决页面闪动的问题。</p>
+<p>创建并调用函数组件 =&gt; 更新 DOM =&gt; useLayoutEffect =&gt; 渲染视图 =&gt; useEffect =&gt; 侦测到状态改变重新执行函数组件 =&gt; 和 Virtual DOM 比较后更新 DOM =&gt; 调用 useLayoutEffect =&gt; 渲染视图 =&gt; useEffect =&gt; 组件被移除 =&gt; useLayoutEffect =&gt; 调用 useEffect。</p>
+<p>useInsertionEffect 在所有 DOM 突变之前同步触发，可将样式注入 DOM。由于其执行的时机，不能访问 refs，也不能安排更新。</p>
+<pre><code class="language-jsx">import React, { useEffect, useLayoutEffect, useState } from "react";
+function UseLayoutEffectHook() {
+  const [state, setState] = useState(0);
+  console.log("render", state);
+  useEffect(() =&gt; {
+    console.log("useEffect render", state);
+  }, [state]);
+  useLayoutEffect(() =&gt; {
+    console.log("useLayoutEffect render", state);
+  }, [state]);
+  return (
+    &lt;&gt;
+      &lt;button
+        onClick={() =&gt; {
+          setState(state + 1);
+        }}
+      &gt;
+        state: {state}
+      &lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+export default UseLayoutEffectHook;
+</code></pre>
+<ul>
+<li>useImperativeHandle =&gt; 使用 ref 时自定义暴露给父组件的实例值</li>
+</ul>
+<p>input &amp; focus 需求可通过 useRef 实现。若将 input &amp; focus 再封装一层，Sup 组件也需要对这个输入框执行聚焦相关的操作时，考虑 useImperativeHandle。</p>
+<p>useImperativeHandle 可以让父组件获取子组件的数据或者调用子组件里声明的函数。</p>
+<pre><code class="language-jsx">import React, { useRef, useImperativeHandle, forwardRef } from "react";
+function FancyInput(props, ref) {
+  const inputRef = useRef();
+  useImperativeHandle(ref, () =&gt; ({
+    focus: () =&gt; {
+      inputRef.current.focus();
+    },
+    defaultVal: "hello useImperativeHandle"
+  }));
+  return (
+    &lt;input ref={inputRef} type="text" placeholder="hello ..." {...props} /&gt;
+  );
+}
+export default forwardRef(FancyInput);
+</code></pre>
+<pre><code class="language-jsx">import React, { useRef } from "react";
+import FancyInput from "./FancyInput";
+export default function UseImperativeHandleHook() {
+  const supInputRef = useRef(null);
+  console.log(supInputRef);
+  const foucsFancyInput = () =&gt; {
+    supInputRef.current.focus();
+    console.log(supInputRef.current.defaultVal);
+  };
+  return (
+    &lt;&gt;
+      &lt;h4 onClick={foucsFancyInput}&gt;Click Me&lt;/h4&gt;
+      &lt;FancyInput ref={supInputRef} /&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<ul>
+<li>useDeferredValue =&gt; 返回传入值的副本</li>
+</ul>
+<pre><code class="language-jsx">const [queryStr, setQueryStr] = useState('');
+const deferredQueryStr = useDeferredValue(queryStr);
+</code></pre>
+<p>queryStr 是常规的 state，deferredQueryStr 是 queryStr 的延迟值。</p>
+<p>设置延迟值后每次调用 setState 都会触发两次组件的重新渲染。deferredQueryStr 的值首次是 queryStr 修改前的值，第二次是修改后的值。延迟值相较于 state 总会慢一步更新。</p>
+<p>当指定状态需要在多个组件中使用时，不同组件会有不同的渲染效率。渲染较快的组件使用正常的状态，渲染较慢的组件使用该状态的延迟值。可结合 React.memo 或 useMemo。</p>
+<ul>
+<li>useTransition =&gt; 处理非紧急更新</li>
+</ul>
+<p>默认所有更新都是具有相同优先级的阻塞渲染很可能会降低页面效率，在并发模式中，渲染不是阻塞的，而是可中断的。</p>
+<blockquote>
+<p>返回一个状态值表示过渡任务的等待状态，以及一个启动该过渡任务的函数。</p>
+</blockquote>
+<pre><code class="language-jsx">const [isPending, startTransition] = useTransition();
+</code></pre>
+<p>作为过渡任务的函数，会在其他优先级更高的方法执行完毕后运行。启动该过渡任务的函数 startTransition 可以在不需要 isPending 时直接使用。</p>
+<pre><code class="language-jsx">import { useState, useTransition } from "react";
+export default function App() {
+  const [isPending, startTransition] = useTransition();
+  const [input, setInput] = useState("");
+  const [list, setList] = useState([]);
+  const LIST_SIZE = 1000;
+  function handleChange(e) {
+    setInput(e.target.value);
+    startTransition(() =&gt; {
+      const l = [];
+      for (let i = 0; i &lt; LIST_SIZE; i++) {
+        l.push(e.target.value);
+      }
+      setList(l);
+    });
+  }
+  return (
+    &lt;&gt;
+      &lt;input type="text" value={input} onChange={handleChange} /&gt;
+      {isPending
+        ? "Loading..."
+        : list.map((item, index) =&gt; {
+            return &lt;div key={index}&gt;{item}&lt;/div&gt;;
+          })}
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<ul>
+<li>useId =&gt; 生成唯一 id，不适用于列表的 key</li>
+</ul>
+<p>当封装组件在被复用时，可能存在标识符重复的异常。</p>
+<p>每次组件渲染，useId 都会返回 unique id。这可以避免出现相同 id 所致的错误。</p>
+<p>每次页面的渲染（多次刷新），固定位置所产生的随机 id 都会相同。</p>
+<p>既使用 SSR，又使用 CSR 渲染部分页面时，可能会导致 ids 不匹配的情况出现 =&gt; Math.random 所产生的数据是大概率不同的。</p>
+<p>useId 可以保证客户端渲染与服务端渲染产生一致的 id。</p>
+<p>useId 产生的 id 不能用 querySelector 所捕获，欲拿到 DOM，可以使用 useRef。</p>
+<pre><code class="language-jsx">// EmailForm.js 修改前
+export default function EmailForm(){
+  return (
+    &lt;&gt;
+      &lt;label htmlFor="email"&gt;Email&lt;/label&gt; // 给 label 添加 htmlFor 属性 =&gt; 点击 label -&gt; Input 框自动聚焦
+      &lt;input id="email" type="email" /&gt; // 复用多次会产生相同 id =&gt; 点击后面的输入框不会聚焦 -&gt; 默认聚焦最前方输入框
+    &lt;/&gt;
+  )
+}
+</code></pre>
+<pre><code class="language-jsx">// EmailForm.js 修改后
+import { useId, useRef } from "react";
+export default function EmailForm(){
+  const id = useId();
+  const ref = useRef();
+  return (
+    &lt;&gt;
+      &lt;label htmlFor={`${id}-email`}&gt;Email&lt;/label&gt;
+      &lt;input ref={ref} id={`${id}-email`} type="email" /&gt;
+      &lt;br /&gt;
+      &lt;label htmlFor={`${id}-name`}&gt;Name&lt;/label&gt;
+      &lt;input ref={ref} id={`${id}-name`} type="text" /&gt;
+    &lt;/&gt;
+  )
+}
+</code></pre>
+<h3 id="%E8%87%AA%E5%AE%9A%E4%B9%89-hook">自定义 Hook</h3>
+<p>自定义 Hook 用作共享组件之间的状态逻辑，是 props render 和 HOC 的替代。</p>
+<blockquote>
+<p>自定义 Hook 是一个函数，其名称以 use 开头，函数内部可以调用其他的 Hook。</p>
+</blockquote>
+<h2 id="react-router">React Router</h2>
+<h3 id="router-principle">Router Principle</h3>
+<ul>
+<li>阻止 &lt;a&gt; 标签跳转的方式</li>
+</ul>
+<p>onclick 事件返回 false；使用伪协议；href 属性设置为 <code>"#"</code>。</p>
+<pre><code class="language-jsx">&lt;a href="https://www.google.com" onclick="return false"&gt;不能跳转&lt;/a&gt; 
+&lt;a href="javascript:void(0)"&gt;不能跳转&lt;/a&gt; 
+&lt;a href="#"&gt;不能跳转&lt;/a&gt;
+</code></pre>
+<ul>
+<li>页面的导航与展示</li>
+</ul>
+<p>导航区 a 标签改为 Link 或 NavLink 标签，展示区通过 Route 标签进行路径匹配。</p>
+<p>&lt;App&gt; 最外侧应通过 &lt;BrowserRouter&gt; 或 &lt;HashRouter&gt; 包裹。</p>
+<ul>
+<li>路由组件与一般组件的不同</li>
+</ul>
+<p>存放位置：一般组件通常保存在 components 目录，路由组件放置于 pages 目录。</p>
+<p>定义方式：一般组件直接写组件标签，路由组件需要 Route 标签。</p>
+<pre><code class="language-jsx">&lt;Demo/&gt; // 一般组件
+&lt;Route path="/demo" component={Demo}/&gt; // 路由组件
+</code></pre>
+<p>接受 props：一般组件根据标签中所传递的内容确认 props，路由组件默认接受被路由器固定传递的三个属性。</p>
+<pre><code class="language-jsx">history =&gt; action、block、createHref、go、goBack、goForward、length、listen、location、push、replace
+location =&gt; hash、key、pathname、search、state
+match =&gt; isExact、params、path、url
+</code></pre>
+<ul>
+<li>严格模式开启时，可能会导致该级路由下的所有子路由无法正常匹配</li>
+</ul>
+<p>注册嵌套路由时要写上前一级路由的路径，路由的匹配是按照注册路由的顺序进行的。注册路由即展示区的 <code>&lt;Route path="" component={}&gt;</code>。</p>
+<pre><code class="language-jsx">// Sup 组件开启严格模式
+&lt;Route exact path="/sup" component={Sup}/&gt;
+// Sub 组件无法正常匹配
+&lt;NavLink to="/sup/sub"&gt; Sub &lt;/NavLink&gt;
+&lt;Route path="/sup/sub" component={Sub}/&gt;
+</code></pre>
+<h3 id="%E5%90%91%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%8F%82">向路由组件传参</h3>
+<ul>
+<li>params 传参 =&gt; 路由链接携带的参数需在注册路由时接收</li>
+</ul>
+<pre><code class="language-jsx">// 传递参数
+&lt;Link to={`/a/b/c/${xxx.id}/${xxx.name}`}&gt;hello&lt;/Link&gt;
+// 声明接受
+&lt;Route path="/a/b/c/:id/:name" component={Hello}/&gt;
+// 组件获取
+const {id, name} = this.props.match.params
+</code></pre>
+<ul>
+<li>search 传参 =&gt; 无需声明接收，类似 Ajax 的 query 参数</li>
+</ul>
+<p>获取到的 search 是 urlencoded 编码字符串，需借助 querystring 解析。</p>
+<pre><code class="language-jsx">// 传递参数
+&lt;Link to={`/a/b/c/?id=${xxx.id}&amp;name=${xxx.name}`}&gt;hello&lt;/Link&gt;
+// 声明接受
+&lt;Route path="/a/b/c" component={Hello}/&gt;
+// 组件获取
+import qs from 'querystring'
+const {search} = this.props.location
+const {id, name} = qs.parse(search.slice(1))
+</code></pre>
+<ul>
+<li>state 传参 =&gt; 传递的数据在地址栏隐藏，且无需声明接收</li>
+</ul>
+<p>在 Vue 中使用 params 参数且未在路由配置里指明时，会出现刷新所导致的参数丢失问题。React 路由中的 state 传参虽没有显示在地址栏，但不会出现此类情况。</p>
+<p>react-router-dom 中的 BrowserRouter 维护浏览器的 history，location 是 history 中的一个属性。考虑到会有清除浏览器缓存并刷新的情况，故添加空对象以处理不存在 state 的问题。state 默认为 undefined。</p>
+<pre><code class="language-jsx">// 传递参数
+&lt;Link to={{pathname:"/a/b/c", state:{id:xxx.id, name:xxx.name}}}&gt;hello&lt;/Link&gt;
+// 声明接受
+&lt;Route path="/a/b/c" component={Hello}/&gt;
+// 组件获取
+const {id, name} = this.props.location.state || {}
+</code></pre>
+<ul>
+<li>BrowserRouter 和 HashRouter</li>
+</ul>
+<p>底层原理：前者使用 H5 的 history，不兼容 IE9- 版本，后者使用 URL 哈希值。<br />
+路径表现：前者无 #，后者包含 #。<br />
+刷新对路由 state 参数的影响：前者无影响，state 存储于 history；后者 state 会因刷新而丢失。</p>
+<h3 id="%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA">编程式路由导航</h3>
+<p>业务场景有时需要点击按钮进行页面的跳转，此时就应该从声明式路由导航转向使用编程式路由导航。考虑到需要传递相关参数，事件处理函数可以使用高阶函数或进行函数包裹。</p>
+<p>编程式路由导航主要使用的是 <a href="https://react-router.docschina.org/web/api/history">history</a> 对象，即 React Router 的 history 依赖包。</p>
+<blockquote>
+<p>push(path, [state]) - (function 类型) 在 history 堆栈添加一个新条目<br />
+replace(path, [state]) - (function 类型) 替换在 history 堆栈中的当前条目</p>
+</blockquote>
+<ul>
+<li>params 参数 &amp; 编程式路由导航</li>
+</ul>
+<pre><code class="language-jsx">&lt;button onClick={() =&gt; this.pushHandle(xxx.id, xxx.name)}&gt;push&lt;/buttton&gt;
+&lt;button onClick={() =&gt; this.replaceHandle(xxx.id, xxx.name)}&gt;replace&lt;/buttton&gt;
+pushHandle = (id, name) =&gt; {this.props.history.push(`/a/b/c/${id}/${name}`)}
+replaceHandle = (id, name) =&gt; {this.props.history.replace(`/a/b/c/${id}/${name}`)}
+&lt;Route path="/a/b/c/:id/:name" component={Xxx}/&gt;
+</code></pre>
+<ul>
+<li>search 参数 &amp; 编程式路由导航</li>
+</ul>
+<pre><code class="language-jsx">&lt;button onClick={() =&gt; this.pushHandle(xxx.id, xxx.name)}&gt;push&lt;/buttton&gt;
+&lt;button onClick={() =&gt; this.replaceHandle(xxx.id, xxx.name)}&gt;replace&lt;/buttton&gt;
+pushHandle = (id, name) =&gt; {this.props.history.push(`/a/b/c/?id=${id}&amp;name=${name}`)}
+replaceHandle = (id, name) =&gt; {this.props.history.replace(`/a/b/c/?id=${id}&amp;name=${name}`)}
+&lt;Route path="/a/b/c" component={Xxx}/&gt;
+import qs from 'querystring'
+const {search} = this.props.location
+const {id, name} = qs.parse(search.slice(1))
+</code></pre>
+<ul>
+<li>state 参数 &amp; 编程式路由导航</li>
+</ul>
+<pre><code class="language-jsx">&lt;button onClick={() =&gt; this.pushHandle(xxx.id, xxx.name)}&gt;push&lt;/buttton&gt;
+&lt;button onClick={() =&gt; this.replaceHandle(xxx.id, xxx.name)}&gt;replace&lt;/buttton&gt;
+pushHandle = (id, name) =&gt; {this.props.history.push(`/a/b/c/`, {id, name})}
+replaceHandle = (id, name) =&gt; {this.props.history.replace(`/a/b/c/`, {id, name})}
+&lt;Route path="/a/b/c" component={Xxx}&gt;
+const {id, name} = this.props.location.state || {}
+</code></pre>
+<ul>
+<li><a href="https://react-router.docschina.org/web/api/withRouter">withRouter</a> 函数 =&gt; 使一般组件获得路由组件的相关 API</li>
+</ul>
+<blockquote>
+<p>可通过 withRouter 高阶组件访问 history 对象的属性和最近 &lt;Route&gt; 的 match。<br />
+当路由渲染时，withRouter 会将已经更新的 match，location 和 history 属性传递给被包裹的组件。</p>
+</blockquote>
+<pre><code class="language-jsx">// withRouter =&gt; 使一般组件具有路由组件 API 
+import React, {Component} from 'react'
+import {withRouter} from 'react-router-dom'
+class Demo extends Component{...}
+export default withRouter(Demo)
+</code></pre>
+<h3 id="react-router-v6">React Router v6</h3>
+<ul>
+<li>React Router 以三个不同的包发布到 npm</li>
+</ul>
+<p>react-router =&gt; 路由核心库，提供组件和钩子；react-router-dom =&gt; react-router 所有内容都被包含，添加专门用于 DOM 的组件，如 &lt;BrowserRouter&gt; 等。react-router-native =&gt; 含 react-router 所有内容，额外增加用于 ReactNative 的 API，如 &lt;NativeRouter&gt; 等。</p>
+<ul>
+<li>&lt;Routes/&gt; 与 &lt;Route/&gt;</li>
+</ul>
+<p>通过引入 <code>&lt;Routes&gt;</code> 替代移除的 <code>&lt;Switch&gt;</code>。<code>&lt;Routes&gt;</code>、<code>&lt;Route&gt;</code> 应配合使用，前者将后者包裹。</p>
+<p>path 属性用于定义路径，element 属性用于定义当前路径所对应的组件。</p>
+<p><code>&lt;Route&gt;</code> 相当于 if 语句，若其路径与当前 URL 匹配，则呈现对应的组件。</p>
+<p><code>&lt;Route&gt;</code> 中的 caseSensitive 属性用于指定匹配时是否区分大小写，默认 false。</p>
+<p>当 URL 改变时，<code>&lt;Routes&gt;</code> 会查看所有子 <code>&lt;Route&gt;</code> 以匹配并呈现组件。</p>
+<p><code>&lt;Route&gt;</code> 可嵌套使用，可配合 <code>useRoutes()</code> 配置路由表，但需 <code>&lt;Outlet&gt;</code> 组件以渲染其子路由。</p>
+<pre><code class="language-jsx">&lt;Routes&gt;
+  // 一级路由 demo 所对应的路径为 /demo*/
+  &lt;Route path="demo" element={&lt;Demo/&gt;}&gt;
+    // inner01 和 inner02 是二级路由 =&gt; 对应路径为 /demo/inner01 和 /demo/inner02
+    &lt;Route path="inner01" element={&lt;Inner01/&gt;}&gt;&lt;/Route&gt;
+    &lt;Route path="inner02" element={&lt;Inner02/&gt;}&gt;&lt;/Route&gt;
+  &lt;/Route&gt;
+&lt;/Routes&gt;
+</code></pre>
+<ul>
+<li>React Router6 实现自定义的类名时，需要把 className 的值写成函数</li>
+</ul>
+<pre><code class="language-jsx">// React Router5
+&lt;NavLink className="default-style" activeClassName="additional-style" to="/demo"&gt;Demo&lt;/NavLink&gt;
+// React Router6
+&lt;NavLink className={({isActive})=&gt;{return isActive ? "default-style additional-style" : "default-style"}} to="/demo"&gt;Demo&lt;/NavLink&gt;
+</code></pre>
+<ul>
+<li>useRoutes =&gt; 将应用路由的层级进行统一管理</li>
+</ul>
+<pre><code class="language-jsx">import React from 'react'
+import {NavLink, useRoutes} from 'react-router-dom'
+import routes from './routes'
+export default function App(){
+  const element = useRoutes(routes)
+  return (
+    ...
+    {element}
+  )
+}
+</code></pre>
+<pre><code class="language-jsx">// routes/index.js
+import Dashboard from '../pages/Dashboard'
+import Info from '..pages/Info'
+import {Navigate} from 'react-router-dom'
+export default [
+  {path: "/dashboard", element:&lt;Dashboard/&gt;},
+  {path: "/info", element:&lt;Info/&gt;},
+  {path: "/", element:&lt;Navigate to="/dashboard"/&gt;}
+]
+</code></pre>
+<p>NavLink</p>
+<blockquote>
+<p>If the <code>end</code> prop is used, it will ensure this component isn't matched as "active" when its descendant paths are matched. <a href="https://reactrouter.com/en/v6.3.0/api#navlink">v6.3</a></p>
+</blockquote>
+<ul>
+<li>
+<p>this.props.match.params 通过 useParams 或 useMatch 替代</p>
+</li>
+<li>
+<p>this.props.location 的 search 参数通过 useSearchParams 或 useLocation 替代</p>
+</li>
+</ul>
+<pre><code class="language-jsx">import {useSearchParams} from 'react-router-dom'
+export default function Xxx(){
+  const [search, setSearch] = useSearchParams();
+  const id = search.get("id");
+  const msg = search.get("msg");
+  ...
+  return (&lt;&gt;...&lt;/&gt;)
+}
+</code></pre>
+<ul>
+<li>
+<p>state 参数使用 useLocation 替代</p>
+</li>
+<li>
+<p>编程式路由导航</p>
+</li>
+<li>
+<p>v6 中没有 this，可使用 useNavigate</p>
+</li>
+</ul>
+<p>useNavigate hook 返回一个以编程方式导航的函数，例如在提交表单之后。</p>
+<pre><code class="language-typescript">declare function useNavigate(): NavigateFunction;
+interface NavigateFunction {
+  (
+    to: To,
+    options?: { replace?: boolean; state?: any }
+  ): void;
+  (delta: number): void;
+}
+</code></pre>
+<p><code>withRouter</code> 函数在 v6 中被 <code>useNavigate</code> 替代，传入 <code>delta</code> 以对 history 进行操作。</p>
+<pre><code class="language-jsx">import { useNavigate } from "react-router-dom";
+function eventHandle() {
+  let navigate = useNavigate();
+  async function handleSubmit(event) {
+    event.preventDefault();
+    await submitForm(event.target);
+    navigate("../success", { replace: true });
+  }
+  return &lt;form onSubmit={handleSubmit}&gt;{/* ... */}&lt;/form&gt;;
+}
+</code></pre>
+<ul>
+<li>useInRouterContext =&gt; 判断组件是否在 <code>&lt;Router&gt;</code> 上下文呈现</li>
+</ul>
+<p>通过调用该 hook 可以判断当前组件是否被 <code>&lt;XxxRouter&gt;</code> 之流包裹。开发中若直接将 <code>&lt;App&gt;</code> 组件以路由包裹，则</p>
+<p>封装组件时判断使用者是否在路由环境下使用。</p>
+<ul>
+<li>useNavigationType =&gt; 返回当前的导航类型 -&gt; POP|PUSH|REPLACE</li>
+</ul>
+<p>来到当前页面的跳转方式。<code>POP</code> 为直接在浏览器打开该路由组件（刷新页面）。</p>
+<ul>
+<li>useOutlet =&gt; 呈现当前组件中要渲染的嵌套路由</li>
+</ul>
+<p>嵌套路由挂载则展示嵌套的路由对象，没有挂载则返回 null。</p>
+<pre><code class="language-jsx">const result = useOutlet(); // 嵌套路由没有挂载则返回 null
+</code></pre>
+<ul>
+<li>
+<p>useResolvedPath =&gt; 给定 URL 值，解析其中的 path|search|hash</p>
+</li>
+<li>
+<p>&lt;Navigate&gt;</p>
+</li>
+</ul>
+<p><code>&lt;Navigate&gt;</code> 组件在渲染时会修改路径并切换视图。replace 属性用于控制跳转模式，可选 push 或 replace，默认为 push。</p>
+<pre><code class="language-jsx">import React, {useState} from 'react'
+import {Navigate} from 'react-router-dom'
+export default function Demo(){
+  const [sum, setSum] = useState(1)
+  return (
+    &lt;&gt;
+      {sum === 1 ? &lt;h4&gt;sum 的值为 {sum}&lt;/h4&gt;:&lt;Navigate to="/about" replace/&gt;}
+      &lt;button onClick={() =&gt; setSum(2)}&gt;Click Change Sum to 2&lt;/button&gt;
+    &lt;/&gt;
+  )
+}
+</code></pre>
+<ul>
+<li>&lt;Outlet&gt; =&gt; 当 <code>&lt;Route&gt;</code> 产生嵌套时，渲染其对应的后续子路由</li>
+</ul>
+<pre><code class="language-jsx">const element = useRoutes([
+  {path:'/about', element:&lt;About/&gt;},
+  {
+    path:'/info',
+    element:&lt;Info/&gt;,
+    children:[
+      {path:'news', element:&lt;News/&gt;},
+      {path:'msg', element:&lt;Msg/&gt;}
+    ]
+  }
+])
+</code></pre>
+<pre><code class="language-jsx">import React from 'react'
+import {NavLink, Outlet} from 'react-router-dom'
+export default function Home(){
+  return (
+    &lt;&gt;
+      &lt;h2&gt;Home...&lt;/h2&gt;
+      &lt;div&gt;
+        &lt;ul className="nav nav-tabs"&gt;
+          &lt;li&gt;&lt;NavLink className="list-group-item" to="news"&gt;News&lt;/NavLink&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;NavLink className="list-group-item" to="msg"&gt;Msg&lt;/NavLink&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;Outlet/&gt;
+      &lt;/div&gt;
+    &lt;/&gt;
+  )
+}
+</code></pre>
+<ul>
+<li>useRoutes =&gt; 根据路由表动态创建 &lt;Routes&gt; 和 &lt;Route&gt;</li>
+</ul>
+<h2 id="parsing-the-source-code">Parsing The Source Code</h2>
+<h3 id="v18-%E4%BA%8B%E4%BB%B6%E7%B3%BB%E7%BB%9F">v18 事件系统</h3>
+<ul>
+<li>事件注册</li>
+</ul>
+<p><a href="https://github.com/facebook/react/blob/44f99d75fa4528b82810edd03eccf82f7ea21ea0/packages/react-dom/src/events/DOMPluginEventSystem.js">DOMPluginEventSystem</a> 中调用各类 XxxEventPlugin 的 <code>registerEvents()</code> 注册事件。registerEvents 即从 <a href="http://">DOMEventProperties</a> 导入的 registerSimpleEvents 函数。如 <a href="https://github.com/facebook/react/blob/44f99d75fa4528b82810edd03eccf82f7ea21ea0/packages/react-dom/src/events/plugins/SimpleEventPlugin.js">SimpleEventPlugin</a> 的 <a href="https://github.com/facebook/react/blob/d4d1dc085d1332fdd5025c292adcb5b39811e5b5/packages/react-dom/src/events/DOMEventProperties.js">registerSimpleEvents</a>。</p>
+<pre><code class="language-javascript">// registerSimpleEvents 即 registerEvents
+export function registerSimpleEvents() {
+  for (let i = 0; i &lt; simpleEventPluginEvents.length; i++) {
+    const eventName = ((simpleEventPluginEvents[i]: any): string);
+    const domEventName = ((eventName.toLowerCase(): any): DOMEventName);
+    const capitalizedEvent = eventName[0].toUpperCase() + eventName.slice(1);
+    registerSimpleEvent(domEventName, 'on' + capitalizedEvent);
+  }
+  // Special cases where event names don't match.
+  registerSimpleEvent(ANIMATION_END, 'onAnimationEnd');
+  registerSimpleEvent(ANIMATION_ITERATION, 'onAnimationIteration');
+  registerSimpleEvent(ANIMATION_START, 'onAnimationStart');
+  registerSimpleEvent('dblclick', 'onDoubleClick');
+  registerSimpleEvent('focusin', 'onFocus');
+  registerSimpleEvent('focusout', 'onBlur');
+  registerSimpleEvent(TRANSITION_END, 'onTransitionEnd');
+}
+</code></pre>
+<p>在 <code>registerSimpleEvents()</code> 内有调用 <code>registerSimpleEvent()</code> 函数，后者内部又调用 <a href="https://github.com/facebook/react/blob/44f99d75fa4528b82810edd03eccf82f7ea21ea0/packages/react-dom/src/events/EventRegistry.js"><code>registerTwoPhaseEvent()</code></a> 以分别注册捕获和冒泡阶段的事件。</p>
+<pre><code class="language-javascript">function registerSimpleEvent(domEventName, reactName) {
+  topLevelEventsToReactNames.set(domEventName, reactName);
+  registerTwoPhaseEvent(reactName, [domEventName]);
+}
+</code></pre>
+<pre><code class="language-javascript">export function registerTwoPhaseEvent(
+  registrationName: string,
+  dependencies: Array&lt;DOMEventName&gt;,
+): void {
+  registerDirectEvent(registrationName, dependencies);
+  registerDirectEvent(registrationName + 'Capture', dependencies);
+}
+</code></pre>
+<pre><code class="language-javascript">export function registerDirectEvent(
+  registrationName: string,
+  dependencies: Array&lt;DOMEventName&gt;,
+) {
+  ...
+  registrationNameDependencies[registrationName] = dependencies;
+}
+</code></pre>
+<ul>
+<li>事件绑定</li>
+</ul>
+<p><a href="https://github.com/facebook/react/blob/796d31809b3683083d3b62ccbab4f00dec8ffb1f/packages/react-dom/src/client/ReactDOMRoot.js">createRoot</a> 在 <a>ReactDOM.js</a> 与 <a href="https://github.com/facebook/react/blob/2c8a1452b82b9ec5ebfa3f370b31fda19610ae92/packages/react-dom/client.js">client.js</a> 中视作 createRootImpl 进行调用，即在创建根节点之后会执行 listenToAllSupportedEvents。</p>
+<pre><code class="language-javascript">export function createRoot(
+  container: Element | Document | DocumentFragment,
+  options?: CreateRootOptions,
+): RootType {
+  ...
+  listenToAllSupportedEvents(rootContainerElement);
+}
+</code></pre>
+<pre><code class="language-javascript">export function listenToAllSupportedEvents(rootContainerElement: EventTarget) {
+  if (!(rootContainerElement: any)[listeningMarker]) {
+    (rootContainerElement: any)[listeningMarker] = true;
+    allNativeEvents.forEach(domEventName =&gt; {
+      // We handle selectionchange separately because it
+      // doesn't bubble and needs to be on the document.
+      if (domEventName !== 'selectionchange') {
+        if (!nonDelegatedEvents.has(domEventName)) {
+          listenToNativeEvent(domEventName, false, rootContainerElement);
+        }
+        listenToNativeEvent(domEventName, true, rootContainerElement);
+      }
+    });
+    const ownerDocument =
+      (rootContainerElement: any).nodeType === DOCUMENT_NODE
+        ? rootContainerElement
+        : (rootContainerElement: any).ownerDocument;
+    if (ownerDocument !== null) {
+      // The selectionchange event also needs deduplication
+      // but it is attached to the document.
+      if (!(ownerDocument: any)[listeningMarker]) {
+        (ownerDocument: any)[listeningMarker] = true;
+        listenToNativeEvent('selectionchange', false, ownerDocument);
+      }
+    }
+  }
+}
+</code></pre>
+<p>调用 addTrappedEventListener 进行真正的事件绑定，绑定在document上，dispatchEvent 为统一的事件处理函数。</p>
+<pre><code class="language-javascript">export function listenToNativeEvent(
+  domEventName: DOMEventName,
+  isCapturePhaseListener: boolean,
+  target: EventTarget,
+): void {
+  if (__DEV__) {
+    if (nonDelegatedEvents.has(domEventName) &amp;&amp; !isCapturePhaseListener) {
+      console.error(
+        'Did not expect a listenToNativeEvent() call for "%s" in the bubble phase. ' +
+          'This is a bug in React. Please file an issue.',
+        domEventName,
+      );
+    }
+  }
+
+  let eventSystemFlags = 0;
+  if (isCapturePhaseListener) {
+    eventSystemFlags |= IS_CAPTURE_PHASE;
+  }
+  addTrappedEventListener(
+    target,
+    domEventName,
+    eventSystemFlags,
+    isCapturePhaseListener,
+  );
+}
+</code></pre>
+<pre><code class="language-javascript">function addTrappedEventListener(
+  targetContainer: EventTarget,
+  domEventName: DOMEventName,
+  eventSystemFlags: EventSystemFlags,
+  isCapturePhaseListener: boolean,
+  isDeferredListenerForLegacyFBSupport?: boolean,
+) {
+  let listener = createEventListenerWrapperWithPriority( // 创建具有优先级的监听函数
+    targetContainer,
+    domEventName,
+    eventSystemFlags,
+  );
+  ...
+  targetContainer =
+    enableLegacyFBSupport &amp;&amp; isDeferredListenerForLegacyFBSupport
+      ? (targetContainer: any).ownerDocument
+      : targetContainer;
+  let unsubscribeListener;
+  if (enableLegacyFBSupport &amp;&amp; isDeferredListenerForLegacyFBSupport) {
+    const originalListener = listener;
+    listener = function(...p) {
+      removeEventListener(
+        targetContainer,
+        domEventName,
+        unsubscribeListener,
+        isCapturePhaseListener,
+      );
+      return originalListener.apply(this, p);
+    };
+  }
+  // TODO: There are too many combinations here. Consolidate them.
+  if (isCapturePhaseListener) { // 事件捕获阶段处理函数 =&gt; 节点上添加事件
+    if (isPassiveListener !== undefined) {
+      unsubscribeListener = addEventCaptureListenerWithPassiveFlag(
+        targetContainer,
+        domEventName,
+        listener,
+        isPassiveListener,
+      );
+    } else {
+      unsubscribeListener = addEventCaptureListener(
+        targetContainer,
+        domEventName,
+        listener,
+      );
+    }
+  } else {
+    if (isPassiveListener !== undefined) {
+      unsubscribeListener = addEventBubbleListenerWithPassiveFlag(
+        targetContainer,
+        domEventName,
+        listener,
+        isPassiveListener,
+      );
+    } else {
+      unsubscribeListener = addEventBubbleListener(
+        targetContainer,
+        domEventName,
+        listener,
+      );
+    }
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">export function createEventListenerWrapperWithPriority(
+  targetContainer: EventTarget,
+  domEventName: DOMEventName,
+  eventSystemFlags: EventSystemFlags,
+): Function {
+  const eventPriority = getEventPriority(domEventName);
+  let listenerWrapper;
+  switch (eventPriority) {
+    case DiscreteEventPriority:
+      listenerWrapper = dispatchDiscreteEvent;
+      break;
+    case ContinuousEventPriority:
+      listenerWrapper = dispatchContinuousEvent;
+      break;
+    case DefaultEventPriority:
+    default:
+      listenerWrapper = dispatchEvent;
+      break;
+  }
+  return listenerWrapper.bind( // 绑定 dispatchDiscreteEvent
+    null,
+    domEventName,
+    eventSystemFlags,
+    targetContainer,
+  );
+}
+</code></pre>
+<ul>
+<li>事件触发</li>
+</ul>
+<p>React 事件注册时，<a href="https://github.com/facebook/react/blob/4175f05934d3954827c00b7633c1ce8e4e87d227/packages/react-dom/src/events/ReactDOMEventListener.js">dispatchDiscreteEvent</a> 为统一的事件处理函数，即触发事件首先执行 dispatchDiscreteEvent 函数，因 dispatchDiscreteEvent 前三个参数已经被 bind 绑定，故事件源对象 event.target 被默认绑定成最后参数 nativeEvent。</p>
+<pre><code class="language-javascript">function dispatchDiscreteEvent(
+  domEventName,
+  eventSystemFlags,
+  container,
+  nativeEvent,
+) {
+  const previousPriority = getCurrentUpdatePriority();
+  const prevTransition = ReactCurrentBatchConfig.transition;
+  ReactCurrentBatchConfig.transition = null;
+  try {
+    setCurrentUpdatePriority(DiscreteEventPriority);
+    dispatchEvent(domEventName, eventSystemFlags, container, nativeEvent);
+  } finally {
+    setCurrentUpdatePriority(previousPriority);
+    ReactCurrentBatchConfig.transition = prevTransition;
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">export function dispatchEvent(
+  domEventName: DOMEventName,
+  eventSystemFlags: EventSystemFlags,
+  targetContainer: EventTarget,
+  nativeEvent: AnyNativeEvent,
+): void {
+  if (!_enabled) {
+    return;
+  }
+  if (enableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay) {
+    dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay(
+      domEventName,
+      eventSystemFlags,
+      targetContainer,
+      nativeEvent,
+    );
+  } else {
+    dispatchEventOriginal(
+      domEventName,
+      eventSystemFlags,
+      targetContainer,
+      nativeEvent,
+    );
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">import {dispatchEventForPluginEventSystem} from './DOMPluginEventSystem';
+...
+function dispatchEventOriginal(
+  domEventName: DOMEventName,
+  eventSystemFlags: EventSystemFlags,
+  targetContainer: EventTarget,
+  nativeEvent: AnyNativeEvent,
+) {
+  // TODO: replaying capture phase events is currently broken
+  // because we used to do it during top-level native bubble handlers
+  // but now we use different bubble and capture handlers.
+  // In eager mode, we attach capture listeners early, so we need
+  // to filter them out until we fix the logic to handle them correctly.
+  const allowReplay = (eventSystemFlags &amp; IS_CAPTURE_PHASE) === 0;
+
+  if (
+    allowReplay &amp;&amp;
+    hasQueuedDiscreteEvents() &amp;&amp;
+    isDiscreteEventThatRequiresHydration(domEventName)
+  ) {
+    // If we already have a queue of discrete events, and this is another discrete
+    // event, then we can't dispatch it regardless of its target, since they
+    // need to dispatch in order.
+    queueDiscreteEvent(
+      null, // Flags that we're not actually blocked on anything as far as we know.
+      domEventName,
+      eventSystemFlags,
+      targetContainer,
+      nativeEvent,
+    );
+    return;
+  }
+
+  const blockedOn = findInstanceBlockingEvent(
+    domEventName,
+    eventSystemFlags,
+    targetContainer,
+    nativeEvent,
+  );
+  if (blockedOn === null) {
+    dispatchEventForPluginEventSystem(
+      domEventName,
+      eventSystemFlags,
+      nativeEvent,
+      return_targetInst,
+      targetContainer,
+    );
+    if (allowReplay) {
+      clearIfContinuousEvent(domEventName, nativeEvent);
+    }
+    return;
+  }
+
+  if (allowReplay) {
+    if (isDiscreteEventThatRequiresHydration(domEventName)) {
+      // This this to be replayed later once the target is available.
+      queueDiscreteEvent(
+        blockedOn,
+        domEventName,
+        eventSystemFlags,
+        targetContainer,
+        nativeEvent,
+      );
+      return;
+    }
+    if (
+      queueIfContinuousEvent(
+        blockedOn,
+        domEventName,
+        eventSystemFlags,
+        targetContainer,
+        nativeEvent,
+      )
+    ) {
+      return;
+    }
+    // We need to clear only if we didn't queue because
+    // queueing is accumulative.
+    clearIfContinuousEvent(domEventName, nativeEvent);
+  }
+
+  // This is not replayable so we'll invoke it but without a target,
+  // in case the event system needs to trace it.
+  dispatchEventForPluginEventSystem(
+    domEventName,
+    eventSystemFlags,
+    nativeEvent,
+    null,
+    targetContainer,
+  );
+}
+</code></pre>
+<p><a href="https://github.com/facebook/react/blob/4175f05934d3954827c00b7633c1ce8e4e87d227/packages/react-dom/src/events/DOMPluginEventSystem.js">dispatchEventsForPlugins</a></p>
+<p><a href="https://github.com/facebook/react/blob/4175f05934d3954827c00b7633c1ce8e4e87d227/packages/react-reconciler/src/ReactWorkTags.js">HostComponent</a> 常量为 5。</p>
+<pre><code class="language-javascript">import { HostRoot, HostPortal, HostComponent, HostText, ScopeComponent, } from 'react-reconciler/src/ReactWorkTags';
+...
+export function dispatchEventForPluginEventSystem(
+  domEventName: DOMEventName,
+  eventSystemFlags: EventSystemFlags,
+  nativeEvent: AnyNativeEvent,
+  targetInst: null | Fiber,
+  targetContainer: EventTarget,
+): void {
+  let ancestorInst = targetInst;
+  if (
+    (eventSystemFlags &amp; IS_EVENT_HANDLE_NON_MANAGED_NODE) === 0 &amp;&amp;
+    (eventSystemFlags &amp; IS_NON_DELEGATED) === 0
+  ) {
+    const targetContainerNode = ((targetContainer: any): Node);
+
+    // If we are using the legacy FB support flag, we
+    // defer the event to the null with a one
+    // time event listener so we can defer the event.
+    if (
+      enableLegacyFBSupport &amp;&amp;
+      // If our event flags match the required flags for entering
+      // FB legacy mode and we are processing the "click" event,
+      // then we can defer the event to the "document", to allow
+      // for legacy FB support, where the expected behavior was to
+      // match React &lt; 16 behavior of delegated clicks to the doc.
+      domEventName === 'click' &amp;&amp;
+      (eventSystemFlags &amp; SHOULD_NOT_DEFER_CLICK_FOR_FB_SUPPORT_MODE) === 0 &amp;&amp;
+      !isReplayingEvent(nativeEvent)
+    ) {
+      deferClickToDocumentForLegacyFBSupport(domEventName, targetContainer);
+      return;
+    }
+    if (targetInst !== null) {
+      // The below logic attempts to work out if we need to change
+      // the target fiber to a different ancestor. We had similar logic
+      // in the legacy event system, except the big difference between
+      // systems is that the modern event system now has an event listener
+      // attached to each React Root and React Portal Root. Together,
+      // the DOM nodes representing these roots are the "rootContainer".
+      // To figure out which ancestor instance we should use, we traverse
+      // up the fiber tree from the target instance and attempt to find
+      // root boundaries that match that of our current "rootContainer".
+      // If we find that "rootContainer", we find the parent fiber
+      // sub-tree for that root and make that our ancestor instance.
+      let node = targetInst;
+
+      mainLoop: while (true) {
+        if (node === null) {
+          return;
+        }
+        const nodeTag = node.tag;
+        if (nodeTag === HostRoot || nodeTag === HostPortal) {
+          let container = node.stateNode.containerInfo;
+          if (isMatchingRootContainer(container, targetContainerNode)) {
+            break;
+          }
+          if (nodeTag === HostPortal) {
+            // The target is a portal, but it's not the rootContainer we're looking for.
+            // Normally portals handle their own events all the way down to the root.
+            // So we should be able to stop now. However, we don't know if this portal
+            // was part of *our* root.
+            let grandNode = node.return;
+            while (grandNode !== null) {
+              const grandTag = grandNode.tag;
+              if (grandTag === HostRoot || grandTag === HostPortal) {
+                const grandContainer = grandNode.stateNode.containerInfo;
+                if (
+                  isMatchingRootContainer(grandContainer, targetContainerNode)
+                ) {
+                  // This is the rootContainer we're looking for and we found it as
+                  // a parent of the Portal. That means we can ignore it because the
+                  // Portal will bubble through to us.
+                  return;
+                }
+              }
+              grandNode = grandNode.return;
+            }
+          }
+          // Now we need to find it's corresponding host fiber in the other
+          // tree. To do this we can use getClosestInstanceFromNode, but we
+          // need to validate that the fiber is a host instance, otherwise
+          // we need to traverse up through the DOM till we find the correct
+          // node that is from the other tree.
+          while (container !== null) {
+            const parentNode = getClosestInstanceFromNode(container);
+            if (parentNode === null) {
+              return;
+            }
+            const parentTag = parentNode.tag;
+            if (parentTag === HostComponent || parentTag === HostText) {
+              node = ancestorInst = parentNode;
+              continue mainLoop;
+            }
+            container = container.parentNode;
+          }
+        }
+        node = node.return;
+      }
+    }
+  }
+
+  batchedUpdates(() =&gt;
+    dispatchEventsForPlugins(
+      domEventName,
+      eventSystemFlags,
+      nativeEvent,
+      ancestorInst,
+      targetContainer,
+    ),
+  );
+}
+</code></pre>
+<p><a href="https://github.com/facebook/react/blob/796d31809b3683083d3b62ccbab4f00dec8ffb1f/packages/react-dom/src/events/DOMPluginEventSystem.js#L414"><code>dispatchEventsForPlugins()</code></a> 中 <code>extractEvents()</code> 生成 SyntheticEvent 合成事件，而 <code>processDispatchQueue()</code> 执行事件队列。</p>
+<pre><code class="language-javascript">function dispatchEventsForPlugins(
+  domEventName: DOMEventName,
+  eventSystemFlags: EventSystemFlags,
+  nativeEvent: AnyNativeEvent,
+  targetInst: null | Fiber,
+  targetContainer: EventTarget,
+): void {
+  const nativeEventTarget = getEventTarget(nativeEvent);
+  const dispatchQueue: DispatchQueue = [];
+  extractEvents(
+    dispatchQueue,
+    domEventName,
+    targetInst,
+    nativeEvent,
+    nativeEventTarget,
+    eventSystemFlags,
+    targetContainer,
+  );
+  processDispatchQueue(dispatchQueue, eventSystemFlags);
+}
+</code></pre>
+<h2 id="faq-bugs">FAQ &amp; Bugs</h2>
+<h3 id="react-fiber">React Fiber</h3>
+<blockquote>
+<p><a href="https://reactjs.org/docs/faq-internals.html#what-is-react-fiber">Fiber</a> 是 React 16 中新的协调引擎 =&gt; 使 Virtual DOM 可以进行增量式渲染。</p>
+</blockquote>
+<blockquote>
+<p><a href="https://github.com/acdlite/react-fiber-architecture#introduction">incremental rendering</a> 增量式渲染能够将渲染工作分块并将其分散到多个帧上。</p>
+</blockquote>
+<p>测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下</p>
+<p>页面元素较多，且频繁刷新的情况下，v15 会出现掉帧的现象。由于采用的是全量渲染，渲染过程不可中断。</p>
+<p>协调器 reconciler 会调用组件的 render 决定是否进行挂载，更新或是卸载操作。</p>
+<p>从 v15 到 v16，React 团队花了两年时间将源码架构中的 Stack Reconciler 重构为 Fiber Reconciler。</p>
+<p>页面节点多，层次深会导致递归渲染的耗时增加，由于 UI 线程与单线程的 JS 线程互斥，影响响应。</p>
+<p>Fiber 其实是一种数据结构，可以用纯 JS 对象表示。fiber 也是一个执行单元，每次执行完一个执行单元，React 就会检查还剩多少时间，若没有时间就将控制权让出去。</p>
+<p>Fiber 四个关键特性 =&gt; 增量渲染；暂停、中止、复用渲染任务；优先级更新；并发能力</p>
+<ul>
+<li>帧 &amp; JS 阻塞渲染</li>
+</ul>
+<p>主流刷新频率为 60HZ，即 60 帧每秒。每帧中都会包括样式计算、布局和绘制。</p>
+<blockquote>
+<p><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/threading_and_tasks.md">Chrome</a> has a multi-process architecture and each process is heavily multi-threaded.</p>
+</blockquote>
+<blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Main_thread">主线程</a>用于浏览器处理用户事件和页面绘制等。默认情况下，浏览器在一个线程中运行一个页面中的所有 JavaScript 脚本，以及呈现布局，回流，和垃圾回收。</p>
+</blockquote>
+<p>Performance insights 面板开启录制后分析：Main 栏中的灰色块 Run Task 是主线程中执行的任务，绿色块 First Contentful Paint 表示首次绘制。</p>
+<p>在首次绘制之前会有 Parse HTML 和 Evaluate Script，而后者这类阻塞 DOM Tree 生成的 Script 会延长 Parse HTML 的耗时。</p>
+<p>随后是紫色块：输出 styleSheets 的 Recalculate Style 和用作布局的 Layout。</p>
+<p>最后是 Details 中查看到的 Composite Layers。</p>
+<p>具体的绘制操作会将 Composite Layers 交给合成线程 Compositor。</p>
+<p>合成线程并不会与主线程互斥。</p>
+<p>Script 的执行和 Paint 图层的绘制都发生在主线程 Main。</p>
+<p>渲染被阻塞的原因是由于 JS 执时间过长，导致这一帧没有时间执行 Paint 任务。</p>
+<ul>
+<li>Fiber 执行流程</li>
+</ul>
+<p>React 中可通过 this.setState、this.forceUpdate、ReactDOM.render 等 API 触发更新。更新发生时，Reconciler 会调用组件的 render 方法，将返回的 JSX 转化为虚拟 DOM；将虚拟 DOM 和上次更新时的虚拟 DOM 对比；通过对比找出本次更新中变化的虚拟 DOM；通知 Renderer 将变化的虚拟 DOM 渲染到页面上</p>
+<p>Stack reconciler 是 v15 及更早的解决方案。Fiber 从 v16 开始成为默认的 reconciler。</p>
+<p>React15 架构可以分为 Reconciler 协调器和 Renderer 渲染器两层。</p>
+<p>Reconciler 协调器 =&gt; 负责找出变化的组件；<br />
+Renderer 渲染器 =&gt; 根据 Reconciler 为虚拟 DOM 打的标记，同步执行对应的 DOM 操作<br />
+在React15及以前，Reconciler采用递归的方式创建虚拟DOM，递归过程是不能中断的。如果组件树的层级很深，递归会占用线程很多时间，递归更新时间超过了16ms，用户交互就会卡顿。</p>
+<p>为了解决这个问题，React16将递归的无法中断的更新重构为异步的可中断更新，由于曾经用于递归的虚拟DOM数据结构已经无法满足需要。于是，全新的Fiber架构应运而生。</p>
+<p>每次渲染有两个阶段：Reconciliation(协调render阶段〕和Commit(提交阶段〕</p>
+<p>协调的阶段：可以认为是Diff阶段，这个阶段可以被终止，这个阶段会找出所有节点变更，例如节点新增、删除、属性变更等等，这此变更React称之为副作用。</p>
+<p>提交阶段：将上一阶段计算出来的需要处理的副作用(effects)一次性执行了。这个阶段必须同步执行，不能被打断。</p>
+<h3 id="%E6%95%85%E9%9A%9C%E8%A7%A3%E9%99%A4">故障解除</h3>
+<ul>
+<li>React 使用 antd-mobile 开发移动端项目时，在部分界面用嵌套路由（不同页面渲染内容 + TavBar恒固定）时出现点击无效的情况</li>
+</ul>
+<p>经检测是 antd-mobile 中 <a href="https://mobile.ant.design/components/tab-bar-cn/#components-tab-bar-demo-basic">TabBar</a> 组件带有一个检测缩放满屏属性 fullScreen 的盒子将 TabBar 元素包裹。即如下代码：</p>
+<pre><code class="language-html">&lt;div style="position: fixed; height: 100%; width: 100%; top: 0px;"&gt;
+ ...
+&lt;/div&gt;
+</code></pre>
+<p>这里看到一个解决方案是设置 <code>z-index:-1</code> 。当然在 JSX 行内元素设置务必根据驼峰写法来设置成 <code>zIndex:-1</code> ，但是经本人实践，次方法会将 TabBar 直接隐藏，故不可取。</p>
+<p>实际这一处的代码只是为了演示根据点击标签而更改 TabBar 的放置位置，若不需要还是直接去除这个包裹容器即可。</p>
+<ul>
+<li>校验报错 =&gt; Typo in static class property declaration react/no-typos</li>
+</ul>
+<p>检查大小写 =&gt; <code>组件.propTypes = {}</code> 不要写成 <code>组件.PropTypes = {}</code>，前者的 propTypes 是 React.Component 的特殊属性。</p>
+<ul>
+<li>CSS Modules</li>
+</ul>
+<p>在配置路由时，组件都被导入到项目中，那么组件的样式也就被导入到项目中了。如果组件之间样式名称相同，那么一个组件中的样式就会在另一个组件中也生效，从而造成组件之间样式相互覆盖的问题。</p>
+<p>CSS 仅是网页样式的描述方法。Less、SASS 到 PostCSS 都是为了让 CSS 更像一门编程语言，这也导致使用者增加更多的学习成本。是否存在一种规则少，又保证某个组件的样式不会影响到其他组件的方法—— CSS Modules 通过只加入了局部作用域和模块依赖解决组件样式冲突。</p>
+<p>React 项目在用 <code>npx create-react-app my-app</code> 创建后需要使用 CSS Modules 需保证项目存在 css-loader 插件。这里解释一下为什么需要 css-loader 插件。webpack 是用 JavaScript 编写，运行在 Node 环境里的打包工具，所以默认 webpack 打包的时候只会处理JS之间的依赖关系。如果在 <code>.js</code> 文件中导入了 css，那么就需要使用 css-loader 识别这个导入的 css 模块，通过特定的语法规则进行转换内容最后导出这个模块数组。因为是个页面无法直接识别的数组，这时就需要用到另外一个插件 style-loader 来创建一个style标签去包含处理这些样式。否则会出现报错：</p>
+<pre><code class="language-js">index.module.css (./node_modules/css-loader/dist/cjs.js??ref--5-oneOf-5-1!./node_modules/postcss-loader/src??postcss!. ... not found babel-loader
+</code></pre>
+<p>确保上述依赖完成后即可使用 CSS Modules 。由于 React 已内置 CSS Modules ，只需把要保证独立样式的样式提出再注入保证规范名的样式文件( [name].module.css)即可，最后 <code>.ts</code> 文件中通过自定义对象名引入则可以拿到经 CSS Modules 演化后生成的 css 对象。</p>
+<ul>
+<li>百度地图 BMapGL 未定义</li>
+</ul>
+<p>React 项目中，使用百度地图 API 在位于 BMapGL 命名空间下的 Map 类通过 new 操作符创建地图实例时，出现了 <code>'BMapGL' is not defined no-undef</code> 的报错。</p>
+<p>这里是因为 React 的生命周期中 render() 阶段负责创建虚 DOM，进行 diff 算法，更新 DOM树。而 render 及之前的阶段，并没有将组件渲染为实际的 DOM 节点，所以不能获取 window 对象。</p>
+<p>这种情况下可以通过在组件外，进行声明拿到 window 对象下的 BMapGL (推荐)，解决脚手架中全局变量访问的问题。再在 componentDidMount 生命周期中通过 new 方法获取实例。</p>
+<pre><code class="language-js">// 方法一
+const BMapGL = window.BMapGL
+// 方法二
+var map = new window.BMapGL.Map("container");
+//创建地址解析器实例
+var myGeo = new window.BMapGL.Geocoder();
+...
+</code></pre>
+<ul>
+<li>TypeError: Class extends value undefined is not a constructor or null</li>
+</ul>
+<pre><code class="language-javascript">src/components/demo.js:2
+  1 | import React from 'react'
+&gt; 2 | export default class Demo extends React.component{ // 别写成小写
+  3 |   showData = () =&gt; {
+  4 |     const {inputt} = this
+  5 |     alert(inputt.value)
+</code></pre>
+<ul>
+<li>Functions are not valid as a React child. This may happen if you return a Component instead of  from render.</li>
+</ul>
+<p>react-router-v6 =&gt; 标签 Route 的属性 component 替换为 element，element 的属性值要写成 JSX 组件的形式。<a href="https://stackoverflow.com/questions/48458334/functions-are-not-valid-as-a-react-child-this-may-happen-if-you-return-a-compon">SOF</a></p>
+<pre><code class="language-jsx">&lt;Route path="/movies/list" exact element={ MoviesList } /&gt;
+</code></pre>
+<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://pomb.us/build-your-own-react/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Build your own React</div><div class="kg-bookmark-description">We are going to rewrite React from scratch. Step by step. Following the architecture from the real React code but without all the…</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://pomb.us/favicon.ico" alt width="48" height="48" layout="fixed"></amp-img></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://pomb.us/static/b4694e6041953e3cb16f6a889f0cbc59/54290/card.png" alt width="1200" height="628" layout="responsive"></amp-img></div></a></figure><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>
 
 
             </section>

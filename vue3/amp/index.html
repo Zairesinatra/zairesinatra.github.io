@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>Vue3.x</title>
+
+    <meta name="description" content="人生若只如初見，何事秋風悲畫扇。" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Vue3.x" />
+    <meta property="og:description" content="人生若只如初見，何事秋風悲畫扇。" />
+    <meta property="og:url" content="yourdomain.com/vue3/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/10/one-piece.jpg" />
+    <meta property="article:published_time" content="2021-05-21T14:22:00.000Z" />
+    <meta property="article:modified_time" content="2022-10-25T18:28:17.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vue3.x" />
+    <meta name="twitter:description" content="人生若只如初見，何事秋風悲畫扇。" />
+    <meta name="twitter:url" content="yourdomain.com/vue3/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/10/one-piece.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "Vue3.x",
+    "url": "yourdomain.com/vue3/",
+    "datePublished": "2021-05-21T14:22:00.000Z",
+    "dateModified": "2022-10-25T18:28:17.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/10/one-piece.jpg",
+        "width": 1920,
+        "height": 1080
+    },
+    "keywords": "Technology growth",
+    "description": "人生若只如初見，何事秋風悲畫扇。",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.10" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">Vue3.x</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2021-05-21">21 May 2021</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2021/10/one-piece.jpg" width="600" height="340" layout="responsive" 
+                alt="one-piece"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<blockquote>
+<p>声明式渲染 Declarative Rendering =&gt; 通过模板语法，以双花括号为占位符将数据插入到节点。<br />
+响应性 Responsiveness =&gt; 通过 Vue 自动跟踪 JS 的状态变化，在其发生改变时响应式地更新 DOM。<br />
+API 风格 API Styles =&gt; 选项式 API Options API、组合式 API Composition API。</p>
+</blockquote>
+<h3 id="%E9%80%89%E9%A1%B9%E5%BC%8F-api-%E4%B8%8E%E7%BB%84%E5%90%88%E5%BC%8F-api"><a href="https://staging-cn.vuejs.org/guide/introduction.html#api-styles">选项式 API 与组合式 API</a></h3>
+<p>Options API 包含数据、方法、生命周期等选项，且选项中定义的属性会暴露在函数内部的 this 上。</p>
+<p>封装复用组件不能完全解决因业务巨大所导致的逻辑关注点的冗长，这就会导致开发中必须不断地跳转相关代码的选项块。Composition API 将同类逻辑关注点的代码汇聚于 setup 组件选项。</p>
+<p><a href="https://v3.cn.vuejs.org/api/composition-api.html">Composition API</a> 常配合 setup 函数来描述组件逻辑。<u>因 setup 在 beforeCreate 钩子之前执行，此时的组件实例还未创建，所以在 setup 函数中不能使用 this，否则会出现 undefined。此外模板中需要使用的数据和函数，应在 setup 内进行返回。</u></p>
+<p>在单文件组件中，组合式 API 也会与 &lt;script setup&gt; 搭配使用。&lt;script setup&gt; 是一种<a href="https://vuejs.org/api/sfc-script-setup.html">编译时语法糖</a>，其中的导入和顶层变量/函数都能够在模板中直接使用。setup attribute 作为 hint，告诉 Vue 在编译时进行转换，推荐在 SFCs and Composition API 场景下使用。</p>
+<blockquote>
+<p><strong><a href="https://vuejs.org/guide/scaling-up/sfc.html#introduction">SFCs</a></strong> =&gt; Vue Single-File Components(a.k.a. *.vue files, abbreviated as SFC) =&gt; 单文件组件能获得完整的语法高亮、CommonJS 模块以及组件作用域的 CSS。<br />
+<strong>SPA</strong> =&gt; single-page application 网络应用程序或网站的模型，通过动态重写当前页面来与用户交互，而非传统的从服务器重新加载整个新页面。</p>
+</blockquote>
+<p>非单文件组件不能保证全局定义的组件名唯一，在字符串模板中缺乏语法高亮，不支持 CSS。其构建步骤中只能使用 Html 和 ES5 JavaScript，而不能使用 webpack 和预处理器 Babel。</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;Vue2 =&gt; 单文件组件&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default { // 默认暴露
+  name:'kebab-case|PascalCaseComponentName', // 不写则默认暴露单文件组件名 =&gt; Xxx.vue 的 Xxx
+  data () { return { msg: '单文件组件' } }
+}
+&lt;/script&gt;
+&lt;style&gt;&lt;/style&gt;
+</code></pre>
+<pre><code class="language-javascript">Vue.component('kebab-case|PascalCaseComponentName', {
+  data: function () {
+    return { ... }
+  },
+  template: '&lt;...&gt;非单文件组件&lt;... /&gt;'
+})
+</code></pre>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;h1&gt;{{ msg }}&lt;/h1&gt;
+  &lt;button @click="sayHi()"&gt;Hi Vue3&lt;/button&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  name: 'HelloWorld',
+  setup(){
+    const msg = "Hello Vue3";
+    const sayHi = () =&gt; {
+      console.log("Hi Vue3")
+    };
+    return { msg, sayHi }
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;button @click="increment"&gt;Count is: {{ count }}&lt;/button&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+import { ref, onMounted } from 'vue'
+const count = ref(0) // 响应式状态
+function increment() { count.value++ } // 用来修改状态、触发更新的函数
+onMounted(() =&gt; { console.log(`The initial count is ${count.value}.`) }) // 生命周期钩子
+&lt;/script&gt;
+</code></pre>
+<p>setup 作为组合式 API 的入口，是一个组件选项，在组件被创建之前且 props 被解析之后执行。setup 写法中可以通过 ...toRefs 方式将响应式对象中的每个属性转变为响应式数据，简化模板中的命名对象的指定。且 setup 返回的所有内容都会暴露给组件的其余部分 (计算属性、方法、生命周期等) 以及组件的模板。</p>
+<pre><code class="language-javascript">import { reactive, toRefs } from "vue";
+export default {
+  name: "Test01",
+  setup(){
+    const data = reactive({
+      name:'okk', age:20, func(){ console.log('Hello Vue3') }
+    })
+    return{ ...toRefs(data) } // =&gt; {{ name }}、{{ age }}、@&lt;event&gt;="func"
+  }
+}
+</code></pre>
+<p>使用 &lt;script setup&gt; 时，声明的顶层绑定（声明变量、函数以及引入内容）都能在模板中直接使用，不需要返回。但若需将响应式对象中的每个属性都转换为响应式数据，那么需要借助 toRefs() 的解构。</p>
+<p>当 &lt;script setup&gt; 与 &lt;script&gt; 标签同时存在时，后者 setup() 中定义的任何变量和方法都不能在模板进行访问。</p>
+<pre><code class="language-javascript">&lt;script setup&gt;
+import { reactive,toRefs } from "vue";
+const data = reactive({ name:'okk', age:20, func(){ console.log('Hello Vue3') } })
+const { name,age,func } = toRefs(data)
+&lt;/script&gt;
+</code></pre>
+<h3 id="%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE">响应式数据</h3>
+<p>直接对变量进行字面量赋值的操作不会产生响应式的效果，所以在数据更新时不会驱动视图的更新。若要定义响应式数据，需要借助从 vue 导入的相关 function。定义响应式数据 =&gt; reactive()、ref()；辅助函数 =&gt; toRef()、toRefs()。</p>
+<p>ref 产生的响应式数据在修改和读取时应指定其 value；ref 产生的响应式数据在模板中使用时，可以省略 <code>.value</code>。</p>
+<ul>
+<li><a href="https://cn.vuejs.org/api/reactivity-core.html#reactive">reactive</a></li>
+</ul>
+<blockquote>
+<p>除 null 和 undefined 的原始类型都有其相应的包装对象 =&gt; BigInt、Symbol、String、Number、Boolean</p>
+</blockquote>
+<p>通过传入普通对象（非包装对象）作为参数创建响应式对象，若参数是字符串或数字则会报出警告，<a href="https://cn.vuejs.org/guide/extras/composition-api-faq.html#comparison-with-react-hooks">类似</a> <a href="https://zh-hans.reactjs.org/docs/hooks-intro.html">React Hook</a> 中的 <code>useState()</code> 和 <code>useReducer()</code>。当直接从响应式数据对象中解构属性时，会造成响应式的丢失。</p>
+<pre><code class="language-javascript">&lt;template&gt;
+  &lt;div&gt;{{ countobj.count }}-&lt;button @click="add"&gt;clickme add&lt;/button&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import { reactive } from 'vue'
+export default {
+  setup() {
+    const countobj = reactive({ count: 0, });
+    const add = () =&gt; { countobj.count++; };
+    return { countobj, add, };
+  },
+};
+&lt;/script&gt;
+</code></pre>
+<p>reactive 源码位于 .../node_modules/@vue/reactivity/dist/reactivity.d.ts，其接受类型是泛型 T 的参数 target。T extends object =&gt; target 的类型是 object 类型或继承自 object 类的子类类型。返回值类型为 <code>UnwrapNestedRefs&lt;T&gt;</code>。</p>
+<blockquote>
+<p>Creates a reactive copy of the original object.<br />
+The reactive conversion is "deep"—it affects all nested properties. In the ES2015 Proxy based implementation, the returned proxy is <strong>not</strong> equal to the original object. It is recommended to work exclusively with the reactive proxy and avoid relying on the original object.<br />
+A reactive object also automatically unwraps refs contained in it, so you don't need to use <code>.value</code> when accessing and mutating their value:</p>
+</blockquote>
+<p><code>type</code> 关键字声明的类型 <code>UnwrapNestedRefs&lt;T&gt;</code> 通过判断 T 是否属于 Ref 或其子类，指定传入的 T 或者 <code>UnwrapRefSimple&lt;T&gt;</code>。</p>
+<pre><code class="language-typescript">// reactive 的类型声明 - Creates a reactive copy of the original object.
+export declare function reactive&lt;T extends object&gt;(target: T): UnwrapNestedRefs&lt;T&gt;;
+...
+// UnwrapNestedRefs&lt;T&gt; 类型
+export declare type UnwrapNestedRefs&lt;T&gt; = T extends Ref ? T : UnwrapRefSimple&lt;T&gt;;
+</code></pre>
+<p>reactive 方法的定义于 .../@vue/reactivity/dist/reactivity.global.js。此处是编译后的 JS 版本，需要查看 TS 版本的<a href="https://github.com/vuejs/core/blob/main/packages/reactivity/src/reactive.ts">点此</a>。</p>
+<p>reactive 接受 object 类型的参数 target。若传入对象只读则返回本身，as 断言关键字表示传入的值一定为 Target 类型，<code>ReactiveFlags.IS_READONLY</code> 根据枚举类判断是否为只读的属性；当传递的对象是普通对象，则会执行创建响应式对象函数 <code>createReactiveObject(...)</code>。</p>
+<pre><code class="language-typescript">export function reactive(target: object) {
+  // if trying to observe a readonly proxy, return the readonly version.
+  if (isReadonly(target)) {
+    return target
+  }
+  return createReactiveObject(
+    target, false, mutableHandlers, mutableCollectionHandlers, reactiveMap
+  )
+}
+...
+export function isReadonly(value: unknown): boolean {
+  return !!(value &amp;&amp; (value as Target)[ReactiveFlags.IS_READONLY])
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>reactive.ts 中返回 createReactiveObject() 的函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reactive</td>
+<td>创建深层响应的可读写代理对象</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td>创建深层响应的只读代理对象</td>
+</tr>
+<tr>
+<td>shallowReactive</td>
+<td>创建浅层响应的可读写代理对象</td>
+</tr>
+<tr>
+<td>shallowReadonly</td>
+<td>创建浅层响应的只读代理对象</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-typescript">function createReactiveObject(
+  target: Target,
+  isReadonly: boolean,
+  baseHandlers: ProxyHandler&lt;any&gt;,
+  collectionHandlers: ProxyHandler&lt;any&gt;,
+  proxyMap: WeakMap&lt;Target, any&gt;
+) {
+  if (!isObject(target)) {
+    if (__DEV__) {
+      console.warn(`value cannot be made reactive: ${String(target)}`)
+    }
+    return target
+  }
+  // target is already a Proxy, return it.
+  // exception: calling readonly() on a reactive object
+  if (
+    target[ReactiveFlags.RAW] &amp;&amp;
+    !(isReadonly &amp;&amp; target[ReactiveFlags.IS_REACTIVE])
+  ) {
+    return target
+  }
+  // target already has corresponding Proxy
+  const existingProxy = proxyMap.get(target)
+  if (existingProxy) {
+    return existingProxy
+  }
+  // only specific value types can be observed.
+  const targetType = getTargetType(target)
+  if (targetType === TargetType.INVALID) {
+    return target
+  }
+  const proxy = new Proxy(
+    target,
+    targetType === TargetType.COLLECTION ? collectionHandlers : baseHandlers
+  )
+  proxyMap.set(target, proxy)
+  return proxy
+}
+</code></pre>
+<p><code>createReactiveObject(...)</code> 大体情况下是返回通过 <code>new Proxy(..)</code> 构造函数构建出来的 proxy。</p>
+<p>在使用 reactive 传递参数时，可以是对象也可以是原始值，但是后者并不会被包装成响应式数据；返回的响应式数据本质为 Proxy 对象。</p>
+<p>返回的响应式副本与原始数据有关联，当原始对象里的数据或响应式对象里的数据发生变化时，彼此都会被相互影响，但是前者数据改变不会触发界面更新。</p>
+<ul>
+<li>shallowReactive =&gt; 只考虑对象类型最外层的响应式</li>
+</ul>
+<p>相比 reactive 遍历所有层次的数据生成响应式，shallowReactive 只处理第一层。</p>
+<p>开发中适合纵向深，但仅会更改最外层属性的数据对象。</p>
+<ul>
+<li><a href="https://cn.vuejs.org/api/reactivity-core.html#ref">ref</a> =&gt; 传入原始数据以创建含有响应式属性 value 的包装式对象</li>
+</ul>
+<p>响应式对象中的 <code>__v_isRef</code> 属性用于区分当前对象是 ref 或是普通对象，前者在模板解析期间会直接取出 value 属性（模板中省略 fieldName.value）。</p>
+<p>所谓响应式丢失，就是对通过 reactive 生成的响应式对象数据使用展开运算符，将代理的响应式对象数据转换为普通对象数据。此时修改对象的属性值，不会触发更新和模板渲染。ref =&gt; 不但可用于实现原始值的响应式代理，还可以用于解决响应式的丢失问题。</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;{{ count }}-&lt;button @click="add"&gt;clickme add&lt;/button&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import { ref } from "vue";
+export default {
+  setup() {
+    const count = ref(0), add = () =&gt; { count.value++; };
+    console.log(count) // RefImpl {__v_isShallow: false, dep: undefined, __v_isRef: true, _rawValue: 0, _value: 0}
+    return { count, add };
+  },
+};
+&lt;/script&gt;
+</code></pre>
+<p>传递的原始数据可以是原始值也可以是引用值，若传递原始值，则指向原始数据的值保存在返回的响应式数据对象的 <code>.value</code> 中；若传递引用值，则返回的响应式数据对象的 <code>.value</code> 属性中具有指向对应的原始数据（引用值|对象）的 Proxy 副本。</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;div&gt;count01 =&gt; {{ count01 }}&lt;/div&gt;
+    &lt;button @click="add01"&gt;Click Me&lt;/button&gt;
+    &lt;div&gt;count02 =&gt; {{ count02 }}&lt;/div&gt;
+    &lt;button @click="add02"&gt;Click Me&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import { ref } from "vue";
+export default {
+  setup() {
+    let origin01 = 0, origin02 = { val: 0 }; // 原始数据分别为原始值、引用值
+    let count01 = ref(origin01), count02 = ref(origin02);
+    console.log("count01", count01); // count01 RefImpl {__v_isShallow: false, dep: undefined, __v_isRef: true, _rawValue: 0, _value: 0}
+    console.log("count02", count02); // count02 RefImpl {__v_isShallow: false, dep: undefined, __v_isRef: true, _rawValue: {…}, _value: Proxy}
+    function add01() { count01.value++; }
+    function add02() { count02.value.val++; }
+    return { count01, count02, add01, add02, };
+  }
+};
+&lt;/script&gt;
+</code></pre>
+<p>ref 方法的定义于 ../node_modules/vue/dist/vue.global.js。此处是编译后的 JS 版本，需要查看 TS 版本的<a href="https://github.com/vuejs/core/blob/a95554d35c65e5bfd0bf9d1c5b908ae789345a6d/packages/reactivity/src/ref.ts">点此</a>。</p>
+<pre><code class="language-typescript">export function ref(value?: unknown) {
+  return createRef(value, false)
+}
+...
+function createRef(rawValue: unknown, shallow: boolean) {
+  if (isRef(rawValue)) {
+    return rawValue
+  }
+  return new RefImpl(rawValue, shallow)
+}
+...
+export function isRef(r: any): r is Ref {
+  return !!(r &amp;&amp; r.__v_isRef === true)
+}
+</code></pre>
+<p>通过 ref 生成的响应式对象都是由 RefImpl 类构造的实例，而 RefImpl 实例对象中的 <code>value</code> 属性会据传入原始数据或引用值，分别对应原始数据或 Proxy 对象。</p>
+<p>带泛型 T 的 RefImpl 类中定义辅助操作的私有属性，通过 getter|setter 对 <code>value</code> 进行操作拦截。createRef 中传入的第二个参数默认是 false，那么 <code>_rawValue</code> 和 <code>_value</code> 应根据 toRaw 和 toReactive 方法确定。</p>
+<pre><code class="language-typescript">class RefImpl&lt;T&gt; {
+  private _value: T
+  private _rawValue: T
+  public dep?: Dep = undefined
+  public readonly __v_isRef = true
+  constructor(value: T, public readonly __v_isShallow: boolean) {
+    this._rawValue = __v_isShallow ? value : toRaw(value)
+    this._value = __v_isShallow ? value : toReactive(value)
+  }
+  get value() {
+    trackRefValue(this)
+    return this._value
+  }
+  set value(newVal) {
+    const useDirectValue = this.__v_isShallow || isShallow(newVal) || isReadonly(newVal)
+    newVal = useDirectValue ? newVal : toRaw(newVal)
+    if (hasChanged(newVal, this._rawValue)) {
+      this._rawValue = newVal
+      this._value = useDirectValue ? newVal : toReactive(newVal)
+      triggerRefValue(this, newVal)
+    }
+  }
+}
+...
+export function triggerRefValue(ref: RefBase&lt;any&gt;, newVal?: any) {
+  ref = toRaw(ref)
+  if (ref.dep) {
+    if (__DEV__) {
+      triggerEffects(ref.dep, {
+        target: ref,
+        type: TriggerOpTypes.SET,
+        key: 'value',
+        newValue: newVal
+      })
+    } else {
+      triggerEffects(ref.dep)
+    }
+  }
+}
+</code></pre>
+<ul>
+<li>shallowRef =&gt; 传基本数据类型时与 ref 无异，不处理对象类型的响应式</li>
+</ul>
+<p>ref 传入对象类型的参数时，会创建 value 属性为 Proxy 实例的 RefImpl 对象。</p>
+<p>shallowRef 传入对象类型的参数时，会创建 value 属性为 Object 实例的 RefImpl 对象，Object 实例是没有进行响应式处理的。</p>
+<p>shallowRef 适合用于后续功能不会修改对象中属性的对象数据，常会通过生成新对象的方式将其替换。</p>
+<ul>
+<li>toRef =&gt; 将响应式对象中的某个字段单独提供给外部使用</li>
+</ul>
+<p>为避免在模板中使用复杂表示的对象属性，可能会考虑到在返回时以变量接受响应式对象的具体属性，然而这并不能符合预期的获得响应式数据，而只是一个快照。</p>
+<pre><code class="language-jsx">let slogan = { msg: "Hello", status: 200 }
+let s = new Proxy(slogan, {
+  set(target, propName, value){
+    Reflect.set(target, propName, value)
+  }
+})
+let snapshot = s.msg // 此处无法通过更改 snapshot 达到修改源对象的目的 -&gt; snapshot = Hello
+</code></pre>
+<p><a href="https://cn.vuejs.org/api/reactivity-utilities.html#toref">toRef</a> 为响应式对象上的指定字段新建一个 ref 对象，其 value 属性保持与传入对象的源字段同步。</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;div&gt;{{name}} =&gt; {{age}}&lt;/div&gt;
+    &lt;button @click="btnFunc"&gt;Click Me&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import {toRef, reactive} from "vue"; // 引入 toRef
+export default {
+  setup(){
+    let user = reactive({ name:'Ok', age:23 }), name = toRef(user,'name'), age = toRef(user,'age'), btnFunc = () =&gt; { name.value = "Okk", age.value = 24,console.log(name) }
+    return {name,age,btnFunc}
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<pre><code class="language-javascript">ObjectRefImpl{__v_isRef: true, _defaultValue: undefined, _key: "name", _object: Proxy {name: 'Okk', age: 24}, value: "Okk"}
+</code></pre>
+<p>返回由 toRef 包裹的数据时看似可用 ref 代替，但后续操作的实际数据不再为此前定义的数据，而是由 ref 产生的新数据，所以不符合预期。</p>
+<p>toRef 是引用源数据（利用 Getter 将 value 指向源数据），ref 是复制源数据。</p>
+<pre><code class="language-javascript">&lt;template&gt;
+  &lt;div&gt;{{fooRef}}&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import { reactive, toRef } from "vue";
+export default {
+  setup() {
+    const state = reactive({foo: 1, bar: 2 }); // 响应式对象 state
+    const fooRef = toRef(state, "foo");
+    fooRef.value++;
+    console.log(state.foo) // 2
+    state.foo++;
+    console.log(fooRef.value); // 3
+    return {state, fooRef}
+  },
+};
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li><a href="https://cn.vuejs.org/api/reactivity-utilities.html#torefs">toRefs</a> =&gt; 剥离响应式对象，将响应式对象中的每个字段作为响应式数据</li>
+</ul>
+<p>将响应式对象中的每个属性都转换为单独的响应式数据，响应式对象转换为普通对象。该函数可以让消费组件在不丢失响应式的情况下对返回的对象进行解构与展开操作，解决了直接对响应式对象解构展开所导致的响应性丢失问题。</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;div&gt;{{name}} =&gt; {{age}}&lt;/div&gt;
+    &lt;button @click="btnFunc"&gt;Click Me&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import {toRefs, reactive} from "vue"; // 引入 toRef
+export default {
+  setup(){
+    let user = reactive({ name:'Ok', age:23 }), ordinaryUser = toRefs(user), {name,age} = {...ordinaryUser},btnFunc = () =&gt; { name.value = "Okk", age.value = 24 }
+    console.log("{...user} equals ordinaryUser??? =&gt;", {...user} == ordinaryUser) // false
+    console.log(user, "---", ordinaryUser); // Proxy {name: 'Ok', age: 23} '---' {name: ObjectRefImpl, age: ObjectRefImpl}
+    return {name,age,btnFunc}
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<amp-iframe src="https://codesandbox.io/embed/refs-34yzb?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="refs" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe>
+<ul>
+<li>readonly 和 shallowReadonly</li>
+</ul>
+<p>页面不更新的情况可能是数据已经改变，但并非响应式，或者是不允许修改数据。</p>
+<p>readonly 和 shallowReadonly 函数传入响应式数据作为参数，生成只读的数据。</p>
+<p>前者不论嵌套层级多深都无法更改，后者只禁止最外层的数据修改。</p>
+<p>只读数据适用于数据并非在该组件定义，且不可修改的情况。</p>
+<ul>
+<li>toRaw 和 markRaw</li>
+</ul>
+<blockquote>
+<p><a href="https://cn.vuejs.org/api/reactivity-advanced.html#toraw">toRaw</a> 返回由 reactive()、readonly()、shallowReactive() 或 shallowReadonly() 创建的代理对应的原始对象。对比 <a href="https://cn.vuejs.org/api/reactivity-utilities.html#unref">unref</a>。</p>
+</blockquote>
+<p>toRaw 将一个由 reactive 生成的响应式对象转换为普通对象。</p>
+<p>用于读取响应式对象所对应的普通对象，开发中常见于深层嵌套且没有变更需求的数据。对这个普通对象的所有操作，不会引起页面的更新。</p>
+<pre><code class="language-typescript">export function toRaw&lt;T&gt;(observed: T): T {
+  const raw = observed &amp;&amp; (observed as Target)[ReactiveFlags.RAW]
+  return raw ? toRaw(raw) : observed
+}
+</code></pre>
+<p>markRaw 所标记的对象永远不会成为响应式对象。</p>
+<p>适用于渲染具有不可变数据源的大列表时，跳过响应式以提高性能；在响应式对象上追加第三方类库的场景。</p>
+<p>为响应式对象追加的属性也会是响应式的，即会引起页面的变化。当追加无需修改的数据时，可先将其进行 markRaw 标记，再进行追加。</p>
+<ul>
+<li><a href="https://cn.vuejs.org/api/reactivity-advanced.html#customref">customRef</a> =&gt; 创建自定义的 ref，对其依赖项跟踪和更新触发显示控制</li>
+</ul>
+<p>在 get 函数中调用 track 以追踪依赖的改变；在 set 函数中调用 trick 以重新触发模板的解析。</p>
+<pre><code class="language-jsx">function xxxRef(value){
+  return customRef((track, trigger) =&gt; {
+    return {
+      get(){
+        track();
+        return value;
+      },
+      set(newValue){
+        value = newValue;
+        trigger();
+      }
+    }
+  })
+}
+</code></pre>
+<ul>
+<li><a href="https://cn.vuejs.org/api/composition-api-dependency-injection.html#provide">provide</a> &amp; <a href="https://cn.vuejs.org/api/composition-api-dependency-injection.html#inject">inject</a> =&gt; 实现组件的跨级通讯</li>
+</ul>
+<p>Sup 组件通过 provide 选项提供数据，Sub 组件使用 inject 选项使用这些数据。</p>
+<h3 id="%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">生命周期</h3>
+<ul>
+<li>
+<p>原 beforeDestroy 与 destroyed 变为 beforeUnmount 与 unmounted。</p>
+</li>
+<li>
+<p>setup 函数中要将生命周期加上 on 前缀的小驼峰形式。</p>
+</li>
+<li>
+<p>同时存在 setup 里的生命周期和选项式生命周期，前者会在后者前触发。</p>
+</li>
+</ul>
+<pre><code class="language-jsx">new Vue() =&gt; app = Vue.createApp(options); app.mount(el)
+</code></pre>
+<h3 id="%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E4%B8%8E%E4%BE%A6%E5%90%AC%E5%99%A8">计算属性与侦听器</h3>
+<p>写在 setup 中的计算属性需要传入一个回调函数作为参数，并接收此函数的返回值为计算属性的结果。</p>
+<pre><code class="language-javascript">&lt;template&gt;
+  &lt;div class="hello"&gt;{{ nickname }}&lt;/div&gt; /*&lt;!--Hello--&gt;*/
+&lt;/template&gt;
+&lt;script&gt;
+import { ref, computed } from "vue";
+export default {
+  name: "HelloWorld",
+  setup() {
+    const myname = ref("hello");
+    const nickname = computed(() =&gt; myname.value.substring(0, 1).toUpperCase() + myname.value.substring(1));
+    return {
+      nickname,
+    };
+  },
+};
+&lt;/script&gt;
+&lt;!-- Add "scoped" attribute to limit CSS to this component only --&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;
+</code></pre>
+<p>watch 侦听函数在引入后可传入三个参数，侦听数据源、传入新旧参数的执行函数和配置对象。</p>
+<ul>
+<li>监视 ref 定义的响应式数据和监视多组 ref 定义的响应式数据；</li>
+</ul>
+<pre><code class="language-jsx">watch(dataSource, (newValue, oldValue) =&gt; {...}, {immediate: true})
+watch([dataSource01, dataSource02], (newValue, oldValue) =&gt; {...}, {immediate: true})
+</code></pre>
+<ul>
+<li>监视 reactive 定义的响应式数据的全部属性时，无法获取 oldValue，且默认开启深度监听，deep 配置也会失效；</li>
+</ul>
+<pre><code class="language-jsx">watch(dataSource, (newValue, oldValue) =&gt; {...}, {deep: false}) // deep 配置失效
+</code></pre>
+<ul>
+<li>reactive 响应式数据中的属性不能直接侦听，需使用返回该属性的 getter 函数作为数据源。当侦听属性是对象类型时，不会自动开启深层侦听，需要手动开启。</li>
+</ul>
+<pre><code class="language-jsx">watch(() =&gt; xxx.dataSource, (newValue, oldValue) =&gt; {...})
+watch([() =&gt; xxx.dataSource01, () =&gt; xxx.dataSource02], (newValue, oldValue) =&gt; {...})
+</code></pre>
+<p>侦测的是结构，不是具体的值，故基本数据类型的 RefImpl 对象不需要通过 .value 指定值作为数据源。</p>
+<p>将对象数据类型传入 ref 函数所生成的响应式数据，需要通过 .value 指定才可作为数据源。因 RefImpl 中的 value 属性（Proxy 对象）不再是基本类型，只有在整个被替换时（内存中的地址改变），变化才可以被监视发现。此外开启深度监视也可</p>
+<p>和需要显示的指定依赖以避免重复触发的 watch 不同，watchEffect 适合依赖源和逻辑强相关的场景。watchEffect 会立即执行传入的一个函数，同时响应式的追踪其依赖，并在其依赖变更时重新运行该函数。</p>
+<pre><code class="language-javascript">const count = ref(0)
+watchEffect(() =&gt; console.log(count.value)) // -&gt; logs 0
+setTimeout(() =&gt; { count.value++ }, 1000) // -&gt; logs 1
+</code></pre>
+<p>与 watchEffect 相比，watch 允许惰性地执行副作用，即回调仅在侦听源发生更改时调用；更具体地说明应触发侦听器重新运行的状态；能访问被侦听状态的先前值和当前值。watchEffect 在监视回调中使用了什么属性，就默认监听什么属性。watchEffect 一定程度上和 computed 类似，但前者更注重回调函数的函数体，所以不需要写返回值，后者注重回调函数的返回值，所以一定得写。</p>
+<pre><code class="language-javascript">// !!单一源
+// 侦听一个 getter
+const state = reactive({ count: 0 })
+watch(
+  () =&gt; state.count,
+  (count, prevCount) =&gt; {
+    /* ... */
+  }
+)
+// 直接侦听一个 ref
+const count = ref(0)
+watch(count, (count, prevCount) =&gt; {
+  /* ... */
+})
+
+// !!多个源
+watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) =&gt; {
+  /* ... */
+})
+</code></pre>
+<h3 id="%E8%87%AA%E5%AE%9A%E4%B9%89-hooks">自定义 Hooks</h3>
+<p>Hooks 本质是函数，把 setup 中使用的 composition API 进行封装，类似 mixin。</p>
+<pre><code class="language-javascript">import {reactive, onMounted, onBeforeUnmount} from 'vue';
+export default function (){
+  let pointPosition = reactive({ x: 0, y: 0 });
+  function savePoint(event){
+    pointPosition.x = event.pageX
+    pointPosition.y = event.pageY
+  }
+  onMounted(() =&gt; { window.addEventListener('click', savePoint) })
+  onBeforeUnmount(() =&gt; { window.removeEventListener('click', savePoint) })
+  return pointPosition
+}
+</code></pre>
+<h3 id="%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%88%A4%E6%96%AD">响应式数据判断</h3>
+<ul>
+<li>
+<p>isRef =&gt; 检查一个值是否为 ref 对象</p>
+</li>
+<li>
+<p>isReactive =&gt; 检查一个对象是否是由 reactive 创建的响应式代理</p>
+</li>
+<li>
+<p>isReadonly =&gt; 检查一个对象是否是由 readonly 创建的响应式代理</p>
+</li>
+<li>
+<p>isProxy =&gt; 检查一个对象是否是由 reactive 或 readonly 方法创建的代理</p>
+</li>
+</ul>
+<h3 id="vue-router-4x">Vue Router 4.x</h3>
+<ul>
+<li>创建路由实例的方式改变</li>
+</ul>
+<p>从 v3.x 中以 <a href="https://v3.router.vuejs.org/zh/guide/#javascript">new VueRouter</a> 的方式创建路由实例，到 v4.x 中改用 <a href="https://router.vuejs.org/zh/guide/#javascript">createRouter</a>。</p>
+<pre><code class="language-javascript">// 创建路由实例并传递 `routes` 配置
+const router = VueRouter.createRouter({
+  history: VueRouter.createWebHashHistory(), // 使用 hash 模式
+  routes, // `routes: routes` 的缩写
+})
+</code></pre>
+<p>创建并挂载根实例时，确保 _use_ 路由实例以使得整个应用支持路由。</p>
+<pre><code class="language-javascript">const app = Vue.createApp({})
+app.use(router)
+</code></pre>
+<ul>
+<li>路由模式配置的改变</li>
+</ul>
+<p>在 v3.x 中的路由模式是通过 mode 属性控制（值为字符串），现通过 import 引入不同函数来指定对应<a href="https://router.vuejs.org/zh/api/#createwebhistory">路由模式</a>。mode 属性改为 history。</p>
+<pre><code class="language-javascript">"history" =&gt; createWebHistory()
+"hash" =&gt; createWebHashHistory()
+"abstract" =&gt; createMemoryHistory()
+</code></pre>
+<ul>
+<li>router 和 route</li>
+</ul>
+<pre><code class="language-javascript">// 获取 $router
+import { getCurrentInstance } from 'vue-router
+setup(){
+  const {ctx} = getCurrentInstance()
+  ctx.$router.push('/about')
+}
+</code></pre>
+<pre><code class="language-javascript">// 获取动态路由
+setup() {
+  // 方案一
+  const router = useRouter()
+  console.log(router.currentRoute.value.params.id)
+}
+// 方案二
+import {useRoute} from 'vue-router'
+const route = useRoute() // 被proxy拦截代理的proxy对象可以直接访问属性
+console.log(route.params.id)
+</code></pre>
+<h3 id="%E5%86%85%E7%BD%AE%E7%BB%84%E4%BB%B6">内置组件</h3>
+<ul>
+<li><a href="https://v3.vuejs.org/guide/teleport.html#teleport">Teleport</a> =&gt; 将组件的 HTML 结构移动到指定位置</li>
+</ul>
+<p>开发中不想让常规处于屏幕中央的弹窗结构出现在后代组件的内部，因组件树上的任何存在的定位都可能使内部定位样式受到干扰。</p>
+<amp-iframe src="https://codesandbox.io/embed/vue3support-xu8og?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="vue3support" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe>
+<ul>
+<li><a href="https://v3.vuejs.org/guide/migration/suspense.html#introduction">Suspense(experimental)</a> =&gt; 等待异步组件时渲染额外的内容</li>
+</ul>
+<p>异步组件需借助 defineAsyncComponent 函数，import 的调用结果作为返回值。</p>
+<pre><code class="language-jsx">// 动态|异步引入
+import {defineAsyncComponent} from 'vue'
+const Xxx = defineAsyncComponent(() =&gt; import('./components/Xxx.vue'))
+// 静态引入
+import Xxx from './component/Xxx.vue'
+</code></pre>
+<p>静态引入的潜在风险是当嵌套最深的组件渲染迟滞时，会拖慢其外层所有组件的渲染。动态引入的问题是当网速较慢时，嵌套的内容渲染可能会出现抖动的情况。抖动可通过无需引入的内置组件 Suspense 来解决，其底层通过插槽实现。Suspense 组件有两个仅接收一个直接子节点的插槽。</p>
+<pre><code class="language-jsx">&lt;Suspense&gt;
+  &lt;template v-slot:default&gt;
+    &lt;Xxx&gt; // 待展示组件放入 default 插槽
+  &lt;/template&gt;
+  &lt;template v-slot:fallback&gt;
+    &lt;Yyy&gt; // 备用展示内容放入 fallback 插槽
+  &lt;/template&gt;
+&lt;/Suspense&gt;
+</code></pre>
+<p>setup 不能是 async 函数（异步组件除外），因其返回值不是对象，而是模板解析不了的 Promise，此时模板获取不到 return 对象中的属性。</p>
+<p>当使用 Suspense 与 defineAsyncComponent 时，可以返回异步 Promise 实例。</p>
+<amp-iframe src="https://codesandbox.io/embed/suspense-ow5mf?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="suspense" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe>
+<h3 id="vite"><a href="https://cn.vitejs.dev/guide/">Vite</a></h3>
+<p>在不提供块级作用域时，模块化常用社区规范 commonJS 使用函数作用域 IIFE 进行模拟（ES6 之前的 JavaScript ）。</p>
+<ul>
+<li>相较 Vue CLI，轻量级脚手架工具 Vite 默认安装的插件更少</li>
+<li>考虑到开发过程中依赖增加与额外配置，在实际项目中还是推荐 Vue CLI</li>
+<li>Vite =&gt; 基于缓存的热更新；Vue CLI =&gt; 基于 Webpack 的热更新</li>
+<li>Vite 使用 ES6 的模块化加载，在开发模式中不需要打包构建就能直接运行</li>
+<li>esbuild 预构建依赖相比于 JavaScript 编写的 Webpack 在速度上更快</li>
+</ul>
+<blockquote>
+<p>预构建依赖 =&gt; 开发服务器 DevServer 启动前对将所有代码视为原生 ES 模块（将作为 CommonJS 或 UMD 发布的依赖项转换为 ESM），然后在分析模块的导入时会动态地应用构建过的依赖</p>
+</blockquote>
+<ul>
+<li>搭建 Vite 项目</li>
+</ul>
+<pre><code class="language-shell"># 安装 vite 自定义初始化项目
+npm init vite@latest | yarn create vite
+
+# 也可以通过附加的命令行选项直接指定项目名称和想要使用的模板
+# npm 7+, 需要额外的双横线：
+npm init vite@latest my-vue-app -- --template vue
+# yarn
+yarn create vite my-vue-app --template vue
+
+cd my-project # 切换初始化的项目目录
+npm install # 安装设定包内容
+npm run dev # 启动项目;package.json中有相应信息
+</code></pre>
+<h2 id="%E7%A0%B4%E6%97%A7%E7%AB%8B%E6%96%B0">破旧立新</h2>
+<h3 id="proxy%E6%95%B0%E6%8D%AE%E5%8A%AB%E6%8C%81%E4%BC%98%E5%8C%96">Proxy - 数据劫持优化</h3>
+<p>Vue2.x 通过 defineProperty 对属性读取和修改进行拦截，即数据劫持。</p>
+<pre><code class="language-javascript">Object.defineProperty(obj, prop, descriptor)
+</code></pre>
+<p>设定数据属性的 defineProperty 等价于 <code>targetObject[propertyName] = ?</code>。</p>
+<pre><code class="language-javascript">Object.defineProperty(targetObject, propertyName, { value: 'value' })
+Object.defineProperty(targetObject, propertyName, {
+  enumerable: false,
+  configurable: false,
+  writable: false,
+  value: 'value'
+})
+</code></pre>
+<ul>
+<li>
+<p>数据属性：Configurable、Enumerable、Writable、Value；</p>
+</li>
+<li>
+<p>访问器属性：Configurable、Enumerable、Set、Get</p>
+</li>
+</ul>
+<p>data 选项定义的属性会被递归遍历的设置 Get、Set 访问器属性描述符。故 Vue2.x 中新增、删除预先不存在的属性或直接使用下标修改数组都无法实现响应式，页面也不会正常更新。</p>
+<pre><code class="language-javascript">// 操作对象解决方案 =&gt; 无法直接赋值增加或者删除对象属性
+import Vue from 'vue'
+Vue.set(obj,'key','value') | Vue.delete(obj,'key') // way1
+this.$set(obj,'key','value') | this.$delete(obj,'key') // way2
+</code></pre>
+<pre><code class="language-javascript">// 操作数组解决方案 =&gt; 无法直接通过下标赋值修改或者删除对象属性
+import Vue from 'vue'
+Vue.set(arr,index,'value') | Vue.delete(arr,index) // way1
+this.$set(arr,index,'value') | this.$delete(arr,index) // way2
+this.arr.splice(0,1,'value') | this.arr.splice(0) // way3
+</code></pre>
+<p>Vue3.x 使用内置的构造函数 Proxy 创建代理，拦截属性的变化，并通过 Reflect 对被代理的对象属性进行操作。</p>
+<pre><code class="language-javascript">let p = new Proxy(targetObject, {
+  get(target, propName) { return Reflect.get(target, propName) },
+  set(target, propName, value) { Reflect.set(target, propName, value) },
+  deleteProperty(target, propName) { return Reflect.deleteproperty(target, propName) }
+})
+</code></pre>
+<p>Vue3.x 使用 Proxy 只会对真正访问到的内部属性进行惰性响应式，而 Vue2.x 对深层嵌套的对象递归遍历处理以实现响应式，无疑会造成较大的性能开销。</p>
+<h3 id="%E7%BC%96%E8%AF%91%E6%97%B6%E7%9A%84%E5%BA%95%E5%B1%82%E6%BA%90%E7%A0%81%E4%BC%98%E5%8C%96">编译时的底层源码优化</h3>
+<ul>
+<li>slot 编译优化</li>
+</ul>
+<p>Sub 组件仅在被传入动态 slot 的情况下随 Sup 组件的更新而更新。</p>
+<ul>
+<li>diff 算法优化</li>
+</ul>
+<p>静态标记取缔全量比较。将渲染颗粒度从组件级降低到区块级，渲染效率不再与模板大小成正相关，而是与动态节点的数量成正相关。只对比虚拟节点中带有数字枚举类型 patchFlag 值的节点，其他节点形成 block tree 稳定结构区域。</p>
+<pre><code class="language-javascript">// 见 Vue Template Explorer
+&lt;div class="hello"&gt;Hello World!&lt;/div&gt;
+&lt;div class="zs"&gt;Hello zs!&lt;/div&gt;
+&lt;div&gt;{{msg}}&lt;/div&gt;
+</code></pre>
+<pre><code class="language-javascript">import { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue"
+export function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (_openBlock(), _createElementBlock(_Fragment, null, [
+    _createElementVNode("div", { class: "hello" }, "Hello World!"),
+    _createElementVNode("div", { class: "zs" }, "Hello zs!"),
+    _createElementVNode("div", null, _toDisplayString(_ctx.msg), 1 /* TEXT */)
+  ], 64 /* STABLE_FRAGMENT */))
+}
+</code></pre>
+<p>通过静态提升 hoistStatic，使不参与更新的元素在每次需要渲染时仅做复用，不做新建。</p>
+<pre><code class="language-javascript">import { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue"
+const _hoisted_1 = /*#__PURE__*/_createElementVNode("div", { class: "hello" }, "Hello World!", -1 /* HOISTED */)
+const _hoisted_2 = /*#__PURE__*/_createElementVNode("div", { class: "zs" }, "Hello zs!", -1 /* HOISTED */)
+export function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (_openBlock(), _createElementBlock(_Fragment, null, [
+    _hoisted_1,
+    _hoisted_2,
+    _createElementVNode("div", null, _toDisplayString(_ctx.msg), 1 /* TEXT */)
+  ], 64 /* STABLE_FRAGMENT */))
+}
+</code></pre>
+<p>事件会被视作动态绑定，故每次比较都会追踪其变化。但往往事件绑定的都是相同函数，没有追踪变化的必要。可采取 cacheHandlers 进行缓存操作，等待复用。</p>
+<pre><code class="language-javascript">// vue
+&lt;button @click="clickHandler"&gt;click me&lt;/button&gt;
+</code></pre>
+<pre><code class="language-javascript">// 事件监听缓存之前
+const _hoisted_1 = ["onClick"]
+export function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (_openBlock(), _createElementBlock("button", { onClick: _ctx.clickHandler }, "click me", 8 /* PROPS */, _hoisted_1))
+}
+</code></pre>
+<pre><code class="language-javascript">// 事件监听缓存之后失去静态标记
+export function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (_openBlock(), _createElementBlock("button", {
+    onClick: _cache[0] || (_cache[0] = (...args) =&gt; (_ctx.clickHandler &amp;&amp; _ctx.clickHandler(...args)))
+  }, "click me"))
+}
+</code></pre>
+<ol>
+<li>hoistStatic 通过 _createStaticVNode 将静态标签转化为字符串；</li>
+<li>服务端渲染是通过 _ssrRenderAttrs 将静态标签直接转化为文本插入；</li>
+<li>React 是先将 JSX 转化为虚拟 DOM，再转化为 HTML；</li>
+</ol>
+<pre><code class="language-javascript">&lt;div class="hello"&gt;Hello World!&lt;/div&gt;
+&lt;div class="zs"&gt;Hello zs!&lt;/div&gt;
+&lt;div&gt;{{msg}}&lt;/div&gt;
+</code></pre>
+<pre><code class="language-javascript">import { mergeProps as _mergeProps } from "vue"
+import { ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from "vue/server-renderer"
+export function ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _cssVars = { style: { color: _ctx.color }}
+  _push(`&lt;!--[--&gt;&lt;div${
+    _ssrRenderAttrs(_mergeProps({ class: "hello" }, _cssVars))
+  }&gt;Hello World!&lt;/div&gt;&lt;div${
+    _ssrRenderAttrs(_mergeProps({ class: "zs" }, _cssVars))
+  }&gt;Hello zs!&lt;/div&gt;&lt;div${
+    _ssrRenderAttrs(_cssVars)
+  }&gt;${
+    _ssrInterpolate(_ctx.msg)
+  }&lt;/div&gt;&lt;!--]--&gt;`)
+}
+</code></pre>
+<ul>
+<li>tree-shaking 减少打包体积</li>
+</ul>
+<p>在编译阶段标记未被引用的函数或对象，在压缩阶段删除标记的代码以实现按需打包。该优化可有效阻止构建时将引入的模块全部打包。</p>
+<h3 id="reacts-hooks-composition-api">React's Hooks &amp; Composition API</h3>
+<p>mixin 与组件之间存在隐式依赖：mixin 中定义的方法可能会去调用其他方法。</p>
+<p>高阶组件采取黑盒外层包裹组件，增加了复杂度和理解成本。</p>
+<p>Render Props 会导致代码体积过大，嵌套过深的问题。</p>
+<p>React Hooks 会在每次组件渲染时顺序执行。不允许在循环内部、条件语句或嵌套函数中调用 Hooks =&gt; 底层是基于链表的实现，每一个 hook 的 next 会指向下一个 hook。</p>
+<p>组合式 API 只能在 setup 钩子中使用，更改 data 会使相关函数或模板重新计算。</p>
+<h3 id="vue-clivuecli-508">Vue CLI - @vue/cli 5.0.8</h3>
+<ul>
+<li>main.js =&gt; 程序入口文件</li>
+</ul>
+<p>Vue2 =&gt; 引入 Vue 函数，以 new 的方式创建 Vue 实例并挂载到 DOM。<br />
+Vue3 =&gt; 解构 createApp 函数，在其后链式调用方法，并挂载于 DOM。</p>
+<pre><code class="language-javascript">// vue2
+import Vue from 'vue';
+import App from './App/vue';
+import router from './router';
+import store from './store';
+Vue.config.productionTip = false;
+new Vue({ router, store, render: h =&gt; h(App) }).$mount("#app")
+// vue3
+import { createApp } from 'vue';
+import App from './App/vue';
+import router from './router';
+import store from './store';
+createApp(App).use(router).use(store).mount('#app');
+</code></pre>
+<ul>
+<li>
+<p>vuex =&gt; new Vuex.Store() 转变为 createStore()</p>
+</li>
+<li>
+<p>配置文件变化 =&gt; 非 Vue3 的变化 =&gt; 常作为第三方引入组件的配置</p>
+</li>
+<li>
+<p>@vue/cli3 启动时不会创建 vue.config.js，欲改 Webpack 配置时自行创建</p>
+</li>
+</ul>
+<p>vue-cli(1.x、2.x) 的后续的版本虽已内部高度集成 Webpack，但依然可以通过创建 vue.config.js 去覆盖默认的配置文件。</p>
+<h3 id="%E5%85%B6%E4%BB%96%E6%94%B9%E5%8F%98">其他改变</h3>
+<ul>
+<li>全局 API 的转移 =&gt; Vue.xxx 调整到应用实例 app 上</li>
+</ul>
+<pre><code class="language-jsx">|       2.x 全局 API       |         3.x 实例 API        |
+|:------------------------:|:---------------------------:|
+|      Vue.config.xxx      |        app.config.xxx       |
+| Vue.config.productionTip |            remove           |
+|       Vue.component      |        app.component        |
+|       Vue.directive      |        app.directive        |
+|         Vue.mixin        |          app.mixin          |
+|          Vue.use         |           app.use           |
+|       Vue.prototype      | app.config.globalproperties |
+</code></pre>
+<ul>
+<li>过渡类名更改</li>
+</ul>
+<pre><code class="language-javascript">// v2.x
+.v-enter, .v-leave-to {opacity: 0;}
+.v-leave, .v-enter-to {opacity: 1;}
+// v3.x 
+.v-enter-from, .v-leave-to {opacity: 0;}
+.v-leave-from, .v-enter-to {opacity: 1;}
+</code></pre>
+<ul>
+<li>因兼容性移除 keyCode 作为 v-on 的修饰符；不再支持 config.keyCodes</li>
+</ul>
+<pre><code class="language-html">&lt;!-- Vue 2 Key Code on v-on --&gt;
+&lt;input v-on:keyup.13="submit" /&gt;
+&lt;input v-on:keyup.8="confirmDelete" /&gt;
+&lt;!-- Vue 3 Key Modifier on v-on --&gt;
+&lt;input v-on:keyup.enter="submit" /&gt;
+&lt;input v-on:keyup.delete="confirmDelete" /&gt;
+</code></pre>
+<pre><code class="language-jsx">// Vue2 存在 -&gt; 现已移除
+Vue.config.keyCodes.defineAliasButton = 13 // 定义按键别名
+</code></pre>
+<ul>
+<li>Fragments</li>
+</ul>
+<p>因 Vue2.x 不支持 multiple root 组件，所以需要通过将组件都包含在一个 &lt;div&gt; 中修复警告。Vue 3 中支持通过多根节点组件来减少层级。底层逻辑，无需操作。</p>
+<ul>
+<li>
+<p><a href="https://cn.vuejs.org/api/options-state.html#data">data</a> 选项始终被声明为函数，防止组件复用时数据关联所造成的干扰</p>
+</li>
+<li>
+<p>移除 v-on.native 修饰符 =&gt; native 用于指明原生事件，非自定义事件</p>
+</li>
+</ul>
+<pre><code class="language-jsx">// Vue2 默认 click 是自定义事件
+&lt;Xxx @click.native="yyy" /&gt;
+</code></pre>
+<p>给组件绑定的事件若没有被声明接收，默认为原生事件；若声明接受，则表示为自定义事件。</p>
+<pre><code class="language-jsx">// Sup 组件绑定事件
+&lt;my-xxx v-on:close="handleComponentEvent" v-on:click="handleNativeEvent" /&gt;
+</code></pre>
+<pre><code class="language-jsx">// Sub 组件声明自定义事件
+&lt;script&gt;
+  export default {
+    emits: ["close"] // 声明则为自定义事件 -&gt; 不声明为原生事件
+  }
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li><a href="https://v3-migration.vuejs.org/breaking-changes/filters.html#_2-x-syntax">移除过滤器</a> =&gt; 通过 methods 和 computed 也可实现</li>
+</ul>
+<h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
+<ul>
+<li>Uncaught TypeError: app.mount(...).use is not a function</li>
+</ul>
+<p>main.js 中实例的使用顺序是，先调用 <code>createApp()</code> 创建应用程序实例；再使用 <code>app.use()</code> 安装插件；最后将应用实例挂载于容器元素 <code>app.mount()</code>。</p>
+<pre><code class="language-javascript">const app = createApp(App)
+// 重点注意链式调用顺序
+app.use(store).use(router).use(ElementPlus).mount('#app');
+</code></pre>
+<ul>
+<li>Error: Cannot find module 'unplugin-vue-components/resolvers'</li>
+</ul>
+<p>Vue3 项目下按需引入 Vant 时出现异常，模块未找到在 node_modules 中找到。</p>
+<p>删除 Vant 依赖后重新下载无法解决。</p>
+<p><a href="https://www.npmjs.com/package/unplugin-vue-components">unplugin-vue-components/resolvers</a> 指定库在 22-07-10 加入 npm。</p>
+<pre><code class="language-shell"># 解决方式
+yarn add unplugin-vue-components
+</code></pre>
+<ul>
+<li>[Vue warn]: Component &lt;Anonymous&gt;: setup function returned a promise, but no &lt;Suspense&gt; boundary was found in the parent component tree. A component with async setup() must be nested in a &lt;Suspense&gt; in order to be rendered. at Xxx.</li>
+</ul>
+<p>问题出现 =&gt; 在 async setup 的组件中获取数据，运行项目时页面空白。</p>
+<p>解决方式 =&gt; 需要在父节点中加上 Suspense 组件。</p>
+<ul>
+<li>
+<p>[Vue warn]: Property "xxx" was accessed during render but is not defined on instance. at &lt;ComponentXXX&gt; =&gt; 在 setup 定义的数据并未返回</p>
+</li>
+<li>
+<p>Vue3 中不支持 Vue2 的 .sync 语法糖 =&gt; <a href="https://v3-migration.vuejs.org/breaking-changes/v-model.html">点此</a></p>
+</li>
+</ul>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

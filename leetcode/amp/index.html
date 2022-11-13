@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/leetcode/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/07/tree.jpg" />
     <meta property="article:published_time" content="2020-02-09T13:19:00.000Z" />
-    <meta property="article:modified_time" content="2022-05-04T17:36:32.000Z" />
+    <meta property="article:modified_time" content="2022-07-15T16:15:53.000Z" />
     <meta property="article:tag" content="DataStructuresAndAlgorithms" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "Leetcode 汇总",
     "url": "yourdomain.com/leetcode/",
     "datePublished": "2020-02-09T13:19:00.000Z",
-    "dateModified": "2022-05-04T17:36:32.000Z",
+    "dateModified": "2022-07-15T16:15:53.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/07/tree.jpg",
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1218,6 +1218,59 @@ function myContinue() {
     console.log("out");
 }
 myContinue(); // 0 1 2 4 out
+</code></pre>
+<ul>
+<li>58.最后一个单词的长度</li>
+</ul>
+<blockquote>
+<p>一个字符串 s 由若干单词组成，单词前后用一些空格字符隔开。返回字符串中最后一个单词的长度。单词是指仅由字母组成、不包含任何空格字符的最大子字符串。<br />
+输入 s = "Hello World" 输出：5<br />
+输入 s = " fly me to the moon " 输出：4<br />
+输入 s = "luffy is still joyboy" 输出：6</p>
+</blockquote>
+<pre><code class="language-javascript">var lengthOfLastWord = function(s) {
+  // trim() 方法移除字符串起始及结尾的空白
+  s = s.trim(); // the moon | m
+  let end = s.length - 1; //  7 | 0
+  let start = end;
+  while (start &gt;= 0 &amp;&amp; s.charAt(start) !== ' ') {
+    start--;
+  }
+  return end - start
+}
+</code></pre>
+<ul>
+<li>171.Excel 表列序 =&gt; 给定 Excel 表格中的列名称，返回其相应的列序</li>
+</ul>
+<blockquote>
+<p>charCodeAt() 方法返回 0 到 65535 之间的整数，表示给定索引处的 UTF-16 代码单元</p>
+</blockquote>
+<pre><code class="language-javascript">/*
+  A -&gt; 1、B -&gt; 2、C -&gt; 3 ... Z -&gt; 26、AA -&gt; 27、AB -&gt; 28 
+  输入 "A" 输出 1 ... 输入 "AB" 输出 28
+*/
+var titleToNumber = function(columnTitle) {
+    let number = 0;
+    let multiple = 1;
+    for (let i = columnTitle.length - 1; i &gt;= 0; i--) {
+        const k = columnTitle[i].charCodeAt() - 'A'.charCodeAt() + 1;
+        number += k * multiple;
+        multiple *= 26;
+    }
+    return number;
+}
+class Solution {
+    public int titleToNumber(String columnTitle) {
+        int number = 0;
+        int multiple = 1;
+        for (int i = columnTitle.length() - 1; i &gt;= 0; i--) {
+            int k = columnTitle.charAt(i) - 'A' + 1;
+            number += k * multiple;
+            multiple *= 26;
+        }
+        return number;
+    }
+}
 </code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议 ，转载请注明出处！</p>

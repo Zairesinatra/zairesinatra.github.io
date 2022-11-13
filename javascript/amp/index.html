@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>JavaScript</title>
+
+    <meta name="description" content="JavaScript 修真指南" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="JavaScript" />
+    <meta property="og:description" content="JavaScript 修真指南" />
+    <meta property="og:url" content="yourdomain.com/javascript/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/07/javascript.png" />
+    <meta property="article:published_time" content="2019-04-26T11:38:00.000Z" />
+    <meta property="article:modified_time" content="2022-08-28T19:40:13.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JavaScript" />
+    <meta name="twitter:description" content="JavaScript 修真指南" />
+    <meta name="twitter:url" content="yourdomain.com/javascript/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/07/javascript.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "JavaScript",
+    "url": "yourdomain.com/javascript/",
+    "datePublished": "2019-04-26T11:38:00.000Z",
+    "dateModified": "2022-08-28T19:40:13.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/07/javascript.png",
+        "width": 1920,
+        "height": 1080
+    },
+    "keywords": "Technology growth",
+    "description": "JavaScript 修真指南",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.10" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">JavaScript</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2019-04-26">26 Apr 2019</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2022/07/javascript.png" width="600" height="340" layout="responsive" 
+                alt="JavaScript"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <h2 id="javascriptbasis">Javascript Basis</h2>
+<h3 id="basicdatatype">basic data type</h3>
+<ul>
+<li>ES5 =&gt; Null ES2020 =&gt; ??</li>
+</ul>
+<p>typeof null == "object" 是因为堆中的变量地址是以 64 位的二进制进行存储，其中二进制开头数字为 000 的变量存储的变量类型是对象。null 被看作全是零的空。</p>
+<p>ES2020 新增 <a href="https://es6.ruanyifeng.com/?search=%E5%88%A4%E6%96%AD%E8%BF%90%E7%AE%97%E7%AC%A6&amp;x=0&amp;y=0#docs/operator#Null-%E5%88%A4%E6%96%AD%E8%BF%90%E7%AE%97%E7%AC%A6">Null 判断运算符</a>，当变量的值是 null 或 undefined 时，不再需要 || 指定默认值，而是可以通过判断运算符 ??。当 Null 判断运算符左侧的值为 null 或 undefined 成立时，才会返回右侧的值。</p>
+<ul>
+<li>ES6 =&gt; Symbol</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol</a> 是 ES6 新增基本数据类型，Symbol() 函数会返回 symbol 类型的值，可用作<a href="https://es6.ruanyifeng.com/#docs/symbol#%E5%AE%9E%E4%BE%8B%EF%BC%9A%E6%B6%88%E9%99%A4%E9%AD%94%E6%9C%AF%E5%AD%97%E7%AC%A6%E4%B8%B2">消除魔法字符</a>与充当对象属性或私有方法。</p>
+<blockquote>
+<p>魔法字符 =&gt; 与业务逻辑代码无关却形成强耦合的字符串字面量或数值</p>
+</blockquote>
+<ul>
+<li>ES10 =&gt; BigInt</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt">BigInt</a> 是 JS 中新加入的基本数据类型，支持比 Number 更大范围的整数值，以解决大整数运算时的溢出与精度问题，常见应用于时间戳和 ID，以及 <a href="https://github.com/MikeMcl/bignumber.js/">bignumber</a> 库的替代。</p>
+<p>可以用在一个整数字面量后面加 n 的方式定义 BigInt，或者调用函数 BigInt()，并传递一个整数值或字符串值。</p>
+<blockquote>
+<p>Number 精度安全范围<br />
+=&gt; -9007199254740991(-(2^53-1)) - 9007199254740991(2^53-1)<br />
+最大安全整数常量 =&gt; Number.MAX_SAFE_INTEGER<br />
+最小安全整数常量 =&gt; Number.MIN_SAFE_INTEGER</p>
+</blockquote>
+<h3 id="webapi">Web API</h3>
+<ul>
+<li>Event 事件</li>
+</ul>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event">Event</a> 接口表示在 DOM 中出现的事件。<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/target">Event.target</a> 表示触发事件对象的引用，可实现事件委托。</p>
+</blockquote>
+<blockquote>
+<p>事件委托即不必为每个元素分配各自的处理程序，而是将单个处理程序放在其共同的祖先上。</p>
+</blockquote>
+<blockquote>
+<p>冒泡和捕获 =&gt; 当事件发生在元素上时，会首先运行该元素上的处理程序，然后会运行其父元素上的处理程序，并一直向上到其他祖先的处理程序；事件发生前会首先通过祖先链向下到达元素。</p>
+</blockquote>
+<blockquote>
+<p>DOM 事件传播阶段 =&gt; 捕获、目标、冒泡阶段</p>
+</blockquote>
+<p>event.target =&gt; 引发事件的元素；event.currentTarget 同 this 指向 =&gt; 处理事件的当前元素；event.eventPhase =&gt; 当前阶段。</p>
+<pre><code class="language-javascript">// event.eventPhase
+capturing=1; target=2; bubbling=3
+</code></pre>
+<p>capture 选项若为默认 false，表示在冒泡阶段设置处理程序；若为 true，则表示在捕获阶段设置处理程序。</p>
+<pre><code class="language-javascript">EventTarget.addEventListener(type, listener, useCapture)
+</code></pre>
+<h2 id="traversalmethods">Traversal methods</h2>
+<h3 id="iterabletraversal">Iterable &amp; Traversal</h3>
+<ul>
+<li>迭代通常指按照顺序反复执行一段程序多次，且会有明确的中止条件 7</li>
+</ul>
+<p>Iterable object 可迭代对象是数组的泛化，简单来说是指任何可在 for..of 循环中使用的对象。ES5 新增的 Array.prototype.foreach() 虽然是通用迭代的尝试，但是存在数据结构的制约和中止迭代的标志。ES6 新增迭代器模式，实现 iterable 接口。</p>
+<ul>
+<li>遍历通常指是访问数据结构的所有元素</li>
+</ul>
+<h3 id="looptraversalmethod">loop traversal method</h3>
+<ul>
+<li>
+<p>for (statement 1; statement 2; statement 3){} =&gt; 循环代码块一定的次数</p>
+</li>
+<li>
+<p>For ... in</p>
+</li>
+</ul>
+<p>For ... in 遍历对象以及其原型链上的可枚举属性；若用于遍历数组，除遍历其元素外，还会遍历数组对象自定义的可枚举属性以及其原型链上的可枚举属性；遍历对象返回的属性名和遍历数组返回的索引都是字符串类型；遍历枚举属性的顺序取决于 JS 引擎，先以升序枚举数值键，然后以插入顺序枚举字符串和符号键。8.2.4</p>
+<pre><code class="language-javascript">let areas = {
+  "24": "CS",
+  "30": "CA",
+  "23": "SZ",
+  "22": "TX",
+  "ok": "yes, ok",
+  "okk": "yes, okk"
+};
+for(let area in areas) {
+  alert(area); // 22, 23, 24, 30, ok, okk
+}
+</code></pre>
+<ul>
+<li>Object.keys</li>
+</ul>
+<p>Object.keys(obj) 方法会返回一个由给定对象自身可枚举属性组成的数组；与 For ... in 相比，不会遍历对象原型链上的属性；在遍历数组时，数组中属性名的排列顺序与 For...in 循环遍历时返回的顺序一致。</p>
+<pre><code class="language-javascript">function Person() { this.name = 'okk'; }
+Person.prototype.getName = function() { return this.name; }
+var person = new Person();
+Object.defineProperty(person, 'age', {
+  writable: true, configurable: true,enumerable: true, value: 22
+});
+console.log(Object.keys(person)); // ['name', 'age']
+for(item in person){console.log(item)}; // name age getName
+</code></pre>
+<ul>
+<li>For ... of =&gt; ES6</li>
+</ul>
+<p>For ... of 通常是在可迭代对象上创建迭代循环，调用自定义迭代钩子，为每个不同属性的值执行语句。直接支持 Array、Map、Set、String、arguments 对象等。</p>
+<p>可迭代对象的原型链上已实现 Symbol.iterator 方法，普通对象 Object 由于没有默认的迭代行为，所有不支持迭代。</p>
+<pre><code class="language-javascript">// 1. 不会遍历到对象属性及其原型属性
+Array.prototype.getLength = function() { return this.length; };
+let arr = ['a', 'b', 'c'];
+arr.name = 'Ok';
+Object.defineProperty(arr, 'prop', {
+  enumerable: true, value: 22, writable: true, configurable: true
+});
+for(let i of arr) { console.log(i); } // a,b,c
+
+// 2. 与 Object.keys 配合遍历对象
+let person = { name: 'Ok', age: 22, area: 'tx' }
+for(var key of Object.keys(person)) { console.log(person[key]); } // ok 22 tx
+
+// 3. 配合 entries 输出数组索引和值/对象的键值
+let arr = ['a', 'b', 'c'];
+for(let [index, value] of Object.entries(arr)) { console.log(index, ':', value); } // 0:a, 1:b, 2:c
+
+let obj = {name: 'Ok', age: 22, city: 'tx'};
+for(let [key, value] of Object.entries(obj)) { console.log(key, ':', value); } // name:Ok, age:22, city:tx
+</code></pre>
+<ul>
+<li>迭代器与生成器 =&gt; ES6</li>
+</ul>
+<p>迭代器模式描述的方案是实现 iterable 接口（可迭代协议）的可迭代对象，能通过迭代器 iterator 进行消费。可迭代协议的要求在 ES 中具体通过以 Symbol.iterator 作为键的属性来实现。这个默认迭代器属性必须引用一个迭代器工厂函数，且调用这个工厂函数必须返回一个新的迭代器。也就是说迭代器提供一种方法，使得在无需暴露数据结构内部表示的情况下，能够按照一定顺序访问数据结构的元素。7.2</p>
+<p>迭代器协议要求迭代器是一个对象。next() 方法在可迭代对象中遍历数据，且每次成功调用会返回一个 IteratorResult 对象。IteratorResult 迭代器对象包含 done 和 value 属性，分别表示是否还可以调用 next() 函数以及迭代器返回的下一个值。</p>
+<pre><code class="language-javascript">class ExplicitIterator { // 显式迭代器实现 =&gt; 实现可迭代接口 iterable
+  [Symbol.iterator](){ return { next(){ // 调用默认迭代器工厂函数返回实现迭代器接口的迭代器对象
+    return { done: false, value: 'ExplicitIterator' }
+  } } }
+}
+let e = new ExplicitIterator();
+console.log(e[Symbol.iterator]()); // {next: ƒ}
+</code></pre>
+<p>生成器具有在代码块内暂停和恢复代码执行的能力，形式上是函数，在函数名前加星号 * 表示，星号不受到两侧空格影响。调用生成器函数会产生一个实现 Iterator 接口的生成器对象。生成器对象开始时处于暂停执行状态，next() 方法的调用可以让生成器开始或恢复执行。next() 方法的返回值类似迭代器，具有标志位和返回值属性。生成器函数只会在初次调用 next() 方法时执行，直接调用不生效。</p>
+<pre><code class="language-javascript">function * generatorFn() {}
+let g = generatorFn();
+console.log(g, g.next()); // generatorFn{&lt;closed&gt;} {value: undefined, done: true}
+</code></pre>
+<ol>
+<li>
+<p>函数体为空的生成器函数中间不会停留，调用一次 next() 方法就会让生成器到达 done: true 的状态。</p>
+</li>
+<li>
+<p>value 属性是生成器状态的返回值，默认为 undefined，可以通过生成器函数的返回值决定。</p>
+</li>
+</ol>
+<pre><code class="language-javascript">function * generatorFn01() {}
+function * generatorFn02() { return 'generatorFn02' }
+let g01 = generatorFn01(), g02 = generatorFn02();
+console.log(g01.next(), g02.next()); // {value: undefined, done: true} {value: 'generatorFn02', done: true}
+</code></pre>
+<p>生成器函数在遇到 yield 关键字前会正常执行，当遇见这个关键字后执行停止，停止执行的生成器函数只能通过在生成器对象上调用 next() 方法恢复执行。经 yield 关键字退出的生成器函数会处于 done: false 状态，通过 return 关键字退出的生成器函数处于 done: true 状态。next() 方法返回的对象里会具有 yield 生成的值。</p>
+<pre><code class="language-javascript">// ES6 斐波那契数列 =&gt; F0=0, F1=1, Fn=Fn-1+Fn-2
+let fibonacci = {
+  [Symbol.iterator]() {
+    let pre = 0, cur = 1
+    return {
+      next () {
+        [ pre, cur ] = [ cur, pre + cur ]
+        return { done: false, value: cur }
+      }
+    }
+  }
+}
+
+for (let n of fibonacci) {
+  if (n &gt; 1000) break
+  console.log(n);
+}
+</code></pre>
+<blockquote>
+<p><strong>for...of 与 for...in 的比较</strong> =&gt; <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of#for...of%E4%B8%8Efor...in%E7%9A%84%E5%8C%BA%E5%88%AB">MDN</a></p>
+<ol>
+<li>两者都是进行迭代的方式。</li>
+<li>for...in 语句以任意顺序迭代对象的可枚举属性。for...of 语句遍历可迭代对象定义要迭代的数据。</li>
+</ol>
+</blockquote>
+<h2 id="bombrowserobjectmodel">BOM Browser Object Model</h2>
+<p>相较于 JavaScript、DOM 有 ECMA、W3C 标准，不同浏览器之间的 BOM 存在较大差异，且具有兼容性问题。</p>
+<h3 id="thewindowobject">The Window Object</h3>
+<p>window 是浏览器窗口的实例，所有全局 JavaScript 对象、函数和变量都自动成为窗口对象的成员。</p>
+<ul>
+<li>
+<p>window.onload &amp; window.DOMContentLoaded</p>
+<ul>
+<li>onload 事件触发时，页面上所有的 DOM、CSS、JS... 都加载完毕</li>
+<li>DOMContentLoaded 事件触发时，仅当 DOM 加载完成</li>
+</ul>
+</li>
+<li>
+<p>window 对象属性和方法</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性 or 方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>window.screen</td>
+<td>Returns a reference to the screen object associated with the window</td>
+</tr>
+<tr>
+<td>window.screenX、window.screenY</td>
+<td>返回浏览器左边界到操作系统桌面左边界的水平距离、返回浏览器顶部距离系统桌面顶部的垂直距离</td>
+</tr>
+<tr>
+<td>window.innerWidth、window.innerHeight</td>
+<td>返回浏览器窗口的内容区域的宽度、高度（包含水平、横向滚动条）</td>
+</tr>
+<tr>
+<td>window.outerWidth、window.outerHeight</td>
+<td>返回浏览器窗口的外部宽度、高度（包含工具栏、水平、横向滚动条、开发者面板）</td>
+</tr>
+<tr>
+<td>window.pageXOffset、window.pageYOffset =&gt; 别名 window.scrollX、window.scrollY</td>
+<td>返回文档/页面水平、垂直方向滚动的像素值</td>
+</tr>
+<tr>
+<td>window.scrollTo(x-coord, y-coord )</td>
+<td>滚动到文档中的某个坐标</td>
+</tr>
+<tr>
+<td>window.open(URL, name, specs, replace)</td>
+<td>打开新的浏览器 =&gt; window.open("<a href="https://www.google.com">https://www.google.com</a>", "_self", "width=200,height=100", true)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>系统对话框 =&gt; alert() 警告框、confirm() 确认框、prompt() 提示框</li>
+</ul>
+<h3 id="thelocationobject">The Location Object</h3>
+<p>location 提供其链接到的对象的位置 URL。</p>
+<ul>
+<li>既是 window 的属性，也是 document 的属性</li>
+</ul>
+<pre><code class="language-javascript">// 不需要大写成 Window 和 Location =&gt; 构造函数
+console.log(window.location === document.location) // true
+</code></pre>
+<ul>
+<li>https://???.com:123/ok/?usr=zs#frontend =&gt; location 对象内容</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>location.hash</td>
+<td>#frontend</td>
+<td>URL 散列值、没有则为空字符串</td>
+</tr>
+<tr>
+<td>location.host</td>
+<td>???.com:123</td>
+<td>主机名和端口</td>
+</tr>
+<tr>
+<td>location.hostname</td>
+<td>???.com</td>
+<td>主机名</td>
+</tr>
+<tr>
+<td>location.href</td>
+<td>https://???.com:2366/ok/?usr=zs#frontend</td>
+<td>完整的 URL</td>
+</tr>
+<tr>
+<td>location.pathname</td>
+<td>/ok/</td>
+<td>路径或文件名</td>
+</tr>
+<tr>
+<td>location.port</td>
+<td>123</td>
+<td>端口号</td>
+</tr>
+<tr>
+<td>location.protocal</td>
+<td>https:</td>
+<td>协议</td>
+</tr>
+<tr>
+<td>location.search</td>
+<td>?usr=zs</td>
+<td>查询字符串</td>
+</tr>
+<tr>
+<td>location.origin</td>
+<td>https://???:123</td>
+<td>URL 源地址、只读</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>函数封装 =&gt; 获取 URL 参数</li>
+</ul>
+<pre><code class="language-javascript">// default =&gt; window.location.search = "?usr=zs&amp;age=23";
+const getQueryVariable = function (variable) {
+  let params = window.location.search.length &gt; 0 ? window.location.search.substring(1) : "", args = {};
+  for (let item of params.split("&amp;").map(item =&gt; item.split("="))) {
+    let key = decodeURIComponent(item[0]), value = decodeURIComponent(item[1]);
+    if (key == variable) return value
+  }
+  return false
+};
+getQueryVariable("usr");
+getQueryVariable("age");
+</code></pre>
+<ul>
+<li>URLSearchParams 实例对象提供检查、修改查询字符串的 API</li>
+</ul>
+<pre><code class="language-javascript">// default =&gt; window.location.search = "?usr=zs&amp;age=23";
+let searchParams = new URLSearchParams(window.location.search);
+console.log(searchParams.toString(), searchParams.has("usr"), searchParams.get("age")); // usr=zs&amp;age=23 true 23
+</code></pre>
+<ul>
+<li>location 方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法 =&gt; Location 没有继承任何方法，但实现了来自 URLUtils 的方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>location.assign()</td>
+<td>加载给定 URL 的内容资源到这个 Location 对象所关联的对象上 =&gt; 新页面会被保存在会话的历史 History 中</td>
+</tr>
+<tr>
+<td>location.replace()</td>
+<td>用给定的 URL 替换掉当前的资源 =&gt; 新页面不会被保存在会话的历史 History 中</td>
+</tr>
+<tr>
+<td>location.toString()</td>
+<td>返回一个 DOMString，包含整个 URL =&gt; 和读取 URLUtils.href 的效果相同</td>
+</tr>
+<tr>
+<td>location.reload()</td>
+<td>重新加载来自当前 URL 的资源</td>
+</tr>
+</tbody>
+</table>
+<h3 id="navigatorscreenhistory">Navigator &amp; screen &amp; History</h3>
+<p>Navigator 接口表示用户代理的状态和标识；Screen 接口表示一个屏幕窗口，往往指的是当前正在被渲染的 window 对象；History 接口表示会话历史记录。</p>
+<ul>
+<li>navigator.geolocation</li>
+</ul>
+<pre><code class="language-javascript">navigator.geolocation.getCurrentPosition(position =&gt; console.log(position.coords.latitude, position.coords.longitude));
+</code></pre>
+<ul>
+<li>history.go() 和 history.forward()&amp;history.back()</li>
+</ul>
+<p>history.go() 沿任意方向导航，整数参数表示前进或后退多少步；history.back() 与 history.forward() 中参数无效。</p>
+<h2 id="regexp">REGEXP</h2>
+<p>JavaScript 中的正则表达式是对象，是用于匹配字符串中字符组合的模式。这些模式被用于 RegExp 的 exec 和 test 方法，及 String 的 match、matchAll、replace、search 和 split 方法。</p>
+<p>使用字面量创建的正则表达式对象会在代码编译时生成，使用构造函数生成的正则对象会在代码运行时生成。当正则表达式保持不变时，前者能取得更好的性能。</p>
+<pre><code class="language-javascript">var regexp = /IcedAmericano/g, new Regexp("IcedAmericano","g");
+</code></pre>
+<p><a href="https://www.runoob.com/regexp/regexp-flags.html">修饰符</a>（标记）位于表达式外，用于额外的匹配策略。<a href="https://www.runoob.com/regexp/regexp-metachar.html">元字符</a>用于匹配正则表达式上下文中的任意匹配字符。</p>
+<pre><code class="language-javascript">/simple characters 简单字符 + metacharacter 元字符/flags 修饰符
+</code></pre>
+<p>调用 exec 方法返回的数组具有两个属性 =&gt; input - 整个原待匹配的字符串、index - 整个模式匹配成功的开始位置。</p>
+<pre><code class="language-javascript">let reg2 = new RegExp('zs','m'), test2 = 'okokokokokokok', test22 = 'zsokokokokokzs';
+console.log(reg2.exec(test2), reg2.exec(test22)); // null, [ 'zs', index: 0, input: 'zsxzyxxxzzzyyyzs', groups: undefined ]
+</code></pre>
+<p>若正则表达式包含圆括号，则返回的数组中会包含多个元素。首先是整个匹配成功的结果，随后是圆括号匹配的内容，当有多个圆括号时，匹配成功的结果都会成为数组元素。</p>
+<pre><code class="language-javascript">let reg3 = /^_(x)_(y)$/, test3 = '_x_y';
+console.log(reg3.exec(test3), reg3.exec(''), kong.exec(test3)); // [ '_x_y', 'x', 'y', index: 0, input: '_x_y', groups: undefined ] 空字符串返回 null 空字符串正则匹配exec返回 [ '', index: 0, input: '_x_y', groups: undefined ]
+</code></pre>
+<p>$` =&gt; 正则表达式匹配范围之前的字符串内容，$&amp; =&gt; 正则表达式匹配的内容，$' =&gt; 正则表达式匹配范围之后的字符串内容。$n =&gt; RegExp 对象的索引 -&gt; 通常使用括号包裹。<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace">更多点此</a>。</p>
+<pre><code class="language-javascript">console.log('abc'.replace('b',"[$`-$&amp;-$']")); // a[a-b-c]c
+console.log('hello world'.replace(/(\w+)\s(\w+)/,"$2 $1")); // world hello
+</code></pre>
+<p>当 replace 的首个参数是整个匹配的内容时，第二个参数是组匹配。</p>
+<pre><code class="language-javascript">let field = { "pos_1": "dc", "pos_2": "fullstack", "pos_3": "hardware" }, replaceInfo = '&lt;span id="pos_1"&gt;&lt;/span&gt;&lt;span id="pos_2"&gt;&lt;/span&gt;&lt;span id="pos_3"&gt;&lt;/span&gt;'.replace(/(&lt;span id=")(\w+)("&gt;)(&lt;\/span&gt;)/g, function(match, $1, $2, $3,$4) { return $1+$2+$3+field[$2]+$4 });
+console.log(replaceInfo); // &lt;span id="pos_1"&gt;dc&lt;/span&gt;&lt;span id="pos_2"&gt;fullstack&lt;/span&gt;&lt;span id="pos_3"&gt;hardware&lt;/span&gt;
+</code></pre>
+<h2 id>结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

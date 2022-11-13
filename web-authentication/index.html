@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Web Authentication</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=977d3f47b0.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=977d3f47b0.css" />
+    <meta name="description" content="Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF" />
+    <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Web Authentication" />
+    <meta property="og:description" content="Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF" />
+    <meta property="og:url" content="yourdomain.com/web-authentication/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/07/Cookies.jpg" />
+    <meta property="article:published_time" content="2019-10-01T13:04:00.000Z" />
+    <meta property="article:modified_time" content="2022-08-18T14:43:23.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Web Authentication" />
+    <meta name="twitter:description" content="Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF" />
+    <meta name="twitter:url" content="yourdomain.com/web-authentication/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/07/Cookies.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "Web Authentication",
+    "url": "yourdomain.com/web-authentication/",
+    "datePublished": "2019-10-01T13:04:00.000Z",
+    "dateModified": "2022-08-18T14:43:23.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/07/Cookies.jpg",
+        "width": 2000,
+        "height": 1125
+    },
+    "keywords": "Technology growth",
+    "description": "Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.10" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/portal@~2.9/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f5d74add11f1d16d3e59c12945" data-styles="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/main.css" data-sodo-search="yourdomain.com/" crossorigin="anonymous"></script>
+    <script defer src="../public/cards.min.js%3Fv=977d3f47b0"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=977d3f47b0.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Q4HQV7NBSG');
+</script>
+
+<!-- 2022 prismjs update -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {      
+    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+        node.classList.add('line-numbers');
+	});
+    Prism.highlightAll();
+});
+</script>
+
+<!-- prism -->
+<style>
+pre[class*="language-"] {
+    margin: 0 0 1.5em !important;
+}
+pre[class*="line-numbers"]>code {
+    padding: 0 ;
+}
+code {
+    text-shadow: none !important;
+}
+.token.operator {
+    background: none !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #202124 !important;
+}
+</style>
+
+<!-- customer theme by zs -->
+<style>
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #b0bec5;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+}
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #202124;
+}
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #f9f2f4;
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1;
+}
+.token.punctuation {
+  color: #f3f3f3;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #88deff;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #e3f2fd;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #f3f3f3;
+  background: #202124;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #06b4fe;
+}
+.token.function {
+  color: #ff7043;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ff7043;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #202124;
+  box-shadow: inset 5px 0 0 #202124;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+</style>
+
+<!-- 音乐播放器 -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
+
+</head>
+<body class="post-template tag-technology-growth has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <nav class="gh-head-inner inner">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <div class="gh-head-brand-wrapper">
+                    <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <a class="gh-burger" role="button">
+                        <div class="gh-burger-box">
+                            <div class="gh-burger-inner"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tags"><a href="../tags/index.html">Tags</a></li>
+    <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <div class="gh-social">
+                        <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
+                </div>
+                        <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-technology-growth ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="../tag/technology-growth/index.html">Technology growth</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">Web Authentication</h1>
+
+            <p class="article-excerpt">Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2019-10-01">Oct 1, 2019</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 21 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w2000/2022/07/Cookies.jpg 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2022/07/Cookies.jpg"
+                    alt="Cookies"
+                />
+                    <figcaption>Cookies</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <aside class="toc-container">
+            <div class="toc"></div>
+        </aside>
+        <!--kg-card-begin: markdown--><h2 id="%E6%8C%81%E4%B9%85%E5%8C%96">持久化</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">特性</th>
+<th style="text-align:center">Cookie</th>
+<th style="text-align:center">LocalStorage</th>
+<th style="text-align:center">SessionStorage</th>
+<th style="text-align:center">IndexedDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">数据生命周期</td>
+<td style="text-align:center">一般由服务端生成；前端 =&gt; js-cookie；node =&gt; cookie</td>
+<td style="text-align:center">不清理一直在；浏览器关闭还会保存；不支持跨浏览器</td>
+<td style="text-align:center">页面关闭就清理；刷新依然在；不支持跨页面交互</td>
+<td style="text-align:center">除非被清理，否则一直在</td>
+</tr>
+<tr>
+<td style="text-align:center">数据存储大小</td>
+<td style="text-align:center">4K</td>
+<td style="text-align:center">5M</td>
+<td style="text-align:center">5M</td>
+<td style="text-align:center">不限制</td>
+</tr>
+<tr>
+<td style="text-align:center">与服务端通信</td>
+<td style="text-align:center">每次都会携带在请求头中 =&gt; 影响请求性能、容易出现安全问题</td>
+<td style="text-align:center">不参与</td>
+<td style="text-align:center">不参与</td>
+<td style="text-align:center">不参与</td>
+</tr>
+<tr>
+<td style="text-align:center">特点</td>
+<td style="text-align:center">字符串键值对存储在本地</td>
+<td style="text-align:center">字符串键值对在本地存储数据</td>
+<td style="text-align:center">字符串键值对在本地存储数据</td>
+<td style="text-align:center">非关系型数据库</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cookie">Cookie</h3>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies">HTTP Cookie</a>（也叫 Web Cookie 或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的小块数据，会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的 HTTP 协议记录稳定的状态信息成为了可能。</p>
+</blockquote>
+<p>HTTP Cookie 在多数浏览器中最大支持 4KB，数量限制约为 20 个，若想要存储更多 Cookie，则旧的 Cookie 将会被丢弃。HTTP Cookie 设置时前端无感知，<a href="https://www.baeldung.com/java-servlet-cookies-session">后端</a>通过响应头 Set-Cookie 字段绑定浏览器，后续会自动携带在请求头 Cookie 字段中。</p>
+<ul>
+<li>JavaWeb 逻辑</li>
+</ul>
+<pre><code class="language-java">public class HelloAdminUser extends HttpServlet {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    Cookie cookie = new Cookie(&quot;adminUser&quot;, &quot;zs&quot;);
+    cookie.setPath(&quot;/&quot;); // tomcat下多应用共享
+    ...
+    cookie.setHttpOnly(true);
+    response.addCookie(cookie);
+  }
+}
+</code></pre>
+<ul>
+<li>前端封装逻辑</li>
+</ul>
+<p>设置 <code>Access-Control-Allow-Credentials: true</code> 和 <code>xhr.withCredentials = true</code> 可以实现跨域传递 Cookie，但是会有 CSRF 的风险。</p>
+<pre><code class="language-javascript">// 封装 Cookie 的设置、读取与删除
+// 设置Cookie
+function setCookie (key, value, t) { // t设置cookie多久过期,通常设置天数
+  var myTime = new Date();
+  myTime.setDate(myTime.getDate() + t);
+  document.cookie = key + &quot;=&quot; + value + &quot;;expires=&quot; + myTime.toUTCString();
+}
+
+// 读取Cookie
+function getCookie (name) {
+  var arr = document.cookie.split(';'); // 通过&quot;;&quot;分隔cookie
+  for (var i = 0 ; i &lt; arr.length ; i++) {
+    var arr1 = arr[i].split('=');
+    if (arr1[0] == name) {
+      return arr1[1];
+    }
+  }
+  return &quot;&quot;; // 遍历完成没有找到则返回空
+}
+
+// 删除Cookie
+function removeCookie (key) {
+  setCookie(key, &quot;1&quot;, -1) // 设置的value随意,主要是t的意思则是已过期,可删除
+}
+</code></pre>
+<h3 id="session">Session</h3>
+<p>基于唯一 ID 识别用户身份的机制称为 Session。Java 执行 HttpServletRequest 的 getSession() 时，Web 容器会创建 HttpSession 实例，每个 HttpSession 实例都有唯一的 ID，即 Session ID，可以通过 HttpSession 的 getId() 来获取。</p>
+<pre><code class="language-java">@WebServlet(urlPatterns = &quot;/login&quot;)
+public class LoginServlet extends HttpServlet {
+  ...
+  // POST 请求时处理用户登录
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    String name = req.getParameter(&quot;username&quot;);
+    ...
+    HttpSession session = req.getSession();
+    session.setAttribute(&quot;user&quot;, name);
+  }
+}
+</code></pre>
+<p>Session ID 默认会经 Cookie 存放至浏览器，Cookie 的名称默认为 JSESSIONID，数值是 getId() 获得的 Session ID。</p>
+<p>HttpSession 默认会用 Cookie 储存 Session ID，但开发者不需要去操作 Cookie 的细节，具体操作由容器自动完成。</p>
+<p>容器储存 Session ID 的 Cookie 默认为关闭浏览器就失效，所以当重启浏览器再次请求应用时，通过 getSession() 取得的就是新的 HttpSession 实例。</p>
+<p>尽管容器会根据请求带来的 Session ID 取得对应的 HttpSession。但 HttpSession 实例中尽量不要储存过大的数据，也应在必要时将数据移除或使其失效。</p>
+<p>注意 <code>session.setMaxInactiveInterval(maxInactiveSec);</code> 是设置会话超时时间，而不是 Cookie 失效时间。</p>
+<h3 id="localstorage-sessionstorage">localStorage &amp; sessionStorage</h3>
+<p>不同浏览器的本地存储数据不可以共用，即使浏览器被关闭，使用本地存储保存的数据也不会丢失，下次打开浏览器访问时仍然有效，可用于购物车或页游。</p>
+<p>会话存储将部分数据保存在当前会话页面，页面关闭后，会话存储中的数据就会被清空。因为保存数据的生命周期较本地存储更短，所以常应用来保存 Token。</p>
+<pre><code class="language-javascript">/* localStorage|sessionStorage通用方法 */
+localStorage|sessionStorage.setItem('key', 'value'); // 保存数据
+localStorage|sessionStorage.getItem('key'); // 获取数据
+localStorage|sessionStorage.removeItem('key'); // 删除指定数据
+localStorage|sessionStorage.clear(); // 删除所有数据
+localStorage|sessionStorage.key(n); // 获取第 n 个数据
+</code></pre>
+<h3 id="indexeddb">indexedDB</h3>
+<p>IndexedDB 是在客户端存储大量的结构化数据的 NoSQL 数据库，使用索引实现对数据的高性能搜索，至少 250MB 的存储空间弥补在 Web Storage 只能存储少量数据的缺陷（约 5MB）。</p>
+<p>与 Local Storage 的同步操作不同，异步 IndexedDB 的设计是为了处理大量数据的读写。其内部采用对象仓库存放不限制类型（支持二进制存储）的数据，数据以键值对存储，每个数据记录都有对应的唯一主键，如果重复会抛出一个错误。支持事务但是受到同源限制，只能访问自身域下的 IndexedDB。</p>
+<pre><code class="language-javascript">// 新建\打开数据库
+var request = window.indexedDB.open(&quot;mydb&quot;, 1.0); // 数据库名,版本号
+request.onerror = function(){ console.log(&quot;创建或打开数据库失败！&quot;); };
+request.onsuccess = function(e){ console.log(&quot;创建或打开数据库成功！&quot;); };
+var data=[{id:1001,name:&quot;zs&quot;,age:22},{id:1002,name:&quot;zy&quot;,age:23},{  id:1003,name:&quot;zszy&quot;,age:24}];
+// 操作数据库
+// 在indexedDB中,一个对象仓库就是一张表
+request.onupgradeneeded=function(e){
+  var db = e.target.result; 
+  // 如果数据库中不包含该对象仓库(表),则创建新的对象仓库 
+  if(!db.objectStoreNames.contains(&quot;zsindexeddb&quot;)){ // 判断对象仓库(表)
+    var store = db.createObjectStore(&quot;zsindexeddb&quot;,{keyPath:&quot;id&quot;}); // keyPath: 主键名
+    for(var i = 0 ; i &lt; data.length;i++){
+      var addRequest = store.add(data[i]);
+      addRequest.onerror = function(){ console.log(&quot;添加数据失败！&quot;) };
+      addRequest.onsuccess = function(){ console.log(&quot;添加数据成功！&quot;) };
+    }
+  }
+};
+// 删除数据库
+// 执行删除数据库操作后,如果发现数据库依旧存在,可能是因为 indexedDB 没有刷新,在【indexedDB】选项上面单击鼠标右键,点击【Refresh indexedDB】即可实现刷新
+var request = window.indexedDB.deleteDatabase(&quot;mydb&quot;(数据库名));
+request.onerror = function(){ console.log(&quot;删除数据库失败！&quot;); };
+request.onsuccess = function(e){ console.log(&quot;删除数据库成功！&quot;); };
+</code></pre>
+<pre><code class="language-javascript">// 凡是涉及对象仓库的增删查改,都是使用事务来处理,都是在请求对象request的onsuccess事件中操作
+// 增加add
+var data=[{id:1004,name:&quot;java&quot;,age:25},{id:1005,name:&quot;js&quot;,age:26},{id:1006,name:&quot;c++&quot;,age:27}];
+var request = window.indexedDB.open(&quot;mydb&quot;,2.0);
+request.onerror = function(){ console.log('创建或打开数据库失败！'); };
+request.onsuccess = function(e){
+  console.log(&quot;创建或打开数据库成功！&quot;);
+  var {result: db} = e.target; // 获取数据库对象IDBOpenDBRequest
+  var transaction = db.transaction([&quot;zsindexeddb&quot;],&quot;readwrite&quot;); // 开启事务 (表名, mode:read|readwrite)
+  var store = transaction.objectStore(&quot;zsindexeddb&quot;); // 调用 transaction 对象的 objectStore() 方法来连接对象仓库
+  for(var i = 0 ; i &lt; data.length;i++){
+    var dataRequest = store.add(data[i]);
+    dataRequest.onerror = function(){ console.log(&quot;添加数据失败！&quot;); };
+    dataRequest.onsuccess = function(){ console.log(&quot;添加数据成功！&quot;); };
+  }
+};
+// 删除delete
+var request = window.indexedDB.open(&quot;mydb&quot;,2.0);
+request.onerror = function(){ console.log('创建或打开数据库失败！'); };
+request.onsuccess = function(e){
+  console.log(&quot;创建或打开数据库成功！&quot;);
+  var {result: db} = e.target; // 获取数据库对象IDBOpenDBRequest
+  var transaction = db.transaction([&quot;zsindexeddb&quot;],&quot;readwrite&quot;); // 开启事务 (表名, mode:read|readwrite)
+  var store = transaction.objectStore(&quot;zsindexeddb&quot;); // 调用 transaction 对象的 objectStore() 方法来连接对象仓库
+  var dataRequest = store.delete(1006);
+  dataRequest.onerror = function(){ console.log(&quot;删除数据失败！&quot;); };
+  dataRequest.onsuccess = function(){ console.log(&quot;删除数据成功！&quot;); };
+}
+// 查找数据
+var request = window.indexedDB.open(&quot;mydb&quot;,2.0);
+request.onerror = function(){ console.log('创建或打开数据库失败！'); };
+request.onsuccess = function(e){
+  console.log(&quot;创建或打开数据库成功！&quot;);
+  var {result: db} = e.target; // 获取数据库对象IDBOpenDBRequest
+  var transaction = db.transaction([&quot;zsindexeddb&quot;],&quot;readwrite&quot;); // 开启事务 (表名, mode:read|readwrite)
+  var store = transaction.objectStore(&quot;zsindexeddb&quot;); // 调用 transaction 对象的 objectStore() 方法来连接对象仓库
+  var dataRequest = store.get(1002);
+  dataRequest.onerror = function(){ console.log(&quot;获取数据失败！&quot;); };
+  dataRequest.onsuccess = function(){
+    if(this.result == undefined){
+      console.log(&quot;没有符合条件的数据&quot;);
+    } else {
+      console.log(&quot;获取数据成功!&quot;, this.result);
+    }
+  };
+}
+// 改变数据
+var request = window.indexedDB.open(&quot;mydb&quot;,2.0);
+request.onerror = function(){ console.log('创建或打开数据库失败！'); };
+request.onsuccess = function(e){
+  console.log(&quot;创建或打开数据库成功！&quot;);
+  var {result: db} = e.target; // 获取数据库对象IDBOpenDBRequest
+  var transaction = db.transaction([&quot;zsindexeddb&quot;],&quot;readwrite&quot;); // 开启事务 (表名, mode:read|readwrite)
+  var store = transaction.objectStore(&quot;zsindexeddb&quot;); // 调用 transaction 对象的 objectStore() 方法来连接对象仓库
+  var value = { id: 1006, name: &quot;c++&quot;, age: 27 }
+  var dataRequest = store.put(value);
+  dataRequest.onerror = function(){ console.log(&quot;改变数据失败！&quot;); };
+  dataRequest.onsuccess = function(){
+    if(this.result == undefined){
+      console.log(&quot;没有符合条件的数据&quot;);
+    } else {
+      console.log(&quot;改变数据成功!&quot;, this.result);
+    }
+  };
+}
+// 清空数据
+var request = window.indexedDB.open(&quot;mydb&quot;,2.0);
+request.onerror = function(){ console.log('创建或打开数据库失败！'); };
+request.onsuccess = function(e){
+  console.log(&quot;创建或打开数据库成功！&quot;);
+  var {result: db} = e.target; // 获取数据库对象IDBOpenDBRequest
+  var transaction = db.transaction([&quot;zsindexeddb&quot;],&quot;readwrite&quot;); // 开启事务 (表名, mode:read|readwrite)
+  var store = transaction.objectStore(&quot;zsindexeddb&quot;); // 调用 transaction 对象的 objectStore() 方法来连接对象仓库
+  var dataRequest = store.clear(); // 返回操作数据库的对象
+  dataRequest.onerror = function(){ console.log(&quot;获取数据失败！&quot;); };
+  dataRequest.onsuccess = function(){ console.log(&quot;清空数据成功!&quot;, this.result); };
+}
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%94%BB%E5%87%BB">认证与攻击</h2>
+<h3 id="jwt">JWT</h3>
+<p><a href="https://jwt.io/introduction">JWT</a> JSON Web Token 是基于 JSON 的 RFC7519 开放标准，用作在客户端和服务器之间传递安全可靠的信息，是一种流行的跨域认证解决方案。JWT 和 Token 一样都是访问资源的令牌，不同的是后者需要通过服务器数据库进行查询验证，而前者只需要在服务端进行密钥校验即可，认证成功后会发给客户端一 JSON 对象。</p>
+<p>基于令牌的鉴权方式是从客户端通过用户与密码进行首次登录，服务端接收用户的登录请求并进行验证，登录验证成功后根据自定义规则生成令牌信息，并通过响应返回给客户端。这个令牌作为后续用户访问一些接口的凭证，后续访问会根据这个令牌判断用户是否具有权限。</p>
+<p>Token 由头部 Header、载荷 Payload 与签名 Signature 组成，<code>.</code> 进行拼接。其中头部和载荷都是以 JSON 格式存放数据并进行 Base64 编码。</p>
+<ul>
+<li>Header</li>
+</ul>
+<p>头部信息主要是描述 JWT 元数据的 JSON 对象，<code>alg</code> 字段属性声明算法，<code>typ</code> 字段属性表示令牌类型，JWT 令牌统一写为 &quot;JWT&quot;。</p>
+<pre><code class="language-javascript">{ &quot;alg&quot;: &quot;HS256&quot;, &quot;typ&quot;: &quot;JWT&quot; } // alg =&gt; algorithm、HS256 =&gt; HMAC SHA256
+</code></pre>
+<p>因为 JWT 是字符串，所以对头部信息进行 Base64 编码后字符串如下。</p>
+<pre><code class="language-javascript">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 // Base64编码
+</code></pre>
+<ul>
+<li>Payload</li>
+</ul>
+<p>载荷即消息体，实际存放需要传递的数据，除开 7 个<a href="https://datatracker.ietf.org/doc/html/rfc7519">官方字段</a>外，也可以定义部分私有字段。</p>
+<pre><code class="language-javascript">{
+  &quot;sub&quot;: &quot;JWTTOKENTEST&quot;,
+  &quot;adminUser&quot;: &quot;Okk&quot;,
+  &quot;iat&quot;: 1587517811
+}
+</code></pre>
+<p>对 Payload 同样进行 Base64 编码后的字符串如下。</p>
+<pre><code class="language-javascript">ewogICJzdWIiOiAiSldUVE9LRU5URVNUIiwKICAiYWRtaW5Vc2VyIjogIk9rayIsCiAgImlhdCI6IDE1ODc1MTc4MTEKfQ==
+</code></pre>
+<ul>
+<li>Signature</li>
+</ul>
+<p>Signature 对头部和载荷的内容进行签名，需额外设置一个 secret 或 privatekey 对前两者算法处理。若前部分数据被篡改，但服务器加密的密钥没有泄露，那么解密得到的签名会与之前不一致。</p>
+<pre><code class="language-javascript">HMACSHA256(base64Url(header) + &quot;.&quot; + base64Url(payload), secretKey)
+</code></pre>
+<ul>
+<li><a href="https://nodejs.org/api/crypto.html">node[crypto]</a> &amp; <a href="https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken</a></li>
+</ul>
+<pre><code class="language-json">// config.json
+{
+  &quot;secret&quot;: &quot;some-secret-shit-goes-here&quot;,
+  &quot;refreshTokenSecret&quot;: &quot;some-secret-refresh-token-shit&quot;,
+  &quot;port&quot;: 3000,
+  &quot;tokenLife&quot;: 900,
+  &quot;refreshTokenLife&quot;: 86400
+}
+</code></pre>
+<pre><code class="language-javascript">const crypto = require(&quot;crypto&quot;), jwt = require(&quot;jsonwebtoken&quot;);
+let userList = [], secret = &quot;test_token&quot;; // 模拟数据库、指定 secret
+class UserController { // 用户登录
+  static async login(ctx) {
+    const data = ctx.request.body;
+    if (!data.name || !data.password) {
+      return ctx.body = { code: &quot;400&quot;, message: &quot;参数不合法&quot; }
+    }
+    const result = userList.find(item =&gt; item.name === data.name &amp;&amp; item.password === crypto.createHash('md5').update(data.password).digest('hex'));
+    if (result) {
+      // 生成 token
+      const token = jwt.sign( { name: result.name }, secret, { expiresIn: 60 * 60 } ); // 过期时间 60 * 60 s
+      const refreshToken = jwt.sign(user, config.refreshTokenSecret, { expiresIn: config.refreshTokenLife});
+      return ctx.body = { code: &quot;200&quot;, message: &quot;登录成功&quot;, data: { token }
+      };
+    } else {
+      return ctx.body = { code: &quot;400&quot;, message: &quot;用户名或密码错误&quot; };
+    }
+  }
+}
+module.exports = UserController;
+</code></pre>
+<p>Common Request Headers 是 OSS Object Storage Service 的 RESTful 接口中使用的公共请求头，这些请求头可以被所有的 OSS 请求所使用。<a href="https://stackoverflow.com/questions/5925954/what-are-bearer-tokens-and-token-type-in-oauth-2">Bearer Token</a>。</p>
+<pre><code class="language-javascript">axios.interceptors.request.use(config =&gt; {
+  const token = localStorage.getItem('token');
+  config.headers.common['Authorization'] = 'Bearer ' + token; // 留意这里的 Authorization
+  return config;
+})
+</code></pre>
+<p>服务端在处理前端发送回来的 token 时，需判断 token 是否正确，若不正确则返回错误；需判断 token 是否过期，进而选择刷新 token 或返回 401 进行重新登录。</p>
+<pre><code class="language-javascript">app.use((ctx, next) =&gt; {
+  if (ctx.header &amp;&amp; ctx.header.authorization) {
+    const parts = ctx.header.authorization.split(' ');
+    if (parts.length === 2) { // 取出 token 处理
+      const scheme = parts[0], token = parts[1];
+      if (/^Bearer$/i.test(scheme)) {
+        try {
+          jwt.verify(token, secret, { complete: true }); // jwt.verify 验证 token 是否有效
+        } catch (error) {
+          const newToken = refreshToken(user); // token过期 -&gt; 生成新 token
+          ctx.res.setHeader('Authorization', newToken); // 将新 token 放入 Authorization 中返回给前端
+        }
+      }
+    }
+  }
+  return next().catch(err =&gt; {
+    if (err.status === 401) {
+      ctx.status = 401;
+      ctx.body = 'Protected resource, use Authorization header to get access\n';
+    } else { throw err; }});
+ });
+</code></pre>
+<ul>
+<li>JWT 小结</li>
+</ul>
+<p>字节占用小，便于传输；服务端无需保存会话信息，可水平扩展；一处生成能多处使用，可在分布式系统中，解决单点登录的问题；防护 CSRF 攻击。</p>
+<p>Token 一旦生成就无法在过期前终止。JWT 默认不加密，安全方面应考虑 HTTPS 协议传输；载荷部分是简单编码，只能存储非敏感信息；密钥具有安全性要求。</p>
+<h3 id="cross-site-scripting-xss">Cross-site scripting XSS</h3>
+<p>跨站脚本攻击是向目标网站注入恶意代码，并利用脚本的执行来获取用户的敏感信息 (Cookie、SessionID)。</p>
+<ul>
+<li>Stored XSS（存储型|持久型 XSS）</li>
+</ul>
+<p>恶意代码会被提交到受攻击网站的数据库，后续从数据库读取数据时会被动的将攻击脚本拼接在响应内容中返回给浏览器解析执行。常见于带有渲染数据的位置，如论坛贴文、商品评论、用户私信等。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
+    &lt;title&gt;XSS-demo&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;用户名&quot; class=&quot;username&quot; /&gt;
+      &lt;br /&gt;
+      &lt;input type=&quot;password&quot; placeholder=&quot;密码&quot; class=&quot;password&quot; /&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;button class=&quot;btn&quot;&gt;登陆&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+    document.querySelector(&quot;.btn&quot;).onclick = function () {
+      var username = document.querySelector(&quot;.username&quot;).value;
+      var password = document.querySelector(&quot;.password&quot;).value;
+      fetch(&quot;http://localhost:3000/login&quot;, {
+        method: &quot;POST&quot;,
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+        headers: {
+          &quot;Content-Type&quot;: &quot;application/json&quot;,
+        },
+        mode: &quot;cors&quot;,
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (res) {
+          alert(res.msg);
+          window.location.href = &quot;http://localhost:3000/home&quot;;
+        })
+        .catch((err) =&gt; {
+          message.error(`本地测试错误 ${err.message}`);
+          console.error(&quot;本地测试错误&quot;, err);
+        });
+    };
+  &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="language-javascript">const Koa = require(&quot;koa&quot;);
+const app = new Koa();
+const route = require('koa-route');
+const bodyParser = require('koa-bodyparser');
+const cors = require('@koa/cors');
+
+let currentUserName = ''; // 模拟数据库操作的数据
+app.use(bodyParser()); // 处理post请求的参数
+const login = ctx =&gt; {
+  const user_name = ctx.request.body.username;
+  currentUserName = user_name;
+  ctx.response.body = { msg: '登陆成功' };
+}
+const home = ctx =&gt; { ctx.body = currentUserName; }
+app.use(cors());
+app.use(route.post('/login', login));
+app.use(route.get('/home', home));
+app.listen(3000, () =&gt; { console.log('启动成功'); });
+</code></pre>
+<pre><code class="language-html">&lt;!-- 输入内容测试 --&gt;
+&lt;script&gt;alert(&quot;Stored XSS&quot;)&lt;/script&gt;
+</code></pre>
+<ul>
+<li>Reflected XSS（反射型 XSS）</li>
+</ul>
+<p>将恶意代码作为请求的组成部分提交给服务端进行处理，最终不安全的脚本会随着响应内容传回给浏览器执行。和存储型相比，反射型不入侵数据库，多见于带传递参数功能的搜索和跳转漏洞。</p>
+<pre><code class="language-javascript">const Koa = require(&quot;koa&quot;);
+const app = new Koa();
+app.use(async ctx =&gt; { ctx.body = ctx.request.query.user_name; })
+app.listen(3000, () =&gt; { console.log('启动成功'); }); // url 输入 http://localhost:3000/?user_name=&lt;script&gt;alert(&quot;okk&quot;)&lt;/script&gt;
+</code></pre>
+<ul>
+<li>DOM based XSS（DOM 型 XSS）</li>
+</ul>
+<p>JavaScript 以不安全的方式对不受信任的数据来源进行处理，导致将恶意代码直接写回 DOM。和反射型不同，DOM 型的恶意源与接收槽都位于浏览器之中。</p>
+<blockquote>
+<p><strong>Source</strong>: It is a Javascript property that accepts data which is controlled by the attacker is known as the source.<br>
+<strong>Sink</strong>: A sink is a potentially dangerous JavaScript function or DOM object that can cause undesirable effects if attacker-controlled data is passed to it.</p>
+</blockquote>
+<pre><code class="language-javascript">// Source
+document.URL、document.documentURI、document.URLUnencoded、document.baseURI、location、document.cookie、document.referrer、window.name、history.pushState、history.replaceState、localStorage、sessionStorage
+// Sink
+document.write()、window.location、document.cookie、eval()、document.domain、WebSocket()、element.src、postMessage()、setRequestHeader()、FileReader.readAsText()、ExecuteSql()、sessionStorage.setItem()、document.evaluate()、JSON.parse()、element.setAttribute()、RegExp()
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;DOM based XSS Test&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;login-wrap&quot;&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;alert('okk') or '' onclick=alert('哈哈，你被攻击了')&quot; class=&quot;inputxsstest&quot; style=&quot;width:50%;&quot;/&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;button class=&quot;btn&quot;&gt;提交&lt;/button&gt;
+      &lt;div class=&quot;content&quot;&gt;&lt;/div&gt;
+      &lt;!--         &lt;div class=&quot;contentx&quot;&gt;&lt;/div&gt; --&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+    var btn = document.querySelector(&quot;.btn&quot;);
+    var content = document.querySelector(&quot;.content&quot;);
+    // var contentx = document.querySelector('.contentx');
+
+    btn.onclick = function () {
+      var url = document.querySelector(&quot;.inputxsstest&quot;).value;
+      content.innerHTML = `&lt;a href=${url}&gt;请确认跳转的 URL =&gt; ${url}&lt;/a&gt;`;
+      eval(`${url}`);
+    };
+  &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>防御手段</li>
+</ul>
+<p>对输入格式进行检查，将内容的标签进行转义或过滤；设置 HttpOnly 从而防止 JS 获取 Cookie；开启白名单 CSP Content Security Policy。相关库 =&gt; <a href="https://jsxss.com/zh/index.html">XSS</a>、<a href="https://www.npmjs.com/package/helmet-csp">CSP</a>。</p>
+<pre><code class="language-javascript">function escape(str) {
+  str = str.replace(/&amp;/g, '&amp;amp;')
+  str = str.replace(/&lt;/g, '&amp;lt;')
+  str = str.replace(/&gt;/g, '&amp;gt;')
+  str = str.replace(/&quot;/g, '&amp;quto;')
+  str = str.replace(/'/g, '&amp;#39;')
+  str = str.replace(/`/g, '&amp;#96;')
+  str = str.replace(/\//g, '&amp;#x2F;')
+  return str
+}
+</code></pre>
+<pre><code class="language-java">// 全局设置Session-Cookie相交互部分属性
+@WebListener
+public class SessionCookieInitialization implements ServletContextListener {
+    private static final Log log = LogFactory.getLog(SessionCookieInitialization.class);
+    public void contextInitialized(ServletContextEvent sce) {
+        log.info(&quot;now init the Session Cookie&quot;);
+        ServletContext servletContext = sce.getServletContext();
+        SessionCookieConfig sessionCookie = servletContext.getSessionCookieConfig();
+        sessionCookie.setName(&quot;YONGBOYID&quot;);
+        sessionCookie.setPath(servletContext.getContextPath());
+        sessionCookie.setHttpOnly(true);
+        sessionCookie.setSecure(false);
+        log.info(&quot;name : &quot; + sessionCookie.getName() + &quot;\n&quot; + &quot;domain:&quot;
+        + sessionCookie.getDomain() + &quot;\npath:&quot;
+        + sessionCookie.getPath() + &quot;\nage:&quot;
+        + sessionCookie.getMaxAge());
+        log.info(&quot;isHttpOnly : &quot; + sessionCookie.isHttpOnly());
+        log.info(&quot;isSecure : &quot; + sessionCookie.isSecure());
+    }
+    public void contextDestroyed(ServletContextEvent sce) {
+        log.info(&quot;the context is destroyed !&quot;);
+    }
+}
+</code></pre>
+<h3 id="cross-site-request-forgery-csrf">Cross-site request forgery CSRF</h3>
+<p>跨站请求伪造是攻击者冒充受害者向服务器发送非预期的请求。利用受害者在被攻击网站已经获取的凭证，绕过后台的用户验证，以达到冒充用户对被攻击的网站执行某项操作的目的。实现 RESTFUL API 以及添加安全令牌可防止此类攻击方式。</p>
+<ul>
+<li>常见的 CSRF 攻击类型 =&gt; 图片、表单、链接</li>
+</ul>
+<pre><code class="language-html">&lt;!-- GET 类型的 CSRF --&gt;
+&lt;img src=&quot;http://bank.example/withdraw?amount=10000&amp;for=hacker&quot; /&gt; 
+</code></pre>
+<pre><code class="language-html">&lt;!-- POST 类型的 CSRF --&gt;
+&lt;form action=&quot;http://bank.example/withdraw&quot; method=POST&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;account&quot; value=&quot;victim&quot; /&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;amount&quot; value=&quot;10000&quot; /&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;for&quot; value=&quot;hacker&quot; /&gt;
+&lt;/form&gt;
+&lt;script&gt; document.forms[0].submit(); &lt;/script&gt; 
+</code></pre>
+<pre><code class="language-html">&lt;!-- 链接类型的 CSRF --&gt;
+&lt;a href=&quot;http://test.com/csrf/withdraw.php?amount=1000&amp;for=hacker&quot; taget=&quot;_blank&quot;&gt; 重磅消息！！！&lt;a/&gt;
+</code></pre>
+<ul>
+<li>防御手段</li>
+</ul>
+<p>通过验证码的方式强制用户先进行交互，待确认身份后再完成后续的操作；服务端据 Request Headers 中 Origin 或 Referer 识别请求来源；利用 Response Headers 里 <a href="https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html">SameSite</a> 属性限制 Cookie 是否仅限于第一方或同一站点上下文使用；Token。</p>
+<p>npm 验证码相关包 =&gt; <a href="https://www.npmjs.com/package/puppeteer-extra-plugin-recaptcha">puppeteer-extra-plugin-recaptcha</a>、<a href="https://www.npmjs.com/package/svg-captcha">svg-captcha</a></p>
+<pre><code class="language-java">@RestController
+@RequestMapping(value = &quot;/api&quot;, method = RequestMethod.POST)
+public class DemoController {    
+  @CrossOrigin(origins = &quot;*&quot;)
+  @RequestMapping(value = &quot;/get&quot;)
+  public String get() {...}
+}
+</code></pre>
+<pre><code class="language-java">public class AccessControlAllowOriginFilter implements Filter {
+  public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+    HttpServletResponse response = (HttpServletResponse) res;
+    response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
+    response.setHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;POST, GET, OPTIONS, DELETE&quot;);
+    response.setHeader(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;);
+    chain.doFilter(req, response);
+  } 
+  public void init(FilterConfig filterConfig) {} 
+  public void destroy() {} 
+}
+</code></pre>
+<pre><code class="language-java">public class RequestLimitReferer extends HttpServlet {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String referer = request.getHeader(&quot;referer&quot;);
+	if (referer == null || !referer.startsWith(&quot;http://localhost&quot;)) {
+      response.sendRedirect(&quot;error.index&quot;);
+	  return;
+    }
+    String msg = &quot;Okk&quot;;
+    response.getWriter().write(msg);
+  }
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    doGet(request, response);
+  }
+}
+</code></pre>
+<pre><code class="language-java">public class SameSiteFilter implements javax.servlet.Filter {
+  @Override
+  public void init(FilterConfig filterConfig) throws ServletException {}
+  @Override
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    chain.doFilter(request, response);
+    addSameSiteAttribute((HttpServletResponse) response); // add SameSite=strict cookie attribute
+  }
+  private void addSameSiteAttribute(HttpServletResponse response) {
+    Collection&lt;String&gt; headers = response.getHeaders(&quot;Set-Cookie&quot;);
+    boolean firstHeader = true;
+    for (String header : headers) {  
+      if (firstHeader) {
+        response.setHeader(&quot;Set-Cookie&quot;, String.format(&quot;%s; %s&quot;, header, &quot;SameSite=Strict&quot;));
+        firstHeader = false;
+        continue;
+      }
+      response.addHeader(&quot;Set-Cookie&quot;, String.format(&quot;%s; %s&quot;, header, &quot;SameSite=Strict&quot;));
+      }
+  }
+  @Override
+  public void destroy() {}
+}
+</code></pre>
+<!--kg-card-end: markdown--><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://javascript.ruanyifeng.com/bom/cookie.html#toc0"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Cookie -- JavaScript 标准参考教程（alpha）</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://javascript.ruanyifeng.com/favicon.ico" alt=""><span class="kg-bookmark-author">JavaScript 标准参考教程（alpha）</span></div></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html"><div class="kg-bookmark-content"><div class="kg-bookmark-title">JSON Web Token 入门教程 - 阮一峰的网络日志</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://www.ruanyifeng.com/favicon.ico" alt=""><span class="kg-bookmark-author">阮一峰的网络日志</span><span class="kg-bookmark-publisher">阮一峰</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://www.wangbase.com/blogimg/asset/201807/bg2018072301.jpg" alt=""></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://auth0.com/resources/ebooks/jwt-handbook"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Auth0 | JWT Handbook</div><div class="kg-bookmark-description">Ever wondered how JWT came to be and what problems it was designed to tackle?Are you curious about the plethora of algorithms available for signing...</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://cdn.auth0.com/website/new-homepage/dark-favicon.png" alt=""><span class="kg-bookmark-author">Auth0</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://images.ctfassets.net/2ntc334xpx65/2yCvSra7EQYIKyWg0cqQyg/c23954455de302a071a37efed03ab4d2/jwt-handbook-tc.png" alt=""></div></a></figure>
+        <div class="kg-card kg-file-card kg-file-card-medium">
+            <a class="kg-file-card-container" href="../content/files/2022/08/----OSS-API--.pdf" title="Download" download>
+                <div class="kg-file-card-contents">
+                    <div class="kg-file-card-title">OSS API</div>
+                    
+                    <div class="kg-file-card-metadata">
+                        <div class="kg-file-card-filename">对象存储OSS-API参考.pdf</div>
+                        <div class="kg-file-card-filesize">858 KB</div>
+                    </div>
+                </div>
+                <div class="kg-file-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>download-circle</title><polyline class="a" points="8.25 14.25 12 18 15.75 14.25"/><line class="a" x1="12" y1="6.75" x2="12" y2="18"/><circle class="a" cx="12" cy="12" r="11.25"/></svg>
+                </div>
+            </a>
+        </div>
+        <!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+
+<section class="article-comments gh-canvas">
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "yourdomain.com/web-authentication/";
+            this.page.identifier = "ghost-62e666612f724e6ee4c00efe"
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zsxzy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+</section>
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../g-toc-css/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/SLAMDUNK.png 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/SLAMDUNK.png"
+            alt="SLAM DUNK"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    G&amp;TOC&amp;CSS
+                </h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mysqlnote/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/cloud.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/cloud.jpg"
+            alt="mysql"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MySQL 笔记
+                </h2>
+            </header>
+                <div class="post-card-excerpt">MYSQL 基础篇</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
+                <span class="post-card-meta-length">82 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../zu-jian-tong-xun/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/treecommunicate.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/treecommunicate.jpg"
+            alt="Component communication"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../zu-jian-tong-xun/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    组件通讯
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Vuex|Redux|Pinia</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-10-01">Oct 1, 2021</time>
+                <span class="post-card-meta-length">25 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=977d3f47b0"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<!-- 2022 prismjs update -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-powershell.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-less.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sass.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-scss.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+
+
+<!-- music -->
+<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script>
+	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+		$('.carousel').carousel({
+			interval: 3000
+		})
+</script>
+<!-- music -->
+<!-- <div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div> -->
+<!-- <a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021003061号-1</a> -->
+
+<!-- searchinghost-easy -->
+<script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
+<script>
+    new SearchinGhostEasy({
+        contentApiKey: 'e93d8b3520ae46be52c9a4b140'
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+  tocbot.init({
+    tocSelector: '.toc',
+    contentSelector: '.gh-content',
+    hasInnerContainers: true
+  });
+  var tc = document.querySelector(".toc-container");
+var tch = tc.clientHeight;
+var ah = document.querySelector(".article-header");
+var ahh = ah.clientHeight;
+window.addEventListener("scroll", function () {
+if(document.body.clientWidth > 1170){
+  var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+  var ihh = window.innerHeight;
+  if(scrollY >= ihh + tch + ahh){
+    var ctc = document.querySelector(".toc-container");
+    ctc.style.position="sticky";
+    ctc.style.position="-webkit-sticky";
+    ctc.style.top = "120px";
+    ctc.style.marginLeft = "800px";
+    ctc.style.minWidth= "260px";
+  }
+  if(scrollY < tch + ahh -10){
+    var ctc = document.querySelector(".toc-container");
+    ctc.style.position="";
+    ctc.style.top = "";
+    ctc.style.marginLeft = "";
+    console.log("zszszs")
+  }
+}})
+
+</script>
+
+</body>
+</html>

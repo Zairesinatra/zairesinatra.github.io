@@ -6,7 +6,7 @@
 
     <title>组件通讯</title>
 
-    <meta name="description" content="vuex与redux" />
+    <meta name="description" content="Vuex|Redux|Pinia" />
     <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -14,16 +14,16 @@
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="组件通讯" />
-    <meta property="og:description" content="vuex与redux" />
+    <meta property="og:description" content="Vuex|Redux|Pinia" />
     <meta property="og:url" content="yourdomain.com/zu-jian-tong-xun/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/04/treecommunicate.jpg" />
     <meta property="article:published_time" content="2021-10-01T13:09:00.000Z" />
-    <meta property="article:modified_time" content="2022-04-24T06:34:35.000Z" />
+    <meta property="article:modified_time" content="2022-11-10T05:56:40.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="组件通讯" />
-    <meta name="twitter:description" content="vuex与redux" />
+    <meta name="twitter:description" content="Vuex|Redux|Pinia" />
     <meta name="twitter:url" content="yourdomain.com/zu-jian-tong-xun/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2022/04/treecommunicate.jpg" />
     <meta name="twitter:label1" content="Written by" />
@@ -64,7 +64,7 @@
     "headline": "组件通讯",
     "url": "yourdomain.com/zu-jian-tong-xun/",
     "datePublished": "2021-10-01T13:09:00.000Z",
-    "dateModified": "2022-04-24T06:34:35.000Z",
+    "dateModified": "2022-11-10T05:56:40.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/04/treecommunicate.jpg",
@@ -72,7 +72,7 @@
         "height": 1046
     },
     "keywords": "Technology growth",
-    "description": "vuex与redux",
+    "description": "Vuex|Redux|Pinia",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1080,9 +1080,103 @@
             </figure>
             <section class="post-content">
 
-                <h2 id="%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF">全局事件总线</h2>
-<p>在 Vue 的组件之间，常见的父子组件沟通方式为 props、emit，但如果是兄弟组件、跨组件之间的沟通，为了避免繁复的 props emit，可以使用 Event Bus 或是 Vuex 来做。Event Bus 像是一个全域的事件，可以给各组件共用，适用没有太复杂的功能和事件，如警示视窗，后续的 Vuex 则适合管理较复杂的全站共用状态，如登入资讯、购物车…等。</p>
-<p>借助事件中心传递数据需要提供事件中心 <code>var hub = new Vue()</code>。传递数据方通过一个事件触发 <code>hub.$emit(方法名，传递的数据)</code>；接收数据方通过 <code>mounted(){}</code> 钩子中监听 <code>hub.$on(方法名)</code>；销毁事件通过 <code>hub.$off(方法名)</code> 销毁，之后无法再进行数据通讯。</p>
+                <h2 id="%E5%B0%B1%E5%9C%B0%E5%8F%96%E6%9D%90">就地取材</h2>
+<h3 id="%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF-eventbus">全局事件总线 EventBus</h3>
+<p>将 Vue 实例赋值给 Vue 显式原型上增加的 $EventBus 属性，后续所有的通信数据和事件监听都存储在这个属性上。在范围较小时可以直接定义变量作为事件中心。</p>
+<pre><code class="language-javascript">Vue.prototype.$eventBus = new Vue() // main.js
+this.$eventBus.$emit('eventTarget','eventTargetVal') // 传值组件
+this.$eventBus.$on('eventTarget', (val) =&gt; { ...val })// 接收组件
+this.$eventBus.$off('eventTarget') // 销毁事件
+</code></pre>
+<h3 id="%E9%80%89%E9%A1%B9%E5%92%8C%E5%AE%9E%E4%BE%8B-property">选项和实例 Property</h3>
+<ul>
+<li><a href="https://v2.cn.vuejs.org/v2/api/#inheritAttrs">inheritAttrs</a> =&gt; 抹去直接绑定子组件根元素上未作为 props 的 attribute</li>
+</ul>
+<pre><code class="language-js">export default {
+  inheritAttrs: false, ...
+}
+</code></pre>
+<ul>
+<li>
+<p><a href="https://v2.cn.vuejs.org/v2/api/#vm-attrs">vm.$attrs</a> =&gt; 父作用域中不被 prop 获取的 attribute 绑定</p>
+</li>
+<li>
+<p><a href="https://v2.cn.vuejs.org/v2/api/#vm-listeners">vm.$listeners</a> =&gt; 包含父作用域中不含 .native 修饰器的 v-on 事件监听器</p>
+</li>
+</ul>
+<p>vm.$attrs 与 vm.$listeners 可分别通过 v-bind="$attrs" 和 v-on="$listeners" 传入内部组件。内部组件可通过 this.$emit('XXX') 直接触发传入的事件。</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    SupComponent
+    &lt;AttrsListenerTest ok="ok" okk="okk" okkk="okkk" @supHandler01="supHandler01" v-on:supHandler02="supHandler02"&gt;&lt;/AttrsListenerTest&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import AttrsListenerTest from '@/components/AttrsListenerTest.vue'
+export default {
+  components: { AttrsListenerTest },
+  methods: {
+    supHandler01 () { console.log('super func 01') },
+    supHandler02 () { console.log('super func 02') }
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    AttrsListenerTest
+    &lt;SubAttrsListenerTest v-bind="$attrs" v-on="$listeners"/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import SubAttrsListenerTest from '@/components/SubAttrsListenerTest.vue'
+export default {
+  inheritAttrs: false, // 抹去绑定在根元素上的 $attrs 属性
+  name: 'AttrsListenerTest',
+  props: { ok: { type: String } },
+  mounted () {
+    console.log(this.$attrs) // {okk: 'okk', okkk: 'okkk'}
+    console.log(this.$listeners) // {supHandler01: ƒ, supHandler02: ƒ}
+  },
+  components: { SubAttrsListenerTest }
+}
+&lt;/script&gt;
+</code></pre>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;SubAttrsListenerTest&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+  name: 'SubAttrsListenerTest',
+  props: { okk: { type: String } },
+  mounted () {
+    console.log(this.$attrs) // {okkk: 'okkk'}
+    console.log(this.$listeners) // {supHandler01: ƒ, supHandler02: ƒ}
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<h3 id="%E9%80%89%E9%A1%B9%E5%92%8C%E5%AE%9E%E4%BE%8B">选项和实例</h3>
+<ul>
+<li><a href="https://v2.cn.vuejs.org/v2/api/#parent">vm.$parent</a> =&gt; 指定已创建的实例的父实例</li>
+</ul>
+<p>子组件在挂载完成后可通过 <code>this.$parent</code> 拿到其父组件实例，和父组件实例上的属性和方法。</p>
+<ul>
+<li><a href="https://v2.cn.vuejs.org/v2/api/#vm-children">vm.$children</a> =&gt; 当前实例的直接子组件</li>
+</ul>
+<p>父组件在挂载完成后可通过 <code>this.$children</code> 拿到一级子组件的属性和方法，那么就可以直接改变 data 或调用 methods 方法。</p>
+<ul>
+<li><a href="https://v2.cn.vuejs.org/v2/api/#vm-refs">vm.$refs</a> =&gt; 含注册过 ref attribute 的所有<u> DOM 元素</u>和<u>组件实例</u>的对象</li>
+<li><a href="https://v2.cn.vuejs.org/v2/api/#vm-root">vm.$root</a> =&gt; 当前组件树的根 Vue 实例</li>
+</ul>
+<p>所有组件最终都会挂载到根实例上，可通过根实例的 $children 获取子组件。</p>
+<pre><code class="language-javascript">this.$root // 根实例
+this.$root.$children[0] // 根实例的一级子组件
+this.$root.$children[0].$children[0] // 根实例的二级子组件
+</code></pre>
+<ul>
+<li><a href="https://v2.cn.vuejs.org/v2/guide/components-props.html#%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81">单向数据流</a>和 <a href="https://v2.cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6">.sync 修饰符</a></li>
+</ul>
 <h2 id="pubsub-js">pubsub-js</h2>
 <p>同样适用于任意组件间的通讯方式，消息订阅与发布。由于铺天盖地的相关库，这里主要说 <a href="https://github.com/mroderick/PubSubJS">PubSubJS</a>。</p>
 <pre><code class="language-shell"># 安装 pubsub
@@ -1090,80 +1184,285 @@ npm i pubsub-js
 </code></pre>
 <amp-iframe src="https://codesandbox.io/embed/vuecomponentscomunicate-f28mq?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="vueComponentsComunicate" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe><h2 id="vuex">Vuex</h2>
 <p><amp-img src="https://www.zairesinatra.com/content/images/2021/12/vuex.png" alt="vuex" width="1369" height="723" layout="responsive"></amp-img></p>
-<p>getters 配置项的产生是由于组件中可能涉及到复杂跨组件的数据运算复用，而 computed 属性虽然可以完成运算功能，但却仅能在当前组件中生效不能复用。</p>
-<pre><code class="language-javascript">// store.js 追加 getters 配置
-// getters 用于对 Store 中数据进行包装加工处理形成新的数据，不会修改 Store 里的原数据。类似于 Vue 中计算属性。Store 中数据发生变化，getters 里的数据也会发生变化。
+<h3 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h3>
+<ul>
+<li>安装与使用</li>
+</ul>
+<p>VueCLI 勾选 Vuex 选项后，创建项目时会在 src 目录下生成 store 文件夹，其中包含 index.ts 文件。main.js|ts 会引入 store 进行全局注测，方便通过 this.$store 访问。项目阶段需要引入也可使用 <code>npm install vuex@next --save</code> 安装。</p>
+<pre><code class="language-javascript">// src/store/index.js =&gt; vue2
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+export default new Vuex.Store({ state: {}, mutations: {}, actions: {}, modules: {} })
+
+// src/store/index.ts =&gt; vue3
+import { createStore } from 'vuex'
+export default createStore({ state: {}, mutations: {}, actions: {}, modules: {} })
+</code></pre>
+<pre><code class="language-javascript">// vue2 =&gt; main.js
+import store from './store'
+new Vue({
+  el: '#app', router,
+  store, // 使用 store
+  template: '&lt;App/&gt;', components: { App }
+})
+// vue3 =&gt; main.ts
+import store from './store'
 ...
-const getters = {
-  showNum: state =&gt; {
-    return '当前最新的数据是[state.count*10]'
+createApp(App).use(store).use(router).mount('#app')
+</code></pre>
+<ul>
+<li>State =&gt; 唯一数据源 -&gt; SSOT</li>
+</ul>
+<p>Vuex 使用单一状态树，默认应用仅包含一个 Store 实例，即用一个对象包含全部的应用层级状态。需要注意的是，存储在 Vuex 中的数据和 Vue 实例中的 data 遵循相同的规则，即状态对象必须是纯粹 plain 的（普通对象）。</p>
+<p>组件访问 State 中的数据可通过 <code>this.$store.state.全局数据名称</code> 或 mapState 辅助函数。后者是在 Vue 组件读取 Vuex 数据状态时，避免重复和冗余的声明计算属性，能接收对象或数组作为参数。</p>
+<ul>
+<li>Getter =&gt; store 中的 getters =&gt; 派生 state 却不修改原 state</li>
+</ul>
+<p>对于 store 的 state 来说，是多个组件需要的数据才会放入。那么同样的 state 派生状态也适合进行抽取封装。store 中定义 getters 可以认为是 store 的计算属性。</p>
+<pre><code class="language-javascript">const store = createStore({
+  state: {
+    administrative_staff: [
+      { id: 1, name: '...', del_flag: true }, { id: 2, name: '...', del_flag: false }
+    ]
+  },
+  getters: {
+    delAccountGet (state) {
+      return state.administrative_staff.filter(p =&gt; p.done)
+    }
   }
-}
-// 暴露追加
-export default new Vuex.store({
-  ...
-  getters
 })
 </code></pre>
-<pre><code class="language-javascript">// 读取方式
-// 使用 getters 第一种方式
-this.$store.getters.名称
-// 使用 getters 的第二种方式
-import { mapGetters } from 'vuex'
-computed: {
-  ...mapGetters(['名称'])
+<p>getters 会默认暴露为 store.getters 对象，可通过属性形式访问；且 getters 允许互相使用，getters 可以作为具体 getters 方法，即 getter 的第二个参数传入。</p>
+<pre><code class="language-javascript">getters: {
+  // ...
+  delAccountCount (state, getters) { return getters.delAccountGet.length }
 }
 </code></pre>
-<p>开发中最好使用简单的模板语法而不要过长的插值语法。但是当项目较大，需要使用 store、getters 里的数据过多，就难免出现很多类似 <code>{{$store.state|getters.xxx}}</code> 的代码块。此时引入 mapState、mapGetters 映射状态，并向其传递 state 或 getters 里的变量，可以帮助简化计算属性取值的过程。</p>
-<pre><code class="language-javascript">// components/A.vue
-import { mapState, mapGetters } from "vuex"
-...
-computed:{
-  // 借助 mapState 生成计算属性
-  ...mapState({a:"a", b:"b"...}) // 方式一
-  ...mapState(["a", "b"...]) // 方式二
-  // 借助 mapGetters 生成计算属性
-  ...mapState({operateValA:"operateValA", operateValB:"operateValB"...}) // 方式一
-  ...mapState(["operateValA", "operateValB"...]) // 方式二
+<p>interface StoreOptions&lt;S&gt; 定义 getter 只接受两个参数，若需给 getters 传参，那么应该让 getter 返回一个函数来实现。但是这种形式不会进行结果的缓存。</p>
+<pre><code class="language-javascript">getters: {
+  // ...
+  getASInfoById: (state) =&gt; (id) =&gt; { return state.administrative_staff.find(p =&gt; p.id === id) }
 }
 </code></pre>
-<p>同理，mapActions 和 mapMutations 方法用于帮助生成与 actions 和 mutations 对话的方法，即包含 <code>$store.dispatch()|commit()</code> 的函数。值得注意的一点，在使用这两种方法时，若需要传递参数，应该在模板中绑定时间时传递好参数，否则传递的参数是默认的事件对象e。</p>
-<pre><code class="language-javascript">// components/A.vue
-import { mapActions, mapMutations } from "vuex"
-...
-methods:{
-  // 借助 mapActions 生成计算属性
-  ...mapActions({a:"a", b:"b"...}) // 方式一
-  ...mapActions(["a", "b"...]) // 方式二
-  // 借助 mapMutations 生成计算属性
-  ...mapMutations({operateA:"operateA", operateB:"operateB"...}) // 方式一
-  ...mapMutations(["operateA", "operateB"...]) // 方式二
+<pre><code class="language-javascript">store.getters.getASInfoById(2) // -&gt; { id: 2, name: '...', del_flag: false }
+</code></pre>
+<p>同样地，为简化将操作属性映射为组件中的方法，可通过传入对象（方法名不同于属性映射）或数组的 mapGetters() 辅助函数进行操作。</p>
+<pre><code class="language-javascript">import { mapGetters } from 'vuex'
+export default {
+  ...,
+  computed: {
+    ...mapGetters([ // 使用对象展开运算符将 getter 混入 computed 对象中
+      'delAccountCount', 'anotherGetter',
+    ])
+  }
 }
 </code></pre>
-<p>实际开发中使用模块化与命名空间结合的 Vuex 可以让数据分类明确。在使用这种模式的情况下，若借助 mapXXX 方法需要在第一个参数指明具体模块；若不借助 mapXXX 方法则要注意 / 划分的写法。</p>
-<pre><code class="language-javascript">// #开启命名空间读取 state 数据
-// 直接读取&amp;借助mapState读取
-this.$store.state.personAbout.list&amp;...mapState("countAbout",["sum","place","field"])
-// #开启命名空间读取 getters 数据
-// 直接读取&amp;借助mapGetters读取
-this.$store.getters["personAbout/firstPersonName"]&amp;...mapGetters("countAbout",["bigSum"])
-// #开启命名空间调用 dispatch
-// 直接调用&amp;借助mapActions
-this.$store.dispatch("personAbout/addPersonX",person)&amp;...mapActions("countAbout",{incrementOdd:"jiaOdd",incrementWait:"jiaWait"})
-// #开启命名空间调用 commit
-// 直接调用&amp;借助mapMutations
-this.$store.commit("personAbout/ADD_PERSON",person)&amp;...mapMutations("countAbout",{increment:"JIA",decrement:"JIAN"})
+<ul>
+<li>Mutation =&gt; 必须是同步函数</li>
+</ul>
+<p>变更 store 数据时不推荐直接对 <code>this.$store.state.xx</code> 赋值或运算，而是要唯一的通过提交 mutation 来改变 store 的状态。每个 mutation 都有一个字符串的事件类型 type，以及一个回调函数 handler。这个回调函数是实际对状态进行更改的位置，且接受 state 作为第一个参数。在 store 中定义的 mutation 更像是事件的注册，只能通过 store.commit('mutationName') 触发，mutationName 对应 type。</p>
+<pre><code class="language-javascript">// store/xxx.js|ts 文件
+const store = new Vuex.Store({
+  state: { 数据名:数据值, ... },
+  mutations: {
+    func01(state, args) {...}, func02(state, args) {...}, func03(state, args) {...},
+  }
+})
 </code></pre>
-<amp-iframe src="https://codesandbox.io/embed/old-frost-1vsz4?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="modulevuex" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe><h2 id="redux">Redux</h2>
-<p>Redux 和 React-redux 并非同一种东西。Redux 是一种由 Flux 架构衍生出来的新架构模式。React-redux 就是把 Redux 架构模式和 React.js 结合起来的官方库，即 Redux 架构在 React 中的体现。使用 redux 管理数据可以避免被任意模块修改共享数据状态后产生的难以预料的结果。</p>
+<pre><code class="language-javascript">// .vue 组件触发 mutation
+import { mapMutations } from 'vuex'
+methods: {
+  eventfunc() { this.$store.commit('func01') },
+  ...mapMutations(['func02','func03'])
+}
+</code></pre>
+<p>可以向 store.commit 传递参数，即向 mutation 提交载荷 Payload。载荷更多时候是传入一个包含多个字段的对象。</p>
+<pre><code class="language-javascript">// ...
+mutations: {
+  increment (state, payload) { state.count += payload.amount }
+}
+</code></pre>
+<pre><code class="language-javascript">store.commit('increment', { amount: 10 })
+</code></pre>
+<p>对象风格的提交方式 =&gt; store.commit 的参数可以逐个指定，也可以通过对象的形式指定。后者包含对应 mutation 的 type 字段以及其他载荷字段。</p>
+<pre><code class="language-javascript">mutations: {
+  increment (state, payload) { state.count += payload.amount }
+}
+</code></pre>
+<pre><code class="language-javascript">store.commit({ type: 'increment', amount: 10 })
+</code></pre>
+<ul>
+<li><a href="https://vuex.vuejs.org/zh/guide/actions.html">Action</a> =&gt; 提交 mutation 而不是直接变更状态 =&gt; 可异步</li>
+</ul>
+<p>Mutation 中不能写异步代码，Action 可以处理异步任务。开发中通常以 Action 间接地触发 Mutation 达到变更数据的目的。</p>
+<p>函数 Action 接受一个与 store 实例具有相同方法和属性的 context 对象，因此可以调用 context.commit 提交 mutation，或通过 context.state 和 context.getters 来获取 state 和 getters。开发中可用参数解构来简化多次调用 commit 的情况。</p>
+<pre><code class="language-typescript">/* ActionContext 源码 */
+export interface ActionContext&lt;S, R&gt; {
+  dispatch: Dispatch;
+  commit: Commit;
+  state: S;
+  getters: any;
+  rootState: R;
+  rootGetters: any;
+}
+</code></pre>
+<pre><code class="language-javascript">// store/xxx.js|ts
+const store = new Vuex Store({
+  ...
+  mutations: { func01(state) { ... }, func02(state, args) { ... }, ... },
+  actions: {
+    func01Sync({ commit }) { // ES2015 参数解构
+      commit('func01')
+    },
+	func02Async(context, payload) {
+	  setTimeout(() =&gt; { context.commit('func02', payload.args01) }, 1000)
+	},
+    incrementAsync(context, acc) { ... },...
+  }
+})
+</code></pre>
+<p>Action 通过 store.dispatch 方法触发。若在组件中涉及到异步操作，那么还是得分派 Action 再提交通知给必须同步执行的 Mutation 改变数据。此外 Actions 支持同样的载荷方式和对象方式进行分发。</p>
+<pre><code class="language-javascript">// 组件分发 Actions
+import { mapActions } from 'vuex'
+methods: {
+  ...mapActions(['func01Sync', '...']), // 映射导入后可以直接绑定到事件
+  eventfunc() { this.$store.dispatch('func02ASync', {args01:'zs'}) }, // 载荷方式分发
+  patchEventByObject() { this.$store.dispatch({ type: 'incrementAsync', amount: 10 }) // 对象方式分发
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">// Action 进行异步操作
+const module_user = {
+  namespaced: true,
+  state: () =&gt; ({...}), mutations: {...}, getters: {...},
+  actions: {
+    ...
+    addUserByServer (context) {
+      axios.get("").then(response =&gt; { // 默认引入 axios 与 nanoid
+        context.commit(ADD_USER, {id:nanoid(),username:response.data})
+      },error =&gt; {...})
+    }
+  }
+}
+</code></pre>
+<ul>
+<li>module</li>
+</ul>
+<p>虽然单一状态树会使应用的所有状态集中，但是当应用变得复杂时，代码就会变得臃肿。为此 Vuex 允许将 store 分割成模块 module。每个模块 module 拥有各自的 state、mutation、action、getter、甚至是嵌套子模块。</p>
+<pre><code class="language-javascript">const moduleA = { state: () =&gt; ({ ... }), mutations: { ... }, actions: { ... }, getters: { ... } }
+const moduleB = { state: () =&gt; ({ ... }), mutations: { ... }, actions: { ... } }
+// Vuex3
+const store = new Vuex.Store({
+  modules: { a: moduleA, b: moduleB }
+})
+// Vuex4
+// const store = createStore({ modules: { a: moduleA, b: moduleB } })
+store.state.a // -&gt; moduleA 的状态
+store.state.b // -&gt; moduleB 的状态
+</code></pre>
+<p>因 store 被分割成模块 module，那么每个模块的 state 都是局部状态。模块内部的 mutation 和 getter 接收的首个参数是模块的局部状态对象，后者所需的 rootState 根节点状态会作为第三个参数暴露出来。同样对于模块内部的 action，局部状态以及根节点状态都是通过 context.??? 暴露。</p>
+<pre><code class="language-javascript">/* 源码分析 */
+export type Mutation&lt;S&gt; = (state: S, payload?: any) =&gt; any;
+export type Getter&lt;S, R&gt; = (state: S, getters: any, rootState: R, rootGetters: any) =&gt; any;
+export interface ActionContext&lt;S, R&gt; { dispatch: Dispatch; commit: Commit; state: S; getters: any; rootState: R; rootGetters: any; }
+</code></pre>
+<ul>
+<li>命名空间 =&gt; namespaced: true</li>
+</ul>
+<p>模块内部的 action、mutation、getter 默认注册在全局命名空间，这种方式可以让多个模块对其进行操作，但是如果在不同的、无命名空间的模块中定义两个相同的 action、mutation 或 getter，那么会出现覆盖的情况，主要表现是后定义的覆盖前定义的。</p>
+<p>在模块对象中设置字段 <code>namespaced: true</code>，会使其成为带命名空间的模块。这类模块注册后，getter、action 及 mutation 都会自动据模块注册路径调整命名。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>开启命名空间后组件读取 State 数据</th>
+<th>开启命名空间后组件读取 Getter 数据</th>
+<th>开启命名空间后组件调用 Dispatch</th>
+<th>开启命名空间后组件调用 Commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直接读取</td>
+<td>this.$store.state.moduleA.data01</td>
+<td>this.$store.getters['moduleA/getter01']</td>
+<td>this.$store.dispatch('moduleA/action01',args)</td>
+<td>this.$store.commit('moduleA/mutation01',args)</td>
+</tr>
+<tr>
+<td>借助 mapXxx 读取</td>
+<td>...mapState('moduleA', ['data01',...])</td>
+<td>...mapGetters('moduleA',['getter01',...])</td>
+<td>...mapActions('moduleA',{methodName01:'action01',...})</td>
+<td>...mapMutations('moduleA',{method01:'mutation01',...})</td>
+</tr>
+</tbody>
+</table>
+<p>简记：无效忠、忠效忠、笑笑打</p>
+<blockquote>
+<p>默认情况下，模块内部的 action 和 mutation 仍然是注册在全局命名空间的——这样使得多个模块能够对同一个 action 或 mutation 作出响应。Getter 同样也默认注册在全局命名空间，但是目前这并非出于功能上的目的（仅仅是维持现状来避免非兼容性变更）。必须注意，不要在不同的、无命名空间的模块中定义两个相同的 getter 从而导致错误。<a href="https://vuex.vuejs.org/zh/guide/modules.html#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">点此</a>。</p>
+</blockquote>
+<p>模块内未指明 <code>namespaced: true</code> 时，除 state 外，getters &amp; mutation &amp; action 默认注册在全局。</p>
+<pre><code class="language-javascript">// 使用 A 模块内的 getters 数据 -&gt; 未指明命名空间为真
+$store.getters.getter01 =&gt; yes
+$store.getters.moduleA.getter01 =&gt; no
+</code></pre>
+<h3 id="%E5%B0%8F%E7%BB%93">小结</h3>
+<ul>
+<li>
+<p>和 getters 配置项功能类似的 computed 属性虽然可以完成运算功能，但却仅能在当前组件中生效，不能复用</p>
+</li>
+<li>
+<p>开发中最好使用简单的模板语法而不要过长的插值语法，所以说从 vuex 引入的 mapXxx 的意义是帮助简化取值的过程</p>
+</li>
+</ul>
+<h2 id="redux">Redux</h2>
+<h3 id="concepts-api">Concepts &amp; API</h3>
+<ul>
+<li>Flux 是强制单向数据流的架构</li>
+</ul>
+<p>该模式控制派生的数据，通过中央存储来支持组件间的通信。整个应用中的数据更新在此完成。</p>
+<p>Redux 是由 Flux 衍生的架构模式，用于集中管理多个组件所共享的状态。</p>
+<p>Redux 中只能定义一个可以更新状态的 store，Flux 中可以定义多个 store。</p>
+<ul>
+<li>Redux 和 React-redux 并非同一种东西</li>
+</ul>
+<p>React-redux 就是把 Redux 架构模式和 Reactjs 结合起来的官方库，即 Redux 架构在 React 中的体现。</p>
 <p><amp-img src="https://www.zairesinatra.com/content/images/2021/12/redux---.png" alt="redux---" width="1280" height="720" layout="responsive"></amp-img></p>
-<h3 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h3>
-<p>Store 就是保存数据的容器，整个应用只能有一个。Redux 提供 createStore 函数用来生成 Store。</p>
+<ul>
+<li>action =&gt; 具有 type 和 data 属性的一般对象</li>
+</ul>
+<blockquote>
+<p>唯一改变状态树 state tree 的方法是创建 action，一个描述发生了什么的对象，并将其 dispatch 给 store。</p>
+</blockquote>
+<ul>
+<li>
+<p>store =&gt; getState、dispatch、subscribe API</p>
+</li>
+<li>
+<p>reducer =&gt; 接收当前状态 previousState 与动作 action，返回新 state 值</p>
+</li>
+</ul>
+<p>reducer 本质是一个函数，用于指定状态树如何响应 action 来进行初始化和更新。</p>
+<p>初始化默认 previousState 为 undefined，action 的 type 为 "@@redux/INIT..."。</p>
+<p>返回更改的状态默认不会引起页面的更新。可在对应组件的 componentDidMount 生命周期中使用 <code>store.subscribe(()=&gt;{})</code> 设置状态变化的监听函数。</p>
+<pre><code class="language-jsx">export default class Xxx extends Component {
+  ...
+  conponentDidMount(){
+    store.subscribe(() =&gt; this.setState({})) // 触发页面更新
+  }
+}
+</code></pre>
+<p>redux 里任意状态的改变都会触发 subscribe 中回调函数的执行。</p>
+<pre><code class="language-jsx">// 优化触发更新 =&gt; 应用的 index.js 文件中包裹应用的渲染
+store.subscribe(() =&gt; {ReactDOM.render(&lt;App/&gt;, document.getElementById("root"))})
+</code></pre>
+<h3 id="quick-start">Quick Start</h3>
+<p>createStore 函数用于生成整个应用唯一保存数据的容器 Store。</p>
 <pre><code class="language-javascript">/* 
-  store.js
-  该文件专门用于暴露一个store对象，整个应用只有一个store对象
+  store.js 用于暴露 store 对象，整个应用只有一个 store 对象
 */
-
 //引入createStore，专门用于创建redux中最为核心的store对象
 import { createStore, applyMiddleware } from "redux";
 //引入为Count组件服务的reducer
@@ -1173,15 +1472,15 @@ import thunk from "redux-thunk";
 //暴露store
 export default createStore(countReducer, applyMiddleware(thunk));
 </code></pre>
-<p>Store 对象包含所有数据。通过 <code>store.getState()</code> 对 Store 生成快照，可以得到某个节点的数据集合 State。</p>
-<p>虽然用户接触不到 State，但是需要 State 发生变化，此时就在 View 中发出通知 Action 给 Store。Action 本质是一个对象，包含 type 和 data 两种键。而接受一个 Action 对象作为参数的 <code>store.dispatch()</code> 又是 View 发出 Action 的唯一方法。</p>
+<p><code>store.getState()</code> 对 Store 生成快照，可以得到某个节点的数据集合 State。</p>
+<p>状态变化时，应在组件中发出通知。接受 action 作为参数的 <code>store.dispatch()</code> 是 View 发出 action 的唯一方法。</p>
 <pre><code class="language-javascript">// Xx组件.js
 store.dispatch(xxxAction(value))
 </code></pre>
 <pre><code class="language-javascript">// Xx组件_action.js
 export const xxxOperateAction = (data) =&gt; ({ type: xxxOperate, data });
 </code></pre>
-<p>Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。Reducer 是一个函数，它接受当前 state 和 action 作为参数，返回一个新的 state。</p>
+<p>Store 接受 Action 后生成新 State 的计算过程叫做 Reducer。</p>
 <pre><code class="language-javascript">// Xx组件_reducer.js
 const initState = 0; // 初始化状态
 export default function xxReducer(preState = initState, action) {
@@ -1201,10 +1500,13 @@ export default function xxReducer(preState = initState, action) {
   }
 }
 </code></pre>
-<p>开发中，Reducer 纯函数不需要手动调用，<code>store.dispatch</code> 会自动触发 Reducer 的执行。为此，Store 需要知道 Reducer 函数，这就是在生成 Store 的时候，为什么将 Reducer 作为参数传入 <code>createStore(xxxReducer)</code> 方法的原因。Reducer 是一个同样的输入，必定得到同样的输出的纯函数。故在此函数中不能调用系统 I/O 和 <code>Date.now()</code>、<code>Math.random()</code> 等不纯的方法，避免得到不一样的结果。</p>
-<p>Store 允许使用 <code>store.subscribe(()=&gt;{})</code> 方法设置监听函数，一旦 State 发生变化，就自动执行这个函数。</p>
+<ul>
+<li>reducer 纯函数无需手动调用，会被 <code>store.dispatch()</code> 自动触发执行</li>
+</ul>
+<p>生成 store 时将 reducer 作为参数传入 <code>createStore(xxxReducer)</code> 方法。</p>
+<p>纯函数 reducer 在相同输入的情况下，必定得到同样的输出。此函数中不能调用系统 IO 和 <code>Date.now()</code>、<code>Math.random()</code> 等方法。</p>
 <amp-iframe src="https://codesandbox.io/embed/redux-2dl66?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="redux" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe>
-<p>Reducer 函数负责操作、生成 State。由于整个应用只有一个 State 对象，那么对于大型应用来说，其 State 和 Reducer 的体量必然十分庞大。Redux 提供了 <code>combineReducers</code> 方法，用于 Reducer 的拆分。只要定义各个子 Reducer 函数，就可以用这个方法将其合成总的 Reducer。</p>
+<p>大型应用的 state 和 reducer 体量庞大，Redux 提供 combineReducers 方法，用于将 reducer 拆分。定义的各个子 reducer 可以用这个方法合成为总 reducer 函数。</p>
 <pre><code class="language-javascript">import { combineReducers } from 'redux';
 ...
 const reducer = combineReducers({
@@ -1222,29 +1524,86 @@ function reducer(state = {}, action) {
   }
 }
 </code></pre>
+<ul>
+<li>异步 action =&gt; 除开对象类型，action 的值也可以是函数</li>
+</ul>
+<p>异步操作不在组件中指明，而是在 Action Creators。异步 action 中一般会调用同步 action，前者直接被 Store 执行，后者传递给 Reducers 执行。</p>
+<pre><code class="language-jsx">// 组件
+handleAsync = () =&gt; {
+  const {value} = this.handleNumber;
+  store.dispatch(createHandleAsyncAction(value*1, 500))
+}
+// xxx_action.js
+export const createHandleAsyncAction = (data, time) =&gt; {
+  return (dispatch) =&gt; { // 异步 action 即返回的不再是对象而是函数
+    setTimeout(()=&gt;{
+      dispatch(createHandleSyncAction(data))
+    }, time)
+  }
+}
+</code></pre>
+<p>"Error: Actions must be plain objects.Use custom middleware for async actions."</p>
+<p>默认传递给 Store 的 action 应该是一个一般对象，否则识别不了。</p>
+<p>此时需引入 redux-thunk 中间件，以让 Store 执行函数，不再交给 Reducers。</p>
+<blockquote>
+<p>多个 middleware 可以被组合到一起使用，形成 middleware 链。其中，每个 middleware 都不需要关心链中它前后的 middleware 的任何信息。</p>
+</blockquote>
+<pre><code class="language-jsx">import {createStore, applyMiddleware} from 'redux'
+</code></pre>
 <h3 id="react-redux">react-redux</h3>
 <p>使用 facebook 官方的插件 react-redux 可以在 React 中更加方便的使用 redux。</p>
 <p><amp-img src="https://www.zairesinatra.com/content/images/2021/12/react-redux---.png" alt="react-redux---" width="1131" height="635" layout="responsive"></amp-img></p>
-<h4 id="%E8%BF%9E%E6%8E%A5%E5%AE%B9%E5%99%A8%E7%BB%84%E4%BB%B6%E5%92%8Cui%E7%BB%84%E4%BB%B6">连接容器组件和UI组件</h4>
-<p>容器组件与UI组件的连接使用函数 <code>connect()()</code>。由于容器组件需要给UI组件传递状态和方法，而又不同于标签展示的组件能直接传递属性参数。只能使用函数的对象形式的返回值作为参数传递给 connect，这里的对象形式返回值，需要包括状态和方法。</p>
-<pre><code class="language-javascript">// containers/Xxx
-// 引入Xxx的UI组件
+<ul>
+<li>连接容器组件和 UI 组件 =&gt; react-redux 中的 <a href="https://react-redux.js.org/api/connect">connect</a> 函数</li>
+</ul>
+<p>UI 组件负责页面的呈现和事件的绑定，通常存放于 components 目录。</p>
+<p>容器组件负责传递状态以及状态操作的方法，通常存放于 containers 目录。</p>
+<p>容器组件并非直接写成一般组件的形式，而是需要借助 connect 函数产生。</p>
+<pre><code class="language-jsx">/* containers/Xxx */
+// 引入 UI 组件
 import XxxUI from "../../component/Xxx"
-import {operateXXXAction} from "../../redux/xxx_action"
-// 引入connect连接UI组件和redux
+// 引入 connect 连接 UI 组件和 redux
 import {connect} from "react-redux"
-// func 函数返回的对象key作为传递给UI组件props的key,value
-function func(state){return {...stateVal:state...}}
-// func 函数返回的对象key作为传递给UI组件props的key,value
-function funcc(dispatch){return {...operateway:(args)=&gt;{dispatch(operateXXXAction(args))}...}}
-// 使用connect()()创建并暴露一个Xxx容器组件
-export default connect(func,funcc)(XxxUI)
+// 使用 connect 创建并暴露容器组件
+export default connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])(XxxUI)
 </code></pre>
-<p>实际上 func 和 funcc 的正确名称为 mapStateToProps 和 mapDispatchToProps，即把 props 变为 state 传给UI组件和将操作状态的方法映射给UI组件。</p>
-<pre><code class="language-javascript">// 核心代码
-export default connect(mapStateToProps,mapDispatchToProps)(UIComponent)
+<p>连接函数的返回值中传入需要包裹的组件执行时，若没有在引入容器组件的位置给容器组件标签传入 store，则会出现 "Error: Could not find 'store' in the context of 'Connect(Xxx)'" 的报错。</p>
+<pre><code class="language-jsx">ReactDOM.render(
+  &lt;ContainerComponent store={store}&gt;
+    &lt;App /&gt;
+  &lt;/ContainerComponent&gt;,
+  document.getElementById("root")
+);
 </code></pre>
-<p>容器组件的 store 可以直接在 app.jsx 中以标签属性的形式添加，但是如果使用 redux 的组件过多，可以使用 react-redux 提供的 &lt;Provider /&gt; 组件进行注入 <code>store={store}</code> 属性后包裹根组件完成优化。</p>
+<ul>
+<li>react-redux 中的 connect 作为高阶组件可以传入四个参数</li>
+</ul>
+<pre><code class="language-jsx">function connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)
+</code></pre>
+<p>容器组件与 UI 组件无法直接通过 props 的形式进行数据的注入（非标签嵌套）。</p>
+<p>mapStateToProps =&gt; Function 类型的参数，本质是将状态带入视图组件。该函数返回对象中的键值对将分别作为传递给 UI 组件 props 的 key 与 value。</p>
+<pre><code class="language-jsx">mapStateToProps?: (state, ownProps?) =&gt; Object
+</code></pre>
+<p>mapDispatchToProps =&gt; Object 或 Function 类型的参数，本质是将操作状态的方法带入 UI 组件。该函数返回对象中的键值对作用同上。</p>
+<pre><code class="language-jsx">mapDispatchToProps?: Object | (dispatch, ownProps?) =&gt; Object
+</code></pre>
+<p>mapDispatchToProps 指定为对象时，其每个字段都是一个 Action Creators。</p>
+<blockquote>
+<p>React-Redux binds the dispatch of your store to each of the action creators using bindActionCreators. The result will be regarded as dispatchProps, which will be either directly merged to connected components, or supplied to mergeProps as the second argument. <a href="https://react-redux.js.org/api/connect#object-shorthand-form">here</a>.</p>
+</blockquote>
+<pre><code class="language-jsx">bindActionCreators(mapDispatchToProps, dispatch)
+</code></pre>
+<blockquote>
+<p>mapStateToProps 和 mapDispatchToProps 的返回值在内部分别称为 stateProps 和 dispatchProps。</p>
+</blockquote>
+<p>mergeProps =&gt; Function 类型的参数，将定义的 stateProps、dispatchProps 和组件自身的 props 传入回调函数，返回的对象将作为 props 传递到被包装的组件。</p>
+<p>该属性用于根据组件的 props 对 state 进行筛选，或将 props 中特定数据与 Action Creator 捆绑。</p>
+<p>省略该属性时，connect 默认返回 Object.assign({}, stateProps, dispatchProps)。</p>
+<pre><code class="language-jsx">mergeProps?: (stateProps, dispatchProps, ownProps) =&gt; Object
+</code></pre>
+<p>React Redux 相较于 Redux，容器组件默认拥有监测 redux 状态改变的能力，无需在 index 中使用 store.subscribe。</p>
+<p>Provider 会自动将 store 注入应用中的容器组件</p>
+<p>store 以标签属性的方式添加到容器组件，会存在代码冗余的问题 =&gt; 可通过 react-redux 提供的 &lt;Provider /&gt; 组件进行批量注入。</p>
 <pre><code class="language-javascript">// 优化前
 // App.jsx
 import React, { Component } from "react";
@@ -1277,7 +1636,267 @@ ReactDOM.render(
   document.getElementById("root")
 );
 </code></pre>
-<amp-iframe src="https://codesandbox.io/embed/react-redux-e4y0v?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="react-redux" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>整合 UI 组件与容器组件 =&gt; 放入一个 jsx</p>
+<p>combineReducers 传入的对象就是 Redux 保存的总状态对象。</p>
+<p>reducer 中的 preState 会进行浅比较，所以用 push 之流方式不可进行更新页面。此外对数组的改变使用 [newData, ...oldData] 不会破坏 reducer 纯函数的原则。</p>
+<p>纯函数：相同输入必定得到相同的输出。必须遵守以下约束：不的改写参数数据；不会产生副作用；不可调用 random now 之流的不纯方法。</p>
+<p>redux devtools 需配合项目安装 redux-devtools-extension 库使用</p>
+<p>@redux-devtools/extension</p>
+<pre><code class="language-jsx">import {composeWithDevTools} from 'redux-devtools-extension'
+export default createStore(rootReducer, composeWithDevTools(applyMiddleWare(thunk)))
+</code></pre>
+<amp-iframe src="https://codesandbox.io/embed/react-redux-e4y0v?fontsize=14&amp;hidenavigation=1&amp;theme=dark" title="react-redux" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts" width="600" height="400" layout="responsive"></amp-iframe><h2 id="pinia">Pinia</h2>
+<p>Vuex 开发团队的新作品 <a href="https://pinia.vuejs.org/">Pinia</a>，对 Vue2|3 都有很好的支持，也是强推的状态管理库。注意 Pinia 也支持在 Vue-devtools 中进行调试，但需 Vue Devtools v6 版本。</p>
+<blockquote>
+<p>Pinia v2 no longer hijacks Vue Devtools v5, it requires Vue Devtools v6. Find the download link on the Vue Devtools documentation for the beta channel of the extension.</p>
+</blockquote>
+<h3 id="%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</h3>
+<ul>
+<li>Advantages</li>
+</ul>
+<p>较 Vuex 相比，Pinia 抛弃了 Mutations 操作，保留 State、Getters 和 Actions；不需要嵌套模块，符合 Composition API 和代码扁平化；完整支持 Typescript；可实现代码自动分割。</p>
+<ul>
+<li>Vite &amp; Pinia &amp; TS</li>
+</ul>
+<pre><code class="language-shell"># 搭建项目
+npm create vite@latest # vue + ts
+# 安装 pinia
+npm install pinia
+</code></pre>
+<pre><code class="language-javascript">import { createPinia } from 'pinia'
+...
+app.use(createPinia())
+</code></pre>
+<ul>
+<li>API Documentation / pinia / _StoreWithState =&gt; <a href="https://pinia.vuejs.org/api/interfaces/pinia._StoreWithState.html#dispose">Methods</a></li>
+</ul>
+<h3 id="store-%E4%BB%93%E5%BA%93">Store 仓库</h3>
+<p>确保在项目 /src/main.ts 里引入 pinia 后，直接在 /src 目录下新建 store 目录作为状态管理库。</p>
+<p>Store 是使用 defineStore() 定义的，需要一个唯一名称作为第一个参数传递，第二个参数是包含 state、getters 和 actions 的对象。</p>
+<pre><code class="language-javascript">// ?.ts
+import { defineStore } from 'pinia'
+// useStore =&gt; useUser、useCart
+export const useStore = defineStore('main',{ // 容器起名 =&gt; main
+  state:()=&gt;{ return {} }, // SPA 的全局状态
+  getters:{}, // 监视或计算状态的变化 =&gt; 有缓存的功能
+  actions:{} // 操作 state 里数据的业务逻辑
+})
+</code></pre>
+<p>store 是在组件的 <code>setup()</code> 中通过调用 <code>xxStore()</code> 进行的实例化，这个对象可以直接访问 state、getters 和 actions 中定义的任何属性与方法。</p>
+<pre><code class="language-javascript">// ?.vue
+import { useStore } from '@/stores/counter' // 接收暴露的 xxxStore
+export default {
+  setup() {
+    const store = useStore()
+    ...
+    return {
+      store, // 可返回整个 store 实例以在模板中使用
+    }
+  },
+}
+</code></pre>
+<p>store 是用 reactive 包裹的对象，故不需要在 getter 之后写 .value；其次是和 setup 中的 props 一样，直接解构失去响应式。</p>
+<p>若需在提取属性的同时保持响应式 =&gt; 通过 <code>storeToRefs()</code> 传入 store 对象再进行解构。</p>
+<pre><code class="language-javascript">const store = useStore();
+// const {helloPinia,count} = store; // 解构使用失去响应式 -&gt; 放入 reactive({}) 也不行
+const {[state01],[state02],[getters01]} = storeToRefs(store);
+</code></pre>
+<h3 id="state-%E7%8A%B6%E6%80%81">State 状态</h3>
+<p>state 被定义为返回初始状态的函数，可通过 store 实例直接读取和写入状态，也可调用 store 上的 $reset() 方法将状态重置到其初始值。</p>
+<pre><code class="language-javascript">import { defineStore } from 'pinia'
+const xxxStore = defineStore('storeId', {
+  state: () =&gt; { // 推荐使用完整类型推断的箭头函数
+    return { // 所有这些属性都将自动推断其类型
+      [attribute01]: 0, [attribute02]: 'zs', [attribute03]: true,
+    }
+  },
+})
+</code></pre>
+<pre><code class="language-javascript">const store = xxxStore()
+store.[attribute01]++
+store.$reset()
+</code></pre>
+<p>改变状态除了直接用 store[attribute] 修改，还可以调用 <code>$patch()</code> 方法传入对象或函数。前者适合修改单条数据，后者适合修改多条数据。建议传入函数，因为在使用对象作参数时修改集合（从数组中推送、删除、拼接元素）都需要创建一个新集合。若是业务逻辑导致状态的改变，也可以使用 actions。</p>
+<pre><code class="language-javascript">// 传入对象 改变 state
+store.$patch({ arr: [..., itemNew], ... })
+</code></pre>
+<pre><code class="language-javascript">// 传入函数 改变 state
+xxxstore.$patch((state) =&gt; {
+  state.items.push({ name: 'shoes', quantity: 1 });
+  state.helloWorld = state.helloWorld === "HelloPinia" ? "HelloWorld" : "HelloPinia";
+});
+</code></pre>
+<pre><code class="language-javascript">// actions 改变 state
+actions: {
+  changeState() {
+    this.count++,
+    (this.helloPinia = this.helloPinia === "helloPinia" ? "Hello World" : "helloPinia");
+  }, ...
+},
+</code></pre>
+<p>注意在使用 actions 时，不能用箭头函数，因为箭头函数绑定是外部的 this。</p>
+<p>若有替换 store 整个状态的需求，可以将 store.$state 属性直接设置为新对象，或通过更改 pinia 实例的 state 来替换应用程序的整个状态，后者在 <a href="https://pinia.web3doc.top/ssr/#state-hydration">SSR</a> 期间使用。</p>
+<pre><code class="language-javascript">store.$state = { counter: 666, name: 'Paimon' }
+</code></pre>
+<pre><code class="language-javascript">import { createPinia } from 'pinia'
+const pinia = createPinia()
+pinia.state.value = {}
+</code></pre>
+<p>可以通过 store 的 <a href="https://pinia.web3doc.top/core-concepts/state.html#%E8%AE%A2%E9%98%85%E7%8A%B6%E6%80%81">$subscribe()</a> 方法查看状态及其变化，类似于 Vuex 的 subscribe 方法。与常规的 watch() 相比，subscriptions 只会在 patches 之后触发一次。</p>
+<h3 id="getters-%E6%8E%A5%E6%94%B6%E5%99%A8">Getters 接收器</h3>
+<p>Getter 用法类似于 Vue 的计算属性，通常在获取 State 值时进行相应的处理。可以用 defineStore() 中的 getters 属性定义。可接收状态 state 作为首个参数。</p>
+<pre><code class="language-javascript">export const useStore = defineStore("main", {
+  state: () =&gt; {
+    return {
+      ...,
+      phone: "12345678910",
+    };
+  },
+  getters: {
+    /* 手机中间四位隐藏 */
+    // 传入参数可以进行类型推倒出结果 =&gt; 写法一 =&gt; 不使用箭头函数
+    // handleHiddenPhone(state) {
+    //   // getters 具有缓存性
+    //   console.log("getters");
+    //   return state.phone
+    //     .toString()
+    //     .replace(/^(\d{3})\d{4}(\d{4})$/, "$1****$2");
+    // },
+    // 写法二 =&gt; 使用 this =&gt; 定义常规函数时
+    // handleHiddenPhone(): string {
+    //   // getters 具有缓存性
+    //   console.log("getters");
+    //   return this.phone.toString().replace(/^(\d{3})\d{4}(\d{4})$/, "$1****$2");
+    // },
+    // 写法三 =&gt; 接收状态作为第一个参数 -&gt; 使用箭头函数
+    handleHiddenPhone:(state) =&gt; state.phone.toString().replace(/^(\d{3})\d{4}(\d{4})$/, "$1****$2"),
+  },
+});
+</code></pre>
+<p>getters 有缓存性，虽被多次调用，但是在值不发生改变时只进行读取。在 getters 里可以用 this 进行操作，但项目若使用 TS，那么会因为不传 state 导致 TS 无法自动推断出返回的数据类型，所以要显示标记返回的类型，否则会提示错误。</p>
+<p>getters 无法直接被传递任何参数。但可以从 getters 返回一个函数以接受所需的参数。在执行此操作时，getters 不再缓存，只是调用的函数。</p>
+<pre><code class="language-javascript">import { defineStore } from "pinia";
+import { jsokStore } from "./jsok";
+export const useStore = defineStore("main", {
+  state: () =&gt; {
+    return {
+      ...,
+      users: [ { name: "gz", id: 1, }, { name: "hz", id:2 } ],
+    };
+  },
+  getters: {
+    ...
+    getUserById: (state) =&gt; {
+      return (userId:number) =&gt; state.users.find((user) =&gt; user.id === userId);
+    },
+  },
+  actions: {},
+});
+</code></pre>
+<pre><code class="language-html">&lt;template&gt;
+  ...
+  &lt;div&gt;user 1 =&gt; {{getUserById(1)}}&lt;/div&gt;
+&lt;/template&gt;
+&lt;script lang="ts"&gt;
+import { reactive,... } from 'vue'
+import { useStore } from '../store/index'
+import { storeToRefs } from 'pinia'
+export default {
+  name: '',
+  setup() {
+    const store = useStore();
+    const {..., getUserById} = storeToRefs(store);
+    return {
+      ...toRefs(data),
+      store,
+      ...,getUserById
+    }
+  },
+}
+&lt;/script&gt;
+&lt;style scoped lang='less'&gt;&lt;/style&gt;
+</code></pre>
+<h3 id="actions-%E6%93%8D%E4%BD%9C">Actions 操作</h3>
+<p>Actions 相当于组件中的 methods，适合操作业务逻辑，可以通过 defineStore() 中的 actions 属性定义。</p>
+<p>和 getters 一样，actions 也能通过 this 访问 store 实例。除了支持异步操作，调用 actions 时，会自动进行类型推断。</p>
+<pre><code class="language-javascript">import { defineStore } from "pinia";
+export const useStore = defineStore("main", {
+  state: () =&gt; {
+    return { helloPinia: "helloPinia", ... };
+  },
+  getters: {...},
+  actions: {
+    changeState() { this.helloPinia = this.helloPinia === "helloPinia" ? "Hello World" : "helloPinia"; },
+  },
+});
+</code></pre>
+<p>xxStore.$onAction() 方法可以<a href="https://pinia.web3doc.top/core-concepts/actions.html#%E8%AE%A2%E9%98%85-actions">订阅 actions 及其结果</a>。传入的参数回调在 actions 之前执行，其中 after() 是在 actions 完成后处理 Promise 的执行函数；onError() 在处理中抛出错误。</p>
+<pre><code class="language-javascript">// useMain.ts
+import { defineStore } from "pinia";
+const useMainStore = defineStore("useMainUniqueId", {
+  state: () =&gt; ({
+    user: { name: "zs", age: 23, },
+  }),
+  actions: {
+    subscribeAction(name: string, age: number, manualError?: boolean) {
+      return new Promise((resolve, reject) =&gt; {
+        console.log("subscribeAction Function Performs");
+        if (manualError) {
+          reject("manualError !");
+        } else {
+          this.user.name = name;
+          this.user.age = age;
+          resolve(`${this.user.name} =&gt; ${this.user.age}`);
+        }
+      });
+    }
+  },
+});
+export default useMainStore;
+</code></pre>
+<pre><code class="language-html">&lt;!-- UseMain.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;button @click="subscribeNormal"&gt;click me show $onAction Ok&lt;/button&gt;
+    &lt;button @click="subscribeError"&gt;click me show $onAction Error&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script lang="ts"&gt;
+import useMainStore from "../store/useMain";
+import { ref, defineComponent, computed } from "vue";
+export default defineComponent({
+  setup() {
+    const useMainUniqueId = useMainStore();
+    function subscribeNormal() { useMainUniqueId.subscribeAction(useMainUniqueId.user.name, useMainUniqueId.user.age, false); }
+    function subscribeError() { useMainUniqueId.subscribeAction("ErrorError", 97, true); }
+    const unsubscribe = useMainUniqueId.$onAction(
+      ({
+        name, // action 函数的名称
+        store, // store 实例 =&gt; useMainUniqueId
+        args, // action 函数参数数组
+        after, // 钩子函数 =&gt; 在 action 函数执行完成返回或者 resolves 后执行
+        onError, // 钩子函数 =&gt; 在 action 函数报错或者 rejects 后执行
+      }) =&gt; {
+        console.log("action func name =&gt; ", name);
+        console.log("args array =&gt; ", args);
+        console.log("store instance =&gt; ", store);
+        after((result) =&gt; { console.log("$onAction after func =&gt; ", result); });
+        onError((error) =&gt; { console.log("Error Catch =&gt; ", error); });
+      },
+      false // 卸载组件后不保留
+    );
+    return { subscribeNormal, subscribeError, };
+  },
+});
+&lt;/script&gt;
+&lt;style scoped lang="less"&gt;&lt;/style&gt;
+</code></pre>
+<h3 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h3>
+<ul>
+<li>xxxStore.&lt;function&gt; is not a function =&gt; 标识冲突时产生</li>
+</ul>
+<p>显示不出组件的情况 =&gt; defineStore() 要求首个参数是不重复的字符串唯一标识。</p>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0 协议</a>，转载请注明出处！</p>
 
 

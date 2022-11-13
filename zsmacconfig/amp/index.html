@@ -6,7 +6,7 @@
 
     <title>ZsMacConfig</title>
 
-    <meta name="description" content="一个简单的 Backup" />
+    <meta name="description" content="Config Backup" />
     <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -14,16 +14,16 @@
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="ZsMacConfig" />
-    <meta property="og:description" content="一个简单的 Backup" />
+    <meta property="og:description" content="Config Backup" />
     <meta property="og:url" content="yourdomain.com/zsmacconfig/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/07/adventure.jpg" />
     <meta property="article:published_time" content="2019-04-22T13:54:00.000Z" />
-    <meta property="article:modified_time" content="2022-07-12T08:56:27.000Z" />
+    <meta property="article:modified_time" content="2022-10-02T15:20:37.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ZsMacConfig" />
-    <meta name="twitter:description" content="一个简单的 Backup" />
+    <meta name="twitter:description" content="Config Backup" />
     <meta name="twitter:url" content="yourdomain.com/zsmacconfig/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2022/07/adventure.jpg" />
     <meta name="twitter:label1" content="Written by" />
@@ -64,7 +64,7 @@
     "headline": "ZsMacConfig",
     "url": "yourdomain.com/zsmacconfig/",
     "datePublished": "2019-04-22T13:54:00.000Z",
-    "dateModified": "2022-07-12T08:56:27.000Z",
+    "dateModified": "2022-10-02T15:20:37.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/07/adventure.jpg",
@@ -72,7 +72,7 @@
         "height": 1080
     },
     "keywords": "BUG handled",
-    "description": "一个简单的 Backup",
+    "description": "Config Backup",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1083,78 +1083,62 @@
                 <h2 id="record-backup">Record Backup</h2>
 <h3 id="homebrew-tools">HomeBrew Tools</h3>
 <p>不定期更新 HomeBrew Tools...</p>
-<pre><code class="language-shell">$ brew list
-==&gt; Formulae
-aom			libnghttp2		openjdk@8
-apr			libpng			openldap
-apr-util		libpq			openssl@1.1
-argon2			libsodium		pcre
-aspell			libssh2			pcre2
-autoconf		libtermkey		php
-brotli			libtiff			pkg-config
-c-ares			libtool			protobuf
-ca-certificates		libunistring		python@3.10
-cmake			libuv			python@3.9
-cscope			libvmaf			readline
-curl			libvterm		redis
-fontconfig		libyaml			rtmpdump
-freetds			libzip			ruby
-freetype		lua			six
-gd			luajit-openresty	smartmontools
-gdbm			luv			speedtest-cli
-gettext			lz4			sqlite
-giflib			m4			tcl-tk
-glib			macos-term-size		thefuck
-gmp			maven			tidy-html5
-httpd			maven alias		tomcat@9
-hugo			mongodb-community	tree
-icu4c			mongodb-database-tools	tree-sitter
-imath			mongosh			unar
-jemalloc		mpdecimal		unibilium
-jenv			msgpack			unixodbc
-jpeg			mysql			watch
-jpeg-xl			ncurses			webp
-krb5			neovim			wget
-libavif			nghttp2			xz
-libcbor			nginx			yarn
-libev			node			zookeeper
-libevent		node@14			zsh
-libffi			node@16			zsh-syntax-highlighting
-libfido2		oniguruma		zstd
-libidn2			openexr
-libmetalink		openjdk
-
-==&gt; Casks
-adoptopenjdk			neteasemusic
-adoptopenjdk11			openemu
-adoptopenjdk8			qqmusic
-adrive				rectangle
-alfred				sourcetree
-another-redis-desktop-manager	squirrel
-appcleaner			sublime-text
-baidunetdisk			teamviewer
-coda				telegram
-dash				temurin
-downie				transmit
-eclipse-jee			vienna
-firefox				visual-studio-code
-font-hack-nerd-font		vlc
-google-chrome			wechat
-google-drive			wechatwebdevtools
-hbuilderx			wireshark
-iterm2				wpsoffice
-keycastr			xmind
-mongodb-compass			yinxiangbiji
-mysqlworkbench
+<ul>
+<li><a href="https://github.com/rime/squirrel">鼠鬚管</a> =&gt; 配置后 Deploy</li>
+</ul>
+<pre><code class="language-shell">brew install --cask squirrel # 安装 squirrel
 </code></pre>
-<pre><code class="language-shell">$ abrew list
-==&gt; Formulae
-ncurses			powerlevel10k		zsh-syntax-highlighting
-pcre			zsh
+<pre><code class="language-shell">open ~/Library/Rime/ # 在此目录下新增 default.custom.yaml 与 squirrel.custom.yaml
+</code></pre>
+<pre><code class="language-yaml"># default.custom.yaml
+# 使用九个候选词，而非默认的五个候选词
+patch:
+  menu/page_size: 8
+</code></pre>
+<pre><code class="language-yaml"># squirrel.custom.yaml
+# 候选词菜单横向排列，而非默认的纵向排列；
+# apathy 配色方案需要花园明朝字体以显示生僻字，在 http://fonts.jp/hanazono/
+# 下载 hanazono-20170904.zip，将字体放入 ~/Library/Fonts/ 下。
+patch:
+  style/horizontal: true
+  style/color_scheme: zsxzy
+  preset_color_schemes/zsxzy :
+  #Rime theme
+    name: zsxzy
+    author: zsxzy
+    back_color: '0x424242'
+    text_color: '0xFFFFFF'
+    hilited_text_color: '0xFEB406'
+    hilited_back_color: '0xDD9650'
+    hilited_candidate_text_color: '0x2B64FF'
+    hilited_candidate_back_color: '0x000000'
+    hilited_candidate_label_color: '0x2B64FF'
+    hilited_comment_text_color: '0x2B64FF'
+    candidate_text_color: '0xFFFFFF'
+    label_color: '0xFFFFFF'
+    comment_text_color: '0xFFFFFF'
 
-==&gt; Casks
-docker		gimp		spotify
-drawio		omnigraffle	tableplus
+  #   " style/color_scheme " : starcraft     #这项用于选中下面定义的新方案
+  # " preset_color_schemes/starcraft " :   #在配色方案列表里加入标识为starcraft的新方案
+  #   name :星际我争霸／StarCraft 
+  #   author : Contralisk &lt;contralisk@gmail.com&gt;, original artwork by Blizzard Entertainment 
+  #   text_color : 0xccaa88              #编码行文字颜色，24位色值，用十六进制书写方便些，顺序是蓝绿红0xBBGGRR 
+  #   candidate_text_color : 0x30bb55    #候选项文字颜色，当与文字颜色不同时指定
+  #   back_color : 0x000000              #底色
+  #   border_color : 0x1010a0            #边框颜色，与底色相同则为无边框的效果
+  #   hilited_text_color : 0xfecb96      #高亮文字，即与当前高亮候选对应的那部份输入码
+  #   hilited_back_color : 0x000000      #设定高亮文字的底色，可起到凸显高亮部份的作用
+  #   hilited_candidate_text_color : 0x60ffa8   #高亮候选项的文字颜色，要醒目！
+  #   hilited_candidate_back_color : 0x000000   #高亮候选项的底色，若与背景色不同就会显出光棒
+</code></pre>
+<pre><code class="language-yaml"># 更改 user.yaml
+var:
+  last_build_time: 1625667403
+  previously_selected_schema: luna_pinyin_simp
+  schema_access_time:
+    luna_pinyin: 1624705156
+    luna_pinyin_fluency: 1624705052
+    luna_pinyin_simp: 1624705159
 </code></pre>
 <h3 id="formulae-%E6%8C%87%E5%8D%97">Formulae 指南</h3>
 <ul>
@@ -1175,9 +1159,278 @@ $ brew uninstall smartmontools
 <li>快速为图片添加文字</li>
 </ul>
 <p>Preview =&gt; tools =&gt; annotate =&gt; text</p>
+<h2 id="%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7">包管理工具</h2>
+<p>包管理模块用于解决代码包的下载管理与依赖关系，常见于从服务器下载第三方包和命令行程序，以及开源个人代码。</p>
+<h3 id="npm"><a href="http://nodejs.cn/learn/an-introduction-to-the-npm-package-manager">npm</a></h3>
+<ul>
+<li>NPM CLI Commond Line Interface =&gt; PowerShell &amp; Terminal</li>
+</ul>
+<p>与 GUI 图形化操作界面对应的 CLI 通过键盘录入指令，不支持鼠标操作。</p>
+<ul>
+<li>通过 npm 安装包到生产|开发|全局环境</li>
+</ul>
+<p>生产环境依赖存放于 dependencies =&gt; 项目插件 ElementUI、Echarts 等。</p>
+<p>开发环境依赖储存于 devDependencies =&gt; 程序运行时并不需要的 gulp、webpack 等用来压缩，打包代码的工具。</p>
+<pre><code class="language-shell"># 安装包到生产环境 dependencies 中
+$ npm i _module_ -S
+$ npm install _module_ --save
+# 安装包到开发环境 devDependencies 中
+$ npm i _module_ -D
+$ npm install _module_ --save-dev
+# 安装包到全局环境
+$ npm i _module_ -g
+</code></pre>
+<ul>
+<li>npm 依赖包操作</li>
+</ul>
+<p>从 npm@5 开始，通过将完整性不匹配视为缓存未命中，缓存可以从损坏问题中自我修复，因此从缓存中提取的数据保证有效。删除缓存只会让包管理器运行效率降低，且不能纠正遇到的任何问题。</p>
+<pre><code class="language-shell"># 查看某个 package 的最新版本|在 npm 服务器上所有发布过的版本
+$ npm view &lt;packageName&gt; version|versions # 具体版本
+$ npm info &lt;packageName&gt; # 更加详细
+# npm 查看本地安装的包版本号
+$ npm ls &lt;packageName&gt; # 本地包
+$ npm ls &lt;packageName&gt; -g # 全局安装包
+# 查看本机 npm 缓存的位置
+$ npm config get cache
+# 清除 npm 缓存
+$ npm cache clean -f
+</code></pre>
+<ul>
+<li>package(-lock).json</li>
+</ul>
+<p>通常不会将 node-modules 文件夹提交 Git，因通过 npm install 安装包时，可能出现版本不兼容、补丁或次版本缺陷等问题。而这也是 package.json 的特殊弊端。在 NPM5 引入的 package-lock.json 文件可以跟踪并固化被安装的每个软件包的确切版本，以便包模块以相同的方式被 100％ 复制。</p>
+<p>当 npm 包某些功能布新的版本，通常的做法是直接去修改 package.json 到指定版本。package-lock.json 文件中 integrity 用于校验软件包；resolved 指向软件包的位置。</p>
+<p>在 package.json 中，可以使用 <a href="https://github.com/npm/node-semver">semver</a> 表示法设置要升级到的版本。版本号严格按照 "主版本号.次版本号.修订号" 格式命名。当某个版本改动比较大、并非稳定而且可能无法满足预期的兼容性需求时，会先发布一个先行版本。先行版本号可加在版本号的后边，即先加上一个连接号再加上一连串以句点分隔的标识符和版本编译信息。常见先行版本应说明内部版本 alpha、公测版本 beta、正式版的候选 rc Release candiate。主版本号一般作为有重大 api 改变，往往不向下兼容，次版本号也为小版本号，常新增功能，也向下兼容，修订号为补丁号，通常修复一些 bug。npm 安装包时允许使用一些特殊符号表示安装的版本范围。</p>
+<pre><code class="language-javascript">// 先行版本号
+a.b.c-beta.d
+// 取最新的c的版本号值,a与b保持不变
+~a.b.c
+// 取b和c均为最新版本号,a保持不变
+^a.b.c
+// 始终使用确切的版本
+a.b.c
+</code></pre>
+<p>如果自行发布包，在修改模块后需要更新发布版本，可以通过 Semver 规范的命令来完成，避免版本混乱。</p>
+<pre><code class="language-shell">npm version patch =&gt; 升级修订版本号
+npm version minor =&gt; 升级次版本号
+npm version major =&gt; 升级主版本号
+</code></pre>
+<ul>
+<li>.npmrc =&gt; npm 用户配置文件</li>
+</ul>
+<p>npm 从命令行、环境变量和 .npmrc 文件获取配置设置。使用 <code>npm config</code> 相关命令可更新和编辑用户与全局 .npmrc 文件的内容。</p>
+<pre><code class="language-shell"># 查看路径
+npm config get userconfig
+# 显示当前仓库源
+npm config get registry
+# 设置国内镜像|官方镜像
+npm config set registry=https://registry.npm.taobao.org|https://registry.npmjs.org
+</code></pre>
+<ul>
+<li>npm <a href="http://nodejs.cn/learn/where-does-npm-install-the-packages">全局模块安装路径</a> =&gt; 通过 nvm 安装 Node 所带的 npm</li>
+</ul>
+<p>全局安装 =&gt; 将 npm 包安装在对应 Node 目录下的 node_modules 文件夹中。</p>
+<pre><code class="language-shell">$ npm root -g # 打印全局的位置
+/Users/xieziyi/.nvm/versions/node/v16.14.2/lib/node_modules
+</code></pre>
+<h3 id="yarn">yarn</h3>
+<ul>
+<li>
+<p><a href="https://classic.yarnpkg.com/en/">yarn</a> 会缓存下载每个包，通过并行操作提高资源的利用率，在效率上会比同类包管理工具 npm 更快</p>
+</li>
+<li>
+<p>yarn 的安装以及查看版本</p>
+</li>
+</ul>
+<pre><code class="language-shell">$ npm install --global yarn # Install via npm
+$ yarn --version # Check installation
+</code></pre>
+<ul>
+<li>初始化新项目</li>
+</ul>
+<pre><code class="language-shell">$ yarn init
+</code></pre>
+<ul>
+<li>添加|升级|删除|安装依赖包</li>
+</ul>
+<pre><code class="language-shell"># 添加
+$ yarn add [package]
+$ yarn add [package]@[version]
+$ yarn add [package]@[tag] --dev|--peer|--optional
+# 升级依赖
+$ yarn upgrade [package]@[version]|[tag]
+# 删除依赖
+$ yarn remove [package]
+# 安装所有依赖
+$ yarn # or yarn install
+</code></pre>
+<ul>
+<li>通过 Homebrew 安装的 yarn 位置</li>
+</ul>
+<pre><code class="language-shell">/usr/local/Cellar/yarn # =&gt; x86 架构版
+/opt/homebrew/Cellar/yarn # =&gt; arm64 架构版
+</code></pre>
+<ul>
+<li>yarn 全局安装路径 =&gt; 指令查看 yarn 全局安装包目录位置 - x86 &amp; arm64</li>
+</ul>
+<pre><code class="language-shell">$ yarn global dir
+/Users/xieziyi/.config/yarn/global
+</code></pre>
+<h3 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h3>
+<ul>
+<li>Fix the upstream dependency conflict, or retry this command with --force, or --legacy-peer-deps to accept an incorrect (and potentially broken) dependency resolution.</li>
+</ul>
+<p>npm7- 遇到依赖冲突会忽视冲突，继续安装；npm7+ 不会自动忽略冲突，需要手动处理。</p>
+<pre><code class="language-shell">$ npm i --legacy-peer-deps
+$ npm i --force
+</code></pre>
+<h2 id="my-iterm2-config">my iterm2 config</h2>
+<h3 id="iterm2">iterm2</h3>
+<ul>
+<li>安装</li>
+</ul>
+<pre><code class="language-shell">brew install --cask iterm2
+</code></pre>
+<ul>
+<li>调整</li>
+</ul>
+<p>更改默认的黑白色调为彩色显示：iTerm2 -&gt; Preferences -&gt; Profiles -&gt; Terminal -&gt; Report Terminal Type -&gt; xterm-256color</p>
+<p>更改颜色主题：iTerm2 -&gt; Preferences -&gt; Profiles -&gt; Colors -&gt; Color Presets -&gt; Pastel(Dark Background)</p>
+<h3 id="oh-my-zsh"><a href="https://github.com/ohmyzsh/ohmyzsh">oh-my-zsh</a></h3>
+<ul>
+<li>zsh</li>
+</ul>
+<pre><code class="language-shell"># 通过 homebrew 安裝的 zsh 位置在 /usr/local/bin/zsh,而系统自带的路径在 /bin/zsh
+$ which zsh
+/bin/zsh
+</code></pre>
+<ul>
+<li>安装</li>
+</ul>
+<pre><code class="language-shell"># curl
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# wget
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# fetch
+sh -c "$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+</code></pre>
+<p>安装完成出现 ~/.oh-my-zsh 文件夹，且原存储在 .zshrc 中的环境变量会被迁移到 .zshrc.pre-oh-my-zsh 中，复制环境变量到新 .zshrc 即可。</p>
+<h3 id="powerlevel10k"><a href="https://github.com/romkatv/powerlevel10k">Powerlevel10k</a></h3>
+<ul>
+<li>安装</li>
+</ul>
+<pre><code class="language-shell"># kxsw
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' &gt;&gt;~/.zshrc
+# 大陆用户
+git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' &gt;&gt;~/.zshrc
+</code></pre>
+<ul>
+<li>更改默认 THEME</li>
+</ul>
+<pre><code class="language-shell">$ vi ~/.zshrc
+
+# 更改 ZSH_THEME
+ZSH_THEME="powerlevel10k/powerlevel10k"
+</code></pre>
+<ul>
+<li>Homebrew</li>
+</ul>
+<pre><code class="language-shell"># 推荐homebrw一劳永逸免去更改ZSH_THEME的操作
+brew install romkatv/powerlevel10k/powerlevel10k
+echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" &gt;&gt;~/.zshrc
+</code></pre>
+<ul>
+<li>Configuration Wizard</li>
+</ul>
+<pre><code class="language-shell">Powerline Font
+Install Meslo Nerd Font? (y)
+# 重启生效检验 icon
+Does this look like a diamond? (y)
+Does this look like a lock? (y)
+Does this look like a Debian logo? (y)
+Do all these icons fit between the crosses? (y)
+</code></pre>
+<ul>
+<li>Prompt Style 喜好设置</li>
+</ul>
+<p>Classic -&gt; Unicode -&gt; dark -&gt; 24-hour format -&gt; Angled -&gt; Sharp -&gt; Flat -&gt; Two lines -&gt; Dotted -&gt; No frame -&gt; Compact -&gt; many icons -&gt; Concise -&gt; No -&gt; verbose</p>
+<h3 id="%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA%E4%B8%8E%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE">自动提示与语法高亮</h3>
+<pre><code class="language-shell"># 自动提示
+$ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+$ vim  ~/.zshrc # 将 plugins=(git) =&gt; plugins=(zsh-autosuggestions git)
+# 语法高亮
+$ brew install zsh-syntax-highlighting
+$ source  /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+$ source ~/.zshrc
+</code></pre>
+<h3 id="%E6%93%8D%E4%BD%9C%E5%BF%AB%E6%8D%B7">操作快捷</h3>
+<pre><code class="language-shell"># 新建窗口
+command + t
+# 垂直分屏
+command + d
+# 水平分屏
+command + shift + d
+# 分屏切换
+command + ] | command + [
+# 切换到指定位置的分屏
+command + alt + 方向键
+# 切换标签页
+command + 数字
+# 按方向切换标签页
+command + 方向键
+# 保存当前窗口快照
+shift + command + s
+# 快照回放
+command + alt + b
+# 重设p10k风格
+p10k configure
+</code></pre>
+<h3 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h3>
+<ul>
+<li>开启终端出现提示 =&gt; insecure directories</li>
+</ul>
+<pre><code class="language-shell">zsh compinit: insecure directories, run compaudit for list. Ignore insecure directories and continue [y] or abort compinit [n]?
+</code></pre>
+<p>解决方式是通过列出不安全的目录后，将对应的目录赋与权限。</p>
+<pre><code class="language-shell">$ compaudit # 列出不安全目录
+/usr/local/share/zsh
+$ cd /usr/local/share/
+$ sudo chmod -R 755 ./zsh # 对应的目录赋与权限
+</code></pre>
+<ul>
+<li>[WARNING]: Console output during zsh initialization detected =&gt; <a href="https://github.com/romkatv/powerlevel10k/issues/1023">Issues</a></li>
+</ul>
+<p>可于 p10k configure 或手动抑制此警告定义，需要在 ~./zshrc 中定义参数变量。</p>
+<pre><code class="language-shell">typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+</code></pre>
+<pre><code class="language-shell">$ echo $POWERLEVEL9K_INSTANT_PROMPT
+</code></pre>
+<ul>
+<li>[oh-my-zsh] Can't update: not a git repository. =&gt; <a href="https://stackoverflow.com/questions/33486633/upgrading-oh-my-zsh-gives-me-not-a-git-repository-error">SOF</a></li>
+</ul>
+<pre><code class="language-shell"># SOF STEPS
+$ cd ~/.oh-my-zsh
+$ git init # you've already done this step, so you can skip
+$ git remote add origin https://github.com/robbyrussell/oh-my-zsh.git
+$ git fetch
+$ git reset --hard origin/master
+</code></pre>
+<pre><code class="language-shell"># MY SOLUTION
+$ cd ~/.oh-my-zsh
+$ git init
+$ sudo xcodebuild -license
+</code></pre>
 <h2 id="bugs-handling">Bugs Handling</h2>
 <h3 id="%E6%89%93%E5%BC%80-txt-%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81">打开 txt 文件出现中文乱码</h3>
 <p>进入 TextEdit 的 Preferences 面板，点击 Open and Save 页签，在 Plain Text File Encoding 内的 Opening files 选择 Chinese GB 18030，乱码问题即可解决。</p>
+<h3 id="%E4%B8%AD%E6%96%87%E7%BC%96%E7%A0%81%E7%9A%84-txt-%E6%96%87%E4%BB%B6%E6%89%93%E4%B8%8D%E5%BC%80">中文编码的 txt 文件打不开</h3>
+<p>"The document “.txt” could not be opened. Text encoding Chinese (GB 18030) isn’t applicable."</p>
+<ul>
+<li>对于内容较少的可以拖入浏览器，依靠其自动识别编码打开</li>
+<li><code>iconv -c -f GB18030 -t UTF-8 [INPUTFILE...] &gt;&gt; [新文件名称]</code></li>
+</ul>
 <h3 id="%E6%8C%89%E9%94%AE%E5%A4%B1%E7%81%B5">按键失灵</h3>
 <p>esc 失效，此时有外接键盘。失效应先进行<a href="https://www.onlinemictest.com/zh/keyboard-test/">键盘测试</a>。重启服务即可。</p>
 <h3 id="allow-apps-downloaded-from">Allow apps downloaded from</h3>
@@ -1202,6 +1455,19 @@ installer: The install failed. (The Installer encountered an error that caused t
 <p>=&gt; <a href="https://support.apple.com/zh-hk/HT203186">如果 Mac 內置喇叭無法正常運作</a><br />
 从 Apple 选单  中，选择「系统偏好设定」。按一下「声音」。按一下「输出」分页，然后选择内置喇叭。如果「输出」音量滑杆设定过低，请将滑杆向右移，然后再测试一次。如有勾选「静音」选框，请取消勾选，然后再测试一次。</p>
 </blockquote>
+<h3 id="code-error">Code Error</h3>
+<ul>
+<li>进行 Homebrew 更新时，出现错误阻止了更新</li>
+</ul>
+<pre><code class="language-shell">shell-init: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+</code></pre>
+<p><code>getcwd</code> 全称 =&gt; get current working directory。</p>
+<p>出现此错误的原因通常是无法定位到当前的工作目录，即系统隐藏文件内概率不能定位路径操作。</p>
+<h3 id="caps-lock-%E6%9B%B4%E6%94%B9%E8%AF%AD%E8%A8%80">Caps Lock 更改语言</h3>
+<ul>
+<li>System Preferences -&gt; Keyboard -&gt; 勾选 Use the Caps Lock key to switch to and from US. press and hold to enable typing in all uppercase.</li>
+<li>System Preferences -&gt; Keyboard -&gt; Modifier Keys -&gt; 有 Caps Lock 动作</li>
+</ul>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 

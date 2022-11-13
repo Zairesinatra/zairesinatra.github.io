@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>jenv &#x3D;&gt; Java Environment</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=977d3f47b0.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=977d3f47b0.css" />
+    <meta name="description" content="Use jenv set up multiple Java Environment." />
+    <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="jenv &#x3D;&gt; Java Environment" />
+    <meta property="og:description" content="Use jenv set up multiple Java Environment." />
+    <meta property="og:url" content="yourdomain.com/jenv/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/07/Gundam.jpeg" />
+    <meta property="article:published_time" content="2021-06-19T08:48:00.000Z" />
+    <meta property="article:modified_time" content="2022-07-27T14:38:11.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="jenv &#x3D;&gt; Java Environment" />
+    <meta name="twitter:description" content="Use jenv set up multiple Java Environment." />
+    <meta name="twitter:url" content="yourdomain.com/jenv/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/07/Gundam.jpeg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "jenv &#x3D;&gt; Java Environment",
+    "url": "yourdomain.com/jenv/",
+    "datePublished": "2021-06-19T08:48:00.000Z",
+    "dateModified": "2022-07-27T14:38:11.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/07/Gundam.jpeg",
+        "width": 1920,
+        "height": 1080
+    },
+    "keywords": "Technology growth",
+    "description": "Use jenv set up multiple Java Environment.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.10" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/portal@~2.9/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f5d74add11f1d16d3e59c12945" data-styles="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/main.css" data-sodo-search="yourdomain.com/" crossorigin="anonymous"></script>
+    <script defer src="../public/cards.min.js%3Fv=977d3f47b0"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=977d3f47b0.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Q4HQV7NBSG');
+</script>
+
+<!-- 2022 prismjs update -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {      
+    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+        node.classList.add('line-numbers');
+	});
+    Prism.highlightAll();
+});
+</script>
+
+<!-- prism -->
+<style>
+pre[class*="language-"] {
+    margin: 0 0 1.5em !important;
+}
+pre[class*="line-numbers"]>code {
+    padding: 0 ;
+}
+code {
+    text-shadow: none !important;
+}
+.token.operator {
+    background: none !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #202124 !important;
+}
+</style>
+
+<!-- customer theme by zs -->
+<style>
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #b0bec5;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+}
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #202124;
+}
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #f9f2f4;
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1;
+}
+.token.punctuation {
+  color: #f3f3f3;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #88deff;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #e3f2fd;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #f3f3f3;
+  background: #202124;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #06b4fe;
+}
+.token.function {
+  color: #ff7043;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ff7043;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #202124;
+  box-shadow: inset 5px 0 0 #202124;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+</style>
+
+<!-- 音乐播放器 -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
+
+</head>
+<body class="post-template tag-technology-growth has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <nav class="gh-head-inner inner">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                </a>
+                <div class="gh-head-brand-wrapper">
+                    <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <a class="gh-burger" role="button">
+                        <div class="gh-burger-box">
+                            <div class="gh-burger-inner"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tags"><a href="../tags/index.html">Tags</a></li>
+    <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <div class="gh-social">
+                        <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
+                </div>
+                        <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-technology-growth ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="../tag/technology-growth/index.html">Technology growth</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">jenv &#x3D;&gt; Java Environment</h1>
+
+            <p class="article-excerpt">Use jenv set up multiple Java Environment.</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2021-06-19">Jun 19, 2021</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 5 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w2000/2022/07/Gundam.jpeg 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2022/07/Gundam.jpeg"
+                    alt="Gundam"
+                />
+                    <figcaption>Gundam</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <aside class="toc-container">
+            <div class="toc"></div>
+        </aside>
+        <!--kg-card-begin: markdown--><h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<h3 id="bye-adoptopenjdk-hello-adoptium">Bye AdoptOpenJDK, Hello Adoptium!</h3>
+<ul>
+<li>Open JDK</li>
+</ul>
+<p>当下 Java 开发是由 Oracle 主导，以 OpenJDK 开源项目的形式进行。Oracle 和社区提供的 OpenJDK 分别称为 Oracle's OpenJDK 和 <a href="https://adoptopenjdk.net/?variant=openjdk8&amp;jvmVariant=hotspot">AdoptOpenJDK</a>。</p>
+<p>OracleJDK 只提供 6 个月的安全更新服务给 Oracle’s OpenJDK，AdoptOpenJDK 则对 OpenJDK 提供四年的长期支持版本 LTS。</p>
+<ul>
+<li>Temurin</li>
+</ul>
+<p>Homebrew's AdoptOpenJDK 最高只到 16，后续的开发已从 AdoptOpenJDK 迁移到 Eclipse Adoptium。Eclipse 基金会的 Adoptium 提供 Java 生态系统和运行时的相关技术，其子项目 Eclipse Temurin 是基于 OpenJDK 的开源 JavaSE 构建。</p>
+<h3 id="%E7%A0%B4%E6%97%A7%E7%AB%8B%E6%96%B0">破旧立新</h3>
+<ul>
+<li>卸载 AdoptOpenJDK</li>
+</ul>
+<p>终端查看安装的 JDK 版本，并以管理员身份进行卸载，随后将 ~/.zshrc 中的相关配置注释。</p>
+<p>以 Homebrew 卸载时要将 untap 操作置于最后执行，否则会出现 Error: Refusing to untap adoptopenjdk/openjdk because it contains the installed formulae...</p>
+<p>若不是通过 Homebrew 安装的 JDK，则会出现提示 Error: Cask 'adoptopenjdk16' is not installed. =&gt; 只要将 Homebrew 安装的卸载干净即可 untap。</p>
+<pre><code class="language-shell"># 方式一 =&gt;
+$ ls /Library/Java/JavaVirtualMachines/ # 普遍 Java 安装存放位置
+jdk-11.0.11.jdk
+$ sudo rm -rf /Library/Java/JavaVirtualMachines/jdk-11.0.11.jdk
+# 方式二 =&gt;
+$ brew remove --cask adoptopenjdk8 # 卸载 adoptopenjdk
+$ brew untap AdoptOpenJDK/openjdk # untap =&gt; 避免 Error: Cask xxx exists in multiple taps
+</code></pre>
+<ul>
+<li>安装 Temurin</li>
+</ul>
+<pre><code class="language-shell">$ brew tap homebrew/cask-versions # tap 能扩大 casks 范围
+$ brew install -- cask temurin8 # 位置 =&gt; /Library/Java/JavaVirtualMachines/
+</code></pre>
+<ul>
+<li>安装 <a href="https://github.com/jenv/jenv">jenv</a> =&gt; 可能将存在的 iterm2 配置损坏</li>
+</ul>
+<p>根据 <code>jenv doctor</code> 输出结果可观察到 jenv 已正确加载但尚未安装 Java</p>
+<pre><code class="language-shell">$ mkdir ~/.jenv # Create Dir =&gt; 官方指导没有这一步
+$ brew install jenv
+$ jenv doctor # To verify jenv was installed =&gt; 下方代码是正确情况
+[OK]	No JAVA_HOME set
+[ERROR]	Java binary in path is not in the jenv shims.
+[ERROR]	Please check your path, or try using /path/to/java/home is not a valid path to java installation.
+	PATH : /.../.../:/.../.../:/.../.../:/.../.../:/.../.../:/.../.../...
+[OK]	Jenv is correctly loaded
+</code></pre>
+<p>若出现如下情况则表示存在配置名占用 =&gt; 需要卸载 jdk</p>
+<pre><code class="language-shell">[ERROR] JAVA_HOME variable already set, scripts that use it directly could not use java version set by jenv [ERROR] Java binary in path is not in the jenv shims. 
+</code></pre>
+<p>确保 JAVA_HOME 已设置，应确保启用 export 插件（根据情况可忽略这一步）</p>
+<pre><code class="language-shell">$ jenv enable-plugin export
+$ exec $SHELL -l
+</code></pre>
+<ul>
+<li>添加 Java 环境</li>
+</ul>
+<p>默认情况下，当前环境最新版本的 Java 是 system 在 macOS 上的默认版本。通过 jenv local VERSION 可以为当前工作目录设置一个本地 Java 版本。同时会伴生创建一个 .java-version 文件，目的是为项目检入 Git，且启动 shell 时让 jenv 确保加载此 java。</p>
+<pre><code class="language-shell"># 注意通过 brew 安装的 jdk 存在于 /usr/local/Cellar/... =&gt; 已过时
+$ jenv add /usr/local/Cellar/openjdk@11/11.0.12
+11.0.12 added
+11.0 added
+11 added
+$ brew install openjdk@8
+$ jenv add /usr/local/Cellar/openjdk@8/1.8.0+302
+...
+# 2022/03/03 更新 =&gt; /Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
+# Home 结束 =&gt; 否则会出现 $PATH is not a valid path to java installation 的 Error
+$ jenv add /Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home
+openjdk64-11.0.12 added
+temurin64-1.8.0.332 added
+1.8.0.332 added
+1.8 added
+1.8.0.332 already present, skip installation
+$ jenv doctor # 检查 jenv 显示正确                          
+[OK]	JAVA_HOME variable probably set by jenv PROMPT
+[OK]	Java binaries in path are jenv shims
+[OK]	Jenv is correctly loaded
+$ brew install -- cask temurin11
+$ jenv add /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
+$ brew install -- cask temurin17
+$ jenv add /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
+</code></pre>
+<ul>
+<li>开发版本配置</li>
+</ul>
+<p>配置方面除开版本名外并无明显操作区别，本段过程以旧版本 openjdk 为主。</p>
+<pre><code class="language-shell">$ jenv versions # View Java environment version list
+* system (set by /Users/zsxzy/.jenv/version) # 旧版本 =&gt; 废弃
+  1.8
+  1.8.0.302
+  11
+  11.0
+  11.0.12
+  openjdk64-1.8.0.302
+  openjdk64-11.0.12
+</code></pre>
+<pre><code class="language-shell">$ jenv local 1.8.0.302 # Java environment selection
+$ exec $SHELL -l # Java environment selection
+$ cat .java-version # Java environment selection
+1.8.0.302
+$ echo ${JAVA_HOME} # Check if it is set
+/Users/zsxzy/.jenv/versions/1.8.0.302
+$ jenv global 1.8.0.302 # Global Java version settings
+$ java -version
+openjdk version &quot;1.8.0_302&quot;
+OpenJDK Runtime Environment (build 1.8.0_302-bre_2021_08_14_21_34-b00)
+OpenJDK 64-Bit Server VM (build 25.302-b00, mixed mode)
+</code></pre>
+<pre><code class="language-shell"># Shell Java version setting
+$ jenv shell 11 # 当前 shell 会话使用指定设置的 Java
+$ jenv which java # 显示可执行的 Java 的完整路径
+$ rm .java-version # Delete .java -version which u don't need
+</code></pre>
+<p>在设置完 Java 版本后，可通过 Java8 的 java -version 或 Java 9+ 的 java --version 查看版本。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E8%A1%A5%E6%BC%8F%E8%AE%A2%E8%AE%B9">补漏订讹</h2>
+<h3 id="adoptopenjdk-%E4%B8%8E-tap">AdoptOpenJDK 与 tap</h3>
+<p>Homebrew 默认只有两个仓库 Formulae 与 Casks，可以使用 tap 指令添加更多仓库，search 到更多的内容。<a href="https://github.com/AdoptOpenJDK/homebrew-openjdk">OpenJDK releases</a> 需要在 tap 中查看，意味着是从 brew casks 中分离的部分。通过 brew tap add 指定仓库进行添加。</p>
+<pre><code class="language-shell">$ brew tap AdoptOpenJDK/openjdk
+$ brew search /adoptopenjdk/
+# 安装需要的 jdk 版本
+$ brew install adoptopenjdk11
+$ brew install adoptopenjdk8
+# 注册 jenv
+$ jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-11|8.jdk/Contents/Home
+# 全局设置 JDK
+$ jenv global 11
+# 或者对于项目目录中的特定项目
+$ cd ~/projects/my_project
+$ jenv local 1.8
+$ java -version
+openjdk version &quot;1.8.0_202&quot;
+# 取消版本设置
+$ jenv global system
+$ cd ~/projects/my_project
+$ jenv local --unset
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+
+<section class="article-comments gh-canvas">
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "yourdomain.com/jenv/";
+            this.page.identifier = "ghost-614ccdb5f7263c9315a75845"
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zsxzy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+</section>
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../g-toc-css/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/SLAMDUNK.png 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/SLAMDUNK.png"
+            alt="SLAM DUNK"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    G&amp;TOC&amp;CSS
+                </h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mysqlnote/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/cloud.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/cloud.jpg"
+            alt="mysql"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MySQL 笔记
+                </h2>
+            </header>
+                <div class="post-card-excerpt">MYSQL 基础篇</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
+                <span class="post-card-meta-length">82 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../zu-jian-tong-xun/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/treecommunicate.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/treecommunicate.jpg"
+            alt="Component communication"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../zu-jian-tong-xun/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    组件通讯
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Vuex|Redux|Pinia</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-10-01">Oct 1, 2021</time>
+                <span class="post-card-meta-length">25 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=977d3f47b0"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+<!-- 2022 prismjs update -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-powershell.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-less.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sass.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-scss.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+
+
+<!-- music -->
+<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script>
+	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
+		$('.carousel').carousel({
+			interval: 3000
+		})
+</script>
+<!-- music -->
+<!-- <div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div> -->
+<!-- <a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021003061号-1</a> -->
+
+<!-- searchinghost-easy -->
+<script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
+<script>
+    new SearchinGhostEasy({
+        contentApiKey: 'e93d8b3520ae46be52c9a4b140'
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+  tocbot.init({
+    tocSelector: '.toc',
+    contentSelector: '.gh-content',
+    hasInnerContainers: true
+  });
+  var tc = document.querySelector(".toc-container");
+var tch = tc.clientHeight;
+var ah = document.querySelector(".article-header");
+var ahh = ah.clientHeight;
+window.addEventListener("scroll", function () {
+if(document.body.clientWidth > 1170){
+  var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+  var ihh = window.innerHeight;
+  if(scrollY >= ihh + tch + ahh){
+    var ctc = document.querySelector(".toc-container");
+    ctc.style.position="sticky";
+    ctc.style.position="-webkit-sticky";
+    ctc.style.top = "120px";
+    ctc.style.marginLeft = "800px";
+    ctc.style.minWidth= "260px";
+  }
+  if(scrollY < tch + ahh -10){
+    var ctc = document.querySelector(".toc-container");
+    ctc.style.position="";
+    ctc.style.top = "";
+    ctc.style.marginLeft = "";
+    console.log("zszszs")
+  }
+}})
+
+</script>
+
+</body>
+</html>

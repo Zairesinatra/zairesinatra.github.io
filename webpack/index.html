@@ -8,10 +8,10 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=ab47967965.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=977d3f47b0.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=ab47967965.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=977d3f47b0.css" />
     <meta name="description" content="webpack配置与异常" />
     <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -25,7 +25,7 @@
     <meta property="og:url" content="yourdomain.com/webpack/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/07/mickey.jpg" />
     <meta property="article:published_time" content="2021-03-08T11:55:00.000Z" />
-    <meta property="article:modified_time" content="2022-07-10T13:47:17.000Z" />
+    <meta property="article:modified_time" content="2022-08-16T14:22:02.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -71,7 +71,7 @@
     "headline": "Webpack",
     "url": "yourdomain.com/webpack/",
     "datePublished": "2021-03-08T11:55:00.000Z",
-    "dateModified": "2022-07-10T13:47:17.000Z",
+    "dateModified": "2022-08-16T14:22:02.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/07/mickey.jpg",
@@ -87,9 +87,9 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
-    <script defer src="https://unpkg.com/@tryghost/portal@~2.2.0/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/portal@~2.9/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
 .gh-post-upgrade-cta {
     display: flex;
     flex-direction: column;
@@ -153,8 +153,9 @@
 .gh-post-upgrade-cta a.gh-btn:hover {
     opacity: 0.92;
 }</style>
-    <script defer src="../public/cards.min.js%3Fv=ab47967965"></script>
-    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=ab47967965.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f5d74add11f1d16d3e59c12945" data-styles="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/main.css" data-sodo-search="yourdomain.com/" crossorigin="anonymous"></script>
+    <script defer src="../public/cards.min.js%3Fv=977d3f47b0"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=977d3f47b0.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
 <script>
@@ -214,9 +215,21 @@ pre[class*="language-"] {
 /*********************************************************
 * General
 */
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
 pre[class*="language-"],
 code[class*="language-"] {
-  color: #d98e73;
+  color: #b0bec5;
   font-size: 13px;
   text-shadow: none;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -251,7 +264,7 @@ pre[class*="language-"] {
   padding: 1em;
   margin: .5em 0;
   overflow: auto;
-  background: #1e1e1f;
+  background: #202124;
 }
 :not(pre) > code[class*="language-"] {
   padding: .1em .3em;
@@ -289,7 +302,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #ddb974;
+  color: #e3f2fd;
 }
 .token.operator,
 .token.entity,
@@ -297,7 +310,7 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string {
   color: #f3f3f3;
-  background: #1e1e1f;
+  background: #202124;
 }
 .token.atrule,
 .token.attr-value,
@@ -305,12 +318,12 @@ pre[class*="language-"] {
   color: #06b4fe;
 }
 .token.function {
-  color: #80caf1;
+  color: #ff7043;
 }
 .token.regex,
 .token.important,
 .token.variable {
-  color: #ee9900;
+  color: #ff7043;
 }
 .token.important,
 .token.bold {
@@ -338,8 +351,8 @@ pre[class*="language-"] > code[class*="language-"] {
   right: 0;
   padding: inherit 0;
   margin-top: 1em;
-  background: #1e1e1f;
-  box-shadow: inset 5px 0 0 #1e1e1f;
+  background: #202124;
+  box-shadow: inset 5px 0 0 #202124;
   z-index: 0;
   pointer-events: none;
   line-height: inherit;
@@ -350,6 +363,7 @@ pre[class*="language-"] > code[class*="language-"] {
 <!-- 音乐播放器 -->
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+
 
 </head>
 <body class="post-template tag-bug-handled has-cover">
@@ -362,23 +376,27 @@ pre[class*="language-"] > code[class*="language-"] {
                 <a class="gh-head-logo" href="../index.html">
                         <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
                 </a>
-                <a class="gh-burger" role="button">
-                    <div class="gh-burger-box">
-                        <div class="gh-burger-inner"></div>
-                    </div>
-                </a>
+                <div class="gh-head-brand-wrapper">
+                    <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <a class="gh-burger" role="button">
+                        <div class="gh-burger-box">
+                            <div class="gh-burger-inner"></div>
+                        </div>
+                    </a>
+                </div>
             </div>
             <div class="gh-head-menu">
                 <ul class="nav">
     <li class="nav-home"><a href="../index.html">Home</a></li>
     <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
     <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
-    <li class="nav-tag"><a href="../tag/index.html">Tag</a></li>
-    <li class="nav-links"><a href="http://nav.zairesinatra.com/">Links</a></li>
+    <li class="nav-tags"><a href="../tags/index.html">Tags</a></li>
+    <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
 </ul>
 
             </div>
             <div class="gh-head-actions">
+                <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
                 <div class="gh-social">
                         <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
                 </div>
@@ -422,7 +440,7 @@ pre[class*="language-"] > code[class*="language-"] {
                 <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                 <div class="byline-meta-content">
                     <time class="byline-meta-date" datetime="2021-03-08">Mar 8, 2021</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 26 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 27 min read</span>
                 </div>
             </div>
 
@@ -445,20 +463,24 @@ pre[class*="language-"] > code[class*="language-"] {
         <aside class="toc-container">
             <div class="toc"></div>
         </aside>
-        <p>webpack 是一款前端资源构建工具，即静态模块打包器 module bundler，将前端的所有资源文件 js/json/css/img/less... 都作为模块处理。根据模块的依赖关系进行静态分析，打包生成对应的静态资源 bundle。</p><!--kg-card-begin: markdown--><h2 id="">五个核心</h2>
+        <!--kg-card-begin: markdown--><h2 id="">快速上手</h2>
+<p>Webpack 是一款前端资源构建工具，即 module bundler 静态模块打包器，将前端的所有资源文件 js、json、css、img... 都作为模块处理。根据模块的依赖关系进行静态分析，打包生成对应的静态资源 bundles。</p>
+<blockquote>
+<p>Bundling application 对于 HTTP/1.1 clients，可以减少浏览器发起请求时，应用所等待的时间；而对于 HTTP/2 来说，还可以使用代码分割进一步完成优化。</p>
+</blockquote>
+<blockquote>
+<p>Since version 4.0.0, webpack does not require a configuration file to bundle your project. Nevertheless, it is incredibly configurable to better fit your needs.</p>
+</blockquote>
+<h3 id="concepts"><a href="https://webpack.js.org/concepts/">Concepts</a></h3>
 <ul>
-<li>Entry 入口指示 webpack 以哪个文件为入口起点开始打包，分析构建内部依赖图。</li>
-<li>Output 输出指示 webpack 打包后的资源 bundles 输出到哪里去，以及如何命名。</li>
-<li>Loader 让 webpack 能够去处理那些非 JS 文件 (webpack 自身只理解 JS)。</li>
-<li>Plugins 插件可以用于执行范围更广的任务。插件的范围包括从打包优化和压缩到重新定义环境中的变量等。</li>
-<li>Mode 模式指示 webpack 使用相应模式的配置。
-<ul>
-<li>development 会将 DefinePlugin 中 process.env.NODE_ENV 的值设置为 development。启用 NamedChunksPlugin 和 NamedModulesPlugin。</li>
-<li>production 会将 DefinePlugin 中 process.env.NODE_ENV 的值设置为 production。启用 FlagDependencyUsagePlugin, FlagIncludedChunksPlugin, ModuleConcatenationPlugin, NoEmitOnErrorsPlugin, OccurrenceOrderPlugin, SideEffectsFlagPlugin 和 TerserPlugin。</li>
+<li><a href="https://webpack.js.org/concepts/#entry">Entry</a> =&gt; 指示具体的文件作为入口起点开始打包，构建内部<a href="https://webpack.js.org/concepts/dependency-graph/">依赖图</a></li>
+<li><a href="https://webpack.js.org/concepts/#output">Output</a> =&gt; 指示输出创建 bundles 的位置，以及命名方式</li>
+<li><a href="https://webpack.js.org/concepts/#loaders">Loaders</a> =&gt; 拓展开箱自带只能处理 JavaScript 和 JSON 文件的能力</li>
+<li><a href="https://webpack.js.org/concepts/#plugins">Plugins</a> =&gt; 执行范围更广的任务；打包优化，资源管理，注入环境变量</li>
+<li><a href="https://webpack.js.org/concepts/#mode">Mode</a> =&gt; 指示相应模式的配置；development, production 或 none</li>
 </ul>
-</li>
-</ul>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">快速上手</h2>
+<h3 id="relatedinstructions">Related Instructions</h3>
+<p>webpack.config.js 配置文件存在时，在终端运行命令 <code>webpack</code>，配置文件中的配置选项会自动引用。</p>
 <ul>
 <li>初始化配置</li>
 </ul>
@@ -476,12 +498,11 @@ webpack src/js/index.js -o build/js/built.js --mode=development
 # 生产环境指令 - 在开发配置功能上多出压缩代码的功能
 webpack src/js/index.js -o build/js/built.js --mode=production
 </code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="generalconfiguration">General configuration</h2>
+<h3 id="">开发环境配置</h3>
 <ul>
-<li>快速上手小结</li>
+<li>基础打包</li>
 </ul>
-<p>webpack 能够编译打包 js 和 json 文件；能将 es6 的模块化语法转换成浏览器能识别的语法；能压缩代码。局限在于不能编译打包 css、img 等文件。不能将 js 的 es6 基本语法转化为 es5 以下语法。</p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">开发环境配置</h2>
-<h3 id="">基础打包</h3>
 <pre><code class="language-javascript">// webpack.config.js
 const { resolve } = require('path'); // node 内置核心模块处理路径问题
 module.exports = { 
@@ -493,8 +514,10 @@ module.exports = {
   mode: 'development' //开发环境 
 };
 </code></pre>
-<h3 id="">打包样式资源</h3>
-<p>下载安装 loader 包</p>
+<ul>
+<li>样式资源打包</li>
+</ul>
+<p><a href="https://webpack.js.org/loaders/css-loader/">css-loader</a> 处理 @import 和 url()；<a href="https://webpack.js.org/loaders/style-loader/">style-loader</a> 把 CSS 插入到 DOM 中。</p>
 <pre><code class="language-shell">npm i css-loader style-loader less-loader less -D
 </code></pre>
 <pre><code class="language-javascript">...
@@ -521,8 +544,9 @@ module: { // 不同文件必须配置不同 loader 处理
   },
 ...
 </code></pre>
-<p>有了配置文件，只需在终端中运行 webpack 命令就可进行打包，这条命令会自动引用 webpack.config.js 文件中的配置选项。</p>
-<h3 id="html">打包 HTML 资源</h3>
+<ul>
+<li>打包 HTML 资源</li>
+</ul>
 <pre><code>文件夹---src---index.js
 	|	 └──---index.html
 	└──----------webpack.config.js
@@ -544,7 +568,9 @@ plugins: [  // plugins 的配置
 ...
 }
 </code></pre>
-<h3 id="">打包图片资源</h3>
+<ul>
+<li>打包图片资源</li>
+</ul>
 <pre><code class="language-shell"># 下载安装 loader 包
 npm install --save-dev html-loader url-loader
 </code></pre>
@@ -581,7 +607,9 @@ module.exports = {
   ...
 }
 </code></pre>
-<h3 id="">打包其他资源</h3>
+<ul>
+<li>打包其他资源</li>
+</ul>
 <pre><code class="language-shell"># 下载安装 loader 包
 npm install --save-dev file-loader
 </code></pre>
@@ -602,7 +630,9 @@ module.exports = {
   ...
 }
 </code></pre>
-<h3 id="devserver">devserver</h3>
+<ul>
+<li>devserver</li>
+</ul>
 <p>开发服务器 devServer 自动化编译、打开浏览器、刷新浏览器。只会在内存中编译打包，不会有任何输出。</p>
 <pre><code class="language-shell"># 下载包
 npm i webpack-dev-server
@@ -634,14 +664,18 @@ module.exports = {
 <ul>
 <li>对于 webpack-cli 3.x：</li>
 </ul>
-<pre><code class="language-js">&quot;scripts&quot;: { &quot;start:dev&quot;: &quot;webpack-dev-server&quot; }
+<pre><code class="language-js">// package.json
+&quot;scripts&quot;: { &quot;start:dev&quot;: &quot;webpack-dev-server&quot; }
 </code></pre>
 <ul>
 <li>对于 webpack-cli 4.x：</li>
 </ul>
-<pre><code class="language-js">&quot;scripts&quot;: { &quot;start:dev&quot;: &quot;webpack serve&quot; }
+<pre><code class="language-js">// package.json
+&quot;scripts&quot;: { &quot;start:dev&quot;: &quot;webpack serve&quot; }
 </code></pre>
-<h3 id="">开发环境配置小结</h3>
+<ul>
+<li>开发环境配置小结</li>
+</ul>
 <pre><code class="language-javascript">const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = { 
@@ -689,8 +723,10 @@ module.exports = {
   } 
 };
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">生产环境配置</h2>
-<h3 id="css">提取 css 成单独文件</h3>
+<h3 id="">生产环境配置</h3>
+<ul>
+<li>提取 css 成单独文件</li>
+</ul>
 <p>样式经过处理整合在 <code>.js</code> 中（css-loader）会使 <code>.js</code> 体积非常大，下载速度慢。同时必须先加载才能创建标签加载在页面中，这里又会出现闪屏现象。故需要将 <code>.css</code> 文件从 <code>.js</code> 文件提取出来。又考虑代码体积较大，需要进行压缩处理。部分样式代码与 <code>.js</code> 代码存在兼容问题，如部分 CSS3 需要加上前缀才可以在低版本进行运行。<a href="https://webpack.js.org/plugins/mini-css-extract-plugin/">详细信息点此</a>。</p>
 <pre><code class="language-shell"># 下载插件
 npm install --save-dev mini-css-extract-plugin
@@ -731,7 +767,9 @@ module.exports = {
   mode: 'development' 
 };
 </code></pre>
-<h3 id="css">css 兼容性处理</h3>
+<ul>
+<li>css 兼容性处理</li>
+</ul>
 <p>兼容处理需要 postcss --&gt; postcss-loader 保证在 webpack 中使用，同时通过 postcss-preset-env 识别环境，帮助 post-css 找到  package.json 中 browserlist 里的配置，通过配置加载指定的 css 兼容性样式。<a href="https://www.webpackjs.com/loaders/postcss-loader/">详情点此</a>。</p>
 <pre><code class="language-shell"># 下载插件
 npm install --save-dev postcss-loader postcss-preset-env
@@ -792,7 +830,9 @@ module.exports = {
   ]
 }
 </code></pre>
-<h3 id="js">js 语法检查</h3>
+<ul>
+<li>js 语法检查</li>
+</ul>
 <p>规范代码书写风格可以在检查常见语法错误的同时增强健壮性。最常使用的是基于 eslint 库的 eslint-loader。注意 eslint 仅检查开发者书写的源代码，不检查第三方的库。部分需要忽略检查的代码前可以加上 <code>eslint-disable-next-line</code>。<a href="https://www.npmjs.com/package/eslint-config-airbnb-base">详细移步</a>。</p>
 <pre><code class="language-shell"># 下载安装包使用 slint-config-airbnb-base 库进行语法检查
 npm install --save-dev eslint-loader eslint eslint-config-airbnb-base eslint-plugin-import
@@ -843,7 +883,9 @@ module.exports = {
   mode: 'development'
 };
 </code></pre>
-<h3 id="js">js 兼容性处理</h3>
+<ul>
+<li>js 兼容性处理</li>
+</ul>
 <p>chrome 浏览器中可以识别不代表 IE 浏览器可以识别 ES6 及其以上语法。<code>@babel/preset-env</code> 转换基本语法，<code>@babel/polyfill</code> 全部兼容性处理（包括 promise ）。<code>@babel/polyfill</code> 下载后引入 <code>js</code> 文件即可（暴力）。需要兼容性处理按需加载则考虑 <code>core-js</code> 。但是使用 <code>core-js</code> 时，不能使用<code>@babel/polyfill</code> ，在 <code>.js</code> 中引入的需要注释掉。</p>
 <pre><code class="language-shell"># 下载安装包
 npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/polyfill core-js
@@ -879,7 +921,9 @@ module.exports = {
   plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ],
   mode: 'development'
 </code></pre>
-<h3 id="jshtml">js 压缩与 html 压缩</h3>
+<ul>
+<li>js 压缩与 html 压缩</li>
+</ul>
 <p>生产环境会自动压缩 <code>.js</code> 代码。</p>
 <pre><code class="language-javascript">const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -913,7 +957,9 @@ module.exports = {
   mode: 'production' 
 };
 </code></pre>
-<h3 id="">生产环境配置汇总</h3>
+<ul>
+<li>生产环境配置汇总</li>
+</ul>
 <pre><code class="language-javascript">const { resolve } = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin' );
@@ -1010,7 +1056,28 @@ module.exports = {
   &quot;extends&quot;: &quot;airbnb-base&quot;
 }
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="webpack">webpack 优化配置</h2>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">优化配置</h2>
+<p>测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下</p>
+<p>优化前端性能其实是指优化打包的输出结果。</p>
+<p>压缩代码可以利用 uglifyjs-webpack-plugin 和 ParallelUglifyPlugin</p>
+<p>压缩代码：删除多余的代码、注释、简化<br>
+代码的写法等等方式。可以利用 webpack<br>
+的 UglifyJsPlugin 和 ParallelUglifyPlugin<br>
+来压缩JS文件，利用 cssnano (css-<br>
+loader?minimize） 来压缩css<br>
+利用 CDN加速：在构建过程中，将引用的<br>
+静态资源路径修改为CDN上对应的路径。<br>
+可可以利用webpack对于output 参数和各<br>
+loader的publicPath 参数来修改资源路径<br>
+Tree Shaking：将代码中永远不会走到的片<br>
+段删除掉。可以通过在启动webpack时追<br>
+加参数--optimize-minimize 来实现<br>
+Code Splitting： 将代码按路由维度或者组<br>
+件分块(chunk),这样做到按需加载,同时可<br>
+以充分利用浏览器缓存<br>
+提取公共第三方库：SplitChunksPlugin插件<br>
+来进行公共模块抽取,利用浏览器缓存可以<br>
+长期缓存这些无需频繁变动的公共代码</p>
 <h3 id="">开发环境优化</h3>
 <p>开发环境优化指优化打包构建速度（调试、开发友好）、优化代码调试（提醒开发代码错误位置）。</p>
 <ul>
@@ -1018,26 +1085,26 @@ module.exports = {
 </ul>
 <p>热模块替换即一个模块发生变化，只需重新打包这一个模块，而并重新打包全部模块。本地代码改变，重新编译、刷新浏览器即为热更新。HMR 功能对于 <code>.js</code> 的处理只能处理非入口文件的其他文件。入口文件进行 HMR 则所有文件都会重新打包。</p>
 <table>
-    <thead>
-        <tr>
-            <th>文件</th>
-            <th>热更新</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>样式文件</td>
-            <td>可以使用 HMR功能，因为 style-loader 内部已实现</td>
-        </tr>
-        <tr>
-            <td>JS  文件</td>
-            <td>默认不能使用 HMR 功能</td>
-        </tr>
-        <tr>
-            <td>html 文件</td>
-            <td>默认不能使用 HMR，只有一个文件不需要考虑 HMR 功能</td>
-        </tr>
-    </tbody>
+<thead>
+<tr>
+<th>文件</th>
+<th>热更新</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>样式文件</td>
+<td>可以使用 HMR功能，因为 style-loader 内部已实现</td>
+</tr>
+<tr>
+<td>JS 文件</td>
+<td>默认不能使用 HMR 功能</td>
+</tr>
+<tr>
+<td>html 文件</td>
+<td>默认不能使用 HMR，只有一个文件不需要考虑 HMR 功能</td>
+</tr>
+</tbody>
 </table>
 <pre><code class="language-javascript">...
 devServer: { // 修改 webpack 配置一定要重启 webpack 服务
@@ -1310,13 +1377,26 @@ module.exports = {
 };
 </code></pre>
 <ul>
-<li>tree shaking</li>
+<li><a href="https://webpack.js.org/guides/tree-shaking/#root">Tree Shaking</a></li>
 </ul>
-<p>tree shaking 可以去除在应用程序中没有使用的代码（引用的源代码，第三方的库），使得应用体积更小，请求、加载速度更快。应用其的前提是使用 ES6 模块化并开启 production 环境。但是可能会将未经引用的 CSS 代码也忽略。如在 package.json 中设置 <code>&quot;sideEffects&quot;: false</code> 则所有代码都无副作用（可进行 tree shaking）会导致去除 <code>.css</code> 文件。应当修改为 <code>&quot;sideEffects&quot;: [&quot;*.css&quot;, &quot;*.less&quot;]</code></p>
+<p>tree shaking 可移除 JavaScript 上下文中未引用的代码，优化打包体积。利用 ES6 的模块化规范引入静态分析，故而可以在编译的时候判断实际加载的具体模块，以及未被使用的变量或者引用，进而删除对应代码。当配置文件中的 mode 开启生产环境 production 时，会被默认开启。</p>
+<blockquote>
+<p>所有导入的文件都会受到 tree shaking 的影响。若在项目中使用类似 css-loader 并 import CSS 文件，则需要将其添加到 side effect 列表中，以免在生产模式中无意的被删除。</p>
+</blockquote>
+<blockquote>
+<p>side effect 的定义是在导入时会执行特殊行为的代码，而不是仅仅暴露一个 export 或多个 export。</p>
+</blockquote>
+<p>package.json 中设置 <code>&quot;sideEffects&quot;: false</code>，表示所有代码都无副作用，都可进行 tree shaking。</p>
+<p>为避免误删样式文件，应当修改为 <code>&quot;sideEffects&quot;: [&quot;*.css&quot;, &quot;*.less&quot;]</code></p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;your-project&quot;,
+  &quot;sideEffects&quot;: [&quot;./src/some-side-effectful-file.js&quot;, &quot;*.css&quot;, &quot;*.less&quot;]
+}
+</code></pre>
 <ul>
-<li>code split</li>
+<li><a href="https://webpack.js.org/guides/code-splitting/">Code Splitting</a></li>
 </ul>
-<p>代码分割主要进行于 <code>.js</code> 代码，完成按需加载。</p>
+<p>主要将 .js 代码按路由维度或者组件分块 chunks，完成按需加载，同时也可以充分利用浏览器缓存。</p>
 <pre><code class="language-javascript">const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
@@ -1339,9 +1419,9 @@ module.exports = {
 };
 </code></pre>
 <ul>
-<li>pwa</li>
+<li><a href="https://webpack.js.org/guides/progressive-web-application/#root">Progressive Web Applications</a></li>
 </ul>
-<p>pwa 又称渐进式网络开发应用程序 Progressive Web Apps，即离线可访问。通常在 webpack 中使用插件 workbox-webpack-plugin。</p>
+<p>渐进式网络开发应用可以提供离线访问功能，即可将 web app 改造为 PWA。通常使用插件 workbox-webpack-plugin 创建 Service Worker 完成此功能。</p>
 <pre><code class="language-javascript">// package.json
 // 避免 eslint 不认识 window、navigator此类变量
 &quot;eslintConfig&quot;: {
@@ -1387,9 +1467,9 @@ plugins: [
 serve -s build # 启动服务器
 </code></pre>
 <ul>
-<li>多进程打包</li>
+<li><a href="https://webpack.js.org/loaders/thread-loader/#root">多进程打包</a></li>
 </ul>
-<p>Js 主线程引擎是单线程的，同一时间只能做一件事。可以通过多进程优化打包速度。</p>
+<p>JavaScript 主线程引擎是单线程的，同一时间只能做一件事。可以通过多进程优化打包速度。进程启动大概需要几百毫秒，且进程通信也有开销。只有当工作时间消耗较长时，才会选择多进程打包。</p>
 <pre><code class="language-shell"># 下载安装包, 通常给 babel-loader 使用
 npm install --save-dev thread-loader
 </code></pre>
@@ -1405,9 +1485,8 @@ npm install --save-dev thread-loader
 			}
     },...
 </code></pre>
-<p>多进程也是双刃剑，进程启动大概 600ms ，进程通信也有开销。只有工作时间消耗比较长，才进行多进程打包。</p>
 <ul>
-<li>externals</li>
+<li><a href="https://webpack.js.org/configuration/externals/#root">Externals</a></li>
 </ul>
 <p>防止将某些包打包进最终的 bundle.js 中。</p>
 <pre><code class="language-javascript">mode: 'production',
@@ -1680,24 +1759,21 @@ Error: Cannot find module 'webpack-cli/bin/config-yargs'
     </section>
 
 
-    
-    <section class="article-comments gh-canvas">
-        <div id="disqus_thread"></div>
-        <script>
-            var disqus_config = function () {
-                this.page.url = "yourdomain.com/webpack/";
-                this.page.identifier = "ghost-604610bea4b9b30d8ba63bab"
-            };
-            (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://zsxzy.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-        </script>
-    </section>
-   
-
+<section class="article-comments gh-canvas">
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "yourdomain.com/webpack/";
+            this.page.identifier = "ghost-604610bea4b9b30d8ba63bab"
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zsxzy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+</section>
 </article>
 </main>
 
@@ -1746,46 +1822,7 @@ Error: Cannot find module 'webpack-cli/bin/config-yargs'
 
         <footer class="post-card-meta">
             <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
-                <span class="sep">—</span>
                 <span class="post-card-meta-length">6 min read</span>
-        </footer>
-
-    </div>
-
-</article>
-                        
-<article class="post-card post">
-
-    <a class="post-card-image-link" href="../mybatis/index.html">
-
-        <img class="post-card-image"
-            srcset="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg 600w"
-            sizes="(max-width: 1000px) 400px, 800px"
-            src="../content/images/size/w600/2022/07/GreenTreesUnderBlueSky.jpg"
-            alt="Green Trees Under Blue Sky"
-            loading="lazy"
-        />
-
-
-    </a>
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="../mybatis/index.html">
-            <header class="post-card-header">
-                <div class="post-card-tags">
-                </div>
-                <h2 class="post-card-title">
-                    MyBatis
-                </h2>
-            </header>
-                <div class="post-card-excerpt">半自动 ORM Object Relation Mapping 持久层框架 MyBatis</div>
-        </a>
-
-        <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="2022-02-02">Feb 2, 2022</time>
-                <span class="sep">—</span>
-                <span class="post-card-meta-length">44 min read</span>
         </footer>
 
     </div>
@@ -1822,8 +1859,44 @@ Error: Cannot find module 'webpack-cli/bin/config-yargs'
 
         <footer class="post-card-meta">
             <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
-                <span class="sep">—</span>
                 <span class="post-card-meta-length">82 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../zu-jian-tong-xun/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w600/2022/04/treecommunicate.jpg 600w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2022/04/treecommunicate.jpg"
+            alt="Component communication"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../zu-jian-tong-xun/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    组件通讯
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Vuex|Redux|Pinia</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-10-01">Oct 1, 2021</time>
+                <span class="post-card-meta-length">25 min read</span>
         </footer>
 
     </div>
@@ -1854,7 +1927,7 @@ Error: Cannot find module 'webpack-cli/bin/config-yargs'
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=ab47967965"></script>
+<script src="../assets/built/casper.js%3Fv=977d3f47b0"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
@@ -1876,6 +1949,9 @@ $(document).ready(function () {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-less.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sass.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-scss.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 <script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
@@ -1892,39 +1968,49 @@ $(document).ready(function () {
 		})
 </script>
 <!-- music -->
-<div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div>
+<!-- <div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div> -->
+<!-- <a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021003061号-1</a> -->
+
+<!-- searchinghost-easy -->
+<script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
+<script>
+    new SearchinGhostEasy({
+        contentApiKey: 'e93d8b3520ae46be52c9a4b140'
+    });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
 <script>
-    tocbot.init({
-        tocSelector: '.toc',
-        contentSelector: '.gh-content',
-        hasInnerContainers: true
-    });
-    var tc = document.querySelector(".toc-container");
-    var tch = tc.clientHeight;
-    var ah = document.querySelector(".article-header");
-    var ahh = ah.clientHeight;
-    window.addEventListener("scroll", function () {
-    if(document.body.clientWidth > 1170){
-        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-        var ihh = window.innerHeight;
-        if(scrollY >= ihh + tch + ahh){
-            var ctc = document.querySelector(".toc-container");
-            ctc.style.position="sticky";
-            ctc.style.position="-webkit-sticky";
-            ctc.style.top = "120px";
-            ctc.style.marginLeft = "800px";
-            ctc.style.minWidth= "260px";
-        }
-        if(scrollY < tch + ahh -10){
-            var ctc = document.querySelector(".toc-container");
-            ctc.style.position="";
-            ctc.style.top = "";
-            ctc.style.marginLeft = "";
-            console.log("zszszs")
-        }
-    }
-    })
+  tocbot.init({
+    tocSelector: '.toc',
+    contentSelector: '.gh-content',
+    hasInnerContainers: true
+  });
+  var tc = document.querySelector(".toc-container");
+var tch = tc.clientHeight;
+var ah = document.querySelector(".article-header");
+var ahh = ah.clientHeight;
+window.addEventListener("scroll", function () {
+if(document.body.clientWidth > 1170){
+  var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+  var ihh = window.innerHeight;
+  if(scrollY >= ihh + tch + ahh){
+    var ctc = document.querySelector(".toc-container");
+    ctc.style.position="sticky";
+    ctc.style.position="-webkit-sticky";
+    ctc.style.top = "120px";
+    ctc.style.marginLeft = "800px";
+    ctc.style.minWidth= "260px";
+  }
+  if(scrollY < tch + ahh -10){
+    var ctc = document.querySelector(".toc-container");
+    ctc.style.position="";
+    ctc.style.top = "";
+    ctc.style.marginLeft = "";
+    console.log("zszszs")
+  }
+}})
+
 </script>
+
 </body>
 </html>

@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/newghostzs/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/ghostbg.png" />
     <meta property="article:published_time" content="2021-07-23T13:38:41.000Z" />
-    <meta property="article:modified_time" content="2022-07-02T18:49:46.000Z" />
+    <meta property="article:modified_time" content="2022-08-22T17:37:23.000Z" />
     <meta property="article:tag" content="GHOSTblog" />
     <meta property="article:tag" content="Technology growth" />
     
@@ -65,7 +65,7 @@
     "headline": "Ghost 更新与迁移",
     "url": "yourdomain.com/newghostzs/",
     "datePublished": "2021-07-23T13:38:41.000Z",
-    "dateModified": "2022-07-02T18:49:46.000Z",
+    "dateModified": "2022-08-22T17:37:23.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/ghostbg.png",
@@ -81,7 +81,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1053,7 +1053,7 @@
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
-    
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 
 </head>
 
@@ -1081,9 +1081,12 @@
             </figure>
             <section class="post-content">
 
-                <p>由于 Githubpage 静态编译的 Ghost 在部分功能与效果上稍逊于云服务器的反向代理，为同步需求，记录本次云服务器 Ubuntu 中 Ghost 与 Node 版本更新过程以及 Nginx 配置。</p>
-<h2 id="node">Node</h2>
-<p>最新的 Ghost 版本需要 Node.js 14.x ，故安装适用 Ubuntu 的 <a href="https://github.com/nodesource/distributions">二进制发行版</a>。</p>
+                <amp-iframe width="100%" height="300" frameborder="1" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1282481617&amp;color=%23546854&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" sandbox="allow-scripts allow-same-origin" layout="responsive"></amp-iframe><div><a href="https://soundcloud.com/hvmqw3ekc2fe" title="zairesinatra" target="_blank">zairesinatra</a> · <a href="https://soundcloud.com/hvmqw3ekc2fe/sets/zsxzy" title="zsxzy" target="_blank">zsxzy</a></div><p>由于 Githubpage 静态编译的 Ghost 在部分功能与效果上稍逊于云服务器的反向代理，为同步需求，记录本次云服务器 Ubuntu 中 Ghost 与 Node 版本更新过程以及 Nginx 配置。</p>
+<h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<h3 id="node">Node</h3>
+<ul>
+<li>最新 Ghost 版本需要 Node@14.x -&gt; 安装适用 Ubuntu 的 <a href="https://github.com/nodesource/distributions">二进制发行版</a></li>
+</ul>
 <pre><code class="language-shell"># Using Ubuntu 添加 Node.js ppa(Person Package achives) 安装 Node.js
 # cURL is an abbreviation for Client URL Request Library which is used to transfer data from one place to another place. 
 # -f (--fail) 表示在服务器错误时, 阻止一个返回表示错误原因的 html 页面
@@ -1094,19 +1097,16 @@ sudo apt-get install -y nodejs
 node -v
 # v14.17.2
 </code></pre>
-<h2 id="ghost">Ghost</h2>
-<p>此前 Ghost 为 v3，运行 <code>ghost update v3</code> 获取最新的 v3.x版本，然后运行 <code>ghost update</code> 获取v4。</p>
-<p>在更新 ghost 期间出现 ghost 目录所属权限问题。</p>
+<h3 id="ghost">Ghost</h3>
+<p>Ghost@v3 需先运行 <code>ghost update v3</code> 获取最新的 v3.x 版本，再通过 <code>ghost update</code> 获取 v4。</p>
+<ul>
+<li>更新 Ghost 期间出现目录所属权限问题 =&gt; 给 Ghost 文件夹当前用户权限</li>
+</ul>
 <pre><code class="language-shell">sudo systemctl is-active ghost_zairesinatra-com
-✔ Checking system Node.js version - found v10.24.0
-✔ Ensuring user is not logged in as ghost user
+✔ Checking system Node.js version - found v10.24.0、Ensuring user is not logged in as ghost user
 ✖ Checking if logged in user is directory owner
 ✖ Checking current folder permissions
-✔ Checking folder permissions
-✔ Checking file permissions
-✔ Checking content folder ownership
-✔ Checking memory availability
-✔ Checking free space
+✔ Checking folder permissions、Checking file permissions、Checking content folder ownership、Checking memory availability、Checking free space
 One or more errors occurred.
 
 1) Checking if logged in user is directory owner
@@ -1115,49 +1115,48 @@ Message: Your user does not own the directory /var/www/ghost and is also not a m
 You must either log in with the user that owns the directory or add your user to the owning group.
 Help: https://ghost.org/docs/install/ubuntu/#create-a-new-user
 
-
 2) Checking current folder permissions
 
 Message: The directory /var/www/ghost is not writable by your user. You must grant write access and try again.
 Help: https://ghost.org/docs/install/ubuntu/#create-a-directory
 
 Debug Information:
-    OS: Ubuntu, v18.04.4 LTS
-    Node Version: v10.24.0
-    Ghost Version: 3.41.9
-    Ghost-CLI Version: 1.17.3
-    Environment: production
-    Command: 'ghost update'
+OS: Ubuntu, v18.04.4 LTS、Node Version: v10.24.0、Ghost Version: 3.41.9、Ghost-CLI Version: 1.17.3、Environment: production、Command: 'ghost update'
 
 Try running ghost doctor to check your system for known issues.
 </code></pre>
-<p>解决方法是给 ghost 文件夹当前用户权限。</p>
-<pre><code class="language-shell">sudo chown /var/www/ghost
+<pre><code class="language-shell"># 解决方法
+sudo chown /var/www/ghost
 </code></pre>
-<p>这是更新准备时出现的报错，从 Ghost-CLI 1.5.0 开始，root不允许运行 Ghost 命令。因此，需要将当前安装迁移到新的 Linux 用户。</p>
+<ul>
+<li>更新前出现报错 =&gt; ghost-cli@1.5.0 后 root 不允许运行 Ghost 命令，需要将当前安装迁移到新的 Linux 用户</li>
+</ul>
 <pre><code class="language-shell">We discovered that you are using the DigitalOcean One-Click install. You need to create a user with regular account privileges and migrate your installation to this user.
 </code></pre>
-<p>添加一个新用户，并将用户添加到 sudo 组。</p>
+<ul>
+<li>增加一个新用户，并添加到 sudo 组</li>
+</ul>
 <pre><code class="language-shell">$ adduser &lt;user&gt;
 $ usermod -aG sudo &lt;user&gt;
 </code></pre>
-<p>创建一个新的实例文件移动到指定位置，最后文件从属关系给予新用户。</p>
-<pre><code class="language-shell">mkdir -p /home/&lt;user&gt;/.ghost/
-
-chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost
-
-mv /root/.ghost/config /home/&lt;user&gt;/.ghost/config
-
-chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost/config
+<ul>
+<li>创建新实例文件并移动到指定的位置 =&gt; 文件从属关系给予新用户</li>
+</ul>
+<pre><code class="language-shell">$ mkdir -p /home/&lt;user&gt;/.ghost/
+$ chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost
+$ mv /root/.ghost/config /home/&lt;user&gt;/.ghost/config
+$ chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost/config
 </code></pre>
-<p>接下来切换到 Ghost 安装目录（/var/www/ghost/在 DigitOcean One-Click 安装中是默认的）以更改安装文件的所有权。</p>
+<ul>
+<li>切换到 ghost 安装目录 /var/www/ghost 以更改所有权，并以新身份登录</li>
+</ul>
 <pre><code class="language-shell">$ cd /var/www/ghost
 $ find . -group root -user root -exec chown &lt;user&gt;:&lt;user&gt; {} \;
+$ su - &lt;user&gt;
 </code></pre>
-<p>以新用户身份登录。</p>
-<pre><code class="language-shell">$ su - &lt;user&gt;
-</code></pre>
-<p>完成后则可继续进行 ghost 更新。</p>
+<ul>
+<li>继续 ghost 更新；启动后为非 https 状态，需配置 config.production.json 文件后重启</li>
+</ul>
 <pre><code class="language-shell">$ ghost update v3
 + sudo systemctl is-active ghost_zairesinatra-com
 ✔ Checking system Node.js version - found v14.17.2
@@ -1230,8 +1229,7 @@ Please review the full list of breaking changes at https://ghost.org/docs/change
 ✔ Linking latest Ghost and recording versions
 ✔ Removing old Ghost versions
 </code></pre>
-<p>完成启动后非 https 状态，配置 config.production.json 文件后重启即可。</p>
-<h2 id="nginx">Nginx</h2>
+<h3 id="nginx">Nginx</h3>
 <p>考虑到直接输入根域名重定向到 www 的页面，在 ghost 自带生成的 nginx ssl 配置外，额外自行写一个 nginx 重定向的 conf 配置。</p>
 <pre><code class="language-shell"># sites-available 中的 zs.com-ssl.conf
 server {
@@ -1268,7 +1266,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 # 重启服务
 $ sudo nginx -s reload
 </code></pre>
-<h2 id="lets-encrypt">Let's Encrypt</h2>
+<h3 id="lets-encrypt">Let's Encrypt</h3>
 <p>收到官方邮件的提醒，表示在一定时间后 LetsEncrypt 的证书将要到期，这里值得注意的是，通过 Ghost 集成的 LetsEncrypt 证书只有 90 天的有效期，意味着需要一个季度手动更新一次。</p>
 <blockquote>
 <p>Your certificate (or certificates) for the names listed below will expire in 17 days (on 20 Jul 19 07:56 +0000). Please make sure to renew your certificate before then, or visitors to your web site will encounter errors.<br />
@@ -1294,6 +1292,84 @@ sudo su
 <li>check expiry date of SSL cert for ghost blog =&gt; <a href="https://www.thesslstore.com/knowledgebase/ssl-support/how-to-check-a-certificates-expiration-date-chrome/">clickme</a></li>
 </ul>
 <p>Chrome 中点开 view site information 并选择 connection is secure，在 certificate is valid 中查看。</p>
+<h2 id="%E7%89%88%E6%9C%AC%E8%BF%AD%E4%BB%A3">版本迭代</h2>
+<p>由于 Ghost 或 Node 版本的更新会导致部分内容存在不兼容的情况，此章节记录对于这种改动处理时需要注意的方面。</p>
+<h3 id="node-%E5%8D%87%E7%BA%A7">Node 升级</h3>
+<pre><code class="language-shell">$ npm install -g ghost-cli@latest
+added 491 packages, and audited 492 packages in 24s
+41 packages are looking for funding
+  run `npm fund` for details
+6 vulnerabilities (5 moderate, 1 high)
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+Run `npm audit` for details.
+</code></pre>
+<p><a href="https://docs.npmjs.com/cli/v8/commands/npm-audit">npm audit</a> 命令将项目中配置的依赖项的描述提交到默认注册表，并要求报告已知漏洞。如果发现任何漏洞，将计算影响和适当的补救措施。如果没有发现漏洞，该命令将以 0 退出代码退出；若某些漏洞无法自动修复，则需要人工干预或审查。</p>
+<pre><code class="language-shell">$ npm audit fix --force
+npm WARN using --force Recommended protections disabled.
+npm ERR! code ENOLOCK
+npm ERR! audit This command requires an existing lockfile.
+npm ERR! audit Try creating one first with: npm i --package-lock-only
+npm ERR! audit Original error: loadVirtual requires existing shrinkwrap file
+npm ERR! A complete log of this run can be found in: /Users/xieziyi/.npm/_logs/2022-07-27T05_03_02_392-debug-0.log
+</code></pre>
+<p>执行指导修复的代码 <code>npm i --package-lock-only</code>，没有 package.json 文件。</p>
+<pre><code class="language-shell">$ npm i --package-lock-only
+npm ERR! code ENOENT
+npm ERR! syscall open
+npm ERR! path /Users/xieziyi/package.json
+npm ERR! errno -2
+npm ERR! enoent ENOENT: no such file or directory, open '/Users/xieziyi/package.json'
+npm ERR! enoent This is related to npm not being able to find a file.
+npm ERR! enoent
+npm ERR! A complete log of this run can be found in:
+npm ERR! /Users/xieziyi/.npm/_logs/2022-07-27T05_03_19_779Z-debug-0.log
+</code></pre>
+<p>在当前目录进行 npm 初始化创建 package.json 文件。</p>
+<pre><code class="language-shell">$ cd /Users/xieziyi
+$ npm init -y
+Wrote to /Users/xieziyi/package-json:{...}
+$ npm install -g ghost-cli@latest
+changed 491 packages, and audited 492 packages in 3s
+41 packages are looking for funding
+  run `npm fund` for details
+6 vulnerabilities (5 moderate, 1 high)
+To address all issues (including breaking changes), run: npm audit fix --force
+Run `npm audit` for details.
+$ npm fund
+xieziyi@1.0.0
+$ npm audit fix --force
+npm WARN using --force Recommended protections disabled.
+up to date, audited 1 package in 89ms
+found 0 vulnerabilities
+</code></pre>
+<h3 id="ghost-%E5%8D%87%E7%BA%A7">Ghost 升级</h3>
+<p>ghost update 会取代旧版本服务，对于旧版文件的更改将失效，需要在新 version 中再次进行配置。</p>
+<ul>
+<li>2022-08-21 更新 =&gt; v5.10.1</li>
+</ul>
+<p><a href="https://ghost.org/integrations/disqus/">Disqus</a> 在 Ghost v5.10.1 中不再有 65-69 行的评论代码块提示。可在 Ghost 新增特性 comments 代码块下追加 Disqus 代码。</p>
+<pre><code class="language-hbs">{{#if comments}}
+    &lt;section class="article-comments gh-canvas"&gt;
+        {{comments}}
+    &lt;/section&gt;
+{{/if}}
+&lt;section class="article-comments gh-canvas"&gt;
+    &lt;div id="disqus_thread"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var disqus_config = function () {
+            this.page.url = "{{url absolute="true"}}";
+            this.page.identifier = "ghost-{{comment_id}}"
+        };
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zsxzy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    &lt;/script&gt;
+&lt;/section&gt;
+</code></pre>
 <h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
 <p>迁移一开始很顺利，Ghost 支持导出所有文章内容。然而内置 Labs 以 json 文件导入文章的功能并不适用于导入图像。使用 FTP 连接服务器并将所有的图像直接复制到 content/images/ 文件夹后，看起来一切正常。但是次日写了一篇新帖，在准备上传文章图片时，却提示上传失败，原因是内部服务器错误。</p>
 <p>Ghost 无法将图像保存在 content 文件夹中通常应该从权限方面考虑。众所周知，应该使用 ghost 用户访问和修改博客的内容。就我而言，可能因为是复制粘贴的 images-backup 文件夹，所以会具有不同用户权限，这就阻止了 Ghost 保存图像。</p>
@@ -1351,6 +1427,19 @@ Sharp wasn't installed
 $ stat /var/www/&lt;ghost-blog&gt;
 $ ghost setup # or ghost setup systemd
 </code></pre>
+<p>由于没有针对 Apple 新 M1 芯片（arm64 架构）的 15.x 之前版本的预编译 NodeJS 二进制文件。在使用 nvm 时遇到了一些问题：使用 <code>nvm install v14.15.4</code> 安装 Node 时，存在 C 代码编译成功，但是因内存不足错误而崩溃的情况。</p>
+<pre><code class="language-shell"># 为下载预编译的 x64 二进制文件 =&gt; 将 shell 的体系结构从 arm64 更改为 x86
+$ arch -x86_64 zsh
+# 输出机器的体系结构 =&gt; 结果有 i386、i486、mips、alpha
+$ arch
+i386
+# 使用 nvm 安装节点
+$ nvm install v14.17.1
+# 检查架构是否正确
+node -p process.arch
+x86
+</code></pre>
+<p>多提一句，体系结构的粘性是从 Rosetta 在 PowerPC 到 Intel 过渡中的工作方式的一种变化，在 macOS Big Sur 中，如果可以最大程度地提高兼容性，子进程将更喜欢父进程的架构。因此，例如启动 x86_64 sh 将导致来自该 shell 的 python 调用也是 x86_64。</p>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 

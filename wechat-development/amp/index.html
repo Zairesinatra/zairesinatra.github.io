@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/wechat-development/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/05/pikadetective.jpg" />
     <meta property="article:published_time" content="2020-06-01T13:06:00.000Z" />
-    <meta property="article:modified_time" content="2022-05-11T13:07:11.000Z" />
+    <meta property="article:modified_time" content="2022-08-17T08:33:12.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "WeChat Development",
     "url": "yourdomain.com/wechat-development/",
     "datePublished": "2020-06-01T13:06:00.000Z",
-    "dateModified": "2022-05-11T13:07:11.000Z",
+    "dateModified": "2022-08-17T08:33:12.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/05/pikadetective.jpg",
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.2" />
+    <meta name="generator" content="Ghost 5.10" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1629,6 +1629,11 @@ downloading template   wepy-cli · Failed to download repo standard: read ECONNR
 </code></pre>
 <p>1.将新运行时文件引入报错的文件中，这里注意在模块内 regeneratorRuntime 是以 runtime 运作，且此方法存在重新编译失效的问题。<br />
 2.增强编译且更换版本可以较为简便的解决此问题，但是也存在切换版本后错误的复现。</p>
+<h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
+<ul>
+<li>微信支付操作</li>
+</ul>
+<p><a href="https://pay.weixin.qq.com/">微信商户平台</a>下载证书 apiclient_cert 和 apiclient_key，存入对应框架的位置。后续应在微信支付前产生相关订单；控制平台余额不要过大；在商户平台配置安全设置以增加安全性。</p>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 协议，转载请注明出处！</p>
 
