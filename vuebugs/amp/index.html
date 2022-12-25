@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/vuebugs/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/07/ShirahigeJinja.jpg" />
     <meta property="article:published_time" content="2020-12-14T12:21:00.000Z" />
-    <meta property="article:modified_time" content="2022-10-08T07:32:56.000Z" />
+    <meta property="article:modified_time" content="2022-12-15T12:56:13.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "Vue 札记",
     "url": "yourdomain.com/vuebugs/",
     "datePublished": "2020-12-14T12:21:00.000Z",
-    "dateModified": "2022-10-08T07:32:56.000Z",
+    "dateModified": "2022-12-15T12:56:13.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/07/ShirahigeJinja.jpg",
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.10" />
+    <meta name="generator" content="Ghost 5.25" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -256,6 +256,16 @@
 
     amp-img img {
         object-fit: cover;
+    }
+    
+    amp-youtube {
+        height: calc(100vw / 1.78);
+        width: 100vw;
+        position: relative;
+    }
+
+    amp-youtube img {
+        position: absolute;
     }
 
     .page-header {
@@ -1123,6 +1133,7 @@ export default router
 <p>h 函数是 createElement 函数的 ES6 语法缩写，源自 <a href="https://github.com/Matt-Esch/virtual-dom/blob/master/virtual-hyperscript/README.md">virtual-dom</a> 源码中实现生成 HTML 结构的 <a href="https://github.com/hyperhype/hyperscript">hyperscript</a> 脚本。render 函数是暴露给开发者使用 createElement 的钩子选项。<a href="https://github.com/Matt-Esch/virtual-dom/blob/master/vdom/create-element.js">createElement</a> 函数用于生成 VNode 节点。</p>
 <pre><code class="language-javascript">render: h =&gt; h(App)
 render: function(createElement){ return createElement(App) }
+const h = (tag, props, children) =&gt; {return {tag, props, children,...}}
 </code></pre>
 <p>渲染函数适合处理复杂逻辑，典型的推荐场景是当模板中要声明式渲染冗长的重复内容。</p>
 <h3 id="componentclassification">Component Classification</h3>
@@ -1139,11 +1150,22 @@ render: function(createElement){ return createElement(App) }
 <ul>
 <li><a href="https://v2.cn.vuejs.org/v2/guide/components.html#%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6">动态组件</a> =&gt; tab 切换时会涉及到组件动态加载</li>
 </ul>
+<blockquote>
+<p>动态组件是使用 component 组件，通过特殊的 attribute <code>is</code> 实现。</p>
+</blockquote>
 <pre><code class="language-html">&lt;!-- 组件重新加载会消耗大量性能 --&gt;
 &lt;component v-bind:is="currentTabComponent"&gt;&lt;/component&gt;
 &lt;!-- 保持状态 --&gt;
 &lt;transition&gt;&lt;keep-alive&gt;&lt;component v-bind:is="currentTabComponent"&gt;&lt;/component&gt;&lt;/keep-alive&gt;&lt;/transition&gt;
 </code></pre>
+<p>动态组件通常会与 <a href="https://v2.cn.vuejs.org/v2/api/#keep-alive">&lt;keep-alive&gt;</a> 组件一并使用，保证组件切换时不丢失状态。</p>
+<pre><code class="language-jsx">/* keep-alive property */
+include - String | RegExp | Array =&gt; 名称匹配组件被缓存
+exclude - String | RegExp | Array =&gt; 名称匹配组件不被缓存
+max - Number | String =&gt; 最多可缓存的组件实例
+</code></pre>
+<p>对于缓存的组件，再次进入时，不会执行 created 或 mounted 等生命周期函数。</p>
+<p>组件在 &lt;keep-alive&gt; 中切换，activated 和 deactivated 生命周期将会对应执行。</p>
 <ul>
 <li><a href="https://v2.cn.vuejs.org/v2/guide/components-edge-cases.html#%E9%80%92%E5%BD%92%E7%BB%84%E4%BB%B6">递归组件</a></li>
 </ul>
@@ -1710,7 +1732,7 @@ var myRouter = new VueRouter({
         { path: "/zairesinatra/:id", component: Zs, props:true },...]})
 </code></pre>
 <p>同时注意：如果是传递静态参数，props设置为对象；传递复杂参数时，props设置为箭头函数路由模板应使用mustache传值，且路由实例中props设置为带参数(route)箭头函数,返回值中动态项无需添加$，直接route.params.id即可。</p>
-<h2 id>走马观花</h2>
+<h2 id="additionalconsiderations">Additional considerations</h2>
 <h3 id="vbindfunctionsync">v-bind:Function &amp; .sync</h3>
 <pre><code class="language-html">&lt;template&gt;
 &lt;div&gt;

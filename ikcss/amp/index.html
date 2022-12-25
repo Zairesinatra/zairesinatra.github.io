@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/ikcss/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/csscss.png" />
     <meta property="article:published_time" content="2019-05-19T21:23:00.000Z" />
-    <meta property="article:modified_time" content="2022-09-05T12:52:37.000Z" />
+    <meta property="article:modified_time" content="2022-12-03T18:04:05.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "CSS Review",
     "url": "yourdomain.com/ikcss/",
     "datePublished": "2019-05-19T21:23:00.000Z",
-    "dateModified": "2022-09-05T12:52:37.000Z",
+    "dateModified": "2022-12-03T18:04:05.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/csscss.png",
@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.10" />
+    <meta name="generator" content="Ghost 5.25" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -256,6 +256,16 @@
 
     amp-img img {
         object-fit: cover;
+    }
+    
+    amp-youtube {
+        height: calc(100vw / 1.78);
+        width: 100vw;
+        position: relative;
+    }
+
+    amp-youtube img {
+        position: absolute;
     }
 
     .page-header {
@@ -1428,6 +1438,26 @@ list.appendChild(fragment)
 <li>回流性能消耗较重绘要高，因回流的影响也会冒泡作用于周边及父元素。</li>
 <li><code>display:none;</code>因不占据物理空间，因此涉及了dom树的操作，所以会引起重绘和回流；<code>visibility:hiden;</code> 元素虽然不可见但是却占据物理空间，因此不影响dom树的改变，所以只会引起回流。</li>
 </ol>
+<h2 id="%E7%A7%8B%E8%B1%AA%E4%B9%8B%E6%9C%AB">秋豪之末</h2>
+<h3 id="%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E7%A9%BA%E6%A0%BC%E6%9C%89%E6%97%A0">类选择器之间的空格有无</h3>
+<ul>
+<li>中间用空格分隔，表示后代选择器</li>
+<li>中间无空格分隔，表示在此元素上需要包括这两个类才会生效</li>
+</ul>
+<pre><code class="language-css">.example .space{ /* 中间有空格 */
+  color: #646567;
+}
+.example.noSpace { /* 中间无空格 */
+  color: #6DB33F;
+}
+</code></pre>
+<pre><code class="language-html">&lt;p class="example"&gt;
+  no effect
+  &lt;span class="space"&gt;take effect&lt;/span&gt;
+&lt;/p&gt;
+</code></pre>
+<pre><code class="language-html">&lt;p class="example noSpace"&gt;take effect&lt;/p&gt;
+</code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 

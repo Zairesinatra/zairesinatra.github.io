@@ -8,11 +8,11 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=977d3f47b0.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=69401cbc3d.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=977d3f47b0.css" />
-    <meta name="description" content="webpack配置与异常" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=69401cbc3d.css" />
+    <meta name="description" content="webpack 配置与异常" />
     <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -21,16 +21,16 @@
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Webpack" />
-    <meta property="og:description" content="webpack配置与异常" />
+    <meta property="og:description" content="webpack 配置与异常" />
     <meta property="og:url" content="yourdomain.com/webpack/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/07/mickey.jpg" />
     <meta property="article:published_time" content="2021-03-08T11:55:00.000Z" />
-    <meta property="article:modified_time" content="2022-08-16T14:22:02.000Z" />
+    <meta property="article:modified_time" content="2022-12-16T18:05:37.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Webpack" />
-    <meta name="twitter:description" content="webpack配置与异常" />
+    <meta name="twitter:description" content="webpack 配置与异常" />
     <meta name="twitter:url" content="yourdomain.com/webpack/" />
     <meta name="twitter:image" content="yourdomain.com/content/images/2022/07/mickey.jpg" />
     <meta name="twitter:label1" content="Written by" />
@@ -71,7 +71,7 @@
     "headline": "Webpack",
     "url": "yourdomain.com/webpack/",
     "datePublished": "2021-03-08T11:55:00.000Z",
-    "dateModified": "2022-08-16T14:22:02.000Z",
+    "dateModified": "2022-12-16T18:05:37.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/07/mickey.jpg",
@@ -79,7 +79,7 @@
         "height": 1288
     },
     "keywords": "BUG handled",
-    "description": "webpack配置与异常",
+    "description": "webpack 配置与异常",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -87,9 +87,9 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.10" />
+    <meta name="generator" content="Ghost 5.25" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
-    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/portal@~2.9/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.20/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
 .gh-post-upgrade-cta {
     display: flex;
     flex-direction: column;
@@ -153,9 +153,10 @@
 .gh-post-upgrade-cta a.gh-btn:hover {
     opacity: 0.92;
 }</style>
-    <script defer src="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f5d74add11f1d16d3e59c12945" data-styles="https://cdn.jsdelivr.net/npm/@tryghost/sodo-search@~1.1/umd/main.css" data-sodo-search="yourdomain.com/" crossorigin="anonymous"></script>
-    <script defer src="../public/cards.min.js%3Fv=977d3f47b0"></script>
-    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=977d3f47b0.css">
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f5d74add11f1d16d3e59c12945" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="yourdomain.com/" crossorigin="anonymous"></script>
+    <script defer src="../public/cards.min.js%3Fv=69401cbc3d"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=69401cbc3d.css">
+    <script defer src="../public/member-attribution.min.js%3Fv=69401cbc3d"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
 <script>
@@ -364,28 +365,21 @@ pre[class*="language-"] > code[class*="language-"] {
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
 
-
 </head>
-<body class="post-template tag-bug-handled has-cover">
+<body class="post-template tag-bug-handled is-head-left-logo has-cover">
 <div class="viewport">
 
     <header id="gh-head" class="gh-head outer">
-        <nav class="gh-head-inner inner">
-
+        <div class="gh-head-inner inner">
             <div class="gh-head-brand">
                 <a class="gh-head-logo" href="../index.html">
-                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra" />
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra">
                 </a>
-                <div class="gh-head-brand-wrapper">
-                    <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
-                    <a class="gh-burger" role="button">
-                        <div class="gh-burger-box">
-                            <div class="gh-burger-inner"></div>
-                        </div>
-                    </a>
-                </div>
+                <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
             </div>
-            <div class="gh-head-menu">
+
+            <nav class="gh-head-menu">
                 <ul class="nav">
     <li class="nav-home"><a href="../index.html">Home</a></li>
     <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
@@ -394,15 +388,13 @@ pre[class*="language-"] > code[class*="language-"] {
     <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
 </ul>
 
-            </div>
+            </nav>
+
             <div class="gh-head-actions">
-                <button class="gh-search" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
-                <div class="gh-social">
-                        <a class="gh-social-link gh-social-twitter" href="https://twitter.com/xieziyi0422" title="Twitter" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
-                </div>
-                        <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+                    <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                            <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
             </div>
-        </nav>
+        </div>
     </header>
 
     <div class="site-content">
@@ -423,7 +415,7 @@ pre[class*="language-"] > code[class*="language-"] {
 
         <h1 class="article-title">Webpack</h1>
 
-            <p class="article-excerpt">webpack配置与异常</p>
+            <p class="article-excerpt">webpack 配置与异常</p>
 
         <div class="article-byline">
         <section class="article-byline-content">
@@ -440,7 +432,7 @@ pre[class*="language-"] > code[class*="language-"] {
                 <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                 <div class="byline-meta-content">
                     <time class="byline-meta-date" datetime="2021-03-08">Mar 8, 2021</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 27 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 35 min read</span>
                 </div>
             </div>
 
@@ -463,48 +455,24 @@ pre[class*="language-"] > code[class*="language-"] {
         <aside class="toc-container">
             <div class="toc"></div>
         </aside>
-        <!--kg-card-begin: markdown--><h2 id="">快速上手</h2>
-<p>Webpack 是一款前端资源构建工具，即 module bundler 静态模块打包器，将前端的所有资源文件 js、json、css、img... 都作为模块处理。根据模块的依赖关系进行静态分析，打包生成对应的静态资源 bundles。</p>
+        <!--kg-card-begin: markdown--><h2 id="gettingstarted">Getting Started</h2>
+<p>Webpack 前端资源构建工具，即 module bundler 静态模块打包器，将前端的所有资源文件 js、json、css、img... 都作为模块处理。根据模块的依赖关系进行静态分析，打包生成对应的静态资源 bundles。v4 起不再需要配置文件来打包项目。</p>
 <blockquote>
 <p>Bundling application 对于 HTTP/1.1 clients，可以减少浏览器发起请求时，应用所等待的时间；而对于 HTTP/2 来说，还可以使用代码分割进一步完成优化。</p>
 </blockquote>
-<blockquote>
-<p>Since version 4.0.0, webpack does not require a configuration file to bundle your project. Nevertheless, it is incredibly configurable to better fit your needs.</p>
-</blockquote>
-<h3 id="concepts"><a href="https://webpack.js.org/concepts/">Concepts</a></h3>
-<ul>
-<li><a href="https://webpack.js.org/concepts/#entry">Entry</a> =&gt; 指示具体的文件作为入口起点开始打包，构建内部<a href="https://webpack.js.org/concepts/dependency-graph/">依赖图</a></li>
-<li><a href="https://webpack.js.org/concepts/#output">Output</a> =&gt; 指示输出创建 bundles 的位置，以及命名方式</li>
-<li><a href="https://webpack.js.org/concepts/#loaders">Loaders</a> =&gt; 拓展开箱自带只能处理 JavaScript 和 JSON 文件的能力</li>
-<li><a href="https://webpack.js.org/concepts/#plugins">Plugins</a> =&gt; 执行范围更广的任务；打包优化，资源管理，注入环境变量</li>
-<li><a href="https://webpack.js.org/concepts/#mode">Mode</a> =&gt; 指示相应模式的配置；development, production 或 none</li>
-</ul>
 <h3 id="relatedinstructions">Related Instructions</h3>
-<p>webpack.config.js 配置文件存在时，在终端运行命令 <code>webpack</code>，配置文件中的配置选项会自动引用。</p>
+<ol>
+<li>Entry =&gt; 指示打包的入口起点，构建内部<a href="https://webpack.js.org/concepts/dependency-graph/">依赖图</a> =&gt; 默认 ./src/index.js</li>
+<li>Output =&gt; 指示输出创建 bundles 的位置，以及命名方式</li>
+<li>Loaders =&gt; 对模块源代码进行转换，拓展只能处理 JS 和 JSON 的能力</li>
+<li>Plugins =&gt; 执行范围更广的任务；打包优化，资源管理，注入环境变量</li>
+<li>Mode =&gt; 使用相应模式的内置优化：development, production or none</li>
+</ol>
+<p>webpack.config.js 配置文件存在时，在终端运行命令 <code>webpack</code>，配置文件中的配置选项会自动引用。该配置文件的存在可节省于 package.json 中的 &quot;script&quot; 内容。</p>
 <ul>
-<li>初始化配置</li>
+<li>基本 webpack.config.js 配置文件</li>
 </ul>
-<pre><code class="language-shell"># 初始化 package.json
-npm init
-# 下载并安装 webpack
-npm install webpack webpack-cli -g
-npm install webpack webpack-cli -D
-</code></pre>
-<ul>
-<li>编译打包应用</li>
-</ul>
-<pre><code class="language-shell"># 开发环境指令 - webpack 能够编译打包 js 和 json 文件,并且能将 es6 的模块化语法转换成 浏览器能识别的语法
-webpack src/js/index.js -o build/js/built.js --mode=development
-# 生产环境指令 - 在开发配置功能上多出压缩代码的功能
-webpack src/js/index.js -o build/js/built.js --mode=production
-</code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="generalconfiguration">General configuration</h2>
-<h3 id="">开发环境配置</h3>
-<ul>
-<li>基础打包</li>
-</ul>
-<pre><code class="language-javascript">// webpack.config.js
-const { resolve } = require('path'); // node 内置核心模块处理路径问题
+<pre><code class="language-javascript">const { resolve } = require('path'); // node 内置核心模块处理路径问题
 module.exports = { 
   entry: './src/js/index.js', // 入口文件
   output: { // 输出配置 
@@ -515,120 +483,167 @@ module.exports = {
 };
 </code></pre>
 <ul>
-<li>样式资源打包</li>
+<li>开发环境下的编译打包 &amp; 生产环境下的编译打包</li>
 </ul>
-<p><a href="https://webpack.js.org/loaders/css-loader/">css-loader</a> 处理 @import 和 url()；<a href="https://webpack.js.org/loaders/style-loader/">style-loader</a> 把 CSS 插入到 DOM 中。</p>
-<pre><code class="language-shell">npm i css-loader style-loader less-loader less -D
+<pre><code class="language-shell"># 自动处理 js 和 json 文件 + 将 es6 的模块化语法转换成浏览器能识别的内容
+$ webpack src/js/index.js -o build/js/built.js --mode=development
 </code></pre>
-<pre><code class="language-javascript">...
-// loader 的配置 —— module.rules 允许在 webpack 配置中指定多个 loader
-module: { // 不同文件必须配置不同 loader 处理
-  rules: [
-    {
-      test: /\.css$/, // test 正则匹配文件
-      use: [ // use 数组中使用 loader 的执行顺序为从右到左\从下到上依次执行
-        // 创建 style 标签并将 js 里的样式资源添加到 head 中生效 
-        'style-loader',
-        // 将 css 文件变成样式字符串的 commonjs 模块加载至 js
-        'css-loader'
-        ]
-      },
-      { 
-        test: /\.less$/, 
-        use: [ 
-          // 需要下载 less-loader 和 less 将 less 文件编译成 css
-          'style-loader', 'css-loader', 'less-loader'
-        ] 
-      } 
-    ] 
-  },
-...
+<pre><code class="language-shell"># 在开发配置功能上多出压缩代码的功能
+$ webpack src/js/index.js -o build/js/built.js --mode=production
 </code></pre>
-<ul>
-<li>打包 HTML 资源</li>
-</ul>
-<pre><code>文件夹---src---index.js
-	|	 └──---index.html
-	└──----------webpack.config.js
-</code></pre>
-<pre><code class="language-shell"># 下载安装 plugin 包
-npm install --save-dev html-webpack-plugin
-</code></pre>
-<pre><code class="language-javascript">...
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = { 
-...
-plugins: [  // plugins 的配置 
-    // html-webpack-plugin 默认会创建一个空的 HTML 并自动引入打包输出的所有资源 JS/CSS 适合需要有结构的 HTML 文件 
-    new HtmlWebpackPlugin({ 
-      // 复制 './src/index.html' 文件并自动引入打包输出的所有资源JS/CSS
-      template: './src/index.html' 
-    }) 
-  ],
-...
+<p>默认配置文件名 webpack.config.js，自定义配置文件名需要通过 --config 指定。</p>
+<pre><code class="language-json">&quot;script&quot;: {
+  &quot;build&quot;: &quot;webpack --config xxx.config.js&quot;
 }
 </code></pre>
 <ul>
-<li>打包图片资源</li>
+<li>局部 Webpack =&gt; <code>./node_modules/.bin/webpack</code> 或 <code>npx webpack</code></li>
 </ul>
+<p>package.json 中的 script 字段是一个对象，其属性名即对应的脚本名称。每当执行 npm run，就会自动新建一个 Shell，在这个 Shell 里面执行指定的脚本命令。</p>
+<p>npm run 新建的 Shell 会将 ./node_modules/.bin 子目录加入 PATH 变量，执行结束后，再将 PATH 变量恢复原样。</p>
+<pre><code class="language-json">/* 使用当前项目 webpack 而非全局 webpack 打包 */
+&quot;script&quot;: {
+  &quot;build&quot;: &quot;webpack&quot; // 无需 npx webpack
+}
+</code></pre>
+<blockquote>
+<p>为了更合适且方便地使用配置，可以在 webpack.config.js 中对 webpack 进行配置。CLI 中传入的任何参数会在配置文件中映射为对应的参数。</p>
+</blockquote>
+<h3 id="devenvconfiguration">dev-env configuration</h3>
+<p>配置文件的 module.rules 字段允许指定多个 loader 对源代码进行转换。</p>
+<p>test 字段用于正则匹配文件。use 字段的数组中 loader 的执行顺序为从右至左或从下往上。</p>
+<pre><code class="language-shell"># 常规因缺乏相应模块而导致的解析失败
+Module parse failed: Unexpected token. You may need an appropriate loader to handle this file type.
+</code></pre>
+<ul>
+<li>样式资源打包 =&gt; <a href="https://webpack.js.org/loaders/css-loader/">css-loader</a> &amp; <a href="https://webpack.js.org/loaders/style-loader/">style-loader</a></li>
+</ul>
+<p>css-loader 处理 @import 和 url()，将 CSS 文件解析成样式字符串的 CJS 模块加载至 JS。</p>
+<p>style-loader 创建 style 标签并将 JavaScript 里样式资源添加于 head 元素，即 CSS 插入 DOM 中。</p>
+<pre><code class="language-shell">npm i css-loader style-loader less-loader less -D
+</code></pre>
+<pre><code class="language-javascript">module: { // 不同文件必须配置不同 loader 处理
+  rules: [
+    {
+      test: /\.css$/,
+      use: [ 'style-loader', 'css-loader' ] // 语法糖
+    },
+    { 
+      test: /\.less$/, 
+      use: [ 'style-loader', 'css-loader', 'less-loader' ] // less-loader 将 less 文件编译成 css 
+    } 
+  ] 
+}
+</code></pre>
+<ul>
+<li>HtmlWebpackPlugin =&gt; 辅助生成 HTML 模板</li>
+</ul>
+<p>伴生 HTML5 文件，并于 body 中使用 script 标签引入生成的 bundle。</p>
+<p>通常 HTML 文件存于根目录下，而最终打包的 dist 目录中没有 index.html 文件。</p>
+<pre><code class="language-shell">npm install --save-dev html-webpack-plugin
+</code></pre>
+<pre><code class="language-javascript">const HtmlWebpackPlugin = require('html-webpack-plugin');
+plugins: [
+  new HtmlWebpackPlugin({ template: './src/index.html' }) // 复制 './src/index.html' 文件并自动引入打包输出的所有资源 JS/CSS
+]
+</code></pre>
+<ul>
+<li>打包图片资源 =&gt; 解析 background-image 的 url 或 img 的 src</li>
+</ul>
+<p>url-loader 的优势在于可将较小文件转成 base64 的 URI。</p>
 <pre><code class="language-shell"># 下载安装 loader 包
 npm install --save-dev html-loader url-loader
 </code></pre>
-<pre><code class="language-javascript">...
-module.exports = { 
-  ...
-  module: { 
-    rules: [ 
-      ...,
-      {
-        // 处理图片资源-默认处理不了 html 中 img 图片
-        test: /\.(jpg|png|gif)$/, 
-        // 仅使用一个 loader 可以直接指明 loader 而不需要 use
-        // 下载 url-loader
-        loader: 'url-loader',
-        options: {
-          // 图片大小小于 8kb，就会被 base64 处理 
-          // 优点能减少请求数量-减轻服务器压力；缺点是图片体积会更大-文件请求速度更慢 
-          limit: 8 * 1024, 
-          // 问题: url-loader 默认 es6 模块化解析; html-loader 引入图片是 commonjs
-          // 解决解析时出现的[object Module]: 关闭 url-loader 的 es6 模块化并使用 commonjs 解析 
-          esModule: false, 
-          // 给图片进行重命名 - [hash:10]取图片的 hash 的前 10 位 [ext]取文件原来扩展名 
-          name: '[hash:10].[ext]' 
-        }
-      },
-      { // 图片除了样式中引入还可能需要 html 标签引入
-        test: /\.html$/, 
-        // 处理 html 文件的 img 图片 - 负责引入 img 从而能被 url-loader 处理 
-        loader: 'html-loader' 
-      } 
-    ] 
+<p>页面请求过多的小图标时，可能会给服务器带来较大的压力。因请求时附带的额外信息有可能比图标的大小还要大。</p>
+<p>base64 处理后的图片能减少请求数量，减轻服务器压力。但是经 base64 处理后的图片体积会更大，且文件请求速度会更慢。</p>
+<p>base64 编码后的 URI 可嵌入 bundle.js，或随着其他资源一并下载。浏览器可以直接解析 base64，即直接显示出来，该方式也是对服务器并发性能的优化。</p>
+<p>url-loader 默认使用 ESM，html-loader 引入图片是 CJS。</p>
+<p>解析出现 [object Module] 时，应关闭 url-loader 的 ESM 并使用 CJS 解析。</p>
+<pre><code class="language-javascript">rules: [ 
+  {
+    test: /\.(jpg|png|gif)$/, // 默认处理不了 html 中 img 图片
+    loader: &quot;url-loader&quot;, // 仅使用一个 loader 可以不需要 use
+    options: {
+      limit: 8 * 1024, // 图片大小小于 8kb =&gt; 被 base64 处理
+      esModule: false, 
+      name: &quot;[hash:10].[ext]&quot; // 重命名 =&gt; [hash:10] 取图片的 hash 的前 10 位
+    }
   },
-  ...
-}
+  {
+    test: /\.html$/, // 处理图片除样式引入外的 html 标签引入
+    loader: &quot;html-loader&quot; 
+  } 
+]
 </code></pre>
-<ul>
-<li>打包其他资源</li>
-</ul>
-<pre><code class="language-shell"># 下载安装 loader 包
-npm install --save-dev file-loader
+<p>除 url-loader，file-loader 也可以处理图片格式的资源。</p>
+<p>file-loader 将文件中的 import/require 解析成 url 并发送到输出目录。</p>
+<pre><code class="language-shell">npm install --save-dev file-loader
 </code></pre>
-<pre><code class="language-javascript">...
-module.exports = { 
-  ...,
-  module: { 
-    rules: [ 
-      ...,
-      // 打包其他资源-除了 html/js/css 资源以外的资源-通常为矢量图标库
-      { // 排除 css/js/html
-        exclude: /\.(css|js|html|less)$/, 
-        loader: 'file-loader', 
-        options: { name: '[hash:10].[ext]' } 
+<pre><code class="language-javascript">rules: [ 
+  {
+    test: /\.(png|jpe?g|gif|svg)$/i,
+    loader: &quot;file-loader&quot;
+  }
+] 
+</code></pre>
+<p>若需将处理后的文件应按照一定的命名规则进行显示，使用 <a href="https://v4.webpack.js.org/loaders/file-loader/">Placeholders</a>。</p>
+<p>[ext]：目标文件/资源的扩展名 =&gt; Type: String Default: file.extname</p>
+<p>[hash]：由文件内容所生成的 hash 值 =&gt; Type: String Default: md4</p>
+<p>[name]：文件/资源的名称 =&gt; Type: String Default: file.basename</p>
+<p>[path]：资源路径相对于配置文件上下文的路径</p>
+<pre><code class="language-javascript">rules: [ 
+  {
+    exclude: /\.(css|js|html|less)$/, 
+    loader: &quot;file-loader&quot;, 
+    options: {
+      outputPath: &quot;img&quot;,
+      name: &quot;[hash:10].[ext]&quot; // 截取由内容生成的 hash 长度 =&gt; 默认 32 个 16 进制
+    }
+  }
+] 
+</code></pre>
+<p>v5 前加载资源需要使用 raw-loader、url-loader、file-loader 等，v5 后可通过资源模块类型 <a href="https://webpack.js.org/guides/asset-modules/#root">Asset Modules</a> 替代上述 loader。</p>
+<p>asset/resource：分发独立文件并导出 URL =&gt; 替代 file-loader</p>
+<p>asset/inline：导出一个资源的 data URI =&gt; 替代 url-loader</p>
+<p>asset/source：导出资源的源代码 =&gt; 替代 raw-loader</p>
+<p>asset：自动选择导出 data URI 或发送一个单独的文件 =&gt; 替代 url-loader</p>
+<pre><code class="language-js">rules: [
+  {
+    test: /\.(png|jpe?g|gif|svg)$/i,
+    type: &quot;asset&quot;,
+    generator: {
+      filename: &quot;img/[name]_[hash:6][ext]&quot;
+    },
+    parser: {
+      dataUrlCondition: {
+        maxSize: 10 * 1024
       }
-    ] 
-  },
-  ...
-}
+    }
+  }
+]
+</code></pre>
+<p>若需要处理特殊字体 eot、ttf、woff... 资源，可以使用 file-loader 或 AM。</p>
+<pre><code class="language-js">rules: [
+  {
+    test: /\.(eot|ttf|woff2?)$/i,
+    use: {
+      loader: &quot;file-loader&quot;,
+      options: {
+        name: &quot;font/[name]_[hash:6].[ext]&quot; // 可通过 outputPath 与 filename 替换
+      }
+    }
+  }
+]
+</code></pre>
+<pre><code class="language-js">rules: [
+  {
+    test: /\.(eot|ttf|woff2?)$/i,
+    type: &quot;asset/resource&quot;,
+    generator: {
+      filename: &quot;font/[name]_[hash:6][ext]&quot; // 此处为 filename 中写目录
+    }
+  }
+]
 </code></pre>
 <ul>
 <li>devserver</li>
@@ -657,7 +672,6 @@ module.exports = {
   } 
 };
 </code></pre>
-<p>NPM package.json 脚本是一种方便运行本地安装的二进制文件的方法，且不必担心其完整路径。可以简单地定义一个脚本并运行指令。</p>
 <pre><code class="language-shell">npx webpack-dev-server
 </code></pre>
 <p>这里需要注意，如果使用的是 <strong>webpack-cli 4</strong>  或 <strong>webpack 5</strong>，更改 <code>webpack-dev-server</code> 为 <code>webpack serve</code> 。<a href="https://stackoverflow.com/questions/40379139/cannot-find-module-webpack-bin-config-yargs">stackoverflow链接</a>。</p>
@@ -723,7 +737,17 @@ module.exports = {
   } 
 };
 </code></pre>
-<h3 id="">生产环境配置</h3>
+<h3 id="prodenvconfiguration">prod-env configuration</h3>
+<ul>
+<li>Clean plugin for webpack</li>
+</ul>
+<p>修改配置文件后进行重新打包时，通常需要手动删除 dist 目录，此时可通过 Clean plugin for webpack 插件完成。</p>
+<pre><code class="language-shell">$ npm i clean-webpack-plugin -D
+</code></pre>
+<pre><code class="language-js">const { CleanWebpackPlugin } = require(&quot;clean-webpack-plugin&quot;); // 引入类
+plugins: [ new CleanWebpackPlugin() ]
+</code></pre>
+<p>plugin贯穿整个 webpack 生命周期</p>
 <ul>
 <li>提取 css 成单独文件</li>
 </ul>
@@ -768,53 +792,45 @@ module.exports = {
 };
 </code></pre>
 <ul>
-<li>css 兼容性处理</li>
+<li>CSS 兼容性处理</li>
 </ul>
-<p>兼容处理需要 postcss --&gt; postcss-loader 保证在 webpack 中使用，同时通过 postcss-preset-env 识别环境，帮助 post-css 找到  package.json 中 browserlist 里的配置，通过配置加载指定的 css 兼容性样式。<a href="https://www.webpackjs.com/loaders/postcss-loader/">详情点此</a>。</p>
-<pre><code class="language-shell"># 下载插件
-npm install --save-dev postcss-loader postcss-preset-env
+<p><code>user-select</code> 之流的样式是需要进行兼容处理的，PostCSS 正是常规的转换与适配工具。在其通过 JS 进行转换的同时，需根据不同的需求添加相关的插件。</p>
+<p>终端使用 PostCSS 需要工具 postcss-cli，样式需添加前缀应安装 autoprefixer。</p>
+<pre><code class="language-shell">$ npm i postcss postcss-cli autoprefixer -D
 </code></pre>
-<pre><code class="language-javascript">const { resolve } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
-// 设置 nodejs 环境变量 -- 指明使用 package.json 中哪个环境的配置
-// process.env.NODE_ENV = 'development'; // 不进行配置则会默认为生产环境
-module.exports = { 
-  entry: './src/js/index.js', 
-  output: { 
-    filename: 'js/built.js', 
-    path: resolve(__dirname, 'build') 
-  },
-  module: { 
-    rules: [ 
-      { 
-        test: /\.css$/, 
-        use: [ 
-          MiniCssExtractPlugin.loader, 
-          'css-loader', 
-          // 修改配置需要写成对象的方式
-          { 
-            loader: 'postcss-loader', 
-            options: { 
-              ident: 'postcss', // 固定写法
-              plugins: () =&gt; [ 
-                // postcss 的插件 
-                require('postcss-preset-env')() 
-              ] 
-            } 
-          } 
+<pre><code class="language-shell"># 直接通过 postcss 定制使用 autoprefixer
+$ npx postcss --use autoprefixer -o compatibleStyle.css ./src/css/originalStyle.css
+</code></pre>
+<pre><code class="language-javascript">use: [
+  &quot;style-loader&quot;, &quot;css-loader&quot;,
+  {
+    loader: &quot;postcss-loader&quot;,
+    options: {
+      postcssOptions: {
+        plugins: [
+          require(&quot;autoprefixer&quot;)
         ]
-      } 
-    ] 
-  },
-  plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
-    new MiniCssExtractPlugin({ filename: 'css/built.css' }) 
-  ],
-  mode: 'development' 
-};
+      }
+    }
+  }
+]
 </code></pre>
-<p>browserlist 仓库<a href="https://github.com/browserslist/browserslist">点此跳转</a>。</p>
+<p>PostCSS 也可以使用内置 autoprefixer 的 postcss-preset-env（推荐）。</p>
+<blockquote>
+<p>PostCSS Preset Env lets you convert modern CSS into something most browsers can understand, determining the polyfills need based on your targeted browsers or runtime environments.</p>
+</blockquote>
+<pre><code class="language-javascript">// postcss.config.js
+module.exports = {
+  plugins: [
+    require(&quot;postcss-preset-env&quot;)
+  ]
+}
+</code></pre>
+<pre><code class="language-javascript">use: [ &quot;style-loader&quot;, &quot;css-loader&quot;, &quot;postcss-loader&quot; ]
+</code></pre>
+<ul>
+<li><a href="https://github.com/browserslist/browserslist">browserlist repo</a></li>
+</ul>
 <pre><code class="language-javascript">// package.json
 &quot;browserslist&quot;: { 
   &quot;development&quot;: [ 
@@ -882,44 +898,6 @@ module.exports = {
     new OptimizeCssAssetsWebpackPlugin() ],
   mode: 'development'
 };
-</code></pre>
-<ul>
-<li>js 兼容性处理</li>
-</ul>
-<p>chrome 浏览器中可以识别不代表 IE 浏览器可以识别 ES6 及其以上语法。<code>@babel/preset-env</code> 转换基本语法，<code>@babel/polyfill</code> 全部兼容性处理（包括 promise ）。<code>@babel/polyfill</code> 下载后引入 <code>js</code> 文件即可（暴力）。需要兼容性处理按需加载则考虑 <code>core-js</code> 。但是使用 <code>core-js</code> 时，不能使用<code>@babel/polyfill</code> ，在 <code>.js</code> 中引入的需要注释掉。</p>
-<pre><code class="language-shell"># 下载安装包
-npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/polyfill core-js
-</code></pre>
-<pre><code class="language-javascript">const { resolve } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = {
-  entry: './src/js/index.js',
-  output: { 
-    filename: 'js/built.js',
-    path: resolve(__dirname, 'build')
-    },
-  module: {
-    rules: [ { 
-      test: /\.js$/, 
-      exclude: /node_modules/,
-      // webpack1.x 时是 loader: 'babel'
-      loader: 'babel-loader', // webpack2.x+ 
-      options: { // 预设：指示 babel 做怎么样的兼容性处理 
-        presets: 
-        [[ 
-          '@babel/preset-env', { 
-          // 按需加载 useBuiltIns: 'usage',
-          // 指定 core-js 版本
-          corejs: { version: 3 },
-          // 指定兼容性做到哪个版本浏览器 -- core-js
-          targets: { chrome: '60', firefox: '60', ie: '9', safari: '10', edge: '17' }
-          }
-		]]
-      }
-    }] 
-  },
-  plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ],
-  mode: 'development'
 </code></pre>
 <ul>
 <li>js 压缩与 html 压缩</li>
@@ -1056,7 +1034,236 @@ module.exports = {
   &quot;extends&quot;: &quot;airbnb-base&quot;
 }
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="">优化配置</h2>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="babel">Babel</h2>
+<p><a href="https://babeljs.io/docs/en/">巴别塔 Babel</a> 是一个工具链，主要用于将 ECMAScript 2015+ 代码转换为当前和旧版浏览器或环境中向后兼容的 JavaScript 版本。Babel 在转译时，会将源代码分成 syntax 和 api 两部分来处理。let、const 等视作 syntax；函数、方法视作 API。</p>
+<h3 id="configurations">Configurations</h3>
+<ul>
+<li>@babel/core =&gt; babel 的核心库，提供 API 供 babel-loader 调用</li>
+</ul>
+<pre><code class="language-shell">$ npm install --save-dev @babel/core
+</code></pre>
+<ul>
+<li><a href="https://babeljs.io/docs/en/babel-preset-env">@babel/preset-env</a> =&gt; 预设插件集合，根据指定的执行环境提供语法翻译</li>
+</ul>
+<p>在没有预设的情况下，要转换箭头函数和块级作用域，就必须进行插件的下载。</p>
+<pre><code class="language-shell">$ npm i @babel/plugin-transform-arrow-functions @babel/plugin-block-scoping -D
+</code></pre>
+<pre><code class="language-shell">$ npx babel src --out-dir dist --plugins=@babel/plugin-transform-arrow-functions,@babel/plugin-block-scoping
+</code></pre>
+<p>新语法会对应繁杂的插件，故 Babel 提供应对各种情况的预设进行简化。</p>
+<pre><code class="language-shell">$ npm install --save-dev @babel/preset-env
+</code></pre>
+<pre><code class="language-shell">$ npx babel src --out-dir dist --presets=@babel/preset-env
+</code></pre>
+<p>targets 决定项目需要适配的环境，可申明适配的浏览器版本；babel 会根据浏览器的支持情况自动引入所需要的 polyfill。</p>
+<p>useBuiltIns 可选 usage|entry|false(default)，决定 preset-env 如何处理 polyfill。</p>
+<p>当使用 usage 或 entry 选项时，@babel/preset-env 会将对 core-js 模块的直接引用添加为裸导入。这意味着 core-js 将相对于文件本身进行解析。</p>
+<p>@babel/polyfill 在 7.4.0 中已弃用，建议直接通过选项添加 <a href="https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md">corejs</a> 和设置版本。</p>
+<pre><code class="language-shell">npm install core-js@3 --save
+# or
+npm install core-js@2 --save
+</code></pre>
+<ul>
+<li>@babel/polyfill =&gt; 对 @babel/preset-env 补丁操作，提供缺失的功能</li>
+</ul>
+<p>转译后的代码如果在不支持特定方法的浏览器中运行，会出现报错。babel/polyfill 这个库共分为两部分，core-js 与 regenerator-runtime。</p>
+<blockquote>
+<p>regenerator-runtime is the runtime support for compiled/transpiled async functions. (It may well have other uses, but this is the predominant one.)</p>
+</blockquote>
+<p>当 useBuiltIns 设置为 entry 后，且在源代码的最上方手动引入 @babel/polyfill 的库时，会默认将所有的 polyfill 全部引入，导致导致代码包异常庞大。</p>
+<pre><code class="language-java">/* core-js2 entry */
+/* 编译前 */
+import &quot;@babel/polyfill&quot;
+let zsarr = [1,2,3];
+zsarr.map(n =&gt; n + 1);
+zsarr.includes( item =&gt; item &gt;2)
+/* 编译后 */
+&quot;use strict&quot;;
+require(&quot;core-js/modules/es7.array.includes.js&quot;);
+require(&quot;core-js/modules/web.timers.js&quot;);
+require(&quot;core-js/modules/web.immediate.js&quot;);
+require(&quot;core-js/modules/web.dom.iterable.js&quot;);
+require(&quot;regenerator-runtime/runtime.js&quot;);
+var zsarr = [1, 2, 3];
+zsarr.map(function (n) { return n + 1; });
+zsarr.includes(function (item) { return item &gt; 2; });
+</code></pre>
+<p>按需加载则是将 useBuiltIns 的值改为 usage，且不需要手动引入 babel/polyfill。</p>
+<pre><code class="language-js">// .babelrc
+{
+  &quot;presets&quot;: [
+    [
+      &quot;@babel/preset-env&quot;,
+      {
+        &quot;useBuiltIns&quot;: &quot;usage&quot;,
+        &quot;debug&quot;: true
+      }
+    ]
+  ]
+}
+</code></pre>
+<pre><code class="language-javascript">/* core-js2 usage */
+/* 编译前 */
+import &quot;@babel/polyfill&quot;
+let zsarr = [1,2,3];
+zsarr.map(n =&gt; n + 1);
+zsarr.includes( item =&gt; item &gt;2)
+/* 编译后 */
+&quot;use strict&quot;;
+require(&quot;core-js/modules/es7.array.includes.js&quot;);
+var zsarr = [1, 2, 3];
+zsarr.map(function (n) { return n + 1; 
+zsarr.includes(function (item) { return item &gt; 2; });
+</code></pre>
+<p>由于 Babel 在转译 async functions 时，使用了 regeneratorRuntime 这个变量，而这个变量位于 regenerator-runtime 库中，所以会出现 undefined 错误。</p>
+<p>polyfill 机制是对于对象的静态方法，直接在全局对象上添加 =&gt; global.object?.?；对于实例方法，直接在全局对象的原型 global.object?.prototype.? 上添加。</p>
+<p>这种做法极度容易与第三方库发生冲突。公认的编程范式也不鼓励直接修改全局变量、全局变量原型。</p>
+<p>在处理类的语法中，Babel 通过增加自定义函数进行辅助或是直接重写方法，会在项目里重复生成不必要的代码。</p>
+<pre><code class="language-javascript">/* 编译前 */
+class Okk{}
+let okk = new Okk();
+typeof okk
+/* 编译后 */
+&quot;use strict&quot;;
+require(&quot;core-js/modules/web.dom.iterable.js&quot;);
+function _typeof(obj) { &quot;@babel/helpers - typeof&quot;; return _typeof = &quot;function&quot; == typeof Symbol &amp;&amp; &quot;symbol&quot; == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj &amp;&amp; &quot;function&quot; == typeof Symbol &amp;&amp; obj.constructor === Symbol &amp;&amp; obj !== Symbol.prototype ? &quot;symbol&quot; : typeof obj; }, _typeof(obj); }
+function _defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (&quot;value&quot; in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, &quot;prototype&quot;, { writable: false }); return Constructor; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(&quot;Cannot call a class as a function&quot;); } }
+var Okk = /*#__PURE__*/_createClass(function Okk() {
+  _classCallCheck(this, Okk);
+});
+var okk = new Okk();
+_typeof(okk);
+</code></pre>
+<ul>
+<li>@babel/plugin-transform-runtime =&gt; 自动填充代码；不污染全局变量</li>
+</ul>
+<p><a href="https://babeljs.io/docs/en/babel-plugin-transform-runtime">@babel/plugin-transform-runtime</a> 插件解决 @babel/polyfill 中存在的问题。</p>
+<pre><code class="language-shell">yarn add @babel/plugin-transform-runtime -D # 转译代码
+yarn add @babel/runtime-corejs3 # 存放可能会被 plugin-transform-runtime 引用的模块
+</code></pre>
+<pre><code class="language-javascript">{
+  &quot;presets&quot;: [
+    [
+      &quot;@babel/preset-env&quot;,
+      {
+        &quot;useBuiltIns&quot;: &quot;usage&quot;, // 如果 @babel/plugin-transform-runtime 配置了 corejs:3 =&gt; preset-env 的 useBuiltIns 就不会生效
+        &quot;debug&quot;: true,
+        &quot;targets&quot;: {
+          &quot;ie&quot;: 10
+        },
+        &quot;comments&quot;: false // 不产生注释
+      }
+    ]
+  ],
+  &quot;plugins&quot;: [
+    [
+      &quot;@babel/plugin-transform-runtime&quot;,
+      {
+        &quot;corejs&quot;: 3 // 指定 runtime-corejs 的版本 =&gt; 目前有 2、3
+      }
+    ]
+  ]
+}
+</code></pre>
+<pre><code class="language-javascript">/* babel 官网在线引入 =&gt; babel-plugin-optimize-helpers */ 
+/* 编译前 */
+class Okk{}
+let okk = new Okk();
+typeof okk 
+/* 编译后 */
+&quot;use strict&quot;;
+var _classCallCheck = require(&quot;@babel/runtime-corejs2/helpers/esm/classCallCheck&quot;)[&quot;default&quot;],
+    _createClass = require(&quot;@babel/runtime-corejs2/helpers/esm/createClass&quot;)[&quot;default&quot;],
+    _typeof = require(&quot;@babel/runtime-corejs2/helpers/esm/typeof&quot;).default;
+function _defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (&quot;value&quot; in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+var Okk = /*#__PURE__*/_createClass(function Okk() {
+  _classCallCheck(this, Okk);
+});
+var okk = new Okk();
+_typeof(okk);
+</code></pre>
+<ul>
+<li>babel-loader =&gt; 中间桥梁，以 babel/core 的 API 指导 webpack 处理 JS</li>
+</ul>
+<p>Chrome 中可以识别的 ES6+ 语法，不代表 IE 同样可以。</p>
+<p>@babel/preset-env 转换基本语法，而 @babel/polyfill 进行全部兼容性处理。</p>
+<p>@babel/polyfill 下载后引入脚本文件即可（暴力）。</p>
+<p>按需加载优先考虑 core-js 。使用 core-js 时，不能同时使用 @babel/polyfill。</p>
+<pre><code class="language-shell"># 下载安装包
+npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/polyfill core-js
+</code></pre>
+<pre><code class="language-javascript">const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  entry: './src/js/index.js',
+  output: { 
+    filename: 'js/built.js',
+    path: resolve(__dirname, 'build')
+    },
+  module: {
+    rules: [ { 
+      test: /\.js$/, 
+      exclude: /node_modules/,
+      // webpack1.x 时是 loader: 'babel'
+      loader: 'babel-loader', // webpack2.x+ 
+      options: { // 预设：指示 babel 做怎么样的兼容性处理 
+        presets: 
+        [[ 
+          '@babel/preset-env', { 
+          // 按需加载 useBuiltIns: 'usage',
+          // 指定 core-js 版本
+          corejs: { version: 3 },
+          // 指定兼容性做到哪个版本浏览器 -- core-js
+          targets: { chrome: '60', firefox: '60', ie: '9', safari: '10', edge: '17' }
+          }
+		]]
+      }
+    }] 
+  },
+  plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ],
+  mode: 'development'
+</code></pre>
+<blockquote>
+<p>=&gt; Toolchain 工具链<br>
+工具链参与开发的各个环节，从脚手架、构建⼯具、测试工具到最后的发布工具<br>
+The purpose of a software toolchain is to have a group of software tools linked together and optimized for a specific programming process. The output generated by one tool in the chain is used by the next tool in the chain as the input.</p>
+</blockquote>
+<h3 id="precautions">Precautions</h3>
+<ul>
+<li>@babel/preset-env 和 @babel/env =&gt; 缺乏 Promise、Array.from</li>
+</ul>
+<p>@babel/preset-env 是 Presets 里的一项；@babel/env 常见于具体配置文件中，由于已经位于 presets 项中，通常可省略 preset-，这二者是相同的。</p>
+<pre><code class="language-javascript">/* .babelrc */
+{
+  &quot;presets&quot;: [
+    [
+      &quot;@babel/preset-env&quot;, // '@babel/env' or 'env'
+      {
+        // &quot;targets&quot;: { &quot;browsers&quot;: [&quot;last 2 versions&quot;, &quot;safari &gt;= 7&quot;] }
+        &quot;targets&quot;: { ie: '8', edge: '17', firefox: '60', chrome: '67', safari: '11.1' },
+        &quot;useBuiltIns&quot;: &quot;entry&quot;,
+        &quot;debug&quot;: true
+      }
+    ]
+  ]
+}
+</code></pre>
+<ul>
+<li>Smallest Particle =&gt; 最小化的 Babel 转换条件</li>
+</ul>
+<p>@babel/core、@babel/preset-env、a Babel &quot;runner&quot; (@babel/cli, babel-loader, @rollup/plugin-babel, etc)</p>
+<ul>
+<li>
+<p>配置文件格式 =&gt; .babelrc 和 babel.config.js</p>
+</li>
+<li>
+<p>Babel 运行时处理规则</p>
+</li>
+</ul>
+<p>plugins 优先于 presets 编译；plugins 按照数组索引增序进行编译；presets 按照数组索引倒序进行编译。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="optimization">Optimization</h2>
 <p>测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下</p>
 <p>优化前端性能其实是指优化打包的输出结果。</p>
 <p>压缩代码可以利用 uglifyjs-webpack-plugin 和 ParallelUglifyPlugin</p>
@@ -1759,21 +1966,22 @@ Error: Cannot find module 'webpack-cli/bin/config-yargs'
     </section>
 
 
-<section class="article-comments gh-canvas">
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = "yourdomain.com/webpack/";
-            this.page.identifier = "ghost-604610bea4b9b30d8ba63bab"
-        };
-        (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://zsxzy.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-    </script>
-</section>
+    <section class="article-comments gh-canvas">
+        
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "yourdomain.com/webpack/";
+                this.page.identifier = "ghost-604610bea4b9b30d8ba63bab"
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    </section>
 </article>
 </main>
 
@@ -1913,6 +2121,7 @@ Error: Cannot find module 'webpack-cli/bin/config-yargs'
         <div class="inner">
             <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
             <nav class="site-footer-nav">
+                <ul><a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021003061号-1</a></ul>
                 
             </nav>
             <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
@@ -1927,7 +2136,7 @@ Error: Cannot find module 'webpack-cli/bin/config-yargs'
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=977d3f47b0"></script>
+<script src="../assets/built/casper.js%3Fv=69401cbc3d"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
@@ -2009,8 +2218,6 @@ if(document.body.clientWidth > 1170){
     console.log("zszszs")
   }
 }})
-
 </script>
-
 </body>
 </html>
