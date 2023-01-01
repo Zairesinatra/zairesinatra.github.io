@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/zsmacconfig/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/07/adventure.jpg" />
     <meta property="article:published_time" content="2019-04-22T13:54:00.000Z" />
-    <meta property="article:modified_time" content="2022-12-23T10:07:51.000Z" />
+    <meta property="article:modified_time" content="2022-12-28T09:46:21.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "ZsMacConfig",
     "url": "yourdomain.com/zsmacconfig/",
     "datePublished": "2019-04-22T13:54:00.000Z",
-    "dateModified": "2022-12-23T10:07:51.000Z",
+    "dateModified": "2022-12-28T09:46:21.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/07/adventure.jpg",
@@ -1449,11 +1449,16 @@ $ sudo xcodebuild -license
 <p>esc 失效，此时有外接键盘。失效应先进行<a href="https://www.onlinemictest.com/zh/keyboard-test/">键盘测试</a>。重启服务即可。</p>
 <h3 id="allow-apps-downloaded-from">Allow apps downloaded from</h3>
 <blockquote>
-<p><a href="https://hsc.unm.edu/about/cio/assets/doc/disablegatekeeper.pdf">官方文档</a><br />
-The "Anywhere" setting can be restored to Gatekeeper in Sierra with a<br />
-Terminal command. First, quit System Preferences if it’s open and then open a new Terminal window. Double click on Terminal in the utilities window that appears. Enter the following command, followed by your admin password when prompted.</p>
+<p>Gatekeeper 是 macOS 操作系统中的一项安全功能。它会强制执行代码签名并在下载的应用程序运行前进行验证，从而降低无意中执行恶意软件的可能性。</p>
 </blockquote>
-<pre><code class="language-shell">$ sudo spctl --master-disable 
+<blockquote>
+<p>Allows all applications to be launched. This effectively turns Gatekeeper off.</p>
+</blockquote>
+<blockquote>
+<p>This option can be re-enabled by using the 'sudo spctl --master-disable' command from the Terminal and authenticating with an admin password.</p>
+</blockquote>
+<pre><code class="language-shell">$ sudo spctl --master-disable
+$ sudo spctl --global-disable # 新版本
 </code></pre>
 <h3 id="screen-recording-no-voice">screen recording no voice</h3>
 <p>可以参考此条 <a href="https://www.youtube.com/watch?v=FKDGwwOqUsk">Youtube</a>，下载 soundflower，但是通过 homebrew 不能成功安装。</p>

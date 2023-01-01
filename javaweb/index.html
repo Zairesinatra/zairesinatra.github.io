@@ -25,7 +25,7 @@
     <meta property="og:url" content="yourdomain.com/javaweb/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/05/dragonBall.jpg" />
     <meta property="article:published_time" content="2019-06-04T13:22:00.000Z" />
-    <meta property="article:modified_time" content="2022-06-06T18:03:12.000Z" />
+    <meta property="article:modified_time" content="2023-01-01T09:41:42.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -71,7 +71,7 @@
     "headline": "JavaWeb",
     "url": "yourdomain.com/javaweb/",
     "datePublished": "2019-06-04T13:22:00.000Z",
-    "dateModified": "2022-06-06T18:03:12.000Z",
+    "dateModified": "2023-01-01T09:41:42.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/05/dragonBall.jpg",
@@ -455,13 +455,19 @@ pre[class*="language-"] > code[class*="language-"] {
         <aside class="toc-container">
             <div class="toc"></div>
         </aside>
-        <!--kg-card-begin: markdown--><h2 id="xml-extensible-markup-language">XML Extensible Markup Language</h2>
-<h3 id="%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95">基本语法</h3>
-<p>声明是固定格式；根标签有且只能有一个；允许单双标签，且可以嵌套，但是不能交叉嵌套；标签名、属性名建议使用小写字母；属性值必须加引号，单双皆可。</p>
+        <!--kg-card-begin: markdown--><h2 id="quick-start">Quick Start</h2>
+<h3 id="extensible-markup-language">Extensible Markup Language</h3>
+<p>XML 基本语法（固定格式的声明）：</p>
+<ul>
+<li>根标签有且只能有一个</li>
+<li>允许单双标签</li>
+<li>可以嵌套，但是不能交叉嵌套</li>
+<li>标签名、属性名建议使用小写字母</li>
+<li>属性值必须加引号，单双皆可</li>
+</ul>
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 </code></pre>
-<h3 id="schema-%E7%BA%A6%E6%9D%9F">Schema 约束</h3>
-<p>此约束要求在一个 XML 文档中，所有标签和属性都必须在约束中有明确的定义。</p>
+<p>Schema 约束：在 XML 文档中，所有标签和属性都必须在约束中有明确的定义。</p>
 <table>
 <thead>
 <tr>
@@ -484,21 +490,19 @@ pre[class*="language-"] > code[class*="language-"] {
 </tr>
 </tbody>
 </table>
-<p><img src="../content/images/2022/06/xmlnsSchemaLocation.png" alt="xmlnsSchemaLocation" loading="lazy"></p>
-<h2 id="tomcat">Tomcat</h2>
-<p>Tomcat 是一个开源应用服务器，同时也用作于 servlet 容器，为 Java 应用程序提供服务。其中 Javaweb 项目并不是将源代码进行部署，而是部署包 Artifact。</p>
-<p>在 IntelliJ IDE 中 Run -&gt; Edit Configurations -&gt; Edit Configuration Templates -&gt; Tomcat Server -&gt; Local 进行配置，完成后出现 Application Servers 选项。</p>
-<p><img src="../content/images/2022/06/tomcatMeaning.png" alt="tomcatMeaning" loading="lazy"></p>
-<h3 id="centos-%E7%A9%BA%E9%97%B4">CentOS 空间</h3>
+<div style="display:flex;justify-content:center"><img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1672565917/blog/zsghost/JavaWeb/xmlnsSchemaLocation_qivjoj.png" width="75%"/></div>
+<h3 id="tomcat">Tomcat</h3>
+<p>开源应用服务器 Tomcat 常作为承载 Servlet 的容器。</p>
+<p>Javaweb 项目并不是将源代码进行部署，而是部署包 Artifact。</p>
+<p>IntelliJ IDE 配置：Run -&gt; Edit Configurations -&gt; Edit Configuration Templates -&gt; Tomcat Server -&gt; Local，完成后出现 Application Servers 选项。</p>
+<div style="display:flex;justify-content:center"><img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1672565950/blog/zsghost/JavaWeb/tomcatMeaning_srlpbt.png" width="70%"/></div>
+<p>CentOS 空间：</p>
 <ul>
-<li>安装 Java</li>
+<li>安装 Java &amp; 安装配置 Tomcat</li>
 </ul>
 <p>Tomcat 要求在服务器上安装 Java 来执行任何 Java Web 的应用程序代码。</p>
 <pre><code class="language-shell">yum install java-1.8.0-openjdk-devel.x86_64
 </code></pre>
-<ul>
-<li>Tomcat 安装配置</li>
-</ul>
 <p>出于安全考虑，Tomcat 应该作为非 root 用户运行。故创建一个运行此服务的新用户和组。</p>
 <pre><code class="language-shell"># 创建新 Tomcat 组
 sudo groupadd tomcat
@@ -558,14 +562,16 @@ sudo systemctl status tomcat
 # 开启在服务器启动时启动
 sudo systemctl enable tomcat
 </code></pre>
-<h3 id="mac-%E7%A9%BA%E9%97%B4">mac 空间</h3>
+<p>Local 空间（mac 环境）：</p>
 <pre><code class="language-shell"># 指定版本9
 $ brew install tomcat@9
 # 查看安装地址
 $ brew ls tomcat@9
-# 启动、停止Tomcat =&gt; http://localhost:8080/
+</code></pre>
+<pre><code class="language-shell"># 启动、停止Tomcat =&gt; http://localhost:8080/
 $ brew services start|stop tomcat@9
-# tomcat 目录结构
+</code></pre>
+<pre><code class="language-shell"># tomcat 目录结构
 $ tree -x /usr/local/Cellar/tomcat@9/9.0.62/libexec
 /usr/local/Cellar/tomcat@9/9.0.62/libexec
 ├── BUILDING.txt
@@ -578,8 +584,7 @@ $ tree -x /usr/local/Cellar/tomcat@9/9.0.62/libexec
 ├── webapps =&gt; 项目部署的目录
 └── work =&gt; 工作目录
 </code></pre>
-<h3 id="%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">配置文件</h3>
-<p>conf 目录下的 server.xml 文件中可看出，Tomcat 启动后，会占用个三个端口号。</p>
+<p>配置文件：conf 目录下的 server.xml =&gt; Tomcat 启动会占用个三个端口号。</p>
 <pre><code class="language-xml">...
 &lt;!-- 第22行 --&gt;
 &lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&gt;
@@ -592,12 +597,121 @@ $ tree -x /usr/local/Cellar/tomcat@9/9.0.62/libexec
 &lt;!-- 第115行 =&gt; 默认被注释 --&gt;
 &lt;Connector port=&quot;8009&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8443&quot; /&gt;
 </code></pre>
-<h2 id="servlet">Servlet</h2>
-<h3 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h3>
-<p>Servlet 可使用 javax.servlet 和 javax.servlet.http 包创建。前者包下一系列的接口用于定义开发标准。遵循这一套标准，不同的 Servlet 容器提供了不同的实现。后者接口及其实现类就是实际开发时使用的具体的 Servlet。</p>
-<p>HttpServlet 类 - 继承自 -&gt; GenericServlet 类 - 实现 -&gt; Servlet接口。</p>
-<p>Servlet 接口负责访问规范，GenericServlet 类在持有 ServletConfig 类引用的同时完成空实现，HttpServlet 类实现上层定义的抽象 service 方法，实现请求分发。</p>
-<p>web.xml 文件用来初始化配置页面、servlet、servlet-mapping、filter、listener、启动加载级别等信息。同时注意约定大于配置。</p>
+<h3 id="cookie-session">Cookie &amp; Session</h3>
+<p>Cookie 的大小不能超过 4kb，是服务端通知客户端保存键值对的一种技术。</p>
+<p>客户端存在的 Cookie 会随着每次的请求发送给服务器。</p>
+<p>Cookie 的创建：</p>
+<ul>
+<li>浏览器没有 Cookie 时向服务端发送请求</li>
+<li>服务端创建 Cookie 并通知客户端保存返回的 Cookie</li>
+<li>客户端收到响应后查阅 set-cookie：有则修改，无则创建</li>
+</ul>
+<pre><code class="language-java">// 创建 cookie 对象
+Cookie cookie = new Cookie(&quot;cookieKey&quot;,&quot;cookieValue&quot;);
+// 通知客户端保存
+resp.addCookie(cookie);
+</code></pre>
+<p>服务端获取 Cookie：<code>req.getCookies()</code></p>
+<pre><code class="language-java">// 获取客户端传递的所有 Cookie
+Cookie[] cookies = req.getCookies();
+for(Cookie cookie:cookies){
+    System.out.println(cookie.getName()); // 获取cookie的键
+    System.out.println(cookie.getValue()); // 获取cookie的值
+}
+</code></pre>
+<p>服务端对 Cookie 的修改：</p>
+<pre><code class="language-java">// 方案一 =&gt; 创建同名 cookie 并回传
+Cookie cookie = new Cookie(&quot;cookieKey&quot;,&quot;cookieValue&quot;);
+resp.addCookie(cookie);
+// 方案二 =&gt; 查找所需修改的 cookie 对象并调用 setValue 赋新值并返回
+Cookie cookie = CookieUtils.findCookie(&quot;cookieKey&quot;,req.getCookies());
+if(cookie != null){cookie.setValue(&quot;newValue&quot;);resp.addCookie(cookie);}
+</code></pre>
+<p>Cookie 生命控制：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">会话级Cookie</th>
+<th style="text-align:center">持久化Cookie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">服务器端并没有明确指定Cookie的存在时间</td>
+<td style="text-align:center">服务器端明确设置了Cookie的存在时间</td>
+</tr>
+<tr>
+<td style="text-align:center">在浏览器端，Cookie数据存在于内存中</td>
+<td style="text-align:center">在浏览器端，Cookie数据会被保存到硬盘上</td>
+</tr>
+<tr>
+<td style="text-align:center">只要浏览器还开着，Cookie数据就一直都在</td>
+<td style="text-align:center">Cookie在硬盘上存在的时间根据服务器端限定的时间来管控，不受浏览器关闭的影响</td>
+</tr>
+<tr>
+<td style="text-align:center">浏览器关闭，内存中的Cookie数据就会被释放</td>
+<td style="text-align:center">持久化Cookie到达了预设的时间会被释放</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-java">// setMaxAge() =&gt; 设置 cookie 最大生存时间,单位为秒 =&gt; 正数表示在指定的秒数后过期;负值表示浏览器关闭就删除;0表示立刻删除
+cookie.setMaxAge(-1); // 默认是-1
+</code></pre>
+<p>服务端对 Cookie 的路径设置：</p>
+<pre><code class="language-java">cookie.setPath(req.getContextPath() + &quot;/xxx&quot;); // 满足路径才会发送此 cookie
+</code></pre>
+<p>Session 用于存放客户端与服务器之间的会话，以解决 http 无状态的衍生问题。每个客户端都会有一个各自的 Session 会话，常用来保存登录后的信息。</p>
+<p>创建与获取 Session：</p>
+<pre><code class="language-java">// 第一次调用 =&gt; 创建;后续调用 =&gt; 获取
+HttpSession session = req.getSession();
+// 判断是否为新 Session =&gt; isNew() =&gt; true =&gt; 新创建
+boolean isNew = session.isNew();
+// 得到 Session 的会话 id 值 =&gt; 每个会话都有一个唯一 id
+String id = session.getId();
+</code></pre>
+<p>Session 域数据存取：</p>
+<pre><code class="language-java">req.getSession().setAttribute(&quot;keyName&quot;,&quot;valueContent&quot;);
+Object obj = req.getSession().getAttribute(&quot;keyName&quot;); // valueContent
+</code></pre>
+<p>Session 生命周期控制：Session 的超时是指客户端两次请求的最大间隔时长。</p>
+<pre><code class="language-java">// setMaxInactiveInterval =&gt; 设置 Session 超时时间 =&gt; 超过即销毁 =&gt; 秒为单位
+// 常用于修改个别 Session 超时时长
+req.getSession().setMaxInactiveInterval(3); // 当前 session 3 秒超时
+// getMaxInactiveInterval =&gt; 获取 Session 超时时间 =&gt; 秒为单位
+int maxInactiveInterval = req.getSession().getMaxInactiveInterval(); // 默认 1800s =&gt; 30mins
+// 当前 Session 会话马上超时
+req.getSession().invalidate();
+</code></pre>
+<pre><code class="language-xml">&lt;!-- tomcat 服务器配置 --&gt;
+&lt;session-config&gt;
+    &lt;session-timeout&gt;30&lt;/session-timeout&gt;
+&lt;/session-config&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;!-- 当前 web 工程创建出来的所有 session 默认 20 分钟 --&gt;
+&lt;!-- web.xml --&gt;
+&lt;session-config&gt;
+    &lt;session-timeout&gt;20&lt;/session-timeout&gt;
+&lt;/session-config&gt;
+</code></pre>
+<p>Session 底层是基于 Cookie 实现的。无任何 Cookie 的浏览器在访问服务器时，服务器会通过 <code>req.getSession()</code> 创建 Session 会话对象，与此同时也会创建出一个 Cookie 的对象。</p>
+<p>此 Cookie 对象的键是 JSESSIONID，值是新建 Session 的 id。后续通过响应将新建 Session 的 id 值返回给客户端，<code>Set-Cookie:JSESSIONID=xxxxx;</code>。</p>
+<p>当浏览器接受到数据后会立即创建 Cookie 对象，后续的每次请求会根据 path 路径的设置携带具有 Session id 的 Cookie 给服务器。服务器据 <code>req.getSession()</code> 方法以 Cookie 中的 id 值查询此前创建好的 Session 对象，并返回。</p>
+<p>在 Session 存活的时间内删除客户端 Session 中的 Cookie：Cookie 中的 Session id 消失，服务器会新建一个 Session 会话。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="servlet">Servlet</h2>
+<blockquote>
+<p>A servlet is a Java programming language class used to extend the capabilities of servers that host applications accessed by means of a request-response programming model. Although servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers. For such applications, Java Servlet technology defines HTTP-specific servlet classes.</p>
+</blockquote>
+<p>javax.servlet 和 javax.servlet.http 包提供用于编写 servlet 的接口和类。</p>
+<p>所有 servlet 都必须实现 Servlet 接口，该接口定义了生命周期方法。</p>
+<p>实现通用服务时，可以使用或扩展 Java Servlet API 提供的 GenericServlet 类。</p>
+<p>HttpServlet 类提供用于处理 HTTP 特定服务的方法，例如 doGet 和 doPost。</p>
+<p>HttpServlet 类 - 继承 -&gt; GenericServlet 类 - 实现 -&gt; Servlet 接口：</p>
+<ul>
+<li>Servlet 接口负责访问规范</li>
+<li>GenericServlet 类在持有 ServletConfig 类引用的同时完成空实现</li>
+<li>HttpServlet 类实现上层定义的抽象 service 方法，实现请求分发</li>
+</ul>
+<p>web.xml 文件用于初始化配置页面（注意：约定大于配置）：</p>
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -917,121 +1031,6 @@ resp.sendRedirect(&quot;http://localhost:8080/xxx&quot;);
 </tr>
 </tbody>
 </table>
-<h2 id="cookie-%E4%B8%8E-session">Cookie 与 Session</h2>
-<h3 id="cookie">Cookie</h3>
-<p>Cookie 是服务端通知客户端保存键值对的一种技术，客户端存在的 cookie 会随着每次请求发送给服务器，每个 Cookie 的大小不能超过 4kb。</p>
-<ul>
-<li>Cookie 的创建</li>
-</ul>
-<p>浏览器没有 Cookie 时向服务端发送请求，服务端会创建 Cookie 并通知客户端保存返回的 Cookie，在客户端收到响应后，查阅到 set-cookie 响应头，有此 Cookie 则修改，无则创建。</p>
-<pre><code class="language-java">// 创建 cookie 对象
-Cookie cookie = new Cookie(&quot;cookieKey&quot;,&quot;cookieValue&quot;);
-// 通知客户端保存
-resp.addCookie(cookie);
-</code></pre>
-<ul>
-<li>Cookie 的获取</li>
-</ul>
-<pre><code class="language-java">// 获取客户端传递的所有 Cookie
-Cookie[] cookies = req.getCookies();
-for(Cookie cookie:cookies){
-    System.out.println(cookie.getName()); // 获取cookie的键
-    System.out.println(cookie.getValue()); // 获取cookie的值
-}
-</code></pre>
-<ul>
-<li>Cookie 的修改</li>
-</ul>
-<pre><code class="language-java">// 方案一 =&gt; 创建同名 cookie 并回传
-Cookie cookie = new Cookie(&quot;cookieKey&quot;,&quot;cookieValue&quot;);
-resp.addCookie(cookie);
-// 方案二 =&gt; 查找所需修改的 cookie 对象并调用 setValue 赋新值并返回
-Cookie cookie = CookieUtils.findCookie(&quot;cookieKey&quot;,req.getCookies());
-if(cookie != null){cookie.setValue(&quot;newValue&quot;);resp.addCookie(cookie);}
-</code></pre>
-<ul>
-<li>Cookie 的生命控制</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">会话级Cookie</th>
-<th style="text-align:center">持久化Cookie</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">服务器端并没有明确指定Cookie的存在时间</td>
-<td style="text-align:center">服务器端明确设置了Cookie的存在时间</td>
-</tr>
-<tr>
-<td style="text-align:center">在浏览器端，Cookie数据存在于内存中</td>
-<td style="text-align:center">在浏览器端，Cookie数据会被保存到硬盘上</td>
-</tr>
-<tr>
-<td style="text-align:center">只要浏览器还开着，Cookie数据就一直都在</td>
-<td style="text-align:center">Cookie在硬盘上存在的时间根据服务器端限定的时间来管控，不受浏览器关闭的影响</td>
-</tr>
-<tr>
-<td style="text-align:center">浏览器关闭，内存中的Cookie数据就会被释放</td>
-<td style="text-align:center">持久化Cookie到达了预设的时间会被释放</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="language-java">// setMaxAge() =&gt; 设置 cookie 最大生存时间,单位为秒 =&gt; 正数表示在指定的秒数后过期;负值表示浏览器关闭就删除;0表示立刻删除
-cookie.setMaxAge(-1); // 默认是-1
-</code></pre>
-<ul>
-<li>Cookie 的路径设置</li>
-</ul>
-<pre><code class="language-java">cookie.setPath(req.getContextPath() + &quot;/xxx&quot;); // 满足路径才会发送此cookie
-</code></pre>
-<h3 id="session">Session</h3>
-<p>Session 用于存放客户端与服务器之间的会话，以解决 http 无状态的衍生问题。每个客户端都会有一个各自的 Session 会话，常用来保存登录后的信息。</p>
-<ul>
-<li>创建与获取 Session</li>
-</ul>
-<pre><code class="language-java">// 第一次调用 =&gt; 创建;后续调用 =&gt; 获取
-HttpSession session = req.getSession();
-// 判断是否为新 Session =&gt; isNew() =&gt; true =&gt; 新创建
-boolean isNew = session.isNew();
-// 得到 Session 的会话 id 值 =&gt; 每个会话都有一个唯一 id
-String id = session.getId();
-</code></pre>
-<ul>
-<li>Session 域数据存取</li>
-</ul>
-<pre><code class="language-java">req.getSession().setAttribute(&quot;keyName&quot;,&quot;valueContent&quot;);
-Object obj = req.getSession().getAttribute(&quot;keyName&quot;); // valueContent
-</code></pre>
-<ul>
-<li>Session 生命周期控制</li>
-</ul>
-<p>Session 的超时是指客户端两次请求的最大间隔时长。</p>
-<pre><code class="language-java">// setMaxInactiveInterval =&gt; 设置 Session 超时时间 =&gt; 超过即销毁 =&gt; 秒为单位
-// 常用于修改个别 Session 超时时长
-req.getSession().setMaxInactiveInterval(3); // 当前 session 3 秒超时
-// getMaxInactiveInterval =&gt; 获取 Session 超时时间 =&gt; 秒为单位
-int maxInactiveInterval = req.getSession().getMaxInactiveInterval(); // 默认 1800s =&gt; 30mins
-// 当前 Session 会话马上超时
-req.getSession().invalidate();
-</code></pre>
-<pre><code class="language-xml">&lt;!-- tomcat 服务器配置 --&gt;
-&lt;session-config&gt;
-    &lt;session-timeout&gt;30&lt;/session-timeout&gt;
-&lt;/session-config&gt;
-</code></pre>
-<pre><code class="language-xml">&lt;!-- 当前 web 工程创建出来的所有 session 默认 20 分钟 --&gt;
-&lt;!-- web.xml --&gt;
-&lt;session-config&gt;
-    &lt;session-timeout&gt;20&lt;/session-timeout&gt;
-&lt;/session-config&gt;
-</code></pre>
-<h3 id="%E5%B0%8F%E7%BB%93">小结</h3>
-<p>Session 底层是基于 Cookie 实现的。无任何 Cookie 的浏览器在访问服务器时，服务器会通过 <code>req.getSession()</code> 创建 Session 会话对象，与此同时也会创建出一个 Cookie 的对象。</p>
-<p>此 Cookie 对象的键是 JSESSIONID，值是新建 Session 的 id。后续通过响应将新建 Session 的 id 值返回给客户端，<code>Set-Cookie:JSESSIONID=xxxxx;</code>。</p>
-<p>当浏览器接受到数据后会立即创建 Cookie 对象，后续的每次请求会根据 path 路径的设置携带具有 Session id 的 Cookie 给服务器。服务器据 <code>req.getSession()</code> 方法以 Cookie 中的 id 值查询此前创建好的 Session 对象，并返回。</p>
-<p>若在 Session 超时时长内，删除客户端 Session 的 Cookie。那么由于没有 Cookie 中携带的 Session id 的值，故服务器会新建一个 Session 会话并继续上述的操作。</p>
 <h2 id="filter-%E8%BF%87%E6%BB%A4%E5%99%A8">Filter 过滤器</h2>
 <p>Filter 过滤器是 JavaEE 规范，即接口，作用是拦截请求，过滤响应。常见的应用场景有权限检查、日志操作、事务管理等。</p>
 <h3 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h3>
@@ -1168,7 +1167,7 @@ req.getSession().invalidate();
     }
 }
 </code></pre>
-<h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
 <ul>
 <li>Web Application 创建问题</li>
 </ul>
@@ -1361,7 +1360,7 @@ resp.setContentType(&quot;text/html;charset=utf-8&quot;);
                 <div class="post-card-tags">
                 </div>
                 <h2 class="post-card-title">
-                    MySQL 笔记
+                    MySQL
                 </h2>
             </header>
                 <div class="post-card-excerpt">MYSQL 基础篇</div>
@@ -1369,7 +1368,7 @@ resp.setContentType(&quot;text/html;charset=utf-8&quot;);
 
         <footer class="post-card-meta">
             <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
-                <span class="post-card-meta-length">82 min read</span>
+                <span class="post-card-meta-length">42 min read</span>
         </footer>
 
     </div>
@@ -1421,7 +1420,7 @@ resp.setContentType(&quot;text/html;charset=utf-8&quot;);
 
     <footer class="site-footer outer">
         <div class="inner">
-            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2022</section>
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2023</section>
             <nav class="site-footer-nav">
                 <ul><a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021003061号-1</a></ul>
                 
