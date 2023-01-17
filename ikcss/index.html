@@ -25,7 +25,7 @@
     <meta property="og:url" content="yourdomain.com/ikcss/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/csscss.png" />
     <meta property="article:published_time" content="2019-05-19T21:23:00.000Z" />
-    <meta property="article:modified_time" content="2022-12-03T18:04:05.000Z" />
+    <meta property="article:modified_time" content="2023-01-12T19:08:31.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -71,7 +71,7 @@
     "headline": "CSS Review",
     "url": "yourdomain.com/ikcss/",
     "datePublished": "2019-05-19T21:23:00.000Z",
-    "dateModified": "2022-12-03T18:04:05.000Z",
+    "dateModified": "2023-01-12T19:08:31.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/csscss.png",
@@ -361,6 +361,28 @@ pre[class*="language-"] > code[class*="language-"] {
 }
 </style>
 
+<!-- TOC -->
+<style>
+.toc>.toc-list li:first-child {
+  margin-top: 8px;
+}
+.toc-list a {
+  color: var(--ghost-accent-color);
+  text-decoration: none;
+  word-break: break-word;
+}
+</style>
+
+<!-- ghost style by wkzs -->
+<style>
+.gh-content > [id] + * {
+  margin-top: 2.5rem !important;
+}
+.gh-content > [id]:not(:first-child) {
+  margin: 1.5em 0 0;
+}
+</style>
+
 <!-- 音乐播放器 -->
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
@@ -372,7 +394,7 @@ pre[class*="language-"] > code[class*="language-"] {
     <header id="gh-head" class="gh-head outer">
         <div class="gh-head-inner inner">
             <div class="gh-head-brand">
-                <a class="gh-head-logo" href="../index.html">
+                <a class="gh-head-logo" href="yourdomain.com">
                         <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra">
                 </a>
                 <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
@@ -381,11 +403,11 @@ pre[class*="language-"] > code[class*="language-"] {
 
             <nav class="gh-head-menu">
                 <ul class="nav">
-    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-home"><a href="yourdomain.com/">Home</a></li>
     <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
     <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
     <li class="nav-tags"><a href="../tags/index.html">Tags</a></li>
-    <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
+    <li class="nav-search"><a href="yourdomain.com/#searchinghost-easy">Search</a></li>
 </ul>
 
             </nav>
@@ -432,7 +454,7 @@ pre[class*="language-"] > code[class*="language-"] {
                 <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                 <div class="byline-meta-content">
                     <time class="byline-meta-date" datetime="2019-05-20">May 20, 2019</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 12 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 11 min read</span>
                 </div>
             </div>
 
@@ -458,12 +480,12 @@ pre[class*="language-"] > code[class*="language-"] {
         <!--kg-card-begin: markdown--><h2 id="layout-drawing">Layout &amp; Drawing</h2>
 <h3 id="%E6%B5%AE%E5%8A%A8-float">浮动 Float</h3>
 <blockquote>
-<p>最初引入 float 属性是为了实现文字环绕（在成块的文本内浮动图像）和首字下沉的效果。<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Floats">MDN</a></p>
+<p>最初引入 float 属性：实现文字环绕和首字下沉。<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Floats">MDN</a></p>
 </blockquote>
 <p>浮动元素会被移出正常文档流，后续元素会显示在其下层。若不想让剩余元素也受到浮动元素的影响，那么需要清除浮动。</p>
 <ul>
 <li>
-<p>额外标签法 =&gt; 浮动元素后额外添加已设置 <code>clear：both;</code> 的空标签</p>
+<p>额外标签法 =&gt; 浮动元素后添加设置了属性 <code>clear：both;</code> 的空标签</p>
 </li>
 <li>
 <p>将包裹元素的 overflow 属性设置为除 visible 外的其他值</p>
@@ -491,25 +513,13 @@ pre[class*="language-"] > code[class*="language-"] {
     &lt;div class=&quot;leftt&quot;&gt;leftt&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<ul>
-<li>额外标签</li>
-</ul>
-<p>给需要清除浮动的元素后额外添加一个空标签设置<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear"> clear 属性</a>。该属性指定一个元素是否必须移动（清除浮动后）到之前的浮动元素下方，适用于浮动和非浮动元素。在通俗的同时，却额外加入无意义的标签。</p>
-<pre><code class="language-css">.clear{ clear:both; }
-</code></pre>
-<pre><code class="language-html">&lt;div class=&quot;parent&quot;&gt;
-    ...
-    &lt;div class=&quot;clear&quot;&gt;额外标签&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<ul>
-<li>父级 overflow</li>
-</ul>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow">overflow 属性</a>定义了当一个元素的内容太大而无法适应块级格式化上下文的处理方式。即通过触发 BFC 实现清除浮动。虽然代码简洁，但是无法解决显示要溢出元素的问题。</p>
+<p>额外标签法也称为隔墙法，具体是指在浮动元素的末尾添加一个空标签，并设置上属性 <code>clear:both</code>。不足之处在于引入了无意义的内容。</p>
+<p>外层元素通过设置属性 <code>overflow:hidden</code> 产生的 BFC 无法解决需要显示溢出元素的需求。</p>
 <pre><code class="language-css">/* 修改parent样式;此处overflow必须为hidden */
 .parent{ width: 400px;border: 1px solid #424242;overflow: hidden; }
 </code></pre>
-<p>额外提一点，overflow 设置为 hidden 主要作用于溢出隐藏、清除浮动、外边距塌陷等问题。外边距塌陷也称为外边距合并，是指两个在正常流中相邻（兄弟或父子关系）的块级元素外边距，组合在一起变成单个外边距，不过只有上下外边距才会有塌陷，左右外边距不会出现这种问题。</p>
+<p>属性 <code>overflow:hidden</code> 作用：溢出隐藏、清除浮动、解决外边距塌陷等。</p>
+<p>外边距塌陷也称为外边距合并：两个相邻（兄弟或父子关系）的块级元素外边距组合在了一起。只有上下外边距才会有塌陷，左右外边距不会出现这种问题。</p>
 <pre><code class="language-css">.big{ width: 200px;height: 200px;background: #00B26A;overflow: hidden; }
 .small{ width: 120px;height: 120px;background: #35393b;margin-top: 30px; }
 </code></pre>
@@ -517,84 +527,73 @@ pre[class*="language-"] > code[class*="language-"] {
     &lt;div class=&quot;small&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<ul>
-<li>after 伪元素</li>
-</ul>
-<p>给容器增加伪元素清除浮动样式的语义化较好，符合闭合浮动思想。但是存在兼容性问题，使用 zoom:1 触发 hasLayout。</p>
+<p>after 伪元素方式：语义化较好，符合闭合浮动思想，存在兼容问题，需 zoom:1 触发 hasLayout。</p>
 <pre><code class="language-css">/* 伪元素是行内元素 */
 .clearfix:after{ display: block; clear:both; visibility: hidden; content: &quot;&quot;; }
 .clearfix{ *zoom: 1; }
 </code></pre>
-<p>利用网格布局实现的一个左右300px中间自适应的布局</p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bfc">BFC</h2>
-<p>块格式化上下文 (Block Formatting Context，BFC) 是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域（自主规则，无关外部）。</p>
-<p><strong>布局规则</strong></p>
-<p>内部 Box 在垂直方向逐个排列；Box 垂直方向的距离由 margin 决定；同属一个 BFC 的两个相邻 Box 的 margin 会发生重叠；即使存在浮动，每个元素的 margin box 的左边，与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)；BFC 区域不会与 float box 重叠；BFC 是页面上的隔离独立容器；浮动元素的高度参与 BFC 的高度计算。</p>
-<p><strong>触发条件</strong></p>
-<p>根元素 &lt;html&gt;；float 值非 none；overflow 值非 visible；display 取值 table、grid、flex，inline-flex、table-cell、table-caption、inline-block；position 取值 absolute、fixed。</p>
-<p><strong>作用场景</strong></p>
+<h3 id="bfc">BFC</h3>
+<blockquote>
+<p>There are different types of formatting contexts. Notable among them are Block Formatting Context, Inline Formatting Context, Flex Formatting Context &amp; Grid Formatting Context.</p>
+</blockquote>
+<p>块格式化上下文是一个独立的渲染区域，该区域容器里的子元素不会在布局上影响外部的元素。</p>
+<p>block-level boxes 和 blocks containing boxes 的交集在广义上称为 block boxes。</p>
+<p>可通过设置部分属性在 box 内部创造一个 formatting context 的环境给后代元素。</p>
+<p>布局规则：</p>
+<ul>
+<li>内部 box 在垂直方向逐个排列</li>
+<li>box 垂直方向的距离由 margin 决定</li>
+<li>同属一个 BFC 的两个相邻 box 的 margin 会发生重叠，即使存在浮动</li>
+<li>BFC 区域不会与 float box 重叠</li>
+<li>浮动元素的高度参与 BFC 的高度计算</li>
+</ul>
+<p>触发条件：</p>
+<ul>
+<li>根元素 <code>&lt;html&gt;</code></li>
+<li>float 值非 none</li>
+<li>overflow 值非 visible</li>
+<li>display 取值 table、grid、flex，inline-...、table-...</li>
+<li>position 取值 absolute、fixed</li>
+<li>...</li>
+</ul>
+<p>作用场景：</p>
 <ul>
 <li>清除浮动</li>
-<li>自适应两栏布局</li>
-<li>阻止外边距塌陷</li>
+<li>解决因非 BFC 容器却包含了浮动元素所导致的高度塌陷</li>
+<li>自适应两栏布局：一边定宽 float，一边适应 overflow（产生 BFC）</li>
+<li>阻止外边距重叠：添加空内容且产生 BFC 的伪元素</li>
 </ul>
+<pre><code class="language-css">/* 同时解决高度塌陷和外边距重叠 */
+.clearfix::before, .clearfix::after{
+  content: &quot;&quot;;
+  display: table;
+  clear: both;
+}
+</code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD">水平垂直居中</h2>
-<pre><code class="language-html">&lt;div class=&quot;box&quot;&gt;
-    &lt;img src=&quot;https://images.unsplash.com/photo-1610663711502-35f870cfaea2?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=687&amp;q=80&quot; alt=&quot;&quot;&gt;
-&lt;/div&gt;
-</code></pre>
-<p><strong>水平居中</strong></p>
+<p>水平居中可选策略：</p>
 <ul>
-<li>margin: 0 auto;</li>
+<li><code>margin: 0 auto</code>：通过 auto 自动占用可用空间</li>
+<li><code>text-align: center</code>：指定元素中的文本以何种方式开展水平对齐</li>
 </ul>
-<pre><code class="language-css">*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; }
-img{ display: block; width: 100px; height: 100px; margin: 0 auto; }
-</code></pre>
+<p>垂直居中可选策略：</p>
 <ul>
-<li>text-align: center；</li>
-</ul>
-<pre><code class="language-css">*{ padding: 0;margin: 0; }
-/* 仅适用于块级元素设置文本对齐方式 text-align: center; */
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; text-align: center; }
-img{ width: 100px; height: 100px; }
-</code></pre>
-<p><strong>垂直居中</strong></p>
-<ul>
-<li>计算 margin</li>
-</ul>
-<pre><code class="language-css">/* 需知父子元素宽高 */
-*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; }
-img{ width: 100px; height: 100px; margin-top: 100px; margin-left: 100px; }
-</code></pre>
-<ul>
-<li>定位和 margin:auto;</li>
+<li>当内外元素的宽高已知时，可直接计算 margin</li>
+<li>relative 与 absolute 定位配合 <code>margin: auto</code></li>
 </ul>
 <pre><code class="language-css">*{ padding: 0;margin: 0; }
 .box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; position: relative; }
 img{ width: 100px; height: 100px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; }
 </code></pre>
 <ul>
-<li>定位和 transfrom</li>
+<li>relative 与 absolute 定位配合 <code>transfrom: translate(-50%,-50%)</code></li>
 </ul>
 <pre><code class="language-css">*{ padding: 0;margin: 0; }
 .box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; position: relative; }
 img{ width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
 </code></pre>
 <ul>
-<li>diplay：table-cell;</li>
-</ul>
-<pre><code class="language-css">*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: table-cell; vertical-align: middle; text-align: center; }
-img{ width: 100px; height: 100px; }
-/* 若是块元素应修改为行内块 */
-*{ padding: 0;margin: 0; }
-.box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: table-cell; vertical-align: middle; text-align: center; }
-.box div{ width: 100px; height: 100px; background-color: red; display: inline-block; }
-</code></pre>
-<ul>
-<li>flex 布局</li>
+<li>外层元素进行 flex 布局</li>
 </ul>
 <pre><code class="language-css">*{ padding: 0;margin: 0; }
 .box{ width: 300px; height: 300px; border: 3px solid #4e4e4e; display: flex; justify-content: center; align-items: center; }
@@ -604,7 +603,7 @@ img{ width: 100px; height: 100px; }
 .subContainer{ margin: auto auto auto auto; }
 </code></pre>
 <ul>
-<li>calc 计算</li>
+<li>内层元素 margin 设置为 <code>calc(50% - 内层元素宽/2) auto</code></li>
 </ul>
 <pre><code class="language-css">*{ padding: 0;margin: 0; }
 .box{ width: 300px; height: 300px; border: 3px solid #4e4e4e;}
@@ -675,38 +674,25 @@ aside::after {
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe><!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%B8%B8%E8%A7%81%E7%BB%98%E5%88%B6">常见绘制</h2>
-<ul>
-<li>绘制半圆弧</li>
-</ul>
-<p>border-radius 是一个允许设置元素的外边框圆角的简写属性：border-top-left-radius、border-top-right-radius、border-bottom-right-radius 和 border-bottom-left-radius。</p>
-<pre><code class="language-css">div {
-  /*半圆弧*/
-  width: 160px;
-  height: 80px;
-  background-color: transparent;
-  border-bottom-right-radius: 90px;
-  border-bottom-left-radius: 90px; /*增加了边框，圆角半径也要变化*/
-  border-left: 10px solid black; /*边框左边线*/
-  border-right: 10px solid black; /*边框右边线*/
-  border-bottom: 10px solid black; /*边框底边线*/
-}
+<p>半圆弧绘制 =&gt; 使用复合属性 border-radius：</p>
+<pre><code class="language-css">width: 160px;
+height: 80px;
+background-color: transparent;
+border-bottom-right-radius: 90px;
+border-bottom-left-radius: 90px; /*增加了边框，圆角半径也要变化*/
+border-left: 10px solid black; /*边框左边线*/
+border-right: 10px solid black; /*边框右边线*/
+border-bottom: 10px solid black; /*边框底边线*/
 </code></pre>
-<ul>
-<li>三角形原理</li>
-</ul>
-<pre><code class="language-css">div{
-  width: 0;
-  height: 0;
-  border-left:100px solid transparent;  
-  border-top:80px solid transparent;  
-  border-right:40px solid transparent;  
-  border-bottom:70px solid #424242;
-}
+<p>三角形绘制 =&gt; 宽高为零，三边透明：</p>
+<pre><code class="language-css">width: 0;
+height: 0;
+border-left:100px solid transparent;  
+border-top:80px solid transparent;  
+border-right:40px solid transparent;  
+border-bottom:70px solid #424242;
 </code></pre>
-<ul>
-<li>圣杯布局</li>
-</ul>
-<p>圣杯布局为左右宽度固定，中间自适应且优先加载。</p>
+<p>圣杯布局（左右宽度固定，中间自适应且优先加载）：</p>
 <pre><code class="language-css">* { margin: 0; padding: 0; }
 html, body { height: 100%; width: 100%; }
 header { width: 100%; background-color: #06b4fe; }
@@ -727,10 +713,7 @@ footer { width: 100%; background-color: #ff6c37; clear: both; }
 &lt;/div&gt;
 &lt;footer&gt;footer&lt;/footer&gt;
 </code></pre>
-<ul>
-<li>双飞翼布局</li>
-</ul>
-<p>和圣杯布局所要实现的布局是一样的，只不过方法不同。</p>
+<p>双飞翼布局（可看作圣杯布局的优化版）：</p>
 <pre><code class="language-css">.main { width: 100%; float: left; }
 .middle { background-color: lightblue; margin: 0 100px; }
 .leftt { width: 100px; background-color: lightgreen; float: left; margin-left: -100%; }
@@ -751,23 +734,24 @@ footer { width: 100%; background-color: #ff6c37; clear: both; }
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
-<ul>
-<li>块内显示一行，超出部分用省略号显示</li>
-</ul>
+<p>块内显示一行，超出显示省略号 &amp; 块内显示两行或三行，超出显示省路号：</p>
 <pre><code class="language-css">overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
 </code></pre>
-<ul>
-<li>块内显示两行或三行，超出部分用省路号显示</li>
-</ul>
 <pre><code class="language-css">overflow: hidden;
 text-overflow: ellipsis;
 display: -webkit-box;
 -webkit-line-clamp: 2;
 -webkit-box-orient: vertical;
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="auto">auto</h2>
+<p>0.5px 边框常有单线和全框两种形式：</p>
+<ul>
+<li>border + border-image + linear-gradient</li>
+<li>伪元素 + background-image</li>
+<li>定位 + 伪元素 + transform:scale</li>
+</ul>
+<script async src="http://jsfiddle.net/icedamericano/nLc9gfy3/104/embed/html,css,result/dark/"></script><!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="auto">auto</h2>
 <p>auto 的效果可区分为两种，自动占用可用空间或直接设置 0 px。</p>
 <p>对于前者，通常用于实现<strong>水平居中</strong>的效果，但若使用不当则会出现与预期存在差异的情况。</p>
 <pre><code class="language-css">/* 水平居中 */
@@ -913,7 +897,7 @@ list.appendChild(fragment)
 
         <footer class="post-card-meta">
             <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
-                <span class="post-card-meta-length">6 min read</span>
+                <span class="post-card-meta-length">7 min read</span>
         </footer>
 
     </div>
@@ -1002,7 +986,7 @@ list.appendChild(fragment)
 
     <footer class="site-footer outer">
         <div class="inner">
-            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2023</section>
+            <section class="copyright"><a href="yourdomain.com">zairesinatra</a> &copy; 2023</section>
             <nav class="site-footer-nav">
                 <ul><a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021003061号-1</a></ul>
                 

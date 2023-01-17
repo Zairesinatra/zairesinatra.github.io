@@ -25,7 +25,7 @@
     <meta property="og:url" content="yourdomain.com/zsmacconfig/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/07/adventure.jpg" />
     <meta property="article:published_time" content="2019-04-22T13:54:00.000Z" />
-    <meta property="article:modified_time" content="2022-12-28T09:46:21.000Z" />
+    <meta property="article:modified_time" content="2023-01-11T17:53:09.000Z" />
     <meta property="article:tag" content="BUG handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -71,7 +71,7 @@
     "headline": "ZsMacConfig",
     "url": "yourdomain.com/zsmacconfig/",
     "datePublished": "2019-04-22T13:54:00.000Z",
-    "dateModified": "2022-12-28T09:46:21.000Z",
+    "dateModified": "2023-01-11T17:53:09.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/07/adventure.jpg",
@@ -361,6 +361,28 @@ pre[class*="language-"] > code[class*="language-"] {
 }
 </style>
 
+<!-- TOC -->
+<style>
+.toc>.toc-list li:first-child {
+  margin-top: 8px;
+}
+.toc-list a {
+  color: var(--ghost-accent-color);
+  text-decoration: none;
+  word-break: break-word;
+}
+</style>
+
+<!-- ghost style by wkzs -->
+<style>
+.gh-content > [id] + * {
+  margin-top: 2.5rem !important;
+}
+.gh-content > [id]:not(:first-child) {
+  margin: 1.5em 0 0;
+}
+</style>
+
 <!-- 音乐播放器 -->
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
@@ -372,7 +394,7 @@ pre[class*="language-"] > code[class*="language-"] {
     <header id="gh-head" class="gh-head outer">
         <div class="gh-head-inner inner">
             <div class="gh-head-brand">
-                <a class="gh-head-logo" href="../index.html">
+                <a class="gh-head-logo" href="yourdomain.com">
                         <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra">
                 </a>
                 <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
@@ -381,11 +403,11 @@ pre[class*="language-"] > code[class*="language-"] {
 
             <nav class="gh-head-menu">
                 <ul class="nav">
-    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-home"><a href="yourdomain.com/">Home</a></li>
     <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
     <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
     <li class="nav-tags"><a href="../tags/index.html">Tags</a></li>
-    <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
+    <li class="nav-search"><a href="yourdomain.com/#searchinghost-easy">Search</a></li>
 </ul>
 
             </nav>
@@ -432,7 +454,7 @@ pre[class*="language-"] > code[class*="language-"] {
                 <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                 <div class="byline-meta-content">
                     <time class="byline-meta-date" datetime="2019-04-22">Apr 22, 2019</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 12 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 10 min read</span>
                 </div>
             </div>
 
@@ -539,65 +561,45 @@ $ brew uninstall smartmontools
 </ul>
 <p>Preview =&gt; tools =&gt; annotate =&gt; text</p>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7">包管理工具</h2>
-<p>包管理模块用于解决代码包的下载管理与依赖关系，常见于从服务器下载第三方包和命令行程序，以及开源个人代码。</p>
-<h3 id="npm"><a href="http://nodejs.cn/learn/an-introduction-to-the-npm-package-manager">npm</a></h3>
-<ul>
-<li>NPM CLI Commond Line Interface =&gt; PowerShell &amp; Terminal</li>
-</ul>
-<p>与 GUI 图形化操作界面对应的 CLI 通过键盘录入指令，不支持鼠标操作。</p>
-<ul>
-<li>通过 npm 安装包到生产|开发|全局环境</li>
-</ul>
-<p>生产环境依赖存放于 dependencies =&gt; 项目插件 ElementUI、Echarts 等。</p>
-<p>开发环境依赖储存于 devDependencies =&gt; 程序运行时并不需要的 gulp、webpack 等用来压缩，打包代码的工具。</p>
-<pre><code class="language-shell"># 安装包到生产环境 dependencies 中
-$ npm i _module_ -S
-$ npm install _module_ --save
-# 安装包到开发环境 devDependencies 中
-$ npm i _module_ -D
-$ npm install _module_ --save-dev
-# 安装包到全局环境
-$ npm i _module_ -g
-</code></pre>
-<ul>
-<li>npm 依赖包操作</li>
-</ul>
+<h3 id="npm-yarn">npm &amp; yarn</h3>
+<p>NPM CLI Commond Line Interface：与 GUI 图形化操作界面对立，仅通过键盘录入指令，不支持鼠标操作。</p>
+<p>NPM 安装包到生产或开发环境：--save 或 --save-dev。</p>
 <p>从 npm@5 开始，通过将完整性不匹配视为缓存未命中，缓存可以从损坏问题中自我修复，因此从缓存中提取的数据保证有效。删除缓存只会让包管理器运行效率降低，且不能纠正遇到的任何问题。</p>
 <pre><code class="language-shell"># 查看某个 package 的最新版本|在 npm 服务器上所有发布过的版本
 $ npm view &lt;packageName&gt; version|versions # 具体版本
 $ npm info &lt;packageName&gt; # 更加详细
-# npm 查看本地安装的包版本号
+</code></pre>
+<pre><code class="language-shell"># npm 查看本地安装的包版本号
 $ npm ls &lt;packageName&gt; # 本地包
 $ npm ls &lt;packageName&gt; -g # 全局安装包
-# 查看本机 npm 缓存的位置
+</code></pre>
+<pre><code class="language-shell"># 查看本机 npm 缓存的位置
 $ npm config get cache
 # 清除 npm 缓存
 $ npm cache clean -f
 </code></pre>
+<p>不将 node-modules 提交：安装包可能出现版本不兼容、补丁或次版缺陷的问题。</p>
+<p>NPM5 引入的 package-lock.json：跟踪并固化安装包的确切版本。</p>
+<p>package-lock.json 文件：integrity 校验软件包；resolved 指向包位置。</p>
+<p>通过 package.json 的 <a href="https://github.com/npm/node-semver">semver</a> 表示法设置要升级的版本：</p>
 <ul>
-<li>package(-lock).json</li>
+<li>版本号严格按照 &quot;主版本号.次版本号.修订号&quot; 格式命名</li>
+<li>在版本改动较大且非稳定时，通常先发布一个先行版本</li>
+<li>内部版本 alpha、公测版本 beta、正式版的候选 rc Release candiate</li>
 </ul>
-<p>通常不会将 node-modules 文件夹提交 Git，因通过 npm install 安装包时，可能出现版本不兼容、补丁或次版本缺陷等问题。而这也是 package.json 的特殊弊端。在 NPM5 引入的 package-lock.json 文件可以跟踪并固化被安装的每个软件包的确切版本，以便包模块以相同的方式被 100％ 复制。</p>
-<p>当 npm 包某些功能布新的版本，通常的做法是直接去修改 package.json 到指定版本。package-lock.json 文件中 integrity 用于校验软件包；resolved 指向软件包的位置。</p>
-<p>在 package.json 中，可以使用 <a href="https://github.com/npm/node-semver">semver</a> 表示法设置要升级到的版本。版本号严格按照 &quot;主版本号.次版本号.修订号&quot; 格式命名。当某个版本改动比较大、并非稳定而且可能无法满足预期的兼容性需求时，会先发布一个先行版本。先行版本号可加在版本号的后边，即先加上一个连接号再加上一连串以句点分隔的标识符和版本编译信息。常见先行版本应说明内部版本 alpha、公测版本 beta、正式版的候选 rc Release candiate。主版本号一般作为有重大 api 改变，往往不向下兼容，次版本号也为小版本号，常新增功能，也向下兼容，修订号为补丁号，通常修复一些 bug。npm 安装包时允许使用一些特殊符号表示安装的版本范围。</p>
-<pre><code class="language-javascript">// 先行版本号
-a.b.c-beta.d
-// 取最新的c的版本号值,a与b保持不变
-~a.b.c
-// 取b和c均为最新版本号,a保持不变
-^a.b.c
-// 始终使用确切的版本
-a.b.c
+<pre><code class="language-shell">a.b.c-beta.d # 先行版本号
+~a.b.c # 取最新的 c 版本号 -&gt; a、b 不变
+^a.b.c # 取 b 和 c 最新版本号 -&gt; a 不变
+a.b.c # 始终使用确切的版本
 </code></pre>
-<p>如果自行发布包，在修改模块后需要更新发布版本，可以通过 Semver 规范的命令来完成，避免版本混乱。</p>
-<pre><code class="language-shell">npm version patch =&gt; 升级修订版本号
-npm version minor =&gt; 升级次版本号
-npm version major =&gt; 升级主版本号
-</code></pre>
+<p>自行发布包并在修改模块后需要更新发布的版本：</p>
 <ul>
-<li>.npmrc =&gt; npm 用户配置文件</li>
+<li>升级修订版本号 =&gt; npm version patch</li>
+<li>升级次版本号 =&gt; npm version minor</li>
+<li>升级主版本号 =&gt; npm version major</li>
 </ul>
-<p>npm 从命令行、环境变量和 .npmrc 文件获取配置设置。使用 <code>npm config</code> 相关命令可更新和编辑用户与全局 .npmrc 文件的内容。</p>
+<p>NPM 从命令行、环境变量和 <code>.npmrc</code> 用户配置文件获取配置设置。</p>
+<p>使用 <code>npm config</code> 相关命令可更新和编辑用户与全局 <code>.npmrc</code> 文件的内容。</p>
 <pre><code class="language-shell"># 查看路径
 npm config get userconfig
 # 显示当前仓库源
@@ -605,61 +607,24 @@ npm config get registry
 # 设置国内镜像|官方镜像
 npm config set registry=https://registry.npm.taobao.org|https://registry.npmjs.org
 </code></pre>
-<ul>
-<li>npm <a href="http://nodejs.cn/learn/where-does-npm-install-the-packages">全局模块安装路径</a> =&gt; 通过 nvm 安装 Node 所带的 npm</li>
-</ul>
-<p>全局安装 =&gt; 将 npm 包安装在对应 Node 目录下的 node_modules 文件夹中。</p>
+<p>NPM <a href="http://nodejs.cn/learn/where-does-npm-install-the-packages">全局模块安装路径</a>：通过 NVM 安装 Node 所带的 NPM。</p>
+<p>全局安装：将 npm 包安装在对应 Node 目录下的 node_modules 文件夹中。</p>
 <pre><code class="language-shell">$ npm root -g # 打印全局的位置
 /Users/xieziyi/.nvm/versions/node/v16.14.2/lib/node_modules
 </code></pre>
-<h3 id="yarn">yarn</h3>
+<p>yarn 会缓存下载的包，并通过并行操作提高资源的利用率。</p>
+<p>通过 Homebrew 安装的 yarn 位置：</p>
 <ul>
-<li>
-<p><a href="https://classic.yarnpkg.com/en/">yarn</a> 会缓存下载每个包，通过并行操作提高资源的利用率，在效率上会比同类包管理工具 npm 更快</p>
-</li>
-<li>
-<p>yarn 的安装以及查看版本</p>
-</li>
+<li>x86 架构 =&gt; /usr/local/Cellar/yarn</li>
+<li>arm64 架构 =&gt; /opt/homebrew/Cellar/yarn</li>
 </ul>
-<pre><code class="language-shell">$ npm install --global yarn # Install via npm
-$ yarn --version # Check installation
-</code></pre>
-<ul>
-<li>初始化新项目</li>
-</ul>
-<pre><code class="language-shell">$ yarn init
-</code></pre>
-<ul>
-<li>添加|升级|删除|安装依赖包</li>
-</ul>
-<pre><code class="language-shell"># 添加
-$ yarn add [package]
-$ yarn add [package]@[version]
-$ yarn add [package]@[tag] --dev|--peer|--optional
-# 升级依赖
-$ yarn upgrade [package]@[version]|[tag]
-# 删除依赖
-$ yarn remove [package]
-# 安装所有依赖
-$ yarn # or yarn install
-</code></pre>
-<ul>
-<li>通过 Homebrew 安装的 yarn 位置</li>
-</ul>
-<pre><code class="language-shell">/usr/local/Cellar/yarn # =&gt; x86 架构版
-/opt/homebrew/Cellar/yarn # =&gt; arm64 架构版
-</code></pre>
-<ul>
-<li>yarn 全局安装路径 =&gt; 指令查看 yarn 全局安装包目录位置 - x86 &amp; arm64</li>
-</ul>
+<p>指令查看 yarn 全局安装包目录位置（适用 x86 &amp; arm64）：</p>
 <pre><code class="language-shell">$ yarn global dir
 /Users/xieziyi/.config/yarn/global
 </code></pre>
 <h3 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h3>
-<ul>
-<li>Fix the upstream dependency conflict, or retry this command with --force, or --legacy-peer-deps to accept an incorrect (and potentially broken) dependency resolution.</li>
-</ul>
-<p>npm7- 遇到依赖冲突会忽视冲突，继续安装；npm7+ 不会自动忽略冲突，需要手动处理。</p>
+<p>Fix the upstream dependency conflict, or retry this command with --force, or --legacy-peer-deps to accept an incorrect (and potentially broken) dependency resolution.</p>
+<p>npm7- 遇到依赖冲突会忽视冲突，继续安装；npm7+ 需要手动处理。</p>
 <pre><code class="language-shell">$ npm i --legacy-peer-deps
 $ npm i --force
 </code></pre>
@@ -933,7 +898,7 @@ installer: The install failed. (The Installer encountered an error that caused t
 
         <footer class="post-card-meta">
             <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
-                <span class="post-card-meta-length">6 min read</span>
+                <span class="post-card-meta-length">7 min read</span>
         </footer>
 
     </div>
@@ -1022,7 +987,7 @@ installer: The install failed. (The Installer encountered an error that caused t
 
     <footer class="site-footer outer">
         <div class="inner">
-            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2023</section>
+            <section class="copyright"><a href="yourdomain.com">zairesinatra</a> &copy; 2023</section>
             <nav class="site-footer-nav">
                 <ul><a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021003061号-1</a></ul>
                 
