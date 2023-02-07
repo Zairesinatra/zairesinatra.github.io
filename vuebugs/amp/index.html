@@ -80,7 +80,7 @@
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.25" />
+    <meta name="generator" content="Ghost 5.33" />
     <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
 
     <style amp-custom>
@@ -1068,7 +1068,7 @@
 
 <body class="amp-template">
     <header class="page-header">
-        <a href="yourdomain.com">
+        <a href="../../index.html">
                 <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
         </a>
     </header>
@@ -1354,7 +1354,7 @@ module.exports = {
   }
 }
 </code></pre>
-<p>终端运行 <code>npx webpack serve</code> 启动项目，访问：<a href="../../index.html">http://localhost:8080/</a> 和 <a href="http://127.0.0.1:8080/virtual/bundle.js%EF%BC%8C">http://127.0.0.1:8080/virtual/bundle.js，</a> 可以看到 www/index.html 和 xuni/bundle.js 文件的内容。</p>
+<p>终端运行 <code>npx webpack serve</code> 启动项目，访问：<a href="http://localhost:8080/">http://localhost:8080/</a> 和 <a href="http://127.0.0.1:8080/virtual/bundle.js%EF%BC%8C">http://127.0.0.1:8080/virtual/bundle.js，</a> 可以看到 www/index.html 和 xuni/bundle.js 文件的内容。</p>
 <p>在 html 文件创建 id 为 container 的 DOM 节点并引入 bundle.js 。如果没有成功创建节点会出现 <code>Uncaught TypeError: Cannot read property 'sel' of null snabbdom</code> 的 console 面板报错（div 写在了 script 标签之后）。</p>
 <pre><code class="language-html">zairesinatra
 &lt;div id="container"&gt;&lt;/div&gt;
@@ -1963,7 +1963,7 @@ module.exports = {
             <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
         <h3>zairesinatra</h3>
             <p>The best time to recognize yourself is ten years ago, followed by now.</p>
-        <p><a href="yourdomain.com">Read more posts →</a></p>
+        <p><a href="../../index.html">Read more posts →</a></p>
         <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
     </footer>
     
