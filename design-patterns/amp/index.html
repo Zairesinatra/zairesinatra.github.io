@@ -1,0 +1,2659 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>Design Patterns And ...</title>
+
+    <meta name="description" content="&quot;A good programmer is someone who always looks both ways before crossing a one-way street.&quot; - Doug Linder" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Design Patterns And ..." />
+    <meta property="og:description" content="&quot;A good programmer is someone who always looks both ways before crossing a one-way street.&quot; - Doug Linder" />
+    <meta property="og:url" content="yourdomain.com/design-patterns/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2023/03/SixHalogenBulbs.jpg" />
+    <meta property="article:published_time" content="2022-08-08T14:02:00.000Z" />
+    <meta property="article:modified_time" content="2023-03-11T16:25:12.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Design Patterns And ..." />
+    <meta name="twitter:description" content="&quot;A good programmer is someone who always looks both ways before crossing a one-way street.&quot; - Doug Linder" />
+    <meta name="twitter:url" content="yourdomain.com/design-patterns/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2023/03/SixHalogenBulbs.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "Design Patterns And ...",
+    "url": "yourdomain.com/design-patterns/",
+    "datePublished": "2022-08-08T14:02:00.000Z",
+    "dateModified": "2023-03-11T16:25:12.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2023/03/SixHalogenBulbs.jpg",
+        "width": 1920,
+        "height": 1080
+    },
+    "keywords": "Technology growth",
+    "description": "&quot;A good programmer is someone who always looks both ways before crossing a one-way street.&quot; - Doug Linder",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.33" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+    
+    amp-youtube {
+        height: calc(100vw / 1.78);
+        width: 100vw;
+        position: relative;
+    }
+
+    amp-youtube img {
+        position: absolute;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">Design Patterns And ...</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2022-08-08">08 Aug 2022</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2023/03/SixHalogenBulbs.jpg" width="600" height="340" layout="responsive" 
+                alt="Six Halogen Bulbs"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <h2 id="quick-start">Quick Start</h2>
+<h3 id="solid-design-principles">SOLID Design Principles</h3>
+<blockquote>
+<p>SOLID is an acronym for the first five object-oriented design (OOD) principles by Robert C. Martin (also known as <a href="https://en.wikipedia.org/wiki/Robert_C._Martin">Uncle Bob</a>).</p>
+</blockquote>
+<blockquote>
+<p>Single-responsibility Principle (SRP) states: A class should have one and only one reason to change, meaning that a class should have only one job.</p>
+</blockquote>
+<p>单一职责原则：一个类或者模块应该有且只有一个改变的原因。当一个类或者模块承担了过多的职责，那么可能造成其状态不稳定的因素也会随之增多。</p>
+<blockquote>
+<p>Open-closed Principle (OCP) states: Objects or entities should be open for extension but closed for modification.</p>
+</blockquote>
+<p>开放封闭原则：实体（类、模块、函数等）应该保持对扩展的开放，保证对修改的关闭。实体应该通过扩展的方式来增加新的功能，而不是修改已有的代码。</p>
+<blockquote>
+<p>Liskov Substitution Principle states: Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.</p>
+</blockquote>
+<p>里氏替换原则：任何一个子类都应该能够替换其父类的位置，而且不会影响到程序的正确执行。该原则强调子类应该尽量遵守父类的约定和接口。</p>
+<blockquote>
+<p>Interface Segregation Principle (ISP) states: A client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use.</p>
+</blockquote>
+<p>接口隔离原则：不应该强迫客户端实现其不需要的接口。接口要尽可能的专一和精简，防止出现庞大且复杂情况（避免额外实现了不需要的功能与方法）。</p>
+<blockquote>
+<p>Dependency Inversion Principle (DIP) states: Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.</p>
+</blockquote>
+<p>依赖倒置原则：高层模块不应该依赖低层模块；两者都应该依赖于抽象（接口或者抽象类）。在高层模块依赖于低层模块的情况下，如果低层模块发生变动，那么高层模块中的代码也将要随之改变。抽象不应依赖于细节，细节应该取决于抽象。</p>
+<h3 id="gof-design-pattern-types">GoF Design Pattern Types</h3>
+<p>设计模式通常涉及对象之间的交互方式，包括创建、管理和修改对象。设计模式不是一种具体的代码实现，而是一种通用的解决方案，可以用于不同编程语言和技术栈中。简单来说，设计模式是一些经过总结、归纳的、被广泛认可的解决开发中常见问题的最佳实践。</p>
+<blockquote>
+<p>In 1994, four authors Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides published a book titled Design Patterns - Elements of Reusable Object-Oriented Software which initiated the concept of Design Pattern in Software development.These authors are collectively known as Gang of Four (GOF).</p>
+</blockquote>
+<p>设计模式分为三种类型：创建型模式、结构型模式和行为型模式。创建型模式关注如何实例化对象，结构型模式关注如何组织代码，行为型模式关注代码之间的交互和职责分配。</p>
+<table>
+<thead>
+<tr>
+<th>Categories</th>
+<th>Design Patterns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creational</td>
+<td>Factory Method、Abstract Factory、Builder、Prototype、Singleton</td>
+</tr>
+<tr>
+<td>Structural</td>
+<td>Adapter、Bridge、Composite、Decorator、Facade、Flyweight、Proxy</td>
+</tr>
+<tr>
+<td>Behavioral</td>
+<td>Chain of Responsibility、Command、Interpreter、Iterator、Mediator、Memento、Observer、State、Strategy、Template Method、Visitor</td>
+</tr>
+</tbody>
+</table>
+<h3 id="high-cohesion-and-low-coupling">High Cohesion and Low Coupling</h3>
+<p>高内聚是指一个组件内部的各个元素相互之间紧密联系，共同完成特定的任务或者实现特定的功能。高内聚的组件应该是一个单一的、有明确职责的模块，组件内部的元素之间应该是高度相关的，相互依赖度较高。</p>
+<p>低耦合则是指组件之间的相互依赖性尽可能地降低，即组件之间的接口设计得尽可能简单、明确，组件之间的关系尽可能松散。这样的设计可以使得系统更加容易扩展和修改，也可以减少系统出错的可能性。</p>
+<h3 id="asd-cicd">ASD &amp; CI/CD</h3>
+<p>敏捷开发和持续集成、交付都是为了提高开发效率和质量的方法论与实践：</p>
+<ul>
+<li>敏捷开发 Agile Software Development</li>
+<li>持续集成/交付 Continuous Integration/Delivery</li>
+</ul>
+<p>敏捷开发是一种以迭代、循序渐进的方式进行软件开发的方法。敏捷开发的核心理念是快速响应变化，强调团队合作和实践，注重软件的可测试性、可维护性和可扩展性。</p>
+<p>持续集成、交付是一种开发方法，它通过不断地自动化构建、测试和部署来提高软件交付的速度和质量。持续集成是指在代码的每次提交后，自动进行构建、单元测试、代码分析等操作，以确保新代码的质量和稳定，减少出现有问题的代码。持续交付是指将已经通过 CI 测试的代码自动部署到生产环境。</p>
+<h2 id="creational-design-patterns">Creational Design Patterns</h2>
+<h3 id="abstract-factory">Abstract Factory</h3>
+<blockquote>
+<p>The abstract factory pattern provides a way to create families of related objects without imposing their concrete classes, by encapsulating a group of individual factories that have a common theme without specifying their concrete classes.</p>
+</blockquote>
+<p>抽象工厂模式通过引入抽象工厂类和抽象产品类，在工厂模式的基础上进一步的抽象。这两种设计模式的主要区别如下：</p>
+<ul>
+<li>工厂模式：只有一个工厂类，该工厂类负责创建一类产品对象</li>
+<li>抽象工厂模式：多个抽象的工厂类和产品类，还有多个产品需要创建</li>
+</ul>
+<p>抽象工厂模式常见的应用场景：</p>
+<ul>
+<li>Spring 通过 BeanFactory 和 ApplicationContext 接口创建和管理 Bean</li>
+<li>通过 React.createElement 和 ReactDOM.render 创建和渲染不同的组件</li>
+</ul>
+<pre><code class="language-java">// 抽象产品类
+interface Button {
+    void click();
+}
+
+// 具体产品类
+class WindowsButton implements Button {
+    @Override
+    public void click() {
+        System.out.println("Windows button clicked.");
+    }
+}
+
+// 具体产品类
+class MacButton implements Button {
+    @Override
+    public void click() {
+        System.out.println("Mac button clicked.");
+    }
+}
+
+// 抽象工厂类
+interface GUIFactory {
+    Button createButton();
+}
+
+// 具体工厂类
+class WindowsFactory implements GUIFactory {
+    @Override
+    public Button createButton() {
+        return new WindowsButton();
+    }
+}
+
+// 具体工厂类
+class MacFactory implements GUIFactory {
+    @Override
+    public Button createButton() {
+        return new MacButton();
+    }
+}
+
+// 测试代码
+public class Test {
+    public static void main(String[] args) {
+        // 创建 Windows 工厂
+        GUIFactory windowsFactory = new WindowsFactory();
+        // 创建 Windows 按钮
+        Button windowsButton = windowsFactory.createButton();
+        // 调用按钮的 click 方法
+        windowsButton.click();
+
+        // 创建 Mac 工厂
+        GUIFactory macFactory = new MacFactory();
+        // 创建 Mac 按钮
+        Button macButton = macFactory.createButton();
+        // 调用按钮的 click 方法
+        macButton.click();
+    }
+}
+</code></pre>
+<h3 id="builder-pattern">Builder Pattern</h3>
+<blockquote>
+<p>Separate the construction of a complex object from its representation so that the same construction process can create different representations.</p>
+</blockquote>
+<p>生成器模式的核心是将复杂对象的构建过程分解为多个简单对象的构建过程，然后逐步组合这些简单对象，最终构建出完整的复杂对象。该模式通常包含一个生成器接口和具体的生成器类，生成器类负责构建复杂对象的各个部分。</p>
+<p>生成器模式常见的应用场景：</p>
+<ul>
+<li>JdbcTemplate 类使用生成器模式来构建和配置 PreparedStatement 对象</li>
+<li>Spring Data JPA 创建和配置各种实体类、仓库接口以及查询对象</li>
+</ul>
+<pre><code class="language-java">// 产品类
+class Product {
+    private String partA;
+    private String partB;
+    private String partC;
+
+    public void setPartA(String partA) {
+        this.partA = partA;
+    }
+
+    public void setPartB(String partB) {
+        this.partB = partB;
+    }
+
+    public void setPartC(String partC) {
+        this.partC = partC;
+    }
+
+    public String toString() {
+        return "PartA=" + partA + ", PartB=" + partB + ", PartC=" + partC;
+    }
+}
+
+// 生成器接口
+interface Builder {
+    void buildPartA();
+    void buildPartB();
+    void buildPartC();
+    Product getResult();
+}
+
+// 具体生成器类
+class ConcreteBuilder implements Builder {
+    private Product product = new Product();
+
+    @Override
+    public void buildPartA() {
+        product.setPartA("PartA");
+    }
+
+    @Override
+    public void buildPartB() {
+        product.setPartB("PartB");
+    }
+
+    @Override
+    public void buildPartC() {
+        product.setPartC("PartC");
+    }
+
+    @Override
+    public Product getResult() {
+        return product;
+    }
+}
+
+// 指挥者类
+class Director {
+    private Builder builder;
+
+    public Director(Builder builder) {
+        this.builder = builder;
+    }
+
+    public void construct() {
+        builder.buildPartA();
+        builder.buildPartB();
+        builder.buildPartC();
+    }
+}
+
+// 测试代码
+public class Test {
+    public static void main(String[] args) {
+        // 创建具体生成器
+        Builder builder = new ConcreteBuilder();
+        // 创建指挥者
+        Director director = new Director(builder);
+        // 构建产品
+        director.construct();
+        // 获取构建完成的产品对象
+        Product product = builder.getResult();
+        // 输出产品信息
+        System.out.println(product.toString());
+    }
+}
+</code></pre>
+<h3 id="factory-method">Factory Method</h3>
+<p>工厂模式可以封装对象的创建逻辑，使得创建过程更加灵活。工厂模式是通过工厂方法来创建对象，而不是在代码中直接使用 <code>new</code> 关键字来创建对象。</p>
+<blockquote>
+<p>A Factory Pattern or Factory Method Pattern says that just define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate. In other words, subclasses are responsible to create the instance of the class.</p>
+</blockquote>
+<p>工厂模式常见的应用场景：</p>
+<ul>
+<li>对象的创建过程比较复杂，需要进行初始化和配置</li>
+<li>对象的创建过程需要进行封装，避免使用者直接访问对象的实现细节</li>
+<li>需要根据不同的条件创建不同的对象实例</li>
+</ul>
+<p>在 DOM 中，<code>document.createElement()</code> 方法就是一个工厂方法，通过传入一个标签名来创建对应的元素节点对象。</p>
+<pre><code class="language-javascript">// 定义一个产品类
+class Product {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+
+  getDescription() {
+    return `${this.name} - $${this.price}`;
+  }
+}
+
+// 定义一个工厂类
+class ProductFactory {
+  createProduct(name, price) {
+    return new Product(name, price);
+  }
+}
+
+// 创建一个工厂实例
+const factory = new ProductFactory();
+
+// 使用工厂方法创建产品对象
+const product1 = factory.createProduct('Product 1', 10);
+const product2 = factory.createProduct('Product 2', 20);
+
+// 输出产品对象的描述信息
+console.log(product1.getDescription());
+console.log(product2.getDescription());
+</code></pre>
+<h3 id="prototype-pattern">Prototype Pattern</h3>
+<blockquote>
+<p>The Prototype Pattern is a creational design pattern in software development that allows us to create new objects by cloning an existing object, called the prototype, rather than creating them from scratch.</p>
+</blockquote>
+<p>原型模式的主要目的是通过克隆现有对象来创建新对象，而无需显式地指定所需的类。原型应该提供一个克隆的方法，该方法创建并返回一个与原型相同的副本。</p>
+<p>原型模式的主要优点是可以动态地添加或者删除原型，此外，由于不需要显式地指定所需的类，因此可以减少代码中的耦合度。</p>
+<p>在 JavaScript 中，可以使用内置的 <code>Object.create()</code> 方法来实现原型模式。</p>
+<blockquote>
+<p>The <code>Object.create()</code> static method creates a new object, using an existing object as the prototype of the newly created object.</p>
+</blockquote>
+<pre><code class="language-javascript">// Define the prototype object
+const coffeePrototype = {
+  type: 'coffee',
+  temperature: 'iced',
+  name: 'Americano',
+  milk: false,
+  sugar: false,
+  getDescription() {
+    let description = `${this.temperature} ${this.name}`;
+    if (this.milk) {
+      description += ' with milk';
+    }
+    if (this.sugar) {
+      description += ' with sugar';
+    }
+    return description;
+  }
+};
+
+// Create a new object by cloning the prototype object
+const icedAmericano = Object.create(coffeePrototype);
+
+// Customize the new object
+icedAmericano.temperature = 'iced';
+icedAmericano.milk = false;
+icedAmericano.sugar = true;
+
+// Use the new object
+console.log(icedAmericano.getDescription()); // Outputs "iced Americano with sugar"
+</code></pre>
+<blockquote>
+<p>A marker interface is an interface that doesn't have any methods or constants inside it. It provides run-time type information about objects, so the compiler and JVM have additional information about the object.</p>
+</blockquote>
+<p>如果一个类实现了标记接口 Cloneable，那么该类的实例可以通过调用 Object 类中的 <code>clone()</code> 方法来创建一个该类实例的副本。</p>
+<p>然而 Cloneable 接口并不会强制要求类提供 <code>clone()</code> 方法，只是表示这个类允许复制。为避免抛出 CloneNotSupportedException 异常，需实现 <code>clone()</code> 方法。</p>
+<p>值得注意的是，如果需要实现深拷贝，那么应该在方法的实现中对每一个引用类型的属性进行递归复制。因为在 Java 中 <code>clone()</code> 方法是浅拷贝。</p>
+<pre><code class="language-java">public abstract class Coffee implements Cloneable {
+    protected String type;
+    protected double price;
+
+    public abstract void setType(String type);
+    public abstract String getType();
+    public abstract void setPrice(double price);
+    public abstract double getPrice();
+
+    public Object clone() {
+        Object clone = null;
+
+        try {
+            clone = super.clone();
+
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+
+        return clone;
+    }
+}
+
+public class IcedAmericano extends Coffee {
+
+    public IcedAmericano() {
+        type = "Iced Americano";
+        price = 3.5;
+    }
+
+    @Override
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public double getPrice() {
+        return price;
+    }
+}
+
+public class PrototypeDemo {
+    public static void main(String[] args) {
+        IcedAmericano icedAmericano = new IcedAmericano();
+
+        IcedAmericano clonedIcedAmericano = (IcedAmericano) icedAmericano.clone();
+
+        System.out.println(clonedIcedAmericano.getType());
+        System.out.println(clonedIcedAmericano.getPrice());
+    }
+}
+</code></pre>
+<h3 id="singleton-pattern">Singleton Pattern</h3>
+<blockquote>
+<p>Implementations of the singleton pattern ensure that only one instance of the singleton class ever exists and typically provide global access to that instance.</p>
+</blockquote>
+<p>单例模式能够保证在整个应用程序中，某个类只有一个实例对象的存在，并提供一个访问该实例的全局访问点。单例模式通常用于管理全局变量、模块管理以及资源共享等场景。</p>
+<p>Vue 中 Vuex 和 Vue Router 以及 React 中 React Router 和 Redux 都是单例模式。</p>
+<pre><code class="language-javascript">class Singleton {
+  static #instance; // 私有静态属性，用于存储单例实例
+
+  constructor() {
+    if (Singleton.#instance) {
+      return Singleton.#instance;
+    }
+    Singleton.#instance = this;
+  }
+
+  static getInstance() {
+    if (!Singleton.#instance) {
+      Singleton.#instance = new Singleton();
+    }
+    return Singleton.#instance;
+  }
+}
+
+// 调用单例模式创建对象实例
+const instance1 = Singleton.getInstance();
+const instance2 = Singleton.getInstance();
+
+console.log(instance1 === instance2); // true
+</code></pre>
+<h2 id="structural-design-patterns">Structural Design Patterns</h2>
+<h3 id="adapter-pattern">Adapter Pattern</h3>
+<p>适配器模式可以将不兼容的接口转换为兼容的接口，从而使不同接口之间可以协同工作。适配器模式可以提高代码的复用性、可扩展性和可维护性，从而降低系统的复杂度和耦合度。</p>
+<p>适配器模式常见的应用场景如下：</p>
+<ul>
+<li>将不同版本的 API 转换为统一的接口</li>
+<li>将第三方库的接口转换为内部系统的接口</li>
+<li>将不同的数据源（如数据库、文件、网络等）转换为统一的数据模型</li>
+</ul>
+<pre><code class="language-javascript">// 定义不兼容的接口
+const legacyApi = {
+  getFullName: function(firstName, lastName) {
+    return firstName + ' ' + lastName;
+  }
+};
+
+// 定义兼容的接口
+const newApi = {
+  getName: function(name) {
+    const [firstName, lastName] = name.split(' ');
+    return {
+      firstName,
+      lastName
+    };
+  }
+};
+
+// 定义适配器
+const adapter = {
+  getName: function(name) {
+    return legacyApi.getFullName(...name.split(' '));
+  }
+};
+
+// 使用示例
+const user = adapter.getName('John Smith');
+console.log(user);  // 输出 "John Smith"
+</code></pre>
+<p>在上面的示例中，通过适配器对象来调用不兼容的接口，并将其转换为所需要的格式（产生和使用兼容接口一样的效果）。适配器模式可以在不修改原有代码的情况下，实现不同接口之间的协同工作。</p>
+<h3 id="bridge-pattern">Bridge Pattern</h3>
+<blockquote>
+<p>The bridge pattern decouples an abstraction from its implementation so that the two can vary independently.</p>
+</blockquote>
+<p>桥接模式可以将抽象与实现做解耦，让两者可以独立的变化。抽象部分通常会包含所有要实现的方法，而实现部分会选择其中一些方法进行具体的实现。</p>
+<p>Bridge 模式在 Java 中的应用场景包括：</p>
+<ul>
+<li>JDBC 提供了一个标准的接口，而不同类型的数据库驱动提供具体的实现</li>
+<li>ORM 框架提供了标准的接口，而不同的数据库提供了具体的实现</li>
+</ul>
+<pre><code class="language-java">interface CoffeeAdditive {
+    public void addSomething();
+}
+
+class Milk implements CoffeeAdditive {
+    @Override
+    public void addSomething() {
+        System.out.println("加奶");
+    }
+}
+
+class Sugar implements CoffeeAdditive {
+    @Override
+    public void addSomething() {
+        System.out.println("加糖");
+    }
+}
+
+abstract class Coffee {
+    protected CoffeeAdditive additive;
+
+    protected Coffee(CoffeeAdditive additive) {
+        this.additive = additive;
+    }
+
+    public abstract void makeCoffee();
+}
+
+class Americano extends Coffee {
+    public Americano(CoffeeAdditive additive) {
+        super(additive);
+    }
+
+    @Override
+    public void makeCoffee() {
+        System.out.print("冰美式 - ");
+        additive.addSomething();
+    }
+}
+
+class Latte extends Coffee {
+    public Latte(CoffeeAdditive additive) {
+        super(additive);
+    }
+
+    @Override
+    public void makeCoffee() {
+        System.out.print("冰拿铁 - ");
+        additive.addSomething();
+    }
+}
+
+public class BridgePatternTest {
+    public static void main(String[] args) {
+        CoffeeAdditive milk = new Milk();
+        CoffeeAdditive sugar = new Sugar();
+
+        Coffee americanoWithMilk = new Americano(milk);
+        Coffee americanoWithSugar = new Americano(sugar);
+        Coffee latteWithMilk = new Latte(milk);
+        Coffee latteWithSugar = new Latte(sugar);
+
+        americanoWithMilk.makeCoffee();
+        americanoWithSugar.makeCoffee();
+        latteWithMilk.makeCoffee();
+        latteWithSugar.makeCoffee();
+    }
+}
+</code></pre>
+<h3 id="composite-pattern">Composite Pattern</h3>
+<blockquote>
+<p>The intent of a composite is to compose objects into tree structures to represent part-whole hierarchies.</p>
+</blockquote>
+<p>复合模式描述了一组对象，这些对象被视为同一类型对象的单个实例。组合允许有一个树结构，并要求树结构中的每个节点执行一个任务。</p>
+<p>在树结构中需要注意叶子节点和组合节点。叶子节点表示树形结构的末端对象，而组合节点则表示树形结构中的分支。组合节点可以包含叶子节点以及其他的组合节点，从而形成一个树形结构。</p>
+<p>组合模式的常见应用场景如下：</p>
+<ul>
+<li>JavaScript 中的 DOM 树：由一个根节点和其他节点组成</li>
+<li>Java 中的 GUI 控件库：一个窗口中可能包含有多个组件</li>
+</ul>
+<pre><code class="language-javascript">// 抽象组件
+class Beverage {
+  constructor(name, price) {
+    this.name = name
+    this.price = price
+  }
+  getPrice() {
+    return this.price
+  }
+  getName() {
+    return this.name
+  }
+}
+
+// 叶子组件
+class Coffee extends Beverage {
+  constructor(name, price) {
+    super(name, price)
+  }
+}
+
+class Espresso extends Coffee {
+  constructor() {
+    super('Espresso', 2)
+  }
+}
+
+class Americano extends Coffee {
+  constructor() {
+    super('Americano', 2.5)
+  }
+}
+
+class Latte extends Coffee {
+  constructor() {
+    super('Latte', 3)
+  }
+}
+
+// 组合组件
+class Menu extends Beverage {
+  constructor(name) {
+    super(name, 0)
+    this.beverages = []
+  }
+  add(beverage) {
+    this.beverages.push(beverage)
+  }
+  getPrice() {
+    let total = 0
+    this.beverages.forEach(beverage =&gt; {
+      total += beverage.getPrice()
+    })
+    return total
+  }
+}
+
+// 组合组件
+class CoffeeMenu extends Menu {
+  constructor() {
+    super('Coffee Menu')
+    this.add(new Espresso())
+    this.add(new Americano())
+    this.add(new Latte())
+  }
+}
+
+// 使用示例
+const coffeeMenu = new CoffeeMenu()
+console.log(coffeeMenu.getName()) // 输出：Coffee Menu
+console.log(coffeeMenu.getPrice()) // 输出：7.5
+</code></pre>
+<p>在上述代码中，Espresso、Americano 和 Latte 都是 Coffee 的子类，可以看作是定义了三个叶子组件。定义的 CoffeeMenu 类作为一个具体的组合组件，继承自抽象类 Menu。</p>
+<h3 id="decorator-pattern">Decorator Pattern</h3>
+<p>装饰器模式常用于向对象添加新的行为或修改现有的功能，同时避免修改原始对象的结构。</p>
+<p>装饰器模式的常见应用场景如下：</p>
+<ul>
+<li>Web 开发中的中间件：中间件装饰器通常会包装一个处理请求的函数</li>
+<li>Java I/O 类库中的装饰器：对输入和输出流进行功能扩展</li>
+<li>GUI 应用程序中的 UI 组件：使用装饰器来添加拖放、缩放和旋转功能等</li>
+</ul>
+<pre><code class="language-java">// 带有缓冲区和压缩功能的输入流 in
+InputStream in = new FileInputStream("input.txt");
+in = new BufferedInputStream(in);
+in = new GZIPInputStream(in);
+</code></pre>
+<pre><code class="language-java">JButton button = new JButton("Click me");
+button = new DraggableDecorator(button);
+button = new ResizableDecorator(button);
+button = new RotatableDecorator(button);
+</code></pre>
+<pre><code class="language-javascript">class Coffee {
+  getCost() {
+    return 2;
+  }
+}
+
+class CoffeeDecorator {
+  constructor(coffee) {
+    this.coffee = coffee;
+  }
+
+  getCost() {
+    return this.coffee.getCost();
+  }
+}
+
+class SugarDecorator extends CoffeeDecorator {
+  getCost() {
+    return this.coffee.getCost() + 0.5;
+  }
+}
+
+class MilkDecorator extends CoffeeDecorator {
+  getCost() {
+    return this.coffee.getCost() + 1;
+  }
+}
+
+const coffee = new Coffee();
+const coffeeWithSugar = new SugarDecorator(coffee);
+const coffeeWithSugarAndMilk = new MilkDecorator(coffeeWithSugar);
+
+console.log(coffeeWithSugarAndMilk.getCost()); // 输出 3.5
+</code></pre>
+<h3 id="facade-pattern">Facade pattern</h3>
+<blockquote>
+<p>Analogous to a facade in architecture, a facade is an object that serves as a front-facing interface masking more complex underlying or structural code.</p>
+</blockquote>
+<p>外观模式通过提供一个简化的接口，隐藏繁杂的构成细节，让客户端能够更方便地使用复杂系统的功能。</p>
+<p>外观模式的常见应用场景如下：</p>
+<ul>
+<li>使用 Axios 简化 AJAX 请求过程可以看作是一种外观模式的实现</li>
+<li>Java Servlet API 中 javax.servlet.ServletContext 接口</li>
+<li>JDBC DriverManager 类提供了一个简单的接口来获取数据库连接</li>
+</ul>
+<pre><code class="language-java">// 定义一个外观类
+public class IcedAmericanoFacade {
+    private CoffeeMaker coffeeMaker;
+    private IceMaker iceMaker;
+
+    public IcedAmericanoFacade() {
+        this.coffeeMaker = new CoffeeMaker();
+        this.iceMaker = new IceMaker();
+    }
+
+    // 将复杂的操作封装在一个方法中，对外提供简单的接口
+    public void makeIcedAmericano() {
+        coffeeMaker.brewCoffee();
+        iceMaker.crushIce();
+        System.out.println("Here is your Iced Americano!");
+    }
+}
+
+// 定义一些子系统类
+class CoffeeMaker {
+    public void brewCoffee() {
+        System.out.println("Brewing coffee...");
+    }
+}
+
+class IceMaker {
+    public void crushIce() {
+        System.out.println("Crushing ice...");
+    }
+}
+</code></pre>
+<pre><code class="language-java">public class Client {
+    public static void main(String[] args) {
+        IcedAmericanoFacade icedAmericano = new IcedAmericanoFacade();
+        icedAmericano.makeIcedAmericano();
+    }
+}
+</code></pre>
+<h3 id="flyweight-pattern">Flyweight Pattern</h3>
+<blockquote>
+<p>The Flyweight Design Pattern refers to an object that minimizes memory usage by sharing some of its data with other similar objects.</p>
+</blockquote>
+<p>享元模式旨在通过共享对象来减少内存的使用和对象创建的开销，以提高系统的性能和效率。享元这个词可以理解为共享一些元数据，那么在一定程度上是可以轻量化程序的，这也和 Flyweight 作为拳击术语“轻量级”的概念不谋而合。</p>
+<p>享元模式（轻量模式）下会存在两类状态：内部状态和外部状态。内部状态是可以被多个对象所共享的属性，而外部状态是每个对象单独拥有的属性。内部状态被存储在享元对象中，而外部状态则被作为参数传递给享元对象的方法。</p>
+<p>享元模式常见应用场景如下：</p>
+<ul>
+<li>JS 中字符串是不可变的，可以将多个相同的字符串共享在字符串池中</li>
+<li>在 Java 中的 Color 和 Font 类都是不可变的对象，且都使用了享元模式</li>
+<li>Web 开发中常使用 jQuery 的单例模式来减少对 DOM 的访问次数</li>
+</ul>
+<pre><code class="language-java">public interface Flyweight {
+    void operation();
+}
+</code></pre>
+<pre><code class="language-java">public class ConcreteFlyweight implements Flyweight {
+    private String intrinsicState;
+
+    public ConcreteFlyweight(String intrinsicState) {
+        this.intrinsicState = intrinsicState;
+    }
+
+    @Override
+    public void operation() {
+        System.out.println("ConcreteFlyweight: " + intrinsicState);
+    }
+}
+</code></pre>
+<pre><code class="language-java">import java.util.HashMap;
+import java.util.Map;
+
+public class FlyweightFactory {
+    private Map&lt;String, Flyweight&gt; flyweights = new HashMap&lt;&gt;();
+
+    public Flyweight getFlyweight(String key) {
+        if (!flyweights.containsKey(key)) {
+            flyweights.put(key, new ConcreteFlyweight(key));
+        }
+        return flyweights.get(key);
+    }
+}
+</code></pre>
+<pre><code class="language-java">public class Client {
+    public static void main(String[] args) {
+        FlyweightFactory factory = new FlyweightFactory();
+
+        Flyweight flyweight1 = factory.getFlyweight("A");
+        Flyweight flyweight2 = factory.getFlyweight("B");
+        Flyweight flyweight3 = factory.getFlyweight("A");
+
+        flyweight1.operation();
+        flyweight2.operation();
+        flyweight3.operation();
+    }
+}
+</code></pre>
+<h3 id="proxy-pattern">Proxy Pattern</h3>
+<blockquote>
+<p>The Proxy Pattern provides the control for accessing the original object.</p>
+</blockquote>
+<p>代理模式可以隐藏原始对象的实现细节，以及控制在原始对象被访问的前后执行一些额外的操作。</p>
+<p>代理模式常见的应用场景如下：</p>
+<ul>
+<li>Spring AOP 是通过 JDK 动态代理和 CGLIB 代理来实现的</li>
+<li>React HOC 通过代理模式创建新组件，在原有的组件基础上进行了增强</li>
+</ul>
+<pre><code class="language-java">// 定义接口
+interface Subject {
+    void request();
+}
+
+// 定义真实对象
+class RealSubject implements Subject {
+    @Override
+    public void request() {
+        System.out.println("RealSubject: Handling request.");
+    }
+}
+
+// 定义代理对象
+class Proxy implements Subject {
+    private RealSubject realSubject;
+
+    @Override
+    public void request() {
+        if (realSubject == null) {
+            realSubject = new RealSubject();
+        }
+        preRequest();
+        realSubject.request();
+        postRequest();
+    }
+
+    private void preRequest() {
+        System.out.println("Proxy: Preparing for request.");
+    }
+
+    private void postRequest() {
+        System.out.println("Proxy: Handling after request.");
+    }
+}
+
+// 使用示例
+public class Main {
+    public static void main(String[] args) {
+        Proxy proxy = new Proxy();
+        proxy.request();
+    }
+}
+</code></pre>
+<p>在上述示例中，真实对象类与代理对象类都对完成特定功能的接口进行了实现。在使用时，只需要使用代理对象来调用真实对象的方法即可。</p>
+<p>代理模式包括静态代理和动态代理两种形式。在静态代理中，代理类在编译时就已经确定；而在动态代理中，代理类是在运行时动态生成的。</p>
+<p>动态代理不需要手动编写代理类，而是通过反射机制动态生成。对于一些与业务逻辑无关的功能，比如统计方法调用次数、添加日志等，开发者不需要在每个类中都手动编写，而是可以在代理类中统一实现。</p>
+<p>在 Java 中，动态代理可以通过 java.lang.reflect.Proxy 类和 InvocationHandler 接口来实现。当创建一个动态代理对象时，需要指定一个实现了 InvocationHandler 接口的类，该类会在代理对象的方法被调用时被调用。</p>
+<p>与静态代理相比，动态代理的优点在于可以减少代码量，提高代码的可重用性和可维护性，但是动态代理的性能相对较差，因为需要使用反射机制来创建代理类。</p>
+<h2 id="behavioral-design-patterns">Behavioral Design Patterns</h2>
+<h3 id="chain-of-responsibility">Chain of Responsibility</h3>
+<p>责任链模式将请求发送者和接收者解耦，使多个对象都有机会处理请求。在该模式中，通常会创建一个处理器链，每个处理器都可以决定是否处理请求并将请求传递给下一个处理器，直到请求被处理或者处理器链结束。</p>
+<p>责任链模式常见的应用场景如下：</p>
+<ul>
+<li>在 Node.js 中，HTTP 请求通常需要通过一系列的中间件进行处理</li>
+<li>Java 中通常会使用职责链模式来处理异常（定义一系列异常处理程序）</li>
+</ul>
+<pre><code class="language-java">public interface Handler {
+    void handleRequest(String request);
+    void setNextHandler(Handler nextHandler);
+}
+</code></pre>
+<pre><code class="language-java">public class IceHandler implements Handler {
+    private Handler nextHandler;
+
+    public void handleRequest(String request) {
+        if (request.contains("冰美式")) {
+            System.out.println("正在制作冰美式...");
+        } else {
+            nextHandler.handleRequest(request);
+        }
+    }
+
+    public void setNextHandler(Handler nextHandler) {
+        this.nextHandler = nextHandler;
+    }
+}
+
+public class EspressoHandler implements Handler {
+    private Handler nextHandler;
+
+    public void handleRequest(String request) {
+        if (request.contains("美式")) {
+            System.out.println("正在制作美式咖啡...");
+        } else {
+            System.out.println("无法制作这种饮品...");
+        }
+    }
+
+    public void setNextHandler(Handler nextHandler) {
+        this.nextHandler = nextHandler;
+    }
+}
+</code></pre>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Handler iceHandler = new IceHandler();
+        Handler espressoHandler = new EspressoHandler();
+
+        iceHandler.setNextHandler(espressoHandler);
+
+        iceHandler.handleRequest("来一杯冰美式");
+        iceHandler.handleRequest("来一杯奶茶");
+    }
+}
+</code></pre>
+<h3 id="command-pattern">Command Pattern</h3>
+<blockquote>
+<p>The Command Pattern encapsulates a request as an object, thereby letting you parameterize other objects with different requests, queue or log requests, and support undoable operations.</p>
+</blockquote>
+<p>命令模式会将请求转换为一个包含请求相关所有信息的独立对象，以此来把发出请求的对象和执行请求的对象进行解耦。</p>
+<p>命令模式常见的应用场景如下：</p>
+<ul>
+<li>Vue 中的指令可以被视为一种命令模式的应用</li>
+<li>Spring 在处理请求（命令对象）时，会通过 Spring MVC 的控制器来执行</li>
+</ul>
+<pre><code class="language-java">public interface Command {
+    void execute();
+}
+</code></pre>
+<pre><code class="language-java">public class IcedAmericanoCommand implements Command {
+    public void execute() {
+        System.out.println("iced americano");
+    }
+}
+</code></pre>
+<pre><code class="language-java">public class Waiter {
+    private Command command;
+    public void setCommand(Command command) {
+        this.command = command;
+    }
+    public void serve() {
+        command.execute();
+    }
+}
+</code></pre>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Command command = new IcedAmericanoCommand();
+        Waiter waiter = new Waiter();
+        waiter.setCommand(command);
+        waiter.serve();
+    }
+}
+</code></pre>
+<h3 id="interpreter-pattern">Interpreter Pattern</h3>
+<blockquote>
+<p>Interpreter Pattern provides a way to evaluate language grammar or expr.</p>
+</blockquote>
+<p>解释器模式通常用于处理特定的问题，如编写编译器、解释器和正则表达式等。该模式下的核心组件是解释器与上下文。解释器执行语法树中的节点，并将其转换为操作。上下文通过跟踪当前语句的状态，让解释器执行正确的操作。</p>
+<p>访问者模式常见的应用场景：</p>
+<ul>
+<li>使用 Babel 编译器可以将 JSX 转换为 JavaScript 函数调用</li>
+<li>Java 可以将正则表达式解析为语法树，并通过该树来执行匹配操作</li>
+</ul>
+<pre><code class="language-java">interface Expression {
+    boolean interpret(String context);
+}
+class IcedAmericanoExpression implements Expression {
+    @Override
+    public boolean interpret(String context) {
+        if (context.contains("iced americano")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+class Context {
+    private String input;
+
+    public Context(String input) {
+        this.input = input;
+    }
+
+    public boolean getResult(Expression expression) {
+        return expression.interpret(input);
+    }
+}
+public class InterpreterPatternDemo {
+    public static void main(String[] args) {
+        String command = "I would like to have an iced americano, please.";
+
+        Context context = new Context(command);
+
+        Expression expression = new IcedAmericanoExpression();
+
+        if (context.getResult(expression)) {
+            System.out.println("Order: Iced Americano");
+        } else {
+            System.out.println("Invalid order");
+        }
+    }
+}
+</code></pre>
+<h3 id="iterator-pattern">Iterator Pattern</h3>
+<blockquote>
+<p>The essence of the Iterator Pattern is to "Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation (list, stack, tree, etc.).</p>
+</blockquote>
+<p>简单来说，迭代器模式就是用来遍历集合中元素的一种模式。只需提供一个统一的接口，就可以遍历对象中的元素，而无需知道具体对象的内部实现。</p>
+<p>迭代器模式常见的应用场景：</p>
+<ul>
+<li>ES6 中引入的迭代器和生成器的语法，可以方便地实现迭代器模式</li>
+<li>lodash 库中有很多与迭代器模式相关的函数，例如 <code>_.each</code>、<code>_.map</code> 等</li>
+<li>经 JDBC 连接数据库时，可以通过 ResultSet 遍历查询结果集中的行和列</li>
+<li>Spring 中用 <code>JdbcTemplate</code> 执行查询语句时，可传入 <code>RowMapper</code> 对象</li>
+</ul>
+<pre><code class="language-java">import java.util.Iterator;
+
+public class CoffeeShop implements Iterable&lt;String&gt; {
+    private String[] coffees = {"冰美式", "拿铁", "卡布奇诺", "摩卡"};
+
+    @Override
+    public Iterator&lt;String&gt; iterator() {
+        return new CoffeeIterator(coffees);
+    }
+    
+    private class CoffeeIterator implements Iterator&lt;String&gt; {
+        private int index;
+        private String[] coffees;
+        
+        public CoffeeIterator(String[] coffees) {
+            this.index = 0;
+            this.coffees = coffees;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return index &lt; coffees.length;
+        }
+
+        @Override
+        public String next() {
+            return coffees[index++];
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        CoffeeShop coffeeShop = new CoffeeShop();
+        for (String coffee : coffeeShop) {
+            System.out.println(coffee);
+        }
+    }
+}
+</code></pre>
+<h3 id="mediator-pattern">Mediator Pattern</h3>
+<blockquote>
+<p>Mediator pattern is used to reduce communication complexity between multiple objects or classes. This pattern provides a mediator class which normally handles all the communications between different classes and supports easy maintenance of the code by loose coupling. Mediator pattern falls under behavioral pattern category.</p>
+</blockquote>
+<p>在中介者模式中，每个对象之间不再直接的进行通信，而是要经过中介者对象来进行合作。中介者对象负责维护对象之间的关系和通信，当某个对象发生变化时，中介者对象会通知其他对象进行相应的处理。</p>
+<p>中介者模式常见的应用场景：</p>
+<ul>
+<li>当 React 中组件层级变得复杂时，通常会使用 Redux 替代 props 传递数据</li>
+<li>在 Spring 中的 BeanFactory 对象负责管理 Spring 中的所有 Bean 对象</li>
+</ul>
+<pre><code class="language-java">public interface CoffeeMediator {
+    void makeCoffee(String coffeeType);
+}
+</code></pre>
+<pre><code class="language-java">public class CoffeeMachine {
+    private CoffeeMediator mediator;
+
+    public void setMediator(CoffeeMediator mediator) {
+        this.mediator = mediator;
+    }
+
+    public void makeCoffee(String coffeeType) {
+        System.out.println("Making " + coffeeType + " coffee...");
+        mediator.makeCoffee(coffeeType);
+    }
+
+    public void serveCoffee(String coffeeType) {
+        System.out.println("Serving " + coffeeType + " coffee...");
+    }
+}
+</code></pre>
+<pre><code class="language-java">public class CoffeeMediatorImpl implements CoffeeMediator {
+    private CoffeeMachine coffeeMachine;
+
+    public void setCoffeeMachine(CoffeeMachine coffeeMachine) {
+        this.coffeeMachine = coffeeMachine;
+    }
+
+    public void makeCoffee(String coffeeType) {
+        if (coffeeType.equals("冰美式")) {
+            System.out.println("Adding ice to coffee...");
+        }
+        coffeeMachine.serveCoffee(coffeeType);
+    }
+}
+</code></pre>
+<pre><code class="language-java">public class MediatorPatternDemo {
+    public static void main(String[] args) {
+        CoffeeMediator mediator = new CoffeeMediatorImpl();
+
+        CoffeeMachine coffeeMachine = new CoffeeMachine();
+        coffeeMachine.setMediator(mediator);
+
+        CoffeeMediatorImpl mediatorImpl = new CoffeeMediatorImpl();
+        mediatorImpl.setCoffeeMachine(coffeeMachine);
+        
+        coffeeMachine.setMediator(mediatorImpl);
+
+        coffeeMachine.makeCoffee("拿铁");
+        coffeeMachine.makeCoffee("冰美式");
+    }
+}
+</code></pre>
+<h3 id="memento-pattern">Memento Pattern</h3>
+<p>备忘录模式就是在不破坏封装性的前提下，捕获和保存对象的内部状态，以便在需要时可以恢复到先前的状态。</p>
+<p>在 Memento Pattern 中，有三个主要的角色：</p>
+<ul>
+<li>Originator 发起人：创建和恢复 Memento 对象，以及管理自己的状态</li>
+<li>Memento 备忘录：保存 Originator 对象的状态</li>
+<li>Caretaker 管理者：负责保存和恢复 Memento 对象，但不知道其内部结构</li>
+</ul>
+<p>备忘录模式常见的应用场景：</p>
+<ul>
+<li>JS 中的 JSON.stringify 和 JSON.parse，以及 Java 中的 Serializable 接口</li>
+<li>通过 Java.util.Date 中的 <code>clone()</code> 方法可以创建和保存 Date 对象的副本</li>
+<li>VPS 和一些数据库（比如 Redis）中的快照功能</li>
+</ul>
+<pre><code class="language-java">import java.io.*;
+
+// 备忘录类，实现 Serializable 接口
+class Memento implements Serializable {
+    private String state;
+
+    public Memento(String state) {
+        this.state = state;
+    }
+
+    public String getState() {
+        return state;
+    }
+}
+
+// 原发器类
+class CoffeeMachine implements Serializable {
+    private String state;
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public Memento saveState() {
+        return new Memento(state);
+    }
+
+    public void restoreState(Memento memento) {
+        state = memento.getState();
+    }
+
+    public void serveCoffee() {
+        System.out.println("Serving " + state + " coffee...");
+    }
+}
+
+// 负责人类
+class Caretaker implements Serializable {
+    private Memento memento;
+
+    public void saveMemento(Memento m) {
+        memento = m;
+    }
+
+    public Memento retrieveMemento() {
+        return memento;
+    }
+}
+
+// 客户端代码
+public class Main {
+    public static void main(String[] args) throws Exception {
+        CoffeeMachine coffeeMachine = new CoffeeMachine();
+        Caretaker caretaker = new Caretaker();
+
+        coffeeMachine.setState("iced americano");
+        coffeeMachine.serveCoffee();
+        caretaker.saveMemento(coffeeMachine.saveState());
+
+        coffeeMachine.setState("cappuccino");
+        coffeeMachine.serveCoffee();
+
+        coffeeMachine.restoreState(caretaker.retrieveMemento());
+        coffeeMachine.serveCoffee();
+    }
+}
+</code></pre>
+<p>在上述代码中，CoffeeMachine 是原发器类，用于保存状态（即咖啡种类），并提供了保存状态和恢复状态的方法。Memento 类是备忘录类，用于保存原发器的状态。Caretaker 类是负责人，负责保存备忘录，可以根据需要对备忘录进行保存和恢复操作。</p>
+<h3 id="observer-pattern">Observer Pattern</h3>
+<p>在某些情况下，观察者模式和发布订阅模式可以看作是相同的模式，因为它们都涉及到对象间的一对多关系。但是在发布订阅模式中，发布者和订阅者之间没有直接的关联，它们通过一个名为消息队列的中介来进行通信。</p>
+<p>在观察者模式中，主题（或目标对象）维护了一个观察者列表，并在状态发生变化时通知所有的观察者。在这种模式下，主题和观察者是基类，主题提供维护观察者的一系列方法，观察者提供得到通知后的更新接口。具体主题和具体观察者会继承各自的基类，当具体主题有发生变化时，会调度观察者的更新方法。</p>
+<p>综上，观察者模式可以看作是发布订阅模式的一个特例，因为观察者模式中的主题对象本质上就是一个消息队列，而观察者对象则相当于订阅者。</p>
+<p>观察者模式的场景应用场景如下：</p>
+<ul>
+<li>在 MVC 模式中，模型是主题，视图是观察者。模型变化会使视图更新</li>
+<li>在 GUI 编程中，事件是主题，事件处理器是观察者对象</li>
+<li>在数据库连接池中，连接池是主题，客户端是观察者对象</li>
+</ul>
+<pre><code class="language-javascript">// 定义 Subject 类
+class Subject {
+  constructor() {
+    this.observers = [];
+  }
+
+  attach(observer) {
+    this.observers.push(observer);
+  }
+
+  detach(observer) {
+    const index = this.observers.indexOf(observer);
+    if (index !== -1) {
+      this.observers.splice(index, 1);
+    }
+  }
+
+  notify() {
+    for (let observer of this.observers) {
+      observer.update();
+    }
+  }
+}
+
+// 定义 Observer 类
+class Observer {
+  constructor(name, subject) {
+    this.name = name;
+    this.subject = subject;
+    this.subject.attach(this);
+  }
+
+  update() {
+    console.log(`${this.name} received an update from ${this.subject.constructor.name}.`);
+  }
+
+  unsubscribe() {
+    this.subject.detach(this);
+    console.log(`${this.name} unsubscribed from ${this.subject.constructor.name}.`);
+  }
+}
+
+// 使用示例
+const subject = new Subject();
+const observer1 = new Observer("Observer 1", subject);
+const observer2 = new Observer("Observer 2", subject);
+
+subject.notify(); // Observer 1 received an update from Subject.
+                  // Observer 2 received an update from Subject.
+
+observer1.unsubscribe(); // Observer 1 unsubscribed from Subject.
+
+subject.notify(); // Observer 2 received an update from Subject.
+</code></pre>
+<h3 id="state-pattern">State Pattern</h3>
+<blockquote>
+<p>The State Pattern allows an object to alter its behavior when its internal state changes.</p>
+</blockquote>
+<p>状态模式基于有限状态机理论，状态机表示对象在不同状态下的行为，从而使得对象的行为根据状态的改变而改变，这种模式可以避免使用大量的条件判断语句。状态模式具有 Context（上下文）、State（状态）和 ConcreteState（具体状态）。</p>
+<p>状态模式常见的应用场景：</p>
+<ul>
+<li>React 中的组件状态决定了组件的行为，组件行为根据状态的改变而改变</li>
+<li>Redux 中 store 的状态决定了应用的行为，其行为根据状态的改变而改变</li>
+<li>Spring State Machine 将状态机的定义和执行分离，实现松耦合状态转换</li>
+</ul>
+<pre><code class="language-java">interface CoffeeState {
+    void takeOrder();
+
+    void serveCoffee();
+}
+
+class CoffeeContext implements CoffeeState {
+    private CoffeeState currentState;
+
+    public CoffeeContext() {
+        currentState = new WaitingForOrderState(this);
+    }
+
+    public void setState(CoffeeState state) {
+        this.currentState = state;
+    }
+
+    @Override
+    public void takeOrder() {
+        currentState.takeOrder();
+    }
+
+    @Override
+    public void serveCoffee() {
+        currentState.serveCoffee();
+    }
+}
+
+class WaitingForOrderState implements CoffeeState {
+    private CoffeeContext context;
+
+    public WaitingForOrderState(CoffeeContext context) {
+        this.context = context;
+    }
+
+    @Override
+    public void takeOrder() {
+        System.out.println("Taking order for Iced Americano...");
+        context.setState(new ServingCoffeeState(context));
+    }
+
+    @Override
+    public void serveCoffee() {
+        // Do nothing
+    }
+}
+
+class ServingCoffeeState implements CoffeeState {
+    private CoffeeContext context;
+
+    public ServingCoffeeState(CoffeeContext context) {
+        this.context = context;
+    }
+
+    @Override
+    public void takeOrder() {
+        // Do nothing
+    }
+
+    @Override
+    public void serveCoffee() {
+        System.out.println("Serving Iced Americano...");
+        context.setState(new WaitingForOrderState(context));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CoffeeContext context = new CoffeeContext();
+        context.takeOrder();
+        context.serveCoffee();
+    }
+}
+</code></pre>
+<h3 id="strategy-pattern">Strategy Pattern</h3>
+<p>策略模式作为行为模式的一种，可以理解为：根据运行时所触发的方式，动态地选择不同算法的行为。开发中将处理不同任务的算法抽取到一组独立类中，再根据上下文来委派合适的算法就是一种典型的策略。</p>
+<p>策略模式常见的应用场景如下：</p>
+<ul>
+<li>根据不同的环境或者输入来采取不同的行为或者算法</li>
+<li>将一组相关的算法进行封装，以便复用和管理</li>
+</ul>
+<p>日志库 Winston 就通过策略模式来实现多个传输器 transports 的切换和组合。</p>
+<pre><code class="language-javascript">// 定义策略对象
+const strategies = {
+  'add': function(num1, num2) {
+    return num1 + num2;
+  },
+  'subtract': function(num1, num2) {
+    return num1 - num2;
+  },
+  'multiply': function(num1, num2) {
+    return num1 * num2;
+  },
+  'divide': function(num1, num2) {
+    return num1 / num2;
+  }
+};
+
+// 定义上下文对象
+const Calculator = function() {
+  this.calculate = function(num1, num2, operation) {
+    if (strategies[operation]) {
+      return strategies[operation](num1, num2);
+    }
+  }
+}
+
+// 使用示例
+const calculator = new Calculator();
+console.log(calculator.calculate(2, 3, 'add'));       // 输出 5
+console.log(calculator.calculate(6, 3, 'subtract'));  // 输出 3
+console.log(calculator.calculate(4, 5, 'multiply'));  // 输出 20
+console.log(calculator.calculate(8, 4, 'divide'));    // 输出 2
+</code></pre>
+<h3 id="template-method">Template Method</h3>
+<blockquote>
+<p>Template method pattern is to define an algorithm as a skeleton of operations and leave the details to be implemented by the child classes.</p>
+</blockquote>
+<p>在模板方法模式中会有一个包含算法骨架（模板方法）的抽象基类（模板类），该模板方法定义了算法的步骤及其顺序。同时，该抽象类中还可以包含一些基本的操作，这些操作可以是具体的实现，也可以是抽象方法，由子类去实现。在子类中实现基本操作的方式是通过继承来实现的，而在模板方法中调用这些基本操作。</p>
+<p>模板方法模式常见的应用场景：</p>
+<ul>
+<li>React 中 <code>componentDidMount()</code> 和 <code>componentDidUpdate()</code> 方法</li>
+<li>JdbcTemplate 类定义的模板方法 <code>execute()</code> 可以被子类进行实现</li>
+</ul>
+<pre><code class="language-java">public abstract class JdbcOperationTemplate {
+    
+    protected abstract void setSqlParams(PreparedStatement ps) throws SQLException;
+    
+    protected abstract void handleResultSet(ResultSet rs) throws SQLException;
+
+    public void execute(String sql, JdbcTemplate jdbcTemplate) {
+        jdbcTemplate.execute(conn -&gt; {
+            try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                setSqlParams(ps);
+                ResultSet rs = ps.executeQuery();
+                handleResultSet(rs);
+                return null;
+            }
+        });
+    }
+}
+
+public class FindCoffeeByIdTemplate extends JdbcOperationTemplate {
+    
+    private final Long coffeeId;
+    private Coffee coffee;
+
+    public FindCoffeeByIdTemplate(Long coffeeId) {
+        this.coffeeId = coffeeId;
+    }
+
+    @Override
+    protected void setSqlParams(PreparedStatement ps) throws SQLException {
+        ps.setLong(1, coffeeId);
+    }
+
+    @Override
+    protected void handleResultSet(ResultSet rs) throws SQLException {
+        if (rs.next()) {
+            coffee = new Coffee();
+            coffee.setId(rs.getLong("id"));
+            coffee.setName(rs.getString("name"));
+            coffee.setPrice(rs.getDouble("price"));
+            coffee.setDescription(rs.getString("description"));
+            coffee.setCreateTime(rs.getTimestamp("create_time"));
+            coffee.setUpdateTime(rs.getTimestamp("update_time"));
+        }
+    }
+
+    public Coffee getCoffee() {
+        return coffee;
+    }
+}
+</code></pre>
+<h3 id="visitor-pattern">Visitor Pattern</h3>
+<blockquote>
+<p>The Visitor Pattern encapsulates an operation executed on an object hierarchy as an object and enables it to define new operations without changing the object hierarchy.</p>
+</blockquote>
+<p>访问者模式可以在不修改现有对象结构的基础上额外定义一些操作。实际上，就是将操作从对象（元素）中提取出来，并将之存放于另一个独立的对象（访问者）当中。访问者可以访问不同类型的对象，并在这些对象上执行相应的操作。</p>
+<p>访问者模式中的两个思想：</p>
+<ul>
+<li>被 visitor 所实现的 <code>visit()</code> 方法可以在每一个 element 中被调用</li>
+<li>可被访问的类应该提供接收一个 visitor 的 <code>accept()</code> 方法</li>
+</ul>
+<p>访问者模式常见的应用场景：</p>
+<ul>
+<li>Spring 中的 AOP 模块通过 Visitor 模式访问目标对象并进行拦截和增强</li>
+<li>React 在创建虚拟 DOM 时传入的对象信息可以使用访问者对象进行访问</li>
+</ul>
+<pre><code class="language-java">// Element 接口，定义了 accept 方法
+interface Coffee {
+    void accept(CoffeeVisitor visitor);
+}
+
+// 具体 Element 实现类
+class IcedAmericano implements Coffee {
+    @Override
+    public void accept(CoffeeVisitor visitor) {
+        visitor.visit(this);
+    }
+
+    public String serve() {
+        return "冰美式";
+    }
+}
+
+class CoconutLatte implements Coffee {
+    @Override
+    public void accept(CoffeeVisitor visitor) {
+        visitor.visit(this);
+    }
+
+    public String serve() {
+        return "生椰拿铁";
+    }
+}
+
+// Visitor 接口，定义了 visit 方法
+interface CoffeeVisitor {
+    void visit(IcedAmericano icedAmericano);
+    void visit(CoconutLatte coconutLatte);
+}
+
+// 具体 Visitor 实现类
+class ConcreteCoffeeVisitor implements CoffeeVisitor {
+    @Override
+    public void visit(IcedAmericano icedAmericano) {
+        System.out.println(icedAmericano.serve());
+    }
+
+    @Override
+    public void visit(CoconutLatte coconutLatte) {
+        System.out.println(coconutLatte.serve());
+    }
+}
+
+// 客户端
+public class Main {
+    public static void main(String[] args) {
+        Coffee ia = new IcedAmericano();
+        Coffee cl = new CoconutLatte();
+
+        CoffeeVisitor coffeeVisitor = new ConcreteCoffeeVisitor();
+
+        ia.accept(coffeeVisitor);
+        cl.accept(coffeeVisitor);
+    }
+}
+</code></pre>
+<h2 id="additional-design-patterns">Additional Design Patterns</h2>
+<h3 id="publishsubscribe">Publish/Subscribe</h3>
+<p>发布订阅模式用于实现对象间的松散耦合和消息通信。发布者将消息或事件发布到一个中心化的消息队列或事件池中，订阅者则从中心化的消息队列或事件池中订阅感兴趣的消息或事件，并在接收到消息或事件时做出相应的响应。</p>
+<p>常见的应用场景包括：</p>
+<ul>
+<li>在多页面应用中使用发布订阅模式来实现页面间的消息传递和事件触发</li>
+<li>模块间通信和 GUI 应用的开发</li>
+<li>通过发布订阅模式来实现回调函数的管理和调用</li>
+</ul>
+<p>发布订阅模式的实现思路：定义一个具有订阅和发布事件函数的事件中心类。当订阅者订阅一个事件时，要将订阅者的回调函数添加到对应的事件列表中。当发布者发布一个事件时，应该要将对应事件列表中的所有回调函数执行，并将事件数据作为参数进行传递。</p>
+<pre><code class="language-javascript">// 定义一个事件中心
+const eventCenter = {
+  // 存储所有订阅者
+  subscribers: {},
+
+  // 订阅事件
+  subscribe(event, callback) {
+    if (!this.subscribers[event]) {
+      this.subscribers[event] = [];
+    }
+    this.subscribers[event].push(callback);
+  },
+
+  // 发布事件
+  publish(event, data) {
+    if (!this.subscribers[event]) {
+      return;
+    }
+    this.subscribers[event].forEach((callback) =&gt; {
+      callback(data);
+    });
+  },
+};
+
+// 订阅事件
+eventCenter.subscribe('event1', (data) =&gt; {
+  console.log(`Subscriber1 received data: ${data}`);
+});
+eventCenter.subscribe('event2', (data) =&gt; {
+  console.log(`Subscriber2 received data: ${data}`);
+});
+
+// 发布事件
+eventCenter.publish('event1', 'Hello world!');
+eventCenter.publish('event2', { foo: 'bar' });
+</code></pre>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

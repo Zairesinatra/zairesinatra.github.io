@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/vuebugs/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/07/ShirahigeJinja.jpg" />
     <meta property="article:published_time" content="2020-12-14T12:21:00.000Z" />
-    <meta property="article:modified_time" content="2022-12-15T12:56:13.000Z" />
+    <meta property="article:modified_time" content="2023-02-15T16:48:05.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "Vue 札记",
     "url": "yourdomain.com/vuebugs/",
     "datePublished": "2020-12-14T12:21:00.000Z",
-    "dateModified": "2022-12-15T12:56:13.000Z",
+    "dateModified": "2023-02-15T16:48:05.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/07/ShirahigeJinja.jpg",
@@ -1269,7 +1269,7 @@ zy.onee // 24
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p></p>
+<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676479482/Ghost/Vue%20%E6%9C%AD%E8%AE%B0/%E5%8F%8C%E5%90%91%E5%AE%9E%E7%8E%B0_ekxfdf.png" alt="双向实现" width="1386" height="436" layout="responsive"></amp-img></p>
 <ul>
 <li>数据代理</li>
 </ul>
@@ -1313,7 +1313,7 @@ Object.defineProperty(obj2, 'x', {
 &lt;/script&gt;
 &lt;/html&gt;
 </code></pre>
-<p></p>
+<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676479483/Ghost/Vue%20%E6%9C%AD%E8%AE%B0/%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86_uabhkn.png" alt="数据代理" width="1476" height="922" layout="responsive"></amp-img></p>
 <h2 id="diffdom">Diff 算法和虚拟 DOM</h2>
 <p>避免新增内容引起整个 DOM 树的重新渲染，而只针对改动区域重新更新。精细化对比，最小量更新的 Diff (from different) 运营而生。</p>
 <p>虚拟 DOM 是通过 <a href="https://github.com/snabbdom/snabbdom">snabbdom.js</a> 库实现的，考虑到源码由 TypeScript 编写，可以通过 npm 下载使用 build 编译出来的 JavaScript 版 snabbdom 库。</p>
@@ -1405,7 +1405,8 @@ const newVnode = h(
 // Second `patch` invocation
 patch(vnode, newVnode); // Snabbdom efficiently updates the old view to the new state
 </code></pre>
-<figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>initcompleted</figcaption></figure><p>虚拟 DOM 是用 JavaScript 对象描述 DOM 的层次结构。在 DOM 中的一切属性都能从虚拟 DOM 中找到对应。sel(selector) 表示元素选择器、data 表示元素属性、children 表示元素子节点、elm 表示该元素对应的真正的DOM节点（若值是 undefined 则未上树）、key 为节点唯一标识、text 文本内容。</p>
+<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676479639/Ghost/Vue%20%E6%9C%AD%E8%AE%B0/initcompleted_a0ni1o.png" alt="initcompleted" width="2878" height="182" layout="responsive"></amp-img></p>
+<p>虚拟 DOM 是用 JavaScript 对象描述 DOM 的层次结构。在 DOM 中的一切属性都能从虚拟 DOM 中找到对应。sel(selector) 表示元素选择器、data 表示元素属性、children 表示元素子节点、elm 表示该元素对应的真正的DOM节点（若值是 undefined 则未上树）、key 为节点唯一标识、text 文本内容。</p>
 <p>diff 是发生在虚拟 DOM 上的：新虚拟 DOM 和老虚拟 DOM 进行 diff （精细化比较），计算最小量更新反映到真实的 DOM 上。key 是节点的唯一标识，告诉 diff 算法在更改前后是否为同一个 DOM 节点。只有是选择器相同且 key 相同的同一个虚拟节点，才进行虚拟化比较，否则就是暴力删除旧的、插入新的。最后注意的是 diff 算法只进行同层比较，不会进行跨层比较。</p>
 <p>通过 h 函数传参数产生一个虚拟节点 (vnode) 对象用来描述真实的 DOM 。<code>h('a', { props: { href: 'https://blog.zairesinatra.com', target: '_blank'  } }, 'blog')</code> 可生成此类虚拟节点 <code>{ "sel": "a", "data": { "props": { "href": "https://blog.zairesinatra.com" } }, "text": "zsxzy" }</code>。h 函数中可以进行子节点的嵌套。</p>
 <p>手写实现简易 diff 算法代码如下。</p>

@@ -8,8 +8,10 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=8d5252f705.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=7d64696598.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=7d64696598.css" />
     <meta name="description" content="由造轮子引发的思考" />
     <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -153,223 +155,89 @@
 }</style>
     <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f5d74add11f1d16d3e59c12945" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="yourdomain.com/" crossorigin="anonymous"></script>
     <link href="yourdomain.com/webmentions/receive/" rel="webmention" />
-    <script defer src="../public/cards.min.js%3Fv=8d5252f705"></script>
-    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=8d5252f705.css">
-    <script defer src="../public/member-attribution.min.js%3Fv=8d5252f705"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4HQV7NBSG"></script>
+    <script defer src="../public/cards.min.js%3Fv=7d64696598"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=7d64696598.css">
+    <script defer src="../public/member-attribution.min.js%3Fv=7d64696598"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXZH6Q3K52"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-	gtag('config', 'G-Q4HQV7NBSG');
+  gtag('config', 'G-NXZH6Q3K52');
 </script>
 
-<!-- 2022 prismjs update -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
-
-<script>
-window.addEventListener('DOMContentLoaded', (event) => {      
-    document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
-        node.classList.add('line-numbers');
-	});
-    Prism.highlightAll();
-});
-</script>
-
-<!-- prism -->
+<!-- Ghost Init -->
 <style>
-pre[class*="language-"] {
-    margin: 0 0 1.5em !important;
-}
-pre[class*="line-numbers"]>code {
-    padding: 0 ;
-}
-code {
-    text-shadow: none !important;
-}
-.token.operator {
-    background: none !important;
-}
-
-:not(pre)>code[class*="language-"],
-pre[class*="language-"] {
-    background: #202124 !important;
-}
+    .post-template .gh-head,.page-template .gh-head {
+    	background: #000000 !important;
+    }
+    .site-footer {
+    	background: #000000 !important;
+    }
+    .post-card-tags {
+    	color: var(--color-secondary-text) !important;
+    }
+    .gh-portal-triggerbtn-container.with-label::before {
+        display:none !important;
+    }
+    /* 需提前，否则闪烁 */
+    .footer-cta,
+    a.gh-head-button { display: none; }
 </style>
 
-<!-- customer theme by zs -->
+<!-- 2023 => prismjs -->
+<script src="https://res.cloudinary.com/dzb9ldnvl/raw/upload/v1679662056/Ghost/prism_i9a8up.js"></script>
+<link rel="stylesheet" href="https://res.cloudinary.com/dzb9ldnvl/raw/upload/v1679662068/Ghost/prism_mdfwkg.css"/>
+<!-- Patch: additional supported languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-vim.min.js" integrity="sha512-P1MRK1H11qw68MAfAYVyjumLuurOQKO4wwcx4S2Nbbae9CndG92dkIXq34lsOeMFlWZoT7nVPgsOy3gepk93Bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Activate Line Numbers in PrismJS -->
+<script>
+	window.addEventListener('DOMContentLoaded', (event) => {      
+		document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+			node.classList.add('line-numbers');
+            node.style.border = 'solid #FFFFFF 1px'
+		});
+		Prism.highlightAll();
+	});
+</script>
+<!-- Resize Pre Area in PrismJS -->
 <style>
-/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
-/* http://k88hudson.github.io/react-markdocs */
-/**
- * @author k88hudson
- *
- * Based on prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
- */
-/*********************************************************
-* General
-*/
-/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
-/* http://k88hudson.github.io/react-markdocs */
-/**
- * @author k88hudson
- *
- * Based on prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
- */
-/*********************************************************
-* General
-*/
-pre[class*="language-"],
-code[class*="language-"] {
-  color: #b0bec5;
-  font-size: 13px;
-  text-shadow: none;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  line-height: 1.5;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-}
-pre[class*="language-"]::selection,
-code[class*="language-"]::selection,
-pre[class*="language-"]::mozselection,
-code[class*="language-"]::mozselection {
-  text-shadow: none;
-  background: #b3d4fc;
-}
-@media print {
-  pre[class*="language-"],
-  code[class*="language-"] {
-    text-shadow: none;
-  }
-}
-pre[class*="language-"] {
-  padding: 1em;
-  margin: .5em 0;
-  overflow: auto;
-  background: #202124;
-}
-:not(pre) > code[class*="language-"] {
-  padding: .1em .3em;
-  border-radius: .3em;
-  color: #db4c69;
-  background: #f9f2f4;
-}
-/*********************************************************
-* Tokens
-*/
-.namespace {
-  opacity: .7;
-}
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #93a1a1;
-}
-.token.punctuation {
-  color: #f3f3f3;
-}
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #88deff;
-}
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #e3f2fd;
-}
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: #f3f3f3;
-  background: #202124;
-}
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-  color: #06b4fe;
-}
-.token.function {
-  color: #ff7043;
-}
-.token.regex,
-.token.important,
-.token.variable {
-  color: #ff7043;
-}
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-.token.italic {
-  font-style: italic;
-}
-.token.entity {
-  cursor: help;
-}
-/*********************************************************
-* Line highlighting
-*/
-pre[data-line] {
-  position: relative;
-}
-pre[class*="language-"] > code[class*="language-"] {
-  position: relative;
-  z-index: 1;
-}
-.line-highlight {
-  position: absolute;
-  left: 0;
-  right: 0;
-  padding: inherit 0;
-  margin-top: 1em;
-  background: #202124;
-  box-shadow: inset 5px 0 0 #202124;
-  z-index: 0;
-  pointer-events: none;
-  line-height: inherit;
-  white-space: pre;
-}
+    pre[class*="language-"].line-numbers{
+		font-size: 0.8em;
+        background-color: #202324;
+    }
+    code[class*="language-"] {
+        background-color: transparent !important;
+    }
 </style>
 
 <!-- TOC -->
 <style>
-.toc>.toc-list li:first-child {
-  margin-top: 8px;
-}
-.toc-list a {
-  color: var(--ghost-accent-color);
-  text-decoration: none;
-  word-break: break-word;
-}
+    .toc > .toc-list li:first-child {
+      margin-top: 8px;
+    }
+    .toc-list a {
+      color: #000000 !important;
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .toc > ol, .toc > li{
+      font-size: 1.4rem;
+    }
+    
+    .toc.active > .toc-list li:first-child {
+      margin-top: 8px;
+    }
+    .toc.active .toc-list a {
+      color: #FFFFFF !important;
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .toc.active > ol, .toc.active > li{
+      font-size: 1.4rem;
+    }
 </style>
 
 <!-- ghost style by wkzs -->
@@ -380,12 +248,95 @@ pre[class*="language-"] > code[class*="language-"] {
 .gh-content > [id]:not(:first-child) {
   margin: 1.5em 0 0;
 }
+.gh-content > hr + *, .gh-content > blockquote + * {
+  margin-top: max(1.1rem, 16px) !important;
+}
+.gh-content > [id]:not(:first-child) {
+  margin: 1em 0 0;
+}
+.gh-content > * + * {
+  margin-top: max(1.6vmin, 16px);
+  margin-bottom: 0;
+}
+.gh-content > blockquote:not([class]), .gh-content > ol, .gh-content > ul, .gh-content > dl, .gh-content > p {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.6em;
+    margin-top: 1.6rem;
+}
 </style>
 
-<!-- 音乐播放器 -->
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><style>:root {--ghost-accent-color: #15171A;}</style>
+<!-- Theme Change -->
+<style>
+    .theme-switcher-wrap {
+        width: 42px;
+        height: 24px;
+        text-align: right;
+    }
+    .theme-switcher{
+        display: inline-block;
+        cursor: pointer;
+    }
+    .switch-path {
+        width: 42px;
+        height: 24px;
+        border-radius: 10px;
+        background-color: #f2f2f2;
+        border: #dddfe6 1px solid;
+    }
+    .switch-path > .switch-handle {
+        background-color: #ffffff;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+    }
+    .switch-handle .dark-icon {
+        visibility: hidden;
+        display: none;
+    }
+    .theme-switcher.active  .switch-path {
+        background-color: #555;
+    }
+    .theme-switcher.active  .switch-handle {
+        transform: translateX(20px);
+        background-color: #101115;
+    }
+    .theme-switcher.active .switch-handle .light-icon {
+      visibility: hidden;
+    }
+    .theme-switcher.active .switch-handle .dark-icon {
+      visibility: visible;
+      display: block;
+    }
+</style>
 
+<!-- Arrow up -->
+<style>
+    .arrowup {
+    	position: fixed;
+        width: 50px;
+        height: 50px;
+        left: 35px;
+        bottom: 3.1rem;
+        z-index: 99;
+        background-color: #15171A;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        cursor: pointer;
+        opacity: 1;
+  		transition: opacity 0.3s ease-in-out;
+    }
+    .arrowup svg {
+    	fill: #FFFFFF;
+    }
+    .arrowup:hover {
+      opacity: 0.8;
+    }
+</style><style>:root {--ghost-accent-color: #15171A;}</style>
 </head>
 <body class="post-template tag-technology-growth is-head-left-logo has-cover">
 <div class="viewport">
@@ -412,6 +363,26 @@ pre[class*="language-"] > code[class*="language-"] {
             </nav>
 
             <div class="gh-head-actions">
+                <div class="theme-switcher-wrap">
+                    <div class="theme-switcher" onclick="switchTheme()">
+                    <div class="switch-path">
+                        <div class="switch-handle">
+                        <svg viewBox="0 0 24 24" class="dark-icon">
+                            <path
+                            d="M11.01 3.05C6.51 3.54 3 7.36 3 12a9 9 0 0 0 9 9c4.63 0 8.45-3.5 8.95-8c.09-.79-.78-1.42-1.54-.95A5.403 5.403 0 0 1 11.1 7.5c0-1.06.31-2.06.84-2.89c.45-.67-.04-1.63-.93-1.56z"
+                            fill="#CFD3DC"
+                            ></path>
+                        </svg>
+                        <svg viewBox="0 0 24 24" class="light-icon">
+                            <path
+                            d="M6.05 4.14l-.39-.39a.993.993 0 0 0-1.4 0l-.01.01a.984.984 0 0 0 0 1.4l.39.39c.39.39 1.01.39 1.4 0l.01-.01a.984.984 0 0 0 0-1.4zM3.01 10.5H1.99c-.55 0-.99.44-.99.99v.01c0 .55.44.99.99.99H3c.56.01 1-.43 1-.98v-.01c0-.56-.44-1-.99-1zm9-9.95H12c-.56 0-1 .44-1 .99v.96c0 .55.44.99.99.99H12c.56.01 1-.43 1-.98v-.97c0-.55-.44-.99-.99-.99zm7.74 3.21c-.39-.39-1.02-.39-1.41-.01l-.39.39a.984.984 0 0 0 0 1.4l.01.01c.39.39 1.02.39 1.4 0l.39-.39a.984.984 0 0 0 0-1.4zm-1.81 15.1l.39.39a.996.996 0 1 0 1.41-1.41l-.39-.39a.993.993 0 0 0-1.4 0c-.4.4-.4 1.02-.01 1.41zM20 11.49v.01c0 .55.44.99.99.99H22c.55 0 .99-.44.99-.99v-.01c0-.55-.44-.99-.99-.99h-1.01c-.55 0-.99.44-.99.99zM12 5.5c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6s-2.69-6-6-6zm-.01 16.95H12c.55 0 .99-.44.99-.99v-.96c0-.55-.44-.99-.99-.99h-.01c-.55 0-.99.44-.99.99v.96c0 .55.44.99.99.99zm-7.74-3.21c.39.39 1.02.39 1.41 0l.39-.39a.993.993 0 0 0 0-1.4l-.01-.01a.996.996 0 0 0-1.41 0l-.39.39c-.38.4-.38 1.02.01 1.41z"
+                            fill="#606266"
+                            ></path>
+                        </svg>
+                        </div>
+                    </div>
+                    </div>
+                </div>
                     <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
                     <div class="gh-head-members">
                                 <a class="gh-head-link" href="index.html#/portal/signin" data-portal="signin">Sign in</a>
@@ -465,10 +436,7 @@ pre[class*="language-"] > code[class*="language-"] {
 
             <figure class="article-image">
                 <img
-                    srcset="../content/images/size/w300/2022/05/longmao.png 300w,
-                           ../content/images/size/w600/2022/05/longmao.pngg 600w,
-                          ../content/images/size/w1000/2022/05/longmao.pngng 1000w,
-                         ../content/images/size/w2000/2022/05/longmao.pngpng 2000w"
+                    srcset="../content/images/size/w1000/2022/05/longmao.png 1000w"
                     sizes="(min-width: 1400px) 1400px, 92vw"
                     src="../content/images/size/w2000/2022/05/longmao.png"
                     alt="MY NEIGHBOUR TOTORO"
@@ -479,7 +447,10 @@ pre[class*="language-"] > code[class*="language-"] {
     </header>
 
     <section class="gh-content gh-canvas">
-        <!--kg-card-begin: markdown--><h2 id="javascriptbasic">JavaScript Basic</h2>
+    <aside class="toc-container">
+        <div class="toc"></div>
+    </aside>
+    <!--kg-card-begin: markdown--><h2 id="javascriptbasic">JavaScript Basic</h2>
 <hr>
 <h3 id="objectxxxseries">Object.XXX series</h3>
 <ul>
@@ -980,6 +951,22 @@ window.addEventListener(&quot;scroll&quot;, imageLazyLoad);
 <!--kg-card-end: markdown-->
     </section>
 
+    <section class="article-comments gh-canvas">
+        
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "yourdomain.com/reinventingthewheel/";
+                this.page.identifier = "ghost-603d344236b65d52b4bee83f"
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    </section>
 
 </article>
 </main>
@@ -1001,16 +988,87 @@ window.addEventListener(&quot;scroll&quot;, imageLazyLoad);
                         
 <article class="post-card post">
 
+    <a class="post-card-image-link" href="../vim-neovim/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w1000/2023/03/ScenicViewOfBeachDuringDaytime.jpg 1000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2023/03/ScenicViewOfBeachDuringDaytime.jpg"
+            alt="Scenic View Of Beach During Daytime"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../vim-neovim/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Vim &amp; Neovim
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Vim ninjas count every keystroke!</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-12-12">Dec 12, 2022</time>
+                <span class="post-card-meta-length">19 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../design-patterns/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w1000/2023/03/SixHalogenBulbs.jpg 1000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2023/03/SixHalogenBulbs.jpg"
+            alt="Six Halogen Bulbs"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../design-patterns/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Design Patterns And ...
+                </h2>
+            </header>
+                <div class="post-card-excerpt">"A good programmer is someone who always looks both ways before crossing a one-way street." - Doug Linder</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-08-08">Aug 8, 2022</time>
+                <span class="post-card-meta-length">35 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
     <a class="post-card-image-link" href="../g-toc-css/index.html">
 
         <img class="post-card-image"
-            srcset="../content/images/size/w300/2022/04/SLAMDUNK.png 300w,
-                   ../content/images/size/w600/2022/04/SLAMDUNK.pngg 600w,
-                  ../content/images/size/w1000/2022/04/SLAMDUNK.pngng 1000w,
-                 ../content/images/size/w2000/2022/04/SLAMDUNK.pngpng 2000w"
+            srcset="../content/images/size/w1000/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg 1000w"
             sizes="(max-width: 1000px) 400px, 800px"
-            src="../content/images/size/w600/2022/04/SLAMDUNK.png"
-            alt="SLAM DUNK"
+            src="../content/images/size/w600/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg"
+            alt="Glass Bottle Filled With Black Straw on Brown Wooden Table"
             loading="lazy"
         />
 
@@ -1032,87 +1090,7 @@ window.addEventListener(&quot;scroll&quot;, imageLazyLoad);
 
         <footer class="post-card-meta">
             <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
-                <span class="post-card-meta-length">7 min read</span>
-        </footer>
-
-    </div>
-
-</article>
-                        
-<article class="post-card post">
-
-    <a class="post-card-image-link" href="../mysqlnote/index.html">
-
-        <img class="post-card-image"
-            srcset="../content/images/size/w300/2022/04/cloud.jpg 300w,
-                   ../content/images/size/w600/2022/04/cloud.jpgg 600w,
-                  ../content/images/size/w1000/2022/04/cloud.jpgpg 1000w,
-                 ../content/images/size/w2000/2022/04/cloud.jpgjpg 2000w"
-            sizes="(max-width: 1000px) 400px, 800px"
-            src="../content/images/size/w600/2022/04/cloud.jpg"
-            alt="mysql"
-            loading="lazy"
-        />
-
-
-    </a>
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="../mysqlnote/index.html">
-            <header class="post-card-header">
-                <div class="post-card-tags">
-                </div>
-                <h2 class="post-card-title">
-                    MySQL
-                </h2>
-            </header>
-                <div class="post-card-excerpt">MYSQL 基础篇</div>
-        </a>
-
-        <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
-                <span class="post-card-meta-length">42 min read</span>
-        </footer>
-
-    </div>
-
-</article>
-                        
-<article class="post-card post">
-
-    <a class="post-card-image-link" href="../zu-jian-tong-xun/index.html">
-
-        <img class="post-card-image"
-            srcset="../content/images/size/w300/2022/04/treecommunicate.jpg 300w,
-                   ../content/images/size/w600/2022/04/treecommunicate.jpgg 600w,
-                  ../content/images/size/w1000/2022/04/treecommunicate.jpgpg 1000w,
-                 ../content/images/size/w2000/2022/04/treecommunicate.jpgjpg 2000w"
-            sizes="(max-width: 1000px) 400px, 800px"
-            src="../content/images/size/w600/2022/04/treecommunicate.jpg"
-            alt="Component communication"
-            loading="lazy"
-        />
-
-
-    </a>
-
-    <div class="post-card-content">
-
-        <a class="post-card-content-link" href="../zu-jian-tong-xun/index.html">
-            <header class="post-card-header">
-                <div class="post-card-tags">
-                </div>
-                <h2 class="post-card-title">
-                    组件通讯
-                </h2>
-            </header>
-                <div class="post-card-excerpt">Vuex|Redux|Pinia</div>
-        </a>
-
-        <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="2021-10-01">Oct 1, 2021</time>
-                <span class="post-card-meta-length">25 min read</span>
+                <span class="post-card-meta-length">6 min read</span>
         </footer>
 
     </div>
@@ -1124,7 +1102,27 @@ window.addEventListener(&quot;scroll&quot;, imageLazyLoad);
 
 
     </div>
-
+    <div class="arrowup">
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        width="20px"
+        height="20px"
+        viewBox="0 0 122.883 122.882"
+        enable-background="new 0 0 20 20"
+        xml:space="preserve"
+      >
+        <g>
+          <path
+            d="M0,61.441L0,61.441h0.018c0,16.976,6.872,32.335,17.98,43.443c11.108,11.107,26.467,17.979,43.441,17.979v0.018h0.001 h0.001v-0.018c16.974,0,32.335-6.872,43.443-17.98s17.98-26.467,17.98-43.441h0.018v-0.001V61.44h-0.018 c0-16.975-6.873-32.334-17.98-43.443C93.775,6.89,78.418,0.018,61.443,0.018V0h-0.002l0,0v0.018 c-16.975,0-32.335,6.872-43.443,17.98C6.89,29.106,0.018,44.465,0.018,61.439H0V61.441L0,61.441z M42.48,71.7 c-1.962,1.908-5.101,1.865-7.009-0.098c-1.909-1.962-1.865-5.101,0.097-7.009l22.521-21.839l3.456,3.553l-3.46-3.569 c1.971-1.911,5.117-1.862,7.029,0.108c0.055,0.058,0.109,0.115,0.16,0.175L87.33,64.594c1.963,1.908,2.006,5.047,0.098,7.009 c-1.908,1.963-5.047,2.006-7.01,0.098L61.53,53.227L42.48,71.7L42.48,71.7z"
+          />
+        </g>
+      </svg>
+    </div>
     <footer class="site-footer outer">
         <div class="inner">
             <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2023</section>
@@ -1143,7 +1141,7 @@ window.addEventListener(&quot;scroll&quot;, imageLazyLoad);
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous">
 </script>
-<script src="../assets/built/casper.js%3Fv=8d5252f705"></script>
+<script src="../assets/built/casper.js%3Fv=7d64696598"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
@@ -1154,38 +1152,39 @@ $(document).ready(function () {
     $(".gh-content").fitVids();
 });
 </script>
-
-<!-- 2022 prismjs update -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" onload="Prism.plugins.autoloader.languages_path='https://cdn.bootcss.com/prism/1.19.0/components/'"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-powershell.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sql.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-jsx.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-java.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-less.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-sass.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-scss.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-<script defer src="https://cdn.bootcss.com/prism/1.19.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-
-
-
-<!-- music -->
-<script src="http://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-<script src="http://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
 <script>
-	var meting_api='http://api.mizore.cn/meting/api.php?server=:server&type=:type&id=:id'
-		$('.carousel').carousel({
-			interval: 3000
-		})
+  tocbot.init({
+    tocSelector: '.toc',
+    contentSelector: '.gh-content',
+    hasInnerContainers: true
+  });
+  var tc = document.querySelector(".toc-container");
+  if(tc){
+    var tch = tc.clientHeight;
+    var ah = document.querySelector(".article-header");
+    var ahh = ah.clientHeight;
+    window.addEventListener("scroll", function () {
+    if(document.body.clientWidth > 1170){
+      var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+      var ihh = window.innerHeight;
+      if(scrollY >= ihh + tch + ahh){
+        var ctc = document.querySelector(".toc-container");
+        ctc.style.position="sticky";
+        ctc.style.position="-webkit-sticky";
+        ctc.style.top = "120px";
+        ctc.style.marginLeft = "800px";
+        ctc.style.minWidth= "260px";
+      }
+      if(scrollY < tch + ahh -10){
+        var ctc = document.querySelector(".toc-container");
+        ctc.style.position="";
+        ctc.style.top = "";
+        ctc.style.marginLeft = "";
+      }
+    }})
+  }
 </script>
-<!-- music -->
-<!-- <div class="aplayer" data-id="7260570761" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-volume="0.6" lrc-type="0"></div> -->
-<!-- <a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2021003061号-1</a> -->
 
 <!-- searchinghost-easy -->
 <script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
@@ -1193,6 +1192,88 @@ $(document).ready(function () {
     new SearchinGhostEasy({
         contentApiKey: 'e93d8b3520ae46be52c9a4b140'
     });
+</script>
+
+<script>
+    let currentTheme = localStorage.getItem("theme-color");
+    const switchTheme = function () {
+        const storedTheme = localStorage.getItem("theme-color") || "theme-light";
+        if (
+            storedTheme === "theme-dark" &&
+            document.getElementsByTagName("html")[0].className !== ""
+        ) {
+            localStorage.setItem("theme-color", "theme-light");
+            currentTheme = localStorage.getItem("theme-color");
+            if (currentTheme === "theme-light") {
+            document.getElementsByTagName("html")[0].classList.remove("dark-mode");
+            document
+                .getElementsByClassName("theme-switcher")[0]
+                ?.classList.remove("active");
+            document
+                .getElementsByClassName("toc")[0]
+                ?.classList.remove("active");
+            }
+        } else {
+            localStorage.setItem("theme-color", "theme-dark");
+            currentTheme = localStorage.getItem("theme-color");
+            if (currentTheme === "theme-dark") {
+            // console.log(document.getElementById("app"));
+            document.getElementsByTagName("html")[0].classList.add("dark-mode");
+            document
+                .getElementsByClassName("theme-switcher")[0]
+                ?.classList.add("active");
+            document
+                .getElementsByClassName("toc")[0]
+                ?.classList.add("active");
+            }
+        }
+    };
+    const initTheme = function () {
+    const storedTheme = localStorage.getItem("theme-color") || "theme-light";
+    if (storedTheme === "theme-dark") {
+        document
+        .getElementsByClassName("theme-switcher")[0]
+        ?.classList.add("active");
+        document
+        .getElementsByClassName("toc")[0]
+        ?.classList.add("active");
+        document.getElementsByTagName("html")[0].classList.add("dark-mode");
+    }
+    };
+    initTheme()
+</script>
+
+<!-- Arrow up -->
+<script>
+const arrowup = document.querySelector(".arrowup");
+arrowup.addEventListener("click", function() {
+  const scrollDuration = 1500; // 滚动持续时间，单位毫秒
+    const start = window.pageYOffset; // 当前滚动位置
+    const end = 0; // 滚动结束位置
+    const distance = end - start; // 滚动距离
+    const startTime = performance.now(); // 动画开始时间
+
+    function easeInOutCubic(t) {
+      return t < 0.5
+        ? 4 * t ** 3
+        : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    }
+
+    function scrollToTopSmooth(timestamp) {
+      const currentTime = timestamp - startTime; // 已经经过的时间
+      const progress = currentTime / scrollDuration; // 滚动进度
+      const position =
+        start + distance * easeInOutCubic(Math.min(progress, 1)); // 当前滚动位置
+      window.scrollTo(0, position); // 滚动到新位置
+
+      if (currentTime < scrollDuration) {
+        // 如果滚动还未结束，则继续执行动画
+        requestAnimationFrame(scrollToTopSmooth);
+      }
+    }
+
+    requestAnimationFrame(scrollToTopSmooth);
+});
 </script>
 
 </body>

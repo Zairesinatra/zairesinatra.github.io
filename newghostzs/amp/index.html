@@ -6,7 +6,7 @@
 
     <title>Ghost 更新与迁移</title>
 
-    <meta name="description" content="记录本次 Ubuntu 中 Ghost 的更新过程及相关配置" />
+    <meta name="description" content="Ghost 部落格平台" />
     <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
     <link rel="canonical" href="../index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -14,26 +14,27 @@
     <meta property="og:site_name" content="zairesinatra" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Ghost 更新与迁移" />
-    <meta property="og:description" content="记录本次 Ubuntu 中 Ghost 的更新过程及相关配置" />
+    <meta property="og:description" content="Ghost 部落格平台" />
     <meta property="og:url" content="yourdomain.com/newghostzs/" />
-    <meta property="og:image" content="yourdomain.com/content/images/2021/09/ghostbg.png" />
-    <meta property="article:published_time" content="2021-07-23T13:38:41.000Z" />
-    <meta property="article:modified_time" content="2023-02-07T16:10:57.000Z" />
-    <meta property="article:tag" content="GHOSTblog" />
+    <meta property="og:image" content="yourdomain.com/content/images/2023/03/TheMigrationOfGhostBlog.png" />
+    <meta property="article:published_time" content="2021-01-14T13:41:00.000Z" />
+    <meta property="article:modified_time" content="2023-03-24T20:39:20.000Z" />
     <meta property="article:tag" content="Technology growth" />
+    <meta property="article:tag" content="Bugs handled" />
+    <meta property="article:tag" content="GHOSTblog" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ghost 更新与迁移" />
-    <meta name="twitter:description" content="记录本次 Ubuntu 中 Ghost 的更新过程及相关配置" />
+    <meta name="twitter:description" content="Ghost 部落格平台" />
     <meta name="twitter:url" content="yourdomain.com/newghostzs/" />
-    <meta name="twitter:image" content="yourdomain.com/content/images/2021/09/ghostbg.png" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2023/03/TheMigrationOfGhostBlog.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="GHOSTblog, Technology growth" />
+    <meta name="twitter:data2" content="Technology growth, Bugs handled, GHOSTblog" />
     <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1216" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
     
     <script type="application/ld+json">
 {
@@ -64,16 +65,16 @@
     },
     "headline": "Ghost 更新与迁移",
     "url": "yourdomain.com/newghostzs/",
-    "datePublished": "2021-07-23T13:38:41.000Z",
-    "dateModified": "2023-02-07T16:10:57.000Z",
+    "datePublished": "2021-01-14T13:41:00.000Z",
+    "dateModified": "2023-03-24T20:39:20.000Z",
     "image": {
         "@type": "ImageObject",
-        "url": "yourdomain.com/content/images/2021/09/ghostbg.png",
-        "width": 2000,
-        "height": 1216
+        "url": "yourdomain.com/content/images/2023/03/TheMigrationOfGhostBlog.png",
+        "width": 1920,
+        "height": 1080
     },
-    "keywords": "GHOSTblog, Technology growth",
-    "description": "记录本次 Ubuntu 中 Ghost 的更新过程及相关配置",
+    "keywords": "Technology growth, Bugs handled, GHOSTblog",
+    "description": "Ghost 部落格平台",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "yourdomain.com/"
@@ -1063,7 +1064,7 @@
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
-    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    
 
 </head>
 
@@ -1081,21 +1082,63 @@
                 <h1 class="post-title">Ghost 更新与迁移</h1>
                 <section class="post-meta">
                     Ziyi Xie -
-                    <time class="post-date" datetime="2021-07-23">23 Jul 2021</time>
+                    <time class="post-date" datetime="2021-01-14">14 Jan 2021</time>
                 </section>
             </header>
             <figure class="post-image">
-                <amp-img src="yourdomain.com/content/images/2021/09/ghostbg.png" width="600" height="340" layout="responsive" 
-                alt="The migration of Ghost blog"
+                <amp-img src="yourdomain.com/content/images/2023/03/TheMigrationOfGhostBlog.png" width="600" height="340" layout="responsive" 
+                alt="The Migration Of Ghost Blog"
                 ></amp-img>
             </figure>
             <section class="post-content">
 
-                <amp-iframe width="100%" height="300" frameborder="1" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1282481617&amp;color=%23546854&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" sandbox="allow-scripts allow-same-origin" layout="responsive"></amp-iframe><div><a href="https://soundcloud.com/hvmqw3ekc2fe" title="zairesinatra" target="_blank">zairesinatra</a> · <a href="https://soundcloud.com/hvmqw3ekc2fe/sets/zsxzy" title="zsxzy" target="_blank">zsxzy</a></div><h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
-<h3 id="node">Node</h3>
+                <h2 id="%E5%86%85%E5%AE%B9%E8%BF%BD%E5%8A%A0">内容追加</h2>
+<p>最近更新日期：2023-02-08</p>
+<p>本次记录迁移至 DigitalOcean 的过程，IP 检查借助 <a href="https://geoiplookup.net/">geoiplookup</a>，Prism.js 配置使用 <a href="http://k88hudson.github.io/syntax-highlighting-theme-generator/www/">k88hudson</a>。</p>
+<h3 id="commands-memo">Commands Memo</h3>
+<blockquote>
+<p><a href="https://docs.digitalocean.com/reference/doctl/how-to/install/">doctl</a>, the DigitalOcean command-line tool, to connect to your Droplet with SSH.</p>
+</blockquote>
+<p><code>doctl compute ssh</code> 指令：通过提供的 ID 或名称使用 SSH 访问 Droplet。</p>
+<pre><code class="language-shell">doctl compute ssh ghostonubuntu2204-digitalocean --ssh-key-path /Users/.../..._id_rsa
+</code></pre>
+<blockquote>
+<p>ssh-add is a command for adding SSH private keys into the SSH authentication agent for implementing single sign-on with SSH.</p>
+</blockquote>
+<p>将密钥文件路径作为参数提供给 <code>ssh-add</code> 后，即可使用 <code>ssh user@ip</code> 访问。</p>
+<pre><code class="language-shell">ssh-add ~/.ssh/..._id_rsa
+</code></pre>
+<pre><code class="language-shell">ssh -v root@???
+</code></pre>
+<p>未将私钥添加给 <code>ssh-agent</code> 而直接用 <code>ssh user@ip</code> 访问会出现权限的异常。</p>
+<pre><code class="language-shell">debug1: Trying private key: /Users/.../id_dsa
+debug1: No more authentication methods to try.
+root@143.198.100.???: Permission denied (publickey).
+</code></pre>
+<p>使用 <code>~/.ssh/config</code> 可简化每次重启就要 <code>ssh-add ~/.ssh/?_rsa</code> 的操作。</p>
+<h3 id="mosh">Mosh</h3>
+<p>由于最近迁移的服务器部署在 San Francisco，从国内通过 ssh 进行连接时，存在较大的延迟，故使用这款基于 UDP 的 Mosh。</p>
+<blockquote>
+<p>SSH waits for the server's reply before showing you your own typing. That can make for a lousy user interface. Mosh is different: it gives an instant response to typing, deleting, and line editing.</p>
+</blockquote>
+<p>VPS 可通过 <code>sudo apt-get install mosh</code> 安装，在开启服务时需要注意防火墙的状态和限制的端口，Ubuntu 可使用 <code>ufw status</code> 进行查看，或使用 <code>lsof -i :60001</code> 进行验证。Local 的 Mac 直接通过 <code>brew install mosh</code> 安装即可。</p>
+<p>直接连接时会导致滚动页面的失效，且滚动的是历史命令。这是由于 Mosh 仅是相当于远程服务端的 screen snapshot 所造成的。</p>
+<p>如果需要阻止 mosh 替代屏幕，那么应该加上 <code>--no-init</code>。</p>
+<pre><code class="language-shell">mosh root@143.198.100.??? --no-init
+</code></pre>
+<h3 id="add-swap-space">Add Swap Space</h3>
+<p>内存负载过高会导致应用不定期的离线以及文件上传失败等问题，除开升级硬件配置以外，也可以通过交换文件的方式来向服务器添加额外的交换空间。</p>
+<p>在内存不够的情况下，操作系统会先把内存中暂时不用的数据，存储到硬盘的交换空间，腾出内存来让别的程序运行。具体过程可参考 digitalocean 的 <a href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04">tutorials</a>。</p>
+<h3 id="cloudflare-dns">Cloudflare DNS</h3>
+<p>登录状态在 Cloudflare 导航栏中点击 Websites 并选择需要 DNS 的域名，在 Quick Actions 中可以进一步地修改已经设置过的 DNS Settings。</p>
+<p>需要注意 Cloudflare 自动完成的域名解析可能会添加不需要的配置：</p>
 <ul>
-<li>最新 Ghost 版本需要 Node@14.x -&gt; 安装适用 Ubuntu 的 <a href="https://github.com/nodesource/distributions">二进制发行版</a></li>
+<li>不需要用到的 CDN 服务：将 Proxy status 设置为 DNS only</li>
+<li>额外的域名解析：在 Actions 中的 Edit 里删除即可</li>
 </ul>
+<h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<h3 id="node">Node</h3>
+<p>最新 Ghost 版本需要 Node@14.x，应安装适用于 Ubuntu 的 <a href="https://github.com/nodesource/distributions">二进制发行版</a>。</p>
 <pre><code class="language-shell"># Using Ubuntu 添加 Node.js ppa(Person Package achives) 安装 Node.js
 # cURL is an abbreviation for Client URL Request Library which is used to transfer data from one place to another place. 
 # -f (--fail) 表示在服务器错误时, 阻止一个返回表示错误原因的 html 页面
@@ -1108,7 +1151,7 @@ node -v
 </code></pre>
 <h3 id="ghost">Ghost</h3>
 <p>Ghost@v3 需先通过 <code>ghost update v3</code> 获取到最新的 v3.x 版本，再运行 <code>ghost update</code> 升级到 v4。</p>
-<p>更新期间出现目录所属权限的问题：<code>sudo chown /var/www/ghost</code></p>
+<p>更新期间出现目录所属权限的问题：使用 <code>sudo chown /var/www/ghost</code> 命令。</p>
 <pre><code class="language-shell">sudo systemctl is-active ghost_zairesinatra-com
 ✔ Checking system Node.js version - found v10.24.0、Ensuring user is not logged in as ghost user
 ✖ Checking if logged in user is directory owner
@@ -1132,35 +1175,26 @@ OS: Ubuntu, v18.04.4 LTS、Node Version: v10.24.0、Ghost Version: 3.41.9、Ghos
 
 Try running ghost doctor to check your system for known issues.
 </code></pre>
-<ul>
-<li>更新前出现报错 =&gt; ghost-cli@1.5.0 后 root 不允许运行 Ghost 命令，需要将当前安装迁移到新的 Linux 用户</li>
-</ul>
+<p>更新前出现报错：ghost-cli@1.5.0 后 root 不允许运行 Ghost 相关的命令。</p>
+<p>解决方式：将当前安装迁移到新的 Linux 用户</p>
 <pre><code class="language-shell">We discovered that you are using the DigitalOcean One-Click install. You need to create a user with regular account privileges and migrate your installation to this user.
 </code></pre>
-<ul>
-<li>增加一个新用户，并添加到 sudo 组</li>
-</ul>
+<p>增加一个新用户，并添加到 sudo 组。</p>
 <pre><code class="language-shell">$ adduser &lt;user&gt;
 $ usermod -aG sudo &lt;user&gt;
 </code></pre>
-<ul>
-<li>创建新实例文件并移动到指定的位置 =&gt; 文件从属关系给予新用户</li>
-</ul>
+<p>创建新实例文件并移动到指定的位置 =&gt; 文件从属关系给予新用户。</p>
 <pre><code class="language-shell">$ mkdir -p /home/&lt;user&gt;/.ghost/
 $ chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost
 $ mv /root/.ghost/config /home/&lt;user&gt;/.ghost/config
 $ chown &lt;user&gt;:&lt;user&gt; /home/&lt;user&gt;/.ghost/config
 </code></pre>
-<ul>
-<li>切换到 ghost 安装目录 /var/www/ghost 以更改所有权，并以新身份登录</li>
-</ul>
+<p>切换到 Ghost 安装目录 <code>/var/www/ghost</code> 以更改所有权，并以新身份登录。</p>
 <pre><code class="language-shell">$ cd /var/www/ghost
 $ find . -group root -user root -exec chown &lt;user&gt;:&lt;user&gt; {} \;
 $ su - &lt;user&gt;
 </code></pre>
-<ul>
-<li>继续 ghost 更新；启动后为非 https 状态，需配置 config.production.json 文件后重启</li>
-</ul>
+<p>继续更新；启动后为非 https 状态，需配置 config.production.json 文件后重启。</p>
 <pre><code class="language-shell">$ ghost update v3
 + sudo systemctl is-active ghost_zairesinatra-com
 ✔ Checking system Node.js version - found v14.17.2
@@ -1298,7 +1332,27 @@ sudo su
 <p>Chrome 中点开 view site information 并选择 connection is secure，在 certificate is valid 中查看。</p>
 <h2 id="%E7%89%88%E6%9C%AC%E8%BF%AD%E4%BB%A3">版本迭代</h2>
 <p>由于 Ghost 或 Node 版本的更新会导致部分内容存在不兼容的情况，此章节记录对于这种改动处理时需要注意的方面。</p>
-<h3 id="node-%E5%8D%87%E7%BA%A7">Node 升级</h3>
+<h3 id="ghost-init">Ghost Init</h3>
+<pre><code class="language-css">.post-template .gh-head,
+.page-template .gh-head {
+  background: #000000 !important;
+}
+.site-footer {
+  background: #000000 !important;
+}
+.post-card-tags {
+  color: var(--color-secondary-text) !important;
+}
+.gh-portal-triggerbtn-container.with-label::before {
+  display: none !important;
+}
+/* 需提前，否则闪烁 */
+.footer-cta,
+a.gh-head-button {
+  display: none;
+}
+</code></pre>
+<h3 id="update-node">Update Node</h3>
 <pre><code class="language-shell">$ npm install -g ghost-cli@latest
 added 491 packages, and audited 492 packages in 24s
 41 packages are looking for funding
@@ -1347,7 +1401,7 @@ npm WARN using --force Recommended protections disabled.
 up to date, audited 1 package in 89ms
 found 0 vulnerabilities
 </code></pre>
-<h3 id="ghost-%E5%8D%87%E7%BA%A7">Ghost 升级</h3>
+<h3 id="update-ghost">Update Ghost</h3>
 <p>ghost update 会取代旧版本服务，对于旧版文件的更改将失效，需要在新 version 中再次进行配置。</p>
 <ul>
 <li>2022-08-21 更新 =&gt; v5.10.1</li>
@@ -1374,13 +1428,32 @@ found 0 vulnerabilities
     &lt;/script&gt;
 &lt;/section&gt;
 </code></pre>
-<h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
-<p>迁移一开始很顺利，Ghost 支持导出所有文章内容。然而内置 Labs 以 json 文件导入文章的功能并不适用于导入图像。使用 FTP 连接服务器并将所有的图像直接复制到 content/images/ 文件夹后，看起来一切正常。但是次日写了一篇新帖，在准备上传文章图片时，却提示上传失败，原因是内部服务器错误。</p>
-<p>Ghost 无法将图像保存在 content 文件夹中通常应该从权限方面考虑。众所周知，应该使用 ghost 用户访问和修改博客的内容。就我而言，可能因为是复制粘贴的 images-backup 文件夹，所以会具有不同用户权限，这就阻止了 Ghost 保存图像。</p>
-<pre><code class="language-shell"># 解决 ghost Internal server error, cannot upload image 的方式
-sudo chown -R &lt;ghostuser&gt;:&lt;ghostuser&gt; ./content
+<h3 id="ghost-github-pages">Ghost &amp; Github Pages</h3>
+<p>虽然 GitHub Pages 上 Jekyll 与 Ghost 项目仍然在稳定运行，但因为有科学上网的限制，可能会存在访问上的痛点。考虑到往后的迁移，故记录备份与配置的过程。</p>
+<p>命令 <code>ghost start|stop</code> 须在该安装 Ghost 的文件夹目录下执行，否则会出现 <code>Working directory is not a recognisable Ghost installation.</code> 的错误。</p>
+<p>将 Local Ghost 生成静态页面步骤如下：</p>
+<ul>
+<li>将 <a href="https://github.com/Zairesinatra/myShare/blob/main/gui.sh">shellScript</a> 保存在本地 Ghost 网站的根目录中，用于将 Local Ghost 编译成静态页面</li>
+<li>修改该文件中 <code># Define urls and https</code> 部分</li>
+</ul>
+<pre><code class="language-shell"># Define urls and https
+from_url=yourdomain.com # change this if your local ghost url is different
+to_url=yourdomain.com # change it to your real domain name (no add https)
+to_https=true # set true to enable HTTPS (e.g. GitHub Pages)
 </code></pre>
-<p>从逻辑上来说，到此问题就应该结束了，但在我将服务器重启进行测试的时候又出现了新的 Bug。</p>
+<ul>
+<li>键入 <code>chmod +x gui.sh</code> 增加 shellScript 权限</li>
+<li>运行脚本，生成静态文件目录</li>
+</ul>
+<pre><code class="language-shell"> ./gui.sh or source gui.sh or sh gui.sh
+</code></pre>
+<h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
+<h3 id="internal-server-error">Internal Server Error</h3>
+<p>通过 FTP 将所有图片复制到 VPS 下的 /var/www/ghost/content/images 目录。在准备上传文章的配图时，提示上传失败，原因说是内部服务器的错误。</p>
+<p>当无法保存图片时，通常可以考虑一下问题是否出在了文件夹的权限方面。众所周知，应该使用特定的用户来访问和修改博客的内容。</p>
+<pre><code class="language-shell">sudo chown -R &lt;ghostuser&gt;:&lt;ghostuser&gt; ./content
+</code></pre>
+<p>就在本人认为问题已经得到解决的时候，又出现了如下的异常：</p>
 <pre><code class="language-shell">$ ghost start
 + sudo systemctl is-active ghost_www-zairesinatra-com
 ✔ Checking system Node.js version - found v16.14.2
@@ -1413,25 +1486,29 @@ Try running ghost doctor to check your system for known issues.
 
 You can always refer to https://ghost.org/docs/ghost-cli/ for troubleshooting.
 </code></pre>
-<p>尽管提示说可以尝试 setup 命令解决此问题，但在运行后会发现跳过设置的尴尬现状。</p>
+<p>欲通过 <code>ghost setup</code> 重设配置，但出现了跳过部分配置的情况。</p>
 <pre><code class="language-shell">$ ghost setup linux-user systemd
 Systemd service has already been set up. Skipping Systemd setup
 ℹ Setting up Systemd [skipped]
 </code></pre>
-<p>此时观摩<a href="https://ghost.org/docs/ghost-cli/">官方文档</a>，由于 Ghost 的某些输出可能不会出现在日志文件中，出于调试目的尝试 <code>ghost run</code> 命令。</p>
+<p><a href="https://ghost.org/docs/ghost-cli/">官方文档</a>表示某些输出可能不会存在日志文件中，可尝试 <code>ghost run</code> 命令。</p>
 <pre><code class="language-shell">$ ghost run
 INFO Ghost is running in production...
 ...
 Sharp wasn't installed
 </code></pre>
-<p>在 github issue 上查到与 Sharp 相关的问题<a href="https://github.com/TryGhost/Ghost/issues/10421">点此</a>。</p>
-<p>由于是更换了文件夹内容后出现的状况，且开始并未表示 Sharp 存在问题，根据<a href="https://github.com/TryGhost/Ghost-CLI/issues/397">此处</a>下述这段话的理解，尝试重新进行设置，最后成功的完成修复。</p>
+<p>在 Github Issues 上查到与 Sharp 相关的问题 =&gt; <a href="https://github.com/TryGhost/Ghost/issues/10421">点此</a>。</p>
+<p>这是更换了文件夹内容后出现的状况，且开始并未表示 Sharp 存在问题，根据<a href="https://github.com/TryGhost/Ghost-CLI/issues/397">此处</a>的理解，尝试重新进行设置，可成功的完成修复。</p>
+<blockquote>
 <p>"Directory was linked using NFS so ghost-cli couldn't change its permissions or owner, therefore it kind of silently failed where it did."</p>
+</blockquote>
 <pre><code class="language-shell">$ id -u ghost
 $ stat /var/www/&lt;ghost-blog&gt;
 $ ghost setup # or ghost setup systemd
 </code></pre>
-<p>由于没有针对 Apple 新 M1 芯片（arm64 架构）的 15.x 之前版本的预编译 NodeJS 二进制文件。在使用 nvm 时遇到了一些问题：使用 <code>nvm install v14.15.4</code> 安装 Node 时，存在 C 代码编译成功，但是因内存不足错误而崩溃的情况。</p>
+<h3 id="cascading-problems-caused-by-version-compatibility">Cascading problems caused by version compatibility</h3>
+<p>Ghost cannot be installed normally in some specific Node version environments, so nvm is usually used to install multiple Node versions.</p>
+<p>Since there are no precompiled NodeJS binaries for versions prior to 15.x for Apple's new M1 chip (arm64 architecture). I encountered some problems when using nvm: when using <code>nvm install v14.15.4</code> to install Node, the compilation was successful, but the installation failed.</p>
 <pre><code class="language-shell"># 为下载预编译的 x64 二进制文件 =&gt; 将 shell 的体系结构从 arm64 更改为 x86
 $ arch -x86_64 zsh
 # 输出机器的体系结构 =&gt; 结果有 i386、i486、mips、alpha
@@ -1444,8 +1521,157 @@ node -p process.arch
 x86
 </code></pre>
 <p>多提一句，体系结构的粘性是从 Rosetta 在 PowerPC 到 Intel 过渡中的工作方式的一种变化，在 macOS Big Sur 中，如果可以最大程度地提高兼容性，子进程将更喜欢父进程的架构。因此，例如启动 x86_64 sh 将导致来自该 shell 的 python 调用也是 x86_64。</p>
+<h3 id="kexexchangeidentification">kex_exchange_identification</h3>
+<p>在使用 <code>doctl compute ssh...</code> 访问 Droplet 时出现 port 22 直接关闭的情况。</p>
+<pre><code class="language-shell">$ doctl compute ssh ghostonubuntu2204-digitalocean --ssh-key-path ~/.ssh/digitalocean_id_rsa
+kex_exchange_identification: Connection closed by remote host
+Connection closed by ??? port 22
+Error: exit status 255
+</code></pre>
+<p>使用 <code>ssh -v user@ip</code> Verbose Mode 进行 debug 如下。</p>
+<pre><code class="language-shell">$ ssh -v root@???
+OpenSSH_9.0p1, LibreSSL 3.3.6
+debug1: Reading configuration data ~/.ssh/config
+debug1: Reading configuration data /etc/ssh/ssh_config
+...
+debug1: Local version string SSH-2.0-OpenSSH_9.0
+kex_exchange_identification: Connection closed by remote host
+Connection closed by ??? port 22
+</code></pre>
+<p>Ubuntu 22.04 中出现 "Connection refused by port 22" 的常见原因：</p>
+<ul>
+<li>没有安装 OpenSSH 的包</li>
+<li>SSH 服务未激活</li>
+<li>错误的端口连接</li>
+<li>防火墙的规则阻止了连接请求</li>
+<li>开启了全局模式的代理</li>
+<li>文件 <code>/etc/ssh/sshd_config</code> 中 MaxStartups 和 MaxSessions 的限制</li>
+</ul>
+<pre><code class="language-shell"># Check the OpenSSH installation
+$ sudo apt list --installed | grep openssh-server
+# If the OpenSSH package is not installed
+$ sudo apt install openssh-server -y
+</code></pre>
+<pre><code class="language-shell"># View the status of the SSH server
+$ sudo systemctl status ssh
+# To activate the service,
+$ sudo systemctl start ssh
+</code></pre>
+<pre><code class="language-shell"># Check sshd port
+$ sudo netstat -ltnp | grep sshd
+# Specify port for ssh connection
+$ ssh -p [port_number] [username]@[ip_address]
+</code></pre>
+<blockquote>
+<p>SSH is a popular and effective way to connect to remote Linux machines in the command line. The ssh daemon (sshd) reads the configuration file located in /etc/ssh/sshd_config.</p>
+</blockquote>
+<blockquote>
+<p>The MaxStartups setting specifies the maximum number of concurrent unauthenticated connections to the SSH daemon. Additional connections are dropped until authentication succeeds or the LoginGraceTime expires for a connection.</p>
+</blockquote>
+<p><code>MaxStartups</code> 中的 <code>start:rate:full</code> 表示当连接数达到 start 时，就会开始有 rate 的概率拒绝连接；当连接数达到 full 时，后续的连接将被全部拒绝。</p>
+<blockquote>
+<p>The MaxSessiosn setting defines the maximum number of open sessions per connection.</p>
+</blockquote>
+<p>要禁用 shell 的多路复用时，可以将其值设置为 <code>1</code>。将 <code>MaxSessiosn</code> 设置为 <code>0</code> 时会禁用所有的会话，包括 login、shell 和 subsystem。</p>
+<h3 id="ssh-acceleration-and-optimization">SSH acceleration and optimization</h3>
+<p>A 记录解析域名到 IP 地址，而 PTR 记录解析 IP 地址到域名。</p>
+<blockquote>
+<p>A PTR (pointer) record maps an IP address to the domain name. It's often called a "reverse DNS entry" because it converts an IP address to a name.</p>
+</blockquote>
+<p>服务器会先根据 Client IP 进行 DNS PTR 反向查询 Domain 或 Hostname，然后根据查询出的客户端域名或主机名进行 DNS 正向 A 记录查询，并验证是否与原始 IP 地址一致，以此来防止客户端的欺骗。</p>
+<p>由于常规使用的都是没有 PTR 记录的动态 IP，所以这种验证并没有太大的作用。</p>
+<p>GSSAPI 全称是 Generic Security Services API，在这里主要是作为一种 OpenSSH Authentication 的方式。</p>
+<p>OpenSSH Authentication Methods:</p>
+<ul>
+<li>Password authentication: Client will ask you to enter a password, will encrypt it and use it to authenticate itself to a server.</li>
+<li>Public key authentication: Each client uses a key pair to authenticate itself to a server. Server should find the key in the list of allowed keys.</li>
+<li>Host based authentication: This method is similar to public key authentication, but client should not only use correct key, but also must connect from correct host.</li>
+<li>Keyboard authentication: Server will use client to present zero or more prompts to client PC operator and request answers from operator.</li>
+<li>Challenge Response Authentication: Used to configure keyboard authentication. You should use specific backend send the challenges and check the responses.</li>
+<li>GSSAPI Authentication: GSSAPI is a IETF standard for strong encrypted authentication. OpenSSH uses GSSAPI and kerberos 5 code to authenticate clients.</li>
+</ul>
+<p>密码或者公钥的认证并不会阻止系统执行 GSSAPI Authentication 的过程，那么连接时就难免在此处消耗一定的时间，造成 SSH 登录慢的体验。</p>
+<p>综上，可将 <code>UseDNS</code> 与 <code>GSSAPIAuthentication</code> 设置 <code>no</code>，并重启 ssh 服务。</p>
+<blockquote>
+<p>The service command is a wrapper script that allows system administrators to start, stop, and check the status of services without worrying too much about the actual init system being used. Prior to systemd's introduction, it was a wrapper for /etc/init.d scripts and Upstart's initctl command, and now it is a wrapper for these two and systemctl as well. - <a href="https://askubuntu.com/questions/903354/difference-between-systemctl-and-service-commands">askubuntu</a></p>
+</blockquote>
+<blockquote>
+<p>The Secure Shell Daemon application (SSH daemon or sshd) is the daemon program for ssh. This program is an alternative to rlogin and rsh and provides encrypted communications between two untrusted hosts over an insecure network. The sshd is the daemon that listens for connections from clients on port 22.</p>
+</blockquote>
+<pre><code class="language-yaml"># /etc/ssh/sshd_config
+UseDNS no
+GSSAPIAuthentication no
+</code></pre>
+<pre><code class="language-shell">service sshd restart
+systemctl restart sshd.service
+</code></pre>
+<pre><code class="language-shell"># shorthand
+sed -i -e 's/UseDNS yes/UseDNS no/g' -e 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/g' /etc/ssh/sshd_config &amp;&amp; systemctl restart sshd.service
+</code></pre>
+<p>因服务器部署在海外地区，除开上述的配置外，还可以采取代理服务器的方法进行远程连接。OpenSSH ProxyJump 和 ProxyCommand 指令可以让 SSH 通过 Jump Host 连接到 Remote Server。Jump Host 也称作 Jump Server 或 Bastion Host。</p>
+<p>A Bastion Host or a Jump Server is an intermediary device that an SSH client connects to first before accessing the target remote Linux system. An SSH Jump server acts as a gateway to your IT resources, thus reducing the attack surface.</p>
+<pre><code class="language-shell"># Dynamic jump host list
+ssh -J username1@host1:port,username2@host2:port username3@host3:port
+</code></pre>
+<pre><code class="language-shell"># Static jump host list
+# ~/.ssh/config
+Host vps1
+  HostName vps1.example.org
+  User ...
+  PreferredAuthentications password
+Host ultimateVps
+  HostName ultimateVps.example.org
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/..._id_rsa
+  ProxyJump vps1
+</code></pre>
+<p>通常情况下，国内与海外服务器的网络路由可能会因为一个结点的拥堵而导致网络质量的降级。在长距离的跨国网络中，众多路由节点都会存在有拥堵的风险，那么此时可以考虑在合适的位置添加一个额外的路由节点来改变原本的路由，绕过某些可能会造成拥堵的节点，那么就可以缩短链路的距离，改善网络的质量。</p>
+<pre><code class="language-shell">scp -vrCo 'ProxyJump root@vps1' root@ultimateVps:/.../... /Users/...
+</code></pre>
+<h3 id="%E8%B7%AF%E5%BE%84%E5%90%8E%E7%BC%80%E9%94%99%E8%AF%AF%E6%89%80%E5%AF%BC%E8%87%B4%E7%9A%84%E5%9B%BE%E6%98%BE%E5%A4%B1%E8%B4%A5">路径后缀错误所导致的图显失败</h3>
+<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676476821/Ghost/GhostConfigGithubPages/blogsrcerror_sbtvqy.png" alt="blogsrcerror" width="2560" height="450" layout="responsive"></amp-img></p>
+<p>因默认自动编译生成的是动态网站，而实际需编译成静态网站时，应当修改默认文件中的相关配置。将所有的 <code>.hbs</code> 文件中的格式选型代码进行指定删减。</p>
+<pre><code class="language-html">{{#if feature_image}}
+  &lt;figure class="article-image"&gt;
+    {{!-- This is a responsive image, it loads different sizes depending on device
+    https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+    &lt;img
+      srcset="{{img_url feature_image size="xl"}} 2000w"
+      sizes="(min-width: 1400px) 1400px, 92vw"
+      src="{{img_url feature_image size="xl"}}"
+      alt="{{title}}"
+    /&gt;
+  &lt;/figure&gt;
+{{/if}}
+</code></pre>
+<h3 id="%E6%9B%B4%E6%96%B0%E6%89%80%E8%87%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%81%87%E6%80%A7%E4%B8%A2%E5%A4%B1">更新所致的数据假性丢失</h3>
+<p>根目录中存在一个叫 <code>config.development.json</code> 的配置文件，这个文件决定了启动的端口号以及所使用的数据库等内容。</p>
+<p>Ghost 默认使用 sqlite3 数据库（我记得以前使用的是 MySQL？），那么数据消失的问题就应该查看环境中对数据库的配置是否出现了异常。</p>
+<p><code>config.development.json</code> 中 sqlite3 被指定为了 ghost-dev，故进行改正。</p>
+<pre><code class="language-json">"database": {
+  "client": "sqlite3",
+  "connection": {
+    "filename": "/Users/.../zs-ghost/content/data/ghost-local.db"
+  }
+}
+</code></pre>
+<p>若需要将 sqlite3 迁移到 MySQL，可参考如下配置。<a href="https://ghost.org/docs/faq/troubleshooting-mysql-database/">troubleshooting</a></p>
+<pre><code class="language-json">"database": {
+  "client": "mysql",
+  "connection": {
+    "host": "127.0.0.1",
+    "user": "???",
+    "password": "???",
+    "database": "ghost-dev",
+    "charset": "utf8"
+  }
+},
+</code></pre>
+<p>注意此处 <code>host</code> 不能设置为 <code>localhost</code>，否则会出现启动异常。</p>
+<pre><code class="language-shell">Ghost was able to start, but errored during boot with: connect ECONNREFUSED ::1:3306
+</code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议 </a>，转载请注明出处！</p>
 
 
             </section>

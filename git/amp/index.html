@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/git/" />
     <meta property="og:image" content="yourdomain.com/content/images/2021/09/githubbg.jpg" />
     <meta property="article:published_time" content="2020-07-18T14:02:00.000Z" />
-    <meta property="article:modified_time" content="2022-12-21T19:02:44.000Z" />
+    <meta property="article:modified_time" content="2023-02-15T19:31:14.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "Git",
     "url": "yourdomain.com/git/",
     "datePublished": "2020-07-18T14:02:00.000Z",
-    "dateModified": "2022-12-21T19:02:44.000Z",
+    "dateModified": "2023-02-15T19:31:14.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2021/09/githubbg.jpg",
@@ -1273,7 +1273,6 @@ git config user.email "zy@zs.com"
 git config -l # 查看
 cat .git/config
 </code></pre>
-<p></p>
 <ul>
 <li>refs 与 HEAD</li>
 </ul>
@@ -1720,12 +1719,12 @@ Merge branch 'c2'
 </code></pre>
 <h2 id="gitrebase">git --rebase</h2>
 <p>Fast-forward (--ff) 线性分支 commit 提交历史存在分支操作不清晰的缺点。<br />
-<br />
+<amp-anim src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676489351/Ghost/Git/fastforward_pe1p35.gif" alt="fastforward" width="880" height="495" layout="responsive"></amp-anim><br />
 No-fast-foward (--no-ff) 通常结构复杂。<br />
-<br />
+<amp-anim src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676489427/Ghost/Git/noff_i789pi.gif" alt="noff" width="880" height="495" layout="responsive"></amp-anim><br />
 实际开发中需要根据情况切换分支操作的提交方式，而 git --rebase 可以使分支拥有 master 的最新 commit，即有将 --no-ff 转换为 --ff 的能力。通过在非 master 分支进行 git --rebase 同步 master 分支的 commit，并重写非 master 分支的 commit（此时在非 master 分支上的所有 commit SHA1 哈希值会被重写，也会难免的发生冲突）。由此完成转换为 --ff 的前置条件。</p>
 <p>git --rebase 在使用上也是存在风险的。若在 rebase 操作之前已将非 master 分支 commit  push 到远程仓库，这时完成 rebase 再想 push 远程仓库会出现错误，虽然可以使用强制 push，但是依然可能存在对已拉取此非 master 分支完成的 commit push 操作的开发者造成影响。<br />
-</p>
+<amp-anim src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676489462/Ghost/Git/rebase_dok8gh.gif" alt="rebase" width="880" height="495" layout="responsive"></amp-anim></p>
 <h2 id="tags-operation">Tags Operation</h2>
 <p>创建标签时会在当前所在分支的最近一次 commit 为基准去创建。标签其实是一个指针，静态指向的就是创建 tag 时刻所在分支的最新 commit。标签主要用于发布版本的管理，版本发布之后可以为 Git 打上 v.1.0.1 v.1.0.2 …这样的标签。</p>
 <p><strong>Create tag:</strong><br />

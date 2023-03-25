@@ -18,8 +18,8 @@
     <meta property="og:url" content="yourdomain.com/webpack/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/07/mickey.jpg" />
     <meta property="article:published_time" content="2021-03-08T11:55:00.000Z" />
-    <meta property="article:modified_time" content="2023-01-16T08:46:25.000Z" />
-    <meta property="article:tag" content="BUG handled" />
+    <meta property="article:modified_time" content="2023-03-22T14:18:29.000Z" />
+    <meta property="article:tag" content="Bugs handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Webpack" />
@@ -29,7 +29,7 @@
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Ziyi Xie" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="BUG handled" />
+    <meta name="twitter:data2" content="Bugs handled" />
     <meta name="twitter:site" content="@xieziyi0422" />
     <meta property="og:image:width" content="1920" />
     <meta property="og:image:height" content="1288" />
@@ -64,14 +64,14 @@
     "headline": "Webpack",
     "url": "yourdomain.com/webpack/",
     "datePublished": "2021-03-08T11:55:00.000Z",
-    "dateModified": "2023-01-16T08:46:25.000Z",
+    "dateModified": "2023-03-22T14:18:29.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/07/mickey.jpg",
         "width": 1920,
         "height": 1288
     },
-    "keywords": "BUG handled",
+    "keywords": "Bugs handled",
     "description": "webpack 配置与异常",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -1100,6 +1100,18 @@ npm run eject
 <p>Bundling application 对于 HTTP/1.1 clients，可以减少浏览器发起请求时，应用所等待的时间；而对于 HTTP/2 来说，还可以使用代码分割进一步完成优化。</p>
 </blockquote>
 <h3 id="relatedinstructions">Related Instructions</h3>
+<p>热重载（热更新）：在应用程序运行时，无需停止或重新启动应用程序即可动态更新代码或资源文件。这通常用于开发过程中的调试和修改代码。</p>
+<p>冷启动：在应用程序第一次启动时，或在应用程序被长时间关闭后再次启动时，需要重新加载所有必要的资源和配置文件。这可能需要花费较长时间，对于用户体验来说可能不是很好。</p>
+<p>热启动：在应用程序已经启动并运行时，再次启动该应用程序。由于应用程序的许多资源已经在内存中加载，因此启动时间较短，对用户来说不会造成太多影响。</p>
+<p>温启动：在应用程序已经启动并运行时，但应用程序的某些组件已经被关闭或过期，需要重新加载这些组件。与热启动相比，启动时间稍长，但仍然比冷启动快得多。</p>
+<p>webpack 与 webpack-cli 之间的联系：</p>
+<ul>
+<li>执行webpack命令，会执行node_modules下的.bin目录下的webpack</li>
+<li>webpack在执行时是依赖webpack-cli的，如果没有安装就会报错</li>
+<li>webpack-cli中代码执行时，才是真正利用webpack进行编译和打包的过程</li>
+<li>第三方的脚手架事实上是没有使用webpack-ci的，而是类似于 vue-service-cli 的东西</li>
+</ul>
+<p>vite的很多思想和之前的snowpack是重合的，而且相对目前来说snowpack会更加成熟；</p>
 <ol>
 <li>Entry =&gt; 指示打包的入口起点，构建内部<a href="https://webpack.js.org/concepts/dependency-graph/">依赖图</a> =&gt; 默认 ./src/index.js</li>
 <li>Output =&gt; 指示输出创建 bundles 的位置，以及命名方式</li>

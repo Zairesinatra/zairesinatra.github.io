@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Vim &amp; Neovim</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=7d64696598.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=7d64696598.css" />
+    <meta name="description" content="Vim ninjas count every keystroke!" />
+    <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Vim &amp; Neovim" />
+    <meta property="og:description" content="Vim ninjas count every keystroke!" />
+    <meta property="og:url" content="yourdomain.com/vim-neovim/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2023/03/ScenicViewOfBeachDuringDaytime.jpg" />
+    <meta property="article:published_time" content="2022-12-12T14:30:00.000Z" />
+    <meta property="article:modified_time" content="2023-03-18T20:27:03.000Z" />
+    <meta property="article:tag" content="GHOSTblog" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vim &amp; Neovim" />
+    <meta name="twitter:description" content="Vim ninjas count every keystroke!" />
+    <meta name="twitter:url" content="yourdomain.com/vim-neovim/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2023/03/ScenicViewOfBeachDuringDaytime.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="GHOSTblog" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "Vim &amp; Neovim",
+    "url": "yourdomain.com/vim-neovim/",
+    "datePublished": "2022-12-12T14:30:00.000Z",
+    "dateModified": "2023-03-18T20:27:03.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2023/03/ScenicViewOfBeachDuringDaytime.jpg",
+        "width": 1920,
+        "height": 1080
+    },
+    "keywords": "GHOSTblog",
+    "description": "Vim ninjas count every keystroke!",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.33" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.24/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f5d74add11f1d16d3e59c12945" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="yourdomain.com/" crossorigin="anonymous"></script>
+    <link href="yourdomain.com/webmentions/receive/" rel="webmention" />
+    <script defer src="../public/cards.min.js%3Fv=7d64696598"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=7d64696598.css">
+    <script defer src="../public/member-attribution.min.js%3Fv=7d64696598"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXZH6Q3K52"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXZH6Q3K52');
+</script>
+
+<!-- Ghost Init -->
+<style>
+    .post-template .gh-head,.page-template .gh-head {
+    	background: #000000 !important;
+    }
+    .site-footer {
+    	background: #000000 !important;
+    }
+    .post-card-tags {
+    	color: var(--color-secondary-text) !important;
+    }
+    .gh-portal-triggerbtn-container.with-label::before {
+        display:none !important;
+    }
+    /* 需提前，否则闪烁 */
+    .footer-cta,
+    a.gh-head-button { display: none; }
+</style>
+
+<!-- 2023 => prismjs -->
+<script src="https://res.cloudinary.com/dzb9ldnvl/raw/upload/v1679662056/Ghost/prism_i9a8up.js"></script>
+<link rel="stylesheet" href="https://res.cloudinary.com/dzb9ldnvl/raw/upload/v1679662068/Ghost/prism_mdfwkg.css"/>
+<!-- Patch: additional supported languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-vim.min.js" integrity="sha512-P1MRK1H11qw68MAfAYVyjumLuurOQKO4wwcx4S2Nbbae9CndG92dkIXq34lsOeMFlWZoT7nVPgsOy3gepk93Bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Activate Line Numbers in PrismJS -->
+<script>
+	window.addEventListener('DOMContentLoaded', (event) => {      
+		document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+			node.classList.add('line-numbers');
+            node.style.border = 'solid #FFFFFF 1px'
+		});
+		Prism.highlightAll();
+	});
+</script>
+<!-- Resize Pre Area in PrismJS -->
+<style>
+    pre[class*="language-"].line-numbers{
+		font-size: 0.8em;
+        background-color: #202324;
+    }
+    code[class*="language-"] {
+        background-color: transparent !important;
+    }
+</style>
+
+<!-- TOC -->
+<style>
+    .toc > .toc-list li:first-child {
+      margin-top: 8px;
+    }
+    .toc-list a {
+      color: #000000 !important;
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .toc > ol, .toc > li{
+      font-size: 1.4rem;
+    }
+    
+    .toc.active > .toc-list li:first-child {
+      margin-top: 8px;
+    }
+    .toc.active .toc-list a {
+      color: #FFFFFF !important;
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .toc.active > ol, .toc.active > li{
+      font-size: 1.4rem;
+    }
+</style>
+
+<!-- ghost style by wkzs -->
+<style>
+.gh-content > [id] + * {
+  margin-top: 2.5rem !important;
+}
+.gh-content > [id]:not(:first-child) {
+  margin: 1.5em 0 0;
+}
+.gh-content > hr + *, .gh-content > blockquote + * {
+  margin-top: max(1.1rem, 16px) !important;
+}
+.gh-content > [id]:not(:first-child) {
+  margin: 1em 0 0;
+}
+.gh-content > * + * {
+  margin-top: max(1.6vmin, 16px);
+  margin-bottom: 0;
+}
+.gh-content > blockquote:not([class]), .gh-content > ol, .gh-content > ul, .gh-content > dl, .gh-content > p {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.6em;
+    margin-top: 1.6rem;
+}
+</style>
+
+<!-- Theme Change -->
+<style>
+    .theme-switcher-wrap {
+        width: 42px;
+        height: 24px;
+        text-align: right;
+    }
+    .theme-switcher{
+        display: inline-block;
+        cursor: pointer;
+    }
+    .switch-path {
+        width: 42px;
+        height: 24px;
+        border-radius: 10px;
+        background-color: #f2f2f2;
+        border: #dddfe6 1px solid;
+    }
+    .switch-path > .switch-handle {
+        background-color: #ffffff;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+    }
+    .switch-handle .dark-icon {
+        visibility: hidden;
+        display: none;
+    }
+    .theme-switcher.active  .switch-path {
+        background-color: #555;
+    }
+    .theme-switcher.active  .switch-handle {
+        transform: translateX(20px);
+        background-color: #101115;
+    }
+    .theme-switcher.active .switch-handle .light-icon {
+      visibility: hidden;
+    }
+    .theme-switcher.active .switch-handle .dark-icon {
+      visibility: visible;
+      display: block;
+    }
+</style>
+
+<!-- Arrow up -->
+<style>
+    .arrowup {
+    	position: fixed;
+        width: 50px;
+        height: 50px;
+        left: 35px;
+        bottom: 3.1rem;
+        z-index: 99;
+        background-color: #15171A;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        cursor: pointer;
+        opacity: 1;
+  		transition: opacity 0.3s ease-in-out;
+    }
+    .arrowup svg {
+    	fill: #FFFFFF;
+    }
+    .arrowup:hover {
+      opacity: 0.8;
+    }
+</style><style>:root {--ghost-accent-color: #15171A;}</style>
+</head>
+<body class="post-template tag-ghostblog is-head-left-logo has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra">
+                </a>
+                <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tags"><a href="../tags/index.html">Tags</a></li>
+    <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                <div class="theme-switcher-wrap">
+                    <div class="theme-switcher" onclick="switchTheme()">
+                    <div class="switch-path">
+                        <div class="switch-handle">
+                        <svg viewBox="0 0 24 24" class="dark-icon">
+                            <path
+                            d="M11.01 3.05C6.51 3.54 3 7.36 3 12a9 9 0 0 0 9 9c4.63 0 8.45-3.5 8.95-8c.09-.79-.78-1.42-1.54-.95A5.403 5.403 0 0 1 11.1 7.5c0-1.06.31-2.06.84-2.89c.45-.67-.04-1.63-.93-1.56z"
+                            fill="#CFD3DC"
+                            ></path>
+                        </svg>
+                        <svg viewBox="0 0 24 24" class="light-icon">
+                            <path
+                            d="M6.05 4.14l-.39-.39a.993.993 0 0 0-1.4 0l-.01.01a.984.984 0 0 0 0 1.4l.39.39c.39.39 1.01.39 1.4 0l.01-.01a.984.984 0 0 0 0-1.4zM3.01 10.5H1.99c-.55 0-.99.44-.99.99v.01c0 .55.44.99.99.99H3c.56.01 1-.43 1-.98v-.01c0-.56-.44-1-.99-1zm9-9.95H12c-.56 0-1 .44-1 .99v.96c0 .55.44.99.99.99H12c.56.01 1-.43 1-.98v-.97c0-.55-.44-.99-.99-.99zm7.74 3.21c-.39-.39-1.02-.39-1.41-.01l-.39.39a.984.984 0 0 0 0 1.4l.01.01c.39.39 1.02.39 1.4 0l.39-.39a.984.984 0 0 0 0-1.4zm-1.81 15.1l.39.39a.996.996 0 1 0 1.41-1.41l-.39-.39a.993.993 0 0 0-1.4 0c-.4.4-.4 1.02-.01 1.41zM20 11.49v.01c0 .55.44.99.99.99H22c.55 0 .99-.44.99-.99v-.01c0-.55-.44-.99-.99-.99h-1.01c-.55 0-.99.44-.99.99zM12 5.5c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6s-2.69-6-6-6zm-.01 16.95H12c.55 0 .99-.44.99-.99v-.96c0-.55-.44-.99-.99-.99h-.01c-.55 0-.99.44-.99.99v.96c0 .55.44.99.99.99zm-7.74-3.21c.39.39 1.02.39 1.41 0l.39-.39a.993.993 0 0 0 0-1.4l-.01-.01a.996.996 0 0 0-1.41 0l-.39.39c-.38.4-.38 1.02.01 1.41z"
+                            fill="#606266"
+                            ></path>
+                        </svg>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                    <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="index.html#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-ghostblog ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="../tag/ghostblog/index.html">GHOSTblog</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">Vim &amp; Neovim</h1>
+
+            <p class="article-excerpt">Vim ninjas count every keystroke!</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2022-12-12">Dec 12, 2022</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 19 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w1000/2023/03/ScenicViewOfBeachDuringDaytime.jpg 1000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2023/03/ScenicViewOfBeachDuringDaytime.jpg"
+                    alt="Scenic View Of Beach During Daytime"
+                />
+                    <figcaption>Scenic View Of Beach During Daytime</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+    <aside class="toc-container">
+        <div class="toc"></div>
+    </aside>
+    <!--kg-card-begin: markdown--><h2 id="quick-start">Quick Start</h2>
+<h3 id="intro-to-vim">Intro to Vim</h3>
+<blockquote>
+<p>Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient.</p>
+</blockquote>
+<p>作为一款 Modal Editor，Vim 在不同模式下具有不同的目的和操作。</p>
+<p>The default mode for Vim is normal mode, which is a command mode in which you can type execute commands (like deleting text, moving the cursor, etc).</p>
+<p>Since the above commands can be triggered by pressing keys on the keyboard, there is no need to enter a colon or other special characters. Therefore, normal mode could be seen as a command mode for executing various editing commands.</p>
+<p>Once in insert mode, typing inserts characters just like a regular text editor. You could enter this mode by pressing the i key (to insert text before the cursor), the a key (to insert text after the cursor), or some other command.</p>
+<p>Visual mode is used to highlight selected text. You could use visual mode to select text and perform operations such as copy, delete, and paste.</p>
+<p>Command mode has a wide variety of commands and can do things that normal mode can’t do as easily. To enter command mode type &quot;<code>:</code>&quot; from normal mode and then type your command which should appear at the bottom of the window.</p>
+<p>有从 ThePrimeagen 的 <a href="https://www.youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R">&quot;Vim As Your Editor&quot;</a> 系列中收获到了一些帮助记忆 Vim 的概念：Command Count Motion、Horizontal Movements 和 Vertical Movements。</p>
+<p>Like many vim commands, motion can be prefixed by a number to move several steps at a time:</p>
+<ul>
+<li>j|k means move one row down|up =&gt; 6k means move 6 rows up</li>
+<li>h|l means move one character left|right =&gt; 5l means move 5 characters right</li>
+<li>w|b means hop over|back by word =&gt; 4w means hop over 4 words</li>
+<li>e means move to end of word =&gt; 3e means move to end of 3 words</li>
+<li>0|$ move to the beginning|end of the line =&gt; 2$ means move to the end of the next line</li>
+</ul>
+<p>&quot;Command&quot; in &quot;Command Count Motion&quot; means d, c, v, y etc operation commands.</p>
+<ul>
+<li>d3w means delete 3 words from the current cursor</li>
+<li>c2$ means to modify all characters from the current cursor to the end of the next line</li>
+<li>v means to enter the visual mode, appending count and motion can set the highlighted area</li>
+<li>y0 yanks from cursor position to the beginning of the line, y_ yanks the entire current line</li>
+</ul>
+<p>注意：当执行删除、剪切或修改命令时，Vim 默认会将删除的文本存储到 <code>&quot;0</code> 寄存器。寄存器 <code>&quot;+</code> 表示系统剪贴板寄存器。通过 <code>&quot;+y</code> 可以将选中的文本复制到系统剪贴板，而 <code>&quot;+p</code> 则是将系统剪贴板中的文本粘贴到 Vim。命令 <code>:reg</code> 可以查看所有的寄存器及其内容。</p>
+<p>In Vim, g is not a single operation, but a command prefix. The <code>g</code> command prefix can be combined with other commands to achieve various operations. For example:</p>
+<ul>
+<li><code>gj</code>: move down one screen, but only count one line</li>
+<li><code>gk</code>: move up one screen, but only count one line</li>
+<li><code>gg</code>: Move to the first line of the document</li>
+<li><code>G</code>: Move to the last line of the document</li>
+<li><code>g_</code>: Move to the last non-blank character of the current line</li>
+<li><code>gm</code>: Move to the first non-blank character of the middle line of the document</li>
+</ul>
+<p>键入 forward slash <code>/</code> 可进入 search 模式。在输入完搜索内容后通过 return or enter 确定，向下切换可以使用 <code>n</code>。</p>
+<p>除上述外，再补充一些 Vim 中常用的键盘命令：</p>
+<ul>
+<li>x means delete the character at the current cursor position</li>
+<li>:%y+ could copy the entire file to the system clipboard command</li>
+<li>f is used to search forward for the specified character in the current line (eg: <code>f{</code>)</li>
+<li>zz means to center this line, usually with <code>Ctrl</code> + <code>u</code>|<code>d</code> to scroll up|down half a page</li>
+</ul>
+<blockquote>
+<p>A Vim Session can open multiple tabs, and each tab can contain multiple windows, but each window can only display one buffer. A buffer usually refers to the contents of a file. - ChatGPT</p>
+</blockquote>
+<p>Vim Session 是指编辑器的工作区域，其通常会包含有打开的文件、窗口的布局以及命令历史等信息：</p>
+<ul>
+<li>通过 <code>:mksession</code> 可以创建一个 Vim session，并将当前编辑器的状态保存到一个文件中</li>
+<li>使用 <code>vim -S</code> 可以打开一个保存了 session 信息的文件，以恢复之前的编辑器状态</li>
+</ul>
+<blockquote>
+<p>A buffer is an area of Vim's memory used to hold text read from a file. In addition, an empty buffer with no associated file can be created to allow the entry of text. – <a href="https://vim.fandom.com/wiki/Buffers">vim.wikia</a></p>
+</blockquote>
+<p>在 Vim 中，buffer 实际上并不是文件本身，而是文件内容的内存副本。在打开文件时，Vim 会将文件的内容加载进一个 buffer，再开始相关的编辑和修改工作。在进行编辑和修改时，buffer 中的内容是实时更新的。而保存文件后，Vim 会将 buffer 里的内容写回到文件中，以更新文件的实际内容。</p>
+<p>Common commands for Vim session, tab, window and buffer are as follows:</p>
+<ul>
+<li><code>:e</code> 将文件加载进 buffer</li>
+<li><code>:w</code> 将 buffer 内容写入文件</li>
+<li><code>:q</code> 关闭 buffer</li>
+<li><code>:ls</code> 列出所有的 buffer</li>
+<li><code>:vsplit</code> 在当前 window 的侧边打开一个新的 window</li>
+<li><code>:bnext</code> | <code>:bprev</code> 切换到下一个或前一个 buffer</li>
+<li><code>:tabnext</code> | <code>:tabprev</code> 在不同的 tab 之间进行切换</li>
+</ul>
+<p>在 Vim 中可以通过可视块模式 <code>visual block mode</code> 对块文本执行特定的操作：</p>
+<p>逐行操作：键入 <code>Ctrl + v</code> 激活可视块模式，使用方向键选择好需要操作的行与列。如果需要逐行插入或删除文本，可以使用 <code>I</code> 进入可视块中的插入模式，或按 <code>A</code> 进入追加模式。在执行这项操作后，默认会取消高亮的块区域并将光标带到顶行。这里注意，在光标所处的顶行执行想要的批量操作，然后按退出键。最后这项操作将反映在之前可视块区所选择的的每一行中。</p>
+<p>数字递增：以 1 到 100 为例：插入模式下在第一行输入数字 1，然后按 <code>Enter</code> 将光标移动到下一行后退出插入模式。在第二行键入 <code>y1j</code> 再键入 <code>100p</code> 即可在第三行及其后生成 100 行 1。在第四行（从第三行开始的下一个 1）使用 <code>Ctrl + v</code> 进入可视块模式后输入 <code>99j</code> 即可选择后续的 99 个 1。按下 <code>g</code> 与 <code>Ctrl + a</code> 可对后续的 1 进行递增。至此完成从 1-100 递增。</p>
+<p>代码块缩进：用 <code>Ctrl + v</code> 与方向键选择好需要缩进的块区域，再通过 <code>Shift + &gt;</code> 或 <code>&lt;&lt;</code> 进行缩进。注意，上述的操作只会缩进一次。如果需要连续缩进，可以按下 <code>.</code> 键来重复上一次的操作。</p>
+<p>Vim 在保存未命名的文件时会出现 &quot;E32：No file name&quot; 的提示，可以使用 <code>:file filename</code> 命令来设置当前文件的文件名。</p>
+<p>在设置 Vim 主题时，可以通过 cterm 和 gui 选项来分别指定在终端和图形用户界面下的颜色方案：</p>
+<ul>
+<li>cterm 即 Console Terminal，通常在命令行或终端窗口中使用 Vim 时生效</li>
+<li>gui 即 Graphical User Interface，通常在使用 GVim 或 MacVim 等 GUI 版本的 Vim 时生效</li>
+</ul>
+<pre><code class="language-vim">if has(&quot;gui_running&quot;)
+  &quot; 设置图形用户界面下的颜色
+  set background=dark
+  colorscheme solarized
+else
+  &quot; 设置终端下的颜色
+  set t_Co=256
+  colorscheme desert256
+endif
+</code></pre>
+<h3 id="neovim-tips">Neovim Tips</h3>
+<blockquote>
+<p>Nerd Fonts patches developer targeted fonts with a high number of glyphs (icons). Specifically to add a high number of extra glyphs from popular ‘iconic fonts’ such as Font Awesome, Devicons, Octicons, and others.</p>
+</blockquote>
+<p>通常终端的字符集只会包含一组基本的字符，对于一些图标和特殊符号的处理并不能够满足指定的需求，为了有效解决终端图标乱码的问题，需要使用 <a href="https://github.com/ryanoasis/nerd-fonts">Nerd Fonts</a> 这款开源字体集合（对终端设置）。</p>
+<pre><code class="language-shell">brew tap homebrew/cask-fonts &amp;&amp; brew install --cask font-hack-nerd-font
+</code></pre>
+<p>Test whether the terminal font is set successfully =&gt; <a href="https://www.nerdfonts.com/cheat-sheet">Click Here</a>.</p>
+<p>Mac fonts are stored in  <code>~/Library/Fonts/</code> by default.</p>
+<p>Neovim 的配置文件是用户 Home 目录中的 <code>~/.config/nvim/init.lua</code> 或 <code>init.vim</code> 文件。</p>
+<blockquote>
+<p><code>nvim_set_keymap({mode}, {lhs}, {rhs}, {*opts})</code> sets a global mapping for the given mode.</p>
+</blockquote>
+<p>Neovim 中可通过 <code>nvim_set_keymap()</code> 或 <code>vim.api.nvim_set_keymap()</code> 来设置快捷键：</p>
+<ul>
+<li><code>nvim_set_keymap()</code> 是 Neovim 自带的 API 函数，可以直接在 init.vim 或 init.lua 中使用</li>
+<li><code>vim.api.nvim_set_keymap()</code> 是通过 Vim 中 Lua API 调用的函数，需要在 Lua 脚本中使用</li>
+</ul>
+<pre><code class="language-lua">-- 左右Tab切换
+vim.api.nvim_set_keymap(&quot;n&quot;, &quot;&lt;C-h&gt;&quot;, &quot;:BufferLineCyclePrev&lt;CR&gt;&quot;, {noremap = true, silent = true })
+vim.api.nvim_set_keymap(&quot;n&quot;, &quot;&lt;C-l&gt;&quot;, &quot;:BufferLineCycleNext&lt;CR&gt;&quot;, {noremap = true, silent = true })
+</code></pre>
+<p>上述 Quote 中 mode 表示映射模式，即普通、可视、插入模式等；lhs 表示要映射的键位序列，常有特殊、控制、功能键位等；rhs 表示要执行的操作，如命令、Lua 函数等；opts 是一个选项表，可以指定为 nowait、silent、expr 等一个或者多个。</p>
+<pre><code class="language-lua">-- 将 &lt;Leader&gt;q 映射为关闭当前窗口
+vim.keymap.set(&quot;&quot;, &quot;&lt;Leader&gt;q&quot;, &quot;&lt;C-w&gt;c&quot;, { nowait = true })
+-- 将 &lt;Leader&gt;n 映射为跳转到下一个 QuickFix 错误
+vim.keymap.set(&quot;&quot;, &quot;&lt;Leader&gt;n&quot;, &quot;:cnext&lt;CR&gt;&quot;, { silent = true })
+-- 将 &lt;Leader&gt;e 映射为在侧边栏打开文件资源管理器
+vim.keymap.set(&quot;&quot;, &quot;&lt;Leader&gt;e&quot;, function()
+  vim.cmd(&quot;NvimTreeToggle&quot;)
+end)
+</code></pre>
+<p>注意，Neovim 会暴露一个全局的 <code>vim</code> 模块来作为 Lua 调用 Vim 中 APIs 的入口。</p>
+<p>可通过 <code>:echo mapleader</code> 查看 <code>&lt;leader&gt;</code> 的映射，默认情况下 <code>&lt;leader&gt;</code> 的映射为反斜杠 <code>\</code>。</p>
+<p>在 Neovim 中输出某个设置属性的具体值，可以使用 <code>:echo &amp;option_name</code> 命令，<code>&amp;option_name</code> 为设置属性的名称。符号 <code>&amp;</code> 通常用于引用某个选项的值。当使用 <code>&amp;option_name</code> 语法时，Vim 和 Neovim 会将 <code>&amp;option_name</code> 解释为相应选项的名称，并将其替换为该选项的当前值。如果想查看所有可用的选项及其当前值，可以执行 <code>:options</code> 命令。</p>
+<p>需要注意的是，并非所有的选项都可以通过上述语法来获取相应的值。通常来说，只有那些被显式地设置为选项的变量才可以使用，其他变量的值可能需要使用一些额外的语法或函数来获取。举个例子，对于 <code>vim.g</code> 和 <code>vim.keymap</code>，使用 <code>echo &amp;...</code> 输出是无效的，因为它们都不是 Vim 的选项。</p>
+<pre><code class="language-shell">:echo g:my_setting # 输出 vim.g 中的 my_setting 变量的值
+</code></pre>
+<p>回车 Carriage Return 常缩写为 CR，即对应 Vim 中的 <code>&lt;CR&gt;</code>，<code>&lt;C-a&gt;</code> 和 <code>&lt;C-n&gt;</code> 分别表示 <code>Ctrl+a</code> 和 <code>Ctrl+n</code> 键。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="neovim-config-from-scratch">Neovim Config From Scratch</h2>
+<h3 id="plugin-manager-for-neovim">Plugin Manager for Neovim</h3>
+<p>目前 Neovim 中常见的插件管理器有 vim-plug、packer.nvim 和 LazyVim：</p>
+<ul>
+<li>vim-plug 使用简单，且同时支持 Vim 和 Neovim，所有功能在一个 Vim 脚本中实现</li>
+<li>Packer.nvim 支持插件间的依赖，通过 lua 编写，专门针对 Neovim v0.5.0 以上版本使用</li>
+<li>LazyVim 利用缓存提升速度，在轻量的同时有对 Vim 和 Neovim 不同版本提供了兼容性支持</li>
+</ul>
+<h3 id="plugins-in-neovim">Plugins In Neovim</h3>
+<p><a href="https://github.com/microsoft/language-server-protocol">LSP</a> 是一个由 Microsoft 提出的开放式协议，用于在编辑器、IDE 和语言服务器之间进行通信。在 LSP 之前，不同的工具都需要独立实现各自的代码功能。这意味着同一门编程语言在各种工具之间可能会存在不同的效果，且不能够很好的兼容。那么对于同一种编程语言，如果让各种工具都可以共享一个语言服务器，那么就可以实现代码补全、语法检查、悬停提示等功能的一致性。</p>
+<p>Language Client 和 Language Server 是 LSP 协议中的两个重要角色：</p>
+<ul>
+<li>Language Server 作为服务提供者，提供与特定编程语言相关的语言分析和操作服务</li>
+<li>Language Client 通过实现 LSP 协议，可以向语言服务器发送请求，接收并显示分析的结果</li>
+</ul>
+<blockquote>
+<p>Nvim supports the Language Server Protocol (LSP), which means it acts as a client to LSP servers and includes a Lua framework vim.lsp for building enhanced LSP tools.</p>
+</blockquote>
+<p>Neovim 本身并不是一个 Language Client，尽管其内置了一套 LSP 的实现。因此，若想在 Neovim 中使用 LSP，仍然需要安装一个 LSP 客户端插件来提供 Language Client 的功能。在 Neovim 中，可以通过 <code>:h lsp</code> 或 <code>:h vim.lsp</code> 查看相关文档。本文配置 LSP 使用 nvim-lspconfig 与 <a href="https://github.com/williamboman/mason.nvim">mason.nvim</a>。</p>
+<p>jdtls 全称是 Eclipse JDT Language Server，这是一个基于 Eclipse JDT（Java Development Tools）构建的 LSP（Language Server Protocol）实现，用于提供对 Java 语言的代码分析和操作支持，可以在各种编辑器和 IDE 中使用，如 Eclipse、Visual Studio Code、Sublime Text 等。</p>
+<h3 id="the-transparency-scheme">The Transparency Scheme</h3>
+<pre><code class="language-shell">vim ~/.vim_runtime/sources_non_forked/vim-colors-solarized/colors/solarized.vim
+</code></pre>
+<pre><code class="language-vim">&quot; Customize and Modify color
+&quot; let s:base01      = &quot;10&quot;
+let s:base01      = &quot;7&quot;
+&quot; let s:base00      = &quot;11&quot;
+let s:base00      = &quot;7&quot;
+</code></pre>
+<p>使用 amix/vimrc 后，额外的配置应添加在 <code>~/.vim_runtime/my_configs.vim</code> 文件。</p>
+<pre><code class="language-vim">&quot; --- Custom config ---
+&quot; 关闭与 Vi 兼容的模式
+set nocompatible
+&quot; 设置文本编码为 UTF-8
+set encoding=utf-8
+&quot; 显示行号，同时也显示相对行号
+set nu
+set relativenumber
+&quot; 设置文件名自动补全模式
+set wildmode=longest,list,full
+&quot; 开启命令行自动补全菜单
+set wildmenu
+&quot; 开启鼠标支持，可以使用鼠标操作 Vim
+set mouse=a
+
+&quot; 定义一个函数 SetTabIndent() 用于设置缩进
+function SetTabIndent()
+  &quot; 根据文件类型设置缩进
+  if &amp;ft == &quot;javascript&quot; || &amp;ft == &quot;typescript&quot; || &amp;ft == &quot;json&quot; || &amp;ft == &quot;vue&quot; || &amp;ft == &quot;jsx&quot; || &amp;ft == &quot;lua&quot; || &amp;ft == &quot;yaml&quot; || &amp;ft == &quot;css&quot; || &amp;ft == &quot;scss&quot; || &amp;ft == &quot;css&quot; || &amp;ft == &quot;xml&quot; || &amp;ft == &quot;vim&quot;
+    setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  elseif &amp;ft == &quot;java&quot; || &amp;ft == &quot;python&quot;
+    setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  else
+    setlocal tabstop=8 softtabstop=0 shiftwidth=8 noexpandtab
+  endif
+endfunction
+
+&quot; 在 BufRead 和 BufNewFile 事件中调用 SetTabIndent() 函数
+augroup TabIndent
+  autocmd!
+  autocmd BufRead,BufNewFile * call SetTabIndent()
+augroup END
+
+syntax enable &quot; 开启语法高亮
+
+&quot; 当前使用 amix/vimrc，将 vim 打开的文件背景设置为与 iterm2 一致（transparency 25）
+if has(&quot;gui_running&quot;)
+  &quot; GUI 相关设置
+  &quot; etc...
+else
+  &quot; 终端相关设置
+  set t_Co=256
+  &quot; 判断当前终端的类型是否包含字符串&quot;256color&quot;
+  if &amp;term =~ '256color'
+    &quot; 设置终端的背景色和前景色
+    &quot; iTerm2 等终端的透明度在终端外面设置即可
+    &quot; https://stackoverflow.com/a/34926660/10538725
+    set background=dark
+    &quot; 加载颜色主题
+    colorscheme solarized
+    &quot; 设置背景透明度 =&gt; 应确保在设置之前有加载颜色主题
+    hi Normal ctermbg=none
+    &quot; 设置 Pmenu 的透明度
+    hi Pmenu ctermbg=none
+    hi PmenuSel ctermbg=none
+    &quot; 竖线用空格填充
+    set fillchars+=vert:\
+    set linespace=0
+    &quot; 自动补全透明度
+    set pumblend=20
+    &quot; 窗口透明度
+    set winblend=20
+  endif
+endif
+</code></pre>
+<p>在 nvim 的配置文件 <code>$HOME/.config/nvim/init.lua</code> 中，添加以下代码。</p>
+<pre><code class="language-lua">-- 使用 nvim-lua/kickstart，将通过 nvim 打开的文件背景设置为与 iterm2 一致
+vim.o.background = 'dark' -- 设置为 dark 背景
+vim.o.termguicolors = true -- 启用 24 位色彩
+vim.cmd('au VimEnter * hi Normal guibg=none ctermbg=none') -- 设置 Normal 背景为透明
+vim.cmd('au VimEnter * hi NonText guibg=none ctermbg=none') -- 设置 NonText 背景为透明
+vim.cmd('au VimEnter * hi SignColumn guibg=none ctermbg=none') -- 设置 SignColumn 背景为透明
+vim.cmd('au VimEnter * hi LineNr guibg=none ctermbg=none') -- 设置 LineNr 背景为透明
+vim.cmd('au VimEnter * hi EndOfBuffer guibg=none ctermbg=none') -- 设置 EndOfBuffer 背景为透明
+vim.cmd('au VimEnter * hi VertSplit guifg=NONE guibg=NONE') -- 设置分割线背景为透明
+vim.cmd('au VimEnter * hi Folded guibg=none ctermbg=none') -- 设置 Folded 背景为透明
+</code></pre>
+<p>NeoTree 默认使用 netrw.vim 插件来管理文件树。NeoTree 是一个类似于 netrw 的文件浏览器插件。</p>
+<p>nvim-neo-tree 配置文件 <code>~/.config/nvim/lua/custom/plugins/filetree.lua</code> 如下。</p>
+<pre><code class="language-lua">-- Unless you are still migrating, remove the deprecated commands from v1.x
+vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
+-- Realize neotree transparency
+-- https://www.reddit.com/r/neovim/comments/10vrw9s/making_neotree_transparent_in_lazyvim/
+vim.api.nvim_create_augroup(&quot;nobg&quot;, { clear = true })
+vim.api.nvim_create_autocmd({ &quot;ColorScheme&quot; }, {
+  desc = &quot;Make all backgrounds transparent&quot;,
+  group = &quot;nobg&quot;,
+  pattern = &quot;*&quot;,
+  callback = function()
+    -- 函数 vim.api.nvim_set_hl() 用于设置 Vim 的高亮组
+    vim.api.nvim_set_hl(0, &quot;Normal&quot;, { bg = &quot;NONE&quot;, ctermbg = &quot;NONE&quot; })
+    vim.api.nvim_set_hl(0, &quot;NeoTreeNormal&quot;, { bg = &quot;NONE&quot;, ctermbg = &quot;NONE&quot; })
+    vim.api.nvim_set_hl(0, &quot;NeoTreeNormalNC&quot;, { bg = &quot;NONE&quot;, ctermbg = &quot;NONE&quot; })
+    vim.api.nvim_set_hl(0, &quot;NeoTreeEndOfBuffer&quot;, { bg = &quot;NONE&quot;, ctermbg = &quot;NONE&quot; })
+    -- etc...
+  end,
+})
+
+return {
+  &quot;nvim-neo-tree/neo-tree.nvim&quot;,
+  version = &quot;*&quot;,
+  dependencies = {
+    &quot;nvim-lua/plenary.nvim&quot;,
+    &quot;nvim-tree/nvim-web-devicons&quot;, -- not strictly required, but recommended
+    &quot;MunifTanjim/nui.nvim&quot;,
+  },
+  config = function ()
+    -- If you want icons for diagnostic errors, you'll need to define them somewhere:
+      vim.fn.sign_define(&quot;DiagnosticSignError&quot;,
+        {text = &quot; &quot;, texthl = &quot;DiagnosticSignError&quot;})
+      vim.fn.sign_define(&quot;DiagnosticSignWarn&quot;,
+        {text = &quot; &quot;, texthl = &quot;DiagnosticSignWarn&quot;})
+      vim.fn.sign_define(&quot;DiagnosticSignInfo&quot;,
+        {text = &quot; &quot;, texthl = &quot;DiagnosticSignInfo&quot;})
+      vim.fn.sign_define(&quot;DiagnosticSignHint&quot;,
+        {text = &quot;&quot;, texthl = &quot;DiagnosticSignHint&quot;})
+      -- NOTE: this is changed from v1.x, which used the old style of highlight groups
+      -- in the form &quot;LspDiagnosticsSignWarning&quot;
+    require('neo-tree').setup {
+      popup_border_style = &quot;rounded&quot;,
+      enable_git_status = true,
+      enable_diagnostics = true,
+      open_files_do_not_replace_types = { &quot;terminal&quot;, &quot;trouble&quot;, &quot;qf&quot; }, -- when opening files, do not use windows containing these filetypes or buftypes
+      sort_case_insensitive = false, -- used when sorting files and directories in the tree
+      sort_function = nil , -- use a custom function for sorting files and directories in the tree
+      default_component_configs = {
+          container = {
+            enable_character_fade = true
+          },
+          indent = {
+            indent_size = 2,
+            padding = 1, -- extra padding on left hand side
+            -- indent guides
+            with_markers = true,
+            indent_marker = &quot;│&quot;,
+            last_indent_marker = &quot;└&quot;,
+            highlight = &quot;NeoTreeIndentMarker&quot;,
+            -- expander config, needed for nesting files
+            with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+            expander_collapsed = &quot;&quot;,
+            expander_expanded = &quot;&quot;,
+            expander_highlight = &quot;NeoTreeExpander&quot;,
+          },
+          icon = {
+            folder_closed = &quot;&quot;,
+            folder_open = &quot;&quot;,
+            folder_empty = &quot;ﰊ&quot;,
+            -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
+            -- then these will never be used.
+            default = &quot;*&quot;,
+            highlight = &quot;NeoTreeFileIcon&quot;
+          },
+          modified = {
+            symbol = &quot;[+]&quot;,
+            highlight = &quot;NeoTreeModified&quot;,
+          },
+          name = {
+            trailing_slash = false,
+            use_git_status_colors = true,
+            highlight = &quot;NeoTreeFileName&quot;,
+          },
+          git_status = {
+            symbols = {
+              -- Change type
+              added     = &quot;&quot;, -- or &quot;✚&quot;, but this is redundant info if you use git_status_colors on the name
+              modified  = &quot;&quot;, -- or &quot;&quot;, but this is redundant info if you use git_status_colors on the name
+              deleted   = &quot;✖&quot;,-- this can only be used in the git_status source
+              renamed   = &quot;&quot;,-- this can only be used in the git_status source
+              -- Status type
+              untracked = &quot;&quot;,
+              ignored   = &quot;&quot;,
+              unstaged  = &quot;&quot;,
+              staged    = &quot;&quot;,
+              conflict  = &quot;&quot;,
+            }
+          },
+        },
+      -- neo-tree.nvim/lua/neo-tree/defaults.lua
+      -- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/446
+      filesystem = {
+        filtered_items = {
+          visible = true, -- default false 显示隐藏文件
+        }
+      },
+    }
+    vim.cmd([[nnoremap \ :Neotree toggle&lt;cr&gt;]])
+  end,
+}
+</code></pre>
+<p>NeoTree.nvim 中的高亮组 NeoTreeEndOfBuffer、NeoTreeNormalNC、NeoTreeNormal、Normal：</p>
+<ul>
+<li>NeoTreeEndOfBuffer 表示文件树窗口底部以下的区域，该区域通常会有提示信息</li>
+<li>NeoTreeNormalNC 表示文件树中没有被选中的文件或目录的名称的颜色，NC 即 No Cursor</li>
+<li>NeoTreeNormal 表示文件树中被选中的文件或目录的名称的颜色</li>
+<li>Normal 是 Vim 的一个默认高亮组，表示在普通模式下文本的颜色</li>
+</ul>
+<p>这里选择 bufferline.nvim 给 Neovim 增加顶部标签页插件，该插件相应配置如下。</p>
+<pre><code class="language-lua">-- bufferline
+-- 左右 Tab 切换
+vim.api.nvim_set_keymap(&quot;n&quot;, &quot;&lt;C-h&gt;&quot;, &quot;:BufferLineCyclePrev&lt;CR&gt;&quot;, {noremap = true, silent = true })
+vim.api.nvim_set_keymap(&quot;n&quot;, &quot;&lt;C-l&gt;&quot;, &quot;:BufferLineCycleNext&lt;CR&gt;&quot;, {noremap = true, silent = true })
+</code></pre>
+<pre><code class="language-lua">return {
+  &quot;akinsho/bufferline.nvim&quot;,
+  version = &quot;*&quot;,
+  dependencies = {
+    &quot;nvim-tree/nvim-web-devicons&quot;, -- not strictly required, but recommended
+  },
+  config = function ()
+    require(&quot;bufferline&quot;).setup{}
+  end,
+}
+</code></pre>
+<p>以上就是在配置 Neovim 时所需要注意的一些内容，文末附一张本人的配置效果。撒花 🎉。</p>
+<div style="display:flex; justify-content:center"><img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1679159448/Ghost/VimNeovim/zs_nvim_config_zlogtd.png"/></div><!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bug-fixes">Bug Fixes</h2>
+<h3 id="exception-jdtls-requires-at-least-java-17">Exception: jdtls requires at least Java 17</h3>
+<p>这个异常信息意味着 jdtls 需要至少 Java 17 的版本才能正常运行，当前系统中安装的 Java 版本低于这个要求，需要升级 Java 版本至 17 或更高。</p>
+<!--kg-card-end: markdown--><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f#545a"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Learn Neovim The Practical Way</div><div class="kg-bookmark-description">All articles on how to configure and program Neovim.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://cdn-static-1.medium.com/_/fp/icons/Medium-Avatar-500x500.svg" alt=""><span class="kg-bookmark-author">Medium</span><span class="kg-bookmark-publisher">alpha2phi</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://miro.medium.com/v2/resize:fit:700/0*SXp0BT2d1UUTplvi.png" alt=""></div></a><figcaption>https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f</figcaption></figure><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://devhints.io/vim"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Vim cheatsheet</div><div class="kg-bookmark-description">One-page guide to Vim: usage, examples, and more. Vim is a very efficient text editor. This reference was made for Vim 8.0. For shortcut notation, see :help key-notation.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://devhints.io/assets/favicon.png" alt=""><span class="kg-bookmark-author">Devhints.io cheatsheets</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://assets.devhints.io/previews/vim.jpg?t&#x3D;20230314082433" alt=""></div></a><figcaption>https://devhints.io/vim</figcaption></figure><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://github.com/glepnir/nvim-lua-guide-zh"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - glepnir/nvim-lua-guide-zh: https://github.com/nanotee/nvim-lua-guide chinese version</div><div class="kg-bookmark-description">https://github.com/nanotee/nvim-lua-guide chinese version - GitHub - glepnir/nvim-lua-guide-zh: https://github.com/nanotee/nvim-lua-guide chinese version</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.com/fluidicon.png" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">glepnir</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/f585c9c92a77526b24fc09db345781abd3d32ab7af9f2462a7be176b131ecf3a/glepnir/nvim-lua-guide-zh" alt=""></div></a><figcaption>https://github.com/glepnir/nvim-lua-guide-zh</figcaption></figure><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://neovim.io/doc/user/lua.html#lua-builtin"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Lua - Neovim docs</div><div class="kg-bookmark-description">Neovim user documentation</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://neovim.io/favicon.ico" alt=""><span class="kg-bookmark-author">Neovim</span></div></div></a><figcaption>https://neovim.io/doc/user/lua.html</figcaption></figure><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+    <section class="article-comments gh-canvas">
+        
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "yourdomain.com/vim-neovim/";
+                this.page.identifier = "ghost-63fb98a025f4e10bb6ad369e"
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    </section>
+
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../design-patterns/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w1000/2023/03/SixHalogenBulbs.jpg 1000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2023/03/SixHalogenBulbs.jpg"
+            alt="Six Halogen Bulbs"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../design-patterns/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Design Patterns And ...
+                </h2>
+            </header>
+                <div class="post-card-excerpt">"A good programmer is someone who always looks both ways before crossing a one-way street." - Doug Linder</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-08-08">Aug 8, 2022</time>
+                <span class="post-card-meta-length">35 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../g-toc-css/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w1000/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg 1000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg"
+            alt="Glass Bottle Filled With Black Straw on Brown Wooden Table"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    G&amp;TOC&amp;CSS
+                </h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../mysqlnote/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w1000/2023/03/SwimmingDolphinsNearCoralReef.jpg 1000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2023/03/SwimmingDolphinsNearCoralReef.jpg"
+            alt="Swimming Dolphins Near Coral Reef"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../mysqlnote/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    MySQL
+                </h2>
+            </header>
+                <div class="post-card-excerpt">MYSQL 基础篇</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2021-12-22">Dec 22, 2021</time>
+                <span class="post-card-meta-length">42 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+    <div class="arrowup">
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        width="20px"
+        height="20px"
+        viewBox="0 0 122.883 122.882"
+        enable-background="new 0 0 20 20"
+        xml:space="preserve"
+      >
+        <g>
+          <path
+            d="M0,61.441L0,61.441h0.018c0,16.976,6.872,32.335,17.98,43.443c11.108,11.107,26.467,17.979,43.441,17.979v0.018h0.001 h0.001v-0.018c16.974,0,32.335-6.872,43.443-17.98s17.98-26.467,17.98-43.441h0.018v-0.001V61.44h-0.018 c0-16.975-6.873-32.334-17.98-43.443C93.775,6.89,78.418,0.018,61.443,0.018V0h-0.002l0,0v0.018 c-16.975,0-32.335,6.872-43.443,17.98C6.89,29.106,0.018,44.465,0.018,61.439H0V61.441L0,61.441z M42.48,71.7 c-1.962,1.908-5.101,1.865-7.009-0.098c-1.909-1.962-1.865-5.101,0.097-7.009l22.521-21.839l3.456,3.553l-3.46-3.569 c1.971-1.911,5.117-1.862,7.029,0.108c0.055,0.058,0.109,0.115,0.16,0.175L87.33,64.594c1.963,1.908,2.006,5.047,0.098,7.009 c-1.908,1.963-5.047,2.006-7.01,0.098L61.53,53.227L42.48,71.7L42.48,71.7z"
+          />
+        </g>
+      </svg>
+    </div>
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2023</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=7d64696598"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+  tocbot.init({
+    tocSelector: '.toc',
+    contentSelector: '.gh-content',
+    hasInnerContainers: true
+  });
+  var tc = document.querySelector(".toc-container");
+  if(tc){
+    var tch = tc.clientHeight;
+    var ah = document.querySelector(".article-header");
+    var ahh = ah.clientHeight;
+    window.addEventListener("scroll", function () {
+    if(document.body.clientWidth > 1170){
+      var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+      var ihh = window.innerHeight;
+      if(scrollY >= ihh + tch + ahh){
+        var ctc = document.querySelector(".toc-container");
+        ctc.style.position="sticky";
+        ctc.style.position="-webkit-sticky";
+        ctc.style.top = "120px";
+        ctc.style.marginLeft = "800px";
+        ctc.style.minWidth= "260px";
+      }
+      if(scrollY < tch + ahh -10){
+        var ctc = document.querySelector(".toc-container");
+        ctc.style.position="";
+        ctc.style.top = "";
+        ctc.style.marginLeft = "";
+      }
+    }})
+  }
+</script>
+
+<!-- searchinghost-easy -->
+<script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
+<script>
+    new SearchinGhostEasy({
+        contentApiKey: 'e93d8b3520ae46be52c9a4b140'
+    });
+</script>
+
+<script>
+    let currentTheme = localStorage.getItem("theme-color");
+    const switchTheme = function () {
+        const storedTheme = localStorage.getItem("theme-color") || "theme-light";
+        if (
+            storedTheme === "theme-dark" &&
+            document.getElementsByTagName("html")[0].className !== ""
+        ) {
+            localStorage.setItem("theme-color", "theme-light");
+            currentTheme = localStorage.getItem("theme-color");
+            if (currentTheme === "theme-light") {
+            document.getElementsByTagName("html")[0].classList.remove("dark-mode");
+            document
+                .getElementsByClassName("theme-switcher")[0]
+                ?.classList.remove("active");
+            document
+                .getElementsByClassName("toc")[0]
+                ?.classList.remove("active");
+            }
+        } else {
+            localStorage.setItem("theme-color", "theme-dark");
+            currentTheme = localStorage.getItem("theme-color");
+            if (currentTheme === "theme-dark") {
+            // console.log(document.getElementById("app"));
+            document.getElementsByTagName("html")[0].classList.add("dark-mode");
+            document
+                .getElementsByClassName("theme-switcher")[0]
+                ?.classList.add("active");
+            document
+                .getElementsByClassName("toc")[0]
+                ?.classList.add("active");
+            }
+        }
+    };
+    const initTheme = function () {
+    const storedTheme = localStorage.getItem("theme-color") || "theme-light";
+    if (storedTheme === "theme-dark") {
+        document
+        .getElementsByClassName("theme-switcher")[0]
+        ?.classList.add("active");
+        document
+        .getElementsByClassName("toc")[0]
+        ?.classList.add("active");
+        document.getElementsByTagName("html")[0].classList.add("dark-mode");
+    }
+    };
+    initTheme()
+</script>
+
+<!-- Arrow up -->
+<script>
+const arrowup = document.querySelector(".arrowup");
+arrowup.addEventListener("click", function() {
+  const scrollDuration = 1500; // 滚动持续时间，单位毫秒
+    const start = window.pageYOffset; // 当前滚动位置
+    const end = 0; // 滚动结束位置
+    const distance = end - start; // 滚动距离
+    const startTime = performance.now(); // 动画开始时间
+
+    function easeInOutCubic(t) {
+      return t < 0.5
+        ? 4 * t ** 3
+        : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    }
+
+    function scrollToTopSmooth(timestamp) {
+      const currentTime = timestamp - startTime; // 已经经过的时间
+      const progress = currentTime / scrollDuration; // 滚动进度
+      const position =
+        start + distance * easeInOutCubic(Math.min(progress, 1)); // 当前滚动位置
+      window.scrollTo(0, position); // 滚动到新位置
+
+      if (currentTime < scrollDuration) {
+        // 如果滚动还未结束，则继续执行动画
+        requestAnimationFrame(scrollToTopSmooth);
+      }
+    }
+
+    requestAnimationFrame(scrollToTopSmooth);
+});
+</script>
+
+</body>
+</html>

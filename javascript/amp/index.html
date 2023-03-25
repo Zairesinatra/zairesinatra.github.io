@@ -18,7 +18,7 @@
     <meta property="og:url" content="yourdomain.com/javascript/" />
     <meta property="og:image" content="yourdomain.com/content/images/2022/07/javascript.png" />
     <meta property="article:published_time" content="2019-04-26T11:38:00.000Z" />
-    <meta property="article:modified_time" content="2022-08-28T19:40:13.000Z" />
+    <meta property="article:modified_time" content="2023-03-22T13:43:16.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "JavaScript",
     "url": "yourdomain.com/javascript/",
     "datePublished": "2019-04-26T11:38:00.000Z",
-    "dateModified": "2022-08-28T19:40:13.000Z",
+    "dateModified": "2023-03-22T13:43:16.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "yourdomain.com/content/images/2022/07/javascript.png",
@@ -1474,6 +1474,26 @@ console.log('hello world'.replace(/(\w+)\s(\w+)/,"$2 $1")); // world hello
 <pre><code class="language-javascript">let field = { "pos_1": "dc", "pos_2": "fullstack", "pos_3": "hardware" }, replaceInfo = '&lt;span id="pos_1"&gt;&lt;/span&gt;&lt;span id="pos_2"&gt;&lt;/span&gt;&lt;span id="pos_3"&gt;&lt;/span&gt;'.replace(/(&lt;span id=")(\w+)("&gt;)(&lt;\/span&gt;)/g, function(match, $1, $2, $3,$4) { return $1+$2+$3+field[$2]+$4 });
 console.log(replaceInfo); // &lt;span id="pos_1"&gt;dc&lt;/span&gt;&lt;span id="pos_2"&gt;fullstack&lt;/span&gt;&lt;span id="pos_3"&gt;hardware&lt;/span&gt;
 </code></pre>
+<h2 id="checkitout">Check It Out</h2>
+<pre><code class="language-javascript">class Hello {
+  constructor(name) {
+    this.name = name;
+  }
+  sayHello() {
+    console.log('Hello I am ', this.name);
+  }
+  afterHello() {
+    setTimeout(function() {
+      console.log('Hi!, I am', this.name)
+    });
+  }
+}
+let ia = new Hello('Okk');
+ia.sayHello(); 
+ia.afterHello(); 
+</code></pre>
+<p>上述代码中，<code>setTimeout</code> 函数里的回调函数是在全局作用域中执行的，而不是在 <code>afterHello()</code> 函数的作用域中执行。因此，当回调函数尝试访问 <code>this.name</code> 时，this 指向的是全局作用域中的对象，而不是 <code>afterHello()</code> 函数中的对象。</p>
+<p>为了解决这个问题，可以使用 <code>.bind(this)</code> 方法将当前上下文绑定到回调函数中。这将确保在回调函数中使用 this 时，它指向 <code>afterHello()</code> 函数中的对象。同样地，将回调函数改为箭头函数也是一种解决方法，因为箭头函数不会创建自己的 this，而是会使用被创建时所处的词法作用域中的 this。即上述代码中会使用 <code>laterHello()</code> 函数中的 this，而不是在 <code>setTimeout</code> 函数中的 this。</p>
 <h2 id>结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
 

@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>Spring</title>
+
+    <meta name="description" content="Spring Framework" />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Spring" />
+    <meta property="og:description" content="Spring Framework" />
+    <meta property="og:url" content="yourdomain.com/spring/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2022/05/GreyWhiteClouds.JPG" />
+    <meta property="article:published_time" content="2020-05-25T12:20:00.000Z" />
+    <meta property="article:modified_time" content="2023-03-21T15:36:05.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Spring" />
+    <meta name="twitter:description" content="Spring Framework" />
+    <meta name="twitter:url" content="yourdomain.com/spring/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2022/05/GreyWhiteClouds.JPG" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "Spring",
+    "url": "yourdomain.com/spring/",
+    "datePublished": "2020-05-25T12:20:00.000Z",
+    "dateModified": "2023-03-21T15:36:05.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2022/05/GreyWhiteClouds.JPG",
+        "width": 2000,
+        "height": 1125
+    },
+    "keywords": "Technology growth",
+    "description": "Spring Framework",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.33" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+    
+    amp-youtube {
+        height: calc(100vw / 1.78);
+        width: 100vw;
+        position: relative;
+    }
+
+    amp-youtube img {
+        position: absolute;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">Spring</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2020-05-25">25 May 2020</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2022/05/GreyWhiteClouds.JPG" width="600" height="340" layout="responsive" 
+                alt="GreyWhiteClouds"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <h2 id="quick-start">Quick Start</h2>
+<h3 id="intro-to-ioc-and-di">Intro to IoC and DI</h3>
+<blockquote>
+<p>Inversion of Control is a principle in software engineering which transfers the control of objects or portions of a program to a container or framework.</p>
+</blockquote>
+<blockquote>
+<p>Connecting objects with other objects, or “injecting” objects into other objects, is done by an assembler rather than by the objects themselves.</p>
+</blockquote>
+<p>控制反转作为软件工程里的一项原则，能够将对象或部分程序的控制权转移到容器或者框架。依赖注入的核心是通过构造函数、属性或者方法参数的方式将依赖关系传递给对象，而不是让对象自己去创建和管理这些依赖关系。总的来说，依赖注入 DI 则正是这种松耦合编程思想 IoC 的具体实现方式。</p>
+<h3 id="spring-ioc-container">Spring IoC Container</h3>
+<blockquote>
+<p>An IoC container is a common characteristic of frameworks that implement IoC.</p>
+</blockquote>
+<blockquote>
+<p>The Spring container is responsible for instantiating, configuring &amp; assembling objects known as beans, as well as managing their life cycles.</p>
+</blockquote>
+<p>Spring 中 IoC 容器的两种获取方式：BeanFactory 和 ApplicationContext 接口。</p>
+<blockquote>
+<p><a href="https://www.geeksforgeeks.org/pojo-vs-java-beans/">Beans're special type of Pojos. There're some restrictions on POJO to be a bean.</a></p>
+</blockquote>
+<blockquote>
+<p>In order to assemble beans, the container uses configuration metadata, which can be in the form of XML configuration or annotations.</p>
+</blockquote>
+<p>在组装时，容器所使用的配置元数据是一个描述性文件，其中包含了与配置属性交互的必要信息。</p>
+<p>在导入 Spring 坐标并定义 Spring 管理的类后，在 resources 目录创建 Spring 配置文件，配置对应类作为 Spring 管理的 bean。</p>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd"&gt;
+    &lt;bean id="helloComponent" class="com.xxx.HelloComponent"&gt;&lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+<pre><code class="language-java">public class IOCTest {
+    // 创建 IOC 容器对象
+    private ApplicationContext iocContainer = new ClassPathXmlApplicationContext("helloComponent.xml");
+    @Test
+    public void testExperiment01() {
+        // 根据 id 从 IoC 容器对象里获取 bean =&gt; 组件对象
+        HelloComponent helloComponent = (helloComponent) iocContainer.getBean("helloComponent");
+        helloComponent.HelloMethod();
+    }
+}
+</code></pre>
+<h3 id="spring-bean-scopes">Spring Bean Scopes</h3>
+<blockquote>
+<p>The scope of a bean defines the life cycle and visibility in the contexts.</p>
+</blockquote>
+<blockquote>
+<p>The latest version of the Spring framework defines 6 types of scopes: singleton, prototype, request, session, application and websocket. The last four scopes mentioned, request, session, application and websocket, are only available in a web-aware application.</p>
+</blockquote>
+<p>bean 作用域默认为单例模式 singleton，即整个应用中只会创建一个 Bean 实例。</p>
+<p>在 Spring 容器启动时，如果该 Bean 的作用域为 singleton 单例模式，那么 Spring 会自动创建该 Bean 实例并放入容器中，即在加载配置文件的过程中创建。而如果该 Bean 的作用域为 prototype 原型模式，那么 Spring 在加载配置文件时只会创建 Bean 的定义信息，而不会创建 Bean 实例。对于作用域为 singleton 的 Bean，当容器需要该 Bean 时，直接从容器中获取即可，不需要再创建新的 Bean 实例；而对于作用域为 prototype 的 Bean，每次从容器中获取时都会创建新的 Bean 实例。</p>
+<p>Spring 管理的 bean 可以是可重用的组件，例如 service、dao layer objects 和工具对象等，这些组件的状态在整个应用程序生命周期中保持不变，因此适合使用单例模式。但对于一些有状态的组件，例如封装实体的域对象，不适合使用单例模式，因为它们的状态随着业务逻辑的不同而不断发生变化。如果在多个业务逻辑中共享同一个实例，可能会引发状态不一致等问题，因此这种情况下通常使用原型模式创建 bean。</p>
+<p>需要注意的是，即使是有状态的 bean，有时也可以使用单例模式，前提是确保 bean 状态不会在不同的业务逻辑之间共享或交叉影响，可以通过使用线程本地变量等方式来实现。</p>
+<pre><code class="language-xml">&lt;!--&lt;bean id="myBean" class="com.&lt;secret&gt;.spring5.factorybean.MyBean"&gt;&lt;/bean&gt;--&gt;
+&lt;bean id="myBean" class="com.&lt;secret&gt;.spring5.factorybean.MyBean" scope="singleton"&gt;&lt;/bean&gt;
+</code></pre>
+<pre><code class="language-java">@Test
+public void testFBean(){
+    ApplicationContext context = new ClassPathXmlApplicationContext("bean7.xml");
+    MyBean myBean = context.getBean("myBean", MyBean.class);
+    MyBean myBean1 = context.getBean("myBean", MyBean.class);
+    System.out.println(myBean); // com.&lt;secret&gt;.spring5.factorybean.MyBean@42d8062c
+    System.out.println(myBean1); // com.&lt;secret&gt;.spring5.factorybean.MyBean@42d8062c 
+}
+</code></pre>
+<h3 id="instantiating-beans">Instantiating Beans</h3>
+<p>在 Spring 中，可以通过以下几种方式实例化 bean：</p>
+<p>构造函数创建：通过 <code>&lt;constructor-arg&gt;</code> 或 <code>@ConstructorProperties</code> 指定构造函数的参数。</p>
+<p>静态工厂方法创建：使用 <code>&lt;bean&gt;</code> 标签中的 factory-method 属性或者 <code>@Bean</code> 注解中的 factoryMethod 属性指定静态工厂方法。</p>
+<p>实例工厂方法创建：使用 <code>&lt;bean&gt;</code> 标签中的 factory-bean 属性和 factory-method 属性或者 <code>@Bean</code> 注解中的 factoryBean 属性和 factoryMethod 属性指定实例工厂方法。</p>
+<p>工厂 Bean 创建：使用 <code>&lt;bean&gt;</code> 标签中的 class 属性指定工厂 Bean，该工厂 Bean 会调用自己的 <code>getObject</code> 方法来创建 bean 实例。</p>
+<p>通过注解实现：使用 @Component、@Service、@Repository、@Controller 等注解定义的类都可以通过 Spring 自动扫描并创建 bean 实例。</p>
+<p>✔️ 通过实现 FactoryBean 接口：定义一个类实现 FactoryBean 接口，并在该类中实现 <code>getObject()</code> 和 <code>getObjectType()</code> 方法。<code>getObject()</code> 方法用于返回实际的 bean 对象，<code>getObjectType()</code> 方法用于指定返回对象的类型。</p>
+<p>FactoryBean 是一个接口，用于创建和管理其他 bean。例如，在集成 MyBatis 等第三方框架时，会使用 FactoryBean 来动态创建 Mapper 类的代理对象，或者用来创建动态数据源等。</p>
+<p>对于实现了 FactoryBean 接口的类，Spring 在创建它的时候会将该类作为工厂来使用，而不是将该类的实例作为一个普通的 bean 来创建和管理。因此，在创建 FactoryBean 的时候并不会同时创建和管理它所产生的 bean，而是在实际使用该 bean 时才会触发产生。这种方式也被称为“延迟加载”。</p>
+<p>但是并不是所有通过 FactoryBean 创建的 bean 都是延迟加载的。如果 FactoryBean 的作用是创建普通的 bean，而非代理或其他的工厂，那么它所创建的 bean 就不是延迟加载的。</p>
+<pre><code class="language-java">public class XxxDaoFactoryBean implements FactoryBean&lt;XxxDao&gt;{
+    // 代替原始实例工厂中创建对象的方法
+    @Override
+    public XxxDao getObject() throws Exception {
+        return new XxxDaoImpl();
+    }
+    @Override
+    public Class&lt;?&gt; getObjectType() {
+        return XxxDao.class;
+    }
+}
+</code></pre>
+<pre><code class="language-xml">&lt;bean id="xxxDao" class="com.???.factory.XxxDaoFactoryBean"/&gt;
+</code></pre>
+<pre><code class="language-java">public class TestFactoryBean {
+    @Test
+    public void testFBean(){
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("fbBeam.xml");
+        XxxDao xxxDao = (XxxDao) ctx.getBean("xxxDao");
+        xxxDao.yyy();
+    }
+}
+</code></pre>
+<h3 id="lifecycle-callbacks">Lifecycle Callbacks</h3>
+<p>在 Spring 容器中，每个 bean 都有一个生命周期，即 bean 实例化、初始化、使用和销毁等一系列过程。Spring 提供了多种方式可以让开发者在 bean 生命周期的不同阶段执行特定的逻辑，其中 Lifecycle Callbacks 是一种常用的方式。</p>
+<p>Spring 提供了三种类型的 Lifecycle Callbacks：初始化方法、销毁方法和自定义方法。</p>
+<ol>
+<li>初始化方法：初始化方法会在 bean 实例化后，依赖注入完成后执行</li>
+</ol>
+<p>Spring 提供了三种方式定义初始化方法：在方法上添加 <code>@PostConstruct</code> 注解；在 XML 配置文件中配置 <code>init-method</code> 属性来指定无参数且无返回值的回调方法；实现 <code>InitializingBean</code> 接口的 <code>afterPropertiesSet()</code> 方法。</p>
+<ol start="2">
+<li>销毁方法：销毁方法会在容器销毁 bean 实例时执行</li>
+</ol>
+<p>Spring 提供了三种方式定义销毁方法：在方法上添加 <code>@PreDestroy</code> 注解；在 XML 配置文件中配置 <code>destroy-method</code> 属性来指定无参数且无返回值的回调方法；实现 <code>DisposableBean</code> 接口的 <code>destroy()</code> 方法。</p>
+<ol start="3">
+<li>使用自定义方法实现 Lifecycle Callbacks</li>
+</ol>
+<p>自定义方法需要在 bean 定义中配置 MethodInvokingFactoryBean 和自定义方法的信息。</p>
+<pre><code class="language-xml">&lt;bean id="myBean" class="com.example.MyBean"&gt;
+    &lt;property name="myProperty" value="someValue"/&gt;
+    &lt;property name="myCallback"&gt;
+        &lt;bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"&gt;
+            &lt;property name="targetObject" ref="myBean"/&gt;
+            &lt;property name="targetMethod" value="myCustomMethod"/&gt;
+        &lt;/bean&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+<p>Spring IoC 容器提供扩展接口 BeanPostProcessor，用于在 bean 实例化之后和初始化之前，对 bean 对象进行一些自定义的操作，该接口中定义了两个回调方法：</p>
+<ul>
+<li>方法 <code>postProcessBeforeInitialization</code> 在 bean 实例初始化前调用</li>
+<li>方法 <code>postProcessAfterInitialization</code> 在 bean 实例初始化后调用</li>
+</ul>
+<p>需要注意的是，后置处理器 BeanPostProcessor 会对当前配置文件中的所有 bean 都生效。</p>
+<pre><code class="language-xml">&lt;bean id="myBeanPost" class="com.&lt;secret&gt;.spring5.lifeCycle.MyBeanPost"/&gt;
+</code></pre>
+<pre><code class="language-java">public class MyBeanPost implements BeanPostProcessor {
+    @Nullable
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("在初始化之前执行的方法");
+        return bean;
+    }
+    @Nullable
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("在初始化之后执行的方法");
+        return bean;
+    }
+}
+</code></pre>
+<h2 id="dependency-injection">Dependency Injection</h2>
+<blockquote>
+<p>Dependency Injection in Spring can be done through constructors, setters or fields.</p>
+</blockquote>
+<p>依赖注入分别存在通过 setter 和构造器注入简单或引用类型的四种方式。</p>
+<h3 id="setter-based-di">Setter-based DI</h3>
+<p>setter 注入是通过容器在实例化 bean 后，调用其 setter 方法来实现的。</p>
+<p>setter 注入引用类型步骤：</p>
+<ul>
+<li>定义一个类并声明一个属性，同时提供一个对应的 setter 方法</li>
+<li>在 Spring 配置文件中配置该 Bean，并在配置中指定对另一个 Bean 的引用</li>
+<li>Spring 容器实例化该 Bean 且调用其 setter 方法，将对另一个 Bean 的引用注入到 Bean 中</li>
+</ul>
+<pre><code class="language-java">public class XxxServiceImpl implements XxxService {
+    private XxxDao xxxDao;
+    public void setXxxDao(XxxDao xxxDao) {
+      this.xxxDao = xxxDao;
+    }
+}
+</code></pre>
+<pre><code class="language-xml">&lt;bean id="xxxDao" class="com.xxx.dao.impl.XxxDaoImpl"&gt;
+&lt;bean id="xxxService" class="com.xxx.service.impl.XxxServiceImpl"&gt;
+    &lt;property name="xxxDao" ref="xxxDao" /&gt;
+&lt;/bean&gt;
+</code></pre>
+<p>setter 注入简单类型步骤：</p>
+<ul>
+<li>定义一个类并声明一个属性，同时提供一个对应的 setter 方法</li>
+<li>在 Spring 配置文件中配置该 Bean，并在配置中指定该属性的值</li>
+<li>Spring 容器实例化该 Bean，并调用该 Bean 的 setter 方法，将属性值注入到 Bean 中</li>
+</ul>
+<pre><code class="language-java">public class XxxServiceImpl implements XxxService {
+    private int connectionNumber;
+    public void setConnectionNumber(int connectionNumber) {
+      this.connectionNumber = connectionNumber;
+    }
+}
+</code></pre>
+<pre><code class="language-xml">&lt;bean id="xxxService" class="com.xxx.service.impl.XxxServiceImpl"&gt;
+    &lt;property name="connectionNumber" value="6" /&gt;
+&lt;/bean&gt;
+</code></pre>
+<h3 id="constructor-based-di">Constructor-Based DI</h3>
+<p>如果一个类没有定义任何的构造函数，那么编译器会默认提供一个无参的构造函数。但是，如果定义了有参构造器，则编译器不再提供默认的无参构造函数。因此，在进行依赖注入时，如果使用构造函数注入，且类中只定义了有参构造器，那么需要在类中显式地提供一个无参构造器，否则会抛出异常。如果使用 setter 注入，则无需提供无参构造器。</p>
+<p>构造器注入是通过在 bean 定义中指定参数类型和值来实现的。</p>
+<p>构造器注入引用类型：在 bean 定义中使用 <code>&lt;constructor-arg&gt;</code> 指定参数引用的 bean，可以使用 ref 属性来指定引用的 bean 的 id。</p>
+<pre><code class="language-java">public class XxxServiceImpl implements XxxService {
+    private XxxDao xxxDao;
+    public void setXxxDao(XxxDao xxxDao) {
+      this.xxxDao = xxxDao;
+    }
+}
+</code></pre>
+<pre><code class="language-xml">&lt;bean id="xxxDao" class="com.xxx.dao.impl.XxxDaoImpl"&gt;
+&lt;bean id="xxxService" class="com.xxx.service.impl.XxxServiceImpl"&gt;
+    &lt;constructor-arg name="xxxDao" ref="xxxDao" /&gt;
+&lt;/bean&gt;
+</code></pre>
+<p>构造器注入简单类型：在 bean 定义中使用 <code>&lt;constructor-arg&gt;</code> 指定参数的值，可以使用 value 属性或 type 属性和 value 属性组合来指定参数的类型和值。</p>
+<pre><code class="language-java">public class XxxServiceImpl implements XxxService {
+    private int connectionNumber;
+    public void setConnectionNumber(int connectionNumber) {
+      this.connectionNumber = connectionNumber;
+    }
+}
+</code></pre>
+<pre><code class="language-xml">&lt;bean id="xxxService" class="com.xxx.service.impl.XxxServiceImpl"&gt;
+    &lt;constructor-arg name="xxxDao" value="6" /&gt;
+&lt;/bean&gt;
+</code></pre>
+<p>需要注意的是，当一个 bean 定义中存在多个构造函数时，可以通过 index 属性或 type 属性和 name 属性组合来指定使用哪个构造函数进行注入。</p>
+<pre><code class="language-xml">&lt;bean id="exampleBean3" class="com.example.ExampleBean3"&gt;
+    &lt;constructor-arg index="0" type="java.lang.String" value="example"/&gt;
+    &lt;constructor-arg index="1" name="exampleBean2" ref="exampleBean2"/&gt;
+&lt;/bean&gt;
+</code></pre>
+<h3 id="field-based-di">Field-Based DI</h3>
+<p>在需要注入 bean 的类中定义需要注入的字段，并使用 <code>@Autowired</code> 或 <code>@Resource</code> 注解标记需要注入的字段。使用 Field-Based DI  的依赖注入时，需要在类中使用注解或 XML 配置显式地告诉 Spring 容器要注入哪个 bean 对象，否则会抛出 NullPointerException。</p>
+<p>基于 XML 配置的 Field-Based DI 的步骤：</p>
+<ul>
+<li>在 XML 配置文件中给需要自动装配的 bean 添加值为 <code>byType</code> 或 <code>byName</code> 的 autowire 属性</li>
+<li>在需要自动装配的属性上使用 <code>@Autowired</code> 注解或 <code>@Resource</code> 注解</li>
+</ul>
+<pre><code class="language-java">public class MyBean {
+  @Autowired
+  private MyDependency myDependency;
+ 
+  // bean methods
+}
+</code></pre>
+<pre><code class="language-xml">&lt;bean id="myDependency" class="com.example.MyDependency"&gt;
+  &lt;!-- bean properties --&gt;
+&lt;/bean&gt;
+
+&lt;bean id="myBean" class="com.example.MyBean" autowire="byType"&gt;
+  &lt;!-- bean properties --&gt;
+&lt;/bean&gt;
+</code></pre>
+<p>注意：需确保被自动装配的属性是非私有的（即 public 或 protected），且存在相应的 setter 方法。否则将无法自动装配该属性。</p>
+<p>使用纯注解进行 Field-Based DI 的步骤如下：</p>
+<ul>
+<li>在类上加上 <code>@Component</code> 或其他相关注解，将该类交由 Spring IoC 容器进行管理</li>
+<li>在需要注入的字段上加上 <code>@Autowired</code> 或其他相关注解，表示该字段需要被自动装配</li>
+</ul>
+<p>注意：如果有多个实现类，可以在该字段上再加上 <code>@Qualifier</code> 注解，指定要注入的实现类；如果该字段允许为 null，可以在该字段上加上 <code>@Nullable</code> 或 <code>@Autowired(required = false)</code> 注解。</p>
+<blockquote>
+<p>CData section − Characters between these two enclosures are interpreted as characters, and not as markup. This section may contain markup characters (&lt;, &gt;, and &amp;), but they are ignored by the XML processor.</p>
+</blockquote>
+<p>在 XML 里，如果 bean 中的属性值有包含特殊符号，如 &lt;、&gt;、&amp; 等，那么需要对其进行转义处理。可以使用 <code>&lt;![CDATA[ ]]&gt;</code> 标记将特殊符号包裹起来，从而避免转义。</p>
+<pre><code class="language-xml">&lt;bean id="myBean" class="com.example.MyBean"&gt;
+    &lt;property name="myProperty" value="Hello &lt;![CDATA[&amp;]]&gt; World"/&gt;
+&lt;/bean&gt;
+</code></pre>
+<h3 id="p-c-namespace">p &amp; c-namespace</h3>
+<p>在 Spring 的 XML 配置文件中，p-namespace 和 c-namespace 都是用于简化配置的命名空间。</p>
+<blockquote>
+<p>The p-namespace lets you use the bean element’s attributes (instead of nested <code>&lt;property/&gt;</code> elements) to describe your property values collaborating beans, or both.</p>
+</blockquote>
+<p>p-namespace 可以用来简化 <code>&lt;bean&gt;</code> 元素中的属性配置。通常在 XML 配置文件中，配置一个属性需要使用 <code>&lt;property&gt;</code> 标签，而使用 p-namespace，则可以通过 <code>p:属性</code> 替代 <code>&lt;property&gt;</code> 标签。</p>
+<pre><code class="language-xml">&lt;bean id="exampleBean" class="com.example.ExampleBean"&gt;
+    &lt;property name="prop1" value="value1" /&gt;
+    &lt;property name="prop2" value="value2" /&gt;
+    &lt;property name="prop3" value="value3" /&gt;
+&lt;/bean&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;bean id="exampleBean" class="com.example.ExampleBean" 
+      p:prop1="value1" p:prop2="value2" p:prop3="value3" /&gt;
+</code></pre>
+<blockquote>
+<p>The c-namespace, introduced in Spring 3.1, allows inlined attributes for configuring the constructor arguments rather then nested constructor-arg elements.</p>
+</blockquote>
+<p>c-namespace 是 Spring 4.1 引入的新特性，用于简化 <code>&lt;constructor-arg&gt;</code> 中的构造函数参数配置。</p>
+<pre><code class="language-xml">&lt;bean id="exampleBean" class="com.example.ExampleBean"&gt;
+    &lt;constructor-arg index="0" value="value1" /&gt;
+    &lt;constructor-arg index="1" value="value2" /&gt;
+    &lt;constructor-arg index="2" value="value3" /&gt;
+&lt;/bean&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;bean id="exampleBean" class="com.example.ExampleBean"
+      c:_0="value1" c:_1="value2" c:_2="value3" /&gt;
+</code></pre>
+<h3 id="injecting-collection">Injecting Collection</h3>
+<p>在 Spring 中，可以通过 XML 配置或注解的方式，将集合类型（数组、List、Map 和 Set）的属性注入到 Bean 中。</p>
+<p>注入集合类型属性的步骤：</p>
+<ul>
+<li>声明集合属性：在 Bean 中定义一个集合类型的属性，并提供一个对应的 setter 方法</li>
+<li>注入集合元素：可以使用 <code>&lt;list&gt;</code>、<code>&lt;set&gt;</code>、<code>&lt;map&gt;</code> 等标签来注入集合元素
+<ul>
+<li>在 XML 配置文件中，使用 <code>&lt;property&gt;</code> 标签来注入集合类型的属性</li>
+<li>使用注解时，可以使用 <code>@Value</code> 和 <code>@Resource</code> 等注解来注入集合元素</li>
+</ul>
+</li>
+</ul>
+<p>注入集合类型属性的注意点：</p>
+<ul>
+<li>集合类型的属性必须要提供一个对应的 setter 方法，否则 Spring 会在注入时抛出异常</li>
+<li>集合元素可以使用 <code>&lt;value&gt;</code> 注入简单类型的元素，也可以使用 <code>&lt;ref&gt;</code> 来注入 Bean 对象</li>
+<li>通过注解注入集合类型属性时，集合元素的注入可通过 <code>@Value</code> 和 <code>@Resource</code> 注解来完成</li>
+<li>集合类型属性可以通过 <code>&lt;util:list&gt;</code>、<code>&lt;util:set&gt;</code>、<code>&lt;util:map&gt;</code> 等标签来定义</li>
+</ul>
+<pre><code class="language-java">public class XxxDaoImpl implements XxxDao {
+    private int[] array;
+    private List&lt;String&gt; list;
+    private Map&lt;String, String&gt; map;
+    private Set&lt;String&gt; set;
+    private Properties properties;
+    public void setArray(int[] array) { this.array = array; }
+    public void setList(List&lt;String&gt; list) { this.list = list; }
+    public void setMap(Map&lt;String, String&gt; maps) { this.maps = maps; }
+    public void setSet(Set&lt;String&gt; sets) { this.sets = sets; }
+    public void setProperties(Properties properties) { this.properties = properties; }
+    public void test(){
+        System.out.println(Arrays.toString(array));
+        System.out.println(list);
+        System.out.println(map);
+        System.out.println(set);
+        System.out.println(properties);
+    }
+}
+</code></pre>
+<pre><code class="language-xml">&lt;bean id="xxxDao" class="com.???.dao.impl.XxxDaoImpl"&gt;
+    &lt;property name="array"&gt;
+        &lt;array&gt;
+            &lt;value&gt;1&lt;/value&gt;
+            &lt;value&gt;2&lt;/value&gt;
+            &lt;value&gt;3&lt;/value&gt;
+        &lt;/array&gt;
+    &lt;/property&gt;
+    &lt;property name="list"&gt;
+        &lt;list&gt;
+            &lt;value&gt;yes&lt;/value&gt;
+            &lt;value&gt;ok&lt;/value&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+    &lt;property name="map"&gt;
+        &lt;map&gt;
+            &lt;entry key="JAVA" value="java"/&gt;
+            &lt;entry key="JAVASCRIPT" value="javascript"/&gt;
+        &lt;/map&gt;
+    &lt;/property&gt;
+    &lt;property name="set"&gt;
+        &lt;set&gt;
+            &lt;value&gt;MySQL&lt;/value&gt;
+            &lt;value&gt;Redis&lt;/value&gt;
+        &lt;/set&gt;
+    &lt;/property&gt;
+    &lt;property name="properties"&gt;
+        &lt;props&gt;
+            &lt;prop key="msg"&gt;msgcontext&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+<pre><code class="language-java">public class TestL {
+    @Test
+    public void testCollection1(){
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("beanDI.xml");
+        XxxDao xxxDao = (XxxDao) ctx.getBean("xxxDao");
+        xxxDao.test();
+    }
+}
+</code></pre>
+<p>在注入 bean 集合类型属性时，对于存在可复用的集合，应抽取单独封装。</p>
+<pre><code class="language-java">/* 集合注入提取 */
+public class BookExtract {
+    private List&lt;String&gt; list;
+    public void setList(List&lt;String&gt; list) { this.list = list; }
+    public void test(){ System.out.println(list); }
+}
+</code></pre>
+<pre><code class="language-xml">&lt;!-- 集合注入部分提取 --&gt;
+&lt;util:list id="bookList"&gt;
+  &lt;value&gt;js&lt;/value&gt;
+  &lt;value&gt;java&lt;/value&gt;
+  &lt;value&gt;nodejs&lt;/value&gt;
+&lt;/util:list&gt;
+&lt;bean id="bookExtract" class="com.&lt;secret&gt;.spring5.bean.BookExtract"&gt;
+  &lt;property name="list" ref="bookList"&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+<pre><code class="language-java">public class TestL {
+    // 集合注入部分抽取测试
+    @Test
+    public void testCollection2(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("bean6.xml");
+        BookExtract be = context.getBean("bookExtract", BookExtract.class);
+        be.test();
+    }
+}
+</code></pre>
+<h3 id="properties-file-di">Properties File DI</h3>
+<p>当需要在 Spring 中注入外部文件时，可以使用 <code>context:property-placeholder</code> 元素实现。</p>
+<p>Properties File DI 主要步骤如下：</p>
+<ul>
+<li>将外部文件放置在应用程序的 classpath 中，例如 classpath:config.properties</li>
+<li>在 Spring 配置文件中，添加 <code>context</code> 命名空间</li>
+<li>使用 <code>context:property-placeholder</code> 元素配置外部文件的位置和属性占位符的格式</li>
+<li>在需要使用属性的 bean 中，通过 <code>${propertyName}</code> 形式引用属性值</li>
+</ul>
+<pre><code class="language-yaml">jdbc.driverClass=com.mysql.cj.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/???
+jdbc.userName=root
+jdbc.password=yesok
+</code></pre>
+<pre><code class="language-xml">&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;context:property-placeholder location="classpath:config.properties" /&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"&gt;
+    &lt;property name="driverClassName" value="${jdbc.driverClass}"/&gt;
+    &lt;property name="url" value="${jdbc.url}"/&gt;
+    &lt;property name="username" value="${jdbc.userName}"/&gt;
+    &lt;property name="password" value="${jdbc.password}"/&gt;
+&lt;/bean&gt;
+</code></pre>
+<h2 id="spring-annotations">Spring Annotations</h2>
+<blockquote>
+<p>An alternative to XML setup is provided by annotation-based configuration, which relies on bytecode metadata for wiring up components instead of XML declarations. Instead of using XML to describe a bean wiring, the developer moves the configuration into the component class itself by using annotations on the relevant class, method, or field declaration. - <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-annotation-config">docs.spring</a></p>
+</blockquote>
+<p>Spring 2.5 之后的版本引入了对注解的支持，使用注解的方式配置 Bean，可以更加直观地了解 Bean 的属性和依赖关系，减少冗杂的 XML 配置（类名、属性、依赖关系）。</p>
+<p>和配置文件一样，注解本身并不执行，仅做为标记使用。具体的功能是通过框架来检测到注解所标记的位置，然后针对这个位置按照注解标记的功能来执行对应的操作。</p>
+<h3 id="core-annotations">Core Annotations</h3>
+<p>This <code>@Required</code> annotation is applied on bean setter methods. Consider a scenario where you need to enforce a required property. The <code>@Required</code> annotation indicates that the affected bean must be populated at configuration time with the required property. Otherwise an exception of type <code>BeanInitializationException</code> is thrown.</p>
+<p>The <code>@Autowired</code> annotation is applied on fields, setter methods, and constructors. This annotation injects object dependency implicitly.</p>
+<p>上述中 "implicitly" 指的是 <code>@Autowired</code> 注解的自动注入，即无需显式地指定依赖对象，Spring 容器会根据类型和名称等信息自动寻找并注入对应的依赖对象，这样就不需要手动编写依赖注入的代码。简单来说，就是当一个类中的属性被 <code>@Autowired</code> 注解所标记时，Spring 容器会自动寻找匹配的依赖对象，并将其注入到该属性中。</p>
+<blockquote>
+<p>Note: As of Spring 4.3, an <code>@Autowired</code> annotation on such a constructor is no longer necessary if the target bean defines only one constructor to begin with.</p>
+</blockquote>
+<p>The <code>@Qualifier</code> is used to avoid conflicts in bean mapping and we need to provide the bean name that will be used for autowiring. This way we can avoid issues where multiple beans are defined for same type. This annotation usually works with the <code>@Autowired</code> annotation. For constructors with multiple arguments, we can use this annotation with the argument names in the method.</p>
+<p>Consider an example where an interface <code>BeanInterface</code> is implemented by two beans <code>BeanB1</code> and <code>BeanB2</code>.</p>
+<pre><code class="language-java">@Component
+public class BeanB1 implements BeanInterface {
+  //
+}
+@Component
+public class BeanB2 implements BeanInterface {
+  //
+}
+</code></pre>
+<p>Now if <code>BeanA</code> autowires this interface, Spring will not know which one of the two implementations to inject. One solution to this problem is the use of the <code>@Qualifier</code> annotation.</p>
+<pre><code class="language-java">@Component
+public class BeanA {
+  @Autowired
+  @Qualifier("beanB2")
+  private BeanInterface dependency;
+  ...
+}
+</code></pre>
+<p>With the <code>@Qualifier</code> annotation added, Spring will know which bean to autowire where <code>beanB2</code> is the name of <code>BeanB2</code>.</p>
+<p>The <code>@Configuration</code> annotation is used on classes which define beans. The <code>@Configuration</code> is an analog for XML configuration file – it is configuration using Java class. Java class annotated with <code>@Configuration</code> is a configuration by itself and will have methods to instantiate and configure the dependencies.</p>
+<p>The <code>@ComponentScan</code> annotation is used with <code>@Configuration</code> annotation to allow Spring to know the packages to scan for annotated components. <code>@ComponentScan</code> is also used to specify base packages using <code>basePackageClasses</code> or <code>basePackage</code> attributes to scan. If specific packages are not defined, scanning will occur from the package of the class that declares this annotation.</p>
+<p>注意，<code>@ComponentScan</code> 注解可以替代 Spring XML 配置文件中的 <code>&lt;context:component-scan&gt;</code> 标签，用于指定要扫描的包，并将扫描到的带有 <code>@Component</code>、<code>@Service</code>、<code>@Repository</code> 和 <code>@Controller</code> 等注解的类注册为 Spring 的 bean。与 <code>&lt;context:component-scan&gt;</code> 标签相比，<code>@ComponentScan</code> 注解更加简洁、直观，且可以避免手写 XML 配置文件的繁琐。</p>
+<p>A <code>@Bean</code> annotation is used at the method level. <code>@Bean</code> annotation works with <code>@Configuration</code> to create Spring beans. As mentioned earlier, <code>@Configuration</code> will have methods to instantiate and configure dependencies. Such methods will be annotated with <code>@Bean</code>. The method annotated with this annotation works as bean ID and it creates and returns the actual bean.</p>
+<p>The <code>@Lazy</code> annotation is used on component classes. By default all autowired dependencies are created and configured at startup. But if you want to initialize a bean lazily, you can use <code>@Lazy</code> annotation over the class. This means that the bean will be created and initialized only when it is first requested for. You can also use this annotation on <code>@Configuration</code> classes. This indicates that all <code>@Bean</code> methods within that <code>@Configuration</code> should be lazily initialized.</p>
+<p>A <code>@Value</code> annotation is used at the field, constructor parameter, and method parameter level. The <code>@Value</code> annotation indicates a default value expression for the field or parameter to initialize the property with. As the <code>@Autowired</code> annotation tells Spring to inject object into another when it loads your application context, you can also use <code>@Value</code> annotation to inject values from a property file into a bean’s attribute. It supports both <code>#{...}</code> and <code>${...}</code> placeholders.</p>
+<h3 id="stereotype-annotations">Stereotype Annotations</h3>
+<p>The <code>@Component</code> annotation is used on classes to indicate a Spring component. The <code>@Component</code> annotation marks the Java class as a bean or say component so that the component-scanning mechanism of Spring can add into the application context.</p>
+<p>The <code>@Controller</code> annotation is used to indicate the class is a Spring controller. This annotation can be used to identify controllers for Spring MVC or Spring WebFlux.</p>
+<p>The <code>@Service</code> annotation is used on a class. The <code>@Service</code> marks a Java class that performs some service, such as execute business logic, perform calculations and call external APIs. This annotation is a specialized form of the <code>@Component</code> annotation intended to be used in the service layer.</p>
+<p>The <code>@Repository</code> annotation is used on Java classes which directly access the DB. This annotation works as marker for any class that fulfills the role of repository or Data Access Object. This annotation has an automatic translation feature.</p>
+<p>For example, when an exception occurs in the <code>@Repository</code> there's a handler for that exception and there is no need to add a try catch block.</p>
+<p>在组件扫描机制中，被扫描的组件应添加特定的注解（如 <code>@Component</code>），以便被 Spring 容器识别为组件并进行注册。此外，组件扫描配置通常需要在配置文件中进行指定，可以通过在配置文件中添加元素 <code>&lt;context:component-scan&gt;</code> 来启用组件扫描机制。</p>
+<pre><code class="language-java">@Component(value = "userAnnot")
+public class UserAnnot {
+    public void add(){ System.out.println("Annot add..."); }
+}
+</code></pre>
+<p>上述代码定义了一个名为 <code>UserAnnot</code> 的类，并使用 <code>@Component</code> 注解来将该类声明为一个组件，且通过 <code>value = "userAnnot"</code> 指定了该组件的名称（该名称将被用于在容器中注册此组件）。</p>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"&gt;
+    &lt;context:component-scan base-package="com.???.spring5.wkAnnot"/&gt;
+&lt;/beans&gt;
+</code></pre>
+<pre><code class="language-java">/* 注解测试类 */
+public class TestAnno {
+    @Test
+    public void testAnno1(){
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("bbean1.xml");
+        UserAnnot ua = ctx.getBean("userAnnot", UserAnnot.class);
+        System.out.println(ua);
+        ua.add();
+    }
+}
+</code></pre>
+<p>当在其他地方需要使用到注册在容器中的组件类时，可以通过 <code>@Autowired</code> 等注解来自动注入该组件的实例，从而完成对象的依赖注入。</p>
+<p>常用的 <code>&lt;context:component-scan&gt;</code> 元素属性如下：</p>
+<ul>
+<li><code>base-package</code> 属性指定了需要扫描的组件包路径</li>
+<li><code>use-default-filters</code> 属性用于指定是否使用默认的过滤器
+<ul>
+<li><code>exclude-filter</code> 元素用于配置需要排除的组件
+<ul>
+<li><code>type</code> 属性指定过滤器类型</li>
+<li><code>expression</code> 属性指定需要排除的注解</li>
+</ul>
+</li>
+<li><code>include-filter</code> 元素用于配置需要包含的组件
+<ul>
+<li><code>type</code> 属性指定过滤器类型</li>
+<li><code>expression</code> 属性指定需要包含的组件的正则表达式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-xml">&lt;context:component-scan base-package="com.example.app" use-default-filters="false"&gt;
+    &lt;context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/&gt;
+    &lt;context:include-filter type="regex" expression="com\.example\.app\.service\..*Service"/&gt;
+&lt;/context:component-scan&gt;
+</code></pre>
+<p>上述示例通过控制扫描的范围，来避免将不必要的组件注册到 Spring 容器，代码解释如下：</p>
+<ul>
+<li><code>&lt;context:exclude-filter&gt;</code> 使用 annotation 类型的过滤器，排除 <code>@Controller</code> 注解</li>
+<li><code>&lt;context:include-filter&gt;</code> 使用 regex 类型的过滤器，指定要包括 service 包下的特定类</li>
+</ul>
+<h3 id="using-propertysource">Using @PropertySource</h3>
+<blockquote>
+<p>The <code>@PropertySource</code> annotation provides a convenient and declarative mechanism for adding a PropertySource to Spring’s Environment. Any <code>${…}</code> placeholders present in a <code>@PropertySource</code> resource location are resolved against the set of property sources already registered against the environment.</p>
+</blockquote>
+<p>Spring 3 中加入的 <code>@PropertySource</code> 注解可以指定属性文件的位置，从而将属性文件中的键值对注入到 Spring 管理的 bean 中。</p>
+<p>以下代码中，<code>@Configuration</code> 用于表明这是一个 Spring 的配置类，等价于传统 XML 配置文件中的 <code>&lt;beans&gt;</code> 元素。注解 <code>@ComponentScan</code> 用于扫描指定包下的组件，并将其中含有特定注解的类注册为 Spring 的 bean。<code>@PropertySource</code> 指定属性文件的位置，可以通过 <code>value</code> 或 <code>location</code> 指定属性文件的路径。在本例中，<code>classpath:jdbc.properties</code> 表示属性文件在类路径下。</p>
+<pre><code class="language-java">public class TestPureAnnot {
+    @Test
+    public void TestPureAnnot(){
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
+        UserService userservice = ctx.getBean("userService", UserService.class);
+        userservice.usMethod();
+    }
+}
+</code></pre>
+<pre><code class="language-java">@Configuration
+@ComponentScan(basePackages = {"com.&lt;secret&gt;.spring5.annoDev"})
+@PropertySource("classpath:jdbc.properties")
+public class SpringConfig {}
+</code></pre>
+<p>classpath（类路径）是 Java 编程中指定 JVM 查找 class 文件的路径。当 JVM 加载 class 文件时，会从 classpath 中查找对应的 class 文件，如果找到则加载该类。<code>classpath</code> 可以包含多个路径，路径之间使用操作系统的路径分隔符（Windows 上为 ";"，Unix/Linux 上为 ":"）进行分隔。</p>
+<h3 id="spring-autowiring">Spring Autowiring</h3>
+<p>自动装配是指 Spring 容器在需要时自动地将某个 bean 注入到另一个 bean 中的过程，在该过程中，无需手动调用 set 方法或构造函数进行显式的指定。</p>
+<p>自动装配通过使用 <code>@Autowired</code>、<code>@Qualifier</code>、<code>@Resource</code>、<code>@Value</code> 等注解实现，可以大大减少手动配置 bean 的工作量。</p>
+<ul>
+<li><code>@Autowired</code> 根据 bean 类型进行装配</li>
+<li><code>@Qualifier</code> 根据 bean 名称进行装配</li>
+<li><code>@Resource</code> 可以根据类型或名称进行装配</li>
+<li><code>@Value</code> 可以注入各种类型的值，包括简单类型、Spring EL 表达式、属性文件中的值等</li>
+</ul>
+<p>在自动装配过程中，Spring 容器根据类型或名称等信息自动寻找合适的 bean 进行注入。如果存在多个类型相同或名称相同的 bean，则需要使用 <code>@Qualifier</code> 进行进一步地指定。</p>
+<p>需要注意的是，自动装配依赖于 Spring 容器中的 bean 配置信息，如果没有配置或者配置不正确，则可能会出现装配失败的情况。同时，使用自动装配也需要注意 bean 之间的循环依赖问题，避免出现死锁或其他异常情况。自动装配基于反射设计创建对象并初始化属性值，因此无需提供 setter 方法。</p>
+<p>对于构造方法，虽然自动装配建议使用无参构造方法，但如果没有无参构造方法，也可以通过有参构造方法进行自动装配，只要在构造方法上标注 <code>@Autowired</code> 就可以了。</p>
+<pre><code class="language-java">@Service
+public class UserService {
+//    @Autowired // 根据类型进行注入
+//    @Qualifier(value="userDaoImpl1")
+//    private UserService userDao;
+//    @Resource // 根据类型进行注入
+    @Resource(name = "userDaoImpl1") // 根据名称进行注入
+    private UserDao userDao;
+    @Value(value="hz") // 注入普通类型属性
+    private String name;
+    public void usMethod(){
+        System.out.println("service usMethod");
+        userDao.udiMethod();
+        System.out.println(name);
+    }
+}
+</code></pre>
+<pre><code class="language-java">@Repository(value="userDaoImpl1")
+public class UserDaoImpl implements UserDao{
+    @Override
+    public void udiMethod() { System.out.println("impl ado udiMethod"); }
+}
+</code></pre>
+<pre><code class="language-java">@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {UserService.class, UserDaoImpl.class})
+public class UserServiceTest {
+    @Autowired
+    private UserService userService;
+    @Test
+    public void testUsMethod() {
+        userService.usMethod();
+    }
+}
+</code></pre>
+<p>注意，在上述代码中，<code>@ContextConfiguration</code> 和 <code>@Configuration</code> 是有区别的。</p>
+<p><code>@Configuration</code> 是一个用于定义配置类的注解，其中包含 <code>@Bean</code> 注解的方法，用于定义和配置 bean。通过 <code>@Configuration</code> 和 <code>@Bean</code> 定义的 bean 可以被 Spring 容器管理和使用。</p>
+<p><code>@ContextConfiguration</code> 是用于指定一个或多个用于测试的配置类或 XML 文件的注解。在上述的测试代码中，<code>@ContextConfiguration</code> 用于加载 Spring 配置，以便能够使用 Spring 的依赖注入和其他功能来测试应用程序的不同部分。</p>
+<h3 id="using-a-third-party-bean">Using a Third-Party Bean</h3>
+<p>Spring 中的第三方 bean 可以采取独立的配置类进行管理，但这个配置类必须使用 <code>@Configuration</code> 注解来标记，可以使用 <code>@Bean</code> 注解声明返回的对象是一个 bean。这些 bean 需要手动添加到 Spring 的核心配置中。</p>
+<p>另外，也可以使用导入式注解 <code>@Import</code> 或扫描式注解 <code>@ComponentScan</code> 来管理第三方 bean。</p>
+<ul>
+<li><code>@Import</code> 注解用于引入其他配置类</li>
+<li><code>@ComponentScan</code> 注解用于自动扫描指定包中的类，找到标记为 <code>@Component</code> 或其他相关注解的类并将其注册为 bean</li>
+</ul>
+<p>但是，在使用 <code>@ComponentScan</code> 注解时，需要将其放置在另一个 <code>@Configuration</code> 注解中。</p>
+<pre><code class="language-java">public class JdbcConfig {
+    @Bean
+    public DataSource dataSource(){
+        DruidDataSource ds = new DruidDataSource();
+        ds.setDriverClassName("com.mysql.jdbc.Driver");
+        ds.setUrl("jdbc:mysql://localhost:3306/???");
+        ds.setUsername("root");
+        ds.setPassword("yesok");
+        return ds;
+    }
+}
+</code></pre>
+<pre><code class="language-java">@Configuration
+@Import({JdbcConfig.class})
+public class SpringConfig {}
+</code></pre>
+<p>上述中，JdbcConfig 类使用 <code>@Bean</code> 标注了一个返回值为 DataSource 的方法，表示这是一个 Bean 定义，Spring 容器将会负责创建这个 Bean，然后放到容器中供其他对象使用。SpringConfig 类通过注解 <code>@Configuration</code> 表明这是一个配置类，同时使用 <code>@Import</code> 导入了 JdbcConfig 类。JdbcConfig 中的 Bean 会被纳入 SpringConfig 配置类管理的范围，从而可以在 Spring 容器中被使用。</p>
+<p>要注意，如果使用 <code>@ComponentScan</code> 替换 <code>@Import</code>，则需要在配置类上添加 <code>@Configuration</code> 注解，并在注解中指定需要扫描的包路径。这是因为在使用 <code>@Import</code> 导入配置类时，Spring 会自动将该类识别为一个配置类。</p>
+<p>如果将配置类作为一个单独的类使用，如：XML 配置文件中使用 <code>&lt;bean&gt;</code> 标签声明一个配置类，那么需要在类上加上 <code>@Configuration</code> 注解来告诉 Spring 这是一个配置类。</p>
+<pre><code class="language-java">@Configuration
+public class JdbcConfig {
+    @Bean
+    public DataSource dataSource(){
+        DruidDataSource ds = new DruidDataSource();
+        ds.setDriverClassName("com.mysql.jdbc.Driver");
+        ds.setUrl("jdbc:mysql://localhost:3306/???");
+        ds.setUsername("root");
+        ds.setPassword("yesok");
+        return ds;
+    }
+}
+</code></pre>
+<pre><code class="language-java">@Configuration
+@ComponentScan({"com.xxx.config"})
+public class SpringConfig {}
+</code></pre>
+<p>第三方 bean 的依赖注入通常有两种方式：</p>
+<ul>
+<li>简单类型注入：注解 <code>@Value</code> 用于将配置文件中的属性值注入到 bean 中的属性里</li>
+<li>引用类型注入：可以通过为返回 bean 的方法设置相应的形参进行注入</li>
+</ul>
+<pre><code class="language-java">public class JdbcConfig {
+    @Value("com.mysql.jdbc.Driver");
+    private String driver;
+    @Value("jdbc:mysql://localhost:3306/???");
+    private String url;
+    @Value("root");
+    private String userName;
+    @Value("password")
+    private String password;
+    @Bean
+    public DataSource dataSource(XxxService xxxService){
+        System.out.println(xxxService);
+        DruidDataSource ds = new DruidDataSource();
+        ds.setDriverClassName(driver);
+        ds.setUrl(url);
+        ds.setUsername(userName);
+        ds.setPassword(password);
+        return ds;
+    }
+}
+</code></pre>
+<p>上述代码定义了一个被 <code>@Configuration</code> 注解标记的 JdbcConfig 配置类。该类中的 dataSource 方法使用 <code>@Bean</code> 注解，表示返回的对象应该被 Spring 容器管理为一个 bean。该方法返回 DataSource 接口的实现类 DruidDataSource 对象，并对其进行了一些初始化配置，例如数据库连接的 URL、用户名和密码等。Spring 容器会在初始化时自动调用该方法，并将其返回的对象添加到容器中。</p>
+<pre><code class="language-java">@Configuration
+@ComponentScan({"com..???..config","com.???.service"})
+@Import({JdbcConfig.class})
+public class SpringConfig {}
+</code></pre>
+<h2 id="aspect-oriented-programming">Aspect Oriented Programming</h2>
+<h3 id="aop-concepts-terminology">AOP Concepts &amp; Terminology</h3>
+<blockquote>
+<p>Cross-cutting concerns are implementation details that need to be kept separate from business logic.</p>
+</blockquote>
+<p>面向切面编程是一种编程范式，与面向对象编程类似，但是面向切面编程会将关注点从对象的内部状态和行为转移到对象之外的横切关注点上。横切关注点是指在应用程序的不同模块中，会涉及到的一些与核心业务逻辑无关但又必须被处理的逻辑，例如事务、安全、日志、缓存等。这些逻辑通常散布在不同的类和方法中，导致代码复杂性和重复性的增加。</p>
+<p>AOP 的术语是一个通用的概念，不仅适用于 Spring，也适用于其他实现 AOP 的框架。</p>
+<p>切面是一个横切关注点的抽象，通常由一组通知和切点组成。通过将切面织入到程序的不同执行点，可以在不改变原有代码的基础上对程序进行功能的增强。连接点是指在应用的执行期间，可以插入一个切面的点。例如，在方法的执行期间以及调用的前后。通知是切面在特定连接点处所执行的动作。通知有多种类型，如前置通知、后置通知、异常通知、最终通知等。切点是一组连接点的集合，用来定义通知将被应用到哪些连接点上。织入是将切面应用到目标对象并创建代理对象的过程。织入可在编译期、类加载期、运行期进行。</p>
+<p>Advice is an action taken by an aspect at a particular join point. Different types of advice're as follows.</p>
+<ul>
+<li>Before Advice (<code>@Before</code>): These advices runs before the execution of join point methods.</li>
+<li>After (finally) Advice (<code>@After</code>): An advice that gets executed after the join point method finishes executing, whether normally or by throwing an exception.</li>
+<li>After Returning Advice (<code>@AfterReturning</code>): Sometimes we want advice methods to execute only if the join point method executes normally.</li>
+<li>After Throwing Advice (<code>@AfterThrowing</code>): This advice gets executed only when join point method throws exception, we can use it to rollback the transaction declaratively.</li>
+<li>Around Advice (<code>@Around</code>): This advice surrounds the join point method and we can also choose whether to execute the join point method or not. We can write advice code that gets executed before and after the execution of the join point method. It is the responsibility of around advice to invoke the join point method and return values if the method is returning something.</li>
+</ul>
+<h3 id="aspectj-support">@AspectJ Support</h3>
+<p>AOP 的常见实现包括 Spring AOP 和 AspectJ：</p>
+<ul>
+<li>Spring AOP 是基于代理的 AOP 实现，即通过动态代理来实现横向切面的添加</li>
+<li>AspectJ 是一种编译时的 AOP 实现，在编译时将切面逻辑直接编织到目标代码中</li>
+</ul>
+<p>Spring 中的 AOP 是基于 Java 动态代理和 CGLIB 字节码增强来实现的，且遵循了通用原则和术语。</p>
+<p>AspectJ 是一个流行的 AOP 框架，能与 Spring 很好的集成。以下代码是往 Maven 项目中引入 AspectJ 编译器和运行时的依赖。</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+    &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
+    &lt;version&gt;1.9.19&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>注解操作 AspectJ 进行 AOP 开发：</p>
+<ul>
+<li>导入 AspectJ 相关坐标；spring-context 坐标默认依赖 spring-aop 坐标</li>
+<li>定义 AOP 接口与实现类</li>
+<li>定义通知类抽取通知，并通过 @Pointcut 定义切入点</li>
+<li>绑定切入点与通知关系，并指定通知添加到原始连接点的具体执行位置</li>
+<li>定义通知类接受 Spring 容器管理，且定义当前类为切面类</li>
+<li>在 Spring 核心配置中开启 Spring 对 AOP 注解的驱动支持</li>
+</ul>
+<pre><code class="language-java">// 被增强类
+@Component
+public class User {
+    public void uMethod(){ System.out.println("user method"); }
+}
+</code></pre>
+<p>切入点的定义依托一个不具有实际意义的方法进行，即无参数，无返回值，无实际逻辑。AOP 通知类型查看 =&gt; <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop-advice">Declaring Advice</a></p>
+<blockquote>
+<p>With Spring, you can declare advice using AspectJ annotations, but you must first apply the <code>@EnableAspectJAutoProxy</code> annotation to your configuration class, which will enable support for handling components marked with AspectJ's <code>@Aspect</code> annotation.</p>
+</blockquote>
+<pre><code class="language-java">// 增强类 or 通知类 =&gt; 不同方法代表不同通知内容
+@Component // 生成 bean
+@Aspect // 生成代理对象 &amp; 作为 AOP 处理
+@Order(3) // 多个增强类设置优先级
+public class UserProxy {
+    // 相同切入点抽取
+    @Pointcut(value="execution(* com.&lt;secret&gt;.spring5.aopanno.User.uMethod())")
+    public void pointExtraction(){
+
+    }
+    // 前置通知
+    @Before(value="execution(* com.&lt;secret&gt;.spring5.aopanno.User.uMethod())")
+    public void before(){
+        // 前置通知
+        System.out.println("before...");
+    }
+    // 后置通知 =&gt; 方法之后 =&gt; 异常也执行
+    @After(value="pointExtraction()") // 重用切入点定义
+    public void after(){
+        System.out.println("after...");
+    }
+    // 返回通知 =&gt; 返回值之后执行
+    @AfterReturning(value="pointExtraction()")
+    public void afterReturning(){
+        System.out.println("afterReturning...");
+    }
+    @AfterThrowing(value="execution(* com.&lt;secret&gt;.spring5.aopanno.User.uMethod())")
+    public void afterThrowing(){
+        System.out.println("afterThrowing...");
+    }
+    // 环绕通知
+    @Around(value="execution(* com.&lt;secret&gt;.spring5.aopanno.User.uMethod())")
+    public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
+        System.out.println("around before...");
+        Object ret = proceedingJoinPoint.proceed();
+        System.out.println("around after...");
+        return ret;
+    }
+}
+</code></pre>
+<blockquote>
+<p>The <code>@AspectJ</code> support can be enabled with XML- or Java-style configuration. In either case, you also need to ensure that AspectJ’s aspectjweaver.jar library is on the classpath of your application (version 1.9 or later). This library is available in the lib directory of an AspectJ distribution or from the Maven Central repository.</p>
+</blockquote>
+<blockquote>
+<p>To enable <code>@AspectJ</code> support with Java <code>@Configuration</code>, add the <code>@EnableAspectJAutoProxy</code> annotation.</p>
+</blockquote>
+<pre><code class="language-java">@Configuration
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+public class ConfigAop {}
+</code></pre>
+<blockquote>
+<p>To enable <code>@AspectJ</code> support with XML-based configuration, use the <code>aop:aspectj-autoproxy</code> element.</p>
+</blockquote>
+<pre><code class="language-xml">&lt;!-- 开启 Aspect 生成代理对象 --&gt;
+&lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
+</code></pre>
+<p>xml 操作 AspectJ 进行 AOP 开发：</p>
+<pre><code class="language-java">// 被增强类
+public class Coffee { public void drink(){ System.out.println("drinking coffee..."); } }
+// 代理增强类
+public class CoffeeProxy { public void before(){ System.out.println("coffee with ice"); } }
+</code></pre>
+<pre><code class="language-xml">&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"&gt;
+    &lt;!-- 创建对象 --&gt;
+    &lt;bean id="coffee" class="com.&lt;secret&gt;.spring5.aopxml.Coffee"&gt;&lt;/bean&gt;
+    &lt;bean id="coffeeProxy" class="com.&lt;secret&gt;.spring5.aopxml.CoffeeProxy"&gt;&lt;/bean&gt;
+    &lt;!-- 配置aop增强 --&gt;
+    &lt;aop:config&gt;
+        &lt;!-- 切入点 --&gt;
+        &lt;aop:pointcut id="p" expression="execution(* com.???.spring5.aopxml.Coffee.drink(..))"/&gt;
+        &lt;!-- 配置切面 --&gt;
+        &lt;aop:aspect ref="coffeeProxy"&gt;
+            &lt;!-- 增强作用在具体的方法上 --&gt;
+            &lt;aop:before method="before" pointcut-ref="p"/&gt;
+        &lt;/aop:aspect&gt;
+    &lt;/aop:config&gt;
+&lt;/beans&gt;
+</code></pre>
+<h3 id="pointcut-expressions">Pointcut Expressions</h3>
+<p>Spring AOP 标签 <code>aop:pointcut</code> 中的表达式语言用于描述切点。切点在 AOP 中定义哪些方法应该被拦截或者增强。</p>
+<blockquote>
+<p>A pointcut expression starts with a pointcut designator (PCD), which is a keyword telling Spring AOP what to match.</p>
+</blockquote>
+<p>切入点指示符可以描述一个方法的修饰符、返回类型、方法名、参数等特征，从而定义出一个具有特定特征的方法集合。在 Spring AOP 中，切入点指示符通常是使用 "execution" 关键字来定义的。</p>
+<pre><code class="language-java">// The format of an execution expression follows:
+execution(modifiers-pattern? ret-type-pattern declaring-type-pattern? name-pattern(param-pattern) throws-pattern?)
+</code></pre>
+<p>在 XML 文件中通过 <code>&lt;aop:pointcut&gt;</code> 元素定义切入点的方式如下。匹配 com.example.MyService 类中所有名为 doSomething 的方法，并且这些方法的参数可以是任意类型和任意个数。</p>
+<pre><code class="language-xml">&lt;aop:pointcut id="myPointcut" expression="execution(* com.example.MyService.doSomething(..))"/&gt;
+</code></pre>
+<p>将上述写法转换为在 Java 中通过 <code>@Pointcut</code> 注解定义的切入点方式如下。</p>
+<pre><code class="language-java">@Pointcut("execution(* com.example.MyService.doSomething(..))")
+</code></pre>
+<p>除上述 <code>execution</code> 之外，常见的 <a href="https://www.baeldung.com/spring-aop-pointcut-tutorial">Spring PCD</a> 如下：</p>
+<ul>
+<li><code>execution</code>：最主要的表示式，用来匹配方法执行的连接点。</li>
+<li><code>within</code> 指定匹配某个包或类中的所有方法</li>
+<li><code>this</code> 和 <code>target</code> 都用于匹配某个对象或类的方法，前者匹配代理对象，后者匹配目标对象</li>
+<li><code>args</code> 用于匹配方法参数</li>
+<li><code>@target</code> 指定匹配带有特定注解的对象</li>
+<li><code>@args</code> 限制实参的运行时类型需具有指定的注释</li>
+<li><code>@within</code> 匹配拥有指定注解的类型</li>
+<li><code>@annotation</code> 用于匹配带有特定注解的方法</li>
+</ul>
+<blockquote>
+<p>Note: Pointcut expressions can be combined using &amp;&amp;, ||, and ! operators.</p>
+</blockquote>
+<h3 id="aop-workflow">AOP Workflow</h3>
+<p>Spring 容器启动时会读取所有在切面配置中定义的切入点，并初始化所有的 bean。对于每个 bean，容器会检查其所对应类中的方法是否匹配到任何一个切入点。如果没有匹配到任何一个切入点，容器会直接获取这个 bean 并调用它的方法执行。但是，如果匹配到了一个或多个切入点，容器会创建这个目标对象的代理对象，并根据代理对象的运行模式来运行原始方法和增强内容。这样，切面就可以在目标对象的方法执行前、执行后或执行前后进行增强处理，而不需要修改目标对象的代码。</p>
+<p>通过动态代理增强类的方法：</p>
+<ul>
+<li>在有接口情况下使用 JDK 动态代理：创建接口实现类代理对象</li>
+<li>在没有接口情况下使用 CGLIB 动态代理：创建子类的代理对象</li>
+</ul>
+<pre><code class="language-java">public interface UserDao {
+    public int add(int a,int b);
+    public String update(String str);
+}
+</code></pre>
+<pre><code class="language-java">public class UserDaoImpl implements UserDao{
+    @Override
+    public int add(int a, int b) {
+        System.out.println("add方法执行了");
+        return a+b;
+    }
+
+    @Override
+    public String update(String str) {
+        System.out.println("update方法执行了");
+        return str;
+    }
+}
+</code></pre>
+<p>在 JDKProxy 类中，使用 <code>Proxy.newProxyInstance</code> 方法创建一个 UserDao 接口的代理对象。</p>
+<p>静态方法 <code>Proxy.newProxyInstance</code> 方法用于创建一个动态代理对象：</p>
+<ul>
+<li><code>ClassLoader loader</code> 是该代理类的类加载器</li>
+<li><code>Class&lt;?&gt;[] interfaces</code> 是代理类要实现的接口列表，代理对象会实现这些接口所有方法</li>
+<li><code>InvocationHandler h</code> 是一个实现了 invoke 方法的类，用于实现代理类的具体逻辑</li>
+</ul>
+<p>在 UserDaoProxy 类中实现 <code>InvocationHandler</code> 接口的主要作用是提供代理对象的具体实现逻辑。</p>
+<p>接口 <code>InvocationHandler</code> 中只有一个方法 <code>invoke</code>，该方法会在代理对象的方法被调用时被调用。</p>
+<pre><code class="language-java">public class JDKProxy {
+    public static void main(String[] args){
+        Class[] interfaces = {UserDao.class};
+        // 创建接口实现类的代理对象
+        // 第三参数使用匿名内部类
+//        Proxy.newProxyInstance(JDKProxy.class.getClassLoader(), interfaces, new InvocationHandler() {
+//            @Override
+//            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+//                return null;
+//            }
+//        })
+        UserDaoImpl userDao = new UserDaoImpl();
+        // 接口等于实现类的代理对象
+        UserDao dao = (UserDao)Proxy.newProxyInstance(JDKProxy.class.getClassLoader(), interfaces, new UserDaoProxy(userDao));
+        int result = dao.add(1, 2);
+        System.out.println(result);
+    }
+}
+
+// 创建代理对象代码
+class UserDaoProxy implements InvocationHandler{
+    // 创建的是谁的代理对象,就将谁传递过来
+    // 有参构造传递
+    private Object obj;
+    public UserDaoProxy(Object obj){
+        this.obj = obj;
+    }
+    // 对象一创建,方法就调用
+    // 增强的逻辑
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        // 方法之前
+        System.out.println("方法前执行 =&gt; "+method.getName()+" =&gt; 传递参数 =&gt; "+ Arrays.toString(args));
+        // 被增强的方法执行
+        Object res = method.invoke(obj, args);
+        // 方法之后
+        System.out.println("方法后执行 =&gt; "+obj);
+        return res;
+    }
+}
+</code></pre>
+<p>当使用 Spring AOP 时，可能需要处理切入点相关的一些数据，如切入点方法的参数，返回值，以及异常。可以通过以下方式进行相关操作。</p>
+<p>在通知方法中可以通过 <code>JointPoint</code> 参数获取切入点方法的参数，适用于前置、后置、返回、抛出异常后通知。</p>
+<pre><code class="language-java">@Before("execution(public * com.example.demo.service.UserService.addUser(..))")
+public void logBefore(JoinPoint joinPoint) {
+    Object[] args = joinPoint.getArgs();
+    // ...
+}
+</code></pre>
+<p>可以在环绕通知中使用 <code>ProceedingJoinPoint</code> 对象来获取切入点方法的参数。这个对象允许在环绕通知中控制切入点方法的执行，且访问其参数。</p>
+<pre><code class="language-java">@Aspect
+public class MyAspect {
+ 
+    @Around("execution(* com.example.service.MyService.*(..))")
+    public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+ 
+        // 获取切入点方法的参数
+        Object[] args = joinPoint.getArgs();
+ 
+        // 对参数进行处理
+        for (Object arg : args) {
+            // ...
+        }
+ 
+        // 控制切入点方法的执行
+        Object result = joinPoint.proceed();
+ 
+        // 对返回值进行处理
+        // ...
+ 
+        return result;
+    }
+}
+</code></pre>
+<p>如果通知方法是在方法返回后执行的，可以使用 <code>@AfterReturning</code> 注解来获取返回值。此时需要使用 <code>returning</code> 属性来指定接收返回值的参数名。</p>
+<pre><code class="language-java">@AfterReturning(value = "execution(public * com.example.demo.service.UserService.addUser(..))", returning = "result")
+public void logAfterReturning(JoinPoint joinPoint, Object result) {
+    // ...
+}
+</code></pre>
+<p>使用 <code>@Around</code> 注解标记的环绕通知，可以直接调用 <code>proceed()</code> 方法获取原始方法的返回值。</p>
+<pre><code class="language-java">@Around("execution(public * com.example.demo.service.UserService.addUser(..))")
+public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+    Object result = joinPoint.proceed();
+    // ...
+    return result;
+}
+</code></pre>
+<p>如果通知方法是在方法抛出异常后执行的，那么可以使用 <code>@AfterThrowing</code> 注解来获取异常信息。注意，需要使用 <code>throwing</code> 参数来指定接收异常信息的参数名。</p>
+<pre><code class="language-java">@AfterThrowing(value = "execution(public * com.example.demo.service.UserService.addUser(..))", throwing = "ex")
+public void logAfterThrowing(JoinPoint joinPoint, Exception ex) {
+    // ...
+}
+</code></pre>
+<p>如果是使用 <code>@Around</code> 注解标记的环绕通知，需要使用 <code>try...catch</code> 语句块捕获原始方法可能抛出的异常，并进行处理。</p>
+<pre><code class="language-java">@Around("execution(public * com.example.demo.service.UserService.addUser(..))")
+public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+    try {
+        Object result = joinPoint.proceed();
+        // ...
+        return result;
+    } catch (Exception ex) {
+        // ...
+        throw ex;
+    }
+}
+</code></pre>
+<h2 id="transactions-with-spring">Transactions with Spring</h2>
+<h3 id="spring-transactions-basics">Spring Transactions Basics</h3>
+<p>事务方法是指在数据库事务中被调用的方法。在一个事务中，可能会涉及多个数据库操作，而这些操作需要保证原子性、一致性、隔离性和持久性，以保证数据库的完整性。事务方法可以确保这些操作被作为一个单独的逻辑单元执行，要么全部成功提交，要么全部失败回滚。</p>
+<p>事务的隔离性是为解决在并发操作中产生的脏读、不可重复读、幻读等问题。脏读是一个未提交的事务读取了另一个未提交事务的数据；不可重复读表示一个未提交的事务读取到了另一个提交了事务修改的数据（数据不准确）；幻读是一个未提交事务读取到了另一个提交事务添加的数据。</p>
+<p>事务传播行为是指在事务方法被调用时，事务的范围如何传播。当一个事务方法被调用时，如果当前上下文中已经存在一个事务，那么事务传播行为规定了新的事务应该如何与当前事务进行交互。例如，如果一个事务方法被调用时当前上下文中已经存在一个事务，那么新的事务可以选择加入当前事务，或者开启一个新的独立事务。</p>
+<p>常见的事务传播行为包括：</p>
+<ul>
+<li>PROPAGATION_REQUIRED：默认选项，如果当前存在事务，则加入该事务，否则新开启一个事务</li>
+<li>PROPAGATION_REQUIRES_NEW：新开启一个独立的事务，如果当前已经存在事务，则挂起当前事务</li>
+<li>PROPAGATION_SUPPORTS：如果当前存在事务，则加入该事务，否则以非事务的方式执行</li>
+<li>PROPAGATION_NOT_SUPPORTED：以非事务的方式执行，如果当前存在事务，则挂起该事务</li>
+<li>PROPAGATION_MANDATORY：必须在当前事务的上下文中执行，否则抛出异常</li>
+<li>PROPAGATION_NEVER：必须以非事务的方式执行，否则抛出异常</li>
+<li>PROPAGATION_NESTED：如果当前存在事务，则在该事务的嵌套事务中执行，否则新开启一个事务</li>
+</ul>
+<p>Spring 事务可以使用注解 <code>@Transactional</code> 来标记需要进行事务管理的方法。可以将注解添加到具体的业务方法上，也可以添加到接口上来表示当前接口的所有方法都需要进行事务管理。</p>
+<pre><code class="language-java">public interface XxxService{
+    @Transactional
+    public void transfer(...)
+}
+</code></pre>
+<pre><code class="language-java">@Service
+// 可以加在类上或方法上 =&gt; 前者表示所有方法都添加上了事务,后者只是此方法添加事务.
+// 默认传播行为就是propagation.REQUIRED
+// mysql 默认隔离级别是 REPEATABLE_READ
+@Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.REPEATABLE_READ,timeout = -1)
+public class UserService {}
+</code></pre>
+<p>在 Spring 中，使用事务管理器来协调和管理数据库事务的提交与回滚操作，以确保数据的一致性和完整性。Spring 提供的标准接口 PlatformTransactionManager 可以设置事务管理器。</p>
+<pre><code class="language-java">@Bean
+public PlatformTransactionManager transactionManager(DataSource dataSource){
+    DataSourceTransactionManager dstm = new DataSourceTransactionManager();
+    dstm.setDataSource(dataSource);
+    return dstm;
+}
+</code></pre>
+<p>上述代码中，使用 <code>@Bean</code> 注解来标识这个方法是一个 Spring Bean 的定义，表示可以被容器管理和使用。方法的名称 transactionManager 是 Bean 的名称，可以在其他 Bean 的定义中使用该名称来引用这个 Bean。方法中的参数 <code>DataSource dataSource</code> 是一个 <code>DataSource</code> 类型的对象，表示要使用的数据源。通过此方法可以创建一个 <code>DataSourceTransactionManager</code> 类型的事务管理器对象 dstm。</p>
+<h3 id="%E6%B3%A8%E8%A7%A3%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86">注解声明式事务管理</h3>
+<blockquote>
+<p>Spring 3.1 introduces the <code>@EnableTransactionManagement</code> annotation that we can use in a <code>@Configuration</code> class to enable transactional support.</p>
+</blockquote>
+<blockquote>
+<p>However, if we're using a Spring Boot project and have a spring-data-* or spring-tx dependencies on the classpath, then transaction management will be enabled by default.</p>
+</blockquote>
+<pre><code class="language-java">@Configuration // @Configuration =&gt; 代表配置类
+@ComponentScan(basePackages = "com.&lt;secret&gt;.spring5.txdemo") // @ComponentScan =&gt; 组件扫描
+@EnableTransactionManagement // @EnableTransactionManagement =&gt; 开启事务
+public class TxConfig {
+    // 创建数据库连接池
+    @Bean
+    public DruidDataSource getDuridDataSource(){
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/user_db");
+        dataSource.setUsername("&lt;username&gt;");
+        dataSource.setPassword("&lt;password&gt;");
+        return dataSource;
+    }
+    // 创建jdbc模板对象
+    @Bean
+    public JdbcTemplate getJdbcTemplate(DataSource dataSource){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        // 注入 dataSource
+        // IOC 容器已存在 dataSource 对象,根据类型找到 dataSource 对象比创建对象更好
+        // jdbcTemplate.setDataSource(getDuridDataSource());
+        jdbcTemplate.setDataSource(dataSource);
+        return jdbcTemplate;
+    }
+    // 创建事务管理器对象
+    @Bean
+    public DataSourceTransactionManager getDataSourceTransactionManager(DataSource dataSource){
+        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+        transactionManager.setDataSource(dataSource);
+        return transactionManager;
+    }
+}
+</code></pre>
+<pre><code class="language-html">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+"&gt;
+    &lt;!-- 开启组件扫描 --&gt;
+    &lt;context:component-scan base-package="com.&lt;secret&gt;.spring5.txdemo"&gt;&lt;/context:component-scan&gt;
+    &lt;!-- 数据库连接池 --&gt;
+    &lt;bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close"&gt;
+        &lt;property name="url" value="jdbc:mysql://localhost:3306/{yourdb}" /&gt;
+        &lt;property name="username" value={yourusername} /&gt;
+        &lt;property name="password" value={yourpassword} /&gt;
+        &lt;property name="driverClassName" value="com.mysql.cj.jdbc.Driver" /&gt;
+    &lt;/bean&gt;
+    &lt;!-- jdbctemplate对象 --&gt;
+    &lt;bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"&gt;
+        &lt;!-- 注入datasource --&gt;
+        &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;!-- 创建事务管理器 --&gt;
+    &lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;
+        &lt;!-- 注入数据源 =&gt; 指定对哪个数据库进行事务管理 --&gt;
+        &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;!-- 开启事务注解 =&gt; 指定哪个事务管理器开启 --&gt;
+    &lt;tx:annotation-driven transaction-manager="transactionManager"&gt;&lt;/tx:annotation-driven&gt;
+&lt;/beans&gt;
+</code></pre>
+<h3 id="xml-%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86">XML 声明式事务管理</h3>
+<p>在下列配置中，使用 <code>DataSourceTransactionManager</code> 作为事务管理器，并为不同的方法设置了不同的事务传播属性。对于以 <code>save</code>、<code>update</code> 或 <code>delete</code> 开头的方法，都将使用 <code>REQUIRED</code> 的事务传播属性来启用事务。对于以 <code>get</code> 开头的方法，将其定义为只读的方法，并不需要启用事务。对于其他所有的方法，也使用了 <code>REQUIRED</code> 的事务传播属性，表示这些方法将使用与调用方相同的事务。</p>
+<pre><code class="language-xml">&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;
+    &lt;property name="dataSource" ref="dataSource"/&gt;
+&lt;/bean&gt;
+
+&lt;tx:advice id="txAdvice" transaction-manager="transactionManager"&gt;
+    &lt;tx:attributes&gt;
+        &lt;tx:method name="save*" propagation="REQUIRED"/&gt;
+        &lt;tx:method name="update*" propagation="REQUIRED"/&gt;
+        &lt;tx:method name="delete*" propagation="REQUIRED"/&gt;
+        &lt;tx:method name="get*" read-only="true"/&gt;
+        &lt;tx:method name="*" propagation="REQUIRED"/&gt;
+    &lt;/tx:attributes&gt;
+&lt;/tx:advice&gt;
+</code></pre>
+<p>注意，如果要在 XML 文件中使用 Spring 的事务管理与 AOP 功能，需要在 XML 文件中添加命名空间声明，命名空间声明是告诉 XML 解析器，<code>tx</code> 与 <code>aop</code> 前缀代表的命名空间，从而让 XML 解析器能够正确地解析 XML 文件中的 Spring 事务管理与 AOP 相关的元素和属性。</p>
+<pre><code class="language-xml">xmlns:tx="http://www.springframework.org/schema/tx
+xmlns:aop="http://www.springframework.org/schema/aop
+</code></pre>
+<p>此外，还需要在 XML 文件中指定相应的 XSD 文件来定义这些命名空间所代表的元素和属性的结构和语法。</p>
+<pre><code class="language-xml">http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/aop/spring-aop.xsd
+</code></pre>
+<p>接下来需要启用 AOP，并将切入点设置为 com.example.service 包中的所有方法。这意味着在这个包中的所有方法都将受到事务通知的影响。</p>
+<pre><code class="language-xml">&lt;aop:config&gt;
+    &lt;aop:advisor advice-ref="txAdvice" pointcut="execution(* com.example.service.*.*(..))"/&gt;
+&lt;/aop:config&gt;
+</code></pre>
+<p>将 <code>@Transactional</code> 注解添加到需要事务管理的方法上，这将告诉 Spring 在这些方法中启用事务管理器。</p>
+<pre><code class="language-java">@Service
+public class ExampleServiceImpl implements ExampleService {
+
+    @Autowired
+    private ExampleDao exampleDao;
+
+    @Override
+    @Transactional
+    public void saveExample(Example example) {
+        exampleDao.saveExample(example);
+    }
+
+    @Override
+    @Transactional
+    public void updateExample(Example example) {
+        exampleDao.updateExample(example);
+    }
+
+    @Override
+    @Transactional
+    public void deleteExample(Example example) {
+        exampleDao.deleteExample(example);
+    }
+
+    @Override
+    public Example getExampleById(Long id) {
+        return exampleDao.getExampleById(id);
+    }
+}
+</code></pre>
+<p>配置事务管理器、通知、切入点与切面的整体 XML 代码如下所示。</p>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+"&gt;
+    &lt;!-- 开启组件扫描 --&gt;
+    &lt;context:component-scan base-package="com.&lt;secret&gt;.spring5.txdemo"&gt;&lt;/context:component-scan&gt;
+    &lt;!-- 数据库连接池 --&gt;
+    &lt;bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close"&gt;
+        &lt;property name="url" value="jdbc:mysql://localhost:3306/user_db" /&gt;
+        &lt;property name="username" value="&lt;username&gt;" /&gt;
+        &lt;property name="password" value="&lt;password&gt;"/&gt;
+        &lt;property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/&gt;
+    &lt;/bean&gt;
+    &lt;!-- jdbctemplate对象 --&gt;
+    &lt;bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"&gt;
+        &lt;!-- 注入datasource --&gt;
+        &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;!-- 创建事务管理器 --&gt;
+    &lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;
+        &lt;!-- 注入数据源 =&gt; 指定对哪个数据库进行事务管理 --&gt;
+        &lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;!-- 配置通知 --&gt;
+    &lt;tx:advice id="txadvice"&gt;
+        &lt;!-- 配置事务相关参数 --&gt;
+        &lt;tx:attributes&gt;
+            &lt;!-- 指定哪种规则的方法上添加事务 --&gt;
+            &lt;!-- &lt;tx:method name="account*"/&gt; --&gt;
+            &lt;tx:method name="accountMoney" propagation="REQUIRED"&gt;&lt;/tx:method&gt;
+        &lt;/tx:attributes&gt;
+    &lt;/tx:advice&gt;
+    &lt;!-- 配置切入点和切面 --&gt;
+    &lt;aop:config&gt;
+        &lt;!-- 配置切入点 --&gt;
+        &lt;aop:pointcut id="pt" expression="execution(* com.&lt;secret&gt;.spring5.txdemo.service.UserService.*(..))"/&gt;
+        &lt;!-- 配置切面 =&gt; 事务加到具体方法上 --&gt;
+        &lt;aop:advisor advice-ref="txadvice" pointcut-ref="pt"&gt;&lt;/aop:advisor&gt;
+    &lt;/aop:config&gt;
+&lt;/beans&gt;
+</code></pre>
+<h2 id="bugs-%E8%A7%A3%E5%86%B3">Bugs 解决</h2>
+<ul>
+<li>BeanDefinitionStoreException</li>
+</ul>
+<pre><code class="language-java">// 报错原文
+org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource.
+</code></pre>
+<p>在开启组件扫描的 base-package 下，是否存在多个需要扫描的文件。若存在则需要进一步缩小扫描范围。</p>
+<ul>
+<li>Exception encountered during context initialization</li>
+</ul>
+<pre><code class="language-java">// 报错原文
+WARNING: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'xxxService': Unsatisfied dependency expressed through field 'xxxDao';
+</code></pre>
+<p>在测试类中进行进一步验证；概率性加载 xml 文件错误。</p>
+<ul>
+<li>UnsatisfiedDependencyException</li>
+</ul>
+<pre><code class="language-java">org.springframework.context.support.AbstractApplicationContext refresh
+WARNING: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDaoImpl': Unsatisfied dependency expressed through field 'jdbcTemplate'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'getJdbcTemplate' defined in com.&lt;secret&gt;.spring5.txdemo.config.TxConfig: Unsatisfied dependency expressed through method 'getJdbcTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.sql.DataSource' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+</code></pre>
+<figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Core Technologies</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://docs.spring.io/favicon.ico" alt width="16" height="16" layout="fixed"></amp-img></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://docs.spring.io/spring-framework/docs/current/reference/html/images/container-magic.png" alt width="498" height="296" layout="responsive"></amp-img></div></a><figcaption>docs.spring.io/spring-framework</figcaption></figure><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://www.digitalocean.com/community/tutorials/spring-aop-example-tutorial-aspect-advice-pointcut-joinpoint-annotations"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Spring AOP Example Tutorial - Aspect, Advice, Pointcut, JoinPoint, Annotations, XML Configuration | DigitalOcean</div><div class="kg-bookmark-description">Technical tutorials, Q&amp;A, events — This is an inclusive place where developers can find or lend support and discover new ways to contribute to the community.</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://www.digitalocean.com/_next/static/media/android-chrome-512x512.5f2e6221.png" alt width="512" height="512" layout="responsive"></amp-img><span class="kg-bookmark-author">DigitalOcean</span><span class="kg-bookmark-publisher">Pankaj</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://journaldev.nyc3.digitaloceanspaces.com/2014/03/spring-aop.png" alt width="1200" height="800" layout="responsive"></amp-img></div></a><figcaption>https://www.digitalocean.com/community/tutorials/spring-aop-example-tutorial-aspect-advice-pointcut-joinpoint-annotations</figcaption></figure><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://springframework.guru/spring-framework-annotations/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Spring Framework Annotations - Spring Framework Guru</div><div class="kg-bookmark-description">In this post I review the Java annotations which are commonly used to configure behaviors in the Spring Framework.</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://springframework.guru/wp-content/uploads/2015/02/favicon.png" alt width="16" height="16" layout="fixed"></amp-img><span class="kg-bookmark-author">Spring Framework Guru</span><span class="kg-bookmark-publisher">Bernhard</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://springframework.guru/wp-content/uploads/2015/03/Banner560x292_01web.jpg" alt width="560" height="292" layout="responsive"></amp-img></div></a><figcaption>https://springframework.guru/spring-framework-annotations/</figcaption></figure><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

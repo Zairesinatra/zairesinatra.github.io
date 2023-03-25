@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>CentOS x Ubuntu</title>
+
+    <meta name="description" content="Why are linux geeks very introvertish? Because they never get out of their shell." />
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="CentOS x Ubuntu" />
+    <meta property="og:description" content="Why are linux geeks very introvertish? Because they never get out of their shell." />
+    <meta property="og:url" content="yourdomain.com/linux/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/10/penguinCentOS.jpg" />
+    <meta property="article:published_time" content="2019-07-16T12:23:00.000Z" />
+    <meta property="article:modified_time" content="2023-02-24T17:43:07.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CentOS x Ubuntu" />
+    <meta name="twitter:description" content="Why are linux geeks very introvertish? Because they never get out of their shell." />
+    <meta name="twitter:url" content="yourdomain.com/linux/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/10/penguinCentOS.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="800" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "CentOS x Ubuntu",
+    "url": "yourdomain.com/linux/",
+    "datePublished": "2019-07-16T12:23:00.000Z",
+    "dateModified": "2023-02-24T17:43:07.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/10/penguinCentOS.jpg",
+        "width": 1280,
+        "height": 800
+    },
+    "keywords": "Technology growth",
+    "description": "Why are linux geeks very introvertish? Because they never get out of their shell.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.33" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+    
+    amp-youtube {
+        height: calc(100vw / 1.78);
+        width: 100vw;
+        position: relative;
+    }
+
+    amp-youtube img {
+        position: absolute;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content blockquote.kg-blockquote-alt {
+        font-size: 1.2em;
+        font-style: italic;
+        line-height: 1.6em;
+        text-align: center;
+        color: #738a94;
+        padding: 0.75em 3em 1.25em;
+    }
+
+    .post-content blockquote.kg-blockquote-alt::before {
+        display: none;
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-product-card-container {
+        background: transparent;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: inset 0 0 0 1px rgb(124 139 154 / 25%);
+    }
+
+    .kg-product-card-description p {
+        margin-top: 1.5em;
+    }
+
+    .kg-product-card-description ul {
+        margin-left: 24px;
+    }
+
+    .kg-product-card-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .kg-product-card-rating-star {
+        height: 28px;
+        width: 20px;
+        margin-right: 2px;
+    }
+
+    .kg-product-card-rating-star svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.15;
+    }
+
+    .kg-product-card-rating-active.kg-product-card-rating-star svg {
+    opacity: 1;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto;
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-callout-card {
+        display: flex;
+        padding: 20px 28px;
+        border-radius: 3px;
+    }
+
+    .kg-callout-card-grey {
+        background: rgba(124, 139, 154, 0.13);
+    }
+
+    .kg-callout-card-white {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-callout-card-blue {
+        background: rgba(33, 172, 232, 0.12);
+    }
+
+    .kg-callout-card-green {
+        background: rgba(52, 183, 67, 0.12);
+    }
+
+    .kg-callout-card-yellow {
+        background: rgba(240, 165, 15, 0.13);
+    }
+
+    .kg-callout-card-red {
+        background: rgba(209, 46, 46, 0.11);
+    }
+
+    .kg-callout-card-pink {
+        background: rgba(225, 71, 174, 0.11);
+    }
+
+    .kg-callout-card-purple {
+        background: rgba(135, 85, 236, 0.12);
+    }
+
+    .kg-callout-card-accent {
+        background: var(--ghost-accent-color);
+        color: #fff;
+    }
+
+    .kg-callout-card-accent a {
+        color: #fff;
+    }
+
+    .kg-callout-emoji {
+        padding-right: 16px;
+        line-height: 1.3;
+        font-size: 1.25em;
+    }
+
+    .kg-header-card {
+        padding: 6em 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .kg-header-card.kg-size-small {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    .kg-header-card.kg-size-large {
+        padding-top: 12em;
+        padding-bottom: 12em;
+    }
+
+    .kg-header-card.kg-width-full {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .kg-header-card.kg-align-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .kg-header-card.kg-style-dark {
+        background: #15171a;
+        color: #ffffff;
+    }
+
+    .kg-header-card.kg-style-light {
+        color: #15171a;
+        border: 1px solid rgba(124, 139, 154, 0.25);
+        border-width: 1px 0;
+    }
+
+    .kg-header-card.kg-style-accent {
+        background-color: var(--ghost-accent-color);
+    }
+
+    .kg-header-card.kg-style-image {
+        background-color: #e7e7eb;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .kg-header-card h2 {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1.1em;
+        margin: 0;
+    }
+
+    .kg-header-card h2 strong {
+        font-weight: 800;
+    }
+
+    .kg-header-card.kg-size-small h2 {
+        font-size: 3em;
+    }
+
+    .kg-header-card.kg-size-large h2 {
+        font-size: 5em;
+    }
+
+    .kg-header-card h3 {
+        font-size: 1.25em;
+        font-weight: 500;
+        line-height: 1.3em;
+        margin: 0;
+    }
+
+    .kg-header-card h3 strong {
+        font-weight: 600;
+    }
+
+    .kg-header-card.kg-size-small h3 {
+        font-size: 1em;
+    }
+
+    .kg-header-card.kg-size-large h3 {
+        font-size: 1.5em;
+    }
+
+    .kg-header-card:not(.kg-style-light) h2,
+    .kg-header-card:not(.kg-style-light) h3 {
+        color: #ffffff;
+    }
+
+    .kg-header-card a.kg-header-card-button {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 1.2em;
+        height: 2.4em;
+        line-height: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+        background-color: var(--ghost-accent-color);
+        color: #ffffff;
+        margin: 1.75em 0 0;
+    }
+
+    .kg-header-card a.kg-header-card-button:hover {
+        opacity: 0.85;
+    }
+
+    .kg-header-card.kg-size-large a.kg-header-card-button {
+        margin-top: 2em;
+    }
+
+    .kg-header-card.kg-size-small a.kg-header-card-button {
+        margin-top: 1.5em;
+    }
+
+    .kg-header-card.kg-style-image a.kg-header-card-button,
+    .kg-header-card.kg-style-dark a.kg-header-card-button {
+        background: #ffffff;
+        color: #15171a;
+    }
+
+    .kg-header-card.kg-style-accent a.kg-header-card-button {
+        background: #ffffff;
+        color: var(--ghost-accent-color);
+    }
+
+    .kg-audio-card {
+        display: flex;
+        width: 100%;
+        box-shadow: inset 0 0 0 1px rgba(124, 139, 154, 0.25);
+    }
+
+    .kg-audio-thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        background: transparent;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .kg-audio-thumbnail.placeholder {
+        background: var(--ghost-accent-color);
+    }
+
+    .kg-audio-thumbnail.placeholder svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+    }
+
+    .kg-audio-player-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        --seek-before-width: 0%;
+        --volume-before-width: 100%;
+        --buffered-width: 0%;
+    }
+
+    .kg-audio-title {
+        width: 100%;
+        padding: 8px 12px 0;
+        border: none;
+        font-family: inherit;
+        font-size: 1.1em;
+        font-weight: 700;
+        background: transparent;
+    }
+
+    .kg-audio-player {
+        display: none;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #15171A;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">CentOS x Ubuntu</h1>
+                <section class="post-meta">
+                    Ziyi Xie -
+                    <time class="post-date" datetime="2019-07-16">16 Jul 2019</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="yourdomain.com/content/images/2021/10/penguinCentOS.jpg" width="600" height="340" layout="responsive" 
+                alt="centOS7"
+                ></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<p>Ubuntu 基于 Debian 架构，而 CentOS 与 Red Hat Enterprise Linux 同属 Red Hat 公司。在版本更新的频率上，Ubuntu 比 CentOS 更激进一点。</p>
+<blockquote>
+<p>APT (Advanced Package Tool) and dpkg (Debian Package) are both package managers used in Debian-based Linux distributions. RPM and YUM are package management systems created for Red Hat-based Linux distributions.</p>
+</blockquote>
+<h3 id="systemctl-and-service">systemctl and service</h3>
+<p>Linux 在启动时遵循一系列预定义的 <a href="https://linux.die.net/man/7/boot">boot sequences</a>，而 init and inittab 作为其中重要的一环，负责启动其他重要的服务与进程。最为典型的 Init Systems In Linux 是 SysVInit(System V init or init) 和 SystemD。</p>
+<p>SysVInit 初始化过程依赖于 <code>/etc/init.d</code> 目录下的各个脚本，并且是一个 start-once 的进程。命令 <code>service</code> 就是用于在终端来执行这些初始化脚本的。</p>
+<p>与相对古老的 SysVInit 不同，SystemD 在初始化完成后还会继续作为 Daemon 进程来运行。而 <code>systemctl</code> 则正是用户与 SystemD 交互和配置的入口。</p>
+<pre><code class="language-shell">$ service SCRIPT COMMAND [OPTIONS] # run a System V init script
+$ systemctl [OPTIONS...] COMMAND [UNIT...] # Control the systemd system and service manager
+</code></pre>
+<p>CentOS 中 <code>chkconfig</code>, <code>service</code>, <code>systemctl</code> 三者均可 manages services：</p>
+<ul>
+<li>service
+<ul>
+<li>Function : Check/Start/Stop services</li>
+</ul>
+</li>
+<li>chkconfig
+<ul>
+<li>Before CentOS 7, it manages services.</li>
+<li>Function : Check/Start/Stop services + Enable/Disable services + Register/Deregister services</li>
+</ul>
+</li>
+<li>systemctl
+<ul>
+<li>From CentOS 7('15~), it manages services.</li>
+<li>Function : Check/Start/Stop services + Enable/Disable services</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Managing system services: For RHEL 7, the <code>systemctl</code> command replaces <code>service</code> and <code>chkconfig</code>. - <a href="https://access.redhat.com/articles/754933">redhat</a></p>
+</blockquote>
+<h3 id="initd-rcd">init.d &amp; rc.d</h3>
+<p>可执行文件目录 <code>/etc/init.d</code> 是配置文件目录 <code>/etc/init</code> 的软链接。</p>
+<p>Linux 启动时会寻找 <code>/etc/init.d</code> 里的脚本，根据其运行级别确定启动级别。</p>
+<p>为保 Unix 的兼容，<code>/etc/rc[0-6].d</code> 是 <code>/etc/rc.d/rc[0-6].d</code> 的软链接。</p>
+<p>CentOS 与 Ubuntu 中除了服务脚本放置的位置相同外，服务脚本的编写以及服务的配置都是不同的。两者分别可使用 <code>chkconfig</code> 或 <code>sysv-rc-conf</code> 进行配置。</p>
+<p>在 <code>/etc/rc.d/rc[0-6].d</code> 文件中，<code>Kxx</code> 开头的代表杀死进程，通过 <code>stop</code> 参数调用；<code>Sxx</code> 开头的表示开始进程，用 <code>start</code> 参数调用。调用顺序按 <code>xx</code> 从小到大来执行。</p>
+<p>许多的程序都有启动即开启的需要，这在 Windows 中称为服务 service，在 Linux 中称作守护进程 daemon。</p>
+<p>初始化进程的任务就是去执行这些启动即开启的程序。在不同的场合中会分配不同的开机启动程序，这被称作运行级别 runlevel。</p>
+<ul>
+<li>运行级别 0：系统停机状态，默认运行级别不能设为 0</li>
+<li>运行级别 1：单用户工作状态，root 权限，用于系统维护，禁止远程登陆</li>
+<li>运行级别 2：多用户状态，没有 NFS</li>
+<li>运行级别 3：完全的多用户状态，有 NFS，登陆后进入控制台命令行模式</li>
+<li>运行级别 4：系统未使用，保留</li>
+<li>运行级别 5：X11 控制台，登陆后进入 GUI</li>
+<li>运行级别 6：系统正常关闭并重启，默认运行级别不能设为 6</li>
+</ul>
+<h3 id="su-sudo">su &amp; sudo</h3>
+<p>执行 <code>su</code> 并输入 root 账户密码后可以取得 root 权限，但是环境变量不改变。</p>
+<p>执行 <code>su -</code> 并输入 root 账户密码后所切换到的 root 用户，环境变量改变。</p>
+<p>要求输入当前账户密码的 <code>sudo</code> 可以临时以特定权限执行命令，环境变量改变。</p>
+<p><code>sudo</code> 通过 <code>/etc/sudoers</code> 配置每个用户的操作权限。</p>
+<p>Linux 未在配置 <code>/etc/sudoers</code> 中的用户运行 <code>sudo</code> 时可能会出现如下提示。</p>
+<pre><code class="language-shell"># xxx 当前用户无法执行 sudo 命令
+$ xxx is not in the sudoers file.  This incident will be reported. 
+</code></pre>
+<p>此时需要通过 <code>su -</code> 切换用户后给文件 <code>/etc/sudoers</code> 添加用户对应的配置。</p>
+<pre><code class="language-shell"># 可使用 sudo 的帐号名称    来源主机=(可切换账户) 可执行的命令
+icedamericano    ALL=(ALL) ALL
+</code></pre>
+<p>若在编辑配置文件时出现因权限问题而导致的操作被阻止的情况，可先追加对应的权限，在操作完成以后再移除对应的权限。</p>
+<pre><code class="language-shell">chmod u+w /etc/sudoers
+chmod u-w /etc/sudoers
+</code></pre>
+<p>在使用 <code>sudo</code> 时的环境变量 environment variables 问题：</p>
+<ul>
+<li><code>Defaults    env_reset</code> 默认重置环境变量</li>
+<li><code>Defaults    secure_path</code> 指定的路径将作为 <code>sudo</code> 环境的 <code>PATH</code> 变量</li>
+<li><code>Defaults    env_keep</code> 保留不被重置的环境变量，可在双引号中追加</li>
+</ul>
+<p>在使用 <code>sudo</code> 命令时找不到所需的环境变量或者命令，查看此 <a href="https://stackoverflow.com/questions/8633461/how-to-keep-environment-variables-when-using-sudo">SOF</a>。</p>
+<h3 id="curl-wget">cURL &amp; Wget</h3>
+<blockquote>
+<p>cURL 是一个开源项目，主要的产品是 curl（命令行工具）和 libcurl（C 语言的 API 库），两者功能均是：基于网络协议，对指定 URL 进行数据传输。</p>
+</blockquote>
+<blockquote>
+<p>GNU Wget，通常称为 Wget，是一个免费的命令行实用程序，用于使用 HTTP、HTTPS、FTP 传输文件。</p>
+</blockquote>
+<p>从用途方面，wget 倾向于网络文件下载，而 curl 更倾向于网络接口调试。</p>
+<p>curl 与 wget 的安装：</p>
+<ul>
+<li>APT 作为 Debian 的默认包管理器，适用于 DEB 包格式</li>
+<li>DNF 作为 RHEL8 中替代 yum 的包管理器，适用 RPM 包格式</li>
+<li>Yum 是 Fedora 和 RedHat 中的包管理器</li>
+</ul>
+<pre><code class="language-shell"># Debian/Ubuntu
+$ sudo apt-get install curl # 安装 curl
+$ sudo apt-get install wget # 安装 wget
+</code></pre>
+<pre><code class="language-shell"># REHL/CentOS/Fedora
+sudo yum install curl # 安装 curl
+sudo dnf install curl
+sudo yum install wget # 安装 wget
+sudo dnf install wget
+</code></pre>
+<h2 id="ssh-secure-shell">SSH Secure Shell</h2>
+<blockquote>
+<p>SSH is a software package that enables secure system administration and file transfers over insecure networks.</p>
+</blockquote>
+<h3 id="ssh-openssh">ssh &amp; openssh</h3>
+<blockquote>
+<p>Telnet uses the Transmission Control Protocol/Internet Protocol (TCP/IP) to connect to a remote system. Telnet data is sent in clear text.</p>
+</blockquote>
+<p>Telnet 作为一款明文传输协议，在传输数据的过程中会有被窃取或篡改的风险。</p>
+<p>由此，近来 Linux 系统的远程连接预设通常会采取更加安全的 SSH 代之。</p>
+<p>最常见的 SSH implementations 莫过于 PuTTY 与 OpenSSH。</p>
+<p>查看 OpenSSH 与 OpenSSL 版本。</p>
+<pre><code class="language-shell">$ ssh -V &amp;&amp; openssl version
+</code></pre>
+<p>重新启动远程服务器 sshd 服务。</p>
+<pre><code class="language-shell"># Ubuntu 或 Debian Linux
+sudo systemctl restart ssh.service
+# RHEL/CentOS Linux
+sudo systemctl restart sshd.service
+</code></pre>
+<p><code>ssh-copy-id</code> 通过 Secure Shell Protocol 连接 Target Host 并更新用户的密钥。</p>
+<p><code>ssh-copy-id</code> 命令会编辑服务器上的 <code>/root/.ssh/authorized_keys</code> 文件。</p>
+<pre><code class="language-shell">$ ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;user&gt;@&lt;ip&gt; -p 9527
+</code></pre>
+<h3 id="ssh-add-ssh-agent">ssh-add &amp; ssh-agent</h3>
+<p><code>ssh-add</code> 会将密钥添加到 <code>ssh-agent</code>，此命令位于 <code>/usr/bin/ssh-add</code>。</p>
+<p><code>ssh-agent</code> 作为 SSH 的密钥管理器，能直接将密钥和证书保存在内存中。</p>
+<blockquote>
+<p>The agent can then use the keys to log into other servers without having the user type in a password or passphrase again. This implements a form of single sign-on (SSO).</p>
+</blockquote>
+<pre><code class="language-shell"># Adding an Arbitrary Key
+$ ssh-add ~/.ssh/???_id_rsa &amp;&amp; ssh-add -l
+</code></pre>
+<ul>
+<li>-D Deletes all identities from the agent.</li>
+<li>-d Deletes the given identities from the agent. The private key files for the identities to be deleted should be listed on the command line.</li>
+<li>-L Lists public key parameters of all identities currently represented by the agent.</li>
+<li>-l Lists fingerprints of all identities currently represented by the agent.</li>
+</ul>
+<h3 id="ssh-config-file">SSH config file</h3>
+<p>SSH client program 获取配置信息的方式：</p>
+<ol>
+<li>command line - take precedence over configuration files</li>
+<li>用户配置文件 <code>~/.ssh/config</code> - 优先级高于系统配置文件</li>
+<li>系统配置文件 <code>/etc/ssh/ssh_config</code></li>
+</ol>
+<p>SSH 配置文件中的 configuration parameters：</p>
+<ul>
+<li><code>Host</code> 关键词：会以指定的模式匹配命令行所给出的 host name</li>
+<li><code>HostName</code> 真实主机名：默认为命令行输入的值，允许是 IP</li>
+<li><code>AddKeysToAgent</code>是否自动将私钥与密码添加到 <code>ssh-agent</code>：默认 no</li>
+<li><code>AddressFamily</code> 指定连接时所使用的地址族：可选 any|inet|inet6</li>
+<li><code>IdentityFile</code> 指定读取的认证文件路径：允许 DSA、Ed25519 或 RSA</li>
+<li><code>Port</code> 连接远程主机的端口：默认 22</li>
+<li><code>ProxyCommand</code> 连接服务器需执行的命令：%h、%p、%r</li>
+<li><a href="https://linux.die.net/man/5/ssh_config">...</a></li>
+</ul>
+<h3 id="scp-rsync">scp &amp; rsync</h3>
+<blockquote>
+<p>SCP (Secure Copy Protocol) is a network protocol used to securely copy files or folders between Linux (Unix) systems on a network.</p>
+</blockquote>
+<blockquote>
+<p>Rsync is a free software utility for Unix- and Linux-like systems that copies files and directories from one host to another.</p>
+</blockquote>
+<pre><code class="language-shell"># scp [source] [target]
+scp -P 2368 -r /Users/.../images root@x.xx.xx.xxx:/var/www/.../content
+</code></pre>
+<p>传输目录时未使用 <code>-r</code> 修饰，会出现 Error using SCP: "not a regular file" 异常。</p>
+<p>在通过 <code>scp</code> 传输内容时不能过滤或者排除文件，有需要可以考虑 <code>rsync</code> 命令。</p>
+<pre><code class="language-shell"># rsync [OPTION]... SRC [SRC]... DEST
+rsync -av -e ssh --exclude='*.env' ~/... root@centos7:/var/...
+</code></pre>
+<ul>
+<li>-v, --verbose    increase verbosity</li>
+<li>-a, --archive    archive mode; same as -rlptgoD (no -H)</li>
+</ul>
+<p>存档模式除了会递归同步目录以外，还会保留 users and groups、permissions、symbolic links(symlinks) 和时间戳 timestamps。</p>
+<h3 id="sftp-ftp">sftp &amp; ftp</h3>
+<p>FTP File Transfer Protocol 使用客户端/服务器模型，可以支持 FTP 客户端与 Web 服务器之间直接传输文件。FTP Client 现较常见的是 FileZilla 与 Cyberduck。</p>
+<p>SFTP 中的 S 可以理解为 SSH 或者 Secure。SFTP 的连接始终是安全的，客户端与服务器之间所传输的数据有进行加密的处理。</p>
+<p>FTP 在最初连接时会进行身份的验证，但是在后续传递数据的过程中不会进行加密的处理，这意味着会存在数据被窃取的风险。</p>
+<blockquote>
+<p>A socket is one endpoint of a two-way communication link between two programs running on the network.</p>
+</blockquote>
+<h2 id="firewall-service">Firewall Service</h2>
+<blockquote>
+<p>A firewall is a security device (hardware/software) that protects the network by filtering traffic and blocking unwanted/unauthorized access to private data.</p>
+</blockquote>
+<h3 id="netfilter-and-iptables">Netfilter and iptables</h3>
+<blockquote>
+<p>netfilter 包过滤框架和 iptables 是 Linux 服务器上大部分防火墙解决方案的基础。</p>
+</blockquote>
+<pre><code class="language-shell"># 检查 iptables 服务是否正在运行
+systemctl status iptables
+# 停止正在执行的 iptables 服务
+systemctl stop iptables
+# 将 iptables 服务永久关闭
+systemctl mask iptables
+</code></pre>
+<pre><code class="language-shell"># 开启防火墙(重启后永久生效)
+chkconfig iptables on
+# 关闭防火墙(重启后永久生效)
+chkconfig iptables off
+# 开启防火墙(即时生效，重启后失效)
+service iptables start
+# 关闭防火墙(即时生效，重启后失效)
+service iptables stop
+# 重启防火墙
+service iptables restartd
+</code></pre>
+<h3 id="centos-firewalld">CentOS Firewalld</h3>
+<p>CentOS7 默认使用 firewalld 管理防火墙，而 CentOS6 及以下使用 iptables。</p>
+<blockquote>
+<p>firewalld is firewall management software available for many Linux distributions, which acts as a frontend for Linux’s kernel-based nftables or iptables packet filtering systems.</p>
+</blockquote>
+<p>在 RHEL 的衍生发行版、CentOS 以及 Fedora 中都会默认有安装 Firewalld。</p>
+<p>与直接控制 nftables 或 iptables 相比，firewalld 有两个主要的特点：</p>
+<ul>
+<li>firewalld 使用 zones 和 services 替代了 chain 和 rules</li>
+<li>动态管理规则集，可以在不中断现有会话和连接的情况下进行更新</li>
+</ul>
+<pre><code class="language-shell"># To start the service and enable firewalld on boot
+sudo systemctl start firewalld
+sudo systemctl enable firewalld
+</code></pre>
+<pre><code class="language-shell"># To stop and disable firewalld
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
+</code></pre>
+<pre><code class="language-shell"># Check the firewall status. The output should say either running or not running
+sudo firewall-cmd --state
+# To view the status of the firewalld daemon
+sudo systemctl status firewalld
+</code></pre>
+<pre><code class="language-shell"># To reload a firewalld configuration
+sudo firewall-cmd --reload
+</code></pre>
+<p>Firewalld 通过 XML 文件进行配置，常规用 <code>firewall-cmd</code> 命令进行操作即可：</p>
+<ul>
+<li>目录 <code>/usr/lib/FirewallD</code> 保存默认配置，如默认区域和公共服务</li>
+<li>目录 <code>/etc/firewalld</code> 保存系统配置文件，这些文件将覆盖默认配置</li>
+</ul>
+<p>Firewalld 使用 Runtime 和 Permanent 两类配置集 configuration sets：</p>
+<ul>
+<li>运行时配置的改变不会在 reboot 或重启 firewalld 后保留</li>
+<li>持久配置不能起效于正在运行的系统上</li>
+</ul>
+<p>默认情况下，<code>firewall-cmd</code> 适用于运行时配置，但可以通过 <code>--permanent</code> 来建立持久配置。具体可参阅 <a href="https://www.linode.com/docs/guides/introduction-to-firewalld-on-centos/">DOC</a> 与 <a href="https://firewalld.org/documentation/howto/add-a-service.html">firewalld.org</a>。</p>
+<h3 id="ubuntu-ufw">Ubuntu UFW</h3>
+<p>UFW Uncomplicated Firewall 可以看作是 iptables 防火墙的直观界面。</p>
+<p>对 UFW 指派的规则也都会出现在 iptables 所列的清单中。</p>
+<p>开启与禁用 UFW。</p>
+<pre><code class="language-shell">$ sudo ufw enable
+$ sudo ufw disable
+</code></pre>
+<p>展示 UFW 规则：</p>
+<ul>
+<li>运行 <code>sudo ufw status verbose</code> 以获取详细信息。输出将包含日志记录，默认策略和新配置文件信息。</li>
+<li>运行 <code>sudo ufw status numbered</code> 以获取当前所有规则（包含顺序和 ID）。若需要编辑现有的规则时，此命令很有用。</li>
+</ul>
+<p>删除 UFW 规则：</p>
+<ul>
+<li>通过 <code>sudo ufw delete &lt;number&gt;</code> 按规则 ID 删除</li>
+<li>通过 <code>sudo ufw delete allow &lt;port&gt;</code> 按规则来删除开启的 port 规则</li>
+<li>通过 <code>sudo ufw reset</code> 直接重置 UFW</li>
+</ul>
+<h2 id="linux-applications">Linux Applications</h2>
+<h3 id="nodejs">NodeJS</h3>
+<p>下载官方编译的<a href="https://nodejs.org/download/release/">安装包</a>，并将安装包解压至 <code>/usr/local</code> 目录。</p>
+<pre><code class="language-shell">$ wget https://nodejs.org/download/release/v14.17.1/node-v14.17.1-linux-x64.tar.gz
+$ tar --strip-components 1 -xzvf node-v* -C /usr/local
+</code></pre>
+<pre><code class="language-shell">$ node -v &amp;&amp; npm -v # 输出 v14.17.1 与 6.14.13
+</code></pre>
+<p>也可以使用 EPEL —— Linux 额外的软件包进行安装。</p>
+<pre><code class="language-shell"># 由于 CentOS yum 预设并没有提供 Node.js，须通过 EPEL 安装
+$ yum install epel-release
+# 查看仓库源
+$ yum repolist
+Loaded plugins: fastestmirror, langpacks
+Repository epel is listed more than once in the configuration
+Loading mirror speeds from cached hostfile
+repo id                                          repo name                                                status
+docker-ce-stable/7/x86_64                        Docker CE Stable - x86_64                                     122
+epel/7/x86_64                                    EPEL for redhat/centos 7 - x86_64                          13,674
+extras/7/x86_64                                  Qcloud centos extras - x86_64                                 500
+os/7/x86_64                                      Qcloud centos os - x86_64                                10,070+2
+updates/7/x86_64                                 Qcloud centos updates - x86_64                              2,751
+repolist: 27,117
+# 查看 yum 能提供的软件包的全部版本 -&gt; 此方式安装的 node 版本较旧
+$ yum list nodejs  --showduplicates| sort -r
+Loaded plugins: fastestmirror, langpacks
+Repository epel is listed more than once in the configuration
+Loading mirror speeds from cached hostfile
+Available Packages
+nodejs.x86_64                        1:6.17.1-1.el7
+# EPEL 安装完成直接使用 yum 來安装 Node.js：
+$ yum install nodejs
+</code></pre>
+<h3 id="nginx">Nginx</h3>
+<p>区分 sites-available、sites-enabled 与 conf.d，可参考 <a href="https://serverfault.com/questions/527630/difference-in-sites-available-vs-sites-enabled-vs-conf-d-directories-nginx">serverfault</a>：</p>
+<ul>
+<li>目录 <code>/etc/nginx/sites-available</code> 用于放置页面的配置文件</li>
+<li>目录 <code>/etc/nginx/sites-enabled</code> 存放来自 sites-available 的软链接</li>
+<li>目录 <code>/etc/nginx/conf.d</code> 中以 <code>.conf</code> 结尾的配置文件都会被加载</li>
+</ul>
+<p>要部署的代码文件的一般推荐存放位如下。</p>
+<pre><code class="language-shell">/home/&lt;user_name&gt;/&lt;site_name&gt;
+/var/www/&lt;site_name&gt;
+/var/www/html/&lt;site_name&gt;
+/opt/&lt;site_name&gt;
+/usr/share/nginx/html
+</code></pre>
+<p>Nginx 日志文件 access.log 与 error.log 一般位于 <code>/var/log/nginx/</code> 目录；复用配置代码文件一般位于 <code>/etc/nginx/snippets</code> 目录；配置文件与主配置文件分别为于 <code>/etc/nginx/</code> 和 <code>/etc/nginx/nginx.conf</code>。</p>
+<p>常规 Nginx 安装与开启流程所涉及的主要命令如下。</p>
+<pre><code class="language-shell"># 安装 Nginx
+sudo yum install nginx
+# 设置开机启动|关闭
+sudo systemctl enable|disable nginx # 运行此命令以后,会输出软连接关联信息
+# 启动关闭重启 —— systemctl - Control the systemd system and service manager
+sudo systemctl start|stop|restart nginx
+# 查看运行状态
+sudo systemctl status nginx
+# 查看80口是否被占用
+sudo lsof -i :80 # 查看80的nginx -&gt; sudo lsof -i :80 | grep nginx
+# 杀死端口
+lsof -P | grep ':80' | awk '{print $2}' | xargs kill
+</code></pre>
+<h3 id="mongodb"><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/">Mongodb</a></h3>
+<p>配置包管理系统并安装 MongoDB 包。</p>
+<pre><code class="language-shell">vim /etc/yum.repos.d/mongodb-org-5.0.repo
+</code></pre>
+<pre><code class="language-shell"># mongodb-org-5.0.repo
+[mongodb-org-5.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/5.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
+</code></pre>
+<pre><code class="language-shell">sudo yum install -y mongodb-org
+</code></pre>
+<p>包管理器在安装期间会创建默认目录，所有者和组名都是 mongod。MongoDB 使用 mongod 帐户使用以下的默认目录。</p>
+<pre><code class="language-shell">/var/lib/mongo （数据目录）
+/var/log/mongodb （日志目录）
+</code></pre>
+<p>Linux 环境中使用 MongoDB 的常用命令如下。</p>
+<pre><code class="language-shell"># 启动、停止与重启
+sudo systemctl start|stop|restart mongod
+# 如果在启动时收到类似于以下内容的错误
+# Failed to start mongod.service: Unit mongod.service not found.
+# 需要先运行以下命令
+sudo systemctl daemon-reload
+# 验证 MongoDB 是否已成功启动
+sudo systemctl status mongod
+# 确保 MongoDB 在系统重新启动后启动
+sudo systemctl enable mongod
+# 开始连接 - 27017
+mongosh
+</code></pre>
+<h3 id="java">Java</h3>
+<p>默认 CentOS7 存储库包含最新的两个主要 Java LTS 版本，Java8 和 Java11，可以使用 yum 软件包管理器安装。</p>
+<pre><code class="language-shell"># =&gt; 以 root 或具有 sudo 权限的用户运行
+# 安装 OpenJDK11
+$ sudo yum install java-11-openjdk-devel
+# CentOS7 支持 openjdk-headless 即适合于服务器应用程序的最小 Java 运行时
+# 安装 OpenJDK headless =&gt; 现已包含在 java-11-openjdk-devel 依赖安装中
+$ sudo yum install java-11-openjdk-headless
+# 安装OpenJDK 8
+$ sudo yum install java-1.8.0-openjdk-devel
+# 检查 Java 版本验证安装
+$ java -version
+openjdk version "1.8.0_332"
+OpenJDK Runtime Environment (build 1.8.0_332-b09)
+OpenJDK 64-Bit Server VM (build 25.332-b09, mixed mode)
+</code></pre>
+<p>CentOS 系统上安装了多个 Java 版本，可以通过 <code>alternatives</code> 命令来设置终端默认版本。在改变 Java 版本的同时记得要改变 Java 编译的版本。</p>
+<pre><code class="language-shell"># 查看 Java 默认版本
+$ java -version
+# 更改默认版本 =&gt; alternatives =&gt; 输入用作默认版本的数字
+$ sudo alternatives --config java
+There are 2 programs which provide 'java'.
+  Selection    Command
+-----------------------------------------------
+*+ 1           java-1.8.0-openjdk.x86_64 (/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.el7_9.x86_64/jre/bin/java)
+   2           java-11-openjdk.x86_64 (/usr/lib/jvm/java-11-openjdk-11.0.15.0.9-2.el7_9.x86_64/bin/java)
+Enter to keep the current selection[+], or type selection number: 1
+# 更改默认的 javac 版本，运行 alternatives 命令更改Java的编译器javac版本
+sudo alternatives --config javac
+</code></pre>
+<p>Java 应用程序根据 <code>JAVA_HOME</code> 环境变量来确定 Java 的安装位置，并选择指定的版本来运行该程序。</p>
+<p>针对当前用户配置 JAVA_HOME 环境变量如下。</p>
+<pre><code class="language-shell">echo 'export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk"' &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre>
+<p>为所有用户配置 JAVA_HOME 环境变量/系统范围如下。</p>
+<pre><code class="language-shell">echo 'export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk"' | sudo tee /etc/profile.d/java.sh
+source /etc/profile.d/java.sh
+# 验证是否正确设置 JAVA_HOME 环境变量
+echo $JAVA_HOME
+/usr/lib/jvm/java-1.8.0-openjdk
+</code></pre>
+<h2 id="faq-bugs">FAQ &amp; Bugs</h2>
+<h3 id="remote-host-identification-has-changed">REMOTE HOST IDENTIFICATION HAS CHANGED</h3>
+<p>服务器在重装系统或者销毁实例后又新建实例并连接时可能会出现无法正常连接的情况，伴随终端提示 "REMOTE HOST IDENTIFICATION HAS CHANGED"。</p>
+<pre><code class="language-shell">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is ...
+Please contact your system administrator.
+Add correct host key in /home/hostname /.ssh/known_hosts to get rid of this message.
+Offending RSA key in /var/lib/sss/pubconf/known_hosts:4
+RSA host key for pong has changed and you have requested strict checking.
+Host key verification failed.
+</code></pre>
+<p>这是由于新的实例分配了与被销毁实例相同的地址，已经存储的旧实例主机密钥与新主机密钥发生了冲突。提供两种解决方案如下（原理都是一样的）。</p>
+<ul>
+<li>通过 <code>ssh-keygen -R &lt;ip&gt;</code> 删除已存储实例的 host key 后重新连接</li>
+<li>在 <code>~/.ssh/known_hosts</code> 中删除对应远程 IP 的信息</li>
+</ul>
+<p>此外请确认服务器 <code>/etc/ssh/sshd_config</code> 文件里如下配置的准确。</p>
+<pre><code class="language-shell">PasswordAuthentication yes
+PermitRootLogin yes
+</code></pre>
+<p>出现 "Permission denied (publickey,gssapi-keyex,gssapi-with-mic)" 的拒绝，也应同样进行上述操作更改，最后重启服务即可。</p>
+<h3 id="%E5%A4%84%E7%90%86%E5%8C%85%E5%90%AB%E7%A9%BA%E6%A0%BC%E5%92%8C%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D">处理包含空格和特殊字符的文件名</h3>
+<p>在服务器运行 <code>rm -rf</code> 命令时出现异常 "rm: unrecognized option '--...'"。</p>
+<pre><code class="language-shell">$ sudo rm -rf --2019-08-06---4.50.33-1.png
+rm: unrecognized option '--2019-08-06---4.50.33-1.png'
+Try 'rm ./--2019-08-06---4.50.33-1.png' to remove the file '--2019-08-06---4.50.33-1.png'.
+Try 'rm --help' for more information.
+</code></pre>
+<p>错误原因 =&gt; shell 将破折号 <code>-</code> 之后的内容解释为参数，但是明显没有这样的参数存在，所以出现报错。</p>
+<p>解决方式：在以 <code>-</code> 开头的文件或目录前追加路径；在操作命令与待操作的文件之间加上 <code>--</code>。</p>
+<h3 id="tomcat-%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F%E5%8D%B4%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE">tomcat 启动成功却无法访问</h3>
+<p>服务器没有让对应的端口放行，需要对防火墙规则进行配置。需要注意的是：局域网没有固定的公网 IP，所以不能将局域网 IP (192.168.124.2) 设置为安全组。</p>
+<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议。转载请注明出处！</p>
+
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+            <amp-img class="site-icon" src="yourdomain.com/content/images/2021/07/ghost-orb.png" width="50" height="50" layout="fixed" alt="zairesinatra"></amp-img>
+        <h3>zairesinatra</h3>
+            <p>The best time to recognize yourself is ten years ago, followed by now.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>

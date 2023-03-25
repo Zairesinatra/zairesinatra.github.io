@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>CentOS x Ubuntu</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/built/screen.css%3Fv=7d64696598.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3Fv=7d64696598.css" />
+    <meta name="description" content="Why are linux geeks very introvertish? Because they never get out of their shell." />
+    <link rel="icon" href="../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="zairesinatra" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="CentOS x Ubuntu" />
+    <meta property="og:description" content="Why are linux geeks very introvertish? Because they never get out of their shell." />
+    <meta property="og:url" content="yourdomain.com/linux/" />
+    <meta property="og:image" content="yourdomain.com/content/images/2021/10/penguinCentOS.jpg" />
+    <meta property="article:published_time" content="2019-07-16T12:23:00.000Z" />
+    <meta property="article:modified_time" content="2023-02-24T17:43:07.000Z" />
+    <meta property="article:tag" content="Technology growth" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CentOS x Ubuntu" />
+    <meta name="twitter:description" content="Why are linux geeks very introvertish? Because they never get out of their shell." />
+    <meta name="twitter:url" content="yourdomain.com/linux/" />
+    <meta name="twitter:image" content="yourdomain.com/content/images/2021/10/penguinCentOS.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Ziyi Xie" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Technology growth" />
+    <meta name="twitter:site" content="@xieziyi0422" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="800" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "zairesinatra",
+        "url": "yourdomain.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-1.JPG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Ziyi Xie",
+        "image": {
+            "@type": "ImageObject",
+            "url": "yourdomain.com/content/images/2021/07/zs-2.JPG",
+            "width": 1079,
+            "height": 1079
+        },
+        "url": "yourdomain.com/author/ziyi/",
+        "sameAs": []
+    },
+    "headline": "CentOS x Ubuntu",
+    "url": "yourdomain.com/linux/",
+    "datePublished": "2019-07-16T12:23:00.000Z",
+    "dateModified": "2023-02-24T17:43:07.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "yourdomain.com/content/images/2021/10/penguinCentOS.jpg",
+        "width": 1280,
+        "height": 800
+    },
+    "keywords": "Technology growth",
+    "description": "Why are linux geeks very introvertish? Because they never get out of their shell.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "yourdomain.com/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.33" />
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../rss/index.html" />
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.24/umd/portal.min.js" data-ghost="yourdomain.com/" data-key="f5d74add11f1d16d3e59c12945" data-api="yourdomain.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="f5d74add11f1d16d3e59c12945" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="yourdomain.com/" crossorigin="anonymous"></script>
+    <link href="yourdomain.com/webmentions/receive/" rel="webmention" />
+    <script defer src="../public/cards.min.js%3Fv=7d64696598"></script>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=7d64696598.css">
+    <script defer src="../public/member-attribution.min.js%3Fv=7d64696598"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXZH6Q3K52"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXZH6Q3K52');
+</script>
+
+<!-- Ghost Init -->
+<style>
+    .post-template .gh-head,.page-template .gh-head {
+    	background: #000000 !important;
+    }
+    .site-footer {
+    	background: #000000 !important;
+    }
+    .post-card-tags {
+    	color: var(--color-secondary-text) !important;
+    }
+    .gh-portal-triggerbtn-container.with-label::before {
+        display:none !important;
+    }
+    /* 需提前，否则闪烁 */
+    .footer-cta,
+    a.gh-head-button { display: none; }
+</style>
+
+<!-- 2023 => prismjs -->
+<script src="https://res.cloudinary.com/dzb9ldnvl/raw/upload/v1679662056/Ghost/prism_i9a8up.js"></script>
+<link rel="stylesheet" href="https://res.cloudinary.com/dzb9ldnvl/raw/upload/v1679662068/Ghost/prism_mdfwkg.css"/>
+<!-- Patch: additional supported languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-vim.min.js" integrity="sha512-P1MRK1H11qw68MAfAYVyjumLuurOQKO4wwcx4S2Nbbae9CndG92dkIXq34lsOeMFlWZoT7nVPgsOy3gepk93Bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Activate Line Numbers in PrismJS -->
+<script>
+	window.addEventListener('DOMContentLoaded', (event) => {      
+		document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+			node.classList.add('line-numbers');
+            node.style.border = 'solid #FFFFFF 1px'
+		});
+		Prism.highlightAll();
+	});
+</script>
+<!-- Resize Pre Area in PrismJS -->
+<style>
+    pre[class*="language-"].line-numbers{
+		font-size: 0.8em;
+        background-color: #202324;
+    }
+    code[class*="language-"] {
+        background-color: transparent !important;
+    }
+</style>
+
+<!-- TOC -->
+<style>
+    .toc > .toc-list li:first-child {
+      margin-top: 8px;
+    }
+    .toc-list a {
+      color: #000000 !important;
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .toc > ol, .toc > li{
+      font-size: 1.4rem;
+    }
+    
+    .toc.active > .toc-list li:first-child {
+      margin-top: 8px;
+    }
+    .toc.active .toc-list a {
+      color: #FFFFFF !important;
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .toc.active > ol, .toc.active > li{
+      font-size: 1.4rem;
+    }
+</style>
+
+<!-- ghost style by wkzs -->
+<style>
+.gh-content > [id] + * {
+  margin-top: 2.5rem !important;
+}
+.gh-content > [id]:not(:first-child) {
+  margin: 1.5em 0 0;
+}
+.gh-content > hr + *, .gh-content > blockquote + * {
+  margin-top: max(1.1rem, 16px) !important;
+}
+.gh-content > [id]:not(:first-child) {
+  margin: 1em 0 0;
+}
+.gh-content > * + * {
+  margin-top: max(1.6vmin, 16px);
+  margin-bottom: 0;
+}
+.gh-content > blockquote:not([class]), .gh-content > ol, .gh-content > ul, .gh-content > dl, .gh-content > p {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.6em;
+    margin-top: 1.6rem;
+}
+</style>
+
+<!-- Theme Change -->
+<style>
+    .theme-switcher-wrap {
+        width: 42px;
+        height: 24px;
+        text-align: right;
+    }
+    .theme-switcher{
+        display: inline-block;
+        cursor: pointer;
+    }
+    .switch-path {
+        width: 42px;
+        height: 24px;
+        border-radius: 10px;
+        background-color: #f2f2f2;
+        border: #dddfe6 1px solid;
+    }
+    .switch-path > .switch-handle {
+        background-color: #ffffff;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+    }
+    .switch-handle .dark-icon {
+        visibility: hidden;
+        display: none;
+    }
+    .theme-switcher.active  .switch-path {
+        background-color: #555;
+    }
+    .theme-switcher.active  .switch-handle {
+        transform: translateX(20px);
+        background-color: #101115;
+    }
+    .theme-switcher.active .switch-handle .light-icon {
+      visibility: hidden;
+    }
+    .theme-switcher.active .switch-handle .dark-icon {
+      visibility: visible;
+      display: block;
+    }
+</style>
+
+<!-- Arrow up -->
+<style>
+    .arrowup {
+    	position: fixed;
+        width: 50px;
+        height: 50px;
+        left: 35px;
+        bottom: 3.1rem;
+        z-index: 99;
+        background-color: #15171A;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        cursor: pointer;
+        opacity: 1;
+  		transition: opacity 0.3s ease-in-out;
+    }
+    .arrowup svg {
+    	fill: #FFFFFF;
+    }
+    .arrowup:hover {
+      opacity: 0.8;
+    }
+</style><style>:root {--ghost-accent-color: #15171A;}</style>
+</head>
+<body class="post-template tag-technology-growth is-head-left-logo has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="../index.html">
+                        <img src="../content/images/2021/07/zs-1.JPG" alt="zairesinatra">
+                </a>
+                <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="../index.html">Home</a></li>
+    <li class="nav-welcome"><a href="../welcome/index.html">Welcome</a></li>
+    <li class="nav-author"><a href="../selfintro/index.html">Author</a></li>
+    <li class="nav-tags"><a href="../tags/index.html">Tags</a></li>
+    <li class="nav-search"><a href="../index.html#searchinghost-easy">Search</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                <div class="theme-switcher-wrap">
+                    <div class="theme-switcher" onclick="switchTheme()">
+                    <div class="switch-path">
+                        <div class="switch-handle">
+                        <svg viewBox="0 0 24 24" class="dark-icon">
+                            <path
+                            d="M11.01 3.05C6.51 3.54 3 7.36 3 12a9 9 0 0 0 9 9c4.63 0 8.45-3.5 8.95-8c.09-.79-.78-1.42-1.54-.95A5.403 5.403 0 0 1 11.1 7.5c0-1.06.31-2.06.84-2.89c.45-.67-.04-1.63-.93-1.56z"
+                            fill="#CFD3DC"
+                            ></path>
+                        </svg>
+                        <svg viewBox="0 0 24 24" class="light-icon">
+                            <path
+                            d="M6.05 4.14l-.39-.39a.993.993 0 0 0-1.4 0l-.01.01a.984.984 0 0 0 0 1.4l.39.39c.39.39 1.01.39 1.4 0l.01-.01a.984.984 0 0 0 0-1.4zM3.01 10.5H1.99c-.55 0-.99.44-.99.99v.01c0 .55.44.99.99.99H3c.56.01 1-.43 1-.98v-.01c0-.56-.44-1-.99-1zm9-9.95H12c-.56 0-1 .44-1 .99v.96c0 .55.44.99.99.99H12c.56.01 1-.43 1-.98v-.97c0-.55-.44-.99-.99-.99zm7.74 3.21c-.39-.39-1.02-.39-1.41-.01l-.39.39a.984.984 0 0 0 0 1.4l.01.01c.39.39 1.02.39 1.4 0l.39-.39a.984.984 0 0 0 0-1.4zm-1.81 15.1l.39.39a.996.996 0 1 0 1.41-1.41l-.39-.39a.993.993 0 0 0-1.4 0c-.4.4-.4 1.02-.01 1.41zM20 11.49v.01c0 .55.44.99.99.99H22c.55 0 .99-.44.99-.99v-.01c0-.55-.44-.99-.99-.99h-1.01c-.55 0-.99.44-.99.99zM12 5.5c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6s-2.69-6-6-6zm-.01 16.95H12c.55 0 .99-.44.99-.99v-.96c0-.55-.44-.99-.99-.99h-.01c-.55 0-.99.44-.99.99v.96c0 .55.44.99.99.99zm-7.74-3.21c.39.39 1.02.39 1.41 0l.39-.39a.993.993 0 0 0 0-1.4l-.01-.01a.996.996 0 0 0-1.41 0l-.39.39c-.38.4-.38 1.02.01 1.41z"
+                            fill="#606266"
+                            ></path>
+                        </svg>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                    <button class="gh-search gh-icon-btn" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="index.html#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-button" href="index.html#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-technology-growth ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="../tag/technology-growth/index.html">Technology growth</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">CentOS x Ubuntu</h1>
+
+            <p class="article-excerpt">Why are linux geeks very introvertish? Because they never get out of their shell.</p>
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="../author/ziyi/index.html" class="author-avatar">
+                        <img class="author-profile-image" src="../content/images/size/w100/2021/07/zs-2.JPG" alt="Ziyi Xie" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2019-07-16">Jul 16, 2019</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 17 min read</span>
+                </div>
+            </div>
+
+        </section>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    srcset="../content/images/size/w1000/2021/10/penguinCentOS.jpg 1000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="../content/images/size/w2000/2021/10/penguinCentOS.jpg"
+                    alt="centOS7"
+                />
+                    <figcaption>centOS7</figcaption>
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+    <aside class="toc-container">
+        <div class="toc"></div>
+    </aside>
+    <!--kg-card-begin: markdown--><h2 id="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B">快速上手</h2>
+<p>Ubuntu 基于 Debian 架构，而 CentOS 与 Red Hat Enterprise Linux 同属 Red Hat 公司。在版本更新的频率上，Ubuntu 比 CentOS 更激进一点。</p>
+<blockquote>
+<p>APT (Advanced Package Tool) and dpkg (Debian Package) are both package managers used in Debian-based Linux distributions. RPM and YUM are package management systems created for Red Hat-based Linux distributions.</p>
+</blockquote>
+<h3 id="systemctl-and-service">systemctl and service</h3>
+<p>Linux 在启动时遵循一系列预定义的 <a href="https://linux.die.net/man/7/boot">boot sequences</a>，而 init and inittab 作为其中重要的一环，负责启动其他重要的服务与进程。最为典型的 Init Systems In Linux 是 SysVInit(System V init or init) 和 SystemD。</p>
+<p>SysVInit 初始化过程依赖于 <code>/etc/init.d</code> 目录下的各个脚本，并且是一个 start-once 的进程。命令 <code>service</code> 就是用于在终端来执行这些初始化脚本的。</p>
+<p>与相对古老的 SysVInit 不同，SystemD 在初始化完成后还会继续作为 Daemon 进程来运行。而 <code>systemctl</code> 则正是用户与 SystemD 交互和配置的入口。</p>
+<pre><code class="language-shell">$ service SCRIPT COMMAND [OPTIONS] # run a System V init script
+$ systemctl [OPTIONS...] COMMAND [UNIT...] # Control the systemd system and service manager
+</code></pre>
+<p>CentOS 中 <code>chkconfig</code>, <code>service</code>, <code>systemctl</code> 三者均可 manages services：</p>
+<ul>
+<li>service
+<ul>
+<li>Function : Check/Start/Stop services</li>
+</ul>
+</li>
+<li>chkconfig
+<ul>
+<li>Before CentOS 7, it manages services.</li>
+<li>Function : Check/Start/Stop services + Enable/Disable services + Register/Deregister services</li>
+</ul>
+</li>
+<li>systemctl
+<ul>
+<li>From CentOS 7('15~), it manages services.</li>
+<li>Function : Check/Start/Stop services + Enable/Disable services</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Managing system services: For RHEL 7, the <code>systemctl</code> command replaces <code>service</code> and <code>chkconfig</code>. - <a href="https://access.redhat.com/articles/754933">redhat</a></p>
+</blockquote>
+<h3 id="initd-rcd">init.d &amp; rc.d</h3>
+<p>可执行文件目录 <code>/etc/init.d</code> 是配置文件目录 <code>/etc/init</code> 的软链接。</p>
+<p>Linux 启动时会寻找 <code>/etc/init.d</code> 里的脚本，根据其运行级别确定启动级别。</p>
+<p>为保 Unix 的兼容，<code>/etc/rc[0-6].d</code> 是 <code>/etc/rc.d/rc[0-6].d</code> 的软链接。</p>
+<p>CentOS 与 Ubuntu 中除了服务脚本放置的位置相同外，服务脚本的编写以及服务的配置都是不同的。两者分别可使用 <code>chkconfig</code> 或 <code>sysv-rc-conf</code> 进行配置。</p>
+<p>在 <code>/etc/rc.d/rc[0-6].d</code> 文件中，<code>Kxx</code> 开头的代表杀死进程，通过 <code>stop</code> 参数调用；<code>Sxx</code> 开头的表示开始进程，用 <code>start</code> 参数调用。调用顺序按 <code>xx</code> 从小到大来执行。</p>
+<p>许多的程序都有启动即开启的需要，这在 Windows 中称为服务 service，在 Linux 中称作守护进程 daemon。</p>
+<p>初始化进程的任务就是去执行这些启动即开启的程序。在不同的场合中会分配不同的开机启动程序，这被称作运行级别 runlevel。</p>
+<ul>
+<li>运行级别 0：系统停机状态，默认运行级别不能设为 0</li>
+<li>运行级别 1：单用户工作状态，root 权限，用于系统维护，禁止远程登陆</li>
+<li>运行级别 2：多用户状态，没有 NFS</li>
+<li>运行级别 3：完全的多用户状态，有 NFS，登陆后进入控制台命令行模式</li>
+<li>运行级别 4：系统未使用，保留</li>
+<li>运行级别 5：X11 控制台，登陆后进入 GUI</li>
+<li>运行级别 6：系统正常关闭并重启，默认运行级别不能设为 6</li>
+</ul>
+<h3 id="su-sudo">su &amp; sudo</h3>
+<p>执行 <code>su</code> 并输入 root 账户密码后可以取得 root 权限，但是环境变量不改变。</p>
+<p>执行 <code>su -</code> 并输入 root 账户密码后所切换到的 root 用户，环境变量改变。</p>
+<p>要求输入当前账户密码的 <code>sudo</code> 可以临时以特定权限执行命令，环境变量改变。</p>
+<p><code>sudo</code> 通过 <code>/etc/sudoers</code> 配置每个用户的操作权限。</p>
+<p>Linux 未在配置 <code>/etc/sudoers</code> 中的用户运行 <code>sudo</code> 时可能会出现如下提示。</p>
+<pre><code class="language-shell"># xxx 当前用户无法执行 sudo 命令
+$ xxx is not in the sudoers file.  This incident will be reported. 
+</code></pre>
+<p>此时需要通过 <code>su -</code> 切换用户后给文件 <code>/etc/sudoers</code> 添加用户对应的配置。</p>
+<pre><code class="language-shell"># 可使用 sudo 的帐号名称    来源主机=(可切换账户) 可执行的命令
+icedamericano    ALL=(ALL) ALL
+</code></pre>
+<p>若在编辑配置文件时出现因权限问题而导致的操作被阻止的情况，可先追加对应的权限，在操作完成以后再移除对应的权限。</p>
+<pre><code class="language-shell">chmod u+w /etc/sudoers
+chmod u-w /etc/sudoers
+</code></pre>
+<p>在使用 <code>sudo</code> 时的环境变量 environment variables 问题：</p>
+<ul>
+<li><code>Defaults    env_reset</code> 默认重置环境变量</li>
+<li><code>Defaults    secure_path</code> 指定的路径将作为 <code>sudo</code> 环境的 <code>PATH</code> 变量</li>
+<li><code>Defaults    env_keep</code> 保留不被重置的环境变量，可在双引号中追加</li>
+</ul>
+<p>在使用 <code>sudo</code> 命令时找不到所需的环境变量或者命令，查看此 <a href="https://stackoverflow.com/questions/8633461/how-to-keep-environment-variables-when-using-sudo">SOF</a>。</p>
+<h3 id="curl-wget">cURL &amp; Wget</h3>
+<blockquote>
+<p>cURL 是一个开源项目，主要的产品是 curl（命令行工具）和 libcurl（C 语言的 API 库），两者功能均是：基于网络协议，对指定 URL 进行数据传输。</p>
+</blockquote>
+<blockquote>
+<p>GNU Wget，通常称为 Wget，是一个免费的命令行实用程序，用于使用 HTTP、HTTPS、FTP 传输文件。</p>
+</blockquote>
+<p>从用途方面，wget 倾向于网络文件下载，而 curl 更倾向于网络接口调试。</p>
+<p>curl 与 wget 的安装：</p>
+<ul>
+<li>APT 作为 Debian 的默认包管理器，适用于 DEB 包格式</li>
+<li>DNF 作为 RHEL8 中替代 yum 的包管理器，适用 RPM 包格式</li>
+<li>Yum 是 Fedora 和 RedHat 中的包管理器</li>
+</ul>
+<pre><code class="language-shell"># Debian/Ubuntu
+$ sudo apt-get install curl # 安装 curl
+$ sudo apt-get install wget # 安装 wget
+</code></pre>
+<pre><code class="language-shell"># REHL/CentOS/Fedora
+sudo yum install curl # 安装 curl
+sudo dnf install curl
+sudo yum install wget # 安装 wget
+sudo dnf install wget
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="ssh-secure-shell">SSH Secure Shell</h2>
+<blockquote>
+<p>SSH is a software package that enables secure system administration and file transfers over insecure networks.</p>
+</blockquote>
+<h3 id="ssh-openssh">ssh &amp; openssh</h3>
+<blockquote>
+<p>Telnet uses the Transmission Control Protocol/Internet Protocol (TCP/IP) to connect to a remote system. Telnet data is sent in clear text.</p>
+</blockquote>
+<p>Telnet 作为一款明文传输协议，在传输数据的过程中会有被窃取或篡改的风险。</p>
+<p>由此，近来 Linux 系统的远程连接预设通常会采取更加安全的 SSH 代之。</p>
+<p>最常见的 SSH implementations 莫过于 PuTTY 与 OpenSSH。</p>
+<p>查看 OpenSSH 与 OpenSSL 版本。</p>
+<pre><code class="language-shell">$ ssh -V &amp;&amp; openssl version
+</code></pre>
+<p>重新启动远程服务器 sshd 服务。</p>
+<pre><code class="language-shell"># Ubuntu 或 Debian Linux
+sudo systemctl restart ssh.service
+# RHEL/CentOS Linux
+sudo systemctl restart sshd.service
+</code></pre>
+<p><code>ssh-copy-id</code> 通过 Secure Shell Protocol 连接 Target Host 并更新用户的密钥。</p>
+<p><code>ssh-copy-id</code> 命令会编辑服务器上的 <code>/root/.ssh/authorized_keys</code> 文件。</p>
+<pre><code class="language-shell">$ ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;user&gt;@&lt;ip&gt; -p 9527
+</code></pre>
+<h3 id="ssh-add-ssh-agent">ssh-add &amp; ssh-agent</h3>
+<p><code>ssh-add</code> 会将密钥添加到 <code>ssh-agent</code>，此命令位于 <code>/usr/bin/ssh-add</code>。</p>
+<p><code>ssh-agent</code> 作为 SSH 的密钥管理器，能直接将密钥和证书保存在内存中。</p>
+<blockquote>
+<p>The agent can then use the keys to log into other servers without having the user type in a password or passphrase again. This implements a form of single sign-on (SSO).</p>
+</blockquote>
+<pre><code class="language-shell"># Adding an Arbitrary Key
+$ ssh-add ~/.ssh/???_id_rsa &amp;&amp; ssh-add -l
+</code></pre>
+<ul>
+<li>-D Deletes all identities from the agent.</li>
+<li>-d Deletes the given identities from the agent. The private key files for the identities to be deleted should be listed on the command line.</li>
+<li>-L Lists public key parameters of all identities currently represented by the agent.</li>
+<li>-l Lists fingerprints of all identities currently represented by the agent.</li>
+</ul>
+<h3 id="ssh-config-file">SSH config file</h3>
+<p>SSH client program 获取配置信息的方式：</p>
+<ol>
+<li>command line - take precedence over configuration files</li>
+<li>用户配置文件 <code>~/.ssh/config</code> - 优先级高于系统配置文件</li>
+<li>系统配置文件 <code>/etc/ssh/ssh_config</code></li>
+</ol>
+<p>SSH 配置文件中的 configuration parameters：</p>
+<ul>
+<li><code>Host</code> 关键词：会以指定的模式匹配命令行所给出的 host name</li>
+<li><code>HostName</code> 真实主机名：默认为命令行输入的值，允许是 IP</li>
+<li><code>AddKeysToAgent</code>是否自动将私钥与密码添加到 <code>ssh-agent</code>：默认 no</li>
+<li><code>AddressFamily</code> 指定连接时所使用的地址族：可选 any|inet|inet6</li>
+<li><code>IdentityFile</code> 指定读取的认证文件路径：允许 DSA、Ed25519 或 RSA</li>
+<li><code>Port</code> 连接远程主机的端口：默认 22</li>
+<li><code>ProxyCommand</code> 连接服务器需执行的命令：%h、%p、%r</li>
+<li><a href="https://linux.die.net/man/5/ssh_config">...</a></li>
+</ul>
+<h3 id="scp-rsync">scp &amp; rsync</h3>
+<blockquote>
+<p>SCP (Secure Copy Protocol) is a network protocol used to securely copy files or folders between Linux (Unix) systems on a network.</p>
+</blockquote>
+<blockquote>
+<p>Rsync is a free software utility for Unix- and Linux-like systems that copies files and directories from one host to another.</p>
+</blockquote>
+<pre><code class="language-shell"># scp [source] [target]
+scp -P 2368 -r /Users/.../images root@x.xx.xx.xxx:/var/www/.../content
+</code></pre>
+<p>传输目录时未使用 <code>-r</code> 修饰，会出现 Error using SCP: &quot;not a regular file&quot; 异常。</p>
+<p>在通过 <code>scp</code> 传输内容时不能过滤或者排除文件，有需要可以考虑 <code>rsync</code> 命令。</p>
+<pre><code class="language-shell"># rsync [OPTION]... SRC [SRC]... DEST
+rsync -av -e ssh --exclude='*.env' ~/... root@centos7:/var/...
+</code></pre>
+<ul>
+<li>-v, --verbose    increase verbosity</li>
+<li>-a, --archive    archive mode; same as -rlptgoD (no -H)</li>
+</ul>
+<p>存档模式除了会递归同步目录以外，还会保留 users and groups、permissions、symbolic links(symlinks) 和时间戳 timestamps。</p>
+<h3 id="sftp-ftp">sftp &amp; ftp</h3>
+<p>FTP File Transfer Protocol 使用客户端/服务器模型，可以支持 FTP 客户端与 Web 服务器之间直接传输文件。FTP Client 现较常见的是 FileZilla 与 Cyberduck。</p>
+<p>SFTP 中的 S 可以理解为 SSH 或者 Secure。SFTP 的连接始终是安全的，客户端与服务器之间所传输的数据有进行加密的处理。</p>
+<p>FTP 在最初连接时会进行身份的验证，但是在后续传递数据的过程中不会进行加密的处理，这意味着会存在数据被窃取的风险。</p>
+<blockquote>
+<p>A socket is one endpoint of a two-way communication link between two programs running on the network.</p>
+</blockquote>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="firewall-service">Firewall Service</h2>
+<blockquote>
+<p>A firewall is a security device (hardware/software) that protects the network by filtering traffic and blocking unwanted/unauthorized access to private data.</p>
+</blockquote>
+<h3 id="netfilter-and-iptables">Netfilter and iptables</h3>
+<blockquote>
+<p>netfilter 包过滤框架和 iptables 是 Linux 服务器上大部分防火墙解决方案的基础。</p>
+</blockquote>
+<pre><code class="language-shell"># 检查 iptables 服务是否正在运行
+systemctl status iptables
+# 停止正在执行的 iptables 服务
+systemctl stop iptables
+# 将 iptables 服务永久关闭
+systemctl mask iptables
+</code></pre>
+<pre><code class="language-shell"># 开启防火墙(重启后永久生效)
+chkconfig iptables on
+# 关闭防火墙(重启后永久生效)
+chkconfig iptables off
+# 开启防火墙(即时生效，重启后失效)
+service iptables start
+# 关闭防火墙(即时生效，重启后失效)
+service iptables stop
+# 重启防火墙
+service iptables restartd
+</code></pre>
+<h3 id="centos-firewalld">CentOS Firewalld</h3>
+<p>CentOS7 默认使用 firewalld 管理防火墙，而 CentOS6 及以下使用 iptables。</p>
+<blockquote>
+<p>firewalld is firewall management software available for many Linux distributions, which acts as a frontend for Linux’s kernel-based nftables or iptables packet filtering systems.</p>
+</blockquote>
+<p>在 RHEL 的衍生发行版、CentOS 以及 Fedora 中都会默认有安装 Firewalld。</p>
+<p>与直接控制 nftables 或 iptables 相比，firewalld 有两个主要的特点：</p>
+<ul>
+<li>firewalld 使用 zones 和 services 替代了 chain 和 rules</li>
+<li>动态管理规则集，可以在不中断现有会话和连接的情况下进行更新</li>
+</ul>
+<pre><code class="language-shell"># To start the service and enable firewalld on boot
+sudo systemctl start firewalld
+sudo systemctl enable firewalld
+</code></pre>
+<pre><code class="language-shell"># To stop and disable firewalld
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
+</code></pre>
+<pre><code class="language-shell"># Check the firewall status. The output should say either running or not running
+sudo firewall-cmd --state
+# To view the status of the firewalld daemon
+sudo systemctl status firewalld
+</code></pre>
+<pre><code class="language-shell"># To reload a firewalld configuration
+sudo firewall-cmd --reload
+</code></pre>
+<p>Firewalld 通过 XML 文件进行配置，常规用 <code>firewall-cmd</code> 命令进行操作即可：</p>
+<ul>
+<li>目录 <code>/usr/lib/FirewallD</code> 保存默认配置，如默认区域和公共服务</li>
+<li>目录 <code>/etc/firewalld</code> 保存系统配置文件，这些文件将覆盖默认配置</li>
+</ul>
+<p>Firewalld 使用 Runtime 和 Permanent 两类配置集 configuration sets：</p>
+<ul>
+<li>运行时配置的改变不会在 reboot 或重启 firewalld 后保留</li>
+<li>持久配置不能起效于正在运行的系统上</li>
+</ul>
+<p>默认情况下，<code>firewall-cmd</code> 适用于运行时配置，但可以通过 <code>--permanent</code> 来建立持久配置。具体可参阅 <a href="https://www.linode.com/docs/guides/introduction-to-firewalld-on-centos/">DOC</a> 与 <a href="https://firewalld.org/documentation/howto/add-a-service.html">firewalld.org</a>。</p>
+<h3 id="ubuntu-ufw">Ubuntu UFW</h3>
+<p>UFW Uncomplicated Firewall 可以看作是 iptables 防火墙的直观界面。</p>
+<p>对 UFW 指派的规则也都会出现在 iptables 所列的清单中。</p>
+<p>开启与禁用 UFW。</p>
+<pre><code class="language-shell">$ sudo ufw enable
+$ sudo ufw disable
+</code></pre>
+<p>展示 UFW 规则：</p>
+<ul>
+<li>运行 <code>sudo ufw status verbose</code> 以获取详细信息。输出将包含日志记录，默认策略和新配置文件信息。</li>
+<li>运行 <code>sudo ufw status numbered</code> 以获取当前所有规则（包含顺序和 ID）。若需要编辑现有的规则时，此命令很有用。</li>
+</ul>
+<p>删除 UFW 规则：</p>
+<ul>
+<li>通过 <code>sudo ufw delete &lt;number&gt;</code> 按规则 ID 删除</li>
+<li>通过 <code>sudo ufw delete allow &lt;port&gt;</code> 按规则来删除开启的 port 规则</li>
+<li>通过 <code>sudo ufw reset</code> 直接重置 UFW</li>
+</ul>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="linux-applications">Linux Applications</h2>
+<h3 id="nodejs">NodeJS</h3>
+<p>下载官方编译的<a href="https://nodejs.org/download/release/">安装包</a>，并将安装包解压至 <code>/usr/local</code> 目录。</p>
+<pre><code class="language-shell">$ wget https://nodejs.org/download/release/v14.17.1/node-v14.17.1-linux-x64.tar.gz
+$ tar --strip-components 1 -xzvf node-v* -C /usr/local
+</code></pre>
+<pre><code class="language-shell">$ node -v &amp;&amp; npm -v # 输出 v14.17.1 与 6.14.13
+</code></pre>
+<p>也可以使用 EPEL —— Linux 额外的软件包进行安装。</p>
+<pre><code class="language-shell"># 由于 CentOS yum 预设并没有提供 Node.js，须通过 EPEL 安装
+$ yum install epel-release
+# 查看仓库源
+$ yum repolist
+Loaded plugins: fastestmirror, langpacks
+Repository epel is listed more than once in the configuration
+Loading mirror speeds from cached hostfile
+repo id                                          repo name                                                status
+docker-ce-stable/7/x86_64                        Docker CE Stable - x86_64                                     122
+epel/7/x86_64                                    EPEL for redhat/centos 7 - x86_64                          13,674
+extras/7/x86_64                                  Qcloud centos extras - x86_64                                 500
+os/7/x86_64                                      Qcloud centos os - x86_64                                10,070+2
+updates/7/x86_64                                 Qcloud centos updates - x86_64                              2,751
+repolist: 27,117
+# 查看 yum 能提供的软件包的全部版本 -&gt; 此方式安装的 node 版本较旧
+$ yum list nodejs  --showduplicates| sort -r
+Loaded plugins: fastestmirror, langpacks
+Repository epel is listed more than once in the configuration
+Loading mirror speeds from cached hostfile
+Available Packages
+nodejs.x86_64                        1:6.17.1-1.el7
+# EPEL 安装完成直接使用 yum 來安装 Node.js：
+$ yum install nodejs
+</code></pre>
+<h3 id="nginx">Nginx</h3>
+<p>区分 sites-available、sites-enabled 与 conf.d，可参考 <a href="https://serverfault.com/questions/527630/difference-in-sites-available-vs-sites-enabled-vs-conf-d-directories-nginx">serverfault</a>：</p>
+<ul>
+<li>目录 <code>/etc/nginx/sites-available</code> 用于放置页面的配置文件</li>
+<li>目录 <code>/etc/nginx/sites-enabled</code> 存放来自 sites-available 的软链接</li>
+<li>目录 <code>/etc/nginx/conf.d</code> 中以 <code>.conf</code> 结尾的配置文件都会被加载</li>
+</ul>
+<p>要部署的代码文件的一般推荐存放位如下。</p>
+<pre><code class="language-shell">/home/&lt;user_name&gt;/&lt;site_name&gt;
+/var/www/&lt;site_name&gt;
+/var/www/html/&lt;site_name&gt;
+/opt/&lt;site_name&gt;
+/usr/share/nginx/html
+</code></pre>
+<p>Nginx 日志文件 access.log 与 error.log 一般位于 <code>/var/log/nginx/</code> 目录；复用配置代码文件一般位于 <code>/etc/nginx/snippets</code> 目录；配置文件与主配置文件分别为于 <code>/etc/nginx/</code> 和 <code>/etc/nginx/nginx.conf</code>。</p>
+<p>常规 Nginx 安装与开启流程所涉及的主要命令如下。</p>
+<pre><code class="language-shell"># 安装 Nginx
+sudo yum install nginx
+# 设置开机启动|关闭
+sudo systemctl enable|disable nginx # 运行此命令以后,会输出软连接关联信息
+# 启动关闭重启 —— systemctl - Control the systemd system and service manager
+sudo systemctl start|stop|restart nginx
+# 查看运行状态
+sudo systemctl status nginx
+# 查看80口是否被占用
+sudo lsof -i :80 # 查看80的nginx -&gt; sudo lsof -i :80 | grep nginx
+# 杀死端口
+lsof -P | grep ':80' | awk '{print $2}' | xargs kill
+</code></pre>
+<h3 id="mongodb"><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/">Mongodb</a></h3>
+<p>配置包管理系统并安装 MongoDB 包。</p>
+<pre><code class="language-shell">vim /etc/yum.repos.d/mongodb-org-5.0.repo
+</code></pre>
+<pre><code class="language-shell"># mongodb-org-5.0.repo
+[mongodb-org-5.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/5.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
+</code></pre>
+<pre><code class="language-shell">sudo yum install -y mongodb-org
+</code></pre>
+<p>包管理器在安装期间会创建默认目录，所有者和组名都是 mongod。MongoDB 使用 mongod 帐户使用以下的默认目录。</p>
+<pre><code class="language-shell">/var/lib/mongo （数据目录）
+/var/log/mongodb （日志目录）
+</code></pre>
+<p>Linux 环境中使用 MongoDB 的常用命令如下。</p>
+<pre><code class="language-shell"># 启动、停止与重启
+sudo systemctl start|stop|restart mongod
+# 如果在启动时收到类似于以下内容的错误
+# Failed to start mongod.service: Unit mongod.service not found.
+# 需要先运行以下命令
+sudo systemctl daemon-reload
+# 验证 MongoDB 是否已成功启动
+sudo systemctl status mongod
+# 确保 MongoDB 在系统重新启动后启动
+sudo systemctl enable mongod
+# 开始连接 - 27017
+mongosh
+</code></pre>
+<h3 id="java">Java</h3>
+<p>默认 CentOS7 存储库包含最新的两个主要 Java LTS 版本，Java8 和 Java11，可以使用 yum 软件包管理器安装。</p>
+<pre><code class="language-shell"># =&gt; 以 root 或具有 sudo 权限的用户运行
+# 安装 OpenJDK11
+$ sudo yum install java-11-openjdk-devel
+# CentOS7 支持 openjdk-headless 即适合于服务器应用程序的最小 Java 运行时
+# 安装 OpenJDK headless =&gt; 现已包含在 java-11-openjdk-devel 依赖安装中
+$ sudo yum install java-11-openjdk-headless
+# 安装OpenJDK 8
+$ sudo yum install java-1.8.0-openjdk-devel
+# 检查 Java 版本验证安装
+$ java -version
+openjdk version &quot;1.8.0_332&quot;
+OpenJDK Runtime Environment (build 1.8.0_332-b09)
+OpenJDK 64-Bit Server VM (build 25.332-b09, mixed mode)
+</code></pre>
+<p>CentOS 系统上安装了多个 Java 版本，可以通过 <code>alternatives</code> 命令来设置终端默认版本。在改变 Java 版本的同时记得要改变 Java 编译的版本。</p>
+<pre><code class="language-shell"># 查看 Java 默认版本
+$ java -version
+# 更改默认版本 =&gt; alternatives =&gt; 输入用作默认版本的数字
+$ sudo alternatives --config java
+There are 2 programs which provide 'java'.
+  Selection    Command
+-----------------------------------------------
+*+ 1           java-1.8.0-openjdk.x86_64 (/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-1.el7_9.x86_64/jre/bin/java)
+   2           java-11-openjdk.x86_64 (/usr/lib/jvm/java-11-openjdk-11.0.15.0.9-2.el7_9.x86_64/bin/java)
+Enter to keep the current selection[+], or type selection number: 1
+# 更改默认的 javac 版本，运行 alternatives 命令更改Java的编译器javac版本
+sudo alternatives --config javac
+</code></pre>
+<p>Java 应用程序根据 <code>JAVA_HOME</code> 环境变量来确定 Java 的安装位置，并选择指定的版本来运行该程序。</p>
+<p>针对当前用户配置 JAVA_HOME 环境变量如下。</p>
+<pre><code class="language-shell">echo 'export JAVA_HOME=&quot;/usr/lib/jvm/java-1.8.0-openjdk&quot;' &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre>
+<p>为所有用户配置 JAVA_HOME 环境变量/系统范围如下。</p>
+<pre><code class="language-shell">echo 'export JAVA_HOME=&quot;/usr/lib/jvm/java-1.8.0-openjdk&quot;' | sudo tee /etc/profile.d/java.sh
+source /etc/profile.d/java.sh
+# 验证是否正确设置 JAVA_HOME 环境变量
+echo $JAVA_HOME
+/usr/lib/jvm/java-1.8.0-openjdk
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="faq-bugs">FAQ &amp; Bugs</h2>
+<h3 id="remote-host-identification-has-changed">REMOTE HOST IDENTIFICATION HAS CHANGED</h3>
+<p>服务器在重装系统或者销毁实例后又新建实例并连接时可能会出现无法正常连接的情况，伴随终端提示 &quot;REMOTE HOST IDENTIFICATION HAS CHANGED&quot;。</p>
+<pre><code class="language-shell">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is ...
+Please contact your system administrator.
+Add correct host key in /home/hostname /.ssh/known_hosts to get rid of this message.
+Offending RSA key in /var/lib/sss/pubconf/known_hosts:4
+RSA host key for pong has changed and you have requested strict checking.
+Host key verification failed.
+</code></pre>
+<p>这是由于新的实例分配了与被销毁实例相同的地址，已经存储的旧实例主机密钥与新主机密钥发生了冲突。提供两种解决方案如下（原理都是一样的）。</p>
+<ul>
+<li>通过 <code>ssh-keygen -R &lt;ip&gt;</code> 删除已存储实例的 host key 后重新连接</li>
+<li>在 <code>~/.ssh/known_hosts</code> 中删除对应远程 IP 的信息</li>
+</ul>
+<p>此外请确认服务器 <code>/etc/ssh/sshd_config</code> 文件里如下配置的准确。</p>
+<pre><code class="language-shell">PasswordAuthentication yes
+PermitRootLogin yes
+</code></pre>
+<p>出现 &quot;Permission denied (publickey,gssapi-keyex,gssapi-with-mic)&quot; 的拒绝，也应同样进行上述操作更改，最后重启服务即可。</p>
+<h3 id="%E5%A4%84%E7%90%86%E5%8C%85%E5%90%AB%E7%A9%BA%E6%A0%BC%E5%92%8C%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D">处理包含空格和特殊字符的文件名</h3>
+<p>在服务器运行 <code>rm -rf</code> 命令时出现异常 &quot;rm: unrecognized option '--...'&quot;。</p>
+<pre><code class="language-shell">$ sudo rm -rf --2019-08-06---4.50.33-1.png
+rm: unrecognized option '--2019-08-06---4.50.33-1.png'
+Try 'rm ./--2019-08-06---4.50.33-1.png' to remove the file '--2019-08-06---4.50.33-1.png'.
+Try 'rm --help' for more information.
+</code></pre>
+<p>错误原因 =&gt; shell 将破折号 <code>-</code> 之后的内容解释为参数，但是明显没有这样的参数存在，所以出现报错。</p>
+<p>解决方式：在以 <code>-</code> 开头的文件或目录前追加路径；在操作命令与待操作的文件之间加上 <code>--</code>。</p>
+<h3 id="tomcat-%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F%E5%8D%B4%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE">tomcat 启动成功却无法访问</h3>
+<p>服务器没有让对应的端口放行，需要对防火墙规则进行配置。需要注意的是：局域网没有固定的公网 IP，所以不能将局域网 IP (192.168.124.2) 设置为安全组。</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议。转载请注明出处！</p>
+<!--kg-card-end: markdown-->
+    </section>
+
+    <section class="article-comments gh-canvas">
+        
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "yourdomain.com/linux/";
+                this.page.identifier = "ghost-6155e4888a69a4110a92e5ff"
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zsxzy.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    </section>
+
+</article>
+</main>
+
+    <section class="footer-cta outer">
+        <div class="inner">
+            <h2 class="footer-cta-title">Sign up for more like this.</h2>
+            <a class="footer-cta-button" href="index.html#/portal" data-portal>
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../vim-neovim/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w1000/2023/03/ScenicViewOfBeachDuringDaytime.jpg 1000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2023/03/ScenicViewOfBeachDuringDaytime.jpg"
+            alt="Scenic View Of Beach During Daytime"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../vim-neovim/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Vim &amp; Neovim
+                </h2>
+            </header>
+                <div class="post-card-excerpt">Vim ninjas count every keystroke!</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-12-12">Dec 12, 2022</time>
+                <span class="post-card-meta-length">19 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../design-patterns/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w1000/2023/03/SixHalogenBulbs.jpg 1000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2023/03/SixHalogenBulbs.jpg"
+            alt="Six Halogen Bulbs"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../design-patterns/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Design Patterns And ...
+                </h2>
+            </header>
+                <div class="post-card-excerpt">"A good programmer is someone who always looks both ways before crossing a one-way street." - Doug Linder</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-08-08">Aug 8, 2022</time>
+                <span class="post-card-meta-length">35 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="../g-toc-css/index.html">
+
+        <img class="post-card-image"
+            srcset="../content/images/size/w1000/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg 1000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="../content/images/size/w600/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg"
+            alt="Glass Bottle Filled With Black Straw on Brown Wooden Table"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="../g-toc-css/index.html">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    G&amp;TOC&amp;CSS
+                </h2>
+            </header>
+                <div class="post-card-excerpt">TOC 的需求实现以及相关的思考总结。</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2022-05-01">May 1, 2022</time>
+                <span class="post-card-meta-length">6 min read</span>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+    <div class="arrowup">
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        width="20px"
+        height="20px"
+        viewBox="0 0 122.883 122.882"
+        enable-background="new 0 0 20 20"
+        xml:space="preserve"
+      >
+        <g>
+          <path
+            d="M0,61.441L0,61.441h0.018c0,16.976,6.872,32.335,17.98,43.443c11.108,11.107,26.467,17.979,43.441,17.979v0.018h0.001 h0.001v-0.018c16.974,0,32.335-6.872,43.443-17.98s17.98-26.467,17.98-43.441h0.018v-0.001V61.44h-0.018 c0-16.975-6.873-32.334-17.98-43.443C93.775,6.89,78.418,0.018,61.443,0.018V0h-0.002l0,0v0.018 c-16.975,0-32.335,6.872-43.443,17.98C6.89,29.106,0.018,44.465,0.018,61.439H0V61.441L0,61.441z M42.48,71.7 c-1.962,1.908-5.101,1.865-7.009-0.098c-1.909-1.962-1.865-5.101,0.097-7.009l22.521-21.839l3.456,3.553l-3.46-3.569 c1.971-1.911,5.117-1.862,7.029,0.108c0.055,0.058,0.109,0.115,0.16,0.175L87.33,64.594c1.963,1.908,2.006,5.047,0.098,7.009 c-1.908,1.963-5.047,2.006-7.01,0.098L61.53,53.227L42.48,71.7L42.48,71.7z"
+          />
+        </g>
+      </svg>
+    </div>
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="../index.html">zairesinatra</a> &copy; 2023</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous">
+</script>
+<script src="../assets/built/casper.js%3Fv=7d64696598"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+  tocbot.init({
+    tocSelector: '.toc',
+    contentSelector: '.gh-content',
+    hasInnerContainers: true
+  });
+  var tc = document.querySelector(".toc-container");
+  if(tc){
+    var tch = tc.clientHeight;
+    var ah = document.querySelector(".article-header");
+    var ahh = ah.clientHeight;
+    window.addEventListener("scroll", function () {
+    if(document.body.clientWidth > 1170){
+      var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+      var ihh = window.innerHeight;
+      if(scrollY >= ihh + tch + ahh){
+        var ctc = document.querySelector(".toc-container");
+        ctc.style.position="sticky";
+        ctc.style.position="-webkit-sticky";
+        ctc.style.top = "120px";
+        ctc.style.marginLeft = "800px";
+        ctc.style.minWidth= "260px";
+      }
+      if(scrollY < tch + ahh -10){
+        var ctc = document.querySelector(".toc-container");
+        ctc.style.position="";
+        ctc.style.top = "";
+        ctc.style.marginLeft = "";
+      }
+    }})
+  }
+</script>
+
+<!-- searchinghost-easy -->
+<script src="https://cdn.jsdelivr.net/gh/gmfmi/searchinghost-easy@latest/dist/searchinghost-easy-basic.js"></script>
+<script>
+    new SearchinGhostEasy({
+        contentApiKey: 'e93d8b3520ae46be52c9a4b140'
+    });
+</script>
+
+<script>
+    let currentTheme = localStorage.getItem("theme-color");
+    const switchTheme = function () {
+        const storedTheme = localStorage.getItem("theme-color") || "theme-light";
+        if (
+            storedTheme === "theme-dark" &&
+            document.getElementsByTagName("html")[0].className !== ""
+        ) {
+            localStorage.setItem("theme-color", "theme-light");
+            currentTheme = localStorage.getItem("theme-color");
+            if (currentTheme === "theme-light") {
+            document.getElementsByTagName("html")[0].classList.remove("dark-mode");
+            document
+                .getElementsByClassName("theme-switcher")[0]
+                ?.classList.remove("active");
+            document
+                .getElementsByClassName("toc")[0]
+                ?.classList.remove("active");
+            }
+        } else {
+            localStorage.setItem("theme-color", "theme-dark");
+            currentTheme = localStorage.getItem("theme-color");
+            if (currentTheme === "theme-dark") {
+            // console.log(document.getElementById("app"));
+            document.getElementsByTagName("html")[0].classList.add("dark-mode");
+            document
+                .getElementsByClassName("theme-switcher")[0]
+                ?.classList.add("active");
+            document
+                .getElementsByClassName("toc")[0]
+                ?.classList.add("active");
+            }
+        }
+    };
+    const initTheme = function () {
+    const storedTheme = localStorage.getItem("theme-color") || "theme-light";
+    if (storedTheme === "theme-dark") {
+        document
+        .getElementsByClassName("theme-switcher")[0]
+        ?.classList.add("active");
+        document
+        .getElementsByClassName("toc")[0]
+        ?.classList.add("active");
+        document.getElementsByTagName("html")[0].classList.add("dark-mode");
+    }
+    };
+    initTheme()
+</script>
+
+<!-- Arrow up -->
+<script>
+const arrowup = document.querySelector(".arrowup");
+arrowup.addEventListener("click", function() {
+  const scrollDuration = 1500; // 滚动持续时间，单位毫秒
+    const start = window.pageYOffset; // 当前滚动位置
+    const end = 0; // 滚动结束位置
+    const distance = end - start; // 滚动距离
+    const startTime = performance.now(); // 动画开始时间
+
+    function easeInOutCubic(t) {
+      return t < 0.5
+        ? 4 * t ** 3
+        : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    }
+
+    function scrollToTopSmooth(timestamp) {
+      const currentTime = timestamp - startTime; // 已经经过的时间
+      const progress = currentTime / scrollDuration; // 滚动进度
+      const position =
+        start + distance * easeInOutCubic(Math.min(progress, 1)); // 当前滚动位置
+      window.scrollTo(0, position); // 滚动到新位置
+
+      if (currentTime < scrollDuration) {
+        // 如果滚动还未结束，则继续执行动画
+        requestAnimationFrame(scrollToTopSmooth);
+      }
+    }
+
+    requestAnimationFrame(scrollToTopSmooth);
+});
+</script>
+
+</body>
+</html>
