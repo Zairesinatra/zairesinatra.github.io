@@ -1276,6 +1276,15 @@ arrowup.addEventListener("click", function() {
 <script>
   const searchClient = algoliasearch('7PTB3E687I', '5d5c91cb3df27338c1b1ca5cd935338d');
   const { autocomplete, getAlgoliaResults } = window['@algolia/autocomplete-js'];
+	function insertStr (str, index, insertStr) {
+		const ary = str.split('');		// 转化为数组
+		ary.splice(index, 0, insertStr);	// 使用数组方法插入字符串
+		return ary.join('');				// 拼接成字符串后输出
+	}
+    let teststr = insertStr("https://zairesinatra.github.io/content/images/2023/03/ScenicViewOfBeachDuringDaytime.jpg",46,'size/w1000/')
+    // insertStr(item.image,46,'size/w1000/')
+    // console.log(teststr.substring(0,teststr.length-1));
+    console.log(teststr)
   autocomplete({
     container: '#autocomplete',
     placeholder: 'Search for posts',
@@ -1300,8 +1309,8 @@ arrowup.addEventListener("click", function() {
         },
         templates: {
           item({ item, html }) {
-            // console.log(item)
-        	return  html`<div><a href="https://zairesinatra.github.io//zsmacconfig/${item.url}"><div class="showwrapper"><div>${item.title}</div><div class="imgwrapper"><img src="https://zairesinatra.github.io//zsmacconfig/${item.image}/"></div></div></a></div>`;
+        	// return  html`<div><a href="https://zairesinatra.github.io//zsmacconfig/${item.url}"><div class="showwrapper"><div>${item.title}</div><div class="imgwrapper"><img src="https://zairesinatra.github.io//zsmacconfig/${item.image}/"></div></div></a></div>`;
+          	return  html`<div><a href="https://zairesinatra.github.io//zsmacconfig/${(item.url).substring(31,)}"><div class="showwrapper"><div>${item.title}</div><div class="imgwrapper"></div></div></a></div>`;
           },
           noResults(){
             return 'No Results';
