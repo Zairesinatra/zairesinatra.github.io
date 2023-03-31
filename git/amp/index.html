@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://zairesinatra.github.io//git/" />
     <meta property="og:image" content="https://zairesinatra.github.io//content/images/2021/09/githubbg.jpg" />
     <meta property="article:published_time" content="2020-07-18T14:02:00.000Z" />
-    <meta property="article:modified_time" content="2023-02-15T19:31:14.000Z" />
+    <meta property="article:modified_time" content="2023-03-30T18:10:44.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "Git",
     "url": "https://zairesinatra.github.io//git/",
     "datePublished": "2020-07-18T14:02:00.000Z",
-    "dateModified": "2023-02-15T19:31:14.000Z",
+    "dateModified": "2023-03-30T18:10:44.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://zairesinatra.github.io//content/images/2021/09/githubbg.jpg",
@@ -1063,7 +1063,6 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
     <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
-<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 
 </head>
 
@@ -1092,123 +1091,130 @@
             <section class="post-content">
 
                 <h2 id="quick-start">Quick Start</h2>
-<p>集中化版本控制要求必须联网，分布式版本控制没有中央服务器，每个本地仓库都具有完整的版本。</p>
-<p>Git 的 Repository 分为远端 repo 和本地的 repo。远端的 Repository 是为多人共享而建立的，常见如 Github 与 Gitee；本地端仓库通常指的就是个人设备。working tree 图形化工具可尝试 sourcetree。</p>
+<h3 id="first-time-git">First-Time Git</h3>
+<p>集中化版本控制要求所有的代码都存储在中央服务器上，需要通过网络连接到中央服务器来进行版本控制。分布式版本控制不依赖于中央服务器，每个本地仓库都具有完整的版本历史记录和代码库。</p>
+<p>通过 <code>git config --list --show-origin</code> 可以查看所有的 Git 配置及其所在：</p>
+<ul>
+<li><code>/etc/gitconfig</code> 包含系统上每位用户及其对应仓库的通用配置</li>
+<li><code>~/.gitconfig</code> 或 <code>~/.config/git/config</code> 针对当前用户的配置文件</li>
+<li><code>.git/config</code> 是当前使用仓库的项目配置</li>
+</ul>
+<p>设置用户名与邮件地址是必不可少的，与此同时，如果使用了 <code>--global</code> 选项，那么设置命令在运行一次后，后续的 Git 操作都会使用这些信息。</p>
+<pre><code class="language-shell">$ git config --global user.name "&lt;name&gt;"
+$ git config --global user.email "&lt;email&gt;"
+</code></pre>
+<p>检查全局和仓库级别的配置可以使用 <code>git config --list</code>。查看某个特定配置的值，可以使用 <code>git config &lt;key&gt;</code> 命令，其中 <code>&lt;key&gt;</code> 为要查找的配置项的键名。</p>
+<pre><code class="language-shell">$ git config user.name
+</code></pre>
+<p>Git 中的对象主要有三种类型：Blob、Tree 和 Commit：</p>
+<ul>
+<li>Blob 对象（二进制大对象）：代表文件内容，存储文件的数据，即文件的快照</li>
+<li>Tree 对象：代表目录，存储了一组文件或目录的信息，包括文件名、类型、权限等</li>
+<li>Commit 对象：代表一个提交，记录了某一时刻工作目录的状态</li>
+</ul>
 <blockquote>
-<p>版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。version control system 同 VCS。</p>
+<p>Git Index may be defined as the staging area between the workspace and the repository. The major use of Git Index is to set up and combine all changes together before you commit them to your local repository.</p>
 </blockquote>
-<h3 id="common-commands">common commands</h3>
-<pre><code class="language-shell">❯ git --help
-usage: git [-v | --version] [-h | --help] [-C &lt;path&gt;] [-c &lt;name&gt;=&lt;value&gt;]
-           [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]
-           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]
-           [--super-prefix=&lt;path&gt;] [--config-env=&lt;name&gt;=&lt;envvar&gt;]
-           &lt;command&gt; [&lt;args&gt;]
-
-These are common Git commands used in various situations:
-
-start a working area (see also: git help tutorial)
-   clone     Clone a repository into a new directory
-   init      Create an empty Git repository or reinitialize an existing one
-
-work on the current change (see also: git help everyday)
-   add       Add file contents to the index
-   mv        Move or rename a file, a directory, or a symlink
-   restore   Restore working tree files
-   rm        Remove files from the working tree and from the index
-
-examine the history and state (see also: git help revisions)
-   bisect    Use binary search to find the commit that introduced a bug
-   diff      Show changes between commits, commit and working tree, etc
-   grep      Print lines matching a pattern
-   log       Show commit logs
-   show      Show various types of objects
-   status    Show the working tree status
-
-grow, mark and tweak your common history
-   branch    List, create, or delete branches
-   commit    Record changes to the repository
-   merge     Join two or more development histories together
-   rebase    Reapply commits on top of another base tip
-   reset     Reset current HEAD to the specified state
-   switch    Switch branches
-   tag       Create, list, delete or verify a tag object signed with GPG
-
-collaborate (see also: git help workflows)
-   fetch     Download objects and refs from another repository
-   pull      Fetch from and integrate with another repository or a local branch
-   push      Update remote refs along with associated objects
-
-'git help -a' and 'git help -g' list available subcommands and some
-concept guides. See 'git help &lt;command&gt;' or 'git help &lt;concept&gt;'
-to read about a specific subcommand or concept.
-See 'git help git' for an overview of the system.
-</code></pre>
-<ul>
-<li>初始化仓库并列出包含隐藏的所有文件 Initializes the repository and lists all files containing the hidden ones</li>
-</ul>
-<pre><code class="language-shell">$ git init &amp;&amp; ls -la
-</code></pre>
-<ul>
-<li>查看状态 displays the state of the working directory and the staging area</li>
-</ul>
-<pre><code class="language-shell">git status
-</code></pre>
-<ul>
-<li>创建文件 Create new files and add them to the index</li>
-</ul>
-<pre><code class="language-shell">$ git touch &lt;filename&gt;
-</code></pre>
-<pre><code class="language-shell"># 创建 README 文件 =&gt; git-touch &lt;filename&gt;
-git touch README.md
-# 在修改 README 文件后放弃工作目录中的更改
-git restore README.md # "git restore &lt;file&gt;..." to discard changes in working directory
-# 将工作目录中的更改添加到暂存区(修改了 README.md)
-git add README.md # 告诉 Git 期望在下次提交中包含对特定文件的更新
-# 移除已添加到暂存区的文件(恢复到 add 前的状态,但是改动内容不会消失)
-git restore README.md --staged # "git restore --staged &lt;file&gt;..." to unstage
-# 对暂存快照感到满意后将其提交到项目历史记录中
-git commit -m "ctx"
-# 撤消提交或暂存快照,即执行 commit 后,还没执行 push 时想要撤销这次的 commit
-git reset --soft HEAD^ # 成功撤销 commit; HEAD^ 表示上一个版本,即上一次的 commit,也可以写成 HEAD~1; 如果进行两次的commit，想要都撤回，可以使用HEAD~2
-git reset --hard HEAD^ # 连着 add 也撤销 —— 删除工作空间的改动代码(在 README.md 中的改动完全消失)
-# 这里如果只是 commit 注释写错了需要修改注释
-git commit --amend
-# 查看 gitglobal 配置文件
-cat ~/.gitconfig
-# 打印 global 的配置
-git config --global -l
-# git 分支 master 改为 main
-git branch -M main
-</code></pre>
-<p>不建议使用 <code>-D</code> 强行删除分支，而是使用有提示的 <code>--delete</code>。</p>
-<p>删除分支后，特有的分支对象不会删除。分支删除的底层操作只是删除某个指向特定 commit 的指针，而其 commit 本身并没有被删除。</p>
-<p>获取到删除分支的 commit 时，可以通过切换分支来恢复工作区。</p>
-<p>查找误删分支 commit 的方法：</p>
-<ul>
-<li>代码区不多的情况下，通过在 objects 中使用 <code>git cat-file -t</code> 查询类型是 commit 的对象。</li>
-<li>在代码仓库历史较长的情况下可以通过 'git reflog' 查看到此前分支的操作。通过哈希值再次进入此分支进行操作。</li>
-</ul>
-<pre><code class="language-shell">$ git branch -D dev
+<p>在 Git 中 Index 也称为 Staging Area，即暂存区（索引区），用于保存下一次将要提交的修改，实际上就是一个名为 <code>.git/index</code> 的二进制文件。</p>
+<p>在使用 <code>git add</code> 命令后，被添加的文件会存储到 Git 对象库的 <code>.git/objects</code> 目录中，并使用索引进行定位。而后续执行 <code>git commit</code> 命令时，提交的是当前索引中的内容，而不是工作区的内容。同时，在执行提交命令后，<code>.git/objects</code> 目录中会新增 commit 类型和 tree 类型的对象。</p>
+<p>注意，<code>.git/objects</code> 目录下每个文件夹的名称前两个字符是对象的 SHA-1 值的前两个字符，每个文件夹中存储了以该 SHA-1 值为名称的对象文件。这些对象文件包含了对象的类型、大小和内容等。</p>
+<pre><code class="language-shell">$ git branch -D dev # 删除一个名为 dev 的分支
 $ Deleted branch dev (was 45de930).
-$ git cat-file -t 45de930
+$ git cat-file -t 45de930 # 查询指定哈希值的对象类型
 commit
-$ git cat-file -p 45de930
+$ git cat-file -p 45de930 # 查看提交对象的详细信息
 tree efb888bed3302a0cb8808046c501d9f3e2a881e8
 parent 8c9588c5965a18bd89ccc3f7006a03cb0a0a463b
-author zyy &lt;zy@zs.com&gt; 1631881325 +0800
-committer zyy &lt;zy@zs.com&gt; 1631881325 +0800
-$ git cat-file -p efb888
+author ...
+committer ...
+$ git cat-file -p efb888 # 查看树对象的详细信息
 100644 blob 5008ddfcf53c02e82d7eee2e57c38e5672ef89f6	.DS_Store
 100644 blob 58c9bdf9d017fcd178dc8c073cbfcbb7ff240d6c	README.md
 100644 blob 38f8e886e1a6d733aa9bfa7282568f83c133ecd6	dev.txt
-$ git cat-file -p 38f8e886
+$ git cat-file -p 38f8e886 # 查看被误删的文件 dev.txt 的内容
 dev # 垃圾对象 —— 原文件的内容
 </code></pre>
-<pre><code class="language-shell">git reflog
+<p>在上述代码中查看树对象的详细信息时，有使用到树对象哈希值的前六位，也被称为短哈希。因为哈希值是根据内容计算得到的，所以前几位相同的哈希值代表的对象内容也应该是相同的。通常情况下，建议至少使用前六位，以确保准确性。</p>
+<p>SHA-1 算法生成的散列值长度为 160 位，也就是 20 个字节，每个字节可以表示成两位十六进制数，所以通常呈现的散列值长度为 40 个字符。</p>
+<p>哈希算法是一种将任意长度的数据映射到固定长度输出的算法，输入数据的任何细微变化都会在输出中体现出来，因此常被用于数据完整性验证、密码存储、数据比对等领域。</p>
+<p>如果将多个完全相同的文件添加到对象时，只会存在唯一一个文件对象被存储（文件内容唯一性），这也是得益于 SHA-1 摘要算法。</p>
+<p>一个 commit 对象会引用一个 tree 对象，而 tree 对象会引用若干个 blob 对象或其他 tree 对象。因此，一个 commit 对象所引用的 tree 对象包含了本次提交的所有文件，而每个 blob 对象则包含了一个文件的具体内容。</p>
+<pre><code class="language-shell">.git/
+├── COMMIT_EDITMSG
+├── HEAD
+...
+├── objects
+│   ├── 1e/
+│   │   └── 6a4608f5fe92ea0169fa033eeac1d38049aa63
+│   ├── 05/
+│   │   └── 2c88abb60a55ab8be2bca4b5c4cf29271c2de2
+...
 </code></pre>
-<p>从最新的 commit 分支根据查看历史日志将分支切换到某次 commit，会出现 'detached HEAD' 的效果。即 HEAD 文件指向具体的 commit 而不是 master 的现象。此时的 'git log' 日志也会仅存本次提交前的内容。可以在此处创建分支再进行 commit 操作 'git checkout -b xxx'。</p>
+<pre><code class="language-shell">$ git cat-file -t 1e6a4608f
+commit
+</code></pre>
+<pre><code class="language-shell">$ git cat-file -p 052c88ab
+100644 blob 9cf106272ac3b56b0c4c80218e8fc10a664ca5f4	LICENSE.md
+100644 blob ce72ebbfe645054cd7020b980292b37abae34203	README.md
+040000 tree 3a654b3398171dc10a94cc1ab0b73ea195307f2f	doc
+...
+</code></pre>
+<blockquote>
+<p>HEAD is the reference to the most recent commit in the current branch. This means HEAD is just like a pointer that keeps track of the latest commit in your current branch. Detached HEAD occurs when you check out a commit that is not a branch.</p>
+</blockquote>
+<p><code>.git/HEAD</code> 存储了当前分支的指针，而 <code>.git/refs/heads/</code> 目录下存储了所有本地分支的指针，分支指针所指向的是相应分支最新提交的 SHA-1 值。在切换分支时，HEAD 会指向不同的分支或提交。</p>
+<pre><code class="language-shell">cat refs/heads/master # 最新的 commit 分支
+8c9588c5965a18bd89ccc3f7006a03cb0a0a463b
+cat HEAD
+ref: refs/heads/master
+</code></pre>
+<p>如果 HEAD 不再指向某个分支而是指向了某个提交，就会进入 "detached HEAD" 状态。此时，如果执行 <code>git log</code> 命令，将只会看到该 commit 前的历史记录。</p>
+<h3 id="undoing-things">Undoing Things</h3>
+<p>如果在提交后发现有文件遗漏，或是提交信息弄错，可以使用 <code>git commit --amend</code> 来重新提交。</p>
+<pre><code class="language-shell">$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend # 将新的修改合并到上一次提交中，并保留上一次提交的信息
+$ git commit --amend -m "&lt;new msg&gt;" # 会将上一次提交的 commit message 替换
+</code></pre>
+<p>在 Git 中，restore 和 reset 都是用于撤销修改的命令。前者主要用于恢复工作区中的文件，但并不会影响 Git 历史记录。后者则可以将当前 HEAD 重置为指定状态，从而修改 Git 历史记录。</p>
+<p><code>git restore --staged &lt;file&gt;</code> 可以用来撤销 <code>git add &lt;file&gt;</code> 命令所做的暂存操作，将文件状态从暂存区恢复到工作区。而 <code>git restore &lt;file&gt;</code> 则可以用来撤销工作区中对文件的修改，将文件状态恢复到最近一次提交时的状态。注意，<code>git restore &lt;file&gt;</code> 只能用来还原文件的内容，而不能还原文件的添加或删除操作。如果要撤销文件的添加或删除操作，需要使用其他命令，如 <code>git rm</code> 或 <code>git add</code>。</p>
+<pre><code class="language-shell"># 修改 README 文件
+nvim README.md
+# 在修改 README 文件后放弃工作目录中的更改
+git restore README.md # "git restore &lt;file&gt;..." to discard changes in working directory
+</code></pre>
+<pre><code class="language-shell"># 修改 README.md 后，将工作区的更改添加到暂存区
+git add README.md
+# 移除已添加到暂存区的文件，但改动内容不会消失
+git restore README.md --staged # "git restore --staged &lt;file&gt;..." to unstage
+</code></pre>
+<p><code>git reset --soft</code> 会将指定提交后的所有更改放回到暂存区，并将之前暂存区内的更改移动到工作区，工作区的内容不会修改（可能需要手动解决冲突）。</p>
+<p><code>git reset</code> 默认的模式是 <code>--mixed</code>，等价 <code>git reset --mixed</code>。<code>git reset --mixed</code> 将指定提交后的所有更改放回到工作区，并将之前添加到暂存区的更改移除暂存区。</p>
+<p><code>git reset --hard</code> 将指定提交后的所有更改全部删除（工作区和暂存区）。</p>
+<p>注意，如果在执行上述 <code>git reset</code> 命令时未指定提交标识符，则会将当前分支指向上一次的提交。</p>
+<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1680167282/Ghost/Git/GitTreeMovementsVisualized_v1v2nm.jpg" alt="GitTreeMovementsVisualized_v1v2nm" width="638" height="359" layout="responsive"></amp-img></p>
+<pre><code class="language-shell">git commit -m "ctx"
+# 撤消提交或暂存快照,即执行 commit 后,还没执行 push 时想要撤销这次的 commit
+git reset --soft HEAD^ # 成功撤销 commit; HEAD^ 表示上一个版本,即上一次的 commit,也可以写成 HEAD~1; 如果进行两次的commit，想要都撤回，可以使用HEAD~2
+git reset --hard HEAD^ # 连着 add 也撤销 —— 删除工作空间的改动代码(在 README.md 中的改动完全消失)
+git reset --mixed HEAD^ # 当前分支的指针会移动到上一次的提交，将之前已经添加到暂存区中的修改移除暂存区，但是这些修改并没有被删除，而是留在了工作区中等待重新提交
+</code></pre>
+<p>建议在删除分支时使用 <code>--delete</code>，而非 <code>-D</code> 强制删除。删除分支只会删除该分支指向的特定提交记录的指针，并不会删除这些提交记录本身。如果需要恢复已删除的分支，可以通过切换到该分支指向的提交记录来实现。在误删分支的情况下，通常需要 <code>git reflog</code> 来查找被删除的分支的历史记录。</p>
+<p>直接键入 <code>git diff</code> 的情况较少，通常都会使用编辑器或者相关工具。Visual Studio Code 中查看 Git 的 diff 可以通过 Source Control 面板来实现。</p>
+<ul>
+<li><code>git diff</code> 比较工作区和暂存区之间的差异</li>
+<li><code>git diff &lt;commit&gt;</code> 比较工作区和某个提交之间的差异</li>
+<li><code>git diff &lt;commit1&gt; &lt;commit2&gt;</code> 比较两个提交之间的差异</li>
+<li><code>git diff &lt;branch1&gt; &lt;branch2&gt;</code> 比较两个分支之间的差异</li>
+<li><code>git diff &lt;commit1&gt; &lt;commit2&gt; &lt;path/to/file&gt;</code> 比较某个文件在两个提交之间的差异</li>
+<li><code>git diff &lt;dir1&gt; &lt;dir2&gt;</code> 比较两个目录之间的差异</li>
+</ul>
+<p>上述 <code>&lt;commit&gt;</code> 表示一个 Git 提交对象的标识符，可以是提交的 SHA-1 值、分支名称、标签名称等。</p>
+<h3 id="mysterious-state">Mysterious State</h3>
+<blockquote>
+<p>After detaching the HEAD by checking out a particular commit, it's allowing us to go to the previous point in the project’s history.</p>
+</blockquote>
+<p>detached HEAD state 可以让开发者对项目历史中的某个节点进行 Experimental Changes，如果是不小心的误入，可以直接键入 <code>git switch &lt;branch-name&gt;</code> 或 <code>git checkout &lt;branch-name&gt;</code> 离开。</p>
 <pre><code class="language-shell">git checkout 8c9588c5
 Note: switching to '8c9588c5'.
 
@@ -1229,232 +1235,24 @@ Turn off this advice by setting config variable advice.detachedHead to false
 
 HEAD is now at 8c9588c ctx
 </code></pre>
-<p>在工作中直接使用 'git diff' 的情况较少，通常都是通过 IDE 直接在编辑器中查看。在 VS code 中的源代码管理文件单击即可打开 diff 面板查看 modified 内容。</p>
-<pre><code class="language-shell">$ git diff
-diff --git a/README.md b/README.md #具体区别文件
-index 58c9bdf..4dc48ab 100644 # index 58c9bdf表示索引区哈希值,4dc48ab表示工作区
---- a/README.md # 索引区文件内容
-+++ b/README.md # 工作区内容
-@@ -1 +1,2 @@ # 通过 block 块进行内容 diff ; -1表示索引区的第1行、+1,2表示工作区的1行数2行内容
- 111
-+11
-\ No newline at end of file
-(END)
-</code></pre>
-<h3 id="git-%E6%96%87%E4%BB%B6%E5%A4%B9">.git 文件夹</h3>
-<p>初始化操作会生成 git 隐藏文件夹。在 .git 中使用 'watch -n 1 -d find .' 定时查看目录内容变化。此外在项目根目录也可以使用 'tree .git' 查看文件夹结构。</p>
-<pre><code class="language-shell"># command not found 解决
-# Homebrew 安装监视命令
-brew install watch
-# Homebrew 安装 tree 命令
-brew install tree
-</code></pre>
-<ul>
-<li>config 文件</li>
-</ul>
-<pre><code class="language-shell"># config —— 本地的项目配置选项(全局的配置文件在用户目录下 cat ~/.gitconfig)
-[core]
-	repositoryformatversion = 0
-    # 文件权限的修改是否为差异.值为 true 则 git 把文件权限也算作文件差异
-	filemode = true
-    # 裸仓库,使用 --bare 参数初始化的仓库一般称之为裸仓库.因为这样创建的仓库并不包含工作区,也就是说不能在这个目录下执行一般使用的 Git 命令
-	bare = false
-    # 日志引用更新
-	logallrefupdates = true
-    # 忽略文件的大小写
-	ignorecase = true
-    # 预组合 Unicode 常用于安全性认证
-	precomposeunicode = true
-</code></pre>
-<p>在 config 文件中不配置 user info 会默认选择全局的用户信息。如果在文件夹进行 user.name 以及 user.email 配置则会使 config 文件中多出 [user] 的信息，此外代码仓库会优先选择本地文件中 local 的配置。</p>
-<pre><code class="language-shell"># 配置 local user info
-git config user.name "zyy"
-git config user.email "zy@zs.com"
-git config -l # 查看
-cat .git/config
-</code></pre>
-<ul>
-<li>refs 与 HEAD</li>
-</ul>
-<p>HEAD 文件永远<u>存储当前工作区的分支，且永远指向最新的 commit</u>。所谓的 Master 分支也就是一个 40 个字节的档案。如果切换分支，那么再执行 'cat .git/HEAD' ，其内容会发生改变。HEAD 的內容也会变成 'refs/heads/切换的分支'。但值得一提的是 HEAD 也不一定总是会指向某个分支，当 HEAD 没有指向某个分支的时候会造成「detached HEAD」的状态。</p>
-<pre><code class="language-shell">cat refs/heads/master # 最新的 commit 分支
-8c9588c5965a18bd89ccc3f7006a03cb0a0a463b
-cat HEAD
-ref: refs/heads/master
-</code></pre>
-<ul>
-<li>objects 文件夹与 index</li>
-</ul>
-<p>在代码仓库创建修改文件时，.git 文件夹中内容不会发生变化，即工作区内容不会被 git 所管理。但是能被状态识别。想要通过 git 进行管理需要使用添加命令 'git add' 将内容提交至缓存区（索引区或 stage area）。index 是一个索引文件，当执行添加后，文件就会存入 objects 里，并使用索引进行定位，后续执行 commit，那么提交的是当前索引 index 里的内容，而不是工作目录中的内容，同时 objects 中会新增 commit type 以及 tree type 对象。commit type 里引用的 tree type 对象包含本次 commit 的 blob 对象。objects 的优势在于若 add 的两个文件内容一致，只会新增一个文件。</p>
-<pre><code class="language-shell">echo "something"&gt; README.md # 创建修改文件
-# 查看当前文件状态
-git status # 当前状态 untracked
-# 交至缓存区
-git add README.md
-# 查看 Objects 的文件类型
-git cat-file -t 6位 SHA1 哈希值 # blob 表示对象 Objects 的类型是用来存储文件内容的
-# 查看具体 Objects 的内容
-git cat-file -p 6位 SHA1 哈希值 # 通常是提交文件的具体内容
-# 查看具体 Objects 的大小
-git cat-file -s 6位 SHA1 哈希值
-# 列出目录中文件(每当状态改变其 hash 值都会改变)
-git ls-files -s # 权限 哈希值 文件名
-</code></pre>
-<p>哈希算法(Hash)又称摘要算法(Digest)，作用是对任意一组输入数据进行计算，得到一个固定长度的输出。</p>
-<table>
-    <thead>
-        <tr><th> 算法 </th><th> 输出长度（位） </th><th> 输出长度（字节） </th></tr>
-    </thead>
-    <tbody>
-        <tr><td> MD5 </td><td> 128 bits </td><td> 16 bytes </td></tr>
-        <tr><td> SHA-1 </td><td> 160 bits </td><td> 20 bytes </td></tr>
-        <tr><td> RipeMD-160 </td><td> 160 bits </td><td> 20 bytes </td></tr>
-        <tr><td> SHA-256 </td><td> 256 bits </td><td> 32 bytes </td></tr>
-        <tr><td> SHA-512 </td><td> 512 bits </td><td> 64 bytes </td></tr>
-    </tbody>
-</table><h2 id="%E8%BF%9C%E7%A8%8B-repo">远程 repo</h2>
-<p>在与远程 repo 建立链接后，除了 config 中出现远程相关配置外，其他配置不会改变直到提交的时刻。</p>
-<pre><code class="language-shell">// config 增加
-[remote "origin"]
-	url = git@github.com:Zairesinatra/gittest.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
-[branch "main"]
-	remote = origin
-	merge = refs/heads/main
-</code></pre>
-<p>进行提交操作后，可以通过 'tree .git' 发现 directories 以及 files 增加目录、文件。在 refs 以及 logs 中会增加 remotes 以及 origin 的目录，对应的在 origin 中会存在 master or main 文件。此时通过 'cat .git/refs/remotes/origin/main' 以及 'cat .git/refs/heads/main' 可以发现这两者是相同的 commit 类型对象。即本地的 main 分支与远程的 main 分支为同步的。若通过修改文件再执行 commit 操作，则 main 分支会领先 origin 分支一次提交，此时通过 push 进行同步。</p>
+<blockquote>
+<p>If we want to keep changes made with a detached HEAD, we just create a new branch and switch to it. We can create it right after arriving at a detached HEAD or after creating one or more commits.</p>
+</blockquote>
+<p>如果在 detached HEAD state 有进行实验性的修改，且有保留这些操作的需求时，可以通过新分支来实现，即使用 <code>git switch -c &lt;new_branch_name&gt;</code> 或 <code>git checkout -b &lt;new_branch_name&gt;</code>。</p>
+<p>使用上述命令的原因是 detached HEAD state 指向的是某个特定的提交，而不是任何分支。因此，为了保存这些更改，需要创建一个新的分支来指向这些提交，将这些更改保存下来。</p>
+<h3 id="remote-repo">Remote Repo</h3>
+<p>连接后，<code>.git/config</code> 中会出现额外的配置，如 <code>[remote "origin"]</code> 与 <code>[branch "main"]</code>。在 refs 以及 logs 中会增加 remotes 以及 origin 目录，对应的在 origin 里会出现 master or main 文件。</p>
+<p>经 <code>cat .git/refs/remotes/origin/main</code> 和 <code>cat .git/refs/heads/main</code> 可验证两者是相同的 commit 类型对象。即本地的 main 分支与远程的 main 分支为同步的。若在修改文件后再执行 commit 操作，则 main 分支会领先 origin 分支一次提交，此时通过 <code>push</code> 进行同步。</p>
 <pre><code class="language-shell">$ cat .git/refs/remotes/origin/main
 8c9588c5965a18bd89ccc3f7006a03cb0a0a463b
 $ git cat-file -t 8c9588
 commit
 $ cat .git/refs/heads/main
 8c9588c5965a18bd89ccc3f7006a03cb0a0a463b
-$ git add file
-$ git commit -m "addfile1"
-main 5a98647] addfile1
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 file.txt
-$ git log
-commit 5a986476d1f7245ded472c2e1074fe00fd1eb5bb (HEAD -&gt; main)
-Author:
-Date:
-
-    addfile1
-
-commit 8c9588c5965a18bd89ccc3f7006a03cb0a0a463b (origin/main, tmp)
-Author: zszszszs &lt;zszyzy@gmail.com&gt;
-Date:   Fri Sep 17 02:58:03 2021 +0800
-
-    ctx
-$ git branch -r # 查看远程仓库
-$ tree .git
-...
-│   ├── info
-│   └── pack
-└── refs
-    ├── heads
-    │   └── main
-    ├── remotes
-    │   └── origin
-    │       └── main
-    └── tags
-$ git remote # 显示远程仓库名
-$ git remote -v # 打印远程仓库 fetch 与 push 的url
-$ git remote show origin # 检查远程分支与本地分支关联情况
-# 此时远程的master代码存在更新
-$ more .git/refs/remotes/origin/main # 未 fetch 前本地master的最新 commit 不会变化
-435245397979f64d929d29a0bf1572a6ee14e4ec
-$ git fetch # 同步远程分支代码
-Enter passphrase for key '/Users/xieziyi/.ssh/id_rsa':
-remote: Enumerating objects: 5, done.
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (3/3), 658 bytes | 164.00 KiB/s, done.
-From github.com:
-   4352453..4c033c4  main       -&gt; origin/main
-$ more .git/refs/remotes/origin/main # fetch 后本地 master 的最新 commit 变化
-4c033c40e0982de4b403ad9018d5a8fd625b3f9a
-# 当远程仓库删除或创建分支
-git remote show origin # 连接网络查看远程仓库情况
-Enter passphrase for key '/Users/xieziyi/.ssh/id_rsa':
-* remote origin
-  Fetch URL: git@github.com:xx.git
-  Push  URL: git@github.com:xx.git
-  HEAD branch: main
-  Remote branches:
-    dev  new (next fetch will store in remotes/origin) # 未追踪
-    main tracked
-  Local branch configured for 'git pull':
-    main merges with remote main
-  Local ref configured for 'git push':
-    main pushes to main (local out of date)
-$ git fetch
-Enter passphrase for key 'xx':
-From github.com:xx
- * [new branch]      dev        -&gt; origin/dev
-git remote show origin
-Enter passphrase for key '/Users/xieziyi/.ssh/id_rsa':
-* remote origin
-  Fetch URL: git@github.com:xx.git
-  Push  URL: git@github.com:xx.git
-  HEAD branch: main
-  Remote branches:
-    dev  tracked
-    main tracked
-  Local branch configured for 'git pull':
-    main merges with remote main
-  Local ref configured for 'git push':
-    main pushes to main (local out of date)
-$ git branch -r
-origin/dev
-origin/main
-# 删除远程分支操作
-# 本地依然存在分支,且不能通过 git fetch 去将本地的分支去除
-$ git branch -r
-origin/dev
-origin/main
-$ git remote show origin
-Enter passphrase for key '/Users/xieziyi/.ssh/id_rsa':
-* remote origin
-  Fetch URL: git@github.com:xx.git
-  Push  URL: git@github.com:xx.git
-  HEAD branch: main
-  Remote branches:
-    main                    tracked
-    # 存在分支过期
-    refs/remotes/origin/dev stale (use 'git remote prune' to remove)
-  Local branch configured for 'git pull':
-    main merges with remote main
-  Local ref configured for 'git push':
-    main pushes to main (local out of date)
-$ git remote prune # 修剪分支;也可以使用 git fetch --prune
-Enter passphrase for key 'xx':
-From github.com:xx
- - [deleted]         (none)     -&gt; origin/dev
-$ tree .git # dev相关分支没有了
-# 在本地创建的分支与远程分支若分别创建则不会有联系
-$ git branch -vv # 查看与远程仓库链接情况
-dev  4352453 1 # 并未与远程分支关联
-main 4352453 [origin/main: behind 1] 1 # 中括号表示和远程origin/main关联且落后
-# 远程分支与本地分支其实不是直接对应,git fetch可以同步远程与本地代码,但是 git fetch 不能同步本地分支
-$ git checkout main
-Switched to branch 'main'
-# 分支落后提示
-Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
-  (use "git pull" to update your local branch)
-# 将 origin/main 内容 merge 到本地的 main
-$ git merge origin/main
-Updating 4352453..4c033c4
-Fast-forward
- 1.txt | 1 +
- 1 file changed, 1 insertion(+)
-$ git branch -vv
-dev  4352453 1
-* main 4c033c4 [origin/main] Update 1.txt # 当前main与远程同步
 </code></pre>
-<h2 id="git-%E5%AF%B9%E8%B1%A1%E5%8E%8B%E7%BC%A9">Git 对象压缩</h2>
-<p>Git 对象压缩主要指 blob 对象，因为文件内容存储在 blob 对象中。blob 存储的文件并不是文件内容本身而是文件内容的压缩。在执行 'git add ' 操作后使得 objects 中对应的文件体积缩小。尽管如此，每一次通过 'commit' 修改内容，Git 还是会累积存储整个对象的压缩。在通过 'git gc' 清理优化后, pack 文件夹生成于 .git/objects 目录中，其中包含 .idx 与 .pack 两个文件。通过查看 pack 夹中内容的大小可知，压缩的主要信息存储在 .pack 文件中。通过索引文件(.idx)，Git 可以快速定位在 .pack 中被压缩的对象 —— 尽管对象被压缩，还是可以通过日志命令查询到目标对象信息，这也是索引文件提供的定位信息能力。对象压缩的作用在于本地仓库于远程仓库交互时，若远程仓库较大，进行克隆时 Git 为提高传输效率传输到本地的都是压缩对象。那么从 Git 上传输本地的 pack 文件可以通过 unpack 命令解压，但是注意不能放在 objects 目录下解压。</p>
+<h3 id="object-compaction-garbage-cleanup">Object Compaction &amp; Garbage Cleanup</h3>
+<p>在 Git 中，文件内容存储在 blob 对象，而 Git 对象压缩主要指 blob 对象的压缩。在执行 <code>git add</code> 操作后，Git 会将新增的文件保存为 blob 对象并将其压缩，从而使得 <code>.git/objects</code> 目录中对应的文件体积缩小。</p>
+<p>但每一次通过 commit 修改内容后，Git 仍然会累积存储整个对象的压缩版本，因为每个 commit 都是一个新的对象，无法复用之前的 blob 对象。为了优化存储，Git 通过 <code>git gc</code> 命令对不再被引用的对象进行清理和压缩，从而生成 <code>.pack</code> 和 <code>.idx</code> 两个文件，这些文件包含了压缩后的 Git 对象和索引信息，用于加速 Git 的读取和查询操作。在传输到远程仓库时，Git 会将这些压缩后的对象传输到本地，以提高传输效率。使用 <code>unpack</code> 命令可以将这些 <code>pack</code> 文件解压，但是需要注意不能将其放在 objects 目录下解压，以免与现有的对象发生冲突。</p>
 <pre><code class="language-shell"># 人类可读性查看文件夹空间使用
 $ du -h
 #  清理不必要的文件并优化本地存储库
@@ -1482,8 +1280,9 @@ mv .git/objects/pack/pack-xxx.pack .git/
 git unpack-objects &lt; .git/pack-xxx.pack
 du -sh .git/objetcs # ??G
 </code></pre>
-<h2 id="%E5%9E%83%E5%9C%BE%E5%AF%B9%E8%B1%A1%E6%B8%85%E7%90%86">垃圾对象清理</h2>
-<p>一个文件提交一次通常产生三个对象，'commit'、'tree' 和 'blob'。但是多次修改会产生中间状态的 blob 对象残余，可以认为这些就是垃圾对象。在使用 'git gc' 生成 pack 文件夹后，垃圾对象会存留在 .git/objects 中。此时可以通过 'git prune' 修剪残余。但是这里存在一个特殊场景，若一个分支提交改动后，未通过合并 merge 却强制删除该分支，就会存在余留的文件在 .git/objects 中。这里的余留的文件只与删除的分支相关，属于垃圾对象。这个垃圾对象存在的机制就是可以通过 commit 与 checkout 找回删除的分支。但是此处的垃圾对象使用 'git prune' 无法删除，而且会被 'git gc' 压入干净的 pack 文件，并且 'git fsck' 也不会将其视为悬空的对象。<a href="https://stackoverflow.com/questions/3797907/how-to-remove-unused-objects-from-a-git-repository">此时可以参考SOF的解决方案</a>。</p>
+<p>文件的提交通常会产生三种对象，commit、tree 和 blob。但是多次修改会产生中间状态的 blob 对象残余，这些未被引用的对象就是垃圾对象，可使用 <code>git gc</code> 对其进行清理和压缩，以节省磁盘空间。</p>
+<p>使用 <code>git gc</code> 生成 pack 文件夹后，垃圾对象会存留在 <code>.git/objects</code> 目录中，可通过 <code>git prune</code> 修剪残余。</p>
+<p>这里存在一个特殊的场景：当一个分支提交了改动，未经过合并就被强制删除，那么就会留下未被引用的文件在 <code>.git/objects</code> 目录。这些垃圾对象只与被删除的分支相关，可以通过一些命令来找回删除的分支。但是，这些垃圾对象使用 <code>git prune</code> 是无法删除的，而且它们会被 <code>git gc</code> 压入 pack 文件中，这会占用更多的磁盘空间。此时可以参考一些解决方案，如使用 <code>git reflog</code> 命令来找回被删除的分支，或使用第三方工具如 BFG Repo-Cleaner 来清理未被引用的对象。<a href="https://stackoverflow.com/questions/3797907/how-to-remove-unused-objects-from-a-git-repository">SOF的解决方案</a>。</p>
 <pre><code class="language-shell">git -c gc.reflogExpire=0 -c gc.reflogExpireUnreachable=0 \
   -c gc.rerereresolved=0 -c gc.rerereunresolved=0 \
   -c gc.pruneExpire=now gc "$@"
@@ -1527,55 +1326,33 @@ $ tree .git/objects
 
 2 directories, 4 files
 </code></pre>
-<h2 id="%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6-git-merge">分支合并 Git Merge</h2>
-<ul>
-<li>Fast Forward</li>
-</ul>
-<p>通过当前 HEAD 指针指向的 master 分支（master 分支指向 c1 这次 commit）创建新分支 ff，并执行一次 commit（此时 ff 分支指向 c2，c2 分支的 parent 是 c1）。与此同时想将当前分支 ff merge 到 c1 ，可以通过切回 master 分支后执行 'git merge ff' 完成。实际上 Git 是将 master 指向的 commit 从 c1 更改为 c2。Fast Forward 的前提是从创建分支到合并分支，master 都未发生改变。</p>
-<pre><code class="language-shell">$ git init
-$ echo "c1"&gt;c1.txt
-$ git add . &amp;&amp; git commit -m "c1"
-$ git checkout -b c2
-$ git log
-commit f7c6966f24995619b802c6020525f22af7536ea4 (HEAD -&gt; c2, master)
-Author: zszszs &lt;zszszy@gmail.com&gt;
-Date:   -
-
-    c1
-$ git checkout -b c2
-$ echo "c2"&gt;c2.txt
-$ git add . &amp;&amp; git commit -m "c2"
-$ git log # 此时 c2 分支超前 c1 分支一次提交,且 HEAD 指向 c2
-commit 15e040fed9ae0f1f2e1a9a0079022142cad159d2 (HEAD -&gt; c2)
-Author: zszszs &lt;zszszy@gmail.com&gt;
-Date:   -
-
-    c2
-
-commit f7c6966f24995619b802c6020525f22af7536ea4 (master)
-Author: zszszs &lt;zszszy@gmail.com&gt;
-Date:   -
-
-    c1
-$ tree .git # 18 directories, 31 files
-$ git checkout master &amp;&amp; git merge c2
-Updating f7c6966..15e040f # master指针从此前的f7c6966指向现在的15e040f的commit对象
-Fast-forward
- c2.txt | 1 +
- 1 file changed, 1 insertion(+)
- create mode 100644 c2.txt
-$ tree .git # 18 directories, 32 files 
-# 多了一个ORIG_HEAD文件,是当前 HEAD 的之前状态 =&gt; 也就是说 HEAD 为 15e040f, ORIG_HEAD 为 f7c6966
-$ cat .git/ORIG_HEAD
-f7c6966f24995619b802c6020525f22af7536ea4
-$ cat .git/refs/heads/master
-15e040fed9ae0f1f2e1a9a0079022142cad159d2
-# ORIG_HEAD 通常用作回滚操作
-$ git reset ORIG_HEAD # 将最新一次 commit 删除, 回滚到 c1 状态,即 f7c6966
+<h3 id="git-hooks">Git Hooks</h3>
+<p>在 Git Hooks 中，示例 Hook 脚本的文件名一般以 <code>.sample</code> 结尾，这是为了方便用户自定义脚本而提供的示例文件。当需要使用这些示例 Hook 脚本时，应将其复制到对应的 Git Hooks 目录下，并移除文件名中的 <code>.sample</code> 后缀，使其成为可执行的 Hook 脚本。</p>
+<p>举个例子，假设需要使用示例的 <code>pre-commit.sample</code> Hook 脚本。可以执行以下命令将其复制到项目的 <code>.git/hooks/</code> 目录下，并移除文件名中的 <code>.sample</code> 后缀。</p>
+<pre><code class="language-shell">cp .git/hooks/pre-commit.sample .git/hooks/pre-commit
 </code></pre>
-<ul>
-<li>3 way merge</li>
-</ul>
+<p>注意，应该保证 <code>pre-commit</code> 文件是可执行的，即可执行 <code>chmod +x .git/hooks/pre-commit</code>。</p>
+<p><a href="https://www.npmjs.com/package/pre-commit">pre-commit</a>是一个可以帮助 JavaScript 生成提交前测试的开发包。</p>
+<h2 id="branch-management">Branch Management</h2>
+<h3 id="merge-strategies-in-git">Merge Strategies in Git</h3>
+<blockquote>
+<p>Fast forward merge can be performed when there is a direct linear path from the source branch to the target branch.</p>
+</blockquote>
+<p>快进合并通常是指从当前分支到目标分支存在一个直线路径的情况。在这种情况下，若想要将当前分支合并到目标分支，Git 会自动将当前分支的 HEAD 指向目标分支的最新提交。快进合并不会产生额外的提交，也不会更改分支历史记录中的顺序。</p>
+<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1680194972/Ghost/Git/Excalidraw/fast-forward_z3nlen.png" alt="fast-forward" width="1530" height="513" layout="responsive"></amp-img></p>
+<pre><code class="language-shell">$ git checkout master &amp;&amp; git merge &lt;feature&gt;
+</code></pre>
+<blockquote>
+<p>In Recursive merge, after you branch and make some commits, there're some new original commits on the 'master' or 'main'. When it is time to merge, git recurses over the branch and creates a new merge commit.</p>
+</blockquote>
+<p>测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测</p>
+<p>本质上，Recursive Merge 就是一种 Three-Way Merge。</p>
+<p>递归合并是 Git 在进行多个分支合并时所采用的默认策略。首先执行两个分支的 3-way merge 操作，然后再将合并后的结果与另外一个分支进行 3-way merge 操作，依此类推，直到合并所有的分支。</p>
+<p>3-way merge 使用三个版本的文件来合并分支，即合并基础 base、当前分支 head 和目标分支 merge。它首先找到这三个版本的最近共同祖先，然后将这三个版本的差异应用于最近共同祖先上，生成一个新的合并结果。</p>
+<p>递归合并是对两个分支进行合并时所采取的默认策略，对于超过两个分支的合并，通常需要反复地进行两两合并，才能最终完成所有的分支合并（这也是 Recursive 名字的由来）。本质上，Recursive 就是一种 Three-Way Merge。</p>
+<p>递归合并是 Git 中一种特殊的 three-way merge，用于处理多个分支之间的合并。当您在一个分支中合并两个以上的分支时，Git 会自动执行递归合并。它使用两个父提交的 3-way merge，再将结果与第三个提交进行合并，以创建新的合并提交。</p>
+<p>与标准 3-way merge 不同，递归合并会同时考虑多个分支的修改。这通常用于大型项目的合并，其中多个开发人员同时工作，他们可能在同一文件的不同部分进行修改。递归合并能够自动处理这些不同的修改，并将它们合并到一个新的提交中。</p>
+<p>递归合并通常比标准的 3-way merge 更复杂，因为它需要考虑多个分支的修改。这也意味着在处理合并冲突时可能需要更多的人工干预。然而，它对于大型项目的合并来说是非常有用的，并且可以节省大量的时间和精力。</p>
 <p>当前 master 所在分支有一个最新的 commit 分支为 c1，基于 c1 创建新的分支 c2，并进行一次提交 commit，同时 master 分支有所更新并进行了 commit 操作指向 c3。当再通过回到 master 分支进行合并操作时，会产生一次新 merge commit 的 c4。且 c4 有两个 parent，一个为 c3 的 commit 与 c2 的 commit。</p>
 <pre><code class="language-shell">$ echo "c1"&gt;c1.txt
 $ git add . &amp;&amp; git commit -m "c1"
@@ -1984,9 +1761,6 @@ Branch 'no' set up to track remote branch 'no' from 'origin'. # 与远程仓库�
 # git push --set-upstream origin 远程仓库名 =简写=&gt; git push -u origin 远程仓库名
 $ git push origin -d 远程仓库名 # 删除远程仓库
 </code></pre>
-<h2 id="git-hooks">Git Hooks</h2>
-<p>Git 可以在发生某些重要操作时触发自定义脚本，即 hooks。这些 hooks 分为客户端和服务器端 hook。VSCode 在设置 -&gt; exclude -&gt; 移除 .git 隐藏限制。Hooks 中带 .sample 结尾的各种 hook 需要在删除后缀时生效。</p>
-<p><a href="https://www.npmjs.com/package/pre-commit">pre-commit</a>是一个可以帮助 JavaScript 生成提交前测试的开发包。</p>
 <h2 id="bugs-fix">Bugs Fix</h2>
 <ul>
 <li>
@@ -2032,14 +1806,9 @@ git pull origin master --allow-unrelated-histories
 </li>
 </ul>
 <p>使用 <code>git push --force</code> 时出现授权失败的问题。原因是从 2021-08-14 之后，使用 git 对 github 进行身份验证操作不再接受使用账号密码形式 clone 和 push 代码，而是需要 acces_token 进行验证。在更新 acces_token 后由于提交验证的重置，使用 <code>git push</code> 的方式进行提交验证身份。</p>
-<h2>脑图总结<h2>
-<amp-iframe id="embed_dom" frameborder="0" src="https://www.processon.com/embed/61439cc6e0b34d66cf84d068" sandbox="allow-scripts allow-same-origin" width="600" height="400" layout="responsive"></amp-iframe><h2 id="%E6%8E%A8%E8%8D%90%E5%8F%82%E8%80%83">推荐参考</h2>
-<p><a href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1">dev blog by lydiahallie</a></p>
-<p><a href="https://git-scm.com/book/en/v2">GitBook</a></p>
-<p><a href="https://space.bilibili.com/364122352?spm_id_from=333.788.b_765f7570696e666f.2">麦兜 Git 系列</a></p>
-<h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://git-scm.com/book/zh/v2"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Git - Book</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://git-scm.com/favicon.ico" alt width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">Book</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://git-scm.com/images/progit2.png" alt width="500" height="660" layout="responsive"></amp-img></div></a><figcaption>Git Book</figcaption></figure><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1"><div class="kg-bookmark-content"><div class="kg-bookmark-title">🌳🚀 CS Visualized: Useful Git Commands</div><div class="kg-bookmark-description">Although Git is a very powerful tool, I think most people would agree when I say it can also be... a...</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://res.cloudinary.com/practicaldev/image/fetch/s--t7tVouP9--/c_limit,f_png,fl_progressive,q_80,w_192/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/devlogo-pwa-512.png" alt width="192" height="192" layout="fixed"></amp-img><span class="kg-bookmark-author">DEV Community</span><span class="kg-bookmark-publisher">Lydia Hallie</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://res.cloudinary.com/practicaldev/image/fetch/s--BkR3VoXZ--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/rixan4h4z8y94eq89som.png" alt width="1000" height="500" layout="responsive"></amp-img></div></a><figcaption><a href="https://dev.to/lydiahallie">Lydia Hallie</a></figcaption></figure><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
-</h2></h2>
+
 
             </section>
 
