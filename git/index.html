@@ -25,7 +25,7 @@
     <meta property="og:url" content="https://zairesinatra.github.io//git/" />
     <meta property="og:image" content="https://zairesinatra.github.io//content/images/2021/09/githubbg.jpg" />
     <meta property="article:published_time" content="2020-07-18T14:02:00.000Z" />
-    <meta property="article:modified_time" content="2023-03-30T18:10:44.000Z" />
+    <meta property="article:modified_time" content="2023-03-31T21:44:25.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -71,7 +71,7 @@
     "headline": "Git",
     "url": "https://zairesinatra.github.io//git/",
     "datePublished": "2020-07-18T14:02:00.000Z",
-    "dateModified": "2023-03-30T18:10:44.000Z",
+    "dateModified": "2023-03-31T21:44:25.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://zairesinatra.github.io//content/images/2021/09/githubbg.jpg",
@@ -457,7 +457,7 @@ a.gh-head-button {
                 <h4 class="author-name"><a href="../author/ziyi/index.html">Ziyi Xie</a></h4>
                 <div class="byline-meta-content">
                     <time class="byline-meta-date" datetime="2020-07-18">Jul 18, 2020</time>
-                        <span class="byline-reading-time"><span class="bull">&bull;</span> 30 min read</span>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 27 min read</span>
                 </div>
             </div>
 
@@ -716,13 +716,21 @@ $ tree .git/objects
 
 2 directories, 4 files
 </code></pre>
-<h3 id="git-hooks">Git Hooks</h3>
+<h3 id="hooks">Hooks</h3>
 <p>在 Git Hooks 中，示例 Hook 脚本的文件名一般以 <code>.sample</code> 结尾，这是为了方便用户自定义脚本而提供的示例文件。当需要使用这些示例 Hook 脚本时，应将其复制到对应的 Git Hooks 目录下，并移除文件名中的 <code>.sample</code> 后缀，使其成为可执行的 Hook 脚本。</p>
 <p>举个例子，假设需要使用示例的 <code>pre-commit.sample</code> Hook 脚本。可以执行以下命令将其复制到项目的 <code>.git/hooks/</code> 目录下，并移除文件名中的 <code>.sample</code> 后缀。</p>
 <pre><code class="language-shell">cp .git/hooks/pre-commit.sample .git/hooks/pre-commit
 </code></pre>
 <p>注意，应该保证 <code>pre-commit</code> 文件是可执行的，即可执行 <code>chmod +x .git/hooks/pre-commit</code>。</p>
 <p><a href="https://www.npmjs.com/package/pre-commit">pre-commit</a>是一个可以帮助 JavaScript 生成提交前测试的开发包。</p>
+<h3 id="tagging">Tagging</h3>
+<p>标签是用来给某个特定的提交打上标记的一个引用，通常被用来标记某个版本的代码，便于在未来可以快速地找到某个特定的版本。标签分为两种类型：Lightweight Tag 和 Annotated Tag。</p>
+<p>轻量标签是一个指向某个提交的引用，本质上就是一个指向某个 commit SHA-1 值的指针，并不包含额外的信息。</p>
+<pre><code class="language-shell">git tag &lt;tag_name&gt; &lt;commit_SHA&gt;
+</code></pre>
+<p>附注标签是一个包含额外信息的标签，除了指向某个提交，还包含了标签的创建者、创建时间、标签说明等信息。</p>
+<pre><code class="language-shell">git tag -a &lt;tag_name&gt; -m &quot;&lt;tag_message&gt;&quot; &lt;commit_SHA&gt;
+</code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="branch-management">Branch Management</h2>
 <h3 id="merge-strategies-in-git">Merge Strategies in Git</h3>
 <blockquote>
@@ -732,433 +740,89 @@ $ tree .git/objects
 <p><img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1680194972/Ghost/Git/Excalidraw/fast-forward_z3nlen.png" alt="fast-forward" loading="lazy"></p>
 <pre><code class="language-shell">$ git checkout master &amp;&amp; git merge &lt;feature&gt;
 </code></pre>
+<p>默认情况下 Git 的 <code>merge</code> 命令是不加选项的，既可以进行快进合并，也可以进行非快进合并。在使用 <code>--ff</code> 选项进行快进合并时，会直接丢失被合并分支的分支信息。</p>
+<p>如果想保留被合并分支的分支信息，可以考虑使用 No-fast-foward <code>--no-ff</code> 选项进行普通合并。<code>--no-ff</code> 不等同于三方合并，而是意味着无论源分支的历史记录是怎样的，Git 都将创建一个新的合并提交，以保留源分支和目标分支之间的区别。这样可以在合并后的提交中记录分支的历史信息。如果当前分支包含着其他分支没有的提交时，<code>git merge</code> 默认会使用 <code>--no-ff</code> 合并选项。</p>
 <blockquote>
 <p>In Recursive merge, after you branch and make some commits, there're some new original commits on the 'master' or 'main'. When it is time to merge, git recurses over the branch and creates a new merge commit.</p>
 </blockquote>
-<p>测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测</p>
-<p>本质上，Recursive Merge 就是一种 Three-Way Merge。</p>
 <p>递归合并是 Git 在进行多个分支合并时所采用的默认策略。首先执行两个分支的 3-way merge 操作，然后再将合并后的结果与另外一个分支进行 3-way merge 操作，依此类推，直到合并所有的分支。</p>
-<p>3-way merge 使用三个版本的文件来合并分支，即合并基础 base、当前分支 head 和目标分支 merge。它首先找到这三个版本的最近共同祖先，然后将这三个版本的差异应用于最近共同祖先上，生成一个新的合并结果。</p>
-<p>递归合并是对两个分支进行合并时所采取的默认策略，对于超过两个分支的合并，通常需要反复地进行两两合并，才能最终完成所有的分支合并（这也是 Recursive 名字的由来）。本质上，Recursive 就是一种 Three-Way Merge。</p>
-<p>递归合并是 Git 中一种特殊的 three-way merge，用于处理多个分支之间的合并。当您在一个分支中合并两个以上的分支时，Git 会自动执行递归合并。它使用两个父提交的 3-way merge，再将结果与第三个提交进行合并，以创建新的合并提交。</p>
-<p>与标准 3-way merge 不同，递归合并会同时考虑多个分支的修改。这通常用于大型项目的合并，其中多个开发人员同时工作，他们可能在同一文件的不同部分进行修改。递归合并能够自动处理这些不同的修改，并将它们合并到一个新的提交中。</p>
-<p>递归合并通常比标准的 3-way merge 更复杂，因为它需要考虑多个分支的修改。这也意味着在处理合并冲突时可能需要更多的人工干预。然而，它对于大型项目的合并来说是非常有用的，并且可以节省大量的时间和精力。</p>
-<p>当前 master 所在分支有一个最新的 commit 分支为 c1，基于 c1 创建新的分支 c2，并进行一次提交 commit，同时 master 分支有所更新并进行了 commit 操作指向 c3。当再通过回到 master 分支进行合并操作时，会产生一次新 merge commit 的 c4。且 c4 有两个 parent，一个为 c3 的 commit 与 c2 的 commit。</p>
-<pre><code class="language-shell">$ echo &quot;c1&quot;&gt;c1.txt
-$ git add . &amp;&amp; git commit -m &quot;c1&quot;
-[master (root-commit) 9122c92] c1
- 1 file changed, 1 insertion(+)
- create mode 100644 c1.txt
-$ git checkout -b c2 &amp;&amp; echo &quot;c2&quot;&gt;c2.txt
-$ git checkout master
-$ echo &quot;c3&quot;&gt;c3.txt &amp;&amp; git add . &amp;&amp; git commit -m &quot;c3&quot;
-[master 33a9447] c3
- 2 files changed, 2 insertions(+)
- create mode 100644 c2.txt
- create mode 100644 c3.txt
-$ git checkout c2 &amp;&amp; git add . &amp;&amp; git commit -m &quot;c2&quot;
-$ git checkout master &amp;&amp; git merge c2 # 进行确认操作
-$ git log
-$ git cat-file -p a714ae4
-tree fc88a9c9de3667ac068fa176bb960ed4b22c5d4a
-parent 33a944756abf9c080965484925dc6a499ec3118a # master前一次parent
-parent edeea19869d9b1081226260d5ae72488e0a93ddc # c2前一次parent
-
-Merge branch 'c2'
+<p>Three Way Merge 的实现基于三次不同的提交，即分支的共同祖先、Master / Main 分支与 Feature 分支。在找到这三个版本的最近共同祖先，然后将这三个版本的差异应用于最近共同祖先上，生成一个新的合并结果。这种策略可以避免因简单地将两个分支的代码直接合并而导致的冲突与错误。</p>
+<p><img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1680283477/Ghost/Git/Excalidraw/3-way-merge_wh5kgv.png" alt="3-way-merge" loading="lazy"></p>
+<p>如上图所示，共同祖先是 C3，即分支产生前的代码，Master 分支是在该分支上最后一次执行提交操作的 C6，Feature 分支是在该分支上最后一次执行提交的 C5。最后，Git 会创建新提交来合并更改。</p>
+<p>注意，Merge Conflict 问题通常会出现在 Three Way Merge 的过程中，此时需要手动解决冲突。</p>
+<blockquote>
+<p>Rebasing is a process to reapply commits on top of another base trip. It is used to apply a sequence of commits from distinct branches into a final commit.</p>
+</blockquote>
+<p>在使用 <code>git merge</code> 合并分支时，会产生一个新的合并提交，并将源分支的历史记录保留在一个单独的分支上。合并提交保留了分支的完整历史记录，但是会产生导致分支历史变得复杂。</p>
+<p>相比之下，<code>git rebase</code> 会将源分支上的每个提交重新设置到目标分支的最新提交之后，从而形成一条更线性的提交历史。这种合并方式被称为变基。变基可以保持提交历史的线性，并使得分支历史变得更加清晰。</p>
+<p>在通过 <code>git merge</code> 或 <code>git rebase</code> 命令进行分支合并时，会对合并时的冲突解决策略进行指定：</p>
+<ul>
+<li><code>ours</code> 选择当前分支上的更改，而忽略其他分支上的更改</li>
+<li><code>theirs</code> 选择其他分支上的更改，而忽略当前分支上的更改</li>
+<li><code>xours</code> 发生冲突时选择当前分支上的更改；不冲突时仍然选择其他分支上的更改</li>
+<li><code>xtheirs</code> 发生冲突时选择其他分支上的更改，不冲突的情况下仍然选择当前分支上的更改</li>
+</ul>
+<p>例如，命令 <code>git merge -s ours</code> 会忽略其他分支的更改，直接使用当前分支的内容作为合并结果。</p>
+<blockquote>
+<p>Octopus Merge strategy resolves cases with more than two heads but refuses to do a complex merge that needs manual resolution. It is primarily meant to be used for bundling topic branch heads together. This is one of the merge strategies that Git can use when pulling or merging more than one branch.</p>
+</blockquote>
+<p>Octopus Merge 策略用于合并包含两个以上头的情况，但是不会做需要手动解决的复杂合并。主要用于将主题分支头捆绑在一起。这是 Git 在拉取或合并多个分支时可以使用的合并策略之一。</p>
+<pre><code class="language-shell">$ git merge -s octopus
 </code></pre>
-<p><img src="https://zairesinatra.github.io//content/images/2021/09/3waymerge1-1.png" alt="3waymerge1-1" loading="lazy"></p>
-<p>在合并操作时，若修改了同一个文件内容，Git 不能自动进行 merge commmit 操作。需要手动解决 Merge conflict 问题。</p>
-<pre><code class="language-shell">$ echo &quot;c1&quot;&gt;c1.txt &amp;&amp; git add . &amp;&amp; git commit -m &quot;c1&quot;
-[master (root-commit) 88a1c7c] c1
- 1 file changed, 1 insertion(+)
- create mode 100644 c1.txt
-$ git checkout -b c2 &amp;&amp; vim c1.txt &amp;&amp; git add . &amp;&amp; git commit -m &quot;c2&quot;
-[c2 9ac22d2] c2
- 1 file changed, 1 insertion(+)
-$ git checkout master &amp;&amp; vim c1.txt &amp;&amp; git add . &amp;&amp; git commit -m &quot;c3&quot;
-[master efccf84] c3
- 1 file changed, 1 insertion(+)
-$ tree .git
-.git
-├── COMMIT_EDITMSG
-├── HEAD
-├── config
-├── description
-├── hooks
-│   ├── applypatch-msg.sample
-│   ├── commit-msg.sample
-│   ├── fsmonitor-watchman.sample
-│   ├── post-update.sample
-│   ├── pre-applypatch.sample
-│   ├── pre-commit.sample
-│   ├── pre-merge-commit.sample
-│   ├── pre-push.sample
-│   ├── pre-rebase.sample
-│   ├── pre-receive.sample
-│   ├── prepare-commit-msg.sample
-│   ├── push-to-checkout.sample
-│   └── update.sample
-├── index
-├── info
-│   └── exclude
-├── logs
-│   ├── HEAD
-│   └── refs
-│       └── heads
-│           ├── c2
-│           └── master
-├── objects
-│   ├── 10
-│   │   └── 8ca45bd135d8f680516b10afb1613ef70c578c
-│   ├── 16
-│   │   └── ce22e1889103213f8d35f9481f7dbeb6283918
-│   ├── 60
-│   │   └── c9e82c319059addb81b6b66205f158b70dc942
-│   ├── 83
-│   │   └── 5da11381dee94c71a04164cdaa533d0673e4e5
-│   ├── 88
-│   │   └── a1c7c211171ec6656d845442bdd724b8e266b0
-│   ├── 9a
-│   │   └── c22d2b7f0fa383126790b26e6214e925d39087
-│   ├── ae
-│   │   └── 9304576a6ec3419b231b2b9c8e33a06f97f9fb
-│   ├── df
-│   │   └── b7794bb61ad9a514620eb2a3c1b74e0d8dde31
-│   ├── ef
-│   │   └── ccf84918c54849121a77da36149fe2b95a14a8
-│   ├── info
-│   └── pack
-└── refs
-    ├── heads
-    │   ├── c2
-    │   └── master
-    └── tags
-
-20 directories, 33 files
-$ git ls-files -s
-100644 16ce22e1889103213f8d35f9481f7dbeb6283918 0	c1.txt
-$ git merge c2
-Auto-merging c1.txt
-CONFLICT (content): Merge conflict in c1.txt
-Automatic merge failed; fix conflicts and then commit the result.
-$ git status
-On branch master
-You have unmerged paths.
-  (fix conflicts and run &quot;git commit&quot;)
-  (use &quot;git merge --abort&quot; to abort the merge)
-
-Unmerged paths:
-  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
-	both modified:   c1.txt
-
-no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
-$ cat c1.txt
-c1
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-add from master
-=======
-add from 'c2'
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; c2
-$ git ls-files -s
-100644 ae9304576a6ec3419b231b2b9c8e33a06f97f9fb 1	c1.txt
-100644 16ce22e1889103213f8d35f9481f7dbeb6283918 2	c1.txt
-100644 dfb7794bb61ad9a514620eb2a3c1b74e0d8dde31 3	c1.txt
-$ git cat-file -p ae9304576
-c1
-$ git cat-file -p 16ce22e18
-c1
-add from master
-$ git cat-file -p dfb7794bb
-c1
-add from 'c2'
-$ vim c1.txt
-$ git add .
-$ git ls-files -s
-100644 e64e3ee53068082c7f0b367df587a7fa9a9873ca 0	c1.txt
-$ git commit # 不需要加message,存在一个commit等待执行
-[master d959a3b] Merge branch 'c2'
-$ git cat-file -p d959a3b33
-tree 8d5f8aeb13335807a0fc0b073b103f5fd92231b8
-parent efccf84918c54849121a77da36149fe2b95a14a8
-parent 9ac22d2b7f0fa383126790b26e6214e925d39087
-
-Merge branch 'c2'
+<p>当需要将三个或以上的分支合并到一个分支中时，就可以使用该策略。比如现在有三个分支，每个分支都有不同的修改，并想要将这些修改合并到一个新的分支中。</p>
+<pre><code class="language-shell">git checkout -b new_branch
+git merge A B C
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="gitrebase">git --rebase</h2>
-<p>Fast-forward (--ff) 线性分支 commit 提交历史存在分支操作不清晰的缺点。<br>
-<img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676489351/Ghost/Git/fastforward_pe1p35.gif" alt="fastforward" loading="lazy"><br>
-No-fast-foward (--no-ff) 通常结构复杂。<br>
-<img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676489427/Ghost/Git/noff_i789pi.gif" alt="noff" loading="lazy"><br>
-实际开发中需要根据情况切换分支操作的提交方式，而 git --rebase 可以使分支拥有 master 的最新 commit，即有将 --no-ff 转换为 --ff 的能力。通过在非 master 分支进行 git --rebase 同步 master 分支的 commit，并重写非 master 分支的 commit（此时在非 master 分支上的所有 commit SHA1 哈希值会被重写，也会难免的发生冲突）。由此完成转换为 --ff 的前置条件。</p>
-<p>git --rebase 在使用上也是存在风险的。若在 rebase 操作之前已将非 master 分支 commit  push 到远程仓库，这时完成 rebase 再想 push 远程仓库会出现错误，虽然可以使用强制 push，但是依然可能存在对已拉取此非 master 分支完成的 commit push 操作的开发者造成影响。<br>
-<img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676489462/Ghost/Git/rebase_dok8gh.gif" alt="rebase" loading="lazy"></p>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="tags-operation">Tags Operation</h2>
-<p>创建标签时会在当前所在分支的最近一次 commit 为基准去创建。标签其实是一个指针，静态指向的就是创建 tag 时刻所在分支的最新 commit。标签主要用于发布版本的管理，版本发布之后可以为 Git 打上 v.1.0.1 v.1.0.2 …这样的标签。</p>
-<p><strong>Create tag:</strong><br>
-git tag &lt;tag name&gt; create a Lightweight tag (i.e. git tag v1.0)<br>
-git tag - a &lt;tag name＞ -m &lt;tag message&gt; create annotated tag that have all the associated meta-data (like email, date, etc.).(i.e. git tag - a v1.0 -m &quot;version 1.0&quot;)<br>
-git tag - a &lt;tag name＞ &lt;commit SHA1 value&gt; create annotated tag for an older commit (i.e. git tag - a v1.0 236elef5d755f6ea6894f8f46f36186190be7b92 )<br>
-<strong>List tags:</strong> git tag<br>
-<strong>Delete tags:</strong> git tag -d &lt;tag name&gt; (i.e. git tag - d v1.0)</p>
-<pre><code class="language-shell">$ echo &quot;c1&quot;&gt;c1.txt
-$ git add . &amp;&amp; git commit -m &quot;c1&quot; &amp;&amp; tree .git
-.git
-├── COMMIT_EDITMSG
-├── HEAD
-├── config
-├── description
-├── hooks
-│   ├── applypatch-msg.sample
-│   ├── commit-msg.sample
-│   ├── fsmonitor-watchman.sample
-│   ├── post-update.sample
-│   ├── pre-applypatch.sample
-│   ├── pre-commit.sample
-│   ├── pre-merge-commit.sample
-│   ├── pre-push.sample
-│   ├── pre-rebase.sample
-│   ├── pre-receive.sample
-│   ├── prepare-commit-msg.sample
-│   ├── push-to-checkout.sample
-│   └── update.sample
-├── index
-├── info
-│   └── exclude
-├── logs
-│   ├── HEAD
-│   └── refs
-│       └── heads
-│           └── master
-├── objects
-│   ├── 09
-│   │   └── 6f096ac50cd84bdb6c39d56e5dce0badcc4e86
-│   ├── 83
-│   │   └── 5da11381dee94c71a04164cdaa533d0673e4e5
-│   ├── ae
-│   │   └── 9304576a6ec3419b231b2b9c8e33a06f97f9fb
-│   ├── info
-│   └── pack
-└── refs
-    ├── heads
-    │   └── master
-    └── tags # 此时为空文件
-14 directories, 25 files
-$ git tag v1.0.0
-......
-    └── tags
-        └── v1.0.0
-
-14 directories, 26 files # 多一个文件
-$ cat .git/refs/tags/v1.0.0
-096f096ac50cd84bdb6c39d56e5dce0badcc4e86 # 指向当前分支commit
-$ git tag -d v1.0.0
-$ git tag v1.0.0 -m &quot;version v1.0.0&quot; # 增加一个目录(objects中标签对象),两个文件
-$ git cat-file -t 2f08782
-tag # git 中第四种objects
-$ git cat-file -p 2f08782
-object 096f096ac50cd84bdb6c39d56e5dce0badcc4e86
-type commit
-tag v1.0.0
-tagger zszszs &lt;zszszs@zy.com&gt; 1571954764 +0800
-
-version v1.0.0
-$ git tag -d v1.0.0 # tag 对象并不会被删除
-# 基于特定的 commit 创建tag
-$ git tag -a v1.0.0 ae9304 -m &quot;version 1&quot;
+<p>上述代码将创建一个新分支 <code>new_branch</code> 并使用 Octopus Merge 策略将 A、B 和 C 分支合并到新分支中。如果存在冲突，Git 会暂停合并，等待手动解决冲突。</p>
+<p>使用 <code>git add</code> 和 <code>git commit</code> 提交解决方案后，Git 会自动创建一个新提交包含所有分支的修改。</p>
+<blockquote>
+<p>Resolve strategy can only resolve two heads (i.e. the current branch and another branch you pulled from) using a 3-way merge algorithm. It tries to carefully detect criss-cross merge ambiguities and is considered generally safe and fast.&quot;</p>
+</blockquote>
+<pre><code class="language-shell">$ git merge -s resolve
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="git-fetch-git-pull">Git Fetch &amp; Git Pull</h2>
-<p>git pull 相当于 git fetch 加上 git merge origin/master 操作。从使用上若明确知道会产生冲突，则建议先 git fetch 拉取，再通过 git diff origin/master 查看区别后继续操作。</p>
-<pre><code class="language-shell"># git fetch
-# sb push a new commit to github
-                master                           master
-                  |                                 |
-aaaa &lt;- bbbb &lt;- cccc  =&gt;  aaaa &lt;- bbbb &lt;- cccc &lt;- dddd
-
----
-# use git fetch to sync remote master
-             origin/master                     origin/master
-                  |                                 |
-aaaa &lt;- bbbb &lt;- cccc  =&gt;  aaaa &lt;- bbbb &lt;- cccc &lt;- dddd
-                  |                         |
-                master                   master 
-
----
-# git merge origin/master(--ff)
-                    origin/master                   origin/master
-                         |                                 |
-aaaa &lt;- bbbb &lt;- cccc &lt;- dddd =&gt;  aaaa &lt;- bbbb &lt;- cccc &lt;- dddd
-                  |                                        |
-                master                                   master 
+<p>Resolve 策略是 <code>git merge</code> 的默认策略。这种自动合并使用 Three-Way Merge 算法来尝试着将两个分支的更改合并到一起。如果有冲突，则需要手动解决。</p>
+<blockquote>
+<p>Subtree  is a modified recursive strategy. When merging trees A and B, if B corresponds to a subtree of A, B is first adjusted to match the tree structure of A, instead of reading the trees at the same level. This adjustment is also done to the common ancestor tree.</p>
+</blockquote>
+<p>当想要将一个子项目的仓库合并到父项目的仓库中时，可以使用 Subtree Merge 策略。</p>
+<p>例如，有两个仓库，一个是父项目，一个是子项目。子项目中包含着一些可以被父项目重用的代码或文件。如果想要将子项目的内容合并到父项目，那么可以使用 Subtree Merge 策略。</p>
+<p>进入父项目的目录后执行以下命令，父项目的仓库中会包含一个指向子项目仓库的子模块，并且该子模块会在父项目的仓库中被记录下来，以便其他人在克隆父项目的仓库时也能同时克隆子项目的仓库。</p>
+<pre><code class="language-shell">git submodule add &lt;子项目仓库的 URL&gt; &lt;子模块的存放路径&gt;
+git add .
+git commit -m &quot;Add child submodule&quot;
 </code></pre>
-<pre><code class="language-shell"># 3waysmerge
-# 远程master被修改并commit
-# 本地代码如下
-$ vim 1.txt
-$ echo &quot;file3w&quot;&gt;file3w.txt
-$ git add . &amp;&amp; git commit -m &quot;超前当前master(未fetch最新master commit)一次commit&quot;
-[main 91a9193] 超前一次commit
- 2 files changed, 2 insertions(+)
- create mode 100644 file3w.txt
-$ git log # 可查看超前于未fetch 的 master
-$ git fetch
-Enter passphrase for key 'xx':
-remote: Enumerating objects: 5, done.
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (3/3), 659 bytes | 219.00 KiB/s, done.
-From github.com:xx
-   4c033c4..c8c91d0  main       -&gt; origin/main
-$ git log # 此时查看不到 remote/origin 因为出现分支
-$ git merge origin/main
-Auto-merging 1.txt
-CONFLICT (content): Merge conflict in 1.txt
-Automatic merge failed; fix conflicts and then commit the result.
-$ git diff
-diff --cc 1.txt
-index e491003,1c72fe9..0000000
---- a/1.txt
-+++ b/1.txt
-@@@ -3,4 -3,4 +3,8 @@@
-
-  111
-  修改1
-++&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
- +修改333way
-++=======
-+ 修改3w
-++&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main
-$ git branch -vv
-dev  4352453 1
-* main 91a9193 [origin/main: ahead 1, behind 1] 超前一次commit
-# 解决冲突后再提交
-$ git branch -vv
-dev  4352453 1
-* main eef9eea [origin/main: ahead 2] fixconflic
-$ git log
-commit eef9eea7ec3bfcf258acede9304bd2b1ae5cc975 (HEAD -&gt; main)
-Merge: 91a9193 c8c91d0
-    fixconflic
-
-commit 91a9193875b8f37e7e327adeca8db4952a25065d
-    超前一次commit
-
-commit c8c91d01f4eda40e09578f7b0720682e8c46d694 (origin/main)
-    Update 1.txt
-$ git push
-$ git log
-  dev  4352453 1
-* main eef9eea [origin/main] fixconflic # 本地远程完成同步
-$ git branch -vv
-dev  4352453 1
-* main eef9eea [origin/main] fixconflic
+<p>那么在执行以下命令后，可以将子项目的一个特定分支合并到父项目的当前分支中，并将子项目的历史记录合并成一个新的提交。这个新的提交包含了子项目的全部内容，但是不保留子项目的历史记录。最终，父项目的仓库中将包含子项目的内容，并且可以像使用普通的父项目的代码一样使用它们。</p>
+<pre><code class="language-shell">git merge -s subtree --squash &lt;branch&gt;
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="fetchhead">FETCH_HEAD</h2>
-<p>FETCH_HEAD 记录远程分支每个分支最新的 commit 对象。在哪一条分支执行 git fetch，在 FETCH_HEAD 中第一条为对应远程分支所在的最新 commit 对象。切换分支若不运行 git fetch，FETCH_HEAD 排序不会变化。</p>
-<p>若远程仓库修改其他分支文件，在本地 master 分支运行 git pull 只相当于 git fetch，但是 FETCH_HEAD 会存在变化，因为远程仓库修改其他分支发生了修改。</p>
-<pre><code class="language-shell"># 查看总分支情况
-$ git branch -a
-main
-  remotes/origin/HEAD -&gt; origin/main
-  remotes/origin/main
-$ git remote show origin
-Enter passphrase for key 'xx':
-* remote origin
-  Fetch URL: git@github.com:xx.git
-  Push  URL: git@github.com:xx.git
-  HEAD branch: main
-  Remote branch:
-    main tracked
-  Local branch configured for 'git pull':
-    main merges with remote main
-  Local ref configured for 'git push':
-    main pushes to main (up to date)
-# 此时在远程仓库新增文件,通过 git fetch 拉取本地通过 tree .git 查看多出 6 个文件
-# objects 新增三个文件;refs/remotes/origin/main;logs/refs/remotes/origin/main;FETCH_HEAD
-$ cat .git/FETCH_HEAD # 本质是远程分支提交的对象
-5bdb272f7317a44fbe9146c95b8273a3a41646b4		branch 'main' of github.com:xxx
-$ git fetch -v # 打印debug信息与其他内容
- = [up to date]      main       -&gt; origin/main # 最新同步
-</code></pre>
-<p>使用 git clone 将项目下载倘若远程仓库有多个分支，而使用 git branch 查看本地分支时只有一个 master 分支，可以通过 'git checkout -b branchName origin/branchName' 将远程的其他分支拉下来与本地仓库建立联系。</p>
-<pre><code class="language-shell">git checkout -b branchName origin/branchName
-git checkout -t origin/branchName
-</code></pre>
-<pre><code class="language-shell"># 远程仓库两个分支与本地仓库同步
-$ git branch -vv
-FHbranch 906f11e [origin/FHbranch] Create fh.txt
-  main     5bdb272 [origin/main] Create 2.txt
-$ git remote show origin
-* remote origin
-  Fetch URL: git@github.com:
-  Push  URL: git@github.com:
-  HEAD branch: main
-  Remote branches:
-    FHbranch tracked # tracked表示在本地有对应的分支
-    main     tracked
-  Local branches configured for 'git pull':
-    FHbranch merges with remote FHbranch
-    main     merges with remote main
-  Local refs configured for 'git push':
-    FHbranch pushes to FHbranch (up to date)
-    main     pushes to main     (up to date)
-# 在远程仓库进行更改
-$ tree .git # 15 directories, 30 files
-# 主分支 git pull 仅相当于 git fetch
-$ cat .git/FETCH_HEAD
-5bdb272f7317a44fbe9146c95b8273a3a41646b4		branch 'main' of github.com:xxx
-73b69468556da87fc7f181bc1424ff3a806c012f	not-for-merge	branch 'FHbranch' of github.com:
-$ git checkout FHbranch # 改动分支
-$ git pull -v # merge 在 FETCH_HEAD 排在前面的分支
-# 分支通过 POST 进行 commit 哈西对比
-remote: Enumerating objects: 5, done. # fetch 操作
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (3/3), 671 bytes | 167.00 KiB/s, done.
-From github.com:
-   720d518..77d1e53  FHbranch   -&gt; origin/FHbranch # merge操作
-Updating 720d518..77d1e53
-Fast-forward # 未分叉
- 2.txt | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-$ cat .git/FETCH_HEAD
-77d1e53b415e9742b840a26c135bd327d6efca90		branch 'FHbranch' of github.com:
-5bdb272f7317a44fbe9146c95b8273a3a41646b4	not-for-merge	branch 'main' of github.com:
-# 上述操作多出 ORIG_HEAD 文件,即指向之前分支 commit 的指针,方便回滚
-$ cat .git/ORIG_HEAD
-720d518555aae5906b7315d800604f88d06459ef
-$ git reset --hard ORIG_HEAD # 硬回滚
-HEAD is now at 720d518 Update 2.txt
-$ git branch -vv # 此时可查看 FHbranch 分支落后一次 commit
-FHbranch 720d518 [origin/FHbranch: behind 1] Update 2.txt
-  main     5bdb272 [origin/main] Create 2.txt
-$ git merge origin/FHbranch # 还是可以 merge 到最新
-Updating 720d518..77d1e53
-Fast-forward
- 2.txt | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-</code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="git-push">Git push</h2>
-<p>在存在与远程仓库关联的本地分支，可以直接 push。但是如果本地新仓库没有远程分支，直接 push 会出现错误。需要 push 时设置上游的分支。</p>
-<pre><code class="language-shell">$ git push
-fatal: The current branch no has no upstream branch.
-To push the current branch and set the remote as upstream, use git push --set-upstream origin no # origin no 的分支git push --set-upstream origin no # 
-# 直接推送远程仓库
-$ git push origin no # 但是通过 git branch -vv 查看不到关联的情况
-$ git push --set-upstream origin no # --set-upstream 是进行关联
-Branch 'no' set up to track remote branch 'no' from 'origin'. # 与远程仓库关联
-# git push --set-upstream origin 远程仓库名 =简写=&gt; git push -u origin 远程仓库名
-$ git push origin -d 远程仓库名 # 删除远程仓库
+<h3 id="fetch-pull">Fetch &amp; Pull</h3>
+<blockquote>
+<p>The git pull command fetches and downloads content from the remote repo and integrates changes into the local repository.</p>
+</blockquote>
+<blockquote>
+<p>The git fetch is a primary command used to download contents from a remote repository.</p>
+</blockquote>
+<p><code>git pull</code> 等价于执行 <code>git fetch</code> 后立即键入 <code>git merge</code> 将远程分支的更新合并到当前分支。这个操作会自动合并远程分支的更新，但是如果合并有冲突，需要手动解决冲突。</p>
+<p><code>git fetch</code> 命令用于从远程仓库下载最新的提交、分支等，并将其保存在本地仓库中，但并不会自动与当前工作分支进行合并。</p>
+<p><code>.git/FETCH_HEAD</code> 记录了在最近一次运行 <code>git fetch</code> 时，Git 从远程仓库获取到的所有分支的最新提交对象。在 <code>.git/FETCH_HEAD</code> 中，每个分支都有对应的一条记录。其中，第一条记录往往是 <code>git fetch</code> 时指定远程仓库的某个分支的最新 commit 对象。</p>
+<p>如果切换分支后没有重新运行 <code>git fetch</code> 命令，那么 <code>.git/FETCH_HEAD</code> 中的记录不会发生变化。</p>
+<p>当远程仓库中的分支发生了改变，却没有再重新运行 <code>git fetch</code>，那么 <code>.git/FETCH_HEAD</code> 中的记录有可能已经过期。</p>
+<h3 id="push-tip">Push Tip</h3>
+<p>若本地仓库的分支已经与远程仓库中的分支建立了关联，那么在推送时可以直接使用 <code>git push</code>。</p>
+<p>若本地仓库中有新的分支，且这些分支还没有和远程仓库中的分支建立关联，直接使用 <code>git push</code> 命令会导致错误。此时需要使用 <code>git push --set-upstream</code> 命令并指定要关联的远程分支，这样本地分支就会与指定的远程分支建立起关联，且以后在推送时就可以直接使用 <code>git push</code>。</p>
+<h3 id="cherry-pick">Cherry Pick</h3>
+<blockquote>
+<p>The cherry-pick command enables arbitrary Git commits to be picked by reference and appended to the current working HEAD.</p>
+</blockquote>
+<p>挑选提交会尝试将指定提交应用在当前所处的分支，并生成一条新的提交，包含原提交的修改内容。若该过程中出现冲突，需要手动解决冲突并键入 <code>git cherry-pick --continue</code> 以继续应用提交。如果需要取消操作，可以运行 <code>git cherry-pick --abort</code> 命令。</p>
+<p>注意，挑选提交会生成一条新的提交，并且会在提交历史中保留原提交的作者、提交时间等信息，但是不会保留原提交的哈希值。这意味着，通过 <code>git cherry-pick</code> 复制的提交，其历史记录与原提交不同，但其包含的修改内容是相同的。</p>
+<p>简单来说，假设在分支 A 上开发了某个功能，然后在分支 B 上也需要用到这个功能，那么可以使用 <code>git cherry-pick</code> 命令将 A 分支上的这个提交应用到 B 分支上。在解决可能出现的冲突后，会创建一个新的提交，这个提交会包含 A 分支上的提交所做的更改，同时也会保留 B 分支的作者和提交信息。这样就可以在 B 分支上复用 A 分支上的功能，同时保留 B 分支的提交历史和作者信息。</p>
+<pre><code class="language-shell">git cherry-pick &lt;commit-hash&gt;
+git cherry-pick &lt;commit-hash-1&gt; &lt;commit-hash-2&gt; ...
 </code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bugs-fix">Bugs Fix</h2>
-<ul>
-<li>
 <ol>
 <li>Unable to create './.../.git/index.lock': File exists.</li>
 </ol>
-</li>
-</ul>
 <pre><code class="language-shell">fatal: Unable to create './.../.git/index.lock': File exists.
 Another git process seems to be running in this repository, e.g.
 an editor opened by 'git commit'. Please make sure all processes
@@ -1169,32 +833,20 @@ remove the file manually to continue.
 <p>此类问题一般发生在 git 同时执行两个命令时；也许一个来自命令提示符，一个来自 IDE。通过删除 .git文件中的 index.lock 解决。<a href="https://stackoverflow.com/questions/38004148/another-git-process-seems-to-be-running-in-this-repository">SOF</a></p>
 <pre><code class="language-shell">rm -f .git/index.lock
 </code></pre>
-<ul>
-<li>
 <ol start="2">
 <li>refs/remotes/origin 没有 ref to master？ <a href="https://stackoverflow.com/questions/22855567/why-does-my-refs-remotes-origin-not-have-a-ref-to-master">SOF</a></li>
 </ol>
-</li>
-</ul>
 <p>并非所有引用都必须在文件中。引用可以并且已经 &quot;打包&quot;。目前打包的引用可以在纯文本文件 .git/packed-refs 中找到。Git 将 refs/remotes/origin/master 在 .git/packed-refs. 上。</p>
-<ul>
-<li>
 <ol start="3">
 <li>fatal: refusing to merge unrelated histories</li>
 </ol>
-</li>
-</ul>
 <p>由于两个分支没有取得关联，在需要合并操作后加上 --allow-unrelated-histories。</p>
 <pre><code class="language-shell">git merge master --allow-unrelated-histories
 git pull origin master --allow-unrelated-histories
 </code></pre>
-<ul>
-<li>
 <ol start="4">
 <li>fatal: Authentication failed for '<a href="https://github.com/">https://github.com/</a>...'</li>
 </ol>
-</li>
-</ul>
 <p>使用 <code>git push --force</code> 时出现授权失败的问题。原因是从 2021-08-14 之后，使用 git 对 github 进行身份验证操作不再接受使用账号密码形式 clone 和 push 代码，而是需要 acces_token 进行验证。在更新 acces_token 后由于提交验证的重置，使用 <code>git push</code> 的方式进行提交验证身份。</p>
 <!--kg-card-end: markdown--><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://git-scm.com/book/zh/v2"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Git - Book</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://git-scm.com/favicon.ico" alt=""><span class="kg-bookmark-author">Book</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://git-scm.com/images/progit2.png" alt=""></div></a><figcaption>Git Book</figcaption></figure><figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1"><div class="kg-bookmark-content"><div class="kg-bookmark-title">🌳🚀 CS Visualized: Useful Git Commands</div><div class="kg-bookmark-description">Although Git is a very powerful tool, I think most people would agree when I say it can also be... a...</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://res.cloudinary.com/practicaldev/image/fetch/s--t7tVouP9--/c_limit,f_png,fl_progressive,q_80,w_192/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/devlogo-pwa-512.png" alt=""><span class="kg-bookmark-author">DEV Community</span><span class="kg-bookmark-publisher">Lydia Hallie</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--BkR3VoXZ--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/rixan4h4z8y94eq89som.png" alt=""></div></a><figcaption><a href="https://dev.to/lydiahallie">Lydia Hallie</a></figcaption></figure><!--kg-card-begin: markdown--><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
@@ -1465,14 +1117,9 @@ $(document).ready(function () {
 </script>
 
 <script>
-  const cmdkevent = new KeyboardEvent('keydown', {
-    metaKey: true,
-    key: 'k',
-  });
   function docSearchFuncMobile(){
     const DocSearchElement = document.querySelector(".DocSearch");
     DocSearchElement.click();
-    console.log(DocSearchElement);
   }
 </script>
 
@@ -1487,6 +1134,7 @@ $(document).ready(function () {
 </script>
 -->
 
+<!-- Theme Mode -->
 <script>
     let currentTheme = localStorage.getItem("theme-color");
     const switchTheme = function () {
@@ -1569,71 +1217,9 @@ arrowup.addEventListener("click", function() {
 });
 </script>
 
-<style>
-    /*
-.gt-container .gt-svg {
-    display: none;
-}
-    */
-</style>
-
-<!-- Algolia -->
-<!-- 在 HTML 文件中引入 Algolia 的库文件 -->
-<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic"/>
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.16.0/dist/algoliasearch.umd.min.js"></script>
-<style>
-.algoliawrapper {
-  margin-top: 6rem;
-}
-.imgwrapper {
-  width: 5rem;
-}
-.algoliaouterwrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
-  z-index: 0;
-  height: 100%;
-  width: 100%;
-}
-.aa-Panel {
-  z-index: 99999;
-}
-.algoliaouterwrapper i {
-  cursor: pointer;
-}
-.algoliaouterwrapper i svg {
-  width: 4rem;
-  height: 4rem;
-  position: absolute;
-  right: 25px;
-  top: 52px;
-}
-.showwrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  direction: column;
-}
-#autocomplete {
-  left: 50%;
-  transform: translate(50%, 0);
-  width: 50%;
-}
-</style>
-
+<!-- Algolia DocSearch -->
 <style>
 .docsearchwrapper{
-  margin-top: 6rem;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   display: none;
 }
 .DocSearch-Container{

@@ -866,10 +866,10 @@ a.gh-head-button {
     <a class="post-card-image-link" href="../../webpack/index.html">
 
         <img class="post-card-image"
-            srcset="../../content/images/size/w1000/2022/07/mickey.jpg 1000w"
+            srcset="https://images.unsplash.com/photo-1528066588405-9e20509b9e34?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDM1fHxtaWNrZXl8ZW58MHx8fHwxNjgwMzczMDU4&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1000 1000w"
             sizes="(max-width: 1000px) 400px, 800px"
-            src="../../content/images/size/w600/2022/07/mickey.jpg"
-            alt="mickey"
+            src="https://images.unsplash.com/photo-1528066588405-9e20509b9e34?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDM1fHxtaWNrZXl8ZW58MHx8fHwxNjgwMzczMDU4&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;600"
+            alt="Webpack"
             loading="lazy"
         />
 
@@ -892,7 +892,7 @@ a.gh-head-button {
 
         <footer class="post-card-meta">
             <time class="post-card-meta-date" datetime="2021-03-08">Mar 8, 2021</time>
-                <span class="post-card-meta-length">36 min read</span>
+                <span class="post-card-meta-length">37 min read</span>
         </footer>
 
     </div>
@@ -1202,7 +1202,7 @@ a.gh-head-button {
 
         <footer class="post-card-meta">
             <time class="post-card-meta-date" datetime="2020-07-18">Jul 18, 2020</time>
-                <span class="post-card-meta-length">30 min read</span>
+                <span class="post-card-meta-length">27 min read</span>
         </footer>
 
     </div>
@@ -1492,14 +1492,9 @@ $(document).ready(function () {
 </script>
 
 <script>
-  const cmdkevent = new KeyboardEvent('keydown', {
-    metaKey: true,
-    key: 'k',
-  });
   function docSearchFuncMobile(){
     const DocSearchElement = document.querySelector(".DocSearch");
     DocSearchElement.click();
-    console.log(DocSearchElement);
   }
 </script>
 
@@ -1514,6 +1509,7 @@ $(document).ready(function () {
 </script>
 -->
 
+<!-- Theme Mode -->
 <script>
     let currentTheme = localStorage.getItem("theme-color");
     const switchTheme = function () {
@@ -1596,71 +1592,9 @@ arrowup.addEventListener("click", function() {
 });
 </script>
 
-<style>
-    /*
-.gt-container .gt-svg {
-    display: none;
-}
-    */
-</style>
-
-<!-- Algolia -->
-<!-- 在 HTML 文件中引入 Algolia 的库文件 -->
-<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic"/>
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.16.0/dist/algoliasearch.umd.min.js"></script>
-<style>
-.algoliawrapper {
-  margin-top: 6rem;
-}
-.imgwrapper {
-  width: 5rem;
-}
-.algoliaouterwrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
-  z-index: 0;
-  height: 100%;
-  width: 100%;
-}
-.aa-Panel {
-  z-index: 99999;
-}
-.algoliaouterwrapper i {
-  cursor: pointer;
-}
-.algoliaouterwrapper i svg {
-  width: 4rem;
-  height: 4rem;
-  position: absolute;
-  right: 25px;
-  top: 52px;
-}
-.showwrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  direction: column;
-}
-#autocomplete {
-  left: 50%;
-  transform: translate(50%, 0);
-  width: 50%;
-}
-</style>
-
+<!-- Algolia DocSearch -->
 <style>
 .docsearchwrapper{
-  margin-top: 6rem;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   display: none;
 }
 .DocSearch-Container{

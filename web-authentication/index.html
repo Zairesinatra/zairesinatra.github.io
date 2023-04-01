@@ -1339,14 +1339,9 @@ $(document).ready(function () {
 </script>
 
 <script>
-  const cmdkevent = new KeyboardEvent('keydown', {
-    metaKey: true,
-    key: 'k',
-  });
   function docSearchFuncMobile(){
     const DocSearchElement = document.querySelector(".DocSearch");
     DocSearchElement.click();
-    console.log(DocSearchElement);
   }
 </script>
 
@@ -1361,6 +1356,7 @@ $(document).ready(function () {
 </script>
 -->
 
+<!-- Theme Mode -->
 <script>
     let currentTheme = localStorage.getItem("theme-color");
     const switchTheme = function () {
@@ -1443,71 +1439,9 @@ arrowup.addEventListener("click", function() {
 });
 </script>
 
-<style>
-    /*
-.gt-container .gt-svg {
-    display: none;
-}
-    */
-</style>
-
-<!-- Algolia -->
-<!-- 在 HTML 文件中引入 Algolia 的库文件 -->
-<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic"/>
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.16.0/dist/algoliasearch.umd.min.js"></script>
-<style>
-.algoliawrapper {
-  margin-top: 6rem;
-}
-.imgwrapper {
-  width: 5rem;
-}
-.algoliaouterwrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
-  z-index: 0;
-  height: 100%;
-  width: 100%;
-}
-.aa-Panel {
-  z-index: 99999;
-}
-.algoliaouterwrapper i {
-  cursor: pointer;
-}
-.algoliaouterwrapper i svg {
-  width: 4rem;
-  height: 4rem;
-  position: absolute;
-  right: 25px;
-  top: 52px;
-}
-.showwrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  direction: column;
-}
-#autocomplete {
-  left: 50%;
-  transform: translate(50%, 0);
-  width: 50%;
-}
-</style>
-
+<!-- Algolia DocSearch -->
 <style>
 .docsearchwrapper{
-  margin-top: 6rem;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   display: none;
 }
 .DocSearch-Container{
