@@ -339,6 +339,13 @@ a.gh-head-button {
 }
 </style>
 
+<!-- Drak Theme Ghost CSS -->
+<style>
+.dark-mode .gh-content > blockquote:not([class])::before {
+  background: #FFFFFF !important;
+}
+</style>
+
 <!-- Arrow up -->
 <style>
     .arrowup {
@@ -2153,40 +2160,6 @@ $(document).ready(function () {
         ctc.style.marginLeft = "";
       }
     }})
-  }
-</script>
-<script>
-  function searchFunc(){
-    let autocomplete = document.querySelector("#autocomplete");
-    let algoliaouterwrapper = document.querySelector(".algoliaouterwrapper");
-    // console.log(algoliaouterwrapper,autocomplete);
-    autocomplete.parentNode.removeChild(autocomplete);
-    algoliaouterwrapper.appendChild(autocomplete);
-    autocomplete.style.marginTop = "50px";
-    algoliaouterwrapper.style.background = '#F5F5FA';
-    algoliaouterwrapper.style.display = "block";
-    algoliaouterwrapper.style.zIndex = 99999;
-    autocomplete.addEventListener('click', function(event) {
-      event.stopPropagation();
-    });
-  }
-  function outerwrapperFunc(event){
-    event.stopPropagation();
-    let autocomplete = document.querySelector("#autocomplete");
-    let algoliawrapper = document.querySelector(".algoliawrapper");
-    let algoliaouterwrapper = document.querySelector(".algoliaouterwrapper");
-    autocomplete.parentNode.removeChild(autocomplete);
-    algoliawrapper.appendChild(autocomplete);
-    algoliaouterwrapper.style.background = '';
-    algoliaouterwrapper.style.display = "none";
-    algoliaouterwrapper.style.zIndex = 0;
-    autocomplete.removeEventListener('click', function(event) {
-      event.stopPropagation();
-    });
-  }
-  function searchFuncMobile (){
-    let mobileTrigger = document.querySelector(".aa-DetachedSearchButton");
-    mobileTrigger.click();
   }
 </script>
 
