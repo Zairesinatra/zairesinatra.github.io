@@ -25,7 +25,7 @@
     <meta property="og:url" content="https://zairesinatra.github.io//webpack/" />
     <meta property="og:image" content="https://zairesinatra.github.io//content/images/2023/04/MickeyMouse.jpg" />
     <meta property="article:published_time" content="2021-03-08T11:55:00.000Z" />
-    <meta property="article:modified_time" content="2023-04-05T15:50:11.000Z" />
+    <meta property="article:modified_time" content="2023-04-07T15:58:15.000Z" />
     <meta property="article:tag" content="Bugs handled" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -71,7 +71,7 @@
     "headline": "Webpack",
     "url": "https://zairesinatra.github.io//webpack/",
     "datePublished": "2021-03-08T11:55:00.000Z",
-    "dateModified": "2023-04-05T15:50:11.000Z",
+    "dateModified": "2023-04-07T15:58:15.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://zairesinatra.github.io//content/images/2023/04/MickeyMouse.jpg",
@@ -970,21 +970,11 @@ module.exports = {
   ]
 };
 </code></pre>
-<p>开发服务器 devServer 自动化编译、打开浏览器、刷新浏览器。只会在内存中编译打包，不会有任何输出。</p>
-<pre><code class="language-shell"># 下载包
-npm i webpack-dev-server
-</code></pre>
+<h3 id="devserverandhmr">DevServer and HMR</h3>
+<p>通常在开发阶段需要频繁地修改和测试代码，如果每次都通过手动编译和刷新浏览器，那么开发效率就会受到影响，此时可以使用 devServer 在内存中编译打包，并提供一个自动刷新浏览器的开发环境。</p>
+<p>虽然使用 <code>watch</code> 参数或者 live-server 插件也可以实现代码修改后的页面更新，但效率不如 devServer 高。因为 <code>watch</code> 参数或者 live-server 插件都是直接刷新整个页面，而 devServer 是通过 HMR 热模块替换技术实现了页面的局部更新，从而避免了刷新整个页面的开销。</p>
 <pre><code class="language-javascript">...
-module.exports = { 
-  ...,
-  module: {
-    rules: [ 
-      ...
-    ] 
-  },
-  plugins: [ 
-    ... 
-  ],
+module.exports = {
   mode: 'development',
   devServer: {
     contentBase: resolve(__dirname, 'build'), // 项目构建后路径
@@ -994,71 +984,49 @@ module.exports = {
   } 
 };
 </code></pre>
-<pre><code class="language-shell">npx webpack-dev-server
+<p>需要<a href="https://stackoverflow.com/questions/40379139/cannot-find-module-webpack-bin-config-yargs">注意的是 webpack-cli 的版本</a>，webpack-cli 4 已经将 devServer 的实现方式进行了重构，需要使用 <code>webpack serve</code> 来启动开发服务器，而 webpack-cli 4 以前的版本，使用 <code>webpack-dev-server</code>。</p>
+<p>webpack-dev-middleware 是一个 Express 中间件，可以将 webpack 打包的文件传递给服务器，并且可以将打包结果缓存到内存中，以便在文件发生变化时自动重新构建。</p>
+<pre><code class="language-javascript">const express = require('express');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+
+const app = express();
+const config = require('./webpack.config.js');
+const compiler = webpack(config);
+
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: config.output.publicPath
+}));
+
+app.listen(3000, function () {
+  console.log('App listening on port 3000!\n');
+});
 </code></pre>
-<p>这里需要注意，如果使用的是 <strong>webpack-cli 4</strong>  或 <strong>webpack 5</strong>，更改 <code>webpack-dev-server</code> 为 <code>webpack serve</code> 。<a href="https://stackoverflow.com/questions/40379139/cannot-find-module-webpack-bin-config-yargs">stackoverflow链接</a>。</p>
-<ul>
-<li>对于 webpack-cli 3.x：</li>
-</ul>
-<pre><code class="language-js">// package.json
-&quot;scripts&quot;: { &quot;start:dev&quot;: &quot;webpack-dev-server&quot; }
+<p>如果没有在入口文件中通过 <code>module.hot.accept</code> 函数来指定需要开启 HMR 的模块，那么默认情况下只有在根模块发生变化时，整个应用程序才会被热更新，而其他模块则会触发完整刷新。<a href="https://webpack.js.org/api/hot-module-replacement/">点此查看</a></p>
+<pre><code class="language-javascript">if (module.hot) {
+  module.hot.accept('./your-module', function() {
+    // 当 './your-module' 模块更新后执行的逻辑
+  })
+}
 </code></pre>
-<ul>
-<li>对于 webpack-cli 4.x：</li>
-</ul>
-<pre><code class="language-js">// package.json
-&quot;scripts&quot;: { &quot;start:dev&quot;: &quot;webpack serve&quot; }
-</code></pre>
-<ul>
-<li>开发环境配置小结</li>
-</ul>
-<pre><code class="language-javascript">const { resolve } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = { 
-  entry: './src/js/index.js', 
-  output: { 
-    filename: 'js/built.js', 
-    path: resolve(__dirname, 'build') 
+<p>在使用 Vue 或 React 框架开发时，社区已经提供了比较成熟的 HMR 解决方案，<a href="https://webpack.js.org/guides/hot-module-replacement/#other-code-and-frameworks">点此查看</a>。注意 React Hot Loader 现已被官方弃用，改为 <a href="https://github.com/facebook/react/issues/16604">react-refresh</a> 方案。</p>
+<p>HMR 热更新的实现原理是 webpack-dev-server 或 webpack-dev-middleware 将打包好的文件传递给服务器 Express，同时建立一个长连接的 socket 服务，监听文件的变化事件。当某个模块的代码发生变化时，webpack 会重新打包这个模块的代码，然后通过 socket 服务推送给客户端的浏览器。</p>
+<h3 id="codesplitting">Code Splitting</h3>
+<p>代码分割作为一种常规的优化手段，可以将打包后的代码拆分成多个小块，然后可以按需加载或并行加载这些文件。</p>
+<p>在使用入口起点的方式进行代码分割时，每个入口文件都会被单独的打包。同时，还可以使用的<a href="https://webpack.docschina.org/concepts/under-the-hood/#output">占位符</a>来指明打包后的 bundle 文件名。</p>
+<pre><code class="language-javascript">module.exports = {
+  entry: {
+    app: './src/app.js',
+    vendor: './src/vendor.js'
   },
-  module: { 
-    rules: [ // loader 的配置 
-      { // 处理 less 资源 
-        test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] 
-      },{ // 处理 css 资源 
-        test: /\.css$/, use: ['style-loader', 'css-loader'] 
-      },{ // 处理图片资源 
-        test: /\.(jpg|png|gif)$/, 
-        loader: 'url-loader', 
-        options: { 
-          limit: 8 * 1024, 
-          name: '[hash:10].[ext]', // 关闭 es6 模块化 
-          esModule: false, 
-          outputPath: 'imgs' 
-        } 
-      },{ // 处理 html 中 img 资源 
-        test: /\.html$/, 
-        loader: 'html-loader' 
-      },{ // 处理其他资源 
-        exclude: /\.(html|js|css|less|jpg|png|gif)/, 
-        loader: 'file-loader',
-        options: {
-          name: '[hash:10].[ext]', 
-          outputPath: 'media' 
-        } 
-      } 
-    ] 
-  },plugins: [ // plugins 的配置 
-    new HtmlWebpackPlugin({ template: './src/index.html' }) 
-  ],
-  mode: 'development',
-  devServer: { 
-    contentBase: resolve(__dirname, 'build'),
-    compress: true, 
-    port: 3000,
-    open: true 
-  } 
+  output: {
+    filename: '[name].[contenthash:8].js',
+    path: __dirname + '/dist'
+  }
 };
 </code></pre>
+<p>当多个入口文件使用了相同的第三方包时，如果不进行处理，这些第三方包可能会被重复打包，导致打包后的文件体积过大。为避免这种情况，可使用 <a href="https://webpack.js.org/configuration/entry-context/"><code>Entry dependencies</code></a> 和 <a href="https://webpack.js.org/plugins/split-chunks-plugin/"><code>SplitChunksPlugin</code></a>。</p>
+<p>注意，<a href="https://webpack.docschina.org/plugins/split-chunks-plugin/#splitchunkschunks"><code>optimization.splitChunks</code></a> 中要被分割的代码块默认值是 <code>async</code>，这意味着只有使用了异步加载的代码块才会被分割。</p>
 <h3 id="prodenvconfiguration">prod-env configuration</h3>
 <ul>
 <li>提取 css 成单独文件</li>
@@ -1104,193 +1072,8 @@ module.exports = {
 };
 </code></pre>
 <ul>
-<li>js 语法检查</li>
-</ul>
-<p>规范代码书写风格可以在检查常见语法错误的同时增强健壮性。最常使用的是基于 eslint 库的 eslint-loader。注意 eslint 仅检查开发者书写的源代码，不检查第三方的库。部分需要忽略检查的代码前可以加上 <code>eslint-disable-next-line</code>。<a href="https://www.npmjs.com/package/eslint-config-airbnb-base">详细移步</a>。</p>
-<pre><code class="language-shell"># 下载安装包使用 slint-config-airbnb-base 库进行语法检查
-npm install --save-dev eslint-loader eslint eslint-config-airbnb-base eslint-plugin-import
-</code></pre>
-<pre><code class="language-javascript">// 配置 package.json
-// 官方是说加入 .eslintrc 此处加入 package.json 即可
-&quot;eslintConfig&quot;: { &quot;extends&quot;: &quot;airbnb-base&quot;, &quot;env&quot;: { &quot;browser&quot;: true } }
-</code></pre>
-<pre><code class="language-javascript">const { resolve } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin' )
-// 设置 nodejs 环境变量
-// process.env.NODE_ENV = 'development';
-module.exports = { 
-  entry: './src/js/index.js',
-  output: {
-    filename: 'js/built.js',
-    path: resolve(__dirname, 'build') 
-  },
-  module: { 
-    rules: [ 
-      /*
-      语法检查： eslint-loader eslint 
-      注意：只检查自己写的源代码，第三方的库是不用检查的 
-      设置检查规则: package.json 中 eslintConfig 中设置~ 
-      &quot;eslintConfig&quot;: {
-      &quot;extends&quot;: &quot;airbnb-base&quot; 
-      } 
-      airbnb 需要 eslint-config-airbnb-base eslint-plugin-import eslint 三个库
-      */
-      { 
-        test: /\.js$/,
-        exclude: /node_modules/,  // 一定要注意, 否则会对 node_modules 进行检查
-        loader: 'eslint-loader', 
-        options: { 
-          // 自动修复 eslint 的错误 
-          fix: true 
-        } 
-      } 
-    ] 
-  },
-  plugins: [ 
-    new HtmlWebpackPlugin({ template: './src/index.html' }), 
-    new MiniCssExtractPlugin({ filename: 'css/built.css' }),
-    // 压缩 css 
-    new OptimizeCssAssetsWebpackPlugin() ],
-  mode: 'development'
-};
-</code></pre>
-<ul>
 <li>js 压缩与 html 压缩</li>
 </ul>
-<p>生产环境会自动压缩 <code>.js</code> 代码。</p>
-<pre><code class="language-javascript">const { resolve } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = {
-  entry: './src/js/index.js',
-  output: {
-    filename: 'js/built.js',
-    path: resolve(__dirname, 'build') 
-  },
-  plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ],
-  // 生产环境下会自动压缩 js 代码 
-  mode: 'production' 
-};
-</code></pre>
-<pre><code class="language-javascript">const { resolve } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = {
-  entry: './src/js/index.js',
-  output: {
-    filename: 'js/built.js',
-    path: resolve(__dirname, 'build') },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html', 
-      // 压缩 html 代码 
-      minify: { // 移除空格 
-        collapseWhitespace: true, 
-        // 移除注释
-        removeComments: true } }) 
-  ],
-  mode: 'production' 
-};
-</code></pre>
-<ul>
-<li>生产环境配置汇总</li>
-</ul>
-<pre><code class="language-javascript">const { resolve } = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin' );
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-// 定义 nodejs 环境变量: 决定使用 browserslist 的哪个环境 
-process.env.NODE_ENV = 'production';
-// 复用 loader 
-const commonCssLoader = [
-  MiniCssExtractPlugin.loader,
-  'css-loader',
-  { 
-    // 还需要在 package.json 中定义 browserslist
-    loader: 'postcss-loader',
-    options: {
-      ident: 'postcss', 
-      plugins: () =&gt; [require('postcss-preset-env')()] 
-    } 
-  } 
-];
-module.exports = {
-  entry: './src/js/index.js',
-  output: { filename: 'js/built.js', path: resolve(__dirname, 'build') },
-  module: { 
-    rules: [
-      { test: /\.css$/, use: [...commonCssLoader] },
-      { test: /\.less$/, use: [...commonCssLoader, 'less-loader'] },
-      /* 正常来讲, 一个文件只能被一个 loader 处理. 当一个文件要被多个 loader 处理, 那么一定要指定 loader 执行的先后顺序: 先执行 eslint 再执行 babel (先执行 babel-loader再执行 eslint 就会报错) */
-      { // 在 package.json 中 eslintConfig --&gt; airbnb 
-        test: /\.js$/,
-        exclude: /node_modules/,
-        // 优先执行 不论放在哪里的位置!!!
-        enforce: 'pre', 
-        loader: 'eslint-loader',
-        options: { fix: true }
-      },
-      {
-        test: /\.js$/, // 需要检查的 js 文件
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            [
-              '@babel/preset-env',
-              // @babel/preset-env - @babel/polifill(太大) - core-js
-              { // 按需加载 core-js
-                useBuiltIns: 'usage', corejs: {version: 3}, // corejs 版本
-                targets: { chrome:'60', firefox: '50' } // 指定做到浏览器版本
-              }
-            ]
-          ]
-        }
-      },
-      { 
-        test: /\.(jpg|png|gif)/,
-        loader: 'url-loader',
-        // 记住关闭 es6
-        options: { limit: 8 * 1024, name: '[hash:10].[ext]', outputPath: 'imgs', esModule: false }
-      },
-      // 专门处理 html 中图片问题
-      { test: /\.html$/, loader: 'html-loader' }, // 使用的是 commonjs 而 url-loader 使用的是 es6
-      { 
-        exclude: /\.(js|css|less|html|jpg|png|gif)/,
-        loader: 'file-loader',
-        options: { outputPath: 'media' }
-      }
-    ]
-  },
-  plugins:[ 
-    new MiniCssExtractPlugin({ filename: 'css/built.css' }),
-    new OptimizeCssAssetsWebpackPlugin(),
-    new HtmlWebpackPlugin({ 
-      template: './src/index.html',
-      // html 文件通过 minify 属性进行压缩
-      // 压缩空格、清除注释
-      minify: { collapseWhitespace: true, removeComments: true}
-    })
-  ],
-  mode: 'production' 
-};
-</code></pre>
-<pre><code class="language-javascript">&quot;browserlist&quot;: {
-  &quot;development&quot;: [
-    &quot;last 1 chrome version&quot;,
-    &quot;last 1 firefox version&quot;,
-    &quot;last 1 safari version&quot;
-  ],
-  &quot;production&quot;: [
-    &quot;&gt;0.2%&quot;,
-    &quot;not dead&quot;,
-    &quot;not op_mini all&quot;
-  ]
-}
-&quot;eslintConfig&quot;: {
-  &quot;extends&quot;: &quot;airbnb-base&quot;
-}
-</code></pre>
 <!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="optimization">Optimization</h2>
 <p>优化前端性能其实是指优化打包的输出结果。</p>
 <p>压缩代码可以利用 uglifyjs-webpack-plugin 和 ParallelUglifyPlugin</p>
@@ -1910,7 +1693,20 @@ module.exports = {
   }
 }; 
 </code></pre>
-<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="webpackdevserver">webpack-dev-server兼容问题</h2>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="tipsandhints">Tips and Hints</h2>
+<h3 id="operatorsand">Operators &amp;&amp; and &amp;</h3>
+<p>&amp;&amp; 运算符会将两个命令连接起来，并当第一个命令执行成功后再执行第二个命令。</p>
+<p>&amp; 运算符是将两个命令同时执行，不需要等待第一个命令的执行完毕，常用于同时执行多个任务。</p>
+<h3 id="publicpathinoutputanddevserver">publicPath in output and devServer</h3>
+<p>配置项 <code>output.publicPath</code> 和 <code>devServer.publicPath</code> 都是相对于打包输出目录的 URL，这个选项会成为引用静态资源时的前缀。两者的区别是客户端访问静态资源和访问开发服务器上的静态资源。</p>
+<h3 id="entryandcontext">Entry and Context</h3>
+<blockquote>
+<p>The <a href="https://webpack.js.org/configuration/entry-context/#context">context</a> is the base directory, an absolute path, for resolving entry points and loaders from the configuration.</p>
+</blockquote>
+<p><code>entry</code> 通常使用相对路径，并且相对于配置中的 <code>context</code> 属性。<code>context</code> 属性是一个用于解析相对路径的绝对路径，这个绝对路径可以是任何存在的目录，但通常会选择项目的根目录作为上下文。</p>
+<h3 id="filenameandchunkfilename">Filename and ChunkFilename</h3>
+<p><code>output.filename</code> 用于指定入口起点生成的 bundle 文件名，而 <code>output.chunkFilename</code> 用于指定非入口起点生成的文件名。</p>
+<h3 id="webpackdevserver">webpack-dev-server 兼容问题</h3>
 <p>运行<code>webpack-dev-server</code>出现如下报错</p>
 <pre><code class="language-javascript">&gt; webpack-dev-server
 
