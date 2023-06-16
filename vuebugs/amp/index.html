@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://zairesinatra.github.io//vuebugs/" />
     <meta property="og:image" content="https://zairesinatra.github.io//content/images/2022/07/ShirahigeJinja.jpg" />
     <meta property="article:published_time" content="2020-12-14T12:21:00.000Z" />
-    <meta property="article:modified_time" content="2023-02-15T16:48:05.000Z" />
+    <meta property="article:modified_time" content="2023-06-16T14:13:04.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "Vue 札记",
     "url": "https://zairesinatra.github.io//vuebugs/",
     "datePublished": "2020-12-14T12:21:00.000Z",
-    "dateModified": "2023-02-15T16:48:05.000Z",
+    "dateModified": "2023-06-16T14:13:04.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://zairesinatra.github.io//content/images/2022/07/ShirahigeJinja.jpg",
@@ -1091,277 +1091,292 @@
             <section class="post-content">
 
                 <h2 id="basicconcepts">Basic Concepts</h2>
-<h3 id="vue">Vue 项目结构</h3>
-<ul>
-<li>main.js =&gt; 程序入口 -&gt; 实例化、初始化，指派插件并导入公共组件</li>
-</ul>
-<pre><code class="language-javascript">// 完整写法 import Vue from "../node_modules/vue/dist/vue.js"
-// import...from...的 from 命令后面可以跟很多路径格式,若只给出 vue, axios 这样的包名,则会自动到 node_modules 中加载;若给出相对路径及文件前缀，则到指定位置寻找
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-Vue.config.productionTip = false
-new Vue({ router, store, render: h =&gt; h(App) }).$mount('#app')
-</code></pre>
-<ul>
-<li>App.vue =&gt; 主组件、页面入口文件。所有页面都是此进行切换</li>
-</ul>
-<pre><code class="language-html">&lt;template&gt;
-  &lt;div id="app"&gt;
-    &lt;!-- 路由出口 --&gt;
-    &lt;router-view/&gt;
-    &lt;h1&gt;App&lt;/h1&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-&lt;script&gt;
-export default { name: 'App' }
-&lt;/script&gt;
-&lt;style lang="less"&gt;&lt;/style&gt;
-</code></pre>
-<ul>
-<li>router/index.js =&gt; 注册路由组件到路由中</li>
-</ul>
-<pre><code class="language-javascript">import Vue from 'vue'
-import VueRouter from 'vue-router'
-Vue.use(VueRouter)
-const routes = []
-const router = new VueRouter({ routes })
-export default router
-</code></pre>
-<h3 id="jsx"><a href="https://v2.cn.vuejs.org/v2/guide/render-function.html">渲染函数 &amp; JSX</a></h3>
-<p>h 函数是 createElement 函数的 ES6 语法缩写，源自 <a href="https://github.com/Matt-Esch/virtual-dom/blob/master/virtual-hyperscript/README.md">virtual-dom</a> 源码中实现生成 HTML 结构的 <a href="https://github.com/hyperhype/hyperscript">hyperscript</a> 脚本。render 函数是暴露给开发者使用 createElement 的钩子选项。<a href="https://github.com/Matt-Esch/virtual-dom/blob/master/vdom/create-element.js">createElement</a> 函数用于生成 VNode 节点。</p>
-<pre><code class="language-javascript">render: h =&gt; h(App)
-render: function(createElement){ return createElement(App) }
+<h3 id="templatecompilation">Template Compilation</h3>
+<p>模板编译是指将 Vue Template Syntax 转换为可执行的 JavaScript 渲染函数的过程，这个渲染函数通常被命名为 <code>render</code> 函数。<code>render</code> 函数中可以使用 <a href="https://github.com/Matt-Esch/virtual-dom/blob/master/vdom/create-element.js"><code>createElement</code></a> 辅助函数（用于创建虚拟 DOM 节点）来描述组件的渲染结构。</p>
+<p>Vue 中 <code>h</code> 函数是 <code>createElement</code> 函数的 ES6 语法缩写，源自 <a href="https://github.com/Matt-Esch/virtual-dom/blob/master/virtual-hyperscript/README.md">virtual-dom</a> 中的 <a href="https://github.com/hyperhype/hyperscript">hyperscript</a> 脚本。</p>
+<pre><code class="language-javascript">render: function(createElement){ return createElement(App) }
 const h = (tag, props, children) =&gt; {return {tag, props, children,...}}
+render: h =&gt; h(App)
 </code></pre>
-<p>渲染函数适合处理复杂逻辑，典型的推荐场景是当模板中要声明式渲染冗长的重复内容。</p>
-<h3 id="componentclassification">Component Classification</h3>
+<h3 id="architecturalpatterns">Architectural Patterns</h3>
+<p>MVC 与 MVVM 都实现了数据、视图和业务逻辑的分离，但在角色和数据流方面有一些区别：</p>
 <ul>
-<li>
-<p><a href="https://v2.cn.vuejs.org/v2/guide/render-function.html#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6">函数式组件</a> =&gt; 无状态，无法实例化，内部没有任何生命周期处理方法</p>
-</li>
-<li>
-<p><a href="https://v2.cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6">异步组件</a> =&gt; 异步组件注册 &amp; 路由的按需加载</p>
-</li>
+<li>Model-View-Controller 中，数据流是单向的。控制器接收用户输入，更新模型数据，然后通知视图进行更新。</li>
+<li>Model-View-ViewModel 中，虽然视图和模型不会直接通信，但是数据流是双向的。视图与模型之间会通过视图模型来进行自动更新。</li>
 </ul>
-<p>异步组件通常用于解决项目过大所导致的加载缓慢问题，重点是按需加载。注册异步组件的常规方式是 =&gt; 工厂函数返回配置化的组件对象、工厂函数返回 Promise 和工厂函数执行 resolve 回调。</p>
-<p><a href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html">路由组件按需加载</a>基于 ES6 中模块化规范 import 动态加载，返回一个 Promise 对象。import 方法是异步的。</p>
-<ul>
-<li><a href="https://v2.cn.vuejs.org/v2/guide/components.html#%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6">动态组件</a> =&gt; tab 切换时会涉及到组件动态加载</li>
-</ul>
-<blockquote>
-<p>动态组件是使用 component 组件，通过特殊的 attribute <code>is</code> 实现。</p>
-</blockquote>
-<pre><code class="language-html">&lt;!-- 组件重新加载会消耗大量性能 --&gt;
-&lt;component v-bind:is="currentTabComponent"&gt;&lt;/component&gt;
-&lt;!-- 保持状态 --&gt;
-&lt;transition&gt;&lt;keep-alive&gt;&lt;component v-bind:is="currentTabComponent"&gt;&lt;/component&gt;&lt;/keep-alive&gt;&lt;/transition&gt;
-</code></pre>
-<p>动态组件通常会与 <a href="https://v2.cn.vuejs.org/v2/api/#keep-alive">&lt;keep-alive&gt;</a> 组件一并使用，保证组件切换时不丢失状态。</p>
-<pre><code class="language-jsx">/* keep-alive property */
-include - String | RegExp | Array =&gt; 名称匹配组件被缓存
-exclude - String | RegExp | Array =&gt; 名称匹配组件不被缓存
-max - Number | String =&gt; 最多可缓存的组件实例
-</code></pre>
-<p>对于缓存的组件，再次进入时，不会执行 created 或 mounted 等生命周期函数。</p>
-<p>组件在 &lt;keep-alive&gt; 中切换，activated 和 deactivated 生命周期将会对应执行。</p>
-<ul>
-<li><a href="https://v2.cn.vuejs.org/v2/guide/components-edge-cases.html#%E9%80%92%E5%BD%92%E7%BB%84%E4%BB%B6">递归组件</a></li>
-</ul>
-<p>递归组件即组件在模板内递归调用自身，适合开发树型组件。设置组件名以调用自身，设置阈值是为避免抛出 "max stack size exceed" 的异常。</p>
-<h2 id>双向数据绑定</h2>
-<h3 id="mvvmmodelviewviewmodel">MVVM Model-View-ViewModel</h3>
-<p>早期页面是预先存放在服务器上的静态资源，相当于托管静态资源。随着页面与功能增加，通过 JS 修改服务器渲染后的数据已经不能再满足页面的交互需求。</p>
-<pre><code class="language-javascript">app.use(express.static(path.join(__dirname, 'zspublic')));
-</code></pre>
-<p>模型-视图-视图模型是软件架构的设计模式，产生了 GUI Graphical user interface 图形用户界面以及促进了前后端的业务分离。</p>
-<p>MVVM 的核心是以 JS、runtime、compiler 为集合的 ViewModel 视图模型层。向上与 View 视图层进行双向数据绑定，向下与 Model 层通过接口请求进行数据交互 (Ajax &lt;=&gt; JSON)。</p>
-<h3 id="principle">Principle 原理</h3>
-<p>双向数据绑定的本质是数据劫持结合发布订阅模式，通过对需要 observe 的数据对象进行属性（包括子属性对象的属性）递归遍历，增加访问器和更改器。当被劫持对象的属性变动时，会触发相应的监听回调。</p>
-<p>编译解析模板指令就是将模板中的变量替换成数据。在初始化渲染时将每个指令对应节点都绑定更新函数，添加监听数据的订阅者，在数据变动时就会收到通知以更新视图。</p>
-<p>发布订阅模式是劫持和编译之间通信的桥梁，主要做的事情是在自身实例化时往属性订阅器 dep 里面添加自己，其自身必须有一个 update 方法，待属性变动 dep.notice 通知时，能调用自身的 update 方法，并触发 Compile 中绑定的回调，则功成身退。</p>
-<p>MVVM 作为数据绑定的入口，整合 Observer、compile 和 Watcher 三者，通过 Observer<br />
-来监听自己的 model 数据变化，通过 Compile 来解析编译模板指令，最终利用 Watcher 搭起 Observer 和 Compile 之间的通信桥梁，达到数据变化 -＞视图更新；视图交互变化(input）-＞数据 model 变更的双向绑定效果。</p>
-<ul>
-<li>数据劫持 =&gt; Object.defineProperty(obj, prop, descriptor)</li>
-</ul>
-<blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty()</a> 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</p>
-</blockquote>
-<pre><code class="language-javascript">var zsobj = {};
-Object.defineProperty(zsobj,'biubiubiu',{
-  // value: 23,
-  get: function () {
-    console.log('调用新定义的 biubiubiu 属性的 get 方法')
-  },
-  set: function(args){
-    console.log('调用新定义的 biubiubiu 属性的 set 方法, 传入的值是' + args);
+<h3 id="datahijackingproxy">Data Hijacking &amp; Proxy</h3>
+<p>数据劫持是当对象的属性被访问或赋值时，将会触发预定义的方法，从而可以在这些方法中进行相应的操作，比如依赖收集和派发更新通知。</p>
+<p>数据代理是在实例化期间，将数据对象的属性定义为实例上的访问器属性，当访问或赋值实例上的属性时，实际上是在访问或赋值数据对象上的对应属性。这种方式可以简化访问和绑定数据的语法。</p>
+<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1686921937/blog/zsghost/Vue%20%E6%9C%AD%E8%AE%B0/VueDataProxy_k3joi8.png" alt="VueDataProxy" width="1603" height="670" layout="responsive"></amp-img></p>
+<p>在 Vue 中，通过使用 <code>Object.defineProperty</code> 将 <code>data</code> 对象的属性添加到 <code>vm</code> 实例上，可以实现数据代理。这样在模板中就无需直接操作 <code>_data.属性</code>，而是可以通过 <code>vm</code> 对象来访问和修改属性。</p>
+<h3 id="publishsubscribeinvue">Publish–Subscribe In Vue</h3>
+<p>发布订阅模式和观察者模式的区别主要在于是否引入了事件总线作为通信的中介，以实现松耦合的通信方式。</p>
+<p>Vue 中的 <code>Dep</code> 充当了中介者的角色。每个数据属性都有对应的 <code>Dep</code> 实例，它维护着依赖该属性的一组 <code>Watcher</code> 对象。当数据属性被读取时，<code>Watcher</code> 会将自身添加到该属性的 <code>Dep</code> 实例中，建立起依赖关系。当数据发生变化时，<code>Dep</code> 实例负责遍历其中的所有 <code>Watcher</code> 对象，并调用它们的更新方法，通知它们进行更新操作。</p>
+<h2 id="sourcecodeanalysis">Source Code Analysis</h2>
+<p>本文中的源码分析参考于 Vue2.6.x（Vue2 的最后一个稳定版本），较试验性版本 Vue2.7.x 会具有更佳的稳定性与成熟度。</p>
+<h3 id="dependencycollection">Dependency Collection</h3>
+<p>Vue 通过 <code>initState</code> 初始化状态，该函数定义在源码 <code>src/core/instance/state.js</code> 中。</p>
+<pre><code class="language-javascript">export function initState (vm: Component) {
+  // 为组件实例添加一个空数组，用于存储后续创建的 Watcher 实例
+  vm._watchers = []
+  // 将组件实例的选项赋值给 opts 变量
+  const opts = vm.$options
+  if (opts.props) initProps(vm, opts.props)
+  if (opts.methods) initMethods(vm, opts.methods)
+  if (opts.data) {
+    initData(vm)
+  } else {
+    // 组件没有 data 数据则创建一个空的观察对象并赋值给 vm._data，并将其标记为根数据
+    observe(vm._data = {}, true /* asRootData */)
   }
-});
-zsobj.biubiubiu; // =&gt; 调用新定义的 biubiubiu 属性的 get 方法
-zsobj.biubiubiu = 'zairesinatra' // 调用新定义的 biubiubiu 属性的 set 方法, 传入的值是zairesinatra
-
-var zy = {};
-Value = 23;
-Object.defineProperty(zy, 'one', {
-  writable: true,
-});
-// 不能尝试混合两者: 数据描述符、访问器描述符
-Object.defineProperty(zy, 'onee', {
-  get () { return console.log(Value) },
-  set (newValue) { Value = newValue; },
-  enumerable: true,
-  configurable: true
-});
-zy.onee // 23
-zy.onee = '24'
-zy.onee // 24
-</code></pre>
-<ul>
-<li>发布订阅模式</li>
-</ul>
-<p>发布订阅模式和观察者模式很像。观察者模式中一个对象被修改时，则会自动通知依赖它的对象，即 obsevers 知道 subject 的事件，属于行为型模式；但是发布订阅模式的发布者和订阅者并不直接取得联系，通过类似于中间件（事件总线）的帮助下进行代理事件通信，传入消息并完成相应的分发。<a href="https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c">更多点此</a><br />
-</p>
-<ul>
-<li>实现双向绑定</li>
-</ul>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;mvvm&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;input type="text"&gt;
-    &lt;span&gt;&lt;/span&gt;
-    &lt;script&gt;
-        // 获取文档中的第一个DOM元素
-        let input = document.querySelector('input');
-        let span = document.querySelector('span');
-        // 建立 event channel
-        let obj = {};
-        let value = '';
-        Object.defineProperty(obj,'dataDescribe',{
-            configurable: true | false, // 如果是false则不可以删除
-            enumerable: true | false, // 如果为false则在枚举时候会忽略
-            writable: true | false // 如果为false则不可采用数据运算符进行赋值
-        });
-        Object.defineProperty(obj, 'zsget', {
-            set: function (newValue) {
-                // fire event
-                value = newValue
-                input.value = newValue
-                span.innerText = newValue
-            },
-            get: function () {
-                return value
-            }
-        })
-        input.addEventListener('keyup',(e) =&gt; {
-            obj.zsget = e.target.value
-        })
-        input.value = obj.zsget
-        span.innerText = obj.zsget
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676479482/Ghost/Vue%20%E6%9C%AD%E8%AE%B0/%E5%8F%8C%E5%90%91%E5%AE%9E%E7%8E%B0_ekxfdf.png" alt="双向实现" width="1386" height="436" layout="responsive"></amp-img></p>
-<ul>
-<li>数据代理</li>
-</ul>
-<p>通过一个对象代理对另一个对象中属性的操作（读、写）称为数据代理。</p>
-<pre><code class="language-javascript">let obj1 = {x:100}
-let obj2 = {y:200}
-Object.defineProperty(obj2, 'x', {
-  get(){ return obj1.x },
-  set(value){ obj1.x = value }
-})
-// obj2.x = 1
-// obj2.x // 1
-</code></pre>
-<p>Vue 中数据代理通过 vm 对象来代理 data 对象中属性的操作，可以更方便的操作 data 中的数据（不必在花括号写 _data.属性）。Object.defineProperty() 把 data 对象中所有属性添加到 vm 上，为每一个添加到 vm 上的属性都指定一个 getter 和 setter。在 getter 和 setter 内部去操作 data 中对应的属性。</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;data proxy&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id="root"&gt;
-        &lt;h2&gt;name: {{name}}&lt;/h2&gt;
-        &lt;h2&gt;address: {{address}}&lt;/h2&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-    let data = {
-        name: 'zszy',
-        address: 'cs'
-    }
-    const vm = new Vue({
-        el: '#root',
-        data
-    })
-    console.log(vm._data === data) // true -&gt; vm._data === vm.options.data === data
-    console.log(vm.name === vm._data.name); // 进行 vm._data.name = 'zyzy' 后 vm.name 变为 zyzy
-&lt;/script&gt;
-&lt;/html&gt;
-</code></pre>
-<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676479483/Ghost/Vue%20%E6%9C%AD%E8%AE%B0/%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86_uabhkn.png" alt="数据代理" width="1476" height="922" layout="responsive"></amp-img></p>
-<h2 id="diffdom">Diff 算法和虚拟 DOM</h2>
-<p>避免新增内容引起整个 DOM 树的重新渲染，而只针对改动区域重新更新。精细化对比，最小量更新的 Diff (from different) 运营而生。</p>
-<p>虚拟 DOM 是通过 <a href="https://github.com/snabbdom/snabbdom">snabbdom.js</a> 库实现的，考虑到源码由 TypeScript 编写，可以通过 npm 下载使用 build 编译出来的 JavaScript 版 snabbdom 库。</p>
-<pre><code class="language-javascript"># snabbdom =&gt; 3.0.3
-npm i -S snabbdom
-</code></pre>
-<p>snabbdom 库是 DOM 库，不能在 nodejs 环境运行，所以需要搭建 webpack 和 webpack-dev-server 开发环境（不需安装任何loader）理解实现过程。</p>
-<pre><code class="language-shell">npm i -D webpack webpack-cli webpack-dev-server
-</code></pre>
-<pre><code class="language-shell">[webpack-cli] You need to install 'webpack-dev-server' for running 'webpack serve'.
-Error: Cannot find module 'webpack-dev-server'
-Require stack:
-- /Users/$/node_modules/@webpack-cli/serve/lib/index.js
-- /Users/$/node_modules/webpack-cli/lib/webpack-cli.js
-- /Users/$/node_modules/webpack-cli/lib/bootstrap.js
-- /Users/$/node_modules/webpack-cli/bin/cli.js
-- /Users/$/zairesinatra/fullStack/study-snabbdom/node_modules/webpack/bin/webpack.js
-</code></pre>
-<p>如果安装过程省略依赖会出现找不到目标文件并向上层目录继续寻找的报错。这里表示没有安装 webpack-cli 。在 webpack@3 版本里 webpack 和 webpack-cli 是在同一个包中，但在 ^4 版本两者已经分开。</p>
-<p>配置 webpack.config.js 文件</p>
-<pre><code class="language-javascript">const path = require('path')
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = {
-  // 入口
-  entry: './src/index.js',
-  // 出口
-  output: {
-    // 虚拟打包路径，就是说文件夹不会真正生成，而是在 8080 端口虚拟生成，不会真正的物理生成
-    publicPath: '/virtual',
-    // 打包出来的文件名
-    filename: 'bundle.js'
-  },
-  devServer: {
-    // 端口号
-    port: 8080,
-    // 静态资源文件夹
-    contentBase: 'www'
+  if (opts.computed) initComputed(vm, opts.computed)
+  // 如果组件有 watch 监听器，且 watch 不等于 Vue 内置的原生 watch 实现，则调用 initWatch 函数对其进行初始化
+  if (opts.watch &amp;&amp; opts.watch !== nativeWatch) {
+    initWatch(vm, opts.watch)
   }
 }
 </code></pre>
-<p>终端运行 <code>npx webpack serve</code> 启动项目，访问：<a href="http://localhost:8080/">http://localhost:8080/</a> 和 <a href="http://127.0.0.1:8080/virtual/bundle.js%EF%BC%8C">http://127.0.0.1:8080/virtual/bundle.js，</a> 可以看到 www/index.html 和 xuni/bundle.js 文件的内容。</p>
-<p>在 html 文件创建 id 为 container 的 DOM 节点并引入 bundle.js 。如果没有成功创建节点会出现 <code>Uncaught TypeError: Cannot read property 'sel' of null snabbdom</code> 的 console 面板报错（div 写在了 script 标签之后）。</p>
-<pre><code class="language-html">zairesinatra
-&lt;div id="container"&gt;&lt;/div&gt;
+<p>每个组件实例都有自己的观察者列表，存放该组件内用到的所有状态的依赖。当其中一个状态发生变化时，会通知到组件的观察者，然后组件内部使用虚拟 DOM 进行数据比对。</p>
+<p>其中 <code>initProps</code> 和 <code>initData</code> 方法都调用了 <code>observe</code> 函数来将数据转化为响应式。<code>observe</code> 方法定义在 <code>src/core/observer/index.js</code> 中。当传入的值是一个非 <code>VNode</code> 的对象类型数据时，它会尝试为该值创建一个 <code>Observer</code> 实例，并将该值转化为响应式对象。</p>
+<pre><code class="language-javascript">export function observe (value: any, asRootData: ?boolean): Observer | void {
+  if (!isObject(value) || value instanceof VNode) {
+    return
+  }
+  let ob: Observer | void
+  // 如果该值已经被观察过（存在 ob 属性），则直接返回已存在的 Observer 实例
+  if (hasOwn(value, '__ob__') &amp;&amp; value.__ob__ instanceof Observer) {
+    ob = value.__ob__
+  } else if (
+    shouldObserve &amp;&amp;
+    !isServerRendering() &amp;&amp;
+    (Array.isArray(value) || isPlainObject(value)) &amp;&amp;
+    Object.isExtensible(value) &amp;&amp;
+    !value._isVue
+  ) {
+    ob = new Observer(value)
+  }
+  if (asRootData &amp;&amp; ob) {
+    ob.vmCount++
+  }
+  return ob
+}
+</code></pre>
+<p>在 <code>Observer</code> 类的构造函数中，首先会实例化一个 <code>Dep</code> 对象用于依赖管理。然后通过 <code>def</code> 函数将当前 <code>Observer</code> 实例添加到数据对象 <code>value</code> 的 <code>__ob__</code> 属性上。最后根据 <code>value</code> 进行处理。</p>
+<pre><code class="language-javascript">export class Observer {
+  value: any;
+  dep: Dep; // 依赖管理器
+  vmCount: number; // 作为根 $data 的组件实例数量
+  constructor (value: any) {
+    this.value = value
+    this.dep = new Dep() // 创建依赖管理器
+    this.vmCount = 0
+    def(value, '__ob__', this) // 判断一个对象是否已经被观察过
+    if (Array.isArray(value)) { // 在值为数组的情况下，要判断浏览器是否支持 __proto__ 属性
+      if (hasProto) { // 通过修改原型链，可以让数组对象直接调用响应式数组的方法
+        protoAugment(value, arrayMethods)
+      } else { // 将响应式数组的方法拷贝到目标数组对象上
+        copyAugment(value, arrayMethods, arrayKeys)
+      }
+      this.observeArray(value)
+    } else {
+      this.walk(value)
+    }
+  }
+  // 遍历对象的所有属性，将其转化为 getter/setter
+  walk (obj: Object) {
+    const keys = Object.keys(obj)
+    for (let i = 0; i &lt; keys.length; i++) {
+      defineReactive(obj, keys[i])
+    }
+  }
+  // 观察数组中的每个元素
+  observeArray (items: Array&lt;any&gt;) {
+    for (let i = 0, l = items.length; i &lt; l; i++) {
+      observe(items[i])
+    }
+  }
+}
+</code></pre>
+<p><code>Observer</code> 类中的 <code>Dep</code> 对象用于侦测整个对象的变化；<code>defineReactive</code> 函数中的新的 <code>Dep</code> 对象用于侦测单个属性的变化。这样可以实现对对象及其属性的精确依赖追踪和响应式操作。</p>
+<pre><code class="language-javascript">export function defineReactive(
+  obj: Object,
+  key: string,
+  val: any,
+  customSetter?: ?Function,
+  shallow?: boolean
+) {
+  // 创建一个依赖管理器
+  const dep = new Dep();
+
+  // 检查属性的描述符，如果属性不可配置，则返回
+  const property = Object.getOwnPropertyDescriptor(obj, key);
+  if (property &amp;&amp; property.configurable === false) {
+    return;
+  }
+
+  // 处理预定义的 getter 和 setter
+  const getter = property &amp;&amp; property.get;
+  const setter = property &amp;&amp; property.set;
+  if ((!getter || setter) &amp;&amp; arguments.length === 2) {
+    // 如果没有 getter 或者有 setter，并且只有 2 个参数，则将 val 设置为 obj[key] 的值
+    val = obj[key];
+  }
+
+  let childOb = !shallow &amp;&amp; observe(val);
+
+  // 使用 Object.defineProperty 定义属性的 getter 和 setter
+  Object.defineProperty(obj, key, {
+    enumerable: true,
+    configurable: true,
+    get: function reactiveGetter() {
+      const value = getter ? getter.call(obj) : val;
+      if (Dep.target) {
+        // 收集依赖
+        dep.depend();
+        if (childOb) {
+          childOb.dep.depend();
+          if (Array.isArray(value)) {
+            // 如果值是数组，则收集数组元素的依赖
+            dependArray(value);
+          }
+        }
+      }
+      return value;
+    },
+    set: function reactiveSetter(newVal) {
+      const value = getter ? getter.call(obj) : val;
+      /* eslint-disable no-self-compare */
+      if (newVal === value || (newVal !== newVal &amp;&amp; value !== value)) {
+        // 值没有发生变化时，不执行更新操作
+        return;
+      }
+      
+      ...
+      
+      // 如果有 setter，则调用 setter，否则直接更新 val 的值
+      if (setter) {
+        setter.call(obj, newVal);
+      } else {
+        val = newVal;
+      }
+      // 对新值进行观测
+      childOb = !shallow &amp;&amp; observe(newVal);
+      // 通知依赖进行更新
+      dep.notify();
+    },
+  });
+}
+</code></pre>
+<p>使用 <code>Object.defineProperty</code> 定义属性的 <code>getter</code> 和 <code>setter</code>。<code>getter</code> 是在读取属性时进行依赖收集，<code>setter</code> 是在属性变化时进行依赖通知和更新操作。需要注意的是，Vue2 的这种响应式系统设计仅能监听对象属性的读取和写，无法监听到属性的添加和删除。</p>
+<ul>
+<li>当属性的 <code>getter</code> 被访问时，<code>Dep.depend()</code> 方法会被调用，将当前的 <code>Dep</code> 实例添加到当前的订阅者 <code>Dep.target</code> 的依赖列表中，实现依赖的收集。</li>
+<li>当属性的 <code>setter</code> 被调用时，<code>Dep.notify()</code> 方法会被调用，遍历 <code>subs</code> 数组，依次通知每个订阅者 watcher 属性的变化，触发更新操作。</li>
+</ul>
+<pre><code class="language-javascript">export default class Dep {
+  static target: ?Watcher; // 用于存储当前正在计算的 Watcher 对象
+  id: number; // Dep 的唯一标识
+  subs: Array&lt;Watcher&gt;; // 订阅该 Dep 的所有 Watcher 对象数组
+
+  constructor () {
+    this.id = uid++ // 唯一标识自增
+    this.subs = [] // 订阅该 Dep 的 Watcher 对象数组
+  }
+
+  addSub (sub: Watcher) {
+    this.subs.push(sub) // 将 Watcher 对象添加到订阅列表中
+  }
+
+  removeSub (sub: Watcher) {
+    remove(this.subs, sub) // 从订阅列表中移除指定的 Watcher 对象
+  }
+
+  depend () {
+    if (Dep.target) {
+      Dep.target.addDep(this) // 将当前 Dep 对象添加到当前计算的 Watcher 的依赖列表中
+    }
+  }
+
+  notify () {
+    // 先稳定订阅者列表的顺序
+    const subs = this.subs.slice()
+    if (process.env.NODE_ENV !== 'production' &amp;&amp; !config.async) {
+      // 如果非异步更新且不处于生产环境
+      // 则需要手动对订阅者列表进行排序，以确保它们按正确的顺序触发更新
+      subs.sort((a, b) =&gt; a.id - b.id)
+    }
+    // 遍历订阅者列表，触发每个订阅者的更新操作
+    for (let i = 0, l = subs.length; i &lt; l; i++) {
+      subs[i].update()
+    }
+  }
+}
+</code></pre>
+<p><code>Dep</code> 类位于 <code>src/core/observer/dep.js</code> 文件中。每个属性所对应的 <code>Dep</code> 实例都会具有唯一的标识，用于区分不同的依赖。<code>Dep</code> 实例的 <code>subs</code> 数组用于存储订阅该依赖的订阅者 watcher。</p>
+<p>每个组件实例都对应各自的 <code>Watcher</code> 实例。<code>Watcher</code> 实例会在组件的 <code>beforeMount</code> 阶段创建。</p>
+<p>每个 <code>Watcher</code> 实例都会订阅一个或多个依赖（<code>Dep</code> 实例）。当订阅的依赖发生变化时，<code>Dep</code> 实例会通知相应的 <code>Watcher</code> 实例执行更新操作。</p>
+<pre><code class="language-javascript">export default class Watcher {
+  constructor (
+    vm: Component,
+    expOrFn: string | Function,
+    cb: Function,
+    options?: ?Object,
+    isRenderWatcher?: boolean
+  ) {
+    this.vm = vm // Vue 实例
+    this.cb = cb // 回调函数
+    // ...其他属性
+
+    this.getter = parsePath(expOrFn) // 解析表达式或函数，生成一个读取数据的函数
+    // ...其他初始化逻辑
+
+    this.value = this.lazy
+      ? undefined
+      : this.get() // 初始化 value，若非 lazy，则执行 get() 方法获取初始值
+  }
+
+  get () {
+    // 设置当前 Watcher 为 Dep.target，以便进行依赖收集
+    pushTarget(this)
+    let value
+    const vm = this.vm
+    // ...获取数据的逻辑
+    // 收集完依赖后，恢复之前的 Dep.target
+    popTarget()
+    return value
+  }
+
+  update () {
+    // ...更新逻辑
+    // 调用 this.cb 回调函数，进行响应式更新
+    this.cb.call(this.vm, value, oldValue)
+  }
+}
+</code></pre>
+<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1686852985/blog/zsghost/Vue%20%E6%9C%AD%E8%AE%B0/Vue_%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86_bhwvgg.png" alt="Vue2 响应式原理" width="2397" height="314" layout="responsive"></amp-img></p>
+<p><code>Observer</code> 会把原始对象的每个属性通过 <code>Object.defineProperty</code> 数据劫持转换为带有 <code>getter</code> 和 <code>setter</code> 的属性（响应式对象）。当 <code>render</code> 函数在执行过程中访问到响应式数据时，会触发属性的 <code>getter</code> 方法。在 <code>getter</code> 方法中会通过 <code>dep.depend()</code> 来收集依赖，将当前的 <code>Dep</code> 对象添加到 <code>Watcher</code> 对象的依赖列表中。当响应式数据发生变化时，该数据所对应的 <code>setter</code> 方法就会被触发，执行 <code>dep.notify()</code> 通知与该数据相关的 <code>Dep</code> 对象。<code>Dep</code> 对象会遍历其中存储的所有 <code>Watcher</code> 对象，并调用每个 <code>Watcher</code> 对象的更新方法，即 <code>subs[i].update()</code>，此时会重新运行其对应的更新函数（通常是 render 函数）。</p>
+<h3 id="diffvnode">Diff &amp; VNode</h3>
+<p>在 Vue 中，虚拟 DOM 的实现是基于 <a href="https://github.com/snabbdom/snabbdom">Snabbdom.js</a> 库。该库用于处理 DOM 的创建、更新和渲染。</p>
+<pre><code class="language-shell">npm install -S snabbdom
+npm install -D webpack webpack-cli webpack-dev-server
+</code></pre>
+<pre><code class="language-javascript">const path = require('path')
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    publicPath: '/virtual',
+    filename: 'bundle.js'
+  },
+  devServer: {
+    port: 8080,
+    contentBase: 'www' // 静态资源目录
+  }
+}
+</code></pre>
+<pre><code class="language-html">&lt;div id="container"&gt;&lt;/div&gt;
 &lt;script src="/virtual/bundle.js"&gt;&lt;/script&gt;
 </code></pre>
-<p>在 index.js 中引入 snabbdom 。主要完成 compile（把真实 DOM 编译成 Vnode ）、diff（比较 oldVnode 和 newVnode 区别）、patch（补丁更新真实 DOM ）的工作。</p>
-<pre><code class="language-javascript">console.log("zsxzy's bundle.js import completed");
+<pre><code class="language-javascript">console.log("bundle.js import completed");
 import {
     init,
     classModule,
@@ -1405,438 +1420,7 @@ const newVnode = h(
 // Second `patch` invocation
 patch(vnode, newVnode); // Snabbdom efficiently updates the old view to the new state
 </code></pre>
-<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676479639/Ghost/Vue%20%E6%9C%AD%E8%AE%B0/initcompleted_a0ni1o.png" alt="initcompleted" width="2878" height="182" layout="responsive"></amp-img></p>
-<p>虚拟 DOM 是用 JavaScript 对象描述 DOM 的层次结构。在 DOM 中的一切属性都能从虚拟 DOM 中找到对应。sel(selector) 表示元素选择器、data 表示元素属性、children 表示元素子节点、elm 表示该元素对应的真正的DOM节点（若值是 undefined 则未上树）、key 为节点唯一标识、text 文本内容。</p>
-<p>diff 是发生在虚拟 DOM 上的：新虚拟 DOM 和老虚拟 DOM 进行 diff （精细化比较），计算最小量更新反映到真实的 DOM 上。key 是节点的唯一标识，告诉 diff 算法在更改前后是否为同一个 DOM 节点。只有是选择器相同且 key 相同的同一个虚拟节点，才进行虚拟化比较，否则就是暴力删除旧的、插入新的。最后注意的是 diff 算法只进行同层比较，不会进行跨层比较。</p>
-<p>通过 h 函数传参数产生一个虚拟节点 (vnode) 对象用来描述真实的 DOM 。<code>h('a', { props: { href: 'https://blog.zairesinatra.com', target: '_blank'  } }, 'blog')</code> 可生成此类虚拟节点 <code>{ "sel": "a", "data": { "props": { "href": "https://blog.zairesinatra.com" } }, "text": "zsxzy" }</code>。h 函数中可以进行子节点的嵌套。</p>
-<p>手写实现简易 diff 算法代码如下。</p>
-<pre><code class="language-javascript">// vnode.js
-export default function (sel, data, children, text, elm) {
-  const key = data.key;
-  return { sel, data, children, text, elm, key }
-}
-</code></pre>
-<pre><code class="language-javascript">// h 函数(强制接受3个参数、弱重置功能)
-// 封装 vnode 函数并抽离后导入
-import vnode from './vnode'
-// 形态可能: h('div', {}, '文字')\h('div', {}, [])\h('div', {}, h())
-export default function (sel, data, c) {
-  if (arguments.length !== 3)
-    throw new Error('此 h 函数强制传入 3 个参数')
-  if (typeof c === 'string' || typeof c === 'number') {
-    return vnode(sel, data, undefined, c, undefined)
-  } else if (Array.isArray(c)) {
-    let children = []
-    for (let i = 0; i &lt; c.length; i++) {
-      if (!(typeof c[i] === 'object' &amp;&amp; c[i].hasOwnProperty('sel'))){
-          throw new Error('传入的数组参数中有不是 h 函数的项')
-      }
-      children.push(c[i])
-    }
-    return vnode(sel, data, children, undefined, undefined)
-  } else if (typeof c === 'object' &amp;&amp; c.hasOwnProperty('sel')) {
-    let children = [c]
-    return vnode(sel, data, children, undefined, undefined)
-  } else {
-    throw new Error('传入的第三个参数类型不对')
-  }
-}
-</code></pre>
-<pre><code class="language-javascript">// createElement 函数
-// 真正创建节点, 将 vnode 创建为 DOM , 但未上树
-export default function createElement(vnode) {
-  // 创建由 tagName 指定的 HTML 元素节点
-  let domNode = document.createElement(vnode.sel);
-  // 仅论述子节点是文本或 children 情况
-  if (vnode.text !== '' &amp;&amp; (vnode.children === undefined ||  vnode.children.length === 0)) {
-    domNode.innerText = vnode.text;
-  } else if (Array.isArray(vnode.children) &amp;&amp; vnode.children.length &gt; 0) {
-    // children 情况递归创建节点
-    for (let i = 0; i &lt; vnode.children.length; i++) {
-      let ch = vnode.children[i];
-      let chDom = createElement(ch);
-      domNode.appendChild(chDom);
-    }
-  }
-  // 补充纯 DOM 对象 —— elm 属性, 并返回
-  vnode.elm = domNode;
-  return vnode.elm;
-}
-</code></pre>
-<pre><code class="language-javascript">// patch 函数
-import vnode from './vnode'
-import patchVnode from './patchVnode'
-import createElement from './createElement'
-export default function patch(oldVnode, newVnode) {
-  // 判断旧节点是 DOM 节点还是虚拟节点, DOM 节点需要包装为虚拟节点
-  if (oldVnode.sel === '' || oldVnode.sel === undefined) {
-    oldVnode = vnode(oldVnode.tagName.toLowerCase(), {}, [], undefined, oldVnode);
-  }
-  // 判断 oldVnode 和 newVnode 是否同一个节点
-  if (oldVnode.key === newVnode.key &amp;&amp; oldVnode.sel === newVnode.sel) {
-    // 同一个节点情况较多, 封装函数
-    patchVnode(oldVnode, newVnode);
-  } else {
-    // 不是同一个节点, 暴力插新删旧
-    let newVnodeElm = createElement(newVnode);
-    if (oldVnode.elm &amp;&amp; newVnodeElm) {
-      oldVnode.elm.parentNode.insertBefore(newVnodeElm, oldVnode.elm);
-    }
-    oldVnode.elm.parentNode.removeChild(oldVnode.elm);
-  }
-}
-</code></pre>
-<pre><code class="language-javascript">// patchVnode.js
-import createElement from './createElement'
-export default function patchVnode(oldVnode, newVnode) {
-  // 判断新旧 vnode 是否为同一个对象
-  if (oldVnode === newVnode) {return}
-  // 若 newVnode 有 text 属性
-  if (
-    newVnode.text != undefined &amp;&amp;
-    (newVnode.children === undefined || newVnode.children.length === 0)
-  ) {
-    if (newVnode.text != oldVnode.text) {
-      // innerText 产生重排, 直接覆盖 oldVnode.elm 故不必考虑 children 情况
-      oldVnode.elm.innerText = newVnode.text;
-    }
-  } else {
-    // newVnode 没有 text 属性 =&gt; 有children
-    // 判断 oldVnode 有无 children
-    if (oldVnode.children !== undefined &amp;&amp; oldVnode.children.length &gt; 0) {
-      // 此时是最复杂的情况 —— oldVnode、newVnode 都有 children 属性
-      // 仅书写新增节点的逻辑, 不考虑删除和更新节点的实现
-      let un = 0;
-      for (let i = 0; i &lt; newVnode.children.length; i++) {
-        const ch = newVnode.children[i]
-        let isExist = false;
-        for (let j = 0; j &lt; oldVnode.children.length; j++) {
-          const oldCh = oldVnode.children[j];
-          if (oldCh.sel === ch.sel &amp;&amp; oldCh.key === ch.key) {
-            isExist = true;
-          }
-        }
-        if (!isExist) {
-          const dom = createElement(ch);
-          ch.elm = dom;
-          if (un &lt; oldVnode.children.length) {
-            oldVnode.elm.insertBefore(dom, oldVnode.children[un].elm);
-          } else {
-            oldVnode.elm.appendChild(dom);
-          }
-        } else {
-          un++;
-        }
-      }
-    } else {
-      // 清空 oldVnode 的内容, 遍历 newVnode 子节点, 创建 DOM 并上树
-      oldVnode.elm.innerText = '';
-      for (let i = 0; i &lt; newVnode.children.length; i++) {
-        const dom = createElement(newVnode.children[i]);
-        oldVnode.elm.appendChild(dom);
-      }
-    }
-  }
-}
-</code></pre>
-<p>diff 算法的子节点更新策略 —— 四种命中查找：新前与旧前、新后与旧后、新后与旧前（旧前指向的节点，移动到旧后之后）、新前与旧后（旧后指向的节点，移动到旧前之前）。上述查找方式命中一种就不在进行判断，若一种未命中则需要使用循环寻找。</p>
-<p>手写对应 snabbdom 源码简易子节点更新策略如下。</p>
-<pre><code class="language-javascript">// updateChildren.js
-import createElement from './createElement'
-import patchVnode from './patchVnode'
-// 判断是否同一个虚拟节点
-function checkSameVnode(a, b) {
-  return a.sel === b.sel &amp;&amp; a.key === b.key;
-}
-export default function updateChildren(parentElm, oldCh, newCh) {
-  let oldStartIdx = 0, newStartIdx = 0, oldEndIdx = oldCh.length - 1, newEndIdx = newCh.length - 1, oldStartVnode = oldCh[oldStartIdx], oldEndVnode = oldCh[oldEndIdx], newStartVnode = newCh[newStartIdx], newEndVnode = newCh[newEndIdx], keyMap = null; // 旧前、新前、旧后、新后、旧前节点、旧后节点、新前节点、新后节点、Map映射
-  while (oldStartIdx &lt;= oldEndIdx &amp;&amp; newStartIdx &lt;= newEndIdx) {
-    // 略过已加 undefined 标记节点
-    if (oldStartVnode === null || oldCh[oldStartIdx] === undefined) {
-      oldStartVnode = oldCh[++oldStartIdx];
-    } else if (oldEndVnode === null || oldCh[oldEndIdx] === undefined) {
-      oldEndVnode = oldCh[--oldEndIdx];
-    } else if (newStartVnode === null || newCh[newStartIdx] === undefined) {
-      newStartVnode = newCh[++newStartIdx];
-    } else if (newEndVnode === null || newCh[newEndIdx] === undefined) {
-      newEndVnode = newCh[--newEndIdx];
-    } else if (checkSameVnode(oldStartVnode, newStartVnode)) { // 判断命中开始
-      patchVnode(oldStartVnode, newStartVnode);
-      oldStartVnode = oldCh[++oldStartIdx];
-      newStartVnode = newCh[++newStartIdx];
-    } else if (checkSameVnode(oldEndVnode, newEndVnode)) {
-      patchVnode(oldEndVnode, newEndVnode);
-      oldEndVnode = oldCh[--oldEndIdx];
-      newEndVnode = newCh[--newEndIdx];
-    } else if (checkSameVnode(oldStartVnode, newEndVnode)) {
-      patchVnode(oldStartVnode, newEndVnode);
-      parentElm.appendChild(oldStartVnode.elm, oldEndVnode.elm.nextSibling);
-      oldStartVnode = oldCh[++oldStartIdx];
-      newEndVnode = newCh[--newEndIdx];
-    } else if (checkSameVnode(oldEndVnode, newStartVnode)) {
-      patchVnode(oldEndVnode, newStartVnode);
-      parentElm.insertBefore(oldEndVnode.elm, oldStartVnode.elm);
-      oldEndVnode = oldCh[--oldEndIdx];
-      newStartVnode = newCh[++newStartIdx];
-    } else {
-      // 四种命中都没有找到则制作 keyMap 缓存 —— 快速遍历
-      if (!keyMap) {
-        keyMap = {};
-        // 从 oldStartIdx 开始，到oldEndIdx结束，创建keyMap映射对象
-        for (let i = oldStartIdx; i &lt;= oldEndIdx; i++) {
-          const key = oldCh[i].key;
-          if (key !== undefined) {
-            keyMap[key] = i;
-          }
-        }
-      }
-      // 寻找当前这项 newStartIdx 这项在 keyMap 中映射的序号
-      const idxInOld = keyMap[newStartVnode.key]
-      if (idxInOld === undefined) {
-        // idxInOld 是 undefined 表示全新的项
-        // 被加入的项 (newStartVnode) 现在不是真实的DOM
-        parentElm.insertBefore(createElement(newStartVnode), oldStartVnode.elm);
-      } else {
-        // idxInOld 不是 undefined 表示不是全新的项, 需移动
-        const elmToMove = oldCh[idxInOld];
-        patchVnode(elmToMove, newStartVnode)
-        // 把这项设置为 undefined 表示已处理完
-        oldCh[idxInOld] = undefined;
-        // 移动调用 insertBefore
-        parentElm.insertBefore(elmToMove.elm, oldStartVnode.elm);
-      }
-      // 指针下移, 仅移动新的头
-      newStartVnode = newCh[++newStartIdx];
-    }
-  }
-  // 继续看有无剩余、循环结束时 newStartIdx 比 newEndIdx 小
-  if (newStartIdx &lt;= newEndIdx) {
-    // new 还有剩余节点没有处理
-    for (let i = newStartIdx; i &lt;= newEndIdx; i++) {
-      // insertBefore 可以自动识别 null, 如果是 null 就会自动排到队尾.和appendChild是一致的
-      parentElm.insertBefore(createElement(newCh[i]), oldCh[oldStartIdx].elm);
-    }
-  } else if (oldStartIdx &lt;= oldEndIdx) {
-    // old 还有剩余节点没有处理
-    for (let i = oldStartIdx; i &lt;= oldEndIdx; i++) {
-      if (oldCh[i]) {
-        parentElm.removeChild(oldCh[i].elm);
-      }
-    }
-  }
-}
-</code></pre>
-<h2 id="vuecli">Vue CLI</h2>
-<p>Vue CLI 是一个基于 Vue.js 进行快速开发的完整系统。由三部分组成：CLI (@vue/cli)、CLI 服务 (@vue/cli-service)、CLI 插件。<a href="https://cli.vuejs.org/zh/guide/cli-service.html#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4">CLI (@vue/cli)</a></p>
-<pre><code class="language-zsh"># 快速原型开发
-vue serve
-# 创建 vue 项目
-vue create
-# 进入 vue 可视化管理界面
-vue ui
-</code></pre>
-<p>例如对单个 <code>*.vue</code> 文件进行快速原型开发：需要在 <code>npm install -g @vue/cli-service-global</code> 之后才可进行使用 <code>vue serve</code> 启动项目。<br />
-可以借助 npm 进行 Vue 项目的启动和打包等操作，例如： <code>npm run serve</code> 启动项目；<code>npm run build</code> 打包项目。同时在启动 React 项目的时候使用的是 <code>npm start</code>；在打包 React 项目的时候也是使用的 <code>npm run build</code>；但是创建 React项目的是使用的 React 自己的脚手架 create-react-app ；Vue使用的命令是 <code>vue create</code>。</p>
-<p>CLI 服务 (@vue/cli-service) 是一个 <strong>开发环境</strong> 依赖。本质是一个 npm 包，局部安装在每个 @vue/cli 创建的项目中。</p>
-<p>在一个 Vue CLI 项目中，@vue/cli-service 安装了一个名为 <code>vue-cli-service</code> 的命令。可以在 npm scripts 中以 <code>vue-cli-service</code>、或者从终端中以 <code>./node_modules/.bin/vue-cli-service</code> 访问这个命令。</p>
-<pre><code>// 使用默认 preset 的项目的 package.json
-{
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  }
-}
-</code></pre>
-<pre><code>// 通过 npm 调用这些 script
-npm run serve
-npm run build
-</code></pre>
-<pre><code>// 使用 npx (最新版的 npm 应该已经自带)调用
-npx vue-cli-service serve
-</code></pre>
-<p>CLI 插件是向 Vue 项目提供可选功能的 npm 包，例如 Babel/TypeScript 转译、ESLint 集成等。</p>
-<p>其中 CLI 插件的名字以 <code>@vue/cli-plugin- (xxx)</code>开头，在 <code>package.json</code> 中可查看。</p>
-<p>当在项目内部运行 <code>vue-cli-service</code> 命令时，它会自动解析并加载 <code>package.json</code> 中列出的所有 CLI 插件。</p>
-<h2 id="vuerouter">VueRouter</h2>
-<h3 id="quickstart">Quick Start</h3>
-<p>路由即路径和组件的对应关系，route 和 router 之间可以看作是路由和路由器的关系，route 由 router 进行管理，由于前者通常具有多个，故常写成 routes。路由的主要作用是实现单页面应用导航区与展示区的切换功能。</p>
-<p>路由广义上分为前端路由以及后端路由，前端路由依靠锚链接，一种实现同一页面定位不同资源节点的特殊超链接；后端路由通过服务器实现资源分发，相比于前者性能较低。</p>
-<p><a href="https://router.vuejs.org/zh/">vue-router</a> 是 vue 用来实现单页面应用的插件库。单页面应用有且只有一个完整的页面；点击页面中的导航链接不会刷新页面，只会做页面的局部更新；数据需要通过 ajax 请求获取。</p>
-<p>Vue Router 配置步骤：</p>
-<pre><code class="language-html">&lt;!--1. 引入库文件,在全局 window 对象上挂载 VueRouter 构造函数--&gt;
-&lt;script src="lib/vue-router_3.0.2.js"&gt;&lt;/script&gt;
-</code></pre>
-<pre><code class="language-javascript">// 2. 加入默认渲染成超链接的 router 链接 (to属性渲染为 href 属性)
-&lt;router-link to="/zs"&gt;toZs&lt;/router-link&gt;    
-</code></pre>
-<pre><code class="language-javascript">// 3. 设置路由占位符(路由填充位)
-&lt;router-view&gt;&lt;/router-view&gt;  
-</code></pre>
-<pre><code class="language-javascript">// 4. 定义router's component模板
-// 若动态参数较多以及需要换行考虑模板字符串``
-var Haizeiwang = {template:"&lt;div&gt;It's a test&lt;/div&gt;"}
-</code></pre>
-<pre><code class="language-javascript">// 5. 创建VueRouter实例并配置规则
-var myRouter = new VueRouter({routes:
-[{path:"/zs",component:Haizeiwang},...]}) 
-// component后接组件名非string切忌""
-</code></pre>
-<pre><code class="language-javascript">// 6. 路由挂载实例
-var app = new Vue({el:"#app",router:myRouter})
-</code></pre>
-<p>嵌套路由：</p>
-<p>嵌套路由就是在路由实例中存在其他路由：</p>
-<ul>
-<li>被嵌套的路由组件模板中需新增的路由链接与路由占位符，这里有涉及换行，避免转译麻烦则使用ES6新增的模板字符串代替 <code>"</code> ；</li>
-<li>路由实例的配置文件中通过 children 数组添加子路由规则</li>
-</ul>
-<p>动态路由：</p>
-<p>携带具有规律动态变化的参数的路由规则匹配，重点在动态参数、规则匹配。主要设置地方是创建路由实例对象的规则配置域中。</p>
-<pre><code>&lt;!--示例代码如下：--&gt;
-&lt;router-link to="/zairesinatra/1"&gt;xx&lt;/router-link&gt;
-&lt;router-link to="/zairesinatra/2"&gt;zz&lt;/router-link&gt;
-&lt;router-link to="/zairesinatra/3"&gt;yy&lt;/router-link&gt;
-......
-&lt;!--而配置文件不必写为--&gt;
-{path:'/zairesinatra/1',component:xx}
-{path:'/zairesinatra/2',component:zz}
-{path:'/zairesinatra/3',component:yy}
-......
-</code></pre>
-<p>可简写为：</p>
-<pre><code>// 路由规则配置中：
-var myRouter = new VueRouter({
-    //routes是路由规则数组
-    routes: [
-        //通过/:参数名  的形式传递参数 
-        { path: "/zairesinatra/:id", component: 组件名 },})
-// 路由组件中
-const Zs = {
-	//路由组件中通过$route.params对象来获取路由参数
-	template:'&lt;div&gt;zairesinatra{{$route.params.id}}&lt;/div&gt;'
-}
-</code></pre>
-<p>而时常被诟病与路由高度耦合的的<code>$route.params.id</code>可换成<code>props</code>：</p>
-<pre><code>// 路由组件模板
-// 通过props来接收参数
-var Zs = { 
-    props:["id"],
-    template:"&lt;div&gt;num：{{id}}&lt;/div&gt;"
-    }
-
-// 路由实例与配置域
-var myRouter = new VueRouter({
-    //routes是路由规则数组
-    routes: [
-        // 通过/:参数名的形式传递参数 
-        // 如果props设置为true，则route.params将会被设置为组件属性
-        { path: "/zairesinatra/:id", component: Zs, props:true },...]})
-</code></pre>
-<p>同时注意：如果是传递静态参数，props设置为对象；传递复杂参数时，props设置为箭头函数路由模板应使用mustache传值，且路由实例中props设置为带参数(route)箭头函数,返回值中动态项无需添加$，直接route.params.id即可。</p>
-<h2 id="additionalconsiderations">Additional considerations</h2>
-<h3 id="vbindfunctionsync">v-bind:Function &amp; .sync</h3>
-<pre><code class="language-html">&lt;template&gt;
-&lt;div&gt;
-  &lt;BindFunc :parentHandler="parentHandler" /&gt;
-  &lt;SyncModefier v-bind:sync-data.sync="syncData" :data-to-be-modified="dataToBeModified" @setDataToBeModified="res =&gt; dataToBeModified = res" /&gt;
-  &lt;div&gt;{{dataToBeModified}}&lt;/div&gt;
-  &lt;div&gt;{{syncData}}&lt;/div&gt;
-&lt;/div&gt;
-&lt;/template&gt;
-&lt;script&gt;
-import BindFunc from './components/BindFunc.vue'
-import SyncModefier from './components/SyncModifier.vue'
-export default {
-  components: {
-    BindFunc,
-    SyncModefier
-  },
-  data () {
-    return {
-      dataToBeModified: 'value of dataToBeModified',
-      syncData: 'value of syncData'
-    }
-  },
-  methods: {
-    parentHandler () {
-      console.log('这是父组件的方法')
-    }
-  }
-}
-&lt;/script&gt;
-</code></pre>
-<pre><code class="language-html">&lt;template&gt;
-  &lt;div&gt;SyncModefier =&gt; {{ syncData }} =&gt; {{ dataToBeModified }}&lt;/div&gt;
-&lt;/template&gt;
-&lt;script&gt;
-export default {
-  name: 'SyncModefier',
-  props: {
-    dataToBeModified: {
-      type: String,
-      default: () =&gt; {
-        return 'yes dataToBeModified default'
-      }
-    },
-    syncData: {
-      type: String,
-      //   default: "yes syncData default"
-      default: () =&gt; {
-        return 'yes syncData default'
-      }
-    }
-  },
-  mounted () {
-    this.$emit('setDataToBeModified', 'hello sync')
-    this.$emit('update:syncData', 'hello syncData')
-  }
-}
-&lt;/script&gt;
-</code></pre>
-<pre><code class="language-html">&lt;template&gt;
-  &lt;div&gt;
-    &lt;button @click="handler"&gt;子组件的按钮 =&gt; 测试父组件向子组件传递函数方法&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-&lt;script&gt;
-export default {
-  name: 'BindFunc',
-  props: {
-    parentHandler: {
-      type: Function,
-      default: () =&gt; {
-        return Function
-      }
-    }
-  },
-  methods: {
-    handler () {
-      this.parentHandler()
-    }
-  }
-}
-&lt;/script&gt;
-</code></pre>
-<h3 id><a href="https://v2.cn.vuejs.org/v2/style-guide/">命名风格</a></h3>
-<blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Template_literals">模板字面量</a>是允许嵌入表达式的字符串字面量，在 ES2015 规范前被称为模板字符串。模板字符串使用反引号 `` 来代替普通字符串中的用双引号和单引号，且包含特定语法（${expression}）的占位符。</p>
-</blockquote>
-<blockquote>
-<p>JSX 是 JavaScript 的语法扩充，允许在 JS 中使用 HTML 的标签。</p>
-</blockquote>
-<p>测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下</p>
-<ul>
-<li><a href="https://v2.cn.vuejs.org/v2/style-guide/#%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84%E7%BB%84%E4%BB%B6%E5%90%8D%E5%A4%A7%E5%B0%8F%E5%86%99%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90">组件名大小写</a></li>
-</ul>
-<p>单文件组件、JSX 和模板字符串中支持 PascalCase、kebab-case 风格；DOM 模板中仅支持 kebab-case 风格。</p>
-<p>DOM 模板直接参与浏览器解析渲染，而模板字符串需要通过 Vue 将其编译转换成真正的 HTML 代码。</p>
-<ul>
-<li><a href="https://v2.cn.vuejs.org/v2/style-guide/#Prop-%E5%90%8D%E5%A4%A7%E5%B0%8F%E5%86%99%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90">prop 大小写</a></li>
-</ul>
-<h2 id="okkk">okkk</h2>
-<h3 id="nexttick">nextTick</h3>
-<p>测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下</p>
-<p>全局 API <a href="https://v2.cn.vuejs.org/v2/api/#Vue-nextTick">Vue.nextTick( [callback, context] )</a> 和实例方法 <a href="https://v2.cn.vuejs.org/v2/api/#vm-nextTick">vm.$nextTick( [callback] )</a> 都是在下次 DOM 更新循环结束之后执行延迟回调，不同的是后者回调的 this 会自动绑定到调用此方法的实例上。</p>
+<p>子节点更新策略：新前与旧前、新后与旧后、新后与旧前、新前与旧后。如果以上四种命中查找方式都未命中，就需要通过循环遍历旧节点列表来查找是否存在与当前新节点相同的节点，以确定是否需要移动或替换节点。</p>
 <h2 id="bug">BUG 分析</h2>
 <ul>
 <li><code>title</code>优化 ✔️</li>

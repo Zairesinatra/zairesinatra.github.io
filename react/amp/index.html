@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://zairesinatra.github.io//react/" />
     <meta property="og:image" content="https://zairesinatra.github.io//content/images/2022/08/React.png" />
     <meta property="article:published_time" content="2021-03-04T11:42:00.000Z" />
-    <meta property="article:modified_time" content="2022-11-13T17:47:43.000Z" />
+    <meta property="article:modified_time" content="2023-05-20T12:48:00.000Z" />
     <meta property="article:tag" content="Technology growth" />
     
     <meta name="twitter:card" content="summary_large_image" />
@@ -64,7 +64,7 @@
     "headline": "React",
     "url": "https://zairesinatra.github.io//react/",
     "datePublished": "2021-03-04T11:42:00.000Z",
-    "dateModified": "2022-11-13T17:47:43.000Z",
+    "dateModified": "2023-05-20T12:48:00.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://zairesinatra.github.io//content/images/2022/08/React.png",
@@ -1661,6 +1661,9 @@ export default UseCallbackHook;
 <ul>
 <li>类似计算属性的监听 =&gt; useMemo</li>
 </ul>
+<blockquote>
+<p>useMemo is a React Hook that lets you cache the result of a calculation between re-renders.</p>
+</blockquote>
 <p>useMemo 传入的函数内部必须有返回值；useMemo 只能声明在函数组件内部。</p>
 <p>useMemo 接收一个具有返回值的回调函数和依赖数组，返回一个 memoized 值。</p>
 <p>React.memo 的使用位置处于函数式组件的外围，不能直接用 useMemo 替代。</p>
@@ -1727,7 +1730,7 @@ export default UseMemoHook;
 </code></pre>
 <h3 id="%E9%A2%9D%E5%A4%96%E7%9A%84-hook">额外的 Hook</h3>
 <ul>
-<li>useRef =&gt; 返回 ref 对象</li>
+<li>useRef =&gt; 返回 ref 对象，该对象在组件的整个生命周期中保持不变</li>
 </ul>
 <blockquote>
 <p>useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue). The returned object will persist for the full lifetime of the component.</p>
@@ -1771,8 +1774,8 @@ export default UseRefHook;
 <ul>
 <li>useLayoutEffect =&gt;  DOM 变更之后同步调用 effect</li>
 </ul>
-<p>useEffect 可以满足绝大多数的开发场景，而 useLayoutEffect 可能会阻塞渲染，需要谨慎使用。</p>
-<p>useEffect 默认在每轮渲染结束后执行，而 useLayoutEffect 在浏览器执行绘制之前执行，常用作解决页面闪动的问题。</p>
+<p><code>useEffect</code> 会在渲染的内容更新到 DOM 上后执行，不会阻塞 DOM 更新。<code>useLayoutEffect</code> 在渲染的内容更新到 DOM 上之前执行，会阻塞 DOM 的更新，可解决使用 <code>useEffect</code> 所导致页面闪动的问题。</p>
+<p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1684583907/Ghost/Git/Excalidraw/useLayoutEffect_k27zm6.png" alt="useLayoutEffect" width="1328" height="525" layout="responsive"></amp-img></p>
 <p>创建并调用函数组件 =&gt; 更新 DOM =&gt; useLayoutEffect =&gt; 渲染视图 =&gt; useEffect =&gt; 侦测到状态改变重新执行函数组件 =&gt; 和 Virtual DOM 比较后更新 DOM =&gt; 调用 useLayoutEffect =&gt; 渲染视图 =&gt; useEffect =&gt; 组件被移除 =&gt; useLayoutEffect =&gt; 调用 useEffect。</p>
 <p>useInsertionEffect 在所有 DOM 突变之前同步触发，可将样式注入 DOM。由于其执行的时机，不能访问 refs，也不能安排更新。</p>
 <pre><code class="language-jsx">import React, { useEffect, useLayoutEffect, useState } from "react";
@@ -1800,7 +1803,7 @@ function UseLayoutEffectHook() {
 export default UseLayoutEffectHook;
 </code></pre>
 <ul>
-<li>useImperativeHandle =&gt; 使用 ref 时自定义暴露给父组件的实例值</li>
+<li>useImperativeHandle =&gt; 使用 ref 时自定义暴露给父组件的部分功能</li>
 </ul>
 <p>input &amp; focus 需求可通过 useRef 实现。若将 input &amp; focus 再封装一层，Sup 组件也需要对这个输入框执行聚焦相关的操作时，考虑 useImperativeHandle。</p>
 <p>useImperativeHandle 可以让父组件获取子组件的数据或者调用子组件里声明的函数。</p>
