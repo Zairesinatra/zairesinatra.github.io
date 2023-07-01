@@ -6,33 +6,33 @@
 
     <title>Web Authentication</title>
 
-    <meta name="description" content="Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF" />
-    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
-    <link rel="canonical" href="../index.html" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta name="description" content="Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF">
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png">
+    <link rel="canonical" href="../index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="zairesinatra" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Web Authentication" />
-    <meta property="og:description" content="Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF" />
-    <meta property="og:url" content="https://zairesinatra.github.io//web-authentication/" />
-    <meta property="og:image" content="https://zairesinatra.github.io//content/images/2023/02/Cookies.jpg" />
-    <meta property="article:published_time" content="2019-10-01T13:04:00.000Z" />
-    <meta property="article:modified_time" content="2023-02-19T20:07:16.000Z" />
-    <meta property="article:tag" content="Technology growth" />
+    <meta property="og:site_name" content="zairesinatra">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Web Authentication">
+    <meta property="og:description" content="Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF">
+    <meta property="og:url" content="https://zairesinatra.github.io//web-authentication/">
+    <meta property="og:image" content="https://zairesinatra.github.io//content/images/2023/02/Cookies.jpg">
+    <meta property="article:published_time" content="2019-10-01T13:04:00.000Z">
+    <meta property="article:modified_time" content="2023-02-19T20:07:16.000Z">
+    <meta property="article:tag" content="Technology growth">
     
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Web Authentication" />
-    <meta name="twitter:description" content="Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF" />
-    <meta name="twitter:url" content="https://zairesinatra.github.io//web-authentication/" />
-    <meta name="twitter:image" content="https://zairesinatra.github.io//content/images/2023/02/Cookies.jpg" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="Ziyi Xie" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Technology growth" />
-    <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="1920" />
-    <meta property="og:image:height" content="1080" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Web Authentication">
+    <meta name="twitter:description" content="Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF">
+    <meta name="twitter:url" content="https://zairesinatra.github.io//web-authentication/">
+    <meta name="twitter:image" content="https://zairesinatra.github.io//content/images/2023/02/Cookies.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Ziyi Xie">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Technology growth">
+    <meta name="twitter:site" content="@xieziyi0422">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1080">
     
     <script type="application/ld+json">
 {
@@ -73,15 +73,12 @@
     },
     "keywords": "Technology growth",
     "description": "Cookie、Session、LocalStorage、SessionStorage 和 IndexedDB；JWT、XSS、CSRF",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://zairesinatra.github.io//"
-    }
+    "mainEntityOfPage": "https://zairesinatra.github.io//web-authentication/"
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.33" />
-    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+    <meta name="generator" content="Ghost 5.53">
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html">
 
     <style amp-custom>
     *,
@@ -1134,9 +1131,9 @@
 </table>
 <h3 id="cookie">Cookie</h3>
 <blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies">HTTP Cookie</a>（也叫 Web Cookie 或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的小块数据，会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的 HTTP 协议记录稳定的状态信息成为了可能。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies?ref=localhost">HTTP Cookie</a>（也叫 Web Cookie 或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的小块数据，会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的 HTTP 协议记录稳定的状态信息成为了可能。</p>
 </blockquote>
-<p>HTTP Cookie 在多数浏览器中最大支持 4KB，数量限制约为 20 个，若想要存储更多 Cookie，则旧的 Cookie 将会被丢弃。HTTP Cookie 设置时前端无感知，<a href="https://www.baeldung.com/java-servlet-cookies-session">后端</a>通过响应头 Set-Cookie 字段绑定浏览器，后续会自动携带在请求头 Cookie 字段中。</p>
+<p>HTTP Cookie 在多数浏览器中最大支持 4KB，数量限制约为 20 个，若想要存储更多 Cookie，则旧的 Cookie 将会被丢弃。HTTP Cookie 设置时前端无感知，<a href="https://www.baeldung.com/java-servlet-cookies-session?ref=localhost">后端</a>通过响应头 Set-Cookie 字段绑定浏览器，后续会自动携带在请求头 Cookie 字段中。</p>
 <ul>
 <li>JavaWeb 逻辑</li>
 </ul>
@@ -1316,7 +1313,7 @@ request.onsuccess = function(e){
 </code></pre>
 <h2 id="%E8%AE%A4%E8%AF%81%E4%B8%8E%E6%94%BB%E5%87%BB">认证与攻击</h2>
 <h3 id="jwt">JWT</h3>
-<p><a href="https://jwt.io/introduction">JWT</a> JSON Web Token 是基于 JSON 的 RFC7519 开放标准，用作在客户端和服务器之间传递安全可靠的信息，是一种流行的跨域认证解决方案。JWT 和 Token 一样都是访问资源的令牌，不同的是后者需要通过服务器数据库进行查询验证，而前者只需要在服务端进行密钥校验即可，认证成功后会发给客户端一 JSON 对象。</p>
+<p><a href="https://jwt.io/introduction?ref=localhost">JWT</a> JSON Web Token 是基于 JSON 的 RFC7519 开放标准，用作在客户端和服务器之间传递安全可靠的信息，是一种流行的跨域认证解决方案。JWT 和 Token 一样都是访问资源的令牌，不同的是后者需要通过服务器数据库进行查询验证，而前者只需要在服务端进行密钥校验即可，认证成功后会发给客户端一 JSON 对象。</p>
 <p>基于令牌的鉴权方式是从客户端通过用户与密码进行首次登录，服务端接收用户的登录请求并进行验证，登录验证成功后根据自定义规则生成令牌信息，并通过响应返回给客户端。这个令牌作为后续用户访问一些接口的凭证，后续访问会根据这个令牌判断用户是否具有权限。</p>
 <p>Token 由头部 Header、载荷 Payload 与签名 Signature 组成，<code>.</code> 进行拼接。其中头部和载荷都是以 JSON 格式存放数据并进行 Base64 编码。</p>
 <ul>
@@ -1331,7 +1328,7 @@ request.onsuccess = function(e){
 <ul>
 <li>Payload</li>
 </ul>
-<p>载荷即消息体，实际存放需要传递的数据，除开 7 个<a href="https://datatracker.ietf.org/doc/html/rfc7519">官方字段</a>外，也可以定义部分私有字段。</p>
+<p>载荷即消息体，实际存放需要传递的数据，除开 7 个<a href="https://datatracker.ietf.org/doc/html/rfc7519?ref=localhost">官方字段</a>外，也可以定义部分私有字段。</p>
 <pre><code class="language-javascript">{
   "sub": "JWTTOKENTEST",
   "adminUser": "Okk",
@@ -1348,7 +1345,7 @@ request.onsuccess = function(e){
 <pre><code class="language-javascript">HMACSHA256(base64Url(header) + "." + base64Url(payload), secretKey)
 </code></pre>
 <ul>
-<li><a href="https://nodejs.org/api/crypto.html">node[crypto]</a> &amp; <a href="https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken</a></li>
+<li><a href="https://nodejs.org/api/crypto.html?ref=localhost">node[crypto]</a> &amp; <a href="https://www.npmjs.com/package/jsonwebtoken?ref=localhost">jsonwebtoken</a></li>
 </ul>
 <pre><code class="language-json">// config.json
 {
@@ -1381,7 +1378,7 @@ class UserController { // 用户登录
 }
 module.exports = UserController;
 </code></pre>
-<p>Common Request Headers 是 OSS Object Storage Service 的 RESTful 接口中使用的公共请求头，这些请求头可以被所有的 OSS 请求所使用。<a href="https://stackoverflow.com/questions/5925954/what-are-bearer-tokens-and-token-type-in-oauth-2">Bearer Token</a>。</p>
+<p>Common Request Headers 是 OSS Object Storage Service 的 RESTful 接口中使用的公共请求头，这些请求头可以被所有的 OSS 请求所使用。<a href="https://stackoverflow.com/questions/5925954/what-are-bearer-tokens-and-token-type-in-oauth-2?ref=localhost">Bearer Token</a>。</p>
 <pre><code class="language-javascript">axios.interceptors.request.use(config =&gt; {
   const token = localStorage.getItem('token');
   config.headers.common['Authorization'] = 'Bearer ' + token; // 留意这里的 Authorization
@@ -1548,7 +1545,7 @@ document.write()、window.location、document.cookie、eval()、document.domain�
 <ul>
 <li>防御手段</li>
 </ul>
-<p>对输入格式进行检查，将内容的标签进行转义或过滤；设置 HttpOnly 从而防止 JS 获取 Cookie；开启白名单 CSP Content Security Policy。相关库 =&gt; <a href="https://jsxss.com/zh/index.html">XSS</a>、<a href="https://www.npmjs.com/package/helmet-csp">CSP</a>。</p>
+<p>对输入格式进行检查，将内容的标签进行转义或过滤；设置 HttpOnly 从而防止 JS 获取 Cookie；开启白名单 CSP Content Security Policy。相关库 =&gt; <a href="https://jsxss.com/zh/index.html?ref=localhost">XSS</a>、<a href="https://www.npmjs.com/package/helmet-csp?ref=localhost">CSP</a>。</p>
 <pre><code class="language-javascript">function escape(str) {
   str = str.replace(/&amp;/g, '&amp;amp;')
   str = str.replace(/&lt;/g, '&amp;lt;')
@@ -1606,8 +1603,8 @@ public class SessionCookieInitialization implements ServletContextListener {
 <ul>
 <li>防御手段</li>
 </ul>
-<p>通过验证码的方式强制用户先进行交互，待确认身份后再完成后续的操作；服务端据 Request Headers 中 Origin 或 Referer 识别请求来源；利用 Response Headers 里 <a href="https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html">SameSite</a> 属性限制 Cookie 是否仅限于第一方或同一站点上下文使用；Token。</p>
-<p>npm 验证码相关包 =&gt; <a href="https://www.npmjs.com/package/puppeteer-extra-plugin-recaptcha">puppeteer-extra-plugin-recaptcha</a>、<a href="https://www.npmjs.com/package/svg-captcha">svg-captcha</a></p>
+<p>通过验证码的方式强制用户先进行交互，待确认身份后再完成后续的操作；服务端据 Request Headers 中 Origin 或 Referer 识别请求来源；利用 Response Headers 里 <a href="https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html?ref=localhost">SameSite</a> 属性限制 Cookie 是否仅限于第一方或同一站点上下文使用；Token。</p>
+<p>npm 验证码相关包 =&gt; <a href="https://www.npmjs.com/package/puppeteer-extra-plugin-recaptcha?ref=localhost">puppeteer-extra-plugin-recaptcha</a>、<a href="https://www.npmjs.com/package/svg-captcha?ref=localhost">svg-captcha</a></p>
 <pre><code class="language-java">@RestController
 @RequestMapping(value = "/api", method = RequestMethod.POST)
 public class DemoController {    
@@ -1667,7 +1664,7 @@ public class DemoController {
   public void destroy() {}
 }
 </code></pre>
-<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://javascript.ruanyifeng.com/bom/cookie.html#toc0"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Cookie -- JavaScript 标准参考教程（alpha）</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://javascript.ruanyifeng.com/favicon.ico" alt width="16" height="16" layout="fixed"></amp-img><span class="kg-bookmark-author">JavaScript 标准参考教程（alpha）</span></div></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html"><div class="kg-bookmark-content"><div class="kg-bookmark-title">JSON Web Token 入门教程 - 阮一峰的网络日志</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://www.ruanyifeng.com/favicon.ico" alt width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">阮一峰的网络日志</span><span class="kg-bookmark-publisher">阮一峰</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://www.wangbase.com/blogimg/asset/201807/bg2018072301.jpg" alt width="800" height="243" layout="responsive"></amp-img></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://auth0.com/resources/ebooks/jwt-handbook"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Auth0 | JWT Handbook</div><div class="kg-bookmark-description">Ever wondered how JWT came to be and what problems it was designed to tackle?Are you curious about the plethora of algorithms available for signing...</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://cdn.auth0.com/website/new-homepage/dark-favicon.png" alt width="64" height="64" layout="fixed"></amp-img><span class="kg-bookmark-author">Auth0</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://images.ctfassets.net/2ntc334xpx65/2yCvSra7EQYIKyWg0cqQyg/c23954455de302a071a37efed03ab4d2/jwt-handbook-tc.png" alt width="2400" height="1260" layout="responsive"></amp-img></div></a></figure>
+<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://javascript.ruanyifeng.com/bom/cookie.html?ref=localhost#toc0"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Cookie -- JavaScript 标准参考教程（alpha）</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://javascript.ruanyifeng.com/favicon.ico" alt width="16" height="16" layout="fixed"></amp-img><span class="kg-bookmark-author">JavaScript 标准参考教程（alpha）</span></div></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">JSON Web Token 入门教程 - 阮一峰的网络日志</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://www.ruanyifeng.com/favicon.ico" alt width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">阮一峰的网络日志</span><span class="kg-bookmark-publisher">阮一峰</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://www.wangbase.com/blogimg/asset/201807/bg2018072301.jpg" alt width="800" height="243" layout="responsive"></amp-img></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://auth0.com/resources/ebooks/jwt-handbook?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Auth0 | JWT Handbook</div><div class="kg-bookmark-description">Ever wondered how JWT came to be and what problems it was designed to tackle?Are you curious about the plethora of algorithms available for signing...</div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://cdn.auth0.com/website/new-homepage/dark-favicon.png" alt width="64" height="64" layout="fixed"></amp-img><span class="kg-bookmark-author">Auth0</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://images.ctfassets.net/2ntc334xpx65/2yCvSra7EQYIKyWg0cqQyg/c23954455de302a071a37efed03ab4d2/jwt-handbook-tc.png" alt width="2400" height="1260" layout="responsive"></amp-img></div></a></figure>
         <div class="kg-card kg-file-card kg-file-card-medium">
             <a class="kg-file-card-container" href="../../content/files/2022/08/----OSS-API--.pdf" title="Download" download>
                 <div class="kg-file-card-contents">
@@ -1684,7 +1681,7 @@ public class DemoController {
             </a>
         </div>
         <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh?ref=localhost"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 
 
             </section>

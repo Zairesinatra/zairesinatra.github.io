@@ -6,33 +6,33 @@
 
     <title>JDBC</title>
 
-    <meta name="description" content="JDBC" />
-    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
-    <link rel="canonical" href="../index.html" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta name="description" content="JDBC">
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png">
+    <link rel="canonical" href="../index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="zairesinatra" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="JDBC" />
-    <meta property="og:description" content="JDBC" />
-    <meta property="og:url" content="https://zairesinatra.github.io//jdbc/" />
-    <meta property="og:image" content="https://zairesinatra.github.io//content/images/2022/05/coco.jpg" />
-    <meta property="article:published_time" content="2020-11-29T14:42:00.000Z" />
-    <meta property="article:modified_time" content="2023-02-15T16:59:57.000Z" />
-    <meta property="article:tag" content="Technology growth" />
+    <meta property="og:site_name" content="zairesinatra">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JDBC">
+    <meta property="og:description" content="JDBC">
+    <meta property="og:url" content="https://zairesinatra.github.io//jdbc/">
+    <meta property="og:image" content="https://zairesinatra.github.io//content/images/2022/05/coco.jpg">
+    <meta property="article:published_time" content="2020-11-29T14:42:00.000Z">
+    <meta property="article:modified_time" content="2023-02-15T16:59:57.000Z">
+    <meta property="article:tag" content="Technology growth">
     
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JDBC" />
-    <meta name="twitter:description" content="JDBC" />
-    <meta name="twitter:url" content="https://zairesinatra.github.io//jdbc/" />
-    <meta name="twitter:image" content="https://zairesinatra.github.io//content/images/2022/05/coco.jpg" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="Ziyi Xie" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Technology growth" />
-    <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1234" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JDBC">
+    <meta name="twitter:description" content="JDBC">
+    <meta name="twitter:url" content="https://zairesinatra.github.io//jdbc/">
+    <meta name="twitter:image" content="https://zairesinatra.github.io//content/images/2022/05/coco.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Ziyi Xie">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Technology growth">
+    <meta name="twitter:site" content="@xieziyi0422">
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="1234">
     
     <script type="application/ld+json">
 {
@@ -73,15 +73,12 @@
     },
     "keywords": "Technology growth",
     "description": "JDBC",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://zairesinatra.github.io//"
-    }
+    "mainEntityOfPage": "https://zairesinatra.github.io//jdbc/"
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.33" />
-    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+    <meta name="generator" content="Ghost 5.53">
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html">
 
     <style amp-custom>
     *,
@@ -1104,7 +1101,7 @@
 <li>Driver 接口实现类</li>
 </ul>
 <p>java.sql.Driver 接口是所有 JDBC 驱动程序需要实现的接口。此接口提供给数据库厂商使用，不同数据库厂商提供不同的实现。在程序中不需要直接去访问实现 Driver 接口的类，而是由驱动程序管理器类 java.sql.DriverManager 去调用这些 Driver 实现。</p>
-<p>将 <a href="https://dev.mysql.com/downloads/connector/j/">connector-mysql-java</a> 的 jar 包拷贝到工程的目录中的新建 lib 文件夹。勿忘在驱动 jar 包上点击右键选择 Build Path =&gt; Add to Build Path。</p>
+<p>将 <a href="https://dev.mysql.com/downloads/connector/j/?ref=localhost">connector-mysql-java</a> 的 jar 包拷贝到工程的目录中的新建 lib 文件夹。勿忘在驱动 jar 包上点击右键选择 Build Path =&gt; Add to Build Path。</p>
 <p>若是 Dynamic Web Project 动态项目的话，则将驱动 jar 包放入 WebContent 或 WebRoot 目录中 WEB-INF 的 lib 内。</p>
 <p>加载驱动需调用 Class 类的静态方法 <code>forName()</code>，并向其传递待加载 JDBC 驱动的类名。</p>
 <pre><code class="language-java">// 加载驱动
@@ -1291,7 +1288,7 @@ public class ConnectionTest {
 </tr>
 </tbody>
 </table>
-<h3 id="interface-resultset">Interface <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html">ResultSet</a></h3>
+<h3 id="interface-resultset">Interface <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html?ref=localhost">ResultSet</a></h3>
 <p>查询需调用 PreparedStatement 的 <code>executeQuery()</code> 方法，其返回结果是一个 ResultSet 对象。该对象以表格的形式封装了执行数据库操作的结果集，或者说是一张有限定的数据表。注意此时存在一个指针指在数据表的第一条记录前，可以通过 ResultSet 对象的 <code>next()</code> 方法移动到下一行。该方法检测下一行是否有效，若有效则返回 true，且指针下移。</p>
 <blockquote>
 <p>...<br />
@@ -1303,7 +1300,7 @@ Retrieves the value of the designated column in the current row of this ResultSe
 ...</p>
 </blockquote>
 <p><amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1676480341/Ghost/JDBC/ResultSet_yjvpi0.png" alt="ResultSet" width="1564" height="566" layout="responsive"></amp-img></p>
-<h3 id="resultsetmetadata"><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/ResultSetMetaData.html">ResultSetMetaData</a></h3>
+<h3 id="resultsetmetadata"><a href="https://docs.oracle.com/javase/8/docs/api/java/sql/ResultSetMetaData.html?ref=localhost">ResultSetMetaData</a></h3>
 <p>ResultSetMetaData 可用于获取关于 ResultSet 对象中列的类型和属性信息的对象。</p>
 <pre><code class="language-java">ResultSetMetaData meta = rs.getMetaData(); =&gt; 获取 meta.
 getColumnName(int column) =&gt; 获取指定列的名称.
@@ -2259,13 +2256,13 @@ username=&lt;username&gt;
 password=&lt;password&gt;
 driverClassName=com.mysql.cj.jdbc.Driver
 </code></pre>
-<h2 id="apache-dbutils"><a href="https://commons.apache.org/proper/commons-dbutils/apidocs/">Apache-DBUtils</a></h2>
+<h2 id="apache-dbutils"><a href="https://commons.apache.org/proper/commons-dbutils/apidocs/?ref=localhost">Apache-DBUtils</a></h2>
 <p>commons-dbutils 是 Apache 组织提供的一个开源 JDBC 工具类库，通过对 JDBC 的封装，极大简化 JDBC 编码的工作量，同时也不会影响程序的性能。</p>
 <pre><code class="language-java">org.apache.commons.dbutils.QueryRunner
 org.apache.commons.dbutils.ResultSetHandler
 org.apache.commons.dbutils.DbUtils
 </code></pre>
-<h3 id="dbutils"><a href="https://www.demo2s.com/java/java-org-apache-commons-dbutils-dbutils.html">DbUtils</a></h3>
+<h3 id="dbutils"><a href="https://www.demo2s.com/java/java-org-apache-commons-dbutils-dbutils.html?ref=localhost">DbUtils</a></h3>
 <p>DbUtils 类是一个提供关闭资源（连接）、装载驱动与事务处理方法的工具类，其中的所有方法都是静态的。</p>
 <pre><code class="language-java">public static void close(…) throws java.sql.SQLException =&gt; 三个重载的关闭方法;检查所提供的参数是不是 NULL, 如果不是就关闭 Connection、Statement 和 ResultSet.
 public static void closeQuietly(…) =&gt; 三个重载的关闭方法;在 Connection、Statement 和 ResultSet 为 NULL 时能避免关闭,同时隐藏一些在程序中抛出的 SQLEeception.
@@ -2276,7 +2273,7 @@ public static void rollbackAndClose(Connection conn) throws SQLException
 public static void rollbackAndCloseQuietly(Connection) =&gt; 回滚操作并关闭连接
 public static boolean loadDriver(java.lang.String driverClassName) =&gt; 装载并注册JDBC驱动程序,成功返回true. 使用该方法，不需要捕捉这个异常ClassNotFoundException。
 </code></pre>
-<h3 id="queryrunner-%E7%B1%BB"><a href="https://commons.apache.org/proper/commons-dbutils/apidocs/">QueryRunner</a> 类</h3>
+<h3 id="queryrunner-%E7%B1%BB"><a href="https://commons.apache.org/proper/commons-dbutils/apidocs/?ref=localhost">QueryRunner</a> 类</h3>
 <p>QueryRunner 提供对 sql 语句操作的 API，与 ResultSetHandler 组合在一起使用可以完成大部分的数据库操作。QueryRunner 类提供了默认的构造器以及需要一个 javax.sql.DataSource 来作参数的构造器。</p>
 <pre><code class="language-java">/* QueryRunner 类的主要方法 */
 执行一个更新、插入或删除操作 =&gt; public int update(Connection conn, String sql, Object… params) throws SQLException
@@ -2288,7 +2285,7 @@ public static boolean loadDriver(java.lang.String driverClassName) =&gt; 装载�
 // 对象数组中的每个元素值被用来作为查询语句的置换参数.
 执行一个查询操作 =&gt; public Object query(Connection conn, String sql, ResultSetHandler rsh, Object… params) throws SQLException
 </code></pre>
-<h3 id="resultsethandler"><a href="https://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/ResultSetHandler.html">ResultSetHandler</a></h3>
+<h3 id="resultsethandler"><a href="https://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/ResultSetHandler.html?ref=localhost">ResultSetHandler</a></h3>
 <p>ResultSetHandler 接口用于处理 java.sql.ResultSet，将结果集按要求封装为另一种形式。</p>
 <pre><code class="language-java">/* ResultSetHandler接口的主要实现类 */
 ArrayHandler =&gt; 把结果集中的第一行数据转成对象数组.
@@ -2621,7 +2618,7 @@ public class JDBCUtilsP {
 }
 </code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh?ref=localhost"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 
 
             </section>

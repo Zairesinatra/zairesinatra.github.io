@@ -6,33 +6,33 @@
 
     <title>G&amp;TOC&amp;CSS</title>
 
-    <meta name="description" content="TOC 的需求实现以及相关的思考总结。" />
-    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
-    <link rel="canonical" href="../index.html" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta name="description" content="TOC 的需求实现以及相关的思考总结。">
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png">
+    <link rel="canonical" href="../index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="zairesinatra" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="G&amp;TOC&amp;CSS" />
-    <meta property="og:description" content="TOC 的需求实现以及相关的思考总结。" />
-    <meta property="og:url" content="https://zairesinatra.github.io//g-toc-css/" />
-    <meta property="og:image" content="https://zairesinatra.github.io//content/images/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg" />
-    <meta property="article:published_time" content="2022-05-01T13:36:00.000Z" />
-    <meta property="article:modified_time" content="2023-03-24T10:38:04.000Z" />
-    <meta property="article:tag" content="Technology growth" />
+    <meta property="og:site_name" content="zairesinatra">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="G&amp;TOC&amp;CSS">
+    <meta property="og:description" content="TOC 的需求实现以及相关的思考总结。">
+    <meta property="og:url" content="https://zairesinatra.github.io//g-toc-css/">
+    <meta property="og:image" content="https://zairesinatra.github.io//content/images/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg">
+    <meta property="article:published_time" content="2022-05-01T13:36:00.000Z">
+    <meta property="article:modified_time" content="2023-06-29T10:15:50.000Z">
+    <meta property="article:tag" content="Technology growth">
     
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="G&amp;TOC&amp;CSS" />
-    <meta name="twitter:description" content="TOC 的需求实现以及相关的思考总结。" />
-    <meta name="twitter:url" content="https://zairesinatra.github.io//g-toc-css/" />
-    <meta name="twitter:image" content="https://zairesinatra.github.io//content/images/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="Ziyi Xie" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Technology growth" />
-    <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="1920" />
-    <meta property="og:image:height" content="1080" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="G&amp;TOC&amp;CSS">
+    <meta name="twitter:description" content="TOC 的需求实现以及相关的思考总结。">
+    <meta name="twitter:url" content="https://zairesinatra.github.io//g-toc-css/">
+    <meta name="twitter:image" content="https://zairesinatra.github.io//content/images/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Ziyi Xie">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Technology growth">
+    <meta name="twitter:site" content="@xieziyi0422">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1080">
     
     <script type="application/ld+json">
 {
@@ -64,7 +64,7 @@
     "headline": "G&amp;TOC&amp;CSS",
     "url": "https://zairesinatra.github.io//g-toc-css/",
     "datePublished": "2022-05-01T13:36:00.000Z",
-    "dateModified": "2023-03-24T10:38:04.000Z",
+    "dateModified": "2023-06-29T10:15:50.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://zairesinatra.github.io//content/images/2023/03/GlassBottleFilledWithBlackStrawonBrownWoodenTable.jpg",
@@ -73,15 +73,12 @@
     },
     "keywords": "Technology growth",
     "description": "TOC 的需求实现以及相关的思考总结。",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://zairesinatra.github.io//"
-    }
+    "mainEntityOfPage": "https://zairesinatra.github.io//g-toc-css/"
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.33" />
-    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+    <meta name="generator" content="Ghost 5.53">
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html">
 
     <style amp-custom>
     *,
@@ -1090,14 +1087,12 @@
             </figure>
             <section class="post-content">
 
-                <p>GHOST 并没有内置 Table Of Content 的功能，且官方提供的<a href="https://ghost.org/docs/tutorials/adding-a-table-of-contents/">解决方案</a>存在不合理处，遂自行调整部分效果，本文意在记录总结实现过程。</p><h2 id="%E5%88%9D%E6%AD%A5%E5%AE%9E%E7%8E%B0">初步实现</h2>
-<p>按照官方文档，根据文章内容中的标题生成目录需采用一款名为 <a href="https://cdnjs.com/libraries/tocbot">Tocbot</a> 的小型库。</p>
-<p>将获取到的 Tocbot CSS 链接添加到 Casper 主题 default.hbs 文件中 &lt;head&gt; 标签体尾部。</p>
-<pre><code class="language-css">&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css"&gt;
-&lt;link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" /&gt;
-{{ghost_head}}
+                <p>GHOST 并没有内置 Table Of Content 的功能，且官方提供的<a href="https://ghost.org/docs/tutorials/adding-a-table-of-contents/?ref=localhost">解决方案</a>存在不合理处，遂自行调整部分效果，本文意在记录总结实现过程。</p><h2 id="%E5%88%9D%E6%AD%A5%E5%AE%9E%E7%8E%B0">初步实现</h2>
+<p>按照官方文档，根据文章内容中的标题生成目录需采用一款名为 <a href="https://cdnjs.com/libraries/tocbot?ref=localhost">Tocbot</a> 的小型库。</p>
+<p>将获取到的 Tocbot CSS 链接添加到 Casper 主题 <code>default.hbs</code> 文件中 <code>&lt;head&gt;</code> 标签体尾部。</p>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css"&gt;
 </code></pre>
-<p>同样地操作 Tocbot JavaScript 链接至 default.hbs 里 &lt;/body&gt; 标签之前。值得一提的是，随着版本更新，内容选择器不再是官方所绑定的 .post-content，而是根据源码得到的 .gh-content。</p>
+<p>同样地操作 Tocbot JavaScript 链接至 <code>default.hbs</code> 里 <code>&lt;/body&gt;</code> 标签之前。值得一提的是，随着版本更新，内容选择器不再是官方所绑定的 <code>.post-content</code>，而是根据源码得到的 <code>.gh-content</code>。</p>
 <pre><code class="language-html">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
   tocbot.init({
@@ -1107,7 +1102,7 @@
   });
 &lt;/script&gt;
 </code></pre>
-<p>对于选择区域进行渲染，期望是目录出现在文章内容之前，因此在 .post.hbs 文件完成如下更新。</p>
+<p>对于选择区域进行渲染，期望是目录出现在文章内容之前，因此在 <code>.post.hbs</code> 文件完成如下更新。</p>
 <pre><code class="language-html">&lt;section class="gh-content gh-canvas"&gt;
   &lt;aside class="toc-container"&gt;
     &lt;div class="toc"&gt;&lt;/div&gt;
@@ -1116,46 +1111,69 @@
 &lt;/section&gt;
 </code></pre>
 <h2 id="%E5%AE%9A%E5%88%B6%E6%95%88%E6%9E%9C">定制效果</h2>
-<p>本人期望能在浏览文章的同时，在侧边看见即时的 TOC 面板，故增加 TOC 随页面滚动更改位置的需求。</p>
-<p>对于其他理论可行的方案来说，都或多或少与当前版本源码存在差异，最典型的是布局方式。众所周知，Ghost 后台开启服务的方式有很多种，像是 PM2、云代理，更有甚者直接用 Node 写了一个与 Ghost 模样一致的<a href="https://github.com/styxlab/next-cms-ghost">替代版</a>。</p>
-<pre><code class="language-javascript">var tc = document.querySelector(".toc-container");
-if (tc) {
-  var tch = tc.clientHeight;
+<p>期望能在浏览文章的同时，在侧边看见即时的 TOC 面板，故增加 TOC 随页面滚动更改位置的需求。</p>
+<p>对于其他理论可行的方案来说，都或多或少与当前版本源码存在差异，最典型的是布局方式。众所周知，Ghost 后台开启服务的方式有很多种，像是 PM2、云代理，更有甚者直接用 Node 写了一个与 Ghost 模样一致的<a href="https://github.com/styxlab/next-cms-ghost?ref=localhost">替代版</a>。</p>
+<pre><code class="language-javascript">function tocHandle() {
+  var tc = document.querySelector(".toc-container");
   var ah = document.querySelector(".article-header");
-  var ahh = ah.clientHeight;
-  window.addEventListener("scroll", function () {
-    if (document.body.clientWidth &gt; 1170) {
-      var scrollY =
-        document.documentElement.scrollTop || document.body.scrollTop;
-      var ihh = window.innerHeight;
-      if (scrollY &gt;= ihh + tch + ahh) {
-        var ctc = document.querySelector(".toc-container");
-        ctc.style.position = "sticky";
-        ctc.style.position = "-webkit-sticky";
-        ctc.style.top = "120px";
-        ctc.style.marginLeft = "800px";
-        ctc.style.minWidth = "260px";
-      }
-      if (scrollY &lt; tch + ahh - 10) {
-        var ctc = document.querySelector(".toc-container");
-        ctc.style.position = "";
-        ctc.style.top = "";
-        ctc.style.marginLeft = "";
+  
+  if (tc &amp;&amp; ah) {
+    var tcch = tc.clientHeight;
+    var ahch = ah.clientHeight;
+    var isTocSticky = false;
+
+    function handleScroll() {
+      if (document.body.clientWidth &gt; 1170) {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        var wih = window.innerHeight;
+
+        if (scrollY &gt;= wih + tcch + ahch &amp;&amp; !isTocSticky) {
+          tc.style.position = "sticky";
+          tc.style.position = "-webkit-sticky";
+          tc.style.top = "120px";
+          tc.style.marginLeft = "800px";
+          tc.style.minWidth = "260px";
+          isTocSticky = true;
+        }
+        
+        if (scrollY &lt; tcch + ahch - 10 &amp;&amp; isTocSticky) {
+          tc.style.position = "";
+          tc.style.top = "";
+          tc.style.marginLeft = "";
+          isTocSticky = false;
+        }
       }
     }
-  });
+
+    // 避免在每个滚动事件触发时都执行回调函数
+    window.addEventListener("scroll", function () {
+      requestAnimationFrame(handleScroll);
+    });
+  }
 }
+
+window.addEventListener("DOMContentLoaded", tocHandle);
 </code></pre>
 <p>去除下划线样式并解决类名为 toc-list-item 的 li 下首个子元素距顶部位置较窄。</p>
 <pre><code class="language-html">&lt;!-- TOC --&gt;
 &lt;style&gt;
-.toc&gt;.toc-list li:first-child {
+.toc &gt; .toc-list li:first-child,
+.toc.active &gt; .toc-list li:first-child {
   margin-top: 8px;
 }
-.toc-list a {
-  color: var(--ghost-accent-color);
+
+.toc-list a,
+.toc.active .toc-list a {
+  color: #000000 !important;
   text-decoration: none;
   word-break: break-word;
+}
+
+.toc &gt; ol,
+.toc &gt; li,
+.toc.active &gt; ol,
+.toc.active &gt; li {
+  font-size: 1.4rem;
 }
 &lt;/style&gt;
 </code></pre>
@@ -1201,8 +1219,8 @@ window.pageYOffset // 只读 =&gt; scrollTop 可设置,具有回顶部效果
 
 window.screen.availHeight|availWidth // 返回包含工具栏的浏览器窗口在屏幕上可占用的垂直|水平空间,即最大高度|宽度 =&gt; 825|1440
 </code></pre>
-<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://javascript.info/size-and-scroll"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Element size and scrolling</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://javascript.info/img/favicon/apple-touch-icon-precomposed.png" alt width="152" height="152" layout="fixed"></amp-img></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://javascript.info/img/site_preview_en_1200x630.png" alt width="1200" height="630" layout="responsive"></amp-img></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html"><div class="kg-bookmark-content"><div class="kg-bookmark-title">CSS Grid 网格布局教程 - 阮一峰的网络日志</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://www.ruanyifeng.com/favicon.ico" alt width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">阮一峰的网络日志</span><span class="kg-bookmark-publisher">阮一峰</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://www.wangbase.com/blogimg/asset/201903/1_bg2019032501.png" alt width="792" height="357" layout="responsive"></amp-img></div></a></figure><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://javascript.info/size-and-scroll?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Element size and scrolling</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://javascript.info/img/favicon/apple-touch-icon-precomposed.png" alt width="152" height="152" layout="fixed"></amp-img></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://javascript.info/img/site_preview_en_1200x630.png" alt width="1200" height="630" layout="responsive"></amp-img></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html?ref=localhost"><div class="kg-bookmark-content"><div class="kg-bookmark-title">CSS Grid 网格布局教程 - 阮一峰的网络日志</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><amp-img class="kg-bookmark-icon" src="https://www.ruanyifeng.com/favicon.ico" alt width="32" height="32" layout="fixed"></amp-img><span class="kg-bookmark-author">阮一峰的网络日志</span><span class="kg-bookmark-publisher">阮一峰</span></div></div><div class="kg-bookmark-thumbnail"><amp-img src="https://www.wangbase.com/blogimg/asset/201903/1_bg2019032501.png" alt width="792" height="357" layout="responsive"></amp-img></div></a></figure><h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh?ref=localhost"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 
 
             </section>

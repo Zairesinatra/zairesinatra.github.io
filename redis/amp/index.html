@@ -6,33 +6,33 @@
 
     <title>Redis</title>
 
-    <meta name="description" content="redis &#x3D;&gt; 6379" />
-    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
-    <link rel="canonical" href="../index.html" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta name="description" content="redis &#x3D;&gt; 6379">
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png">
+    <link rel="canonical" href="../index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="zairesinatra" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Redis" />
-    <meta property="og:description" content="redis &#x3D;&gt; 6379" />
-    <meta property="og:url" content="https://zairesinatra.github.io//redis/" />
-    <meta property="og:image" content="https://zairesinatra.github.io//content/images/2022/06/redisbyzs.png" />
-    <meta property="article:published_time" content="2021-09-29T13:20:00.000Z" />
-    <meta property="article:modified_time" content="2022-06-30T03:45:22.000Z" />
-    <meta property="article:tag" content="Technology growth" />
+    <meta property="og:site_name" content="zairesinatra">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Redis">
+    <meta property="og:description" content="redis &#x3D;&gt; 6379">
+    <meta property="og:url" content="https://zairesinatra.github.io//redis/">
+    <meta property="og:image" content="https://zairesinatra.github.io//content/images/2022/06/redisbyzs.png">
+    <meta property="article:published_time" content="2021-09-29T13:20:00.000Z">
+    <meta property="article:modified_time" content="2022-06-30T03:45:22.000Z">
+    <meta property="article:tag" content="Technology growth">
     
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Redis" />
-    <meta name="twitter:description" content="redis &#x3D;&gt; 6379" />
-    <meta name="twitter:url" content="https://zairesinatra.github.io//redis/" />
-    <meta name="twitter:image" content="https://zairesinatra.github.io//content/images/2022/06/redisbyzs.png" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="Ziyi Xie" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Technology growth" />
-    <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="1920" />
-    <meta property="og:image:height" content="1080" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Redis">
+    <meta name="twitter:description" content="redis &#x3D;&gt; 6379">
+    <meta name="twitter:url" content="https://zairesinatra.github.io//redis/">
+    <meta name="twitter:image" content="https://zairesinatra.github.io//content/images/2022/06/redisbyzs.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Ziyi Xie">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Technology growth">
+    <meta name="twitter:site" content="@xieziyi0422">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1080">
     
     <script type="application/ld+json">
 {
@@ -73,15 +73,12 @@
     },
     "keywords": "Technology growth",
     "description": "redis &#x3D;&gt; 6379",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://zairesinatra.github.io//"
-    }
+    "mainEntityOfPage": "https://zairesinatra.github.io//redis/"
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.33" />
-    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+    <meta name="generator" content="Ghost 5.53">
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html">
 
     <style amp-custom>
     *,
@@ -2126,7 +2123,7 @@ Redis BGSAVE command saves the DB in the background. The OK code is immediately 
 <pre><code class="language-shell">/usr/local/bin/redis-check-aof--fix appendonly.aof
 </code></pre>
 <ul>
-<li><a href="https://redis.io/commands/bgrewriteaof/">BGREWRITEAOF</a></li>
+<li><a href="https://redis.io/commands/bgrewriteaof/?ref=localhost">BGREWRITEAOF</a></li>
 </ul>
 <p>启动重写将创建当前仅附加文件的小型优化版本。从 Redis 2.4 开始，AOF 重写由 Redis 自动触发，但是该 BGREWRITEAOF 命令可用于随时触发重写。</p>
 <p>no-appendfsync-on-rewrite=yes =&gt; 不写入 aof 文件只写入缓存。</p>
@@ -2212,7 +2209,7 @@ OK
 <pre><code class="language-shell"># 从机恢复主机状态
 slaveof no one
 </code></pre>
-<h3 id="%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F-sentinel"><a href="https://redis.io/docs/manual/sentinel/">哨兵模式 sentinel</a></h3>
+<h3 id="%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F-sentinel"><a href="https://redis.io/docs/manual/sentinel/?ref=localhost">哨兵模式 sentinel</a></h3>
 <p>哨兵模式作为反客为主的自动版，能够在后台监视主机的故障与否，并根据投票自动的将从机转换为主机。在原主机从宕机状态恢复后，会默认变成新主机的从机。</p>
 <p>新主机会在一众从主机中产生，从机的挑选顺序是根据优先级靠前、偏移量最大或 runid 最小的指标来进行选择。</p>
 <blockquote>
@@ -2488,7 +2485,7 @@ public class RedisTestController{
 }
 </code></pre>
 <h2 id="%E6%96%B0%E7%89%B9%E6%80%A7">新特性</h2>
-<h3 id="acl-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%88%97%E8%A1%A8"><a href="https://redis.io/docs/manual/security/acl/">ACL 访问控制列表</a></h3>
+<h3 id="acl-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E5%88%97%E8%A1%A8"><a href="https://redis.io/docs/manual/security/acl/?ref=localhost">ACL 访问控制列表</a></h3>
 <p>Access Control List 在可执行命令和可访问的键方面对某些连接进行限制。</p>
 <pre><code class="language-shell"># 展示当前用户与操作权限
 xxx.xx.xx.xxx:6381&gt; acl list
@@ -2580,7 +2577,7 @@ xxx.xx.xx.xxx:6381&gt; acl whoami
 <ul>
 <li>com.fasterxml.jackson.databind.ObjectMapper? ⌥⏎</li>
 </ul>
-<p>springboot 整合 redis 出现 ObjectMapper 找不到相关包的问题。<a href="https://stackoverflow.com/questions/34290913/objectmapper-cannot-be-resolved-to-a-type">SOF</a>。</p>
+<p>springboot 整合 redis 出现 ObjectMapper 找不到相关包的问题。<a href="https://stackoverflow.com/questions/34290913/objectmapper-cannot-be-resolved-to-a-type?ref=localhost">SOF</a>。</p>
 <blockquote>
 <p>Data Binding API is used to convert JSON to and from POJO (Plain Old Java Object) using property accessor or using annotations. It is of two type. Simple Data Binding - Converts JSON to and from Java Maps, Lists, Strings, Numbers, Booleans and null objects.</p>
 </blockquote>
@@ -2603,7 +2600,7 @@ ObjectMapper om = new ObjectMapper();
 </ul>
 <p>在 pom.xml 中加入 spring-boot-starter-web 的依赖。常见于创建 springboot 项目时未选择 web 相关 starter，也会导致启动时不载入 web。</p>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh?ref=localhost"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 
 
             </section>

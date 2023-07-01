@@ -6,33 +6,33 @@
 
     <title>JavaWeb</title>
 
-    <meta name="description" content="JavaWeb 开发相关，不包含 JSP、Thymeleaf。" />
-    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png" />
-    <link rel="canonical" href="../index.html" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta name="description" content="JavaWeb 开发相关，不包含 JSP、Thymeleaf。">
+    <link rel="icon" href="../../content/images/size/w256h256/2021/07/ghost-orb.png" type="image/png">
+    <link rel="canonical" href="../index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="zairesinatra" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="JavaWeb" />
-    <meta property="og:description" content="JavaWeb 开发相关，不包含 JSP、Thymeleaf。" />
-    <meta property="og:url" content="https://zairesinatra.github.io//javaweb/" />
-    <meta property="og:image" content="https://zairesinatra.github.io//content/images/2022/05/dragonBall.jpg" />
-    <meta property="article:published_time" content="2019-06-04T13:22:00.000Z" />
-    <meta property="article:modified_time" content="2023-01-01T09:41:42.000Z" />
-    <meta property="article:tag" content="Technology growth" />
+    <meta property="og:site_name" content="zairesinatra">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JavaWeb">
+    <meta property="og:description" content="JavaWeb 开发相关，不包含 JSP、Thymeleaf。">
+    <meta property="og:url" content="https://zairesinatra.github.io//javaweb/">
+    <meta property="og:image" content="https://zairesinatra.github.io//content/images/2022/05/dragonBall.jpg">
+    <meta property="article:published_time" content="2019-06-04T13:22:00.000Z">
+    <meta property="article:modified_time" content="2023-01-01T09:41:42.000Z">
+    <meta property="article:tag" content="Technology growth">
     
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JavaWeb" />
-    <meta name="twitter:description" content="JavaWeb 开发相关，不包含 JSP、Thymeleaf。" />
-    <meta name="twitter:url" content="https://zairesinatra.github.io//javaweb/" />
-    <meta name="twitter:image" content="https://zairesinatra.github.io//content/images/2022/05/dragonBall.jpg" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="Ziyi Xie" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Technology growth" />
-    <meta name="twitter:site" content="@xieziyi0422" />
-    <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="1125" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JavaWeb">
+    <meta name="twitter:description" content="JavaWeb 开发相关，不包含 JSP、Thymeleaf。">
+    <meta name="twitter:url" content="https://zairesinatra.github.io//javaweb/">
+    <meta name="twitter:image" content="https://zairesinatra.github.io//content/images/2022/05/dragonBall.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Ziyi Xie">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Technology growth">
+    <meta name="twitter:site" content="@xieziyi0422">
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="1125">
     
     <script type="application/ld+json">
 {
@@ -73,15 +73,12 @@
     },
     "keywords": "Technology growth",
     "description": "JavaWeb 开发相关，不包含 JSP、Thymeleaf。",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://zairesinatra.github.io//"
-    }
+    "mainEntityOfPage": "https://zairesinatra.github.io//javaweb/"
 }
     </script>
 
-    <meta name="generator" content="Ghost 5.33" />
-    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html" />
+    <meta name="generator" content="Ghost 5.53">
+    <link rel="alternate" type="application/rss+xml" title="zairesinatra" href="../../rss/index.html">
 
     <style amp-custom>
     *,
@@ -1145,7 +1142,7 @@ sudo groupadd tomcat
 # 其主目录为安装 Tomcat 的 /opt/tomcat,以及一个没有人可以登录该帐账户的 shell /bin/false
 sudo useradd -M -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
 </code></pre>
-<p>安装 Tomcat8 需先下载最新的<a href="https://downloads.apache.org/tomcat/">二进制版本</a>，然后手动配置。</p>
+<p>安装 Tomcat8 需先下载最新的<a href="https://downloads.apache.org/tomcat/?ref=localhost">二进制版本</a>，然后手动配置。</p>
 <pre><code class="language-shell">wget https://downloads.apache.org/tomcat/tomcat-8/v8.5.71/bin/apache-tomcat-8.5.71.tar.gz
 sudo mkdir /opt/tomcat &amp;&amp; sudo tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
 </code></pre>
@@ -1809,7 +1806,7 @@ resp.sendRedirect("http://localhost:8080/xxx");
 <p>在 IntelliJ 中 Java 项目下，期望创建一个 JavaWeb 项目，但无法直接在 new modules 中选择 Web Application。可以先通过创建普通 Java 项目，再右键点击 Add Framewoks Support，选中 Web Application 进行补充。其次，也可在 Project Structure settings 选项中 project settings 里的 facets 栏补充一个 Web Application 的项目给指定模块。</p>
 <p>后者在保证路径正确的同时，考虑到部署 tomcat 中的并非项目源码，而是部署包 Artifact。故对于 "'web' facet resources are not included in an artifact" 警告，应点击 Create Artifact。</p>
 <ul>
-<li><a href="https://www.jetbrains.com/help/idea/working-with-module-dependencies.html">Jar 包问题</a></li>
+<li><a href="https://www.jetbrains.com/help/idea/working-with-module-dependencies.html?ref=localhost">Jar 包问题</a></li>
 </ul>
 <p>不考虑 Maven 的情况下，期望添加包含 Jar 包的 lib 文件夹作为开发依赖。应该先对 lib 指定 Add as library 作为库，然后就可以在 file 中 Project Structure settings 选项对指定的 Modules 添加 Library。</p>
 <p>注意检查 Modules 下方的 Library 选项里，lib 包的右侧框内是否添加了所需 Jar 包。若没有添加，则导入的是一个空 dependencies 的 lib 文件夹，仍然会出现 Jar 包搜索不到的异常。这种添加不会出现在 External Libraries 中，不同于 Tomcat 中 Jar 包的导入。</p>
@@ -1818,7 +1815,7 @@ resp.sendRedirect("http://localhost:8080/xxx");
 java.lang.ClassNotFoundException: "com.mysql.cj.jdbc.Driver"
 </code></pre>
 <ul>
-<li><a href="https://dev.mysql.com/downloads/connector/j/">MySQL</a> 版本的配置区别</li>
+<li><a href="https://dev.mysql.com/downloads/connector/j/?ref=localhost">MySQL</a> 版本的配置区别</li>
 </ul>
 <pre><code class="language-java">// JDBC连接Mysql5 =&gt; com.mysql.jdbc.Driver
 url:jdbc:mysql://localhost:3306/mysql?useUnicode=true&amp;characterEncoding=UTF-8
@@ -1897,7 +1894,7 @@ resp.setHeader("Content-Type","text/html;charset=utf-8");
 resp.setContentType("text/html;charset=utf-8");
 </code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
-<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
+<p>本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh?ref=localhost"> CC BY-SA 4.0 </a>协议，转载请注明出处！</p>
 
 
             </section>
