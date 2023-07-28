@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://zairesinatra.github.io//git/">
     <meta property="og:image" content="https://zairesinatra.github.io//content/images/2021/09/githubbg.jpg">
     <meta property="article:published_time" content="2020-07-18T14:02:00.000Z">
-    <meta property="article:modified_time" content="2023-03-31T21:44:25.000Z">
+    <meta property="article:modified_time" content="2023-07-21T18:36:31.000Z">
     <meta property="article:tag" content="Technology growth">
     
     <meta name="twitter:card" content="summary_large_image">
@@ -64,7 +64,7 @@
     "headline": "Git",
     "url": "https://zairesinatra.github.io//git/",
     "datePublished": "2020-07-18T14:02:00.000Z",
-    "dateModified": "2023-03-31T21:44:25.000Z",
+    "dateModified": "2023-07-21T18:36:31.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://zairesinatra.github.io//content/images/2021/09/githubbg.jpg",
@@ -1414,8 +1414,10 @@ git commit -m "Add child submodule"
 <p>如果切换分支后没有重新运行 <code>git fetch</code> 命令，那么 <code>.git/FETCH_HEAD</code> 中的记录不会发生变化。</p>
 <p>当远程仓库中的分支发生了改变，却没有再重新运行 <code>git fetch</code>，那么 <code>.git/FETCH_HEAD</code> 中的记录有可能已经过期。</p>
 <h3 id="push-tip">Push Tip</h3>
-<p>若本地仓库的分支已经与远程仓库中的分支建立了关联，那么在推送时可以直接使用 <code>git push</code>。</p>
-<p>若本地仓库中有新的分支，且这些分支还没有和远程仓库中的分支建立关联，直接使用 <code>git push</code> 命令会导致错误。此时需要使用 <code>git push --set-upstream</code> 命令并指定要关联的远程分支，这样本地分支就会与指定的远程分支建立起关联，且以后在推送时就可以直接使用 <code>git push</code>。</p>
+<p><code>git push -u</code> 用于将本地分支的代码推送到远程仓库，并设置本地分支与远程分支的关联。<code>-u</code> 或 <code>--set-upstream</code> 表示设置本地分支与远程分支的关联，即在推送代码的同时，建立本地分支与远程分支之间的链接。</p>
+<p>如果本地仓库的分支已经与远程仓库中的分支建立了关联，那么在推送时可以直接使用 <code>git push</code>。</p>
+<p>如果本地仓库中有新的分支，且这些分支还没有和远程仓库中的分支建立关联，那么直接使用 <code>git push</code> 会出现错误。</p>
+<p>此时需要使用 <code>git push --set-upstream</code> 命令并指定要关联的远程分支，这样本地分支就会与指定的远程分支建立起关联，且以后在推送时就可以直接使用 <code>git push</code>。</p>
 <h3 id="cherry-pick">Cherry Pick</h3>
 <blockquote>
 <p>The cherry-pick command enables arbitrary Git commits to be picked by reference and appended to the current working HEAD.</p>

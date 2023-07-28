@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://zairesinatra.github.io//h5c3/">
     <meta property="og:image" content="https://zairesinatra.github.io//content/images/2023/03/RedCloudsAndBlueSky.jpg">
     <meta property="article:published_time" content="2019-12-19T12:59:00.000Z">
-    <meta property="article:modified_time" content="2023-06-30T20:59:43.000Z">
+    <meta property="article:modified_time" content="2023-07-25T08:59:31.000Z">
     <meta property="article:tag" content="Technology growth">
     
     <meta name="twitter:card" content="summary_large_image">
@@ -64,7 +64,7 @@
     "headline": "Basic Web Design",
     "url": "https://zairesinatra.github.io//h5c3/",
     "datePublished": "2019-12-19T12:59:00.000Z",
-    "dateModified": "2023-06-30T20:59:43.000Z",
+    "dateModified": "2023-07-25T08:59:31.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://zairesinatra.github.io//content/images/2023/03/RedCloudsAndBlueSky.jpg",
@@ -1059,7 +1059,7 @@
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
-    <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
+    
 
 </head>
 
@@ -1096,91 +1096,6 @@
 <li>在网络通信中，发送方通过在消息头部添加正确的 MIME 类型，使接收方能够识别数据的类型和格式。</li>
 <li>当浏览器接收到服务端返回的数据时，会根据响应头中的 MIME 类型来确定如何解析和渲染数据。</li>
 </ul>
-<h3 id="canvas">Canvas</h3>
-<p>HTML5 有两个主要的 2D 图形技术：Canvas 和 SVG。Canvas 是使用 JS 动态生成，而 SVG 是使用 XML 静态描述。Canvas 基于位图，适用于像素处理和动态渲染，图形放大会影响质量，但是 SVG 是基于矢量的，图形放大不会影响质量。也就是说，使用 Canvas 绘制出来的是一个位图，而使用 SVG 绘制出来的是一个矢量图。每次发生修改，Canvas 需要重绘，而 SVG 不需要重绘。Canvas 与 SVG 的关系，简单来说就像美术与几何的一般。</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;canvas&lt;/title&gt;
-    &lt;style type="text/css"&gt; 
-        body{
-            font-size:70%;
-            font-family:verdana,helvetica,arial,sans-serif;
-        }
-    &lt;/style&gt;
-    &lt;script type="text/javascript"&gt; 
-        function cnvs_getCoordinates(e){
-            x=e.clientX;
-            y=e.clientY;
-            document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
-        }
-        function cnvs_clearCoordinates(){
-            document.getElementById("xycoordinates").innerHTML="";
-        }
-    &lt;/script&gt;
-&lt;/head&gt;
-&lt;body style="margin:0px;"&gt;
-    &lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
-    &lt;canvas id="myCanvas2" width="200" height="100"&gt;&lt;/canvas&gt;
-    &lt;canvas id="myCanvas3" width="200" height="100" style="border:1px solid #c3c3c3;"&gt;
-        Your browser support the canvas element.
-    &lt;/canvas&gt;
-    &lt;canvas id="myCanvas4" width="200" height="100" style="border:1px solid #c3c3c3;"&gt;
-        Your browser does not support the canvas element.
-    &lt;/canvas&gt;
-    &lt;canvas id="myCanvas5" width="200" height="100" style="border:1px solid #c3c3c3;"&gt;
-        Your browser does not support the canvas element.
-    &lt;/canvas&gt;
-    &lt;p&gt;把鼠标悬停在下面的矩形上可以看到坐标：&lt;/p&gt;
-    &lt;div id="coordiv" style="float:left;width:199px;height:99px;border:1px solid #c3c3c3" onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()"&gt;&lt;/div&gt;
-    &lt;br /&gt;
-    &lt;br /&gt;
-    &lt;br /&gt;
-    &lt;div id="xycoordinates"&gt;&lt;/div&gt;
-
-    &lt;script&gt;
-        // 获取Canvas对象
-        var c=document.getElementById("myCanvas");
-        // 获取上下文环境对象Context
-        var cxt=c.getContext("2d");
-        // 绘制图形
-        cxt.fillStyle="#FF0000";
-        cxt.fillRect(0,0,150,75);
-        var c=document.getElementById("myCanvas2");
-        var cxt=c.getContext("2d");
-        cxt.moveTo(0,0);
-        cxt.lineTo(50,50);
-        cxt.lineTo(100,50);
-        cxt.stroke();// 呈现
-        // ----------
-        var cc=document.getElementById("myCanvas3");
-        var cxk=cc.getContext("2d");
-        cxk.fillStyle="#FF0000";
-        cxk.beginPath();
-        cxk.arc(70,18,15,0,Math.PI*2,true);
-        cxk.closePath();
-        cxk.fill();
-        // -----------
-        var cdcd=document.getElementById("myCanvas4");
-        var cxtcdcd=cdcd.getContext("2d");
-        var grd=cxtcdcd.createLinearGradient(0,0,175,50);
-        grd.addColorStop(0,"#06B4FE");
-        grd.addColorStop(1,"#00B26A");
-        cxtcdcd.fillStyle=grd;
-        cxtcdcd.fillRect(0,0,175,50);
-        // ------------把一幅图像放置到画布上：
-        var cqqq=document.getElementById("myCanvas5");
-        var cxtqqq=cqqq.getContext("2d");
-        var img=new Image()
-        img.src="https://zairesinatra.com/content/images/size/w2000/2021/03/githubbgg.png"
-        cxtqqq.drawImage(img,0,0);
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
 <h3 id="web-worker">Web Worker</h3>
 <p>在 V8 引擎线程执行 JavaScript 期间，渲染主线程会停止解析 HTML，以确保渲染主线程不会进行布局和绘制。如果存在有耗时的 JavaScript 执行，那么渲染线程将无法及时更新页面，这就会导致页面失去响应。HTML5 引入的 Web Worker 允许在并行的 Worker 进程中执行脚本，而不会阻塞页面的渲染和用户交互。</p>
 <p>尽管 Web Worker 提供了一个并行的执行环境，但并不适合所有的 JavaScript 代码都在其中运行。Web Worker 不能直接访问或操作 DOM 元素，任何涉及 DOM 操作的需求都应该通过主线程来处理。Worker 线程通常用于执行计算密集型或耗时的任务，以避免阻塞主线程并提高性能。</p>
@@ -1210,19 +1125,13 @@ onmessage = function(e){
 </ul>
 <pre><code class="language-html">&lt;script src="https://example.com/jquery.js" integrity="sha256-hash" crossorigin="anonymous"&gt;&lt;/script&gt;
 </code></pre>
+<h3 id="w">W</h3>
+<p>HTTP 协议是一种无状态的请求/响应协议，无法实现实时、双向的通信。HTML5 引入了 WebSocket 协议，它提供了一种全双工、实时的通信通道，允许客户端和服务器之间进行双向通信。WebSocket 建立在 TCP 协议之上，通过一个持久的连接，实现了客户端和服务器之间的实时数据传输。</p>
 <h2 id="cascading-style-sheets-level">Cascading Style Sheets Level</h2>
-<p>CSS3 新技术包括：新选择器、文本|颜色|边框|背景样式、2D变形|过渡|动画、多列|弹性布局等。由于新增的一些属性尚未成为 W3C 标准，因此这部分属性在使用上需要携带具有特定内核浏览器的自身私有前缀属性。如果要求 IE6~IE8 兼容则通过 ie-css3.htc 进行实现。</p>
-<table>
-    <thead>
-        <tr><th> 私有前缀 </th><th> 对应浏览器 </th></tr>
-    </thead>
-    <tbody>
-        <tr><td> -webkit- </td><td> Chrome、Safari </td></tr>
-        <tr><td> -moz- </td><td> Firefox </td></tr>
-        <tr><td> -ms- </td><td> IE </td></tr>
-        <tr><td> -o- </td><td> Opera </td></tr>
-    </tbody>
-</table>
+<p>CSS3 引入了一些新的选择器（属性选择器、伪类选择器、伪元素选择器等）、盒模型 <code>box-sizing</code> 属性、弹性和网格布局、自定义字体、媒体查询和特殊效果（动画和过渡、2D/3D 转换和变换等）等。</p>
+<h3 id="browser-compatibility">Browser Compatibility</h3>
+<p>在确定兼容范围时，可以使用 <a href="https://caniuse.com/?ref=localhost">Can I use</a> 和 <a href="https://github.com/browserslist/browserslist?ref=localhost">Browserslist</a> 来查看浏览器的支持情况。通过 CSS Hack 来处理浏览器兼容的情况，就目前来说已经过时，Vendor Prefixes 和 Polyfills 是更普遍的做法。</p>
+<p>Vendor Prefixes 是针对不同的浏览器使用不同的 CSS 属性前缀来确保代码在各个浏览器中正确渲染。如 <code>-webkit-</code> 前缀适用于 WebKit 内核的浏览器（如 Chrome 和 Safari），<code>-moz-</code> 适用于 Firefox，<code>-ms-</code> 适用于旧版的 Internet Explorer，<code>-o-</code> 适用于 Opera。</p>
 <h3 id="%E6%96%B0%E5%A2%9E%E9%80%89%E6%8B%A9%E5%99%A8">新增选择器</h3>
 <p>在 CSS2 选择器基础上（元素、id、class、群组、层次选择器），CSS3 新增加了三大类选择器：属性选择器、结构伪类选择器、UI伪类选择器。</p>
 <pre><code class="language-css">/* 属性选择器 */
@@ -1239,19 +1148,6 @@ E:nth-of-type(n) /* 父类型下的第n个子元素,和上方法有差别 */
 /* UI伪类选择器 */
 :focus | ::selection | :checked | :enabled和:disabled | read-write和:read-only
 </code></pre>
-<h3 id="%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F">文本样式</h3>
-<table>
-    <thead>
-        <tr><th> 属性 </th><th> 说明 </th></tr>
-    </thead>
-    <tbody>
-        <tr><td> text-shadow:x-offset y-offset blur color </td><td> 文本阴影 </td></tr>
-        <tr><td> text-stroke: width color </td><td> 文本描边 </td></tr>
-        <tr><td> text-overflow: ellipsis | clip </td><td> 文本溢出 </td></tr>
-        <tr><td> word-wrap: normal | break-word </td><td> 强制换行 </td></tr>
-        <tr><td> @font-face{ font-family: Arial, src: url() } </td><td> 嵌入服务器端字体 </td></tr>
-    </tbody>
-</table>
 <h3 id="%E9%A2%9C%E8%89%B2%E6%A0%B7%E5%BC%8F">颜色样式</h3>
 <p>在 CSS3 中增加了定义颜色方面样式的属性，主要包括3种：opacity透明度、RGBA颜色、CSS3渐变。opacity 属性在实际开发中可以配合 :hover 来开发悬停在某个按钮或图片上改变透明度的动态的效果。需要注意的是 opacity 属性效果会渗透到其子元素中。RGB是一种色彩标准，语法为 <code>rgba(R, G, B, Alpha)</code>。渐变有线性渐变和径向渐变，都是由定位以及始末颜色组成。</p>
 <pre><code class="language-css">background:linear-gradient(to right|left, start-color, stop-color);￼
@@ -1270,328 +1166,36 @@ box-shadow:x-offset y-offset blur spread阴影尺寸 color outset|inset;
 &lt;!-- 可以使用 border-image 属性为边框添加背景图片 --&gt;
 border-image:url() 切割宽度 repeat|round|stretch;￼
 </code></pre>
-<h3 id="2d%E5%8F%98%E5%BD%A2%E8%BF%87%E5%BA%A6%E5%8A%A8%E7%94%BB">2D变形|过度|动画</h3>
-<pre><code class="language-css">/* 注重变形结果的 transform */
-transform: translateX(x); /* 沿 x 轴方向平移 */
-transform: translateY(y); /* 沿 y 轴方向平移 */
-transform: translate(x, y); /* 沿 x 轴和 y 轴同时平移 */
-transform: scaleX(x); /* 沿x轴方向缩放 */
-transform: scaleY(y); /* 沿y轴方向缩放 */
-transform: scale(x, y); /* 沿x轴和y轴同时缩放 */
-transform: skewX(x); /* 沿x轴方向倾斜deg */
-transform: skewY(y); /* 沿y轴方向倾斜deg */
-transform: skew(x, y);　/* 沿x轴和y轴同时倾斜deg */
-transform: rotate(angle); /* 元素顺旋转角度 */
-transform-origin: 取值; /* 改变元素中心点 */
-/* 注重平滑变形过程的 transition */
-transition-property: property /* CSS属性 */;
-transition-duration: timer; /* 过渡的持续时间 */
-transition-timing-function: ease(渐慢)|linear|ease-in(渐快)|ease-out(渐隐)|ease-in-out(渐显渐隐); /* 过渡方式 */
-transition-delay:0; /* 延迟时间 */
-transition: property timer func delaytimer;
-/* transition属性只能实现一次性的动画效果,而animation属性可以实现连续性的动画效果 */
-@keyframes funcName{
-    0%{border-radius:0;}
-    50%{border-radius:50px; transform:translateX(0);}
-    100%{border-radius:50px; transform:translateX(50px);}
-}
-animation: funcName timer mode;
-</code></pre>
-<h3 id="%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80%E2%80%94%E2%80%94column">多列布局——column</h3>
-<p>在 CSS3 之前要设计类似报纸那样的多列布局，有两种方式可以实现：一种是“浮动布局”，另一种是“定位布局”。不过这两种方式弊端都很多：浮动布局比较灵活，但不容易控制；定位布局可以精准定位，但是却不够灵活。</p>
-<p>CSS3 新增了一种布局方式——<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/columns?ref=localhost">多列布局</a>。使用多列布局，可以轻松实现类似报纸、瀑布流般的布局，而且这种布局的自适应能力也非常好。</p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>column-count(依据 column-width 的 auto 或正整数 n)</td>
-<td>多列布局列数</td>
-</tr>
-<tr>
-<td>column-width(依据 column-count 的 auto 或正整数 n)</td>
-<td>多列布局每列宽度</td>
-</tr>
-<tr>
-<td>column-gap(依据浏览器默认长度的 nomal 或px、em、百分比)</td>
-<td>两列之间距离</td>
-</tr>
-<tr>
-<td>column-rule(复合属性，由3个子属性 column-rule-width\style\color 组成)</td>
-<td>两列之间边框样式</td>
-</tr>
-<tr>
-<td>column-span(不跨列的 none 和跨所有列的 all)</td>
-<td>定义跨列样式</td>
-</tr>
-</tbody>
-</table>
-<p>瀑布流布局的特点是每列的宽度是相同的，但是高度是随机的，所以只需要定义 column-width 跟每列的 width 相等，就可以实现理想的效果。部分场合也可以结合在子容器中设置 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/break-inside?ref=localhost">break-inside</a> 防止多列布局的分页和多区内容中断。媒体查询的具体设备适配这里不再赘述，项目需要时可以查询国内<a href="https://guide.aotu.io/index.html?ref=localhost">京东凹凸实验室的代码规范</a>。</p>
-<pre><code class="language-css">*, body {
-    margin: 0;
-    padding: 0;
-    background: #e5e5e5;
-}
-.outer {
-    width: 1440px;
-    margin: 20px auto;
-    /* 参数一为列宽度,参数二为分成份数 */
-    columns: auto 3;
-    /* columns: 16rem auto; */
-    column-gap: 30px;
-}
-/* :first-child 选择器与前选择器之间不能空格 */
-.outer:first-child{
-    margin-top: 0;
-}
-.outer .item {
-    width: 100%;
-    break-inside: avoid;
-    margin-bottom: 30px;
-}
-.outer .item img {
-    width: 100%;
-}
-.outer h2 {
-    padding: 8px 0;
-}
-.outer P {
-    color: #555;
-}
-/* @media规则用于媒体查询以对不同的媒体类型/设备应用不同的样式 */
-/* 需要写在css后面,否则不生效 */
-@media screen and (min-width: 1225px) and  (max-width: 1440px) {
-    .outer {
-        /* 
-            vw : 1vw 等于视窗宽度的1%
-            vh : 1vh 等于视窗高度的1%
-            vmin : 选取 vw 和 vh 中最小的那个
-            vmax : 选取 vw 和 vh 中最大的那个
-        */
-        width: 96vw;
-        columns: 4;
-        column-gap: 20px;
-    }
-}
-@media screen and (min-width: 1040px) and(max-width: 1225px) {
-    .outer {
-        width: 96vw;
-        columns: 3;
-        column-gap: 20px;
-    }
-}
-@media screen and (min-width: 700px) and(max-width: 1040px) {
-    .outer {
-        width: 96vw;
-        columns: 2;
-        column-gap: 20px;
-    }
-}
-@media screen and (max-width: 700px) {
-    .outer {
-        width: 96vw;
-        columns: 1;
-    }
-}
-</code></pre>
-<pre><code class="language-html">&lt;div class="outer" &gt;
-    &lt;div class="item"&gt;
-      &lt;!-- 修改图片大小即可 --&gt;
-      &lt;img src="http://source.unsplash.com/random/400x600"/&gt;
-      &lt;h2&gt;Title Goes Here&lt;/h2&gt;
-      &lt;p&gt;
-        I know you can do better.我知道你可以做得更好。Iknow you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.我知道你可以做得更好。I know you can do better.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    ...
-&lt;/div&gt;
-</code></pre>
-<h3 id="%E6%BB%A4%E9%95%9C%E6%95%88%E6%9E%9C">滤镜效果</h3>
-<p>在 CSS3 中，所有的滤镜效果都是使用 <strong>filter</strong> 属性来实现的 —— 应用于美颜相机、TikTok 效果等。</p>
-<table>
-<thead>
-    <tr><th> 属性 </th><th> 描述 </th></tr>
-</thead>
-<tbody>
-    <tr><td> brightness(100%) </td><td> 亮度 </td></tr>
-    <tr><td> grayscale(0%) </td><td> 灰度 </td></tr>
-    <tr><td> sepia(0%) </td><td> 复古滤镜 </td></tr>
-    <tr><td> hue-rotate(0deg) </td><td> 旋转色相 </td></tr>
-    <tr><td> drop-shadow(5, 5, 10, red) </td><td> 阴影 </td></tr>
-    <tr><td> opacity(0%) </td><td> 透明度 </td></tr>
-    <tr><td> blur(5px) </td><td> 模糊度 </td></tr>
-    <tr><td> contrast(50%) </td><td> 对比度 </td></tr>
-    <tr><td> saturate(110%) </td><td> 饱和度 </td></tr>
-    <tr><td>.........</td><td>.........</td></tr>
-</tbody>
-</table>
-<h3 id="%E5%BC%B9%E6%80%A7%E7%9B%92%E6%A8%A1%E5%9E%8B">弹性盒模型</h3>
-<p>为解决传统布局的死板以及不足，CSS3 新增了新型的弹性盒模型。通过弹性盒模型，可以轻松地创建自适应浏览器窗口的<strong>流动布局</strong>以及自适应字体大小的<strong>弹性布局</strong>，使得响应式布局的实现更加容易。</p>
-<table>
-    <thead>
-        <tr><th> 属性 </th><th> 描述 </th></tr>
-    </thead>
-    <tbody>
-        <tr><td> flex(默认值为 1 0 auto) </td><td> flex-grow、flex-shrink、flex-basis的复合属性 </td></tr>
-        <tr><td> flex-flow(默认值为 row nowrap) </td><td> flex-direction、flex-wrap的复合属性 </td></tr>
-        <tr><td> order </td><td> 定义子元素排列顺序 </td></tr>
-        <tr><td> justify-content(flex-start|center|flex-end|space-between|space-around) </td><td> 子元素在横轴对其方式(间隔都在中间) </td></tr>
-        <tr><td> align-items(flex-start|center|flex-end|baseline|stretch) </td><td> 子元素在纵轴对其方式(间隔会环绕) </td></tr>
-        <tr><td>.........</td><td>.........</td></tr>
-    </tbody>
-</table>
-<p>弹性盒模型成立的前提条件是必须为父元素定义 <code>display:flex;</code> 或 <code>display:inline-flex;</code> 属性，这样父元素才具有弹性盒子模型的特点。在弹性盒模型中，子元素宽度之和小于父元素，则子元素最终宽度就是原来定义的宽度；如果说子元素宽度之和大于父元素，那么子元素会按比例来划分宽度。</p>
-<pre><code class="language-css">// 垂直居中-flex
-#father{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 160px;
-    border: 1px solid silver;
-    }
-#son{
-    width:100px;
-    height:50px;
-    background-color:hotpink;
-    }
-</code></pre>
-<pre><code class="language-html">&lt;div id="father"&gt;
-    &lt;div id="son"&gt;&lt;/div&gt;
-&lt;/div&gt;￼
-</code></pre>
-<h3 id="%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0">伪类和伪元素</h3>
-<p>在 CSS2 中伪类与伪元素都使用一个冒号表示，因需兼容老款浏览器。而 CSS3 中已做出区分：伪类用冒号、伪元素使用双冒号表示。所以现在在 VSCode 中书写错误会存在警告。选择器可以附加多个伪类，但至多附加一个伪元素。且伪元素与伪类同时作用则伪元素必须存在于伪类的后方。</p>
-<p>从先有元素后有类来理解。类相当于装饰品修饰元素，且类基于元素。那么，伪类基于 DOM 产生不同的状态，而不会产生新对象；伪元素创建不存在 DOM 的新对象，并且可以对新对象进行操作。</p>
-<h3 id="%E5%B8%B8%E7%94%A8%E4%BC%AA%E5%85%83%E7%B4%A0%E4%B8%8E%E4%BC%AA%E7%B1%BB">常用伪元素与伪类</h3>
-<ul>
-<li>伪类</li>
-</ul>
-<table>
-    <thead>
-        <tr>
-            <th>类别</th>
-            <th>伪类</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>状态类</td>
-            <td>:link、:visited、:hover、:focus、:active</td>
-        </tr>
-        <tr>
-            <td>结构类</td>
-            <td>:first-child、:nth-child、:last-child、:nth-of-type</td>
-        </tr>
-        <tr>
-            <td>表单类</td>
-            <td>:checked、:disabled、:valid、:required</td>
-        </tr>
-        <tr>
-            <td>语言类</td>
-            <td>:dir(规定元素内容的文本方向rtl、ltr。)、:lang(规定元素内容的语言)</td>
-        </tr>
-    </tbody>
-</table>
-<ul>
-<li>伪元素</li>
-</ul>
-<table>
-    <thead>
-        <tr>
-            <th>类别</th>
-            <th>伪类</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>状态类</td>
-            <td>::before、::after</td>
-        </tr>
-        <tr>
-            <td>结构类</td>
-            <td>::first-letter、::first-line、::selection</td>
-        </tr>
-        <tr>
-            <td>表单类</td>
-            <td>::placeholder</td>
-        </tr>
-        <tr>
-            <td>语言类</td>
-            <td>::backdrop(元素被置于全屏模式时，背景会立即绘制在最前面的此类元素下方)</td>
-        </tr>
-    </tbody>
-</table>
-<h3 id="%E4%BC%AA%E7%B1%BB%E4%BC%AA%E5%85%83%E7%B4%A0%E5%BA%94%E7%94%A8">伪类伪元素应用</h3>
-<ul>
-<li>勾选文字提醒</li>
-</ul>
-<pre><code class="language-css">input {
-  margin: 10px;
-}
+<h3 id="pseudo-class-pseudo-element">Pseudo-class &amp; Pseudo-element</h3>
+<p>伪类以单冒号开头，用于向已有的元素选择器添加特殊效果。伪元素以双冒号开头，用于将特殊效果添加到不存在于文档树中的虚拟元素中，浏览器会自动创建这些虚拟元素。经典应用有勾选文字提醒和输入框超出变色。</p>
+<pre><code class="language-css">input { margin: 10px; }
 input::after {content: '已勾选'; display: none; width: 50px; height: 30px; margin-left: 50px;}
 input:checked::after {display: block}
-/* 伪元素仅能在选择符的最后 */
-/* 伪类则前后位置都可以 */
-/* input::after:checked {display: block} */
 </code></pre>
 <pre><code class="language-html">&lt;input type="checkbox" style="display: block;"&gt;
 &lt;input type="checkbox" style="display: block;"&gt;
 &lt;input type="checkbox" style="display: block;"&gt;
 </code></pre>
-<amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622743726/blog/%E5%8B%BE%E9%80%89%E6%96%87%E5%AD%97%E6%8F%90%E9%86%92_ufckti.png" width="274" height="172" layout="fixed"></amp-img>
-<ul>
-<li>输入框变色</li>
-</ul>
-<pre><code class="language-css">input {
-  font-size: 3em;
-  width: 100px;
-  height: 50px;
-  border-radius: 10px;
-}
-/* 伪类可以进行多个拼接 */
-/* focus伪类表示取消焦点则不显示 */
-input:out-of-range:focus {
-  background-color: #FF4D4D;
-}
-/* 在相邻同胞元素内容后面加上 */
+<pre><code class="language-css">input { font-size: 3em; width: 100px; height: 50px; border-radius: 10px; }
+input:out-of-range:focus { background-color: #FF4D4D; }
 input:out-of-range + span::after {content: '超出范围'}
-/* 伪元素不允许与伪元素拼接 =&gt; × h2::before::after {content: '...'} */
-/* 一行仅能有一个伪元素 */
 </code></pre>
-<pre><code class="language-html">&lt;b&gt;zs请输入&lt;/b&gt;
+<pre><code class="language-html">&lt;b&gt;请输入&lt;/b&gt;
 &lt;input type="number" min="1" max="40"&gt;
 &lt;span&gt;结果&lt;/span&gt;
 </code></pre>
-<amp-anim src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622744102/blog/input%E5%8F%98%E8%89%B2_irok9v.gif" width="668" height="162" layout="responsive"></amp-anim>
-<ul>
-<li>伪类伪元素顺序问题:</li>
-</ul>
-<pre><code class="language-css">ul li {
-  list-style-type: none;
-}
-li:nth-child(2n+1) {color: #FF4D4D;}
-/* 伪元素添加了一个伪元素对象而不会占用DOM节点 */
-p::first-letter {color: #FF4D4D;}
-</code></pre>
-<pre><code class="language-html">&lt;ul&gt;
-  &lt;li&gt;1&lt;/li&gt;
-  &lt;li&gt;2&lt;/li&gt;
-  &lt;li&gt;3&lt;/li&gt;
-  &lt;li&gt;4&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-  zairesinatra你可以&lt;br&gt;结合很多的东西去&lt;br&gt;实现你想做的事。
-&lt;/p&gt;
-</code></pre>
-<amp-img src="https://res.cloudinary.com/dzb9ldnvl/image/upload/v1622744474/blog/zh_xxniui.png" width="306" height="376" layout="responsive"></amp-img>
 <h3 id="grid-layout">Grid Layout</h3>
+<p>CSS3 不仅新增了多列布局和弹性盒模型，还引入了网格布局作为一种更强大和灵活的布局方式。</p>
 <h2 id="additional-supplement">Additional Supplement</h2>
-<h3 id></h3>
+<p>HTML5 中有两种主要的 2D 图形技术：Canvas 和 SVG。Canvas 基于位图，适用于像素处理和动态渲染，但图形放大会影响质量。而 SVG 是基于矢量的，图形放大不会影响质量，并且不需要重绘。简单来说，使用 Canvas 绘制的是位图，而使用 SVG 绘制的是矢量图。</p>
+<p>CSS3 中的 <code>transform</code> 属性注重于元素的变形结果，而 <code>transition</code> 属性则专注于实现平滑的变形过渡过程。与 <code>animation</code> 属性不同，<code>transition</code> 属性只能实现简单的、一次性的动画效果。</p>
+<p><code>filter</code> 属性是 CSS3 中引入的新特性。它允许在元素的渲染过程中对其内容进行图形特效处理，类似于 Photoshop 中的滤镜效果，如模糊、灰度、对比度调整、色彩反转等，而无需使用额外的图像编辑软件来处理图片。</p>
+<p>除开文本样式 <code>text-shadow</code>、<code>text-overflow</code>、<code>word-wrap</code> 外，CSS3 还引入了 <code>@font-face</code> 规则加载自定义字体。</p>
+<p>通过设置 <code>overflow: hidden</code>、<code>text-overflow: ellipsis</code> 和 <code>white-space: nowrap</code> 这三个属性，可以实现一行文本的省略效果。</p>
+<pre><code class="language-css">overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+</code></pre>
 <h2 id="%E7%BB%93%E6%9D%9F">结束</h2>
 <p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh?ref=localhost">CC BY-SA 4.0 协议</a>，转载请注明出处！</p>
 

@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://zairesinatra.github.io//web-authentication/">
     <meta property="og:image" content="https://zairesinatra.github.io//content/images/2023/02/Cookies.jpg">
     <meta property="article:published_time" content="2019-10-01T13:04:00.000Z">
-    <meta property="article:modified_time" content="2023-02-19T20:07:16.000Z">
+    <meta property="article:modified_time" content="2023-07-26T12:31:12.000Z">
     <meta property="article:tag" content="Technology growth">
     
     <meta name="twitter:card" content="summary_large_image">
@@ -64,7 +64,7 @@
     "headline": "Web Authentication",
     "url": "https://zairesinatra.github.io//web-authentication/",
     "datePublished": "2019-10-01T13:04:00.000Z",
-    "dateModified": "2023-02-19T20:07:16.000Z",
+    "dateModified": "2023-07-26T12:31:12.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://zairesinatra.github.io//content/images/2023/02/Cookies.jpg",
@@ -1133,7 +1133,10 @@
 <blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies?ref=localhost">HTTP Cookie</a>（也叫 Web Cookie 或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的小块数据，会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的 HTTP 协议记录稳定的状态信息成为了可能。</p>
 </blockquote>
-<p>HTTP Cookie 在多数浏览器中最大支持 4KB，数量限制约为 20 个，若想要存储更多 Cookie，则旧的 Cookie 将会被丢弃。HTTP Cookie 设置时前端无感知，<a href="https://www.baeldung.com/java-servlet-cookies-session?ref=localhost">后端</a>通过响应头 Set-Cookie 字段绑定浏览器，后续会自动携带在请求头 Cookie 字段中。</p>
+<p>一个典型的 Cookie 包含有存储位置、过期时间、作用域、页面路径、安全标记、过期时间等属性。</p>
+<pre><code class="language-javascript">Set-Cookie: name=John; Domain=example.com; Path=/; Expires=Sat, 31 Dec 2023 23:59:59 GMT; Secure; HttpOnly
+</code></pre>
+<p>当已有的 Cookie 数量达到浏览器的存储上限（通常约为20个），新的 Cookie 设置将会覆盖或丢弃旧的 Cookie。前端对 Cookie 的设置操作是无感知的，具体是<a href="https://www.baeldung.com/java-servlet-cookies-session?ref=localhost">后端</a>通过在响应头中使用 <code>Set-Cookie</code> 字段将 Cookie 信息绑定到浏览器。之后，浏览器会自动在每次请求中携带相应的 Cookie 信息，存储在请求头的 Cookie 字段中。</p>
 <ul>
 <li>JavaWeb 逻辑</li>
 </ul>
@@ -1177,7 +1180,7 @@ function removeCookie (key) {
 }
 </code></pre>
 <h3 id="session">Session</h3>
-<p>基于唯一 ID 识别用户身份的机制称为 Session。Java 执行 HttpServletRequest 的 getSession() 时，Web 容器会创建 HttpSession 实例，每个 HttpSession 实例都有唯一的 ID，即 Session ID，可以通过 HttpSession 的 getId() 来获取。</p>
+<p>Session 是一种通过唯一 ID 识别用户身份的机制。当执行 <code>HttpServletRequest</code> 的 <code>getSession()</code> 方法时，Web 容器会为每个用户创建一个 <code>HttpSession</code> 实例。每个 <code>HttpSession</code> 实例都有一个唯一的 ID，也称 SessionID，可以通过调用 <code>HttpSession</code> 的 <code>getId()</code> 方法来获取。这个 Session ID 用于标识不同的用户会话，使得 Web 应用能够区分并管理不同用户的状态和数据。</p>
 <pre><code class="language-java">@WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
   ...
